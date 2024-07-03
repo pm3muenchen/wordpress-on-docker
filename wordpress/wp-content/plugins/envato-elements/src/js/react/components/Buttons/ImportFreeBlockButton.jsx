@@ -121,52 +121,58 @@ const ImportFreeBlockButton = ({ blockId, jsonUrl, importedBlockId }) => {
       {importState === 'idle' ? StartImportButton : null}
       {importState === 'importingFetchJsonData' || importState === 'importingImages' || importState === 'importingTemplate' ? ImportingButton : null}
 
-      {importState === 'importingFetchJsonData' ? (
-        <GetTemplateData
-          jsonUrl={jsonUrl}
-          completeCallback={(data) => {
+      {importState === 'importingFetchJsonData'
+        ? (
+          <GetTemplateData
+            jsonUrl={jsonUrl}
+            completeCallback={(data) => {
             // This means we've collected the Elementor JSOn data correctly, time to import these images:
-            setTemplateDataToImport(data)
-            setImportState('importingImages')
-          }}
-        />
-      ) : null}
-      {importState === 'importingImages' ? (
-        <ImportElementorTemplateImages
-          templateData={templateDataToImport}
-          progressCallback={(importProgress) => {
-            setImportProgress(importProgress)
-          }}
-          completeCallback={() => {
+              setTemplateDataToImport(data)
+              setImportState('importingImages')
+            }}
+          />
+          )
+        : null}
+      {importState === 'importingImages'
+        ? (
+          <ImportElementorTemplateImages
+            templateData={templateDataToImport}
+            progressCallback={(importProgress) => {
+              setImportProgress(importProgress)
+            }}
+            completeCallback={() => {
             // This means we've imported the template images correctly, time to fire off the final json import.
-            setImportState('importingTemplate')
-          }}
-        />
-      ) : null}
-      {importState === 'importingTemplate' ? (
-        <ImportTemplateInBackground
-          blockId={blockId}
-          jsonUrl={jsonUrl}
-          importAgain={importTemplateAgain}
-          insertToPage={isElementorMagicMode}
-          completeCallback={(data) => {
+              setImportState('importingTemplate')
+            }}
+          />
+          )
+        : null}
+      {importState === 'importingTemplate'
+        ? (
+          <ImportTemplateInBackground
+            blockId={blockId}
+            jsonUrl={jsonUrl}
+            importAgain={importTemplateAgain}
+            insertToPage={isElementorMagicMode}
+            completeCallback={(data) => {
             // This means the final template import has been completed and we have a template ID ready to go
-            if (data && data.imported_template_id) {
-              setImportProgress(1)
-              addDownloadedItem({ humaneId: blockId, importedId: data.imported_template_id })
-              setTimeout(() => {
-                setImportedTemplateId(data.imported_template_id)
-                setImportState('idle')
-              }, 300)
+              if (data && data.imported_template_id) {
+                setImportProgress(1)
+                addDownloadedItem({ humaneId: blockId, importedId: data.imported_template_id })
+                setTimeout(() => {
+                  setImportedTemplateId(data.imported_template_id)
+                  setImportState('idle')
+                }, 300)
 
-              // Fire off the magic button insert callback if it exists
-              if (isElementorMagicMode && magicButtonMode.insertCallback && typeof magicButtonMode.insertCallback === 'function') {
-                magicButtonMode.insertCallback(data)
+                // Fire off the magic button insert callback if it exists
+                if (isElementorMagicMode && magicButtonMode.insertCallback && typeof magicButtonMode.insertCallback === 'function') {
+                  magicButtonMode.insertCallback(data)
+                }
               }
-            }
-          }}
-        />
-      ) : null}
+            }}
+          />
+          )
+        : null}
     </>
   )
 }

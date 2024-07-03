@@ -11,7 +11,7 @@ use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Text_Shadow;
-use Elementor\Scheme_Typography;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 
 defined( 'ABSPATH' ) || die();
 
@@ -48,7 +48,11 @@ class Step_Flow extends Base {
 		return [ 'step', 'flow' ];
 	}
 
+	/**
+     * Register widget content controls
+     */
 	protected function register_content_controls() {
+
 		$this->start_controls_section(
 			'_section_step',
 			[
@@ -143,36 +147,20 @@ class Step_Flow extends Base {
 			'title_tag',
 			[
 				'label' => __( 'Title HTML Tag', 'happy-elementor-addons' ),
-				'type' => Controls_Manager::CHOOSE,
+				'type' => Controls_Manager::SELECT,
 				'separator' => 'before',
 				'options' => [
-					'h1'  => [
-						'title' => __( 'H1', 'happy-elementor-addons' ),
-						'icon' => 'eicon-editor-h1'
-					],
-					'h2'  => [
-						'title' => __( 'H2', 'happy-elementor-addons' ),
-						'icon' => 'eicon-editor-h2'
-					],
-					'h3'  => [
-						'title' => __( 'H3', 'happy-elementor-addons' ),
-						'icon' => 'eicon-editor-h3'
-					],
-					'h4'  => [
-						'title' => __( 'H4', 'happy-elementor-addons' ),
-						'icon' => 'eicon-editor-h4'
-					],
-					'h5'  => [
-						'title' => __( 'H5', 'happy-elementor-addons' ),
-						'icon' => 'eicon-editor-h5'
-					],
-					'h6'  => [
-						'title' => __( 'H6', 'happy-elementor-addons' ),
-						'icon' => 'eicon-editor-h6'
-					]
+					'h1' => 'H1',
+					'h2' => 'H2',
+					'h3' => 'H3',
+					'h4' => 'H4',
+					'h5' => 'H5',
+					'h6' => 'H6',
+					'div' => 'div',
+					'span' => 'span',
+					'p' => 'p',
 				],
 				'default' => 'h2',
-				'toggle' => false,
 			]
 		);
 
@@ -222,7 +210,18 @@ class Step_Flow extends Base {
 		$this->end_controls_section();
 	}
 
+	/**
+     * Register widget style controls
+     */
 	protected function register_style_controls() {
+		$this->__icon_style_controls();
+		$this->__badge_style_controls();
+		$this->__title_desc_style_controls();
+		$this->__direction_style_controls();
+	}
+
+	protected function __icon_style_controls() {
+
 		$this->start_controls_section(
 			'_section_icon_style',
 			[
@@ -343,6 +342,9 @@ class Step_Flow extends Base {
 		);
 
 		$this->end_controls_section();
+	}
+
+	protected function __badge_style_controls() {
 
 		$this->start_controls_section(
 			'_section_badge_style',
@@ -430,7 +432,9 @@ class Step_Flow extends Base {
 			[
 				'name' => 'badge_typography',
 				'selector' => '{{WRAPPER}} .ha-steps-label',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_4,
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 				'condition' => [
 					'badge!' => '',
 				],
@@ -438,6 +442,9 @@ class Step_Flow extends Base {
 		);
 
 		$this->end_controls_section();
+	}
+
+	protected function __title_desc_style_controls() {
 
 		$this->start_controls_section(
 			'_section_title_style',
@@ -519,7 +526,9 @@ class Step_Flow extends Base {
 			[
 				'name' => 'title_typography',
 				'selector' => '{{WRAPPER}} .ha-steps-title',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_2,
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_TEXT,
+				],
 			]
 		);
 
@@ -556,11 +565,16 @@ class Step_Flow extends Base {
 			[
 				'name' => 'description_typography',
 				'selector' => '{{WRAPPER}} .ha-step-description',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_3,
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
+				],
 			]
 		);
 
 		$this->end_controls_section();
+	}
+
+	protected function __direction_style_controls() {
 
 		$this->start_controls_section(
 			'_section_direction_style',
@@ -755,7 +769,7 @@ class Step_Flow extends Base {
 
 		<?php
 		printf( '<%1$s %2$s>%3$s</%1$s>',
-			tag_escape( $settings['title_tag'] ),
+			ha_escape_tags( $settings['title_tag'], 'h2' ),
 			$this->get_render_attribute_string( 'title' ),
 			$title
 		);

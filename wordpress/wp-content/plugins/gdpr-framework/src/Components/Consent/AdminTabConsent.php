@@ -68,8 +68,8 @@ class AdminTabConsent extends AdminTab
      */
     public function renderConsentForm()
     {
-        
-        $consentInfo = gdpr('options')->get('consent_info');
+        global $gdpr;
+        $consentInfo = $gdpr->Options->get('consent_info');
 
         if (is_null($consentInfo)) {
             $consentInfo = $this->getDefaultConsentInfo();
@@ -81,7 +81,6 @@ class AdminTabConsent extends AdminTab
         $defaultConsentTypes = $this->consentManager->getDefaultConsentTypes();
         $customConsentTypes = $this->consentManager->getCustomConsentTypes();
 
-        // todo: move to a filter
         if (defined('ICL_LANGUAGE_CODE')) {
             $prefix = ICL_LANGUAGE_CODE . '_';
         } else {
@@ -96,9 +95,10 @@ class AdminTabConsent extends AdminTab
      */
     public function updateConsentData()
     {
+        global $gdpr;
 		// Update additional information
         if (isset($_POST['gdpr_consent_info'])) {
-            gdpr('options')->set('consent_info', wp_unslash($_POST['gdpr_consent_info']));
+            $gdpr->Options->set('consent_info', wp_unslash($_POST['gdpr_consent_info']));
         }
 
         // Update consent types
@@ -191,10 +191,12 @@ class AdminTabConsent extends AdminTab
      */
     public function getDefaultConsentInfo()
     {
+        // this is merely a one time initializtion, this string can be changed in the Admin Consent tab and is saved into the database with 
+        // the key of gdpr_consent_info
         return __('To use this website, you accepted our Privacy Policy. If you wish to withdraw your acceptance, please use the "Delete my data" button below.', 'gdpr-framework');
 	}
 	public function renderConsentUntil() {
-		echo '<p>Enable this feature to allow users to submit a time limit on how many months their consent is given for their coments and registration.</p>';
+		echo '<p>' . __('Enable this feature to allow users to submit a time limit on how many months their consent is given for their coments and registration.', 'gdpr-framework') . '</p>';
 	}
 	
 	public function consent_until_display(){

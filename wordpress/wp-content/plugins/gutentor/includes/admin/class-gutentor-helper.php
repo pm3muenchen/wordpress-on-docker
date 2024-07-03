@@ -1,6 +1,6 @@
 <?php
 /**
- * A helper class for plugin
+ * A helper class for plugin Admin Settings
  *
  * @since 1.0.0
  */
@@ -16,7 +16,7 @@ if ( ! class_exists( 'Gutentor_Helper' ) ) {
 			'advanced-columns'   => 'gutentor/m4',
 			'author-profile'     => 'gutentor/author-profile',
 			'blog-post'          => 'gutentor/blog-post',
-			'callback-to-action' => 'gutentor/callback-to-action',
+			'call-to-action'     => 'gutentor/call-to-action',
 			'count-down'         => 'gutentor/count-down',
 			'counter-box'        => 'gutentor/counter-box',
 			'divider'            => 'gutentor/divider',
@@ -27,10 +27,13 @@ if ( ! class_exists( 'Gutentor_Helper' ) ) {
 			'icon-box'           => 'gutentor/icon-box',
 			'image-box'          => 'gutentor/image-box',
 			'image-slider'       => 'gutentor/image-slider',
+			'list'              => 'gutentor/list',
+			'notification'      => 'gutentor/notification',
 			'opening-hours'      => 'gutentor/opening-hours',
 			'pricing'            => 'gutentor/pricing',
 			'progress-bar'       => 'gutentor/progress-bar',
 			'restaurant-menu'    => 'gutentor/restaurant-menu',
+			'show-more'             => 'gutentor/show-more',
 			'social'             => 'gutentor/social',
 			'tabs'               => 'gutentor/tabs',
 			'team'               => 'gutentor/team',
@@ -38,7 +41,6 @@ if ( ! class_exists( 'Gutentor_Helper' ) ) {
 			'timeline'           => 'gutentor/timeline',
 			'video-popup'        => 'gutentor/video-popup',
 		);
-
 		public static function enqueue( $scripts ) {
 
 			// Do not enqueue anything if no array is supplied.
@@ -55,7 +57,7 @@ if ( ! class_exists( 'Gutentor_Helper' ) ) {
 					continue;
 				}
 
-				$version = null;
+				$version = GUTENTOR_VERSION;
 				if ( isset( $script['version'] ) ) {
 					$version = $script['version'];
 				}
@@ -113,7 +115,6 @@ if ( ! class_exists( 'Gutentor_Helper' ) ) {
 			}
 		}
 
-
 		/**
 		 * Returns an option from the database for
 		 * the admin settings page.
@@ -124,15 +125,7 @@ if ( ! class_exists( 'Gutentor_Helper' ) ) {
 		 * @return string           Return the option value
 		 */
 		public static function get_option( $key, $default = false, $network_override = false ) {
-
-			// Get the site-wide option if we're in the network admin.
-			if ( $network_override && is_multisite() ) {
-				$value = get_site_option( $key, $default );
-			} else {
-				$value = get_option( $key, $default );
-			}
-
-			return $value;
+			return gutentor_get_options( $key );
 		}
 
 		/**
@@ -143,14 +136,13 @@ if ( ! class_exists( 'Gutentor_Helper' ) ) {
 		 * @param bool   $network   Whether to allow the network admin setting to be overridden on subsites.
 		 * @return void
 		 */
-		public static function update_option( $key, $value, $network = false ) {
+		public static function update_option( $key, $blocks, $network_override = false ) {
 
-			// Update the site-wide option since we're in the network admin.
-			if ( $network && is_multisite() ) {
-				update_site_option( $key, $value );
-			} else {
-				update_option( $key, $value );
-			}
+			$g_options         = gutentor_get_options();
+			$g_options[ $key ] = $blocks;
+
+			update_option( 'gutentor_settings_options', $g_options );
+
 		}
 	}
 }

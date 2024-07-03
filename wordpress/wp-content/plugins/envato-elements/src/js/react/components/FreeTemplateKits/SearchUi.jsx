@@ -11,21 +11,25 @@ const FreeTemplateKits = ({ searchParams, onSearchSubmitted, aggregations }) => 
           onSearchSubmitted({ ...args })
         }}
       />
-      {aggregations ? (
-        <div className={styles.searchFilter}>
-          {aggregations.industries ? (
-            <Filter
-              searchFilterChange={(args) => {
-                onSearchSubmitted({ ...searchParams, ...args })
-              }}
-              label='Categories'
-              name='industry'
-              value={searchParams.industries}
-              attributes={aggregations.industries}
-            />
-          ) : null}
-        </div>
-      ) : null}
+      {aggregations
+        ? (
+          <div className={styles.searchFilter}>
+            {aggregations.industries
+              ? (
+                <Filter
+                  searchFilterChange={(args) => {
+                    onSearchSubmitted({ ...searchParams, ...args })
+                  }}
+                  label='Categories'
+                  name='industry'
+                  value={searchParams.industries}
+                  attributes={aggregations.industries}
+                />
+                )
+              : null}
+          </div>
+          )
+        : null}
     </div>
   )
 }

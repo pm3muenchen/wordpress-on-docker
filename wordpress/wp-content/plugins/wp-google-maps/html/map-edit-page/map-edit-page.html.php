@@ -1,7 +1,7 @@
 <div id="wpgmza-map-edit-page" class='wrap'>
 	<h1 id="wpgmza-main-heading">
 		<?php
-		_e('WP Google Maps', 'wp-google-maps');
+		_e('WP Go Maps', 'wp-google-maps');
 		?>
 		<span id="wpgmza-title-label" class="wpgmza-label-amber"><small></small></span>
 	</h1>
@@ -153,7 +153,7 @@
 								_e("copy this into your post or page to display the map", "wp-google-maps");
 		
 								// NB: I recommend adding a unique ID or class to this link and using the DOM to set the href rather than mixing content with logic here. - Perry
-								echo ". ".__(sprintf("Or <a href='%s' target='BLANK'>click here to automatically create a Map Page now</a>.","admin.php?page=wp-google-maps-menu&amp;action=create-map-page&amp;map_id=".$_REQUEST['map_id']),"wp-google-maps");
+								echo ". ".__(sprintf("Or <a href='%s' target='BLANK'>click here to automatically create a Map Page now</a>.", "admin.php?page=wp-google-maps-menu&amp;action=create-map-page&amp;map_id=".(!empty($_REQUEST['map_id']) ? intval($_REQUEST['map_id']) : '' )),"wp-google-maps");
 
 								?>
 							</i>
@@ -194,6 +194,7 @@
 						<select id='wpgmza_map_width_type' name='map_width_type'>
 							<option value="px">px</option>
 							<option value="%" selected="selected">%</option>
+							<option value="vw">vw</option>
 						</select>
 
 						<small>
@@ -217,6 +218,7 @@
 						<select id='wpgmza_map_height_type' name='map_height_type'>
 							<option value="px">px</option>
 							<option value="%">%</option>
+							<option value="vh">vh</option>
 						</select>
 						
 						<span style='display:none;' id='wpgmza_height_warning'>
@@ -233,7 +235,7 @@
 				
 					<span class='notice notice-warning' data-wpgmza-require-engine="open-layers">
 						<?php
-						_e("Not available while using the OpenLayers engine.", "wp-google-maps");
+						_e("Not available while using the OpenLayers engine and Legacy build. Switch to Atlas Novus build, or Google Maps engine, under Maps -> Settings to access themes", "wp-google-maps");
 						?>
 					</span>
 				
@@ -411,6 +413,14 @@
 									<small>
 										<?php
 										_e("Intelligently detects the zoom level based on the location entered", "wp-google-maps");
+										?>
+									</small>
+								</p>
+
+								<p class="wpgmza-pro-feature-hide" data-search-area="auto">
+									<small>
+										<?php
+										_e("Marker listings will not be filtered based on visible markers. Enable the 'Only load markers within viewport (beta)' option for beta filtering support", "wp-google-maps");
 										?>
 									</small>
 								</p>
@@ -667,6 +677,16 @@
 						
 						<input type="text" name="store_locator_query_string" id="wpgmza_store_locator_query_string" class="wpgmza-pro-feature"/>
 					</fieldset>
+
+					<fieldset class="wpgmza-pro-feature">
+						<legend>
+							<?php
+							_e("Location Placeholder", "wp-google-maps");
+							?>
+						</legend>
+						
+						<input type="text" name="store_locator_location_placeholder" id="wpgmza_store_locator_location_placeholder" class="wpgmza-pro-feature"/>
+					</fieldset>
 					
 					<fieldset class="wpgmza-pro-feature">
 						<legend>
@@ -805,7 +825,7 @@
 							<?php
 							_e('View', 'wp-google-maps');
 							?>
-							<a href='http://wpgmaps.com/documentation/store-locator' target='_BLANK'>
+							<a href='https://docs.wpgmaps.com/CB2H-store-locator' target='_BLANK'>
 								<?php
 								_e('Store Locator Documentation', 'wp-google-maps');
 								?>
@@ -993,7 +1013,7 @@
 							?>
 						</legend>
 
-						<input name="override_users_location_zoom_levels" style="display: none;" type="text" id="override_users_location_zoom_levels_slider">
+						<input name="override_users_location_zoom_levels" style="display: none;" type="text" id="override_users_location_zoom_levels_slider" data-zoom-slider-preview="<?php _e("Preview: User Location Zoom", "wp-google-maps"); ?>">
 						
 						 <div id="override-users-location-zoom-levels-slider"></div> 
 					</fieldset>
@@ -1183,13 +1203,13 @@
 							?>
 						</legend>
 
-						<input name="wpgmza_zoom_on_marker_click_slider" style="display: none;" type="text" id="wpgmza_zoom_on_marker_click_slider">
+						<input name="wpgmza_zoom_on_marker_click_slider" style="display: none;" type="text" id="wpgmza_zoom_on_marker_click_slider" data-zoom-slider-preview="<?php _e("Preview: Marker Click Zoom", "wp-google-maps"); ?>">
 						
 						 <div id="zoom-on-marker-click-slider"></div> 
 					</fieldset>
 
 					
-					<fieldset class="wpgmza-pro-feature">
+					<fieldset>
 						<legend>
 							<?php
 							_e('Enable Layers', 'wp-google-maps');
@@ -1201,7 +1221,7 @@
 								<input type='checkbox' 
 									id='wpgmza_bicycle' 
 									name='bicycle' 
-									class='postform cmn-toggle cmn-toggle-round-flat wpgmza-pro-feature'>
+									class='postform cmn-toggle cmn-toggle-round-flat'>
 								<label for='wpgmza_bicycle'></label>
 								<label for='wpgmza_bicycle'>
 									<?php
@@ -1216,7 +1236,7 @@
 								<input type='checkbox' 
 									id='wpgmza_traffic' 
 									name='traffic' 
-									class='postform cmn-toggle cmn-toggle-round-flat wpgmza-pro-feature'>
+									class='postform cmn-toggle cmn-toggle-round-flat'>
 								<label for='wpgmza_traffic'></label>
 								<label for='wpgmza_traffic'>
 									<?php
@@ -1231,7 +1251,7 @@
 								<input type='checkbox' 
 									id='wpgmza_transport' 
 									name='transport_layer' 
-									class='postform cmn-toggle cmn-toggle-round-flat wpgmza-pro-feature'>
+									class='postform cmn-toggle cmn-toggle-round-flat'>
 								<label for='wpgmza_transport'></label>
 								<label for='wpgmza_transport'>
 									<?php
@@ -1289,7 +1309,7 @@
 						</div>
 					</fieldset>
 					
-					<fieldset class="wpgmza-pro-feature">
+					<fieldset class="wpgmza-pro-feature" data-wpgmza-require-engine="google-maps">
 						<legend>
 							<?php
 							_e("Enable Polygon Labels", "wp-google-maps");
@@ -1363,6 +1383,21 @@
 							<label for='enable_marker_ratings'></label>
 						</div>
 					</fieldset>
+
+					<fieldset class="wpgmza-pro-feature">
+						<legend>
+							<?php
+								_e("Enable Marker Labels (beta)", "wp-google-maps");
+							?>
+						</legend>
+						<div class='switch switch-inline'>
+							<input type="checkbox"
+								id="enable_marker_labels"
+								name="enable_marker_labels"
+								class="postform cmn-toggle cmn-toggle-round-flat wpgmza-pro-feature"/>
+							<label for="enable_marker_labels"></label>
+						</div>
+					</fieldset>
 					
 					<fieldset class="wpgmza-pro-feature">
 						<legend>
@@ -1379,6 +1414,34 @@
 							<small><?php _e("This feature may not work as expected with bounds specific settings", "wp-google-maps"); ?></small>
 						</div>
 					</fieldset>
+
+					<fieldset>
+						<legend><?php _e("Change Starting Zoom on Mobile", "wp-google-maps"); ?></legend>
+						
+						<div>
+							<div class='switch'>
+								<input type='checkbox' 
+									id='zoom_level_mobile_override_enabled' 
+									name='zoom_level_mobile_override_enabled' 
+									class='postform cmn-toggle cmn-toggle-round-flat'>
+								<label for='zoom_level_mobile_override_enabled' 
+									data-on='<?php _e("Yes", "wp-google-maps"); ?>'
+									data-off='<?php _e("No", "wp-google-maps"); ?>'>
+								</label>
+							</div>
+						</div>
+					</fieldset>
+
+					<fieldset 
+						class="wpgmza-zoom-level-mobile-override-slider-level wpgmza-no-flex" 
+						id="zoom_level_mobile_override_level"
+						style="display: none;">
+						<legend><?php _e("Mobile Zoom Level", "wp-google-maps");?></legend>
+
+						<input name="zoom_level_mobile_override" style="display: none;" type="text" id="zoom_level_mobile_override" data-zoom-slider-preview="<?php _e("Preview: Mobile Zoom Level", "wp-google-maps"); ?>">
+						
+						 <div id="zoom-level-mobile-override-slider"></div> 
+					</fieldset>
 					
 					<fieldset class="wpgmza-pro-feature">
 						<legend>
@@ -1390,11 +1453,11 @@
 						
 							<label>
 								<input type="radio" name="wpgmza_iw_type" value="0" class="wpgmza-pro-feature"/>
-								<div class='wpgmza-flex-item wpgmza-infowindow-picker__item'>
+								<div class='wpgmza-flex-item wpgmza-infowindow-picker__item iw_custom_click_hide'>
 									<div class="wpgmza-card wpgmza-card-border__hover">
 										<img src="<?php echo WPGMZA_PLUGIN_DIR_URL . '/images/marker_iw_type_1.png'; ?>"
 											title="<?php esc_attr_e('Default', 'wp-google-maps'); ?>"
-											class="iw_custom_click_hide wpgmza_mlist_selection"
+											class="wpgmza_mlist_selection"
 											/>
 										<span class='wpgmza-infowindow-style__name'>
 											<?php
@@ -1407,11 +1470,11 @@
 							
 							<label>
 								<input type="radio" name="wpgmza_iw_type" value="1" class="wpgmza-pro-feature"/>
-								<div class='wpgmza-flex-item wpgmza-infowindow-picker__item'>
+								<div class='wpgmza-flex-item wpgmza-infowindow-picker__item iw_custom_click_show'>
 									<div class="wpgmza-card wpgmza-card-border__hover">
 										<img src="<?php echo WPGMZA_PLUGIN_DIR_URL . '/images/marker_iw_type_2.png'; ?>"
 											title="<?php esc_attr_e('Default', 'wp-google-maps'); ?>"
-											class="iw_custom_click_hide wpgmza_mlist_selection"
+											class="wpgmza_mlist_selection"
 											/>
 										<span class='wpgmza-infowindow-style__name'>
 											<?php
@@ -1424,11 +1487,11 @@
 							
 							<label>
 								<input type="radio" name="wpgmza_iw_type" value="2" class="wpgmza-pro-feature"/>
-								<div class='wpgmza-flex-item wpgmza-infowindow-picker__item'>
+								<div class='wpgmza-flex-item wpgmza-infowindow-picker__item iw_custom_click_show'>
 									<div class="wpgmza-card wpgmza-card-border__hover">
 										<img src="<?php echo WPGMZA_PLUGIN_DIR_URL . '/images/marker_iw_type_3.png'; ?>"
 											title="<?php esc_attr_e('Default', 'wp-google-maps'); ?>"
-											class="iw_custom_click_hide wpgmza_mlist_selection"
+											class="wpgmza_mlist_selection"
 											/>
 										<span class='wpgmza-infowindow-style__name'>
 											<?php
@@ -1441,11 +1504,11 @@
 							
 							<label>
 								<input type="radio" name="wpgmza_iw_type" value="3" class="wpgmza-pro-feature"/>
-								<div class='wpgmza-flex-item wpgmza-infowindow-picker__item'>
+								<div class='wpgmza-flex-item wpgmza-infowindow-picker__item iw_custom_click_show'>
 									<div class="wpgmza-card wpgmza-card-border__hover">
 										<img src="<?php echo WPGMZA_PLUGIN_DIR_URL . '/images/marker_iw_type_4.png'; ?>"
 											title="<?php esc_attr_e('Default', 'wp-google-maps'); ?>"
-											class="iw_custom_click_hide wpgmza_mlist_selection"
+											class="wpgmza_mlist_selection"
 											/>
 										<span class='wpgmza-infowindow-style__name'>
 											<?php
@@ -1460,11 +1523,11 @@
 							
 							<label>
 								<input type="radio" name="wpgmza_iw_type" value="-1" class="wpgmza-pro-feature"/>
-								<div class='wpgmza-flex-item wpgmza-infowindow-picker__item'>
+								<div class='wpgmza-flex-item wpgmza-infowindow-picker__item iw_custom_click_hide'>
 									<div class="wpgmza-card wpgmza-card-border__hover">
 										<img src="<?php echo WPGMZA_PLUGIN_DIR_URL . '/images/marker_iw_type_inherit.png'; ?>"
 											title="<?php esc_attr_e('Inherit Global Setting', 'wp-google-maps'); ?>"
-											class="iw_custom_click_hide wpgmza_mlist_selection"
+											class="wpgmza_mlist_selection"
 											/>
 										<span class='wpgmza-infowindow-style__name'>
 											<?php
@@ -1486,7 +1549,7 @@
 						
 						<ul>
 							<li>
-								<input id="iw_primary_color" name="iw_primary_color" type="text" class="color"/>
+								<input id="iw_primary_color" name="iw_primary_color" type="color" class="color"/>
 								<label for="iw_primary_color">
 									<?php
 									_e('Primary Color', 'wp-google-maps');
@@ -1494,7 +1557,7 @@
 								</label>
 							</li>
 							<li>
-								<input id="iw_accent_color" name="iw_accent_color" type="text" class="color"/>
+								<input id="iw_accent_color" name="iw_accent_color" type="color" class="color"/>
 								<label for="iw_accent_color">
 									<?php
 									_e('Accent Color', 'wp-google-maps');
@@ -1502,7 +1565,7 @@
 								</label>
 							</li>
 							<li>
-								<input id="iw_text_color" name="iw_text_color" type="text" class="color"/>
+								<input id="iw_text_color" name="iw_text_color" type="color" class="color"/>
 								<label for="iw_text_color">
 									<?php
 									_e('Text Color', 'wp-google-maps');
@@ -1858,6 +1921,62 @@
 						</label>
 					</fieldset>
 
+					<fieldset class="wpgmza-pro-feature">
+						<legend>
+							<?php
+							_e("Override zoom level on listing click", "wp-google-maps");
+							?>
+						</legend>
+
+						<div>
+							<div class='switch'>
+								<input type='checkbox' 
+									id='zoom_level_on_marker_listing_override' 
+									name='zoom_level_on_marker_listing_override' 
+									class='postform cmn-toggle cmn-toggle-round-flat wpgmza-pro-feature'>
+								<label for='zoom_level_on_marker_listing_override' 
+									data-on='<?php _e("Yes", "wp-google-maps"); ?>'
+									data-off='<?php _e("No", "wp-google-maps"); ?>'>
+								</label>
+							</div>
+						</div>
+					</fieldset>
+
+					<fieldset 
+						class="wpgmza-zoom-on-marker-listing-click-zoom-level wpgmza-no-flex" 
+						id="zoom_level_on_marker_listing_click_level" 
+						style="display: none;">
+						<legend>
+							<?php
+							_e("Zoom Level", "wp-google-maps");
+							?>
+						</legend>
+
+						<input name="zoom_level_on_marker_listing_click" style="display: none;" type="text" id="zoom_level_on_marker_listing_click" data-zoom-slider-preview="<?php _e("Preview: Listing Click Zoom Level", "wp-google-maps"); ?>">
+
+						 <div id="zoom-on-marker-listing-click-slider"></div> 
+					</fieldset>
+
+					<fieldset class="wpgmza-pro-feature">
+						<legend>
+							<?php
+							_e("Disable Zoom On Listing Click", "wp-google-maps");
+							?>
+						</legend>
+
+						<div>
+							<div class='switch'>
+								<input type='checkbox' 
+									id='marker_listing_disable_zoom' 
+									name='marker_listing_disable_zoom' 
+									class='postform cmn-toggle cmn-toggle-round-flat wpgmza-pro-feature'>
+								<label for='marker_listing_disable_zoom' 
+									data-on='<?php _e("Yes", "wp-google-maps"); ?>'
+									data-off='<?php _e("No", "wp-google-maps"); ?>'>
+								</label>
+							</div>
+						</div>
+					</fieldset>
 					
 
 					<h3>
@@ -1944,6 +2063,9 @@
 								<?php
 								_e('First and Last buttons, plus page numbers', 'wp-google-maps');
 								?>
+							</option>
+							<option value="hidden">
+								<?php _e('Hidden', 'wp-google-maps'); ?>
 							</option>
 						</select>
 					</fieldset>
@@ -2443,7 +2565,7 @@
 					<?php
 						echo sprintf(
 							__('Please ensure you <a href="%s">enter a Google Maps API key</a> to continue using Google Maps. Alternatively, swap over to Open Layers by clicking <a id="wpgm-swap-to-open-layers" href="%s">here</a>.', 'wp-google-maps'),
-							"admin.php?page=wp-google-maps-menu-settings",
+							"admin.php?page=wp-google-maps-menu-settings#advanced-settings",
 							"javascript:void(0);"
 						);
 					?>
@@ -2581,12 +2703,12 @@
 		<p id='wpgmza-basic-footer-text'>
 				<small>
 					<?php
-					_e("Thank you for using <a href='https://www.wpgmaps.com'>WP Google Maps</a>! Please <a href='https://wordpress.org/support/plugin/wp-google-maps/reviews/'>rate us on WordPress.org</a>", 'wp-google-maps');
+					_e("Thank you for using <a href='https://www.wpgmaps.com'>WP Go Maps</a>! Please <a href='https://wordpress.org/support/plugin/wp-google-maps/reviews/'>rate us on WordPress.org</a>", 'wp-google-maps');
 					?>
 					|
 					<?php
 					echo sprintf(
-						__("WP Google Maps is a product of <img src='%s' alt='CODECABIN_' style='height: 1em;' class='wpgmze_cc_footer_image'/>", 'wp-google-maps'),
+						__("WP Go Maps is a product of <img src='%s' alt='CODECABIN_' style='height: 1em;' class='wpgmze_cc_footer_image'/>", 'wp-google-maps'),
 						WPGMZA_PLUGIN_DIR_URL . 'images/codecabin.png'
 					);
 					?>
@@ -2596,15 +2718,15 @@
 					?>
 					|
 					<?php
-					_e("WP Google Maps encourages you to make use of the amazing icons at ", "wp-google-maps");
+					_e("WP Go Maps encourages you to make use of the amazing icons at ", "wp-google-maps");
 					?>
 					<a href='https://mappity.org'>https://mappity.org</a>
+					|
+					<?php 
+					_e('Translating the plugin with', 'wp-google-maps'); ?>
+					<a href='https://docs.wpgmaps.com/translating-the-plugin-with-wpml' target='_BLANK'><?php esc_html_e('WPML', 'wp-google-maps'); ?></a>
 				</small>
 			</p>
 
 	
 </div>
-
-<?php if (get_user_meta( get_current_user_id(), 'wpgmza_hide_chat', true ) == 1 ) {} else { ?>
-<a href='https://wpgooglemaps.bleeper.io/' title='Chat with WP Google Maps now' target='_BLANK' class='wpgmza-chat-help'><span id='wpgmzaCloseChat'></span></a>
-<?php } ?>

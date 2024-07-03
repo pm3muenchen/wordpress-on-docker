@@ -1,13 +1,12 @@
 <?php
 /**
- * @package WP Content Aware Engine
+ * @package wp-content-aware-engine
  * @author Joachim Jensen <joachim@dev.institute>
  * @license GPLv3
- * @copyright 2020 by Joachim Jensen
+ * @copyright 2023 by Joachim Jensen
  */
 
 defined('ABSPATH') || exit;
-
 
 /**
  *
@@ -20,7 +19,6 @@ defined('ABSPATH') || exit;
  */
 class WPCAModule_post_type extends WPCAModule_Base
 {
-
     /**
      * @var string
      */
@@ -39,21 +37,14 @@ class WPCAModule_post_type extends WPCAModule_Base
      */
     private $_post_ancestor_conditions;
 
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         parent::__construct('post_type', __('Post Types', WPCA_DOMAIN));
-
         $this->query_name = 'cp';
     }
 
     /**
-     * Initiate module
-     *
-     * @since  2.0
-     * @return void
+     * @inheritDoc
      */
     public function initiate()
     {
@@ -61,7 +52,7 @@ class WPCAModule_post_type extends WPCAModule_Base
 
         add_action(
             'transition_post_status',
-            array($this,'post_ancestry_check'),
+            [$this,'post_ancestry_check'],
             10,
             3
         );
@@ -69,21 +60,17 @@ class WPCAModule_post_type extends WPCAModule_Base
         if (is_admin()) {
             foreach ($this->post_types() as $post_type) {
                 add_action(
-                    'wp_ajax_wpca/module/'.$this->id.'-'.$post_type,
-                    array($this,'ajax_print_content')
+                    'wp_ajax_wpca/module/' . $this->id . '-' . $post_type,
+                    [$this,'ajax_print_content']
                 );
             }
         }
     }
 
     /**
-     * Get content for sidebar editor
-     *
-     * @since  1.0
-     * @param  array $args
-     * @return array
+     * @inheritDoc
      */
-    protected function _get_content($args = array())
+    protected function _get_content($args = [])
     {
         $walk_tree = false;
         $start = ($args['paged'] - 1) * $args['posts_per_page'];
@@ -94,24 +81,24 @@ class WPCAModule_post_type extends WPCAModule_Base
         if (!empty($args['search'])) {
             $exclude_query = '';
             if (!empty($args['post__not_in'])) {
-                $exclude_query = ' AND ID NOT IN ('.implode(',', $args['post__not_in']).')';
+                $exclude_query = ' AND ID NOT IN (' . implode(',', $args['post__not_in']) . ')';
             }
 
-            $columns = array(
-                array('post_title', 'LIKE', '%'.$args['search'].'%'),
-                array('post_name', 'LIKE', '%'.$args['search'].'%'),
-            );
+            $columns = [
+                ['post_title', 'LIKE', '%' . $args['search'] . '%'],
+                ['post_name', 'LIKE', '%' . $args['search'] . '%'],
+            ];
 
             if (is_numeric($args['search'])) {
-                $columns[] = array('ID', '=', $args['search']);
+                $columns[] = ['ID', '=', $args['search']];
             }
 
-            $where = array();
-            $values = array();
+            $where = [];
+            $values = [];
             foreach ($columns as $column_value) {
                 list($column, $operator, $value) = $column_value;
                 $prepared_value = is_numeric($value) ? '%d' : '%s';
-                $where[] = "{$column} {$operator} '{$prepared_value}'";
+                $where[] = "$column $operator '$prepared_value'";
                 $values[] = $value;
             }
 
@@ -120,19 +107,19 @@ class WPCAModule_post_type extends WPCAModule_Base
             $posts = $wpdb->get_results($wpdb->prepare(
                 "
 				SELECT ID, post_title, post_type, post_parent, post_status, post_password
-                FROM {$wpdb->posts}
-                WHERE (".implode(' OR ', $where).")
-                AND post_status IN('".implode("','", $args['post_status'])."')
+                FROM $wpdb->posts
+                WHERE (" . implode(' OR ', $where) . ")
+                AND post_status IN('" . implode("','", $args['post_status']) . "')
                 AND post_type = '%s'
                 $exclude_query
 				ORDER BY post_title ASC
 				LIMIT %d,%d
 				",
-                array_merge($values, array(
-                $args['post_type'],
-                $start,
-                $args['posts_per_page']
-                ))
+                array_merge($values, [
+                    $args['post_type'],
+                    $start,
+                    $args['posts_per_page']
+                ])
             ));
         } else {
             if (is_post_type_hierarchical($args['post_type']) && !isset($args['post__in'])) {
@@ -146,10 +133,10 @@ class WPCAModule_post_type extends WPCAModule_Base
             $posts = $query->posts;
         }
 
-        $retval = array();
+        $retval = [];
 
         if ($walk_tree) {
-            $pages_sorted = array();
+            $pages_sorted = [];
             foreach ($posts as $post) {
                 $pages_sorted[$post->post_parent][] = $post;
             }
@@ -185,11 +172,11 @@ class WPCAModule_post_type extends WPCAModule_Base
             }
 
             if ($i >= $start) {
-                $retval[] = array(
+                $retval[] = [
                     'id'    => $page->ID,
                     'text'  => $this->post_title($page),
                     'level' => $level
-                );
+                ];
             }
 
             $i++;
@@ -210,20 +197,16 @@ class WPCAModule_post_type extends WPCAModule_Base
     {
         if (!$this->_post_types) {
             // List public post types
-            foreach (get_post_types(array('public' => true), 'names') as $post_type) {
+            foreach (get_post_types(['public' => true], 'names') as $post_type) {
                 $this->_post_types[$post_type] = $post_type;
             }
+            unset($this->_post_types['guest-author']);
         }
         return $this->_post_types;
     }
 
     /**
-     * Get data for condition group
-     *
-     * @since  2.0
-     * @param  array  $group_data
-     * @param  int    $post_id
-     * @return array
+     * @inheritDoc
      */
     public function get_group_data($group_data, $post_id)
     {
@@ -232,35 +215,36 @@ class WPCAModule_post_type extends WPCAModule_Base
             $lookup = array_flip((array)$ids);
             foreach ($this->post_types() as $post_type) {
                 $post_type_obj = get_post_type_object($post_type);
-                $data = $this->get_content(array(
+                $data = $this->get_content([
                     'include'   => $ids,
                     'post_type' => $post_type
-                ));
+                ]);
 
                 if ($data || isset($lookup[$post_type])) {
                     $placeholder = $post_type_obj->labels->all_items;
                     switch ($post_type) {
                         case 'post':
-                            $placeholder .= ' / '.__('Blog Page', WPCA_DOMAIN);
+                            $placeholder .= ' / ' . __('Blog Page', WPCA_DOMAIN);
                             break;
                         case 'product':
-                            $placeholder .= ' / '.__('Shop Page', WPCA_DOMAIN);
+                            $placeholder .= ' / ' . __('Shop Page', WPCA_DOMAIN);
                             break;
                         default:
                             if ($post_type_obj->has_archive) {
-                                $placeholder .= ' / '.sprintf(__('%s Archives', WPCA_DOMAIN), $post_type_obj->labels->singular_name);
+                                $placeholder .= ' / ' . sprintf(__('%s Archives', WPCA_DOMAIN), $post_type_obj->labels->singular_name);
                             }
                             break;
                     }
 
-                    $group_data[$this->id.'-'.$post_type] = array(
+                    $group_data[$this->id . '-' . $post_type] = [
                         'label'         => $post_type_obj->label,
+                        'icon'          => $post_type_obj->menu_icon,
                         'placeholder'   => $placeholder,
                         'default_value' => $post_type
-                    );
+                    ];
 
                     if ($data) {
-                        $group_data[$this->id.'-'.$post_type]['data'] = $data;
+                        $group_data[$this->id . '-' . $post_type]['data'] = $data;
                     }
                 }
             }
@@ -269,10 +253,7 @@ class WPCAModule_post_type extends WPCAModule_Base
     }
 
     /**
-     * Determine if content is relevant
-     *
-     * @since  1.0
-     * @return boolean
+     * @inheritDoc
      */
     public function in_context()
     {
@@ -280,18 +261,15 @@ class WPCAModule_post_type extends WPCAModule_Base
     }
 
     /**
-     * Get data from context
-     *
-     * @since  1.0
-     * @return array
+     * @inheritDoc
      */
     public function get_context_data()
     {
         if (is_singular()) {
-            return array(
+            return [
                 get_post_type(),
                 get_queried_object_id()
-            );
+            ];
         }
 
         // Home has post as default post type
@@ -302,16 +280,14 @@ class WPCAModule_post_type extends WPCAModule_Base
             $post_type = 'post';
         }
 
-        return array(
+        return [
             $post_type
-        );
+        ];
     }
 
     /**
-    * @param array $args
-    *
-    * @return array
-    */
+     * @inheritDoc
+     */
     protected function parse_query_args($args)
     {
         if (isset($args['item_object'])) {
@@ -321,18 +297,18 @@ class WPCAModule_post_type extends WPCAModule_Base
             $post_type_name = isset($args['post_type']) ? $args['post_type'] : 'category';
         }
 
-        $exclude = array();
+        $exclude = [];
         if ($post_type_name == 'page' && 'page' == get_option('show_on_front')) {
             $exclude[] = intval(get_option('page_on_front'));
             $exclude[] = intval(get_option('page_for_posts'));
         }
 
-        $post_status = array('publish','private','future','draft');
+        $post_status = ['publish','private','future','draft'];
         if ($post_type_name == 'attachment') {
-            $post_status = array('inherit');
+            $post_status = ['inherit'];
         }
 
-        $new_args = array(
+        $new_args = [
             'post__not_in'           => $exclude,
             'post_type'              => $post_type_name,
             'post_status'            => $post_status,
@@ -345,7 +321,7 @@ class WPCAModule_post_type extends WPCAModule_Base
             'update_post_term_cache' => false,
             'suppress_filters'       => true,
             'no_found_rows'          => true,
-        );
+        ];
 
         //future proof in case this is considered a bug https://core.trac.wordpress.org/ticket/28099
         if (!empty($args['include'])) {
@@ -356,10 +332,7 @@ class WPCAModule_post_type extends WPCAModule_Base
     }
 
     /**
-     * @since  2.0
-     * @param  array  $list
-     *
-     * @return array
+     * @inheritDoc
      */
     public function list_module($list)
     {
@@ -371,26 +344,27 @@ class WPCAModule_post_type extends WPCAModule_Base
 
             switch ($post_type) {
                 case 'post':
-                    $name .= ' / '.__('Blog', WPCA_DOMAIN);
-                    $placeholder .= ' / '.__('Blog Page', WPCA_DOMAIN);
+                    $name .= ' / ' . __('Blog', WPCA_DOMAIN);
+                    $placeholder .= ' / ' . __('Blog Page', WPCA_DOMAIN);
                     break;
                 case 'product':
-                    $name .= ' / '.__('Shop', WPCA_DOMAIN);
-                    $placeholder .= ' / '.__('Shop Page', WPCA_DOMAIN);
+                    $name .= ' / ' . __('Shop', WPCA_DOMAIN);
+                    $placeholder .= ' / ' . __('Shop Page', WPCA_DOMAIN);
                     break;
                 default:
                     if ($post_type_obj->has_archive) {
-                        $placeholder .= ' / '.sprintf(__('%s Archives', WPCA_DOMAIN), $post_type_obj->labels->singular_name);
+                        $placeholder .= ' / ' . sprintf(__('%s Archives', WPCA_DOMAIN), $post_type_obj->labels->singular_name);
                     }
                     break;
             }
 
-            $list[] = array(
-                'id'            => $this->id.'-'.$post_type,
+            $list[] = [
+                'id'            => $this->id . '-' . $post_type,
+                'icon'          => $post_type_obj->menu_icon,
                 'text'          => $name,
                 'placeholder'   => $placeholder,
                 'default_value' => $post_type
-            );
+            ];
         }
         return $list;
     }
@@ -404,7 +378,7 @@ class WPCAModule_post_type extends WPCAModule_Base
      */
     public function post_title($post)
     {
-        $post_states = array();
+        $post_states = [];
 
         if (!empty($post->post_password)) {
             $post_states['protected'] = __('Password protected');
@@ -428,29 +402,27 @@ class WPCAModule_post_type extends WPCAModule_Base
             case 'scheduled':
                 $post_states['scheduled'] = __('Scheduled');
                 break;
+            default:
+                break;
         }
 
         $post_title = $post->post_title ? $post->post_title : __('(no title)');
-        $post_states = apply_filters('display_post_states', $post_states, $post);
+        //$post_states = apply_filters('display_post_states', $post_states, $post);
 
-        return $post_title . ' ' . ($post_states ? ' ('.implode(', ', $post_states).')' : '');
+        return $post_title . ' ' . ($post_states ? ' (' . implode(', ', $post_states) . ')' : '');
     }
 
     /**
-     * Save data on POST
-     *
-     * @since  1.0
-     * @param  int  $post_id
-     * @return void
+     * @inheritDoc
      */
     public function save_data($post_id)
     {
         $meta_key = WPCACore::PREFIX . $this->id;
         $old = array_flip(get_post_meta($post_id, $meta_key, false));
-        $new = array();
+        $new = [];
 
         foreach ($this->post_types() as $post_type) {
-            $id = $this->id.'-'.$post_type;
+            $id = $this->id . '-' . $post_type;
             if (isset($_POST['conditions'][$id])) {
                 $new = array_merge($new, $_POST['conditions'][$id]);
             }
@@ -488,50 +460,47 @@ class WPCAModule_post_type extends WPCAModule_Base
     public function post_ancestry_check($new_status, $old_status, $post)
     {
         if (!WPCACore::types()->has($post->post_type) && $post->post_type != WPCACore::TYPE_CONDITION_GROUP && $post->post_parent) {
-            $status = array(
+            $status = [
                 'publish' => 1,
                 'private' => 1,
                 'future'  => 1
-            );
+            ];
 
             // Only new posts are relevant
             if (!isset($status[$old_status]) && isset($status[$new_status])) {
                 $post_type = get_post_type_object($post->post_type);
                 if ($post_type->hierarchical && $post_type->public) {
-
-
                     // Get sidebars with post ancestor wanting to auto-select post
-                    $query = new WP_Query(array(
+                    $query = new WP_Query([
                         'post_type'   => WPCACore::TYPE_CONDITION_GROUP,
-                        'post_status' => array(WPCACore::STATUS_OR,WPCACore::STATUS_EXCEPT,WPCACore::STATUS_PUBLISHED),
-                        'meta_query'  => array(
-                        'relation' => 'AND',
-                            array(
+                        'post_status' => [WPCACore::STATUS_OR,WPCACore::STATUS_EXCEPT,WPCACore::STATUS_PUBLISHED],
+                        'meta_query'  => [
+                            'relation' => 'AND',
+                            [
                                 'key'     => WPCACore::PREFIX . 'autoselect',
                                 'value'   => 1,
                                 'compare' => '='
-                            ),
-                            array(
+                            ],
+                            [
                                 'key'     => WPCACore::PREFIX . $this->id,
                                 'value'   => get_post_ancestors($post),
                                 'type'    => 'numeric',
                                 'compare' => 'IN'
-                            )
-                        )
-                    ));
+                            ]
+                        ]
+                    ]);
 
                     if ($query && $query->found_posts) {
-
                         //Add conditions after Quick Select
                         //otherwise they will be removed there
                         $this->_post_ancestor_conditions = $query->posts;
                         add_action(
-                            'save_post_'.$post->post_type,
-                            array($this,'post_ancestry_add'),
+                            'save_post_' . $post->post_type,
+                            [$this,'post_ancestry_add'],
                             99,
                             2
                         );
-                        do_action('wpca/modules/auto-select/'.$this->category, $query->posts, $post);
+                        do_action('wpca/modules/auto-select/' . $this->category, $query->posts, $post);
                     }
                 }
             }
@@ -550,7 +519,7 @@ class WPCAModule_post_type extends WPCAModule_Base
     {
         if ($this->_post_ancestor_conditions) {
             foreach ($this->_post_ancestor_conditions as $condition) {
-                add_post_meta($condition->ID, WPCACore::PREFIX.$this->id, $post_id);
+                add_post_meta($condition->ID, WPCACore::PREFIX . $this->id, $post_id);
             }
         }
     }

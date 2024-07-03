@@ -44,7 +44,7 @@ class Event_Elementor_Addon_Separator extends Widget_Base{
 	 * Register Events Addon for Elementor Separator widget controls.
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	*/
-	protected function _register_controls(){
+	protected function register_controls(){
 
 		$this->start_controls_section(
 			'section_separator',
@@ -126,10 +126,11 @@ class Event_Elementor_Addon_Separator extends Widget_Base{
 			'separator_icon',
 			[
 				'label' => esc_html__( 'Separator Icon', 'events-addon-for-elementor' ),
-				'type' => Controls_Manager::ICON,
-				'options' => NAEEP_Controls_Helper_Output::get_include_icons(),
-				'frontend_available' => true,
-				'default' => 'fa fa-life-ring',
+				'type' => Controls_Manager::ICONS,
+				'default' => [
+					'value' => 'fas fa-life-ring',
+					'library' => 'fa-solid',
+				],
 				'condition' => [
 					'separator_type' => array('icon'),
 					'separator_style' => array('one'),
@@ -391,7 +392,6 @@ class Event_Elementor_Addon_Separator extends Widget_Base{
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'separator_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .naeep-sep',
 			]
 		);
@@ -954,7 +954,7 @@ class Event_Elementor_Addon_Separator extends Widget_Base{
 		$separator_border_style = !empty( $settings['separator_border_style'] ) ? $settings['separator_border_style'] : '';
 		$separator_type = !empty( $settings['separator_type'] ) ? $settings['separator_type'] : '';
 		$separator_text = !empty( $settings['separator_text'] ) ? $settings['separator_text'] : '';
-		$separator_icon = !empty( $settings['separator_icon'] ) ? $settings['separator_icon'] : '';
+		$separator_icon = !empty( $settings['separator_icon'] ) ? $settings['separator_icon']['value'] : '';
 		$icon_alignment = !empty( $settings['icon_alignment'] ) ? $settings['icon_alignment'] : '';
 		$icon_position = !empty( $settings['icon_position'] ) ? $settings['icon_position'] : '';
 		$section_alignment = !empty( $settings['section_alignment'] ) ? $settings['section_alignment'] : '';

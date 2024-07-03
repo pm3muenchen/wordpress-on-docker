@@ -73,8 +73,8 @@ if ( ! class_exists( 'Gutentor_Featured_N4_T2' ) ) {
 			while ( $the_query->have_posts() ) :
 				$the_query->the_post();
 				$output .= "<div class='" . apply_filters( 'gutentor_post_module_p2_grid_class', 'grid-lg-6 grid-md-6 grid-12', $attributes ) . "'>";
-                $output .= $this->featured_post_type_template( get_post(), $attributes, $index );
-                $output .= '</div>';
+				$output .= $this->featured_post_type_template( get_post(), $attributes, $index );
+				$output .= '</div>';
 				$index++;
 			endwhile;
 			return $output;
@@ -96,9 +96,9 @@ if ( ! class_exists( 'Gutentor_Featured_N4_T2' ) ) {
 			}
 			$index = 0;
 			foreach ( $terms as $term ) {
-                $output .= "<div class='" . apply_filters( 'gutentor_term_module_t2_grid_class', 'grid-lg-6 grid-md-6 grid-12', $attributes ) . "'>";
-                $output .= $this->t2_single_article( $term, $attributes, $index );
-                $output .= '</div>';
+				$output .= "<div class='" . apply_filters( 'gutentor_term_module_t2_grid_class', 'grid-lg-6 grid-md-6 grid-12', $attributes ) . "'>";
+				$output .= $this->t2_single_article( $term, $attributes, $index );
+				$output .= '</div>';
 				$index++;
 			}
 			return $output;

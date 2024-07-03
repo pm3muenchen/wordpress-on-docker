@@ -36,7 +36,7 @@ function astra_hb_account_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 	$icon_size = astra_get_option( 'header-account-icon-size' );
 
 	$icon_size_desktop = ( isset( $icon_size ) && isset( $icon_size['desktop'] ) && ! empty( $icon_size['desktop'] ) ) ? $icon_size['desktop'] : 20;
-	
+
 	$icon_size_tablet = ( isset( $icon_size ) && isset( $icon_size['tablet'] ) && ! empty( $icon_size['tablet'] ) ) ? $icon_size['tablet'] : 20;
 
 	$icon_size_mobile = ( isset( $icon_size ) && isset( $icon_size['mobile'] ) && ! empty( $icon_size['mobile'] ) ) ? $icon_size['mobile'] : 20;
@@ -44,7 +44,7 @@ function astra_hb_account_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 	$image_width = astra_get_option( 'header-account-image-width' );
 
 	$image_width_desktop = ( isset( $image_width ) && isset( $image_width['desktop'] ) && ! empty( $image_width['desktop'] ) ) ? $image_width['desktop'] : 20;
-	
+
 	$image_width_tablet = ( isset( $image_width ) && isset( $image_width['tablet'] ) && ! empty( $image_width['tablet'] ) ) ? $image_width['tablet'] : 20;
 
 	$image_width_mobile = ( isset( $image_width ) && isset( $image_width['mobile'] ) && ! empty( $image_width['mobile'] ) ) ? $image_width['mobile'] : 20;
@@ -56,7 +56,23 @@ function astra_hb_account_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 	 * Account CSS.
 	 */
 	$css_output_desktop = array(
-
+		'.ast-header-account-type-icon'           => array(
+			'-js-display'    => 'inline-flex',
+			'display'        => 'inline-flex',
+			'align-self'     => 'center',
+			'vertical-align' => 'middle',
+		),
+		'.ast-header-account-type-avatar .avatar' => array(
+			'display'       => 'inline',
+			'border-radius' => '100%',
+			'max-width'     => '100%',
+		),
+		'.as.site-header-focus-item.ast-header-account:hover > .customize-partial-edit-shortcut' => array(
+			'opacity' => '0',
+		),
+		'.site-header-focus-item.ast-header-account:hover > * > .customize-partial-edit-shortcut' => array(
+			'opacity' => '1',
+		),
 		$selector . ' .ast-header-account-type-icon .ahfb-svg-iconset svg path:not( .ast-hf-account-unfill ), ' . $selector . ' .ast-header-account-type-icon .ahfb-svg-iconset svg circle' => array(
 			'fill' => esc_attr( astra_get_option( 'header-account-icon-color' ) ),
 		),
@@ -70,10 +86,10 @@ function astra_hb_account_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' 
 		$selector . ' .ast-header-account-type-avatar .avatar' => array(
 			'width' => astra_get_css_value( $image_width_desktop, 'px' ),
 		),
-		$selector . ' .ast-header-account-text' => array(
+		$selector . ' .ast-header-account-text'   => array(
 			'color' => esc_attr( astra_get_option( 'header-account-type-text-color' ) ),
 		),
-		$margin_selector                        => array(
+		$margin_selector                          => array(
 			// Margin CSS.
 			'margin-top'    => astra_responsive_spacing( $margin, 'top', 'desktop' ),
 			'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'desktop' ),

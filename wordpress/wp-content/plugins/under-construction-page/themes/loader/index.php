@@ -2,7 +2,7 @@
 /*
  * UnderConstructionPage
  * Loader theme
- * (c) WebFactory Ltd, 2015 - 2021
+ * (c) WebFactory Ltd, 2015 - 2023
  */
 
 
@@ -20,7 +20,7 @@ if (!defined('ABSPATH')) {
     <title>[title]</title>
     <meta name="description" content="[description]" />
     <meta name="generator" content="[generator]">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,900">
+    <link rel="stylesheet" href="https://fonts.bunny.net/css?family=Roboto:400,900">
     [head]
   </head>
 

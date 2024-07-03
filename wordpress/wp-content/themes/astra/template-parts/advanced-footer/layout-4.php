@@ -2,7 +2,7 @@
 /**
  * Footer Layout 4
  *
- * @package Astra Addon
+ * @package Astra
  * @since   Astra 1.0.12
  */
 
@@ -23,12 +23,13 @@ if ( ! is_user_logged_in() ) {
 	}
 }
 
-$classes[] = 'footer-adv';
-$classes[] = 'footer-adv-layout-4';
-$classes   = implode( ' ', $classes );
+$astra_footer_classes   = array();
+$astra_footer_classes[] = 'footer-adv';
+$astra_footer_classes[] = 'footer-adv-layout-4';
+$astra_footer_classes   = implode( ' ', $astra_footer_classes );
 ?>
 
-<div class="<?php echo esc_attr( $classes ); ?>">
+<div class="<?php echo esc_attr( $astra_footer_classes ); ?>">
 	<div class="footer-adv-overlay">
 		<div class="ast-container">
 			<div class="ast-row">

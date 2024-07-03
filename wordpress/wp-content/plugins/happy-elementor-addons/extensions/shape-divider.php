@@ -12,6 +12,7 @@ class Shape_Divider {
 	public static function init() {
 		add_filter( 'elementor/shapes/additional_shapes', [__CLASS__, 'additional_shape_divider'] );
 		add_action( 'elementor/element/section/section_shape_divider/before_section_end', [__CLASS__, 'update_shape_list'] );
+		add_action( 'elementor/element/container/section_shape_divider/before_section_end', [__CLASS__, 'update_shape_list'] );
 	}
 
 	public static function update_shape_list( Element_Base $element ) {
@@ -256,6 +257,22 @@ class Shape_Divider {
 				'url' => HAPPY_ADDONS_ASSETS . 'imgs/shape-divider/mosque.svg',
 				'has_flip' => true,
 				'has_negative' => false,
+				'ha_shape' => true,
+			],
+			'christmas' => [
+				'title' => _x( 'Christmas', 'Shapes', 'happy-elementor-addons' ),
+				'path' => HAPPY_ADDONS_DIR_PATH . 'assets/imgs/shape-divider/christmas.svg',
+				'url' => HAPPY_ADDONS_ASSETS . 'imgs/shape-divider/christmas.svg',
+				'has_flip' => true,
+				'has_negative' => true,
+				'ha_shape' => true,
+			],
+			'christmas2' => [
+				'title' => _x( 'Christmas 2', 'Shapes', 'happy-elementor-addons' ),
+				'path' => HAPPY_ADDONS_DIR_PATH . 'assets/imgs/shape-divider/christmas2.svg',
+				'url' => HAPPY_ADDONS_ASSETS . 'imgs/shape-divider/christmas2.svg',
+				'has_flip' => true,
+				'has_negative' => true,
 				'ha_shape' => true,
 			]
 		];

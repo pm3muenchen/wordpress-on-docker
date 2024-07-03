@@ -11,7 +11,16 @@ if ( ! class_exists( 'Gutentor_P3_Hooks' ) ) {
 	 * @package Gutentor
 	 * @since 2.0.0
 	 */
-	class Gutentor_P3_Hooks {
+	class Gutentor_P3_Hooks extends Gutentor_Block_Base {
+
+		/**
+		 * Name of the block.
+		 *
+		 * @access protected
+		 * @since 1.0.1
+		 * @var string
+		 */
+		protected $block_name = 'p3';
 
 		/**
 		 * Prevent some functions to called many times
@@ -47,6 +56,21 @@ if ( ! class_exists( 'Gutentor_P3_Hooks' ) ) {
 		}
 
 		/**
+		 * Set register_block_type_args variable on parent
+		 * Used for blog template loading
+		 *
+		 * @since      3.0.6
+		 * @package    Gutentor
+		 * @author     Gutentor <info@gutentor.com>
+		 */
+		public function register_block_type_args() {
+			$this->register_block_type_args = array(
+				'view_script_handles' => array( 'slick' ),
+				'style_handles'       => array( 'slick' ),
+			);
+		}
+
+		/**
 		 * Add Filter
 		 *
 		 * @access public
@@ -77,6 +101,7 @@ if ( ! class_exists( 'Gutentor_P3_Hooks' ) ) {
 		 * @return void
 		 */
 		public function run() {
+			parent::run();
 			/*Block Specific PHP hooks*/
 			$this->add_filter( 'gutentor_post_module_main_wrap_class', $this, 'add_carousel_arrow_class', 15, 2 );
 			$this->add_filter( 'gutentor_post_module_grid_row_class', $this, 'add_carousel_row', 15, 2 );
@@ -106,23 +131,23 @@ if ( ! class_exists( 'Gutentor_P3_Hooks' ) ) {
 				return $output;
 			}
 
-			$arrow_postition       = $attributes['p1CarouselOpt']['arrowsPosition'];
-			$enable_desktop_arrow  = ( isset( $attributes['p1CarouselOpt']['arrows'] ) ) ? $attributes['p1CarouselOpt']['arrows'] : false;
-			$enable_tablet_arrow   = ( isset( $attributes['p1CarouselOpt']['arrowsT'] ) ) ? $attributes['p1CarouselOpt']['arrowsT'] : false;
-			$enable_mobile_arrow   = ( isset( $attributes['p1CarouselOpt']['arrowsM'] ) ) ? $attributes['p1CarouselOpt']['arrowsM'] : false;
-			$arrow_desktop_desktop = array_key_exists( 'desktop', $arrow_postition ) ? $arrow_postition['desktop'] : false;
-			if ( $enable_desktop_arrow && $arrow_desktop_desktop ) {
-				$output = gutentor_concat_space( $output, $arrow_desktop_desktop . '-desktop' );
+			$arrow_position         = $attributes['p1CarouselOpt']['arrowsPosition'];
+			$enable_desktop_arrow   = isset( $attributes['p1CarouselOpt']['arrows'] ) && $attributes['p1CarouselOpt']['arrows'];
+			$enable_tablet_arrow    = isset( $attributes['p1CarouselOpt']['arrowsT'] ) && $attributes['p1CarouselOpt']['arrowsT'];
+			$enable_mobile_arrow    = isset( $attributes['p1CarouselOpt']['arrowsM'] ) && $attributes['p1CarouselOpt']['arrowsM'];
+			$arrow_position_desktop = array_key_exists( 'desktop', $arrow_position ) ? $arrow_position['desktop'] : false;
+			if ( $enable_desktop_arrow && $arrow_position_desktop ) {
+				$output = gutentor_concat_space( $output, $arrow_position_desktop . '-desktop' );
 
 			}
-			$arrow_tablet_tablet = array_key_exists( 'tablet', $arrow_postition ) ? $arrow_postition['tablet'] : false;
-			if ( $enable_tablet_arrow && $arrow_tablet_tablet ) {
-				$output = gutentor_concat_space( $output, $arrow_tablet_tablet . '-tablet' );
+			$arrow_position_tablet = array_key_exists( 'tablet', $arrow_position ) ? $arrow_position['tablet'] : false;
+			if ( $enable_tablet_arrow && $arrow_position_tablet ) {
+				$output = gutentor_concat_space( $output, $arrow_position_tablet . '-tablet' );
 
 			}
-			$arrow_tablet_mobile = array_key_exists( 'mobile', $arrow_postition ) ? $arrow_postition['mobile'] : false;
-			if ( $enable_mobile_arrow && $arrow_tablet_mobile ) {
-				$output = gutentor_concat_space( $output, $arrow_tablet_mobile . '-mobile' );
+			$arrow_position_mobile = array_key_exists( 'mobile', $arrow_position ) ? $arrow_position['mobile'] : false;
+			if ( $enable_mobile_arrow && $arrow_position_mobile ) {
+				$output = gutentor_concat_space( $output, $arrow_position_mobile . '-mobile' );
 			}
 			return $output;
 		}
@@ -143,8 +168,7 @@ if ( ! class_exists( 'Gutentor_P3_Hooks' ) ) {
 			if ( isset( $attributes['p1CarouselOpt']['carouselID'] ) ) {
 				$local_data = gutentor_concat_space( $local_data, $attributes['p1CarouselOpt']['carouselID'] );
 			}
-			$local_data = gutentor_concat_space( $local_data, 'gutentor-module-carousel-row' );
-			return $local_data;
+			return gutentor_concat_space( $local_data, 'gutentor-module-carousel-row' );
 		}
 
 		/**
@@ -169,12 +193,12 @@ if ( ! class_exists( 'Gutentor_P3_Hooks' ) ) {
 			if ( isset( $p1CarouselOpt['dotsM'] ) ) {
 				$local_data['data-dotsmobile'] = ( $p1CarouselOpt['dotsM'] ) ? 'true' : 'false';
 			}
-            if ( isset( $p1CarouselOpt['arrowNext'] ) ) {
-                $local_data['data-nextarrow'] = ( $p1CarouselOpt['arrowNext'] ) ? $p1CarouselOpt['arrowNext'] : '';
-            }
-            if ( isset( $p1CarouselOpt['arrowsPrev'] ) ) {
-                $local_data['data-prevarrow'] = ( $p1CarouselOpt['arrowsPrev'] ) ? $p1CarouselOpt['arrowsPrev'] : '';
-            }
+			if ( isset( $p1CarouselOpt['arrowNext'] ) ) {
+				$local_data['data-nextarrow'] = ( $p1CarouselOpt['arrowNext'] ) ? $p1CarouselOpt['arrowNext'] : '';
+			}
+			if ( isset( $p1CarouselOpt['arrowsPrev'] ) ) {
+				$local_data['data-prevarrow'] = ( $p1CarouselOpt['arrowsPrev'] ) ? $p1CarouselOpt['arrowsPrev'] : '';
+			}
 			if ( isset( $p1CarouselOpt['arrows'] ) ) {
 				$local_data['data-arrows'] = ( $p1CarouselOpt['arrows'] ) ? 'true' : 'false';
 			}
@@ -194,16 +218,44 @@ if ( ! class_exists( 'Gutentor_P3_Hooks' ) ) {
 				$local_data['data-arrowsPositionMobile'] = ( $p1CarouselOpt['arrowsPosition']['mobile'] . '-mobile' );
 			}
 			if ( isset( $p1CarouselOpt['infinite'] ) ) {
-                $local_data['data-infinite'] = ( $p1CarouselOpt['infinite'] ) ? 'true' : 'false';
+				$local_data['data-infinite'] = ( $p1CarouselOpt['infinite'] ) ? 'true' : 'false';
 
-            }
+			}
 			if ( isset( $p1CarouselOpt['speed'] ) ) {
 				$local_data['data-speed'] = $p1CarouselOpt['speed'];
 			}
 			if ( isset( $p1CarouselOpt['autoplay'] ) ) {
-                $local_data['data-autoplay'] = ( $p1CarouselOpt['autoplay'] ) ? 'true' : 'false';
-                if ( isset( $p1CarouselOpt['autoplaySpeed'] ) ) {
+				$local_data['data-autoplay'] = ( $p1CarouselOpt['autoplay'] ) ? 'true' : 'false';
+				if ( isset( $p1CarouselOpt['autoplaySpeed'] ) ) {
 					$local_data['data-autoplayspeed'] = $p1CarouselOpt['autoplaySpeed'];
+				}
+				if ( isset( $p1CarouselOpt['pauseOnFocus'] ) ) {
+					$local_data['data-pauseonfocus'] = ( $p1CarouselOpt['pauseOnFocus'] ) ? 'true' : 'false';
+				}
+				if ( isset( $p1CarouselOpt['pauseOnHover'] ) ) {
+					$local_data['data-pauseonhover'] = ( $p1CarouselOpt['pauseOnHover'] ) ? 'true' : 'false';
+				}
+			}
+			if ( isset( $p1CarouselOpt['draggable'] ) ) {
+				$local_data['data-draggable'] = ( $p1CarouselOpt['draggable'] ) ? 'true' : 'false';
+			}
+			/*center mode*/
+			if ( isset( $p1CarouselOpt['cmondesktop'] ) ) {
+				$local_data['data-cmondesktop'] = ( $p1CarouselOpt['cmondesktop'] ) ? 'true' : 'false';
+				if ( isset( $p1CarouselOpt['cmpaddingdesktop'] ) ) {
+					$local_data['data-cmpaddingdesktop'] = ( $p1CarouselOpt['cmpaddingdesktop'] ) ? $p1CarouselOpt['cmpaddingdesktop'] : '';
+				}
+			}
+			if ( isset( $p1CarouselOpt['cmontablet'] ) ) {
+				$local_data['data-cmontablet'] = ( $p1CarouselOpt['cmontablet'] ) ? 'true' : 'false';
+				if ( isset( $p1CarouselOpt['cmpaddingtablet'] ) ) {
+					$local_data['data-cmpaddingtablet'] = ( $p1CarouselOpt['cmpaddingtablet'] ) ? $p1CarouselOpt['cmpaddingtablet'] : '';
+				}
+			}
+			if ( isset( $p1CarouselOpt['cmonmobile'] ) ) {
+				$local_data['data-cmonmobile'] = ( $p1CarouselOpt['cmonmobile'] ) ? 'true' : 'false';
+				if ( isset( $p1CarouselOpt['cmpaddingmobile'] ) ) {
+					$local_data['data-cmpaddingmobile'] = ( $p1CarouselOpt['cmpaddingmobile'] ) ? $p1CarouselOpt['cmpaddingmobile'] : '';
 				}
 			}
 			if ( isset( $p1CarouselOpt['slideitem']['desktop'] ) ) {
@@ -277,8 +329,8 @@ if ( ! class_exists( 'Gutentor_P3_Hooks' ) ) {
 if ( ! function_exists( 'gutentor_p3_hooks' ) ) {
 
 	function gutentor_p3_hooks() {
-	    
-	    return Gutentor_P3_Hooks::get_instance();
+
+		return Gutentor_P3_Hooks::get_instance();
 	}
 }
 gutentor_p3_hooks()->run();

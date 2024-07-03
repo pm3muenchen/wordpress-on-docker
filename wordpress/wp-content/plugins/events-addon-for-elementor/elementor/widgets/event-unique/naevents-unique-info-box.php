@@ -44,7 +44,7 @@ class Event_Elementor_Addon_Unique_InfoBox extends Widget_Base{
 	 * Register Events Addon for Elementor Unique Info Box widget controls.
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	*/
-	protected function _register_controls(){
+	protected function register_controls(){
 
 		$this->start_controls_section(
 			'section_infobox',
@@ -57,10 +57,11 @@ class Event_Elementor_Addon_Unique_InfoBox extends Widget_Base{
 			'icon',
 			[
 				'label' => esc_html__( 'Icon', 'events-addon-for-elementor' ),
-				'type' => Controls_Manager::ICON,
-				'options' => NAEEP_Controls_Helper_Output::get_include_icons(),
-				'frontend_available' => true,
-				'default' => 'fa fa-calendar',
+				'type' => Controls_Manager::ICONS,
+				'default' => [
+					'value' => 'fas fa-calendar',
+					'library' => 'fa-solid',
+				],
 			]
 		);
 		$repeater->add_control(
@@ -267,10 +268,6 @@ class Event_Elementor_Addon_Unique_InfoBox extends Widget_Base{
 					[
 						'label' => esc_html__( 'Icon Color', 'events-addon-for-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'scheme' => [
-							'type' => Scheme_Color::get_type(),
-							'value' => Scheme_Color::COLOR_2,
-						],
 						'selectors' => [
 							'{{WRAPPER}} .event-info-item .naeep-icon' => 'color: {{VALUE}};',
 						],
@@ -320,7 +317,6 @@ class Event_Elementor_Addon_Unique_InfoBox extends Widget_Base{
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'name_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 					'selector' => '{{WRAPPER}} .event-info-item h3',
 				]
 			);
@@ -336,10 +332,6 @@ class Event_Elementor_Addon_Unique_InfoBox extends Widget_Base{
 					[
 						'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'scheme' => [
-							'type' => Scheme_Color::get_type(),
-							'value' => Scheme_Color::COLOR_1,
-						],
 						'selectors' => [
 							'{{WRAPPER}} .event-info-item h3' => 'color: {{VALUE}};',
 						],
@@ -389,7 +381,6 @@ class Event_Elementor_Addon_Unique_InfoBox extends Widget_Base{
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'content_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_3,
 					'selector' => '{{WRAPPER}} .event-info-item span',
 				]
 			);
@@ -405,10 +396,6 @@ class Event_Elementor_Addon_Unique_InfoBox extends Widget_Base{
 					[
 						'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'scheme' => [
-							'type' => Scheme_Color::get_type(),
-							'value' => Scheme_Color::COLOR_3,
-						],
 						'selectors' => [
 							'{{WRAPPER}} .event-info-item span' => 'color: {{VALUE}};',
 						],
@@ -448,9 +435,9 @@ class Event_Elementor_Addon_Unique_InfoBox extends Widget_Base{
 		ob_start(); ?>
 			<div class="naeep-event-info">
 			  <div class="col-na-row">
-        <?php if ( is_array( $infoItems_groups ) && !empty( $infoItems_groups ) ) {
+        		<?php if ( is_array( $infoItems_groups ) && !empty( $infoItems_groups ) ) {
 				  foreach ( $infoItems_groups as $each_info ) {
-					$icon = $each_info['icon'] ? $each_info['icon'] : '';
+					$icon = $each_info['icon'] ? $each_info['icon']['value'] : '';
 					$title = $each_info['title'] ? $each_info['title'] : '';
 					$content = $each_info['content'] ? $each_info['content'] : '';
 					$icon = $icon ? '<div class="naeep-icon"><i class="'.esc_attr($icon).'"></i></div>' : '';

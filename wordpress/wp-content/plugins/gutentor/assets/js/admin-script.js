@@ -53,9 +53,9 @@
 
 			$( this ).find('input').prop( 'checked', !$( this ).find('input').prop( 'checked' ) );
             let val = $( this ).find('input').prop( 'checked' );
-            let action = val ? 'activate_block' : 'deactivate_block';
+            let action = val ? 'gutentor_activate_block' : 'gutentor_deactivate_block';
 			if( 'bulk' === block_id ){
-				action = val ? 'bulk_activate_blocks' : 'bulk_deactivate_blocks';
+				action = val ? 'gutentor_bulk_activate_blocks' : 'gutentor_bulk_deactivate_blocks';
 			}
 
             settingAjax( action, block_id );
@@ -63,14 +63,17 @@
 		});
 
         /*Video*/
-        $('.gutentor-getting-started-watch-video').magnificPopup({
-            disableOn: 700,
-            type: 'iframe',
-            mainClass: 'mfp-fade',
-            removalDelay: 160,
-            preloader: false,
-            fixedContentPos: false,
-        });
+		/*WOW*/
+		if ($('.gutentor-getting-started-watch-video').length) {
+			$('.gutentor-getting-started-watch-video').magnificPopup({
+				disableOn: 700,
+				type: 'iframe',
+				mainClass: 'mfp-fade',
+				removalDelay: 160,
+				preloader: false,
+				fixedContentPos: false,
+			});
+		}
 
 		/*Color Picker
 		* Copied for FieldPress
@@ -100,7 +103,6 @@
 			};
 		}
 		var FPPARSERGBACOLOR = function( val ) {
-			console.log(val)
 
 			var value = val.replace(/\s+/g, ''),
 				alpha = ( value.indexOf('rgba') !== -1 ) ? parseFloat( value.replace(/^.*,(.+)\)/, '$1') * 100 ) : 100,
@@ -153,13 +155,11 @@
 
 							/*slider.slide*/
 							slide: function( event, ui ) {
-								console.log(ui)
 
 								var slide_value = parseFloat( ui.value / 100 );
 
 								/*update iris data alpha && wpColorPicker color option && alpha text*/
 								a8cIris._color._alpha = slide_value;
-								console.log(a8cIris._color._alpha)
 								$this.wpColorPicker( 'color', a8cIris._color.toString() );
 								$alpha_text.text( ( slide_value < 1 ? slide_value : '' ) );
 							},
@@ -298,19 +298,79 @@
 		};
 		FPIMAGEUPLOAD();
 
-		/*Gutentor Settings Page*/
-		/*Tab*/
-		/* Remove image */
-		$(document).on('click','.g-settings-wrap .nav-tab-wrapper a',function (e) {
+		/*video loader*/
+		var FPVIDEOUPLOAD = function () {
+			/*Video Meta*/
+			$( document ).on('click', '.gutentor-media-video-upload', function(e){
+					// Prevents the default action from occuring.
+					e.preventDefault();
 
-			e.preventDefault();
-			let childNum = $(this).index();
-			$(this).siblings().removeClass('nav-tab-active');
-			$(this).addClass('nav-tab-active');
-			$(".g-settings-form").find('table').hide();
-			$(".g-settings-form").children('table').eq(childNum).show();
-		});
+					var media_title = $( this ).data( 'title' ),
+						media_button    = $( this ).data( 'button' ),
+						media_input_val = $( this ).prev(),
+						media_image_url = $( this ).siblings( '.gutentor-video-preview-wrap' );
 
+					meta_image_frame = wp.media.frames.meta_image_frame = wp.media(
+						{
+							title: media_title,
+							button: { text:  media_button },
+							library: {
+								type: [ 'video/mp4' ]
+							},
+						}
+					);
+					// Opens the media library frame.
+					meta_image_frame.open();
 
+					// Runs when an video is selected.
+					meta_image_frame.on(
+						'select',
+						function(){
+							// Grabs the attachment selection and creates a JSON representation of the model.
+							var media_attachment = meta_image_frame.state().get( 'selection' ).first().toJSON();
+
+							// Sends the attachment ID/URL to our custom video input field.
+							media_input_val.val( media_attachment.id );
+							var video = $(
+								'<video />',
+								{
+									class: 'gutentor-video-preview',
+									src: media_attachment.url,
+									type: 'video/mp4',
+									controls: true
+								}
+							);
+							media_image_url.html( video );
+
+							media_image_url.show();
+							media_input_val.trigger( 'change' );
+						}
+					);
+				}
+			);
+			// Runs when the video remove button is clicked.
+			$( document ).on('click', '.gutentor-media-video-remove', function(e){
+					$( this ).siblings( '.gutentor-video-preview-wrap' ).html( '' );
+					$( this ).prev().prev().val( '' );
+				}
+			);
+		};
+		FPVIDEOUPLOAD();
+
+		/*Video Src Selection*/
+		$( '#gutentor_meta_video_src_option' ).change(
+			function(){
+				var selected_val         = $( this ).find( ":selected" ).val(),
+					g_video_url   = $( '.header_video' ),
+					g_video_upload = $( '.gutentor-meta-video-upload-wrap' );
+				if (selected_val === 'external-url' ) {
+					g_video_url.show();
+					g_video_url.siblings().hide();
+				} else if (selected_val === 'self-hosted' ) {
+					g_video_upload.show();
+					g_video_upload.siblings().hide();
+				}
+			}
+		).trigger( "change" );
 	});
 })( jQuery );

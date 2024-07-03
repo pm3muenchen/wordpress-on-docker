@@ -1,21 +1,21 @@
-=== Templately - Templates Cloud for Elementor & Gutenberg : 1000+ Free Designs! ===
-Contributors: templately, wpdevteam, re_enter_rupok, Asif2BD, priyomukul, shadab109, mahfuz01
+=== Templately – Gutenberg & Elementor Template Library: 5000+ Free & Pro Ready Templates & Cloud! ===
+Contributors: templately, wpdevteam, re_enter_rupok, Asif2BD, priyomukul, rahat89, alimuzzamanalim
 Donate link: https://templately.com
-Tags: templates, elementor, template-cloud, template, clouds, elementor templates, gutenberg, gutenberg templates, wordpress cloud, cloud backup
+Tags: templates, elementor template, Gutenberg template, landing page, WoCommerce Templates
 Requires at least: 5.0
-Tested up to: 5.6
-Requires PHP: 5.6
-Stable tag: 1.2.1
+Tested up to: 6.5
+Requires PHP: 7.2
+Stable tag: 3.0.9
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Ultimate Free Templates Cloud for WordPress - Elementor & Gutenberg! 1000+ Free Designs!
+Ultimate Free Templates Cloud for WordPress 5000+ Free & Premium Designs for Elementor templates & Gutenberg block templates
 
 == Description ==
 
-= Ultimate Free Templates Cloud for WordPress - Elementor & Gutenberg Supported =
+= ULTIMATE FREE TEMPLATES CLOUD FOR WORDPRESS – ELEMENTOR & GUTENBERG SUPPORTED =
 
-Take your favourite Page Builders to a whole new level & manage all your designs in one place with [Templately](https://templately.com)
+Take your favorite Page Builders to a whole new level & manage all your designs in one place with [Templately](https://templately.com)
 
 https://www.youtube.com/watch?v=coLxfjnrm3I
 
@@ -23,28 +23,40 @@ https://www.youtube.com/watch?v=coLxfjnrm3I
 
 Save all your designs with Templately & deploy in hundreds of websites with 1-click. Increase productivity and power up your whole team to build websites faster than ever before.
 
-### 🌟 Stunning Free Templates: ###
+### 🌟 STUNNING FREE TEMPLATES: ###
 
 Sign up right now and get started with beautiful Templates. You can just import these designs with 1 click & start creating WordPress pages.
 
-### 🚀 Free Storage at MyCloud ###
+### 🔥 Full Site Import: ###
+
+Templately Full Site Import will help you import your entire template pack just in one click. It will change your existing design & not at all affect your current designs.
+
+### 🚀 FREE STORAGE AT MYCLOUD ###
 
 Save your design templates in MyCloud storage and access all your Saved Templates anytime from any device.
 
-### ⚙️ Seamless Integration With Page Builders ###
+### 🤝 COLLABORATE AT MY WORKSPACE ###
+
+Invite your team to work together while building a website and get your work done faster than ever.
+
+### ⚙️ SEAMLESS INTEGRATION WITH PAGE BUILDERS ###
 
 Create landing pages with Elementor, Gutenberg and boost up your page building experience to the next level.
 
-### 🔥 Nearly 1000 Elementor Templates Available Already ###
+### 🔥 Over 2500+ Elementor Templates Available Already ###
 
-Elementor Template are easiest way to build website fast with te most popular pagebuilder, we have 1000 available already.
+Elementor Templates are the easiest way to build websites fast with the most popular website builder, we have 2500+ templates available already.
 
-### 👨‍💻 Super Friendly Support ###
+### 🔥 READY TO USE OVER 2000+ GUTENBERG TEMPLATES ###
+
+Unlock the true possibilities of the Gutenberg block editor with ready-to-use templates from Templately. More than 2000+ templates are ready to build your website in one click.
+
+### 👨‍💻 SUPER FRIENDLY SUPPORT ###
 
 Get help and assistance from our dedicated forum support and create stunning landing pages with Templately.
 
 
-### 🔥 Advanced Premium Templates [PRO] ###
+### 🔥 ADVANCED PREMIUM TEMPLATES [PRO] ###
 
 Create conversion optimized landing pages for every niche using the Templately PRO templates packs.
 
@@ -54,7 +66,7 @@ Create conversion optimized landing pages for every niche using the Templately P
 
 ## 🚀 BACKED BY A TRUSTED TEAM ##
 
-This Templates Cloud is brought to you by the team behind [WPDeveloper](https://wpdeveloper.net), a dedicated marketplace for WordPress, trusted by over 3,000,000+ happy users.
+This Templates Cloud is brought to you by the team behind [WPDeveloper](https://wpdeveloper.com), a dedicated marketplace for WordPress, trusted by over 6 Million+ happy users.
 
 ## 👨‍💻 DOCUMENTATION AND SUPPORT ##
 
@@ -71,15 +83,15 @@ This Templates Cloud is brought to you by the team behind [WPDeveloper](https://
 
 If you like Templately, then consider checking out our other WordPress Plugins:
 
-- 🔝 [Essential Addons For Elementor](https://wordpress.org/plugins/essential-addons-for-elementor-lite/) – Most popular Elementor extensions with 900,000+ active users in the WordPress repository.
+- 🔝 [Essential Addons For Elementor](https://wordpress.org/plugins/essential-addons-for-elementor-lite/) – Most popular Elementor extensions with 2 Million+ active users in the WordPress repository.
+- 🧱 [Essential Blocks for Gutenberg](https://wordpress.org/plugins/essential-blocks/) – Ultimate Gutenberg block library with 45+ exclusive blocks.
 - 🔔 [NotificationX](https://notificationx.com/) – Best Social Proof & FOMO Marketing Solution to increase conversion rates.
-- ⏰ [WP Scheduled Posts](https://wordpress.org/plugins/wp-scheduled-posts/) – Complete solution for WordPress Post Scheduling to manage schedules through an editorial calendar.
+- ⏰ [SchedulePress](https://wordpress.org/plugins/wp-scheduled-posts/) – Complete solution for WordPress Post Scheduling to manage schedules through an editorial calendar.
 - 📄 [EmbedPress](https://wordpress.org/plugins/embedpress/): EmbedPress lets you embed videos, images, posts, audio, maps and upload PDF, DOC, PPT & all other types of content into your WordPress site with one-click and showcase it beautifully for the visitors.
 - 📚 [BetterDocs](https://wordpress.org/plugins/betterdocs/): Best Documentation & Knowledge Base Plugin for WordPress reduce manual support tickets & improve user experience.
-- ⭐ [ReviewX](https://wordpress.org/plugins/reviewx/): WooCommerce Product review plugin that allows users to submit product reviews with multiple criteria, photos, video and more.
-- ⚡ [Flexia](http://wordpress.org/plugins/flexia): Most lightweight, customizable & multi purpose theme for WordPress.
+- 💼 [easy.jobs](https://wordpress.org/plugins/easyjobs/): One-stop recruitment solution for finding the right talent with an AI-powered screening system, and much more.
 
-Visit [WPDeveloper](https://wpdeveloper.net/) to learn more about how to do better in WordPress with [Help Tutorial, Tips & Tricks](https://wpdeveloper.net/blog).
+Visit [WPDeveloper](https://wpdeveloper.com/) to learn more about how to do better in WordPress with [Help Tutorial, Tips & Tricks](https://wpdeveloper.com/blog).
 
 == Installation ==
 
@@ -101,160 +113,92 @@ Visit [WPDeveloper](https://wpdeveloper.net/) to learn more about how to do bett
 
 Yes, it will work with any standard WordPress theme.
 
+= How to use Templately templates? =
+First you have to install Templately on your website then choose your favorite template from the dashboard. With just a single click you can insert Templately templates on your website.
+
+= Does Templately have WooCommerce Templates? =
+Templately has a lot of eCommerce templates which fully supports WooCommerce. So, you can build your WooCommerce store with Templately Templates.
+
+= Can I save my Templates for reusing? =
+Yes. Template comes with Cloud Storage. You can easily save your templates there and reuse them anytime.
+
+= Does Templately have free templates? =
+Yes, We have many free templates for Elementor & Gutenberg that you can use to build your website.
+
+= Will you add more Elementor templates & Gutenberg templates? =
+Every month we are adding new Elementor templates, along with Gutenberg templates & blocks, to help you build stunning websites.
+
 
 == Screenshots ==
 
-1. Template Gallery
-2. Importing ready templates
-3. Saving templates in cloud
-4. Importing templates from MyCloud
-5. MyCloud saved items
+1. Importing Templately Template
+2. Saving Templates in Cloud
+3. Template Gallery
+4. Templately My Clouds
+5. Templately My WorkSpace
 
 
 == Changelog ==
+= 3.0.9 – 13-06-2024 =
+Improved: Added Name (32 chars max) and Password (64 chars max) validation.
+Improved: Plugin dependency in single template import.
+Minor bug fixes and improvements.
 
-= 1.2.1 - 17-02-2021 =
-Fixed: PHP 5.6 compatibility issue.
+= 3.0.8 – 30-05-2024 =
+Fixed: Dependent plugin installation error.
+Few minor bug fixes & improvements
 
-= 1.2.0 - 16-02-2021 =
+= 3.0.7 – 30-05-2024 =
+Fixed: Templately theme builder type error.
+Fixed: Swiper JS loading issue for Single Product page.
+Few minor bug fixes & improvements
 
-Added: Download Button for Cloud Item, WorkSpace Item
-Added: Grid View for Cloud Items, WorkSpace Items.
-Added: Copy for Shared WorkSpace Item.
-Added: Messages for Clouds for Unverified Users.
-Added: Some UI Changes
-Fixed: PreLoader on insertion
-Fixed: Auto logged out for Unverified Users.
-Fixed: Tags Filter Issue
-Fixed: My WorkSpace dropdown css issue.
-Fixed: Lots of UI Issues.
+= 3.0.6 – 09-05-2024 =
+Fixed: CSS loading issue for Gutenberg templates.
+Fixed: Full Site Import issue on LiteSpeed server
+Fixed: Navigation wasn’t working for Gutenberg packs.
+Fixed: Theme builder template was saving as post type instead of template.
+Improved: Navigation for FSI modal.
+Few minor bug fixes & improvements
 
-= 1.1.8 - 17-01-2021 =
+= 3.0.5 – 25-04-2024 =
+Fixed: Header Footer style was blinking after a hard reload.
+Fixed: Template unzipping issue for specific server.
+Fixed: Full site import count issue after a failed import.
+Few minor bug fixes & improvements
 
-Tweaked: Minor changes in the Dashboard UI
-Fixed: Missing insert icon for all blocks
-Few minor bug fix and improvements
+= 3.0.4 – 21-03-2024 =
+Added: WordPress 6.5 compatibility.
+Fixed: Template import issues in LiteSpeed Server.
+Fixed: Template import issues in Gutenberg Editor.
+Fixed: Elementor editor modal's cancel button close the whole Templately modal.
+Fixed: Same form was importing multiple times when it was used in multiple pages.
+Improved: Templates Display Condition from Templately Theme Builder.
+Few minor bug fixes & improvements
 
-= 1.1.7 - 04-01-2021 =
+= 3.0.3 – 05-03-2024 =
+Improved: Dependency plugin installation process for FSI.
+Improved: Dashboard UI for better user experience.
+Few minor bug fixes & improvements
 
-Added: Pretty URL in the Templately Dashboard for all items
-Fixed: Search option for Workspace not working properly
-Few minor bug fix and improvements
+= 3.0.2 – 18-02-2024 =
+Fixed: Gutenberg image import to media library.
+Fixed: Shows error modal if account isn't verified before importing.
+Fixed: Changing the image of a block breaks its design.
+Improved: Templately dashboard network/timeout issue.
+Improved: Template import execution time.
+Few minor bug fixes & improvements
 
-= 1.1.6 - 20-12-2020 =
+= 3.0.1 – 30-01-2024 =
+Fixed: Full site import issue when WordPress is installed in a subdirectory.
+Few minor bug fixes & improvements
 
-Fixed: Search bar not working properly inside Elementor Editor
-Fixed: Item Previews not working properly
-Fixed: Items insertion failure from Preview page
-Few minor bug fix and improvements
+= 3.0.0 – 24-01-2024 =
+Added: Templately Full Site Import 🚀
+Few minor bug fixes & improvements
 
-= 1.1.5 - 09-12-2020 =
-
-Added: Global Login option
-Added: Filter Templates by tags
-Fixed: Safari browser incompatibility
-Fixed: Scrolling not working inside Elementor Editor
-Few minor bug fix and improvements
-
-= 1.1.4 - 26-11-2020 =
-
-- Fixed: Safari Issue
-- Added: Tags Filter
-- Added: Tags Filter
-- Few minor bug fix and improvements
-
-= 1.1.4 - 26-11-2020 =
-
-- Improved: Upgraded to React 17.*
-- Revamped: Code Structure for better performance
-- Fixed: WordPress Dashboard not scrolling from Templately page
-- Fixed: Responsive issues on different devices
-- Few minor bug fix and improvements
-
-= 1.1.3 - 27-10-2020 =
-
-- Fixed: No Items Found error inside Workspace
-- Fixed: Template Insertion placement issue inside Elementor Editor
-- Fixed: Workspace not showing initially inside WordPress Dashboard
-- Added: Pagination option for Templates Overview inside WordPress Dashboard
-- Improved: Overall UI/UX with Revamped Designs
-- Few minor bug fix & improvements
-
-= 1.1.2 - 06-08-2020 =
-
-- Fixed: Push to Cloud from Gutenberg screen.
-- Fixed: Auto refresh in MyClouds Page after redirect from SaveTemplates screen.
-- Enhanced: Changed Push button to Save Post( post_type ) in Templately in Gutenberg Screen.
-
-= 1.1.1 - 17-07-2020 =
-
-- Added: Dependency Plugin filter
-- Fixed: PreviewHeader Insert Issue
-- Lots of minor bugfix and improvements
-
-= 1.1.0 - 16-06-2020 =
-
-- Added: Auto install option for dependency plugins
-- Enhancement : Login/Sign Up Process
-- Fixed : Cloud Search Pagination issue
-- Lots of minor bugfix and improvements
-
-
-= 1.0.2 - 21-05-2020 =
-
-- Added: My Cloud Search
-- Fixed: Lodash & Underscore JS conflict
-- Fixed: Classic Editor conflict
-
-= 1.0.1 - 14-05-2020 =
-
-* Fixed : Pro template insertion issue
-* Fixed : Workspace redirection after delete workspace from it's details page
-* Few minor bugfix and improvement
-
-= 1.0.0 - 14-05-2020 =
-
-* Added : Workspace for better collaboration
-* Added : Platform switcher (Elementor & Gutenberg)
-* Lots of minor bugfix and improvement
-
-= 0.4.0 - 16-04-2020 =
-
-* Added : Search Option
-* Added : Dependency Icons
-* Fixed : Gutenberg insert from preview
-* Lots of minor bugfix and improvement
-
-= 0.3.0 - 30-03-2020 =
-
-* Added : Gutenberg Blocks
-* Improvement : Page, Block, Packs are request optimized
-* Lots of minor bugfix and improvement
-
-= 0.2.0 - 19-03-2020 =
-
-* Introducing : Gutenberg Cloud
-* Improved : Elementor push to cloud functionality
-* Few minor bugfix and improvement
-
-= 0.1.3 - 15-03-2020 =
-
-* Fixed : Conflict with Gutenerg cloud
-
-= 0.1.2 - 15-03-2020 =
-
-* Improved : Signupflow
-* Few minor bugfix and improvement
-
-= 0.1.0 - 11-03-2020 =
-
-* Added : Context Menu in Elementor to directly save blocks and pages
-* Lots of minor bugfix and improvement
-
-= 0.0.1 - 02-03-2020 =
-
-* Initial release
-
+= Earlier versions =
+Please refer to the separate changelog.txt file.
 
 == Upgrade Notice ==
 

@@ -16,7 +16,7 @@ if ($default_multiple_kb) {
     $button_link = get_term_link($term->slug, 'doc_category');
 }
 
-echo '<a href="' . $button_link . '" class="eael-better-docs-category-box-post">
+echo '<a href="' . esc_url( $button_link ) . '" class="eael-better-docs-category-box-post">
     <div class="eael-bd-cb-inner">';
 
     if ($settings['show_icon']) {
@@ -25,7 +25,7 @@ echo '<a href="' . $button_link . '" class="eael-better-docs-category-box-post">
         if ($cat_icon_id) {
             $cat_icon = wp_get_attachment_image($cat_icon_id, 'thumbnail', ['alt' => esc_attr(get_post_meta($cat_icon_id, '_wp_attachment_image_alt', true))]);
         } else {
-            $cat_icon = '<img src="' . BETTERDOCS_ADMIN_URL . 'assets/img/betterdocs-cat-icon.svg" alt="betterdocs-category-box-icon">';
+            $cat_icon = '<img src="' . EAEL_PLUGIN_URL . 'assets/front-end/img/betterdocs-cat-icon.svg" alt="betterdocs-category-box-icon">';
         }
 
         echo '<div class="eael-bd-cb-cat-icon">' . $cat_icon . '</div>';
@@ -36,7 +36,7 @@ echo '<a href="' . $button_link . '" class="eael-better-docs-category-box-post">
     }
 
     if ($settings['show_count']) {
-        printf('<div class="eael-bd-cb-cat-count"><span class="count-prefix">%s</span>%s<span class="count-suffix">%s</span></div>', $settings['count_prefix'], Helper::get_doc_post_count($term->count, $term->term_id), $settings['count_suffix']);
+        printf('<div class="eael-bd-cb-cat-count"><span class="count-prefix">%s</span>%s<span class="count-suffix">%s</span></div>', Helper::eael_wp_kses($settings['count_prefix']) , Helper::get_doc_post_count($term->count, $term->term_id), Helper::eael_wp_kses($settings['count_suffix']));
     }
 
     echo '</div>

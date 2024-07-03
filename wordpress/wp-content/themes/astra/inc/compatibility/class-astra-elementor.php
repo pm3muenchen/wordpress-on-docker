@@ -5,7 +5,13 @@
  * @package Astra
  */
 
-namespace Elementor;// phpcs:ignore PHPCompatibility.Keywords.NewKeywords.t_namespaceFound
+namespace Elementor;// phpcs:ignore PHPCompatibility.Keywords.NewKeywords.t_namespaceFound, WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedNamespaceFound
+
+// @codingStandardsIgnoreStart PHPCompatibility.Keywords.NewKeywords.t_useFound
+use Astra_Global_Palette;
+use Astra_Dynamic_CSS;
+use Elementor\Core\Settings\Manager as SettingsManager;
+// @codingStandardsIgnoreEnd PHPCompatibility.Keywords.NewKeywords.t_useFound
 
 // If plugin - 'Elementor' not exist then return.
 if ( ! class_exists( '\Elementor\Plugin' ) ) {
@@ -48,6 +54,7 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 			add_action( 'wp', array( $this, 'elementor_default_setting' ), 20 );
 			add_action( 'elementor/preview/init', array( $this, 'elementor_default_setting' ) );
 			add_action( 'elementor/preview/enqueue_styles', array( $this, 'elementor_overlay_zindex' ) );
+			add_action( 'elementor/editor/before_enqueue_scripts', array( $this, 'elementor_add_scripts' ) );
 
 			/**
 			 * Compatibility for Elementor Headings after Elementor-v2.9.9.
@@ -55,6 +62,40 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 			 * @since  2.4.5
 			 */
 			add_filter( 'astra_dynamic_theme_css', array( $this, 'enqueue_elementor_compatibility_styles' ) );
+
+			add_action( 'rest_request_after_callbacks', array( $this, 'elementor_add_theme_colors' ), 999, 3 );
+			add_filter( 'rest_request_after_callbacks', array( $this, 'display_global_colors_front_end' ), 999, 3 );
+			add_filter( 'astra_dynamic_theme_css', array( $this, 'generate_global_elementor_style' ), 11 );
+
+			/**
+			 * Compatibility for Elementor title disable from editor and elementor builder.
+			 *
+			 * @since  4.1.0
+			 */
+			add_filter( 'astra_entry_header_class', array( $this, 'astra_entry_header_class_custom' ), 1, 99 );
+		}
+
+
+		/**
+		 * Astra post layout 2 disable compatibility.
+		 *
+		 * @param array $classes Array of elementor edit mode check.
+		 *
+		 * @since 4.1.0
+		 */
+		function astra_entry_header_class_custom( $classes ) {
+			$edit_mode         = get_post_meta( astra_get_post_id(), '_elementor_edit_mode', true );
+			$astra_layout_type = astra_get_option( 'ast-dynamic-single-' . get_post_type() . '-layout', 'layout-1' );
+
+			if ( ( $edit_mode && $edit_mode === 'builder' ) || ( $edit_mode === 'builder' && $astra_layout_type === 'layout-2' ) ) {
+				$classes[] = 'ast-header-without-markup';
+				/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+				if ( $astra_layout_type === 'layout-2' && in_array( 'ast-header-without-markup', $classes ) ) {
+					unset( $classes[ array_search( 'ast-header-without-markup', $classes ) ] );
+				}
+			}
+
+			return $classes;
 		}
 
 		/**
@@ -82,6 +123,10 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 					'.elementor-widget-heading .elementor-heading-title' => array(
 						'margin' => '0',
 					),
+					'.elementor-page .ast-menu-toggle' => array(
+						'color'      => 'unset !important',
+						'background' => 'unset !important',
+					),
 				);
 
 				/* Parse CSS from array() */
@@ -97,6 +142,20 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 						'float'  => 'none',
 					),
 				);
+
+				if ( astra_can_remove_elementor_toc_margin_space() ) {
+					$elementor_base_css['.elementor-toc__list-wrapper'] = array(
+						'margin' => 0,
+					);
+				}
+
+				if ( astra_can_add_styling_for_hr() ) {
+					$elementor_base_css['body .elementor hr'] = array(
+						'background-color' => '#ccc',
+						'margin'           => '0',
+					);
+				}
+
 				// Load base static CSS when Elmentor is activated.
 				$parse_css .= astra_parse_css( $elementor_base_css );
 
@@ -116,10 +175,43 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 					);
 				}
 				$parse_css .= astra_parse_css( $elementor_rtl_support_css );
-				
+
 
 				$dynamic_css .= $parse_css;
 			}
+
+			// To visible proper column structure with elementor flexbox model.
+			$elementor_posts_container_css = array(
+				'.elementor-posts-container [CLASS*="ast-width-"]' => array(
+					'width' => '100%',
+				),
+			);
+			
+			$dynamic_css .= astra_parse_css( $elementor_posts_container_css );
+
+			$elementor_archive_page_css = array(
+				'.elementor-template-full-width .ast-container' => array(
+					'display' => 'block',
+				),
+				'.elementor-screen-only, .screen-reader-text, .screen-reader-text span, .ui-helper-hidden-accessible' => array(
+					'top' => '0 !important',
+				),
+			);
+			$dynamic_css               .= astra_parse_css( $elementor_archive_page_css );
+
+			$dynamic_css .= astra_parse_css(
+				array(
+					'.elementor-element .elementor-wc-products .woocommerce[class*="columns-"] ul.products li.product' => array(
+						'width'  => 'auto',
+						'margin' => '0',
+					),
+					'.elementor-element .woocommerce .woocommerce-result-count' => array(
+						'float' => 'none',
+					),
+				),
+				'',
+				astra_get_mobile_breakpoint()
+			);
 
 			return $dynamic_css;
 		}
@@ -154,9 +246,19 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 					update_post_meta( $id, 'ast-title-bar-display', 'disabled' );
 					update_post_meta( $id, 'ast-featured-img', 'disabled' );
 
-					$content_layout = get_post_meta( $id, 'site-content-layout', true );
+					// Compatibility with revamped layouts to update default layout to page builder.
+					$migrated_user = ( ! Astra_Dynamic_CSS::astra_fullwidth_sidebar_support() );
+					if ( $migrated_user ) {
+						$content_layout = get_post_meta( $id, 'site-content-layout', true );
+					} else {
+						$content_layout = get_post_meta( $id, 'ast-site-content-layout', true );
+					}
+
 					if ( empty( $content_layout ) || 'default' == $content_layout ) {
-						update_post_meta( $id, 'site-content-layout', 'page-builder' );
+						if ( $migrated_user ) {
+							update_post_meta( $id, 'site-content-layout', 'page-builder' );
+						}
+						update_post_meta( $id, 'ast-site-content-layout', 'full-width-container' );
 					}
 
 					$sidebar_layout = get_post_meta( $id, 'site-sidebar-layout', true );
@@ -203,6 +305,9 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 				.elementor-editor-active .elementor-element > .elementor-element-overlay {
 					z-index: 9999;
 				}
+				.elementor-element .elementor-widget-woocommerce-checkout-page #customer_details {
+					background: var(--checkout-sections-background-color, #ffffff);
+				}
 			</style>
 
 			<?php
@@ -218,7 +323,12 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 			if ( version_compare( ELEMENTOR_VERSION, '1.5.0', '<' ) ) {
 				return ( 'builder' === Plugin::$instance->db->get_edit_mode( $id ) );
 			} else {
-				return Plugin::$instance->db->is_built_with_elementor( $id );
+				$document = Plugin::$instance->documents->get( $id );
+				if ( $document ) {
+					return $document->is_built_with_elementor();
+				} else {
+					return false;
+				}
 			}
 		}
 
@@ -237,6 +347,202 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 			return false;
 		}
 
+		/**
+		 * Display theme global colors to Elementor Global colors
+		 *
+		 * @since 3.7.0
+		 * @param object          $response rest request response.
+		 * @param array           $handler Route handler used for the request.
+		 * @param WP_REST_Request $request Request used to generate the response.
+		 * @return object
+		 */
+		public function elementor_add_theme_colors( $response, $handler, $request ) {
+
+			$route = $request->get_route();
+
+			if ( astra_maybe_disable_global_color_in_elementor() ) {
+				return $response;
+			}
+
+			if ( '/elementor/v1/globals' != $route ) {
+				return $response;
+			}
+
+			$global_palette = astra_get_option( 'global-color-palette' );
+			$data           = $response->get_data();
+			$slugs          = Astra_Global_Palette::get_palette_slugs();
+			$labels         = Astra_Global_Palette::get_palette_labels();
+
+			foreach ( $global_palette['palette'] as $key => $color ) {
+
+				$slug = $slugs[ $key ];
+				// Remove hyphens from slug.
+				$no_hyphens = str_replace( '-', '', $slug );
+
+				$data['colors'][ $no_hyphens ] = array(
+					'id'    => esc_attr( $no_hyphens ),
+					'title' => 'Theme ' . $labels[ $key ],
+					'value' => $color,
+				);
+			}
+
+			$response->set_data( $data );
+			return $response;
+		}
+
+		/**
+		 * Display global paltte colors on Elementor front end Page.
+		 *
+		 * @since 3.7.0
+		 * @param object          $response rest request response.
+		 * @param array           $handler Route handler used for the request.
+		 * @param WP_REST_Request $request Request used to generate the response.
+		 * @return object
+		 */
+		public function display_global_colors_front_end( $response, $handler, $request ) {
+			if ( astra_maybe_disable_global_color_in_elementor() ) {
+				return $response;
+			}
+
+			$route = $request->get_route();
+
+			if ( 0 !== strpos( $route, '/elementor/v1/globals' ) ) {
+				return $response;
+			}
+
+			$slug_map      = array();
+			$palette_slugs = Astra_Global_Palette::get_palette_slugs();
+
+			foreach ( $palette_slugs as $key => $slug ) {
+				// Remove hyphens as hyphens do not work with Elementor global styles.
+				$no_hyphens              = str_replace( '-', '', $slug );
+				$slug_map[ $no_hyphens ] = $key;
+			}
+
+			$rest_id = substr( $route, strrpos( $route, '/' ) + 1 );
+
+			if ( ! in_array( $rest_id, array_keys( $slug_map ), true ) ) {
+				return $response;
+			}
+
+			$colors   = astra_get_option( 'global-color-palette' );
+			$response = rest_ensure_response(
+				array(
+					'id'    => esc_attr( $rest_id ),
+					'title' => Astra_Global_Palette::get_css_variable_prefix() . esc_html( $slug_map[ $rest_id ] ),
+					'value' => $colors['palette'][ $slug_map[ $rest_id ] ],
+				)
+			);
+			return $response;
+		}
+
+		/**
+		 * Generate CSS variable style for Elementor.
+		 *
+		 * @since 3.7.0
+		 * @param string $dynamic_css Dynamic CSS.
+		 * @return object
+		 */
+		public function generate_global_elementor_style( $dynamic_css ) {
+			if ( astra_maybe_disable_global_color_in_elementor() ) {
+				return $dynamic_css;
+			}
+
+			$global_palette = astra_get_option( 'global-color-palette' );
+			$palette_style  = array();
+			$slugs          = Astra_Global_Palette::get_palette_slugs();
+			$style          = array();
+
+			if ( isset( $global_palette['palette'] ) ) {
+				foreach ( $global_palette['palette'] as $color_index => $color ) {
+					$variable_key           = '--e-global-color-' . str_replace( '-', '', $slugs[ $color_index ] );
+					$style[ $variable_key ] = $color;
+				}
+
+				$palette_style[':root'] = $style;
+				$dynamic_css           .= astra_parse_css( $palette_style );
+			}
+
+			// Apply Astra Mini Cart CSS if Elementor Mini Cart Template is disabled.
+			$is_site_rtl = is_rtl();
+			$ltr_left    = $is_site_rtl ? 'right' : 'left';
+			$ltr_right   = $is_site_rtl ? 'left' : 'right';
+			if ( defined( 'ELEMENTOR_PRO_VERSION' ) && 'no' === get_option( 'elementor_' . 'use_mini_cart_template' ) ) {
+				$mini_cart_template_css = array(
+					'.woocommerce-js .woocommerce-mini-cart' => array(
+						'margin-inline-start' => '0',
+						'list-style'          => 'none',
+						'padding'             => '1.3em',
+						'flex'                => '1',
+						'overflow'            => 'auto',
+						'position'            => 'relative',
+					),
+					'.woocommerce-js .widget_shopping_cart_content ul li.mini_cart_item' => array(
+						'min-height'            => '60px',
+						'padding-top'           => '1.2em',
+						'padding-bottom'        => '1.2em',
+						'padding-' . $ltr_left  => '5em',
+						'padding-' . $ltr_right => '0',
+					),
+					'.woocommerce-js .woocommerce-mini-cart-item .ast-mini-cart-price-wrap' => array(
+						'float'      => 'right',
+						'margin-top' => '0.5em',
+						'position'   => 'absolute',
+						$ltr_left    => 'auto',
+						$ltr_right   => '0',
+						'top'        => '3.5em',
+					),
+					'.woocommerce-js .widget_shopping_cart_content a.remove' => array(
+						'position' => 'absolute',
+						$ltr_left  => 'auto',
+						$ltr_right => '0',
+					),
+					'.woocommerce-js .woocommerce-mini-cart__total' => array(
+						'display'         => 'flex',
+						'justify-content' => 'space-between',
+						'padding'         => '0.7em 0',
+						'margin-bottom'   => '0',
+						'font-size'       => '16px',
+						'border-top'      => '1px solid var(--ast-border-color)',
+						'border-bottom'   => '1px solid var(--ast-border-color)',
+					),
+					'.woocommerce-mini-cart__buttons' => array(
+						'display'        => 'flex',
+						'flex-direction' => 'column',
+						'gap'            => '20px',
+						'padding-top'    => '1.34em',
+					),
+					'.woocommerce-mini-cart__buttons .button' => array(
+						'text-align'  => 'center',
+						'font-weight' => '500',
+						'font-size'   => '16px',
+					),
+					'.woocommerce-js ul.product_list_widget li a img' => array(
+						'top' => '52%',
+					),
+					'.ast-mini-cart-empty .ast-mini-cart-message' => array(
+						'display' => 'none',
+					),
+				);
+				$dynamic_css           .= astra_parse_css( $mini_cart_template_css );
+			}
+			return $dynamic_css;
+		}
+
+		/**
+		 * Load style inside Elementor editor.
+		 *
+		 * @since 3.7.0
+		 * @return void
+		 */
+		public function elementor_add_scripts() {
+
+			$editor_preferences = SettingsManager::get_settings_managers( 'editorPreferences' );
+			$theme              = $editor_preferences->get_model()->get_settings( 'ui_theme' );
+			$style              = 'dark' == $theme ? '-dark' : '';
+
+			wp_enqueue_style( 'astra-elementor-editor-style', ASTRA_THEME_URI . 'inc/assets/css/ast-elementor-editor' . $style . '.css', array(), ASTRA_THEME_VERSION );
+		}
 	}
 
 endif;

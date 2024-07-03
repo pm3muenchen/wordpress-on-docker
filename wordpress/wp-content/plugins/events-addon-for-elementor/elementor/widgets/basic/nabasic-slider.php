@@ -44,7 +44,7 @@ class Event_Elementor_Addon_Slider extends Widget_Base{
 	 * Register Events Addon for Elementor Slider widget controls.
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	*/
-	protected function _register_controls(){
+	protected function register_controls(){
 
 		$this->start_controls_section(
 			'section_slider',
@@ -123,10 +123,11 @@ class Event_Elementor_Addon_Slider extends Widget_Base{
 			'btn_icon',
 			[
 				'label' => esc_html__( 'Button Icon', 'events-addon-for-elementor' ),
-				'type' => Controls_Manager::ICON,
-				'options' => NAEEP_Controls_Helper_Output::get_include_icons(),
-				'frontend_available' => true,
-				'default' => 'fa fa-arrow-right',
+				'type' => Controls_Manager::ICONS,
+				'default' => [
+					'value' => 'fas fa-arrow-right',
+					'library' => 'fa-solid',
+				],
 				'condition' => [
 					'btn_type' => 'link',
 				],
@@ -176,10 +177,11 @@ class Event_Elementor_Addon_Slider extends Widget_Base{
 			'btn_two_icon',
 			[
 				'label' => esc_html__( 'Button Icon', 'events-addon-for-elementor' ),
-				'type' => Controls_Manager::ICON,
-				'options' => NAEEP_Controls_Helper_Output::get_include_icons(),
-				'frontend_available' => true,
-				'default' => 'fa fa-arrow-right',
+				'type' => Controls_Manager::ICONS,
+				'default' => [
+					'value' => 'fas fa-arrow-right',
+					'library' => 'fa-solid',
+				],
 				'condition' => [
 					'btn_type_two' => 'link',
 				],
@@ -713,10 +715,6 @@ class Event_Elementor_Addon_Slider extends Widget_Base{
 					[
 						'label' => esc_html__( 'Background Color', 'events-addon-for-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'scheme' => [
-							'type' => Scheme_Color::get_type(),
-							'value' => Scheme_Color::COLOR_2,
-						],
 						'selectors' => [
 							'{{WRAPPER}} .swiper-pagination-bullet.swiper-pagination-bullet-active' => 'background: {{VALUE}};',
 						],
@@ -747,7 +745,6 @@ class Event_Elementor_Addon_Slider extends Widget_Base{
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'title_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 					'selector' => '{{WRAPPER}} .banner-caption h1',
 				]
 			);
@@ -756,10 +753,6 @@ class Event_Elementor_Addon_Slider extends Widget_Base{
 				[
 					'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_1,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .banner-caption h1' => 'color: {{VALUE}};',
 					],
@@ -770,10 +763,6 @@ class Event_Elementor_Addon_Slider extends Widget_Base{
 				[
 					'label' => esc_html__( 'Highlight Title Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_1,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .banner-caption h1 span' => 'color: {{VALUE}};',
 					],
@@ -804,7 +793,6 @@ class Event_Elementor_Addon_Slider extends Widget_Base{
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'slider_content_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_3,
 					'selector' => '{{WRAPPER}} .banner-caption p',
 				]
 			);
@@ -813,10 +801,6 @@ class Event_Elementor_Addon_Slider extends Widget_Base{
 				[
 					'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_3,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .banner-caption p' => 'color: {{VALUE}};',
 					],
@@ -847,7 +831,6 @@ class Event_Elementor_Addon_Slider extends Widget_Base{
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'button_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_4,
 					'selector' => '{{WRAPPER}} .banner-caption .btn-one.naeep-btn',
 				]
 			);
@@ -979,7 +962,6 @@ class Event_Elementor_Addon_Slider extends Widget_Base{
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'button_two_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_4,
 					'selector' => '{{WRAPPER}} .banner-caption .btn-two.naeep-btn',
 				]
 			);
@@ -1172,7 +1154,6 @@ class Event_Elementor_Addon_Slider extends Widget_Base{
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'form_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 					'selector' => '{{WRAPPER}} .slider-form input[type="text"],
 					{{WRAPPER}} .slider-form input[type="email"],
 					{{WRAPPER}} .slider-form input[type="date"],
@@ -1249,7 +1230,6 @@ class Event_Elementor_Addon_Slider extends Widget_Base{
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'submit_button_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_4,
 					'selector' => '{{WRAPPER}} .slider-form input[type="submit"]',
 				]
 			);
@@ -1319,10 +1299,6 @@ class Event_Elementor_Addon_Slider extends Widget_Base{
 					[
 						'label' => esc_html__( 'Background Color', 'events-addon-for-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'scheme' => [
-							'type' => Scheme_Color::get_type(),
-							'value' => Scheme_Color::COLOR_2,
-						],
 						'selectors' => [
 							'{{WRAPPER}} .slider-form input[type="submit"]' => 'background-color: {{VALUE}};',
 						],
@@ -1400,13 +1376,13 @@ class Event_Elementor_Addon_Slider extends Widget_Base{
 		$carousel_mousedrag  = ( isset( $settings['carousel_mousedrag'] ) && ( 'true' == $settings['carousel_mousedrag'] ) ) ? $settings['carousel_mousedrag'] : 'false';
 
 		// Carousel Data's
-		$carousel_loop = $carousel_loop !== 'true' ? ' data-loop="true"' : ' data-loop="false"';
-		$carousel_autoplay_timeout = $carousel_autoplay_timeout ? ' data-swiper-autoplay='. $carousel_autoplay_timeout .'' : ' data-swiper-autoplay=5000';
-		$carousel_speed = $carousel_speed ? ' data-speed="'. $carousel_speed .'"' : ' data-speed="1000"';
-		$carousel_autoplay = $carousel_autoplay ? ' data-autoplay="true"' : ' data-autoplay="false"';
-		$clickable_pagi = $clickable_pagi ? 'data-clickpage="true"' : '';
-		$carousel_effect = (isset($settings['carousel_effect'])) ? ' data-effect="'.$carousel_effect.'"' : '';
-		$carousel_mousedrag = $carousel_mousedrag !== 'true' ? ' data-mousedrag="true"' : ' data-mousedrag="false"';
+		$carousel_loop = $carousel_loop !== 'true' ? 'true' : 'false';
+		$carousel_autoplay_timeout = $carousel_autoplay_timeout ? $carousel_autoplay_timeout : '5000';
+		$carousel_speed = $carousel_speed ? $carousel_speed : '1000';
+		$carousel_autoplay = $carousel_autoplay ? 'true' : 'false';
+		$clickable_pagi = $clickable_pagi ? 'true' : '';
+		$carousel_effect = (isset($settings['carousel_effect'])) ? $carousel_effect : '';
+		$carousel_mousedrag = $carousel_mousedrag !== 'true' ? 'true' : 'false';
 
 
 		$content_entrance_animation = !empty( $settings['content_entrance_animation'] ) ? $settings['content_entrance_animation'] : '';
@@ -1424,7 +1400,7 @@ class Event_Elementor_Addon_Slider extends Widget_Base{
 		ob_start();
 
 		 ?>
-<div class="swiper-container naeep-swiper-slide swiper-slides swiper-keyboard" <?php echo $carousel_loop . $carousel_autoplay . $carousel_effect . $carousel_speed . $clickable_pagi . $carousel_mousedrag; ?> data-swiper="container">
+<div class="swiper-container naeep-swiper-slide swiper-slides swiper-keyboard" data-loop="<?php echo esc_attr( $carousel_loop ); ?>" data-swiper-autoplay="<?php echo esc_attr( $carousel_autoplay ); ?>" data-speed="<?php echo esc_attr( $carousel_speed ); ?>" data-clickpage="<?php echo esc_attr( $clickable_pagi ); ?>" data-effect="<?php echo esc_attr( $carousel_effect ); ?>" data-mousedrag="<?php echo esc_attr( $carousel_mousedrag ); ?>" data-swiper="container">
   <div class="swiper-wrapper">
 
     <?php
@@ -1441,7 +1417,7 @@ class Event_Elementor_Addon_Slider extends Widget_Base{
 					$content_image_url = wp_get_attachment_url( $slider_content_image );
 
 					$btn_type = !empty( $each_item['btn_type'] ) ? $each_item['btn_type'] : '';
-					$btn_icon = !empty( $each_item['btn_icon'] ) ? $each_item['btn_icon'] : '';
+					$btn_icon = !empty( $each_item['btn_icon'] ) ? $each_item['btn_icon']['value'] : '';
 					$button_text = !empty( $each_item['btn_txt'] ) ? $each_item['btn_txt'] : '';
 					$button_link = !empty( $each_item['button_link']['url'] ) ? $each_item['button_link']['url'] : '';
 					$button_link_external = !empty( $each_item['button_link']['is_external'] ) ? 'target="_blank"' : '';
@@ -1449,7 +1425,7 @@ class Event_Elementor_Addon_Slider extends Widget_Base{
 					$button_link_attr = !empty( $button_link ) ?  $button_link_external.' '.$button_link_nofollow : '';
 
 					$btn_type_two = !empty( $each_item['btn_type_two'] ) ? $each_item['btn_type_two'] : '';
-					$btn_two_icon = !empty( $each_item['btn_two_icon'] ) ? $each_item['btn_two_icon'] : '';
+					$btn_two_icon = !empty( $each_item['btn_two_icon'] ) ? $each_item['btn_two_icon']['value'] : '';
 					$button_two_text = !empty( $each_item['btn_two_txt'] ) ? $each_item['btn_two_txt'] : '';
 					$button_two_link = !empty( $each_item['button_two_link']['url'] ) ? $each_item['button_two_link']['url'] : '';
 					$button_two_link_external = !empty( $each_item['button_two_link']['is_external'] ) ? 'target="_blank"' : '';
@@ -1503,7 +1479,7 @@ class Event_Elementor_Addon_Slider extends Widget_Base{
 						$col_class = 'col-na-12';
 					}
 					?>
-					<div class="swiper-slide naeep-banner naeep-overlay" style="background-image: url(<?php echo esc_url($image_url); ?>);"<?php echo esc_attr( $carousel_autoplay_timeout ); ?>>
+					<div class="swiper-slide naeep-banner naeep-overlay" style="background-image: url(<?php echo esc_url($image_url); ?>);" data-swiper-autoplay="<?php echo esc_attr( $carousel_autoplay_timeout ); ?>">
 	          <div class="naeep-table-wrap">
 			        <div class="naeep-align-wrap">
 			          <div class="banner-container">

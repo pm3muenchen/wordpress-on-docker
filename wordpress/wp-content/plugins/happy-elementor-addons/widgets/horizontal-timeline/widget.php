@@ -12,9 +12,9 @@ use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Typography;
 use Elementor\Icons_Manager;
 use Elementor\Repeater;
-use Elementor\Scheme_Typography;
 use Elementor\Utils;
 use Elementor\Group_Control_Image_Size;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 
 defined( 'ABSPATH' ) || die();
 
@@ -44,10 +44,19 @@ class Horizontal_Timeline extends Base {
 	}
 
 	public function get_keywords() {
-		return [ 'horizontal', 'timeline' ];
+		return [ 'horizontal', 'timeline', 'slider', 'carousel', 'scroll' ];
 	}
 
+	/**
+     * Register widget content controls
+     */
 	protected function register_content_controls() {
+		$this->__timeline_content_controls();
+		$this->__settings_content_controls();
+	}
+
+	protected function __timeline_content_controls() {
+
 		$this->start_controls_section(
 			'_section_timeline',
 			[
@@ -117,6 +126,19 @@ class Horizontal_Timeline extends Base {
 		);
 
 		$repeater->add_control(
+			'event_link',
+			[
+				'label' => esc_html__( 'Link', 'happy-elementor-addons' ),
+				'type' => Controls_Manager::URL,
+				'placeholder' => esc_html__( 'https://your-link.com', 'happy-elementor-addons' ),
+				'default' => [
+					'url' => '',
+				],
+				'label_block' => true,
+			]
+		);
+
+		$repeater->add_control(
 			'event_subtitle',
 			[
 				'label' => __( 'Sub Title', 'happy-elementor-addons' ),
@@ -130,7 +152,8 @@ class Horizontal_Timeline extends Base {
 			'event_description',
 			[
 				'label' => __( 'Description', 'happy-elementor-addons' ),
-				'type' => Controls_Manager::TEXTAREA,
+				// 'type' => Controls_Manager::TEXTAREA,
+				'type' => Controls_Manager::WYSIWYG,
 				'label_block' => true,
 				'placeholder' => __( 'Event Description', 'happy-elementor-addons' ),
 				'default' => __( 'Best Elementor Addons Plugin.', 'happy-elementor-addons' ),
@@ -178,6 +201,36 @@ class Horizontal_Timeline extends Base {
 			]
 		);
 
+
+		$repeater->add_control(
+			'custom_title_color',
+			[
+				'label' => __( 'Title Color', 'happy-elementor-addons' ),
+				'type' => Controls_Manager::COLOR,
+				'condition' => [
+					'custom_look' => 'yes'
+				],
+				'selectors' => [
+					'{{WRAPPER}} {{CURRENT_ITEM}}.ha-horizontal-timeline-block .ha-horizontal-timeline-content .ha-horizontal-timeline-title' => 'color: {{VALUE}}',
+					'{{WRAPPER}} {{CURRENT_ITEM}}.ha-horizontal-timeline-block .ha-horizontal-timeline-content .ha-horizontal-timeline-title a' => 'color: {{VALUE}}',
+				],
+			]
+		);
+
+		$repeater->add_control(
+			'custom_link_hover_color',
+			[
+				'label' => __( 'Title Color Hover', 'happy-elementor-addons' ),
+				'type' => Controls_Manager::COLOR,
+				'condition' => [
+					'custom_look' => 'yes'
+				],
+				'selectors' => [
+					'{{WRAPPER}} {{CURRENT_ITEM}}.ha-horizontal-timeline-block .ha-horizontal-timeline-content .ha-horizontal-timeline-title a:hover' => 'color: {{VALUE}}',
+				],
+			]
+		);
+
 		$repeater->add_control(
 			'custom_content_background_color',
 			[
@@ -203,8 +256,7 @@ class Horizontal_Timeline extends Base {
 					'custom_look' => 'yes'
 				],
 				'selectors' => [
-					'{{WRAPPER}} {{CURRENT_ITEM}}.ha-horizontal-timeline-block .ha-horizontal-timeline-content .ha-horizontal-timeline-title' => 'color: {{VALUE}}',
-					'{{WRAPPER}} {{CURRENT_ITEM}}.ha-horizontal-timeline-block .ha-horizontal-timeline-content .ha-horizontal-timeline-subtitle' => 'color: {{VALUE}}',
+					// '{{WRAPPER}} {{CURRENT_ITEM}}.ha-horizontal-timeline-block .ha-horizontal-timeline-content .ha-horizontal-timeline-subtitle' => 'color: {{VALUE}}',
 					'{{WRAPPER}} {{CURRENT_ITEM}}.ha-horizontal-timeline-block .ha-horizontal-timeline-content .ha-horizontal-timeline-description' => 'color: {{VALUE}}'
 				],
 			]
@@ -239,12 +291,36 @@ class Horizontal_Timeline extends Base {
 		);
 
 		$this->end_controls_section();
+	}
+
+	protected function __settings_content_controls() {
 
 		$this->start_controls_section(
 			'_section_settings',
 			[
 				'label' => __( 'Settings', 'happy-elementor-addons' ),
 				'tab'   => Controls_Manager::TAB_CONTENT,
+			]
+		);
+
+		$this->add_control(
+			'title_tag',
+			[
+				'label' => __( 'Title HTML Tag', 'happy-elementor-addons' ),
+				'type' => Controls_Manager::SELECT,
+				// 'separator' => 'before',
+				'options' => [
+					'h1' => 'H1',
+					'h2' => 'H2',
+					'h3' => 'H3',
+					'h4' => 'H4',
+					'h5' => 'H5',
+					'h6' => 'H6',
+					'div' => 'div',
+					'span' => 'span',
+					'p' => 'p',
+				],
+				'default' => 'h2',
 			]
 		);
 
@@ -257,15 +333,15 @@ class Horizontal_Timeline extends Base {
 				'options' => [
 					'left' => [
 						'title' => __( 'Left', 'happy-elementor-addons' ),
-						'icon' => 'fa fa-align-left',
+						'icon' => 'eicon-text-align-left',
 					],
 					'center' => [
 						'title' => __( 'Center', 'happy-elementor-addons' ),
-						'icon' => 'fa fa-align-center',
+						'icon' => 'eicon-text-align-center',
 					],
 					'right' => [
 						'title' => __( 'Right', 'happy-elementor-addons' ),
-						'icon' => 'fa fa-align-right',
+						'icon' => 'eicon-text-align-right',
 					],
 				],
 				'toggle' => true,
@@ -284,6 +360,18 @@ class Horizontal_Timeline extends Base {
 			'content_arrow',
 			[
 				'label' => __( 'Hide Content Arrow', 'happy-elementor-addons' ),
+				'type' => Controls_Manager::SWITCHER,
+				'label_on' => __( 'Yes', 'happy-elementor-addons' ),
+				'label_off' => __( 'No', 'happy-elementor-addons' ),
+				'return_value' => 'yes',
+				'default' => 'no',
+			]
+		);
+
+		$this->add_control(
+			'magnific_popup',
+			[
+				'label' => __( 'Enable Lightbox', 'happy-elementor-addons' ),
 				'type' => Controls_Manager::SWITCHER,
 				'label_on' => __( 'Yes', 'happy-elementor-addons' ),
 				'label_off' => __( 'No', 'happy-elementor-addons' ),
@@ -362,6 +450,23 @@ class Horizontal_Timeline extends Base {
 		);
 
 		$this->add_control(
+			'slides_to_scroll',
+			[
+				'label' => __( 'Scroll As Shown Slides', 'happy-elementor-addons' ),
+				'type' => Controls_Manager::SWITCHER,
+				'description' => __( 'Scroll slide number will be same as Slides To Show.', 'happy-elementor-addons' ),
+				'label_on' => __( 'Yes', 'happy-elementor-addons' ),
+				'label_off' => __( 'No', 'happy-elementor-addons' ),
+				'return_value' => 'yes',
+				'frontend_available' => true,
+				'render_type' => 'ui',
+				'condition' => [
+					'slides_to_show!' => '1'
+				],
+			]
+		);
+
+		$this->add_control(
 			'arrow_prev_icon',
 			[
 				'label' => __( 'Previous Icon', 'happy-elementor-addons' ),
@@ -392,7 +497,17 @@ class Horizontal_Timeline extends Base {
 		$this->end_controls_section();
 	}
 
+	/**
+     * Register widget style controls
+     */
 	protected function register_style_controls() {
+		$this->__timeline_style_controls();
+		$this->__arrow_style_controls();
+		$this->__content_style_controls();
+	}
+
+	protected function __timeline_style_controls() {
+
 		$this->start_controls_section(
 			'_section_style_timeline',
 			[
@@ -471,7 +586,9 @@ class Horizontal_Timeline extends Base {
 				'name' => 'date_typography',
 				'label' => __( 'Typography', 'happy-elementor-addons' ),
 				'selector' => '{{WRAPPER}} .ha-horizontal-timeline-date',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_3
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_TEXT,
+				],
 			]
 		);
 
@@ -574,6 +691,9 @@ class Horizontal_Timeline extends Base {
 		);
 
 		$this->end_controls_section();
+	}
+
+	protected function __arrow_style_controls() {
 
 		$this->start_controls_section(
 			'_section_style_arrows',
@@ -741,6 +861,9 @@ class Horizontal_Timeline extends Base {
 		$this->end_controls_tabs();
 
 		$this->end_controls_section();
+	}
+
+	protected function __content_style_controls() {
 
 		$this->start_controls_section(
 			'_section_content_style',
@@ -939,7 +1062,9 @@ class Horizontal_Timeline extends Base {
 				'name' => 'title_typography',
 				'label' => __( 'Typography', 'happy-elementor-addons' ),
 				'selector' => '{{WRAPPER}} .ha-horizontal-timeline-title',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_2
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
+				],
 			]
 		);
 
@@ -950,9 +1075,22 @@ class Horizontal_Timeline extends Base {
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .ha-horizontal-timeline-title' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .ha-horizontal-timeline-title a' => 'color: {{VALUE}}',
 				],
 			]
 		);
+
+		$this->add_control(
+			'title_color_hover',
+			[
+				'label' => __( 'Hover Color', 'happy-elementor-addons' ),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .ha-horizontal-timeline-title a:hover' => 'color: {{VALUE}}',
+				],
+			]
+		);
+
 
 		$this->add_control(
 			'subtitle_heading',
@@ -981,7 +1119,9 @@ class Horizontal_Timeline extends Base {
 				'name' => 'subtitle_typography',
 				'label' => __( 'Typography', 'happy-elementor-addons' ),
 				'selector' => '{{WRAPPER}} .ha-horizontal-timeline-subtitle',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_3
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_TEXT,
+				],
 			]
 		);
 
@@ -1011,7 +1151,9 @@ class Horizontal_Timeline extends Base {
 				'name' => 'description_typography',
 				'label' => __( 'Typography', 'happy-elementor-addons' ),
 				'selector' => '{{WRAPPER}} .ha-horizontal-timeline-description',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_3
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_TEXT,
+				],
 			]
 		);
 
@@ -1036,6 +1178,7 @@ class Horizontal_Timeline extends Base {
 		if ( empty( $settings['timeline'] ) ) {
 			return;
 		}
+		$magnific_popup = '';
 
 		$this->add_render_attribute( 'wrapper', 'class', 'ha-horizontal-timeline-wrapper' );
 		$this->add_render_attribute( 'wrapper', 'class', 'ha-carousel' );
@@ -1043,7 +1186,7 @@ class Horizontal_Timeline extends Base {
 		<div <?php echo $this->get_render_attribute_string( 'wrapper' ); ?>>
 
 			<?php foreach ( $settings['timeline'] as $timeline ) : ?>
-				<div class="ha-horizontal-timeline-block elementor-repeater-item-<?php echo $timeline['_id']; ?>">
+				<div class="ha-horizontal-timeline-block elementor-repeater-item-<?php echo esc_attr( $timeline['_id'] ); ?>">
 					<div class="ha-horizontal-timeline-icon-box">
 
 						<span class="ha-horizontal-timeline-date"><?php echo esc_html( $timeline['event_date'] ); ?></span>
@@ -1066,18 +1209,49 @@ class Horizontal_Timeline extends Base {
 
 						<div class="ha-horizontal-timeline-inner">
 							<?php if ( ! empty( $timeline['image']['url'] ) ) : ?>
-								<div class="ha-horizontal-timeline-image">
+								<?php
+									if( 'yes' === $settings['magnific_popup'] && ! ha_elementor()->editor->is_edit_mode() ){
+										$magnific_popup = 'data-mfp-src=' . esc_url($timeline['image']['url']);
+									}
+								?>
+								<div class="ha-horizontal-timeline-image" <?php echo $magnific_popup;?>>
 									<?php echo Group_Control_Image_Size::get_attachment_image_html( $timeline, 'thumbnail', 'image' ); ?>
 								</div>
 							<?php endif; ?>
 
-							<h2 class="ha-horizontal-timeline-title"><?php echo esc_html( $timeline['event_title'] ); ?></h2>
+							<?php
+
+								if ( ! empty( $timeline['event_link']['url'] ) ) {
+									$this->add_link_attributes( 'event_link', $timeline['event_link'] );
+									if ( $timeline['event_title'] ) {
+										printf( '<%2$s class="ha-horizontal-timeline-title"><a %1$s>%3$s</a></%2$s>',
+											$this->get_render_attribute_string( 'event_link' ),
+											ha_escape_tags( $settings['title_tag'], 'h2' ),
+											esc_html( $timeline['event_title'] )
+										);
+									}
+									$this->remove_render_attribute( 'event_link');
+								}else{
+
+									if ( $timeline['event_title'] ) {
+										printf( '<%1$s class="ha-horizontal-timeline-title">%2$s</%1$s>',
+											ha_escape_tags( $settings['title_tag'], 'h2' ),
+											esc_html( $timeline['event_title'] )
+										);
+									}
+							}
+
+							?>
 
 							<?php if ( !empty( $timeline['event_subtitle'] ) ) : ?>
 								<span class="ha-horizontal-timeline-subtitle"><?php echo esc_html( $timeline['event_subtitle'] ); ?></span>
 							<?php endif; ?>
 
-							<p class="ha-horizontal-timeline-description"><?php echo esc_html( $timeline['event_description'] ); ?></p>
+							<?php
+							if ($timeline['event_description']) {
+								printf('<div class="ha-horizontal-timeline-description">%s</div>', $this->parse_text_editor($timeline['event_description']));
+							}
+							?>
 						</div>
 					</div>
 				</div>

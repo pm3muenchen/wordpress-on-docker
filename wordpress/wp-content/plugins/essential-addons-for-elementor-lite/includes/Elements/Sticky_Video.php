@@ -81,7 +81,7 @@ class Sticky_Video extends Widget_Base
         ];
     }
 
-    protected function _register_controls()
+    protected function register_controls()
     {
         /**
          * General
@@ -164,6 +164,9 @@ class Sticky_Video extends Widget_Base
                 'condition' => [
                     'eael_video_source' => 'youtube',
                 ],
+                'ai' => [
+					'active' => false,
+				],
             ]
         );
 
@@ -179,6 +182,9 @@ class Sticky_Video extends Widget_Base
                 'condition' => [
                     'eael_video_source' => 'vimeo',
                 ],
+                'ai' => [
+					'active' => false,
+				],
             ]
         );
 
@@ -193,6 +199,9 @@ class Sticky_Video extends Widget_Base
                 'condition' => [
                     'eael_video_source' => 'dailymotion',
                 ],
+                'ai' => [
+					'active' => false,
+				],
             ]
         );
 
@@ -224,6 +233,9 @@ class Sticky_Video extends Widget_Base
                     'eael_video_source' => 'self_hosted',
                     'eaelsv_link_external' => '',
                 ],
+                'ai' => [
+                    'active' => false,
+                ],
             ]
         );
 
@@ -240,6 +252,9 @@ class Sticky_Video extends Widget_Base
                     'eael_video_source' => 'self_hosted',
                     'eaelsv_link_external' => 'yes',
                 ],
+                'ai' => [
+					'active' => false,
+				],
             ]
         );
 
@@ -252,6 +267,9 @@ class Sticky_Video extends Widget_Base
                 'condition' => [
                     'eael_video_source' => 'self_hosted',
                     'eael_video_source_external' => '',
+                ],
+                'ai' => [
+                    'active' => false,
                 ],
             ]
         );
@@ -309,6 +327,18 @@ class Sticky_Video extends Widget_Base
         );
 
         $this->add_control(
+            'eaelsv_autopaly_description',
+            [
+                'raw' => __('Autoplay requires mute volume.', 'essential-addons-for-elementor-lite'),
+                'type' => Controls_Manager::RAW_HTML,
+                'content_classes' => 'elementor-panel-alert elementor-panel-alert-info',
+                'condition' => [
+                    'eaelsv_autopaly' => 'yes',
+                ],
+            ]
+        );
+
+        $this->add_control(
             'eaelsv_mute',
             [
                 'label' => __('Mute', 'essential-addons-for-elementor-lite'),
@@ -316,6 +346,9 @@ class Sticky_Video extends Widget_Base
                 'label_block' => false,
                 'return_value' => 'yes',
                 'default' => '',
+                'condition' => [
+                    'eaelsv_autopaly!' => 'yes',
+                ],
             ]
         );
 
@@ -357,11 +390,12 @@ class Sticky_Video extends Widget_Base
             'eaelsv_overlay_options',
             [
                 'label' => __('Image Overlay', 'essential-addons-for-elementor-lite'),
-                'type' => Controls_Manager::SWITCHER,
-                'label_block' => false,
-                'label_on' => __('Show', 'essential-addons-for-elementor-lite'),
-                'label_off' => __('Hide', 'essential-addons-for-elementor-lite'),
-                'return_value' => 'yes',
+                'type' => Controls_Manager::SELECT,
+                'options' => [
+	                '' => __('Default', 'essential-addons-for-elementor-lite'),
+	                'yes' => __('Custom', 'essential-addons-for-elementor-lite'),
+	                'transparent' => __('Transparent', 'essential-addons-for-elementor-lite'),
+                ],
                 'default' => '',
             ]
         );
@@ -377,6 +411,9 @@ class Sticky_Video extends Widget_Base
                 ],
                 'default' => [
                     'url' => \Elementor\Utils::get_placeholder_image_src(),
+                ],
+                'ai' => [
+                    'active' => false,
                 ],
             ]
         );
@@ -417,6 +454,15 @@ class Sticky_Video extends Widget_Base
                 ],
             ]
         );
+
+        $this->add_control( 'eaelsv_icon_new_notice', [
+			'type'            => Controls_Manager::RAW_HTML,
+			'raw'             => __( 'Play icon appears on top of overlay image.', 'essential-addons-for-elementor-lite' ),
+			'content_classes' => 'elementor-panel-alert elementor-panel-alert-info',
+            'condition' => [
+                'eaelsv_overlay_options' => 'yes',
+            ],
+		] );
 
         $this->end_controls_section();
 
@@ -703,6 +749,7 @@ class Sticky_Video extends Widget_Base
         $sticky = $settings['eaelsv_is_sticky'];
         $autoplay = ($settings['eaelsv_autopaly'] == 'yes') ? $settings['eaelsv_autopaly'] : 'no';
         $eaelsvPlayer = '';
+	    $eaelsv_overlay_visibility = $settings['eaelsv_overlay_options'];
 
         if ('youtube' == $settings['eael_video_source']) {
             $eaelsvPlayer = $this->eaelsv_load_player_youtube();
@@ -714,26 +761,32 @@ class Sticky_Video extends Widget_Base
             $eaelsvPlayer = $this->eaelsv_load_player_self_hosted();
         }
 
-        echo '<div class="eael-sticky-video-wrapper">';
+	    echo '<div class="eael-sticky-video-wrapper eaelsv-overlay-visibility-' . esc_attr( $eaelsv_overlay_visibility ) . '">';
         if ('yes' === $settings['eaelsv_overlay_options']) {
             // $autoplay = 'yes';
             $icon = '';
             if ('yes' === $settings['eaelsv_overlay_play_icon']) {
                 if ($iconNew['value'] != '') {
                     if (is_array($iconNew['value'])) {
-                        $icon = '<img src="' . $iconNew['value']['url'] .  '" width="100">';
+                        $icon = '<img src="' . esc_url( $iconNew['value']['url'] ) .  '" width="100">';
                     } else {
-                        echo $icon = '<i class="' . $iconNew['value'] . '"></i>';
+                        $icon = '<i class="' . esc_attr( $iconNew['value'] ) . '"></i>';
                     }
                 } else {
                     $icon = '<i class="eicon-play"></i>';
                 }
             }
 
+            $overlay_class = 'eaelsv-overlay';
+            if( 'yes' === $settings['eaelsv_overlay_options'] && empty( $settings['eaelsv_overlay_image']['url'] ) ){
+                $icon = '';
+                $overlay_class = 'eaelsv-overlay-ignore';
+            }
+
             $this->add_render_attribute(
                 'esvp_overlay_wrapper',
                 [
-                    'class' => 'eaelsv-overlay',
+                    'class' => esc_attr( $overlay_class ),
                     'style' => "background-image:url('" . $settings['eaelsv_overlay_image']['url'] . "');",
                 ]
             );
@@ -751,7 +804,7 @@ class Sticky_Video extends Widget_Base
                 'data-position' => $settings['eaelsv_sticky_position'],
                 'data-sheight' => $settings['eaelsv_sticky_height'],
                 'data-swidth' => $settings['eaelsv_sticky_width'],
-                'data-scroll_height' => $settings['eaelsv_scroll_height_display_sticky']['size'],
+                'data-scroll_height' => !empty($settings['eaelsv_scroll_height_display_sticky']['size']) ? $settings['eaelsv_scroll_height_display_sticky']['size'] : '',
                 'data-autoplay' => $autoplay,
                 'data-overlay' => ($settings['eaelsv_overlay_options'] == 'yes') ? $settings['eaelsv_overlay_options'] : 'no',
             ]
@@ -766,15 +819,15 @@ class Sticky_Video extends Widget_Base
 
     protected function eaelsv_load_player_youtube()
     {
-        $settings = $this->get_settings_for_display();
-        $id = $this->eaelsv_get_url_id();
-        $autoplay = $settings['eaelsv_autopaly'];
-        $mute = $settings['eaelsv_mute'];
-        $loop = $settings['eaelsv_loop'];
+	    $settings = $this->get_settings_for_display();
+	    $id       = $this->eaelsv_get_url_id();
+	    $autoplay = $settings['eaelsv_autopaly'];
+	    $mute     = $autoplay == 'yes' ? 'yes' : $settings['eaelsv_mute'];
+	    $loop     = $settings['eaelsv_loop'];
 
-        $am = '';
-        $am .= ($autoplay == 'yes' ? '"autoplay":1' : '"autoplay":0');
-        $am .= ($mute == 'yes' ? ', "muted":1' : ', "muted":0');
+	    $am = '"storage": {"enabled": false, "key": "plyr"}';
+	    $am .= ( $autoplay == 'yes' ? ', "autoplay":1' : ', "autoplay":0' );
+	    $am .= ( $mute == 'yes' ? ', "muted":1, "volume":0' : ', "muted":0' );
 
         if ('yes' == $loop) {
             $lp = '"loop": {"active": true}';
@@ -783,7 +836,7 @@ class Sticky_Video extends Widget_Base
         }
 
         return '<div
-			id="eaelsv-player-' . $this->get_id() . '"
+			id="eaelsv-player-' . esc_attr( $this->get_id() ) . '"
 			data-plyr-provider="youtube"
 			data-plyr-embed-id="' . esc_attr($id) . '"
 			data-plyr-config="{' . esc_attr($am) . ', ' . esc_attr($lp) . '}"
@@ -792,15 +845,15 @@ class Sticky_Video extends Widget_Base
 
     protected function eaelsv_load_player_vimeo()
     {
-        $settings = $this->get_settings_for_display();
-        $id = $this->eaelsv_get_url_id();
-        $autoplay = $settings['eaelsv_autopaly'];
-        $mute = $settings['eaelsv_mute'];
-        $loop = $settings['eaelsv_loop'];
+	    $settings = $this->get_settings_for_display();
+	    $id       = $this->eaelsv_get_url_id();
+	    $autoplay = $settings['eaelsv_autopaly'];
+	    $mute     = $autoplay == 'yes' ? 'yes' : $settings['eaelsv_mute'];
+	    $loop     = $settings['eaelsv_loop'];
 
-        $am = '';
-        $am .= ($autoplay == 'yes' ? '"autoplay":1' : '"autoplay":0');
-        $am .= ($mute == 'yes' ? ', "muted":1' : ', "muted":0');
+	    $am = '"storage": {"enabled": false, "key": "plyr"}';
+	    $am .= ( $autoplay == 'yes' ? ', "autoplay":1' : ', "autoplay":0' );
+	    $am .= ( $mute == 'yes' ? ', "muted":1, "volume":0' : ', "muted":0' );
 
         if ('yes' == $loop) {
             $lp = '"loop": {"active": true}';
@@ -809,7 +862,7 @@ class Sticky_Video extends Widget_Base
         }
 
         return '<div
-			id="eaelsv-player-' . $this->get_id() . '"
+			id="eaelsv-player-' . esc_attr( $this->get_id() ) . '"
 			data-plyr-provider="vimeo"
 			data-plyr-embed-id="' . esc_attr($id) . '"
 			data-plyr-config="{' . esc_attr($am) . ', ' . esc_attr($lp) . '}"
@@ -838,7 +891,7 @@ class Sticky_Video extends Widget_Base
             $lp = '"loop": {"active": false}';
         }
 
-        return '<video class="eaelsv-player" id="eaelsv-player-' . $this->get_id() . '" playsinline controls data-plyr-config="{' . esc_attr($am) . ', ' . esc_attr($lp) . '}">
+        return '<video class="eaelsv-player" id="eaelsv-player-' . esc_attr( $this->get_id() ) . '" playsinline controls data-plyr-config="{' . esc_attr($am) . ', ' . esc_attr($lp) . '}">
 			<source src="' . esc_attr($video) . '#t=' . esc_attr($startTime) . ',' . esc_attr($endTime) . '" type="video/mp4" />
 		</video>';
     }
@@ -847,15 +900,16 @@ class Sticky_Video extends Widget_Base
     {
         $settings = $this->get_settings_for_display();
 
-        if ('youtube' === $settings['eael_video_source']) {
-            $url = $settings['eaelsv_link_youtube'];
-            $link = explode('=', parse_url($url, PHP_URL_QUERY));
-            $id = $link[1];
-        }
+	    if ( 'youtube' === $settings['eael_video_source'] ) {
+		    $url        = $settings['eaelsv_link_youtube'];
+		    $link       = explode( '=', parse_url( $url, PHP_URL_QUERY ) );
+		    $short_link = explode( '/', $url );
+		    $id         = isset( $link[1] ) ? $link[1] : ( isset( $short_link[3] ) ? $short_link[3] : '' );
+	    }
         if ('vimeo' === $settings['eael_video_source']) {
             $url = $settings['eaelsv_link_vimeo'];
             $link = explode('/', $url);
-            $id = $link[3];
+	        $id = isset( $link[3] ) ? $link[3] : '';
         }
         if ('self_hosted' === $settings['eael_video_source']) {
             $externalUrl = $settings['eaelsv_link_external'];

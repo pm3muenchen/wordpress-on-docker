@@ -2,10 +2,10 @@
 /*
 Plugin Name: WP AutoTerms
 Plugin URI: https://wpautoterms.com
-Description: Create Privacy Policy, GDPR Privacy Policy, Terms & Conditions, Disclaimers. Cookie Consent Banner. More Compliance Kits to help you get compliant with the law.
+Description: Create Privacy Policy with GDPR and CCPA, Terms & Conditions, Disclaimers. Cookie Consent Notice Banner. More Compliance Kits to help you get compliant with the law.
 Author: WP AutoTerms
 Author URI: https://wpautoterms.com
-Version: 2.4.4
+Version: 2.5.1
 License: GPLv2 or later
 Text Domain: wpautoterms
 Domain Path: /languages
@@ -49,15 +49,7 @@ if ( defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	return;
 }
 
-define( 'WPAUTOTERMS_PLUGIN_URL', plugins_url( '/', __FILE__ ) );
-define( 'WPAUTOTERMS_PLUGIN_DIR', __DIR__ . DIRECTORY_SEPARATOR );
-define( 'WPAUTOTERMS_TAG', 'wpautoterms' );
-define( 'WPAUTOTERMS_SLUG', 'wpautoterms' );
-define( 'WPAUTOTERMS_OPTION_PREFIX', WPAUTOTERMS_SLUG . '_' );
-define( 'WPAUTOTERMS_LEGAL_PAGES_DIR', 'legal-pages' . DIRECTORY_SEPARATOR );
-define( 'WPAUTOTERMS_OPTION_ACTIVATED', 'activated' );
-define( 'WPAUTOTERMS_LICENSE_RECHECK_TIME', 24 * 60 * 60 );
-define( 'WPAUTOTERMS_JS_BASE', WPAUTOTERMS_SLUG . '_base' );
+require_once __DIR__ . DIRECTORY_SEPARATOR . 'defines.php';
 
 
 function get_version( $file_name ) {
@@ -117,7 +109,7 @@ function print_template( $__template, $args = array(), $__to_buffer = false ) {
 	return true;
 }
 
-$_query = new Query( WPAUTOTERMS_API_URL, WP_DEBUG );
+$_query   = new Query( WPAUTOTERMS_API_URL, WP_DEBUG );
 $_license = new License( $_query );
 
 Wpautoterms::init( $_license, $_query );

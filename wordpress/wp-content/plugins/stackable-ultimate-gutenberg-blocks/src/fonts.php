@@ -8,37 +8,54 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'Stackable_Google_Fonts' ) ) {
-    class Stackable_Google_Fonts {
+if ( ! function_exists( 'str_ends_with' ) ) {
+	/**
+	 * This function is only available in PHP 8.0 and above.
+	 *
+	 * @param {string} $haystack
+	 * @param {string} $needle
+	 * @return {boolean}
+	 */
+    function str_ends_with( $haystack, $needle ) {
+        $needle_len = strlen( $needle );
+        return ( $needle_len === 0 || 0 === substr_compare( $haystack, $needle, - $needle_len ) );
+    }
+}
 
-        function __construct() {
-            add_action( 'wp_head', array( $this, 'enqueue_frontend_block_fonts' ), 100 );
+if ( ! class_exists( 'Stackable_Google_Fonts' ) ) {
+  class Stackable_Google_Fonts {
+
+		public static $google_fonts = [];
+
+		function __construct() {
+			if ( is_frontend() ) {
+				add_filter( 'render_block', array( $this, 'gather_google_fonts' ), 10, 2 );
+			}
 		}
 
-		public function enqueue_frontend_block_fonts() {
-			if ( ! apply_filters( 'stackable_enqueue_fonts', true ) ) {
-				return;
+		public function gather_google_fonts( $block_content, $block ) {
+			if ( $block_content === null ) {
+				return $block_content;
 			}
 
-			if ( is_single() || is_page() || is_404() ) {
-				global $post;
-				if ( is_object( $post ) && property_exists( $post, 'post_content' ) ) {
-					$this->_enqueue_frontend_block_fonts( $post->post_content );
-				}
-			} elseif ( is_archive() || is_home() || is_search() ) {
-				global $wp_query;
-				foreach ( $wp_query as $post ) {
-					if ( is_object( $post ) && property_exists( $post, 'post_content' ) ) {
-						$this->_enqueue_frontend_block_fonts( $post->post_content );
+			if ( ! isset( $block['blockName'] ) || ( strpos( $block['blockName'], 'stackable/' ) === false && strpos( $block['blockName'], 'ugb/' ) === false ) ) {
+				return $block_content;
+			}
+
+			if ( stripos( $block_content, 'family' ) !== false ) {
+				foreach ( $block['attrs'] as $attr_name => $font_name ) {
+					// Check if the attribute name ends with 'fontfamily'.
+					if ( strcasecmp( substr( $attr_name, -10 ), 'fontfamily' ) === 0 ) {
+						self::register_font( $font_name );
 					}
 				}
 			}
+
+			return $block_content;
 		}
 
-		public function _enqueue_frontend_block_fonts( $content ) {
-			$blocks = parse_blocks( $content );
-			$google_fonts = $this->gather_google_fonts( $blocks );
-			self::enqueue_google_fonts( $google_fonts );
+		public static function enqueue_frontend_block_fonts() {
+			self::enqueue_google_fonts( array_unique( self::$google_fonts ) );
 		}
 
 		public static function is_web_font( $font_name ) {
@@ -46,38 +63,26 @@ if ( ! class_exists( 'Stackable_Google_Fonts' ) ) {
 		}
 
 		public function is_stackable_block( $block_name ) {
-			return strpos( $block_name, 'ugb/' ) === 0;
+			if ( ! empty( $block_name ) ) {
+				return strpos( $block_name, 'ugb/' ) === 0 || strpos( $block_name, 'stackable/' ) === 0;
+			}
+			return false;
 		}
 
-		public function gather_google_fonts( $blocks ) {
-
-			$google_fonts = array();
-			foreach ( $blocks as $block ) {
-
-				// Gather all "fontFamily" attribute values
-				if ( $this->is_stackable_block( $block['blockName'] ) ) {
-					foreach ( $block['attrs'] as $attr_name => $font_name ) {
-						if ( preg_match( '/fontFamily$/i', $attr_name ) ) {
-							if ( ! self::is_web_font( $font_name ) ) {
-								continue;
-							}
-							if ( ! in_array( $font_name, $google_fonts ) ) {
-								// Allow themes to disable enqueuing fonts, helpful for custom fonts.
-								if ( apply_filters( 'stackable_enqueue_font', true, $font_name ) ) {
-									$google_fonts[] = $font_name;
-								}
-							}
-						}
-					}
-				}
-
-				// Look for fonts in inner blocks.
-				if ( ! empty( $block['innerBlocks'] ) ) {
-					$google_fonts = array_unique( array_merge( $google_fonts, $this->gather_google_fonts( $block['innerBlocks'] ) ) );
-				}
+		public static function register_font( $font_name ) {
+			if ( ! self::is_web_font( $font_name ) ) {
+				return;
 			}
 
-			return $google_fonts;
+			if ( ! in_array( $font_name, self::$google_fonts ) ) {
+				// Allow themes to disable enqueuing fonts, helpful for custom fonts.
+				if ( apply_filters( 'stackable_enqueue_font', true, $font_name ) ) {
+					self::$google_fonts[] = $font_name;
+
+					// Enqueue the fonts in the footer.
+					add_filter( 'wp_footer', array( 'Stackable_Google_Fonts', 'enqueue_frontend_block_fonts' ) );
+				}
+			}
 		}
 
 		/**
@@ -94,7 +99,7 @@ if ( ! class_exists( 'Stackable_Google_Fonts' ) ) {
 				}
 			}
 
-			$fonts_url = sprintf( 'https://fonts.googleapis.com/css?family=%s', implode( rawurlencode( '|' ), $google_fonts ) );
+			$fonts_url = sprintf( 'https://fonts.googleapis.com/css?family=%s&display=swap', implode( rawurlencode( '|' ), $google_fonts ) );
 
 			$subsets = [
 				'ru_RU' => 'cyrillic',

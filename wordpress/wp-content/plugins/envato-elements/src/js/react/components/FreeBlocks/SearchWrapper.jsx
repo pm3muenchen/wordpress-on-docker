@@ -18,7 +18,11 @@ const SearchWrapper = ({ searchParams, onSearchSubmitted }) => {
   if (error) return <ErrorLoadingData />
   if (!data || !data.meta) return <ErrorLoadingData />
 
-  const currentCategoryName = searchParams.category ? aggregations.categories.reduce((i, k) => { i = k.key === searchParams.category ? k.value : i }, '') : null
+  const currentCategoryName = searchParams.category
+    ? aggregations.categories.reduce((i, k) => {
+      return k.key === searchParams.category ? k.value : i
+    }, '')
+    : null
 
   return (
     <>
@@ -46,24 +50,26 @@ const SearchWrapper = ({ searchParams, onSearchSubmitted }) => {
           </div>
         </div>
       </div>
-      {!searchParams.category ? (
-        <GridWrapper>
-          {aggregations.categories.map(category => (
-            <GridItem className={styles.blockCategoryName} key={category.key}>
-              <Link className={styles.blockCategoryNameLink} to={`${url}/category-${category.key}/`}>
-                {category.value}
-              </Link>
-            </GridItem>
-          ))}
-        </GridWrapper>
-      ) : (
-        <SearchResults
-          searchResults={data}
-          searchParams={searchParams}
-          onSearchSubmitted={onSearchSubmitted}
-          aggregations={aggregations}
-        />
-      )}
+      {!searchParams.category
+        ? (
+          <GridWrapper>
+            {aggregations.categories.map(category => (
+              <GridItem className={styles.blockCategoryName} key={category.key}>
+                <Link className={styles.blockCategoryNameLink} to={`${url}/category-${category.key}/`}>
+                  {category.value}
+                </Link>
+              </GridItem>
+            ))}
+          </GridWrapper>
+          )
+        : (
+          <SearchResults
+            searchResults={data}
+            searchParams={searchParams}
+            onSearchSubmitted={onSearchSubmitted}
+            aggregations={aggregations}
+          />
+          )}
     </>
   )
 }

@@ -17,15 +17,15 @@ class Widgets_Extended {
 	public static function init() {
 		add_action( 'elementor/element/button/section_style/after_section_start', [ __CLASS__, 'add_button_controls' ] );
 
-		add_action( 'elementor/element/heading/section_title_style/after_section_end', [ __CLASS__, 'add_text_stroke' ] );
-		add_action( 'elementor/element/theme-page-title/section_title_style/after_section_end', [ __CLASS__, 'add_text_stroke' ] );
-		add_action( 'elementor/element/theme-site-title/section_title_style/after_section_end', [ __CLASS__, 'add_text_stroke' ] );
-		add_action( 'elementor/element/theme-post-title/section_title_style/after_section_end', [ __CLASS__, 'add_text_stroke' ] );
-		add_action( 'elementor/element/woocommerce-product-title/section_title_style/after_section_end', [ __CLASS__, 'add_text_stroke' ] );
-
-		add_action( 'elementor/element/animated-headline/section_style_text/after_section_end', [ __CLASS__, 'add_text_stroke' ] );
-
-		add_action( 'elementor/element/ha-gradient-heading/_section_style_title/after_section_end', [ __CLASS__, 'add_text_stroke' ] );
+		if( ! in_array( 'text-stroke', ha_get_inactive_features() ) ){
+			add_action( 'elementor/element/heading/section_title_style/after_section_end', [ __CLASS__, 'add_text_stroke' ] );
+			add_action( 'elementor/element/theme-page-title/section_title_style/after_section_end', [ __CLASS__, 'add_text_stroke' ] );
+			add_action( 'elementor/element/theme-site-title/section_title_style/after_section_end', [ __CLASS__, 'add_text_stroke' ] );
+			add_action( 'elementor/element/theme-post-title/section_title_style/after_section_end', [ __CLASS__, 'add_text_stroke' ] );
+			add_action( 'elementor/element/woocommerce-product-title/section_title_style/after_section_end', [ __CLASS__, 'add_text_stroke' ] );
+			add_action( 'elementor/element/animated-headline/section_style_text/after_section_end', [ __CLASS__, 'add_text_stroke' ] );
+			add_action( 'elementor/element/ha-gradient-heading/_section_style_title/after_section_end', [ __CLASS__, 'add_text_stroke' ] );
+		}
 	}
 
 	public static function add_text_stroke( Widget_Base $widget ) {
@@ -73,7 +73,7 @@ class Widgets_Extended {
 		$widget->add_control(
 			'ha_fixed_size_toggle',
 			[
-				'label' => __( 'Fixed Size', 'happy-elementor-addons' ),
+				'label' => __( 'Fixed Size', 'happy-elementor-addons' ) . '<i style="margin-left: 5px;" class="hm hm-happyaddons"></i>',
 				'type' => Controls_Manager::POPOVER_TOGGLE,
 				'return_value' => 'yes',
 			]

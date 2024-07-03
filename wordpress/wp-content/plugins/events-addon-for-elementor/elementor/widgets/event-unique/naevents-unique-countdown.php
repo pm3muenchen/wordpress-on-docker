@@ -44,7 +44,7 @@ class Event_Elementor_Addon_Unique_Countdown extends Widget_Base{
 	 * Register Events Addon for Elementor Unique Countdown widget controls.
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	*/
-	protected function _register_controls(){
+	protected function register_controls(){
 
 		$this->start_controls_section(
 			'countdown_date',
@@ -128,6 +128,16 @@ class Event_Elementor_Addon_Unique_Countdown extends Widget_Base{
 				'description' => __( '<b>For Countdown Format Reference : <a href="http://keith-wood.name/countdown.html" target="_blank">Click Here</a></b>.', 'events-addon-for-elementor' ),
 			]
 		);
+		$this->add_control(
+			'timezone',
+			[
+				'label' => esc_html__( 'Timezone', 'events-addon-for-elementor' ),
+				'type' => Controls_Manager::TEXT,
+				'label_block' => true,
+				'placeholder' => esc_html__( '+6', 'events-addon-for-elementor' ),
+				'description' => __( 'Leave empty if you want to track user timezone automatically. Reference : <a href="http://keith-wood.name/countdown.html#zones" target="_blank">Click Here</a>', 'events-addon-for-elementor' )
+			]
+		);			
 		$this->add_control(
 			'need_separator',
 			[
@@ -321,7 +331,6 @@ class Event_Elementor_Addon_Unique_Countdown extends Widget_Base{
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'value_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .naeep-countdown-wrap .countdown_section .countdown_amount',
 			]
 		);
@@ -330,10 +339,6 @@ class Event_Elementor_Addon_Unique_Countdown extends Widget_Base{
 			[
 				'label' => esc_html__( 'Value Color', 'events-addon-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
-				],
 				'selectors' => [
 					'{{WRAPPER}} .naeep-countdown-wrap .countdown_section .countdown_amount' => 'color: {{VALUE}};',
 				],
@@ -390,7 +395,6 @@ class Event_Elementor_Addon_Unique_Countdown extends Widget_Base{
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'value_sep_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_2,
 				'selector' => '{{WRAPPER}} .countdown_section:after',
 			]
 		);
@@ -399,10 +403,6 @@ class Event_Elementor_Addon_Unique_Countdown extends Widget_Base{
 			[
 				'label' => esc_html__( 'Separator Color', 'events-addon-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
-				],
 				'selectors' => [
 					'{{WRAPPER}} .countdown_section:after' => 'color: {{VALUE}};',
 				],
@@ -422,7 +422,6 @@ class Event_Elementor_Addon_Unique_Countdown extends Widget_Base{
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'title_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_2,
 				'selector' => '{{WRAPPER}} .naeep-countdown-wrap .countdown_section',
 			]
 		);
@@ -431,10 +430,6 @@ class Event_Elementor_Addon_Unique_Countdown extends Widget_Base{
 			[
 				'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_2,
-				],
 				'selectors' => [
 					'{{WRAPPER}} .naeep-countdown-wrap .countdown_section' => 'color: {{VALUE}};',
 				],
@@ -451,6 +446,7 @@ class Event_Elementor_Addon_Unique_Countdown extends Widget_Base{
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 		$count_type = !empty( $settings['count_type'] ) ? $settings['count_type'] : '';
+		$timezone = !empty( $settings['timezone'] ) ? $settings['timezone'] : '';
 		$count_date_static = !empty( $settings['count_date_static'] ) ? $settings['count_date_static'] : '';
 		$fake_date = !empty( $settings['fake_date'] ) ? $settings['fake_date'] : '';
 		$countdown_format = !empty( $settings['countdown_format'] ) ? $settings['countdown_format'] : '';
@@ -506,7 +502,7 @@ class Event_Elementor_Addon_Unique_Countdown extends Widget_Base{
 
 		$output = '';
 		$output .= '<div class="naeep-countdown-wrap'.$sep_class.'">
-				          <div class="naeep-countdown '.esc_attr($count_type).'" data-date="'.esc_attr($count_date_actual).'" data-years="'.esc_attr($label_years).'" data-months="'.esc_attr($label_months).'" data-weeks="'.esc_attr($label_weeks).'" data-days="'.esc_attr($label_days).'" data-hours="'.esc_attr($label_hours).'" data-minutes="'.esc_attr($label_minutes).'" data-seconds="'.esc_attr($label_seconds).'" data-year="'.esc_attr($label_year).'" data-month="'.esc_attr($label_month).'" data-week="'.esc_attr($label_week).'" data-day="'.esc_attr($label_day).'" data-hour="'.esc_attr($label_hour).'" data-minute="'.esc_attr($label_minute).'" data-second="'.esc_attr($label_second).'" data-format="'.esc_attr($countdown_format).'"><div class="clearfix"></div>
+				          <div class="naeep-countdown '.esc_attr($count_type).'" data-date="'.esc_attr($count_date_actual).'" data-years="'.esc_attr($label_years).'" data-months="'.esc_attr($label_months).'" data-weeks="'.esc_attr($label_weeks).'" data-days="'.esc_attr($label_days).'" data-hours="'.esc_attr($label_hours).'" data-minutes="'.esc_attr($label_minutes).'" data-seconds="'.esc_attr($label_seconds).'" data-year="'.esc_attr($label_year).'" data-month="'.esc_attr($label_month).'" data-week="'.esc_attr($label_week).'" data-day="'.esc_attr($label_day).'" data-hour="'.esc_attr($label_hour).'" data-minute="'.esc_attr($label_minute).'" data-second="'.esc_attr($label_second).'" data-format="'.esc_attr($countdown_format).'" data-timezone="'.esc_attr($timezone).'"><div class="clearfix"></div>
 				          </div>
 				        </div>';
 

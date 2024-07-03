@@ -1,14 +1,14 @@
 @font-face {
-	font-family: "eaicon";
-	src: url("../fonts/eaicon.eot?krajj6");
-	src: url("../fonts/eaicon.eot?krajj6#iefix") format("embedded-opentype"),
-		url("../fonts/eaicon.ttf?krajj6") format("truetype"),
-		url("../fonts/eaicon.woff?krajj6") format("woff"),
-		url("../fonts/eaicon.svg?krajj6#eaicon") format("svg");
+	font-family: 'eaicon';
+	src:  url('../fonts/eaicon.eot?jbjw5b');
+	src:  url('../fonts/eaicon.eot?jbjw5b#iefix') format('embedded-opentype'),
+	  url('../fonts/eaicon.ttf?jbjw5b') format('truetype'),
+	  url('../fonts/eaicon.woff?jbjw5b') format('woff'),
+	  url('../fonts/eaicon.svg?jbjw5b#eaicon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 	font-display: block;
-}
+  }
 
 [class^="eaicon-"],
 [class*=" eaicon-"] {
@@ -277,6 +277,7 @@
 }
 
 .eaicon-product-carousel:before {
+	font-size: 40px;
 	content: "\e954";
 }
 
@@ -290,4 +291,150 @@
 
 .eaicon-crowdfundly-single-campaign:before {
 	content: "\e957";
+}
+
+.eaicon-product-slider:before {
+	font-size: 39px;
+	content: "\e958";
+}
+
+.eaicon-simple-menu:before {
+	content: "\e959";
+}
+
+.eaicon-product-gallery:before {
+	content: "\e95a";
+}
+
+.eaicon-interactive-circle:before {
+	content: "\e95c";
+}
+
+.eaicon-woo-cart:before {
+	content: "\e95b";
+}
+
+.eaicon-advanced-search:before {
+	content: "\e95d";
+}
+
+.eaicon-better-payment:before {
+	content: "\e95e";
+}
+
+.eaicon-eye-solid:before {
+	content: "\e95f";
+}
+
+.eaicon-eye-slash-solid:before {
+	content: "\e960";
+}
+
+.eaicon-ban-solid:before {
+	content: "\e961";
+}
+
+.eaicon-dice-six-solid:before {
+	content: "\e962";
+}
+
+.eaicon-dice-one-solid:before {
+	content: "\e963";
+}
+
+.eaicon-equals-solid:before {
+	content: "\e964";
+}
+
+.eaicon-not-equal-solid:before {
+	content: "\e965";
+}
+
+.eaicon-folder-open-solid:before {
+	content: "\e966";
+}
+
+.eaicon-folder-open-regular:before {
+	content: "\e967";
+}
+
+.eaicon-user-solid:before {
+	content: "\e968";
+}
+
+.eaicon-user-slash-solid:before {
+	content: "\e969";
+}
+.eaicon-xmark-solid:before {
+	content: "\e96a";
+}
+.eaicon-check-solid:before {
+	content: "\e96b";
+}
+.eaicon-users-solid:before {
+	content: "\e96c";
+}
+.eaicon-user-plus-solid:before {
+	content: "\e96d";
+}
+.eaicon-nft-gallery:before {
+	content: "\e96e";
+}
+.eaicon-business-reviews:before {
+	content: "\e96f";
+}
+.eaicon-svg-draw:before {
+	content: "\e970";
+}
+.eaicon-thank-you:before {
+	content: "\e971";
+}
+.eaicon-woo-cross-sells:before {
+	content: "\e972";
+}
+.eaicon-account:before {
+	content: "\e973";
+}
+.eaicon-dashboard-fill:before {
+	content: "\e974";
+}
+.eaicon-checkbox-circle:before {
+	content: "\e975";
+}
+.eaicon-download-fill:before {
+	content: "\e976";
+}
+.eaicon-download:before {
+	content: "\e977";
+}
+.eaicon-edit-fill:before {
+	content: "\e978";
+}
+.eaicon-eye-line:before {
+	content: "\e979";
+}
+.eaicon-infinity-line:before {
+	content: "\e97a";
+}
+.eaicon-login-box:before {
+	content: "\e97b";
+}
+.eaicon-map-2:before {
+	content: "\e97c";
+}
+.eaicon-not-alowed:before {
+	content: "\e97d";
+}
+.eaicon-orders:before {
+	content: "\e97e";
+}
+.eaicon-woo-account-dashboard:before {
+	content: "\e97f";
+}
+.eaicon-fancy-chart:before {
+	content: "\e980";
+}
+.eaicon-woo-product-list:before {
+	content: "\e981";
+	font-size: 40px;
 }

@@ -44,7 +44,7 @@ class Event_Elementor_Addon_Typewriter extends Widget_Base{
 	 * Register Events Addon for Elementor Typewriter widget controls.
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	*/
-	protected function _register_controls(){
+	protected function register_controls(){
 
 		$this->start_controls_section(
 			'section_typewriter',
@@ -197,7 +197,6 @@ class Event_Elementor_Addon_Typewriter extends Widget_Base{
 			[
 				'label' => esc_html__( 'Title Typography', 'events-addon-for-elementor' ),
 				'name' => 'sasban_title_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .naeep-typewriter h1',
 			]
 		);
@@ -206,10 +205,6 @@ class Event_Elementor_Addon_Typewriter extends Widget_Base{
 			[
 				'label' => esc_html__( 'Title Color', 'events-addon-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
-				],
 				'selectors' => [
 					'{{WRAPPER}} .naeep-typewriter h1' => 'color: {{VALUE}};',
 				],
@@ -220,7 +215,6 @@ class Event_Elementor_Addon_Typewriter extends Widget_Base{
 			[
 				'label' => esc_html__( 'Animated Title Typography', 'events-addon-for-elementor' ),
 				'name' => 'sasban_anim_title_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_2,
 				'selector' => '{{WRAPPER}} .naeep-typewriter h1 span',
 			]
 		);
@@ -229,10 +223,6 @@ class Event_Elementor_Addon_Typewriter extends Widget_Base{
 			[
 				'label' => esc_html__( 'Animated Title Color', 'events-addon-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_2,
-				],
 				'selectors' => [
 					'{{WRAPPER}} .naeep-typewriter h1 span' => 'color: {{VALUE}};',
 				],

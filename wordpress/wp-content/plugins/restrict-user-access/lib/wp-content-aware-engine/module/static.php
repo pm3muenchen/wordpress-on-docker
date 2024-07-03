@@ -1,9 +1,9 @@
 <?php
 /**
- * @package WP Content Aware Engine
+ * @package wp-content-aware-engine
  * @author Joachim Jensen <joachim@dev.institute>
  * @license GPLv3
- * @copyright 2020 by Joachim Jensen
+ * @copyright 2023 by Joachim Jensen
  */
 
 defined('ABSPATH') || exit;
@@ -20,43 +20,35 @@ defined('ABSPATH') || exit;
  */
 class WPCAModule_static extends WPCAModule_Base
 {
-
     /**
      * Cached search string
      * @var string
      */
     protected $search_string;
 
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         parent::__construct('static', __('Special Pages', WPCA_DOMAIN));
-
+        $this->icon = 'dashicons-layout';
         $this->query_name = 'cs';
     }
 
     /**
-     * Get static content
-     *
-     * @since  1.0
-     * @param  array $args
-     * @return array
+     * @inheritDoc
      */
-    protected function _get_content($args = array())
+    protected function _get_content($args = [])
     {
-        $static = array(
+        $static = [
             'front-page' => __('Front Page', WPCA_DOMAIN),
             'search'     => __('Search Results', WPCA_DOMAIN),
             '404'        => __('404 Page', WPCA_DOMAIN)
-        );
+        ];
 
         if ($args['include']) {
             $static = array_intersect_key($static, array_flip($args['include']));
         } elseif ($args['search']) {
             $this->search_string = $args['search'];
-            $static = array_filter($static, array($this,'_filter_search'));
+            $static = array_filter($static, [$this,'_filter_search']);
         }
         return $static;
     }
@@ -74,10 +66,7 @@ class WPCAModule_static extends WPCAModule_Base
     }
 
     /**
-     * Determine if content is relevant
-     *
-     * @since  1.0
-     * @return boolean
+     * @inheritDoc
      */
     public function in_context()
     {
@@ -85,10 +74,7 @@ class WPCAModule_static extends WPCAModule_Base
     }
 
     /**
-     * Get data from context
-     *
-     * @since  1.0
-     * @return array
+     * @inheritDoc
      */
     public function get_context_data()
     {
@@ -99,8 +85,8 @@ class WPCAModule_static extends WPCAModule_Base
         } else {
             $val = '404';
         }
-        return array(
+        return [
             $val
-        );
+        ];
     }
 }

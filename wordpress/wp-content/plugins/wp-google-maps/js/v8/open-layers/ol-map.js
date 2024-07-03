@@ -25,8 +25,19 @@ jQuery(function($) {
 			layers: [
 				this.getTileLayer()
 			],
-			view: new ol.View(viewOptions)
+			view: this.getTileView(viewOptions)
 		});
+
+		if(this.customTileMode){
+			/* The system is in custom tile view mode */
+			if(!(ol.extent.containsCoordinate(this.customTileModeExtent, this.olMap.getView().getCenter()))){
+				const view = this.olMap.getView();
+
+				view.setCenter(ol.extent.getCenter(this.customTileModeExtent));
+				this.wrapLongitude();
+				this.onBoundsChanged();
+			}
+		}
 		
 		// NB: Handles legacy checkboxes as well as new, standard controls
 		function isSettingDisabled(value)
@@ -67,7 +78,9 @@ jQuery(function($) {
 			{
 				// On touch devices, require two fingers to drag and pan
 				// NB: Temporarily removed due to inconsistent behaviour
-				/*this.olMap.getInteractions().forEach(function(interaction) {
+
+				// Reintroduced: 9.0.0 -> We have made some changes to improve consistency 
+				this.olMap.getInteractions().forEach(function(interaction) {
 					
 					if(interaction instanceof ol.interaction.DragPan)
 						self.olMap.removeInteraction(interaction);
@@ -77,8 +90,18 @@ jQuery(function($) {
 				this.olMap.addInteraction(new ol.interaction.DragPan({
 					
 					condition: function(olBrowserEvent) {
-						
-						var allowed = olBrowserEvent.originalEvent.touches.length == 2;
+						let allowed = false;
+						let originalEvent = olBrowserEvent.originalEvent; 
+						if(originalEvent instanceof PointerEvent){
+							/* Handle this as a pointer */
+							if(this.targetPointers && this.targetPointers.length){
+								allowed = this.targetPointers.length == 2;
+							}
+						} else if (originalEvent instanceof TouchEvent){
+							if(originalEvent.touches && originalEvent.touches.length){
+								allowed = originalEvent.touches.length == 2;
+							}
+						}
 						
 						if(!allowed)
 							self.showGestureOverlay();
@@ -88,7 +111,7 @@ jQuery(function($) {
 					
 				}));
 				
-				this.gestureOverlay.text(WPGMZA.localized_strings.use_two_fingers);*/
+				this.gestureOverlay.text(WPGMZA.localized_strings.use_two_fingers);
 			}
 			else
 			{
@@ -98,7 +121,10 @@ jQuery(function($) {
 					if(!ol.events.condition.platformModifierKeyOnly(event))
 					{
 						self.showGestureOverlay();
-						event.originalEvent.preventDefault();
+
+						// Allow the page to scroll normally by commenting this out 
+						//event.originalEvent.preventDefault();
+						
 						return false;
 					}
 					
@@ -234,7 +260,7 @@ jQuery(function($) {
 			
 			var isRight;
 			event = event || window.event;
-			
+
 			var latLng = self.pixelsToLatLng(event.offsetX, event.offsetY);
 			
 			if("which" in event)
@@ -256,6 +282,15 @@ jQuery(function($) {
 				 * Finding a light at the end of the tunnel 
 				*/
 				try{
+					if(self.element){
+						const nestedCanvases = self.element.querySelectorAll('canvas');
+						if(nestedCanvases.length > 1){
+							const diff = (nestedCanvases[0].width  /  nestedCanvases[1].width);
+							event.offsetX *= diff;
+							event.offsetY *= diff;
+						}
+					}
+
 					var featuresUnderPixel = self.olMap.getFeaturesAtPixel([event.offsetX, event.offsetY]);
 				}catch(e) {
 					return;
@@ -276,11 +311,23 @@ jQuery(function($) {
 					
 					nativeFeature.trigger("click");
 				}
-				
-				self.trigger({
-					type: "click",
-					latLng: latLng
-				});
+
+				if(featuresUnderPixel.length > 0){
+					/*
+					 * This is for a pixel interpolated feature, like polygons
+					 *
+					 * Let's return early, to avoid double event firing
+					*/
+					return;
+				}
+
+				if(event.target instanceof HTMLCanvasElement){
+					/* Only trigger if this is the canvas element directly */
+					self.trigger({
+						type: "click",
+						latLng: latLng
+					});
+				}
 				
 				return;
 			}
@@ -333,10 +380,77 @@ jQuery(function($) {
 				options.url += "?apikey=" + WPGMZA.settings.open_layers_api_key.trim();
 			}
 		}
+
+		if(this.settings && this.settings.custom_tile_enabled){
+			if(this.settings.custom_tile_image_width && this.settings.custom_tile_image_height){
+				let width = parseInt(this.settings.custom_tile_image_width);
+				let height = parseInt(this.settings.custom_tile_image_height);
+
+				let imageDimensions = null; //autodetect
+				try{
+					if(window.devicePixelRatio && window.devicePixelRatio != 1){
+						/* For retina displays, lets multiple the target dimensions, with the devicePixelRatio */
+						/* Updated 2022-07-07: Was unreliable, moved to setting manual dimensions */
+						/*
+						width *= window.devicePixelRatio;
+						height *= window.devicePixelRatio;
+						*/
+						imageDimensions = [width, height];
+					}
+				} catch (ex){
+					/* Do nothing */
+				}
+
+				if(this.settings.custom_tile_image){
+					const extent = [0, 0, width, height];
+		
+					const projection = new ol.proj.Projection({
+						code: 'custom-tile-map',
+						units: 'pixels',
+						extent: extent
+					});
+
+					return new ol.layer.Image({
+						source: new ol.source.ImageStatic({
+							attributions: this.settings.custom_tile_image_attribution ? this.settings.custom_tile_image_attribution : '©',
+							url: this.settings.custom_tile_image,
+							projection: projection,
+							imageExtent: extent,
+							imageSize: imageDimensions
+						})
+					});
+				}
+			}
+		}
 		
 		return new ol.layer.Tile({
 			source: new ol.source.OSM(options)
 		});
+	}
+
+	WPGMZA.OLMap.prototype.getTileView = function(viewOptions){
+		if(this.settings && this.settings.custom_tile_enabled){
+			if(this.settings.custom_tile_image_width && this.settings.custom_tile_image_height){
+				const width = parseInt(this.settings.custom_tile_image_width);
+				const height = parseInt(this.settings.custom_tile_image_height);
+				
+				if(this.settings.custom_tile_image){
+					const extent = [0, 0, width, height];
+		
+					const projection = new ol.proj.Projection({
+						code: 'custom-tile-map',
+						units: 'pixels',
+						extent: extent
+					});
+
+					viewOptions.projection = projection;
+
+					this.customTileModeExtent = extent;
+					this.customTileMode = true;
+				}
+			}
+		}
+		return new ol.View(viewOptions)
 	}
 	
 	WPGMZA.OLMap.prototype.wrapLongitude = function()
@@ -504,12 +618,13 @@ jQuery(function($) {
 	 */
 	WPGMZA.OLMap.prototype.addMarker = function(marker)
 	{
-		if(WPGMZA.OLMarker.renderMode == WPGMZA.OLMarker.RENDER_MODE_HTML_ELEMENT)
+		if(WPGMZA.OLMarker.renderMode == WPGMZA.OLMarker.RENDER_MODE_HTML_ELEMENT){
 			this.olMap.addOverlay(marker.overlay);
-		else
-		{
-			this.markerLayer.getSource().addFeature(marker.feature);
-			marker.featureInSource = true;
+		} else {
+			if(!marker.featureInSource){
+				this.markerLayer.getSource().addFeature(marker.feature);
+				marker.featureInSource = true;
+			}
 		}
 		
 		Parent.prototype.addMarker.call(this, marker);

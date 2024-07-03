@@ -44,7 +44,7 @@ class Event_Elementor_Addon_Services extends Widget_Base{
 	 * Register Events Addon for Elementor Services widget controls.
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	*/
-	protected function _register_controls(){
+	protected function register_controls(){
 
 		$this->start_controls_section(
 			'section_services',
@@ -132,10 +132,11 @@ class Event_Elementor_Addon_Services extends Widget_Base{
 			'service_icon',
 			[
 				'label' => esc_html__( 'Sub Title Icon', 'events-addon-for-elementor' ),
-				'type' => Controls_Manager::ICON,
-				'options' => NAEEP_Controls_Helper_Output::get_include_icons(),
-				'frontend_available' => true,
-				'default' => 'fa fa-cog',
+				'type' => Controls_Manager::ICONS,
+				'default' => [
+					'value' => 'fas fa-cog',
+					'library' => 'fa-solid',
+				],
 				'condition' => [
 					'upload_type' => 'icon',
 				],
@@ -400,10 +401,6 @@ class Event_Elementor_Addon_Services extends Widget_Base{
 				[
 					'label' => esc_html__( 'Hover Border Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_2,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .naeep-service-item.service-border:after' => 'background-color: {{VALUE}};',
 					],
@@ -585,7 +582,6 @@ class Event_Elementor_Addon_Services extends Widget_Base{
 			[
 				'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 				'name' => 'sasstp_title_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .naeep-service-item h3',
 			]
 		);
@@ -601,10 +597,6 @@ class Event_Elementor_Addon_Services extends Widget_Base{
 				[
 					'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_1,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .naeep-service-item h3, {{WRAPPER}} .naeep-service-item h3 a' => 'color: {{VALUE}};',
 					],
@@ -622,10 +614,6 @@ class Event_Elementor_Addon_Services extends Widget_Base{
 				[
 					'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_2,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .naeep-service-item h3 a:hover' => 'color: {{VALUE}};',
 					],
@@ -648,7 +636,6 @@ class Event_Elementor_Addon_Services extends Widget_Base{
 				[
 					'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 					'name' => 'content_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_3,
 					'selector' => '{{WRAPPER}} .naeep-service-item p',
 				]
 			);
@@ -657,10 +644,6 @@ class Event_Elementor_Addon_Services extends Widget_Base{
 				[
 					'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_3,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .naeep-service-item p' => 'color: {{VALUE}};',
 					],
@@ -692,7 +675,6 @@ class Event_Elementor_Addon_Services extends Widget_Base{
 			[
 				'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 				'name' => 'btn_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .naeep-link',
 			]
 		);
@@ -708,10 +690,6 @@ class Event_Elementor_Addon_Services extends Widget_Base{
 				[
 					'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_4,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .naeep-link' => 'color: {{VALUE}};',
 					],
@@ -729,10 +707,6 @@ class Event_Elementor_Addon_Services extends Widget_Base{
 				[
 					'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_2,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .naeep-link:hover' => 'color: {{VALUE}};',
 					],
@@ -743,10 +717,6 @@ class Event_Elementor_Addon_Services extends Widget_Base{
 				[
 					'label' => esc_html__( 'Line Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_2,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .naeep-link:before' => 'background-color: {{VALUE}};',
 					],
@@ -772,7 +742,7 @@ class Event_Elementor_Addon_Services extends Widget_Base{
 		$img_link_external = !empty( $settings['img_link']['is_external'] ) ? 'target="_blank"' : '';
 		$img_link_nofollow = !empty( $settings['img_link']['nofollow'] ) ? 'rel="nofollow"' : '';
 		$img_link_attr = !empty( $img_link ) ?  $img_link_external.' '.$img_link_nofollow : '';
-		$service_icon = !empty( $settings['service_icon'] ) ? $settings['service_icon'] : '';
+		$service_icon = !empty( $settings['service_icon'] ) ? $settings['service_icon']['value'] : '';
 		$services_title = !empty( $settings['services_title'] ) ? $settings['services_title'] : '';
 		$services_title_link = !empty( $settings['services_title_link']['url'] ) ? $settings['services_title_link']['url'] : '';
 		$services_title_link_external = !empty( $settings['services_title_link']['is_external'] ) ? 'target="_blank"' : '';

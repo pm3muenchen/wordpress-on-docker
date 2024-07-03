@@ -1,171 +1,43 @@
-# Translation of Plugins - Gutenberg Block Editor Toolkit – EditorsKit - Development (trunk) in German
-# This file is distributed under the same license as the Plugins - Gutenberg Block Editor Toolkit – EditorsKit - Development (trunk) package.
+# Translation of Plugins - Gutenberg Block Editor Toolkit – EditorsKit - Stable (latest release) in German
+# This file is distributed under the same license as the Plugins - Gutenberg Block Editor Toolkit – EditorsKit - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-05-18 00:30:25+0000\n"
+"PO-Revision-Date: 2024-02-18 16:03:12+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: GlotPress/3.0.0-alpha.2\n"
+"X-Generator: GlotPress/4.0.1\n"
 "Language: de\n"
-"Project-Id-Version: Plugins - Gutenberg Block Editor Toolkit – EditorsKit - Development (trunk)\n"
-
-#: includes/class-editorskit-features-manager.php:290
-msgid "Gradient Controls"
-msgstr "Verlaufseinstellung"
-
-#: includes/class-editorskit-features-manager.php:152
-#: src/extensions/formats/charmap/controls.js:161
-#: src/extensions/formats/charmap/index.js:19
-msgid "Special Characters"
-msgstr "Sonderzeichen"
-
-#: includes/class-editorskit-post-meta.php:74
-msgid "API key and token from shareablock.com"
-msgstr "API-Key and Token von shareablock.com"
+"Project-Id-Version: Plugins - Gutenberg Block Editor Toolkit – EditorsKit - Stable (latest release)\n"
 
 #. translators: %s: EditorsKit settings page link
-#: includes/class-editorskit-welcome.php:175
+#: includes/class-editorskit-welcome.php:191
 msgid "Thank you for installing and activating EditorsKit Plugin. Please go to %1$sSettings > EditorsKit%2$s to get started."
 msgstr "Vielen Dank, dass du das EditorsKit Plugin installiert und aktiviert hast. Bitte geh zu %1$sEinstellungen > EditorsKit%2$s, um loszulegen."
 
-#: includes/class-editorskit-features-manager.php:234
-msgid "Link Toolbar for Cover, Group & Column"
-msgstr "Link-Toolbar für Cover, Gruppen und Spalten"
-
-#: includes/class-editorskit-features-manager.php:132
-msgid "Indents"
-msgstr "Einzüge"
-
-#: includes/class-editorskit-features-manager.php:209
-msgid "Button Block Full Width"
-msgstr "Button-Block mit voller Breite"
-
-#: includes/class-editorskit-features-manager.php:214
-msgid "Columns Block Background Color"
-msgstr "Spalten-Block Hintergrundfarbe"
-
-#: includes/class-editorskit-features-manager.php:117
-#: src/extensions/formats/abbreviation/index.js:19
-#: src/extensions/formats/abbreviation/components/edit.js:47
-msgid "Abbreviation"
-msgstr "Abkürzung"
-
-#: includes/class-editorskit-features-manager.php:244
-msgid "List Block Text Color"
-msgstr "Listen-Block Textfarbe"
-
-#: includes/class-editorskit-features-manager.php:239
-msgid "List Block Font Size"
-msgstr "Listen-Block Schriftgröße"
-
-#: includes/class-editorskit-features-manager.php:321
-msgid "Select Parent Block"
-msgstr "Eltern-Block auswählen"
-
-#: includes/class-editorskit-features-manager.php:317
-msgid "Shortcuts"
-msgstr "Tastaturkürzel"
-
-#: includes/class-editorskit-features-manager.php:147
-#: src/extensions/formats/nbsp/index.js:19
-msgid "Nonbreaking Space"
-msgstr "Geschütztes Leerzeichen"
-
-#: includes/class-editorskit-features-manager.php:300
-#: src/extensions/components/help-tips/components/controls.js:105
-#: src/extensions/components/help-tips/components/controls.js:106
-msgid "Help, tips and tricks"
-msgstr "Hilfe, Tipps und Tricks"
-
-#: includes/class-editorskit-features-manager.php:198
-#: src/admin/docs/index.js:81
-msgid "Transform 3 Empty Paragraphs to Spacer Block"
-msgstr "Drei leere Absätze in einen Abstands-Block umwandeln"
-
-#: includes/class-editorskit-features-manager.php:219
-#: src/admin/docs/index.js:96
-msgid "Copy Selected Block(s)"
-msgstr "Ausgewählte Blöcke kopieren"
-
-#: includes/class-editorskit-features-manager.php:249
-msgid "Media Text Block Layout"
-msgstr "Medien-Textblock-Layout"
-
-#: includes/class-editorskit-features-manager.php:224
-#: src/extensions/block-toolbar/block-navigator/components/controls.js:43
-msgid "Block Navigator"
-msgstr "Block-Navigator"
-
-#: includes/class-editorskit-features-manager.php:205
-#: src/admin/docs/index.js:221
-msgid "Block Options"
-msgstr "Block-Optionen"
-
-#: includes/class-editorskit-features-manager.php:183
-msgid "Estimated Reading Time"
-msgstr "Geschätzte Lesedauer"
-
-#: includes/class-editorskit-features-manager.php:142
-msgid "Link with \"rel\" Attributes"
-msgstr "Link mit \"rel\"-Attributen"
-
-#: includes/class-editorskit-features-manager.php:280
-#: src/admin/docs/index.js:119
-msgid "Drag and Drop Featured Image"
-msgstr "Beitragsbild ziehen und ablegen"
-
-#: includes/class-editorskit-features-manager.php:254
-msgid "Set Image Block as Featured"
-msgstr "Bilder-Block als Beitragsbild festlegen"
-
-#: includes/class-editorskit-features-manager.php:188
-msgid "Heading Block Label"
-msgstr "Überschrift-Blockbeschriftung"
-
-#: includes/class-editorskit-features-manager.php:310
-#: src/extensions/components/scroll-down/components/scrolldown.js:36
-msgid "View Custom Fields"
-msgstr "Individuelle Felder anzeigen"
-
-#: includes/class-editorskit-features-manager.php:270
-msgid "Code Editor Syntax Highlight"
-msgstr "Code-Editor Syntax-Hervorhebung"
-
-#: includes/class-editorskit-features-manager.php:285
-msgid "Editor Min-Height"
-msgstr "Mindesthöhe des Editors"
-
-#: includes/class-editorskit-features-manager.php:275
-msgid "Custom Class Names"
-msgstr "Individuelle Klassennamen"
-
-#: includes/class-editorskit-features-manager.php:229
-#: src/extensions/block-settings/export/components/export.js:77
-msgid "Export as JSON"
-msgstr "Als JSON exportieren"
-
-#: includes/class-editorskit-user-feedback.php:286
+#: includes/class-editorskit-user-feedback.php:300
 msgid "No thanks / I already have"
 msgstr "Nein, Danke / Habe ich bereits"
 
-#: includes/class-editorskit-user-feedback.php:285
+#: includes/class-editorskit-user-feedback.php:299
+#: includes/notices/class-editorskit-support-notice.php:53
+#: src/admin/index.js:256
 msgid "Leave a Review"
 msgstr "Eine Bewertung abgeben"
 
 #. translators: 1. Name, 2. Time
-#: includes/class-editorskit-user-feedback.php:281
+#: includes/class-editorskit-user-feedback.php:295
 msgid "You have been using %1$s for %2$s now. Mind leaving a review to let us know know what you think? We'd really appreciate it!"
 msgstr "Du verwendest %1$s bereits seit %2$s. Du kannst uns gerne eine Bewertung geben, wie du das Plugin findest. Wir würden uns sehr darüber freuen!"
 
 #. translators: 1. Name
-#: includes/class-editorskit-user-feedback.php:278
+#: includes/class-editorskit-user-feedback.php:292
 msgid "Are you enjoying %s Plugin?"
 msgstr "Gefällt dir das %s Plugin?"
 
 #. translators: 1. Name
-#: includes/class-editorskit-user-feedback.php:274
+#: includes/class-editorskit-user-feedback.php:288
 msgid "%s WordPress Plugin"
 msgstr "%s WordPress Plugin"
 
@@ -218,6 +90,139 @@ msgstr "%s Wochen"
 msgid "a year"
 msgstr "ein Jahr"
 
+#: includes/class-editorskit-welcome.php:150
+msgid "Getting started with EditorsKit"
+msgstr "Erste Schritte mit EditorsKit"
+
+#: plugin.php:74 plugin.php:86
+msgid "Cheating huh?"
+msgstr "Etwa mogeln?"
+
+#: includes/class-editorskit-features-manager.php:295
+msgid "Gradient Controls"
+msgstr "Verlaufseinstellung"
+
+#: includes/class-editorskit-features-manager.php:162
+#: src/extensions/formats/charmap/controls.js:161
+#: src/extensions/formats/charmap/index.js:19
+msgid "Special Characters"
+msgstr "Sonderzeichen"
+
+#: includes/class-editorskit-post-meta.php:104
+msgid "API key and token from shareablock.com"
+msgstr "API-Key and Token von shareablock.com"
+
+#: includes/class-editorskit-features-manager.php:239
+msgid "Link Toolbar for Cover, Group & Column"
+msgstr "Link-Toolbar für Cover, Gruppen und Spalten"
+
+#: includes/class-editorskit-features-manager.php:142
+msgid "Indents"
+msgstr "Einzüge"
+
+#: includes/class-editorskit-features-manager.php:219
+msgid "Button Block Full Width"
+msgstr "Button-Block mit voller Breite"
+
+#: includes/class-editorskit-features-manager.php:127
+#: src/extensions/formats/abbreviation/components/edit.js:47
+#: src/extensions/formats/abbreviation/index.js:19
+msgid "Abbreviation"
+msgstr "Abkürzung"
+
+#: includes/class-editorskit-features-manager.php:224
+msgid "Columns Block Background Color"
+msgstr "Spalten-Block Hintergrundfarbe"
+
+#: includes/class-editorskit-features-manager.php:249
+msgid "List Block Text Color"
+msgstr "Listen-Block Textfarbe"
+
+#: includes/class-editorskit-features-manager.php:244
+msgid "List Block Font Size"
+msgstr "Listen-Block Schriftgröße"
+
+#: includes/class-editorskit-features-manager.php:326
+msgid "Select Parent Block"
+msgstr "Eltern-Block auswählen"
+
+#: includes/class-editorskit-features-manager.php:322
+msgid "Shortcuts"
+msgstr "Tastaturkürzel"
+
+#: includes/class-editorskit-features-manager.php:157
+#: src/extensions/formats/nbsp/index.js:19
+msgid "Nonbreaking Space"
+msgstr "Geschütztes Leerzeichen"
+
+#: includes/class-editorskit-features-manager.php:300
+#: src/extensions/components/help-tips/components/controls.js:105
+#: src/extensions/components/help-tips/components/controls.js:106
+msgid "Help, tips and tricks"
+msgstr "Hilfe, Tipps und Tricks"
+
+#: includes/class-editorskit-features-manager.php:208
+#: src/admin/docs/index.js:81
+msgid "Transform 3 Empty Paragraphs to Spacer Block"
+msgstr "Drei leere Absätze in einen Abstands-Block umwandeln"
+
+#: includes/class-editorskit-features-manager.php:193
+msgid "Estimated Reading Time"
+msgstr "Geschätzte Lesedauer"
+
+#: includes/class-editorskit-features-manager.php:229
+#: src/extensions/block-toolbar/block-navigator/components/controls.js:43
+msgid "Block Navigator"
+msgstr "Block-Navigator"
+
+#: includes/class-editorskit-features-manager.php:254
+msgid "Media Text Block Layout"
+msgstr "Medien-Textblock-Layout"
+
+#: includes/class-editorskit-features-manager.php:215
+#: src/admin/docs/index.js:209
+msgid "Block Options"
+msgstr "Block-Optionen"
+
+#: includes/class-editorskit-features-manager.php:152
+msgid "Link with \"rel\" Attributes"
+msgstr "Link mit \"rel\"-Attributen"
+
+#: includes/class-editorskit-features-manager.php:285
+#: src/admin/docs/index.js:111
+msgid "Drag and Drop Featured Image"
+msgstr "Beitragsbild ziehen und ablegen"
+
+#: includes/class-editorskit-features-manager.php:259
+msgid "Set Image Block as Featured"
+msgstr "Bilder-Block als Beitragsbild festlegen"
+
+#: includes/class-editorskit-features-manager.php:198
+msgid "Heading Block Label"
+msgstr "Überschrift-Blockbeschriftung"
+
+#: includes/class-editorskit-features-manager.php:310
+#: src/extensions/components/scroll-down/components/scrolldown.js:36
+msgid "View Custom Fields"
+msgstr "Individuelle Felder anzeigen"
+
+#: includes/class-editorskit-features-manager.php:275
+msgid "Code Editor Syntax Highlight"
+msgstr "Code-Editor Syntax-Hervorhebung"
+
+#: includes/class-editorskit-features-manager.php:290
+msgid "Editor Min-Height"
+msgstr "Mindesthöhe des Editors"
+
+#: includes/class-editorskit-features-manager.php:280
+msgid "Custom Class Names"
+msgstr "Individuelle Klassennamen"
+
+#: includes/class-editorskit-features-manager.php:234
+#: src/extensions/block-settings/export/components/export.js:77
+msgid "Export as JSON"
+msgstr "Als JSON exportieren"
+
 #. translators: Number of years
 #: includes/class-editorskit-user-feedback.php:95
 msgid "%s years"
@@ -227,118 +232,100 @@ msgstr "%s Jahre"
 msgid "Toggle Title Visibility"
 msgstr "Titel-Sichtbarkeit an-/ abschalten"
 
-#: includes/class-editorskit-features-manager.php:295
-msgid "Toggle Auto Save"
-msgstr "Automatische Speicherung an-/ abschalten"
-
-#: includes/class-editorskit-features-manager.php:261
-#: src/admin/docs/index.js:238
+#: includes/class-editorskit-features-manager.php:266
+#: src/admin/docs/index.js:226
 msgid "Tools"
 msgstr "Werkzeuge"
 
-#: includes/class-editorskit-features-manager.php:193
+#: includes/class-editorskit-features-manager.php:203
 msgid "Markdown"
 msgstr "Markdown"
 
-#: includes/class-editorskit-features-manager.php:179
-#: src/admin/docs/index.js:204
+#: includes/class-editorskit-features-manager.php:189
+#: src/admin/docs/index.js:192
 msgid "Writing"
 msgstr "Schreiben"
 
-#: includes/class-editorskit-features-manager.php:172
+#: includes/class-editorskit-features-manager.php:182
 #: src/extensions/formats/uppercase/controls.js:32
 #: src/extensions/formats/uppercase/index.js:19
 msgid "Uppercase"
 msgstr "Großbuchstaben"
 
-#: includes/class-editorskit-features-manager.php:162
+#: includes/class-editorskit-features-manager.php:172
 #: src/extensions/formats/superscript/controls.js:45
 #: src/extensions/formats/superscript/index.js:19
 msgid "Superscript"
 msgstr "Hochgestellt"
 
-#: includes/class-editorskit-features-manager.php:157
+#: includes/class-editorskit-features-manager.php:167
 #: src/extensions/formats/subscript/controls.js:45
 #: src/extensions/formats/subscript/index.js:19
 msgid "Subscript"
 msgstr "Tiefgestellt"
 
-#: includes/class-editorskit-features-manager.php:137
+#: includes/class-editorskit-features-manager.php:147
 msgid "Justified Alignment"
 msgstr "Blocksatz"
 
-#: includes/class-editorskit-features-manager.php:127
+#: includes/class-editorskit-features-manager.php:137
 msgid "Highlighted Text Color"
 msgstr "Hervorgehobene Textfarbe"
 
-#: includes/class-editorskit-features-manager.php:122
+#: includes/class-editorskit-features-manager.php:132
 #: src/admin/docs/index.js:66 src/extensions/formats/clear/controls.js:39
 #: src/extensions/formats/clear/index.js:19
 msgid "Clear Formatting"
 msgstr "Formatierung löschen"
 
-#: includes/class-editorskit-features-manager.php:113
+#: includes/class-editorskit-features-manager.php:123
 msgid "Formats"
 msgstr "Formate"
 
-#: includes/class-editorskit-features-manager.php:91
+#: includes/class-editorskit-features-manager.php:92
 msgid "ACF Support"
 msgstr "ACF-Unterstützung"
 
-#: includes/class-editorskit-features-manager.php:101
+#: includes/class-editorskit-features-manager.php:110
 msgid "Display Logic"
 msgstr "Anzeigelogik"
 
-#: includes/class-editorskit-features-manager.php:106
+#: includes/class-editorskit-features-manager.php:102
 msgid "User Login State"
 msgstr "Benutzer-Anmeldestatus"
 
-#: includes/class-editorskit-features-manager.php:87
+#: includes/class-editorskit-features-manager.php:118
 msgid "Visibility"
 msgstr "Sichtbarkeit"
 
-#: includes/class-editorskit-features-manager.php:167
+#: includes/class-editorskit-features-manager.php:177
 #: src/extensions/formats/markdown/index.js:20
 #: src/extensions/formats/underline/index.js:17
 #: src/extensions/formats/underline/index.js:48
 msgid "Underline"
 msgstr "Unterstrichen"
 
-#: includes/class-editorskit-features-manager.php:265
+#: includes/class-editorskit-features-manager.php:270
 #: src/extensions/components/guidelines/components/menu.js:67
 msgid "Block Guide Lines"
 msgstr "Blockführungslinien"
 
-#: includes/class-editorskit-features-manager.php:96
+#: includes/class-editorskit-features-manager.php:97
 msgid "Devices"
 msgstr "Geräte"
 
-#: includes/class-editorskit-welcome.php:138
-msgid "Getting started with EditorsKit"
-msgstr "Erste Schritte mit EditorsKit"
-
-#: plugin.php:72 plugin.php:84
-msgid "Cheating huh?"
-msgstr "Etwa mogeln?"
-
-#. Author URI of the plugin
-msgid "https://jeffreycarandang.com/"
-msgstr "https://jeffreycarandang.com/"
-
-#. Author of the plugin
-msgid "Jeffrey Carandang"
-msgstr "Jeffrey Carandang"
-
-#. Description of the plugin
-msgid "EditorsKit is a suite of <strong>page building block options</strong> for the Gutenberg block editor."
-msgstr "EditorsKit ist eine Suite von <strong>Erweiterungen für das Bauen von Seiten</strong> mit dem Gutenberg Block-Editor."
+#. Plugin Name of the plugin
+#: plugin.php includes/class-editorskit-user-feedback.php:328
+#: includes/class-editorskit-welcome.php:151
+msgid "EditorsKit"
+msgstr "EditorsKit"
 
 #. Plugin URI of the plugin
+#: plugin.php
 msgid "https://editorskit.com/"
 msgstr "https://editorskit.com/"
 
-#. Plugin Name of the plugin
-#: includes/class-editorskit-welcome.php:139
-#: includes/class-editorskit-user-feedback.php:315
-msgid "EditorsKit"
-msgstr "EditorsKit"
+#. Description of the plugin
+#: plugin.php
+msgid "EditorsKit is a suite of <strong>page building block options</strong> for the Gutenberg block editor."
+msgstr "EditorsKit ist eine Suite von <strong>Erweiterungen für das Bauen von Seiten</strong> mit dem Gutenberg Block-Editor."

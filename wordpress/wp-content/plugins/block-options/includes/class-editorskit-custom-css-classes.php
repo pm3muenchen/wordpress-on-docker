@@ -66,7 +66,11 @@ class EditorsKit_Custom_CSS_Classes {
 		$this->slug    = 'editorskit';
 		$this->url     = untrailingslashit( plugins_url( '/', dirname( __FILE__ ) ) );
 
-		add_filter( 'block_editor_settings', array( $this, 'block_editor_settings' ), 10, 2 );
+		if ( function_exists( 'get_block_editor_settings' ) ) {
+			add_filter( 'block_editor_settings_all', array( $this, 'block_editor_settings' ), 10, 2 );
+		} else {
+			add_filter( 'block_editor_settings', array( $this, 'block_editor_settings' ), 10, 2 );
+		}
 	}
 
 	/**
@@ -93,9 +97,9 @@ class EditorsKit_Custom_CSS_Classes {
 				'md:ek-padding--lg',
 				'lg:ek-padding--lg',
 				'ek-padding--xl',
-				'sm:ek-padding-xl',
-				'md:ek-padding-xl',
-				'lg:ek-padding-xl',
+				'sm:ek-padding--xl',
+				'md:ek-padding--xl',
+				'lg:ek-padding--xl',
 				'ek-margin--sm',
 				'sm:ek-margin--sm',
 				'md:ek-margin--sm',
@@ -109,9 +113,9 @@ class EditorsKit_Custom_CSS_Classes {
 				'md:ek-margin--lg',
 				'lg:ek-margin--lg',
 				'ek-margin--xl',
-				'sm:ek-margin-xl',
-				'md:ek-margin-xl',
-				'lg:ek-margin-xl',
+				'sm:ek-margin--xl',
+				'md:ek-margin--xl',
+				'lg:ek-margin--xl',
 				'ek-flex',
 				'sm:ek-flex',
 				'md:ek-flex',

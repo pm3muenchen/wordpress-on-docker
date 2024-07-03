@@ -14,22 +14,24 @@ const APIErrorDebugInformation = ({ error }) => {
 
   return (
     <div className={styles.debugWrapper}>
-      {error.debug && showDebugInformation ? (
-        <div className={styles.debugInformation}>
-          <textarea
-            className={styles.debugText}
-            onClick={(e) => {
-              e.target.focus()
-              e.target.select()
-            }}
-            defaultValue={
+      {error.debug && showDebugInformation
+        ? (
+          <div className={styles.debugInformation}>
+            <textarea
+              className={styles.debugText}
+              onClick={(e) => {
+                e.target.focus()
+                e.target.select()
+              }}
+              defaultValue={
               typeof error.debug === 'object'
                 ? JSON.stringify(error.debug, null, '\t')
                 : error.debug
             }
-          />
-        </div>
-      ) : null}
+            />
+          </div>
+          )
+        : null}
       <div className={styles.debugActions}>
         <ButtonWrapper>
           <Button
@@ -41,16 +43,18 @@ const APIErrorDebugInformation = ({ error }) => {
               return false
             }}
           />
-          {error.debug ? (
-            <Button
-              icon='eye'
-              label={showDebugInformation ? 'Hide Debug Details' : 'Show Debug Details'}
-              className={styles.buttonDebug}
-              onClick={() => {
-                setShowDebugInformation(!showDebugInformation)
-              }}
-            />
-          ) : null}
+          {error.debug
+            ? (
+              <Button
+                icon='eye'
+                label={showDebugInformation ? 'Hide Debug Details' : 'Show Debug Details'}
+                className={styles.buttonDebug}
+                onClick={() => {
+                  setShowDebugInformation(!showDebugInformation)
+                }}
+              />
+              )
+            : null}
           <ResetUserSettings />
         </ButtonWrapper>
         If this error continues please contact <a href='mailto:extensions@envato.com'>extensions@envato.com</a>.
@@ -86,6 +90,17 @@ const APIErrorMessage = () => {
             </ModalWrapper>
           )
         }
+        if (error.code === 'missing_permissions') {
+          return (
+            <ModalWrapper key={error.code} isOpen onCloseCallback={() => { removeError(error) }}>
+              <MainHeading title='Error' />
+              <p className={styles.copy}>
+                {error.message}
+              </p>
+              <APIErrorDebugInformation error={error} />
+            </ModalWrapper>
+          )
+        }
         if (error.code === 'generic_api_error') {
           return (
             <ModalWrapper key={error.code} isOpen onCloseCallback={() => { removeError(error) }}>
@@ -96,6 +111,7 @@ const APIErrorMessage = () => {
             </ModalWrapper>
           )
         }
+        return null
       })}
     </>
   )

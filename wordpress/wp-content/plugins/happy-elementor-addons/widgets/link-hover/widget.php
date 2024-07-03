@@ -9,7 +9,7 @@ namespace Happy_Addons\Elementor\Widget;
 
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
-use Elementor\Scheme_Typography;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use Happy_Addons\Elementor\Traits\Link_Hover_Markup;
 
 class Link_Hover extends Base {
@@ -40,7 +40,7 @@ class Link_Hover extends Base {
 	 * @return string Widget icon.
 	 */
 	public function get_icon() {
-		return 'hm hm-cursor-hover-click';
+		return 'hm hm-animated-link';
 	}
 
 	public function get_keywords() {
@@ -48,9 +48,10 @@ class Link_Hover extends Base {
 	}
 
 	/**
-	 * Register content related controls
-	 */
+     * Register widget content controls
+     */
 	protected function register_content_controls() {
+
 		$this->start_controls_section(
 			'_section_title',
 			array(
@@ -99,6 +100,39 @@ class Link_Hover extends Base {
 			)
 		);
 
+		$this->add_responsive_control(
+            'link_align',
+            [
+                'label' => __( 'Alignment', 'happy-elementor-addons' ),
+                'type' => Controls_Manager::CHOOSE,
+                'options' => [
+                    'left' => [
+                        'title' => __( 'Left', 'happy-elementor-addons' ),
+                        'icon' => 'eicon-text-align-left',
+                    ],
+                    'center' => [
+                        'title' => __( 'Center', 'happy-elementor-addons' ),
+                        'icon' => 'eicon-text-align-center',
+                    ],
+                    'right' => [
+                        'title' => __( 'Right', 'happy-elementor-addons' ),
+                        'icon' => 'eicon-text-align-right',
+                    ]
+                ],
+                'default' => 'left',
+                'toggle' => true,
+                // 'prefix_class' => 'ha-align-',
+                'selectors_dictionary' => [
+                    'left' => 'justify-content: flex-start',
+                    'center' => 'justify-content: center',
+                    'right' => 'justify-content: flex-end',
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .ha_content__item' => '{{VALUE}}'
+                ]
+            ]
+        );
+
 		$this->add_control(
 			'link_url',
 			array(
@@ -118,9 +152,10 @@ class Link_Hover extends Base {
 	}
 
 	/**
-	 * Register styles related controls
-	 */
+     * Register widget style controls
+     */
 	protected function register_style_controls() {
+
 		$this->start_controls_section(
 			'_section_media_style',
 			array(
@@ -169,7 +204,9 @@ class Link_Hover extends Base {
 				'name'     => 'title_typography',
 				'label'    => __( 'Typography', 'happy-elementor-addons' ),
 				'selector' => '{{WRAPPER}} .ha-link',
-				'scheme'   => Scheme_Typography::TYPOGRAPHY_2,
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
+				],
 			)
 		);
 		$this->end_controls_section();

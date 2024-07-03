@@ -6,7 +6,7 @@ use \Elementor\Controls_Manager;
 use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Typography;
 use Elementor\Plugin;
-use \Elementor\Scheme_Typography;
+use \Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use \Elementor\Widget_Base;
 use \Essential_Addons_Elementor\Classes\Controls;
 
@@ -74,7 +74,7 @@ class Facebook_Feed extends Widget_Base
         ];
     }
 
-    protected function _register_controls()
+    protected function register_controls()
     {
         $this->start_controls_section(
             'eael_section_facebook_feed_settings_account',
@@ -82,6 +82,14 @@ class Facebook_Feed extends Widget_Base
                 'label' => esc_html__('Facebook Account Settings', 'essential-addons-for-elementor-lite'),
             ]
         );
+
+	    $this->add_control(
+		    'ea_facebook_credentials_heading',
+		    [
+			    'label' => esc_html__( 'Credentials', 'essential-addons-for-elementor-lite' ),
+			    'type' => Controls_Manager::HEADING,
+		    ]
+	    );
 
         $this->add_control(
             'eael_facebook_feed_page_id',
@@ -91,20 +99,41 @@ class Facebook_Feed extends Widget_Base
                 'dynamic' => ['active' => true],
                 'label_block' => true,
                 'default' => '',
-                'description' => __('<a href="https://findmyfbid.com/" class="eael-btn" target="_blank">Find Your Page ID</a>', 'essential-addons-for-elementor-lite'),
+                'ai' => [
+					'active' => false,
+				],
             ]
         );
 
         $this->add_control(
             'eael_facebook_feed_access_token',
             [
-                'label' => esc_html__('Access Token', 'essential-addons-for-elementor-lite'),
+                'label' => esc_html__('Secret Key', 'essential-addons-for-elementor-lite'),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
                 'default' => '',
-                'description' => __('<a href="https://essential-addons.com/elementor/docs/facebook-feed/" class="eael-btn" target="_blank">Get Access Token</a>', 'essential-addons-for-elementor-lite'),
+                'separator' => 'after',
+                'description' => __('<a href="https://app.essential-addons.com/facebook/" class="eael-btn" target="_blank">Get Credentials</a>', 'essential-addons-for-elementor-lite'),
+                'ai' => [
+					'active' => false,
+				],
             ]
         );
+
+	    $this->add_control(
+		    'eael_facebook_feed_data_source',
+		    [
+			    'label' => esc_html__('Source', 'essential-addons-for-elementor-lite'),
+			    'type' => Controls_Manager::SELECT,
+			    'label_block' => true,
+			    'options' => [
+				    'posts' => esc_html__('Posts', 'essential-addons-for-elementor-lite'),
+				    'feed' => esc_html__('Feed', 'essential-addons-for-elementor-lite'),
+			    ],
+			    'default' => 'posts',
+
+		    ]
+	    );
 
 	    $this->add_control(
 		    'eael_facebook_feed_cache_limit',
@@ -153,6 +182,57 @@ class Facebook_Feed extends Widget_Base
                         'max' => 100,
                     ],
                 ],
+            ]
+        );
+
+        $this->add_control(
+            'eael_facebook_feed_force_square_img',
+            [
+                'label' => esc_html__('Force Square Image ?', 'essential-addons-for-elementor-lite'),
+                'type' => Controls_Manager::SWITCHER,
+                'return_value' => 'yes',
+                'default' => 'no',
+            ]
+        );
+
+        $this->add_control(
+            'eael_facebook_feed_image_render_type',
+            [
+                'label' => esc_html__('Image Render Type', 'essential-addons-for-elementor-lite'),
+                'type' => Controls_Manager::SELECT,
+                'options' => [
+                    'fill' => esc_html__('Stretched', 'essential-addons-for-elementor-lite'),
+                    'cover' => esc_html__('Cropped', 'essential-addons-for-elementor-lite'),
+                ],
+                'default' => 'fill',
+                'condition' => [
+                    'eael_facebook_feed_force_square_img' => 'yes'
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'eael_facebook_feed_image_dimension',
+            [
+                'label' => esc_html__('Image Dimension (px)', 'essential-addons-for-elementor-lite'),
+                'type' => Controls_Manager::SLIDER,
+                'default' => [
+                    'size' => '400',
+                ],
+                'range' => [
+                    'px' => [
+                        'min' => 10,
+                        'max' => 1000,
+                        'step'=> 5
+                    ],
+                ],
+                'condition' => [
+                    'eael_facebook_feed_force_square_img' => 'yes'
+                ],
+                'selectors' => [
+	                '{{WRAPPER}} .eael-facebook-feed-square-image .eael-facebook-feed-item img.eael-facebook-feed-img' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eael-facebook-feed-square-image .eael-facebook-feed-item .eael-facebook-feed-img-container' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};'
+                ]
             ]
         );
 
@@ -407,6 +487,9 @@ class Facebook_Feed extends Widget_Base
                 'condition' => [
                     'show_load_more' => ['yes', '1', 'true'],
                 ],
+                'ai' => [
+					'active' => false,
+				],
             ]
         );
 
@@ -537,7 +620,8 @@ class Facebook_Feed extends Widget_Base
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors' => [
-                    '{{WRAPPER}} .eael-facebook-feed-item .eael-facebook-feed-img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+	                '{{WRAPPER}} .eael-facebook-feed-item .eael-facebook-feed-img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+	                '{{WRAPPER}} .eael-facebook-feed-item .eael-facebook-feed-img-container' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -881,7 +965,9 @@ class Facebook_Feed extends Widget_Base
             Group_Control_Typography::get_type(),
             [
                 'name' => 'eael_facebook_feed_page_name_typography',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_2,
+                'global' => [
+	                'default' => Global_Typography::TYPOGRAPHY_SECONDARY
+                ],
                 'selector' => '{{WRAPPER}} .eael-facebook-feed-card .eael-facebook-feed-item .eael-facebook-feed-item-inner .eael-facebook-feed-item-header .eael-facebook-feed-item-user .eael-facebook-feed-username',
                 'condition' => [
                     'eael_facebook_feed_layout' => 'card',
@@ -919,7 +1005,9 @@ class Facebook_Feed extends Widget_Base
             Group_Control_Typography::get_type(),
             [
                 'name' => 'eael_facebook_feed_date_typography',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_2,
+                'global' => [
+	                'default' => Global_Typography::TYPOGRAPHY_SECONDARY
+                ],
                 'selector' => '{{WRAPPER}} .eael-facebook-feed-card .eael-facebook-feed-item .eael-facebook-feed-item-inner .eael-facebook-feed-item-header .eael-facebook-feed-post-time',
                 'condition' => [
                     'eael_facebook_feed_layout' => 'card',
@@ -957,7 +1045,9 @@ class Facebook_Feed extends Widget_Base
             Group_Control_Typography::get_type(),
             [
                 'name' => 'eael_facebook_feed_message_typography',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_2,
+                'global' => [
+	                'default' => Global_Typography::TYPOGRAPHY_SECONDARY
+                ],
                 'selector' => '{{WRAPPER}} .eael-facebook-feed-card .eael-facebook-feed-item .eael-facebook-feed-item-inner .eael-facebook-feed-item-content .eael-facebook-feed-message',
                 'condition' => [
                     'eael_facebook_feed_layout' => 'card',
@@ -991,7 +1081,7 @@ class Facebook_Feed extends Widget_Base
                 ],
                 'condition' => [
                     'eael_facebook_feed_layout' => 'card',
-                ],
+                ]
             ]
         );
 
@@ -1010,7 +1100,9 @@ class Facebook_Feed extends Widget_Base
             Group_Control_Typography::get_type(),
             [
                 'name' => 'eael_facebook_feed_preview_host_typography',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_2,
+                'global' => [
+	                'default' => Global_Typography::TYPOGRAPHY_SECONDARY
+                ],
                 'selector' => '{{WRAPPER}} .eael-facebook-feed-card .eael-facebook-feed-item .eael-facebook-feed-item-inner .eael-facebook-feed-preview-wrap .eael-facebook-feed-url-preview .eael-facebook-feed-url-host',
                 'condition' => [
                     'eael_facebook_feed_layout' => 'card',
@@ -1048,7 +1140,9 @@ class Facebook_Feed extends Widget_Base
             Group_Control_Typography::get_type(),
             [
                 'name' => 'eael_facebook_feed_preview_title_typography',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_1,
+                'global' => [
+	                'default' => Global_Typography::TYPOGRAPHY_PRIMARY
+                ],
                 'selector' => '{{WRAPPER}} .eael-facebook-feed-card .eael-facebook-feed-item .eael-facebook-feed-item-inner .eael-facebook-feed-preview-wrap .eael-facebook-feed-url-preview .eael-facebook-feed-url-title',
                 'condition' => [
                     'eael_facebook_feed_layout' => 'card',
@@ -1086,7 +1180,9 @@ class Facebook_Feed extends Widget_Base
             Group_Control_Typography::get_type(),
             [
                 'name' => 'eael_facebook_feed_preview_desc_typography',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_2,
+                'global' => [
+	                'default' => Global_Typography::TYPOGRAPHY_SECONDARY
+                ],
                 'selector' => '{{WRAPPER}} .eael-facebook-feed-card .eael-facebook-feed-item .eael-facebook-feed-item-inner .eael-facebook-feed-preview-wrap .eael-facebook-feed-url-preview .eael-facebook-feed-url-description',
                 'condition' => [
                     'eael_facebook_feed_layout' => 'card',
@@ -1121,7 +1217,9 @@ class Facebook_Feed extends Widget_Base
             Group_Control_Typography::get_type(),
             [
                 'name' => 'eael_facebook_feed_likes_conmments_typography',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_2,
+                'global' => [
+	                'default' => Global_Typography::TYPOGRAPHY_SECONDARY
+                ],
                 'selector' => '{{WRAPPER}} .eael-facebook-feed-overlay .eael-facebook-feed-item .eael-facebook-feed-item-overlay, {{WRAPPER}} .eael-facebook-feed-card .eael-facebook-feed-item .eael-facebook-feed-item-inner .eael-facebook-feed-item-footer',
             ]
         );
@@ -1174,6 +1272,11 @@ class Facebook_Feed extends Widget_Base
             ],
             'id' => 'eael-facebook-feed-' . esc_attr($this->get_id()),
         ]);
+
+        if ( isset( $settings['eael_facebook_feed_force_square_img'] ) && 'yes' == $settings['eael_facebook_feed_force_square_img'] ) {
+            $this->add_render_attribute('fb-wrap', 'class', 'eael-facebook-feed-square-image');
+        }
+
         $this->add_render_attribute('load-more', [
             'class' => "eael-load-more-button",
             'id' => "eael-load-more-btn-" . $this->get_id(),
@@ -1191,8 +1294,8 @@ class Facebook_Feed extends Widget_Base
         if (($settings['show_load_more'] == 'yes')) { ?>
             <div class="eael-load-more-button-wrap">
                 <button <?php $this->print_render_attribute_string('load-more'); ?>>
-                    <div class="eael-btn-loader button__loader"></div>
-                    <span><?php echo esc_html($settings['loadmore_text']); ?></span>
+                    <span class="eael-btn-loader button__loader"></span>
+                    <span class="eael_fb_load_more_text"><?php echo esc_html($settings['loadmore_text']); ?></span>
                 </button>
             </div>
             <?php

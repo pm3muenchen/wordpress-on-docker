@@ -62,7 +62,8 @@ class GoogleMapsAPILoader
 	const ENQUEUED						= 'ENQUEUED';
 	
 	private static $apiWillNotLoadWarningDisplayed = false;
-	
+	private static $apiConsentStatusLocalized = false;
+
 	/**
 	 * Constructor
 	 */
@@ -73,8 +74,14 @@ class GoogleMapsAPILoader
 		$include_allowed = $this->isIncludeAllowed($status);
 		$isAllowed = $this->isIncludeAllowed($status);
 		
-		wp_enqueue_script('wpgmza_data', plugin_dir_url(__DIR__) . 'wpgmza_data.js');
-		wp_localize_script('wpgmza_data', 'wpgmza_google_api_status', (array)$status);
+		$scriptArgs = apply_filters('wpgmza-get-scripts-arguments', array());
+
+		wp_enqueue_script('wpgmza_data', plugin_dir_url(__DIR__) . 'wpgmza_data.js', false, false, $scriptArgs);
+
+		if(!GoogleMapsAPILoader::$apiConsentStatusLocalized){
+			wp_localize_script('wpgmza_data', 'wpgmza_google_api_status', (array)$status);
+			GoogleMapsAPILoader::$apiConsentStatusLocalized = true;
+		}
 		
 		if($wpgmza->settings->engine == "google-maps" && !$isAllowed && !GoogleMapsAPILoader::$apiWillNotLoadWarningDisplayed)
 		{
@@ -86,7 +93,7 @@ class GoogleMapsAPILoader
 					<p>
 						<?php
 						_e( sprintf(
-							'WP Google Maps: You have selected the Google Maps engine, but the Google Maps API is not being loaded for the following reason: %s.<br/>We recommend you uncheck "Do not load Google Maps API" and set "Load Maps Engine API" to "Where Required" in your <a href="%s">maps settings page</a>', 
+							'WP Go Maps: You have selected the Google Maps engine, but the Google Maps API is not being loaded for the following reason: %s.<br/>We recommend you uncheck "Do not load Google Maps API" and set "Load Maps Engine API" to "Where Required" in your <a href="%s">maps settings page</a>', 
 							$status->message,
 							admin_url('admin.php?page=wp-google-maps-menu-settings')
 						));
@@ -139,15 +146,23 @@ class GoogleMapsAPILoader
 			$params['key'] = $key;
 		else if(is_admin())
 			$params['key'] = get_option('wpgmza_temp_api');
+
+		// Callback, required as of 2023
+		$params['callback'] = "__wpgmzaMapEngineLoadedCallback";
 		
 		// Libraries
-		$libraries = array('geometry', 'places', 'visualization');
+		$libraries = array('geometry', 'places', 'visualization', 'marker');
 		
 		if($wpgmza->getCurrentPage() == Plugin::PAGE_MAP_EDIT)
 			$libraries[] = 'drawing';
 		
 		$params['libraries'] = implode(',', $libraries);
+
+		if(!empty($wpgmza->settings->enable_google_api_async_param)){
+			$params['loading'] = 'async';
+		}
 		
+		/* Developer Hook (Filter) - Add or alter Google Maps API params (URL) */
 		$params = apply_filters( 'wpgmza_google_maps_api_params', $params );
 		
 		return $params;
@@ -173,8 +188,10 @@ class GoogleMapsAPILoader
 		$params = $this->getGoogleMapsAPIParams();
 		
 		$url = '//maps.googleapis.com/maps/api/js?' . http_build_query($params);
+
+		$scriptArgs = apply_filters('wpgmza-get-scripts-arguments', array());
 		
-		wp_register_script('wpgmza_api_call', $url);
+		wp_register_script('wpgmza_api_call', $url, false, false, $scriptArgs);
 		
 		// Are we always enqueuing?
 		if(!empty($settings['wpgmza_load_engine_api_condition']) && $settings['wpgmza_load_engine_api_condition'] == 'always')
@@ -328,7 +345,20 @@ class GoogleMapsAPILoader
 				
 				return false;
 			}
+			
+			if(is_admin() && !empty($post->post_type)){
+				/**
+				 *  V9 Will move away from this switch, and instead use an array with a filter for devs to extend further as needed
+				*/
+				switch($post->post_type){
+					case 'wpsl_stores';
+						$status->message = 'Page is explicitly excluded in settings';
+						$status->code = GoogleMapsAPILoader::PAGE_EXPLICITLY_EXCLUDED;
+						return false;
+				}
+			}
 		}
+
 			
 		if(!empty($settings['wpgmza_load_engine_api_condition']))
 			switch($settings['wpgmza_load_engine_api_condition'])
@@ -406,7 +436,9 @@ class GoogleMapsAPILoader
 		global $wpgmza;
 		
 		// Load our subclass of PHPs DOMDocument, for the populate function
-		require_once(plugin_dir_path(__FILE__) . 'class.dom-document.php');
+		if(!version_compare(phpversion(), '8.0', '>=')){
+			require_once(plugin_dir_path(__FILE__) . 'class.dom-document.php');
+		}
 		
 		// Load HTML
 		$document = new DOMDocument();

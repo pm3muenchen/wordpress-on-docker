@@ -132,22 +132,6 @@ class Template_Kit_Import extends API {
 		if ( ! isset( $all_template_data['requirements']['settings'] ) ) {
 			$all_template_data['requirements']['settings'] = [];
 		}
-		// Check Elementor default colors and fonts are set.
-		// Elementor stores the string 'yes' in the WordPress database if these options are active, and an empty string if these options are not active.
-		$is_elementor_color_schemes_disabled_already      = get_option( 'elementor_disable_color_schemes' );
-		$is_elementor_typography_schemes_disabled_already = get_option( 'elementor_disable_typography_schemes' );
-		if ( $is_elementor_color_schemes_disabled_already !== 'yes' ) {
-			$all_template_data['requirements']['settings'][] = [
-				'name'         => 'Elementor default color schemes',
-				'setting_name' => 'elementor_disable_color_schemes'
-			];
-		}
-		if ( $is_elementor_typography_schemes_disabled_already !== 'yes' ) {
-			$all_template_data['requirements']['settings'][] = [
-				'name'         => 'Elementor default typography schemes',
-				'setting_name' => 'elementor_disable_typography_schemes'
-			];
-		}
 
 		return $this->format_success( $all_template_data );
 	}
@@ -255,10 +239,15 @@ class Template_Kit_Import extends API {
 					);
 				}
 
-				$source     = \Elementor\Plugin::$instance->templates_manager->get_source( 'local' );
-				$result     = $source->import_template( basename( $temporary_json_file_path ), $temporary_json_file_path );
 				$block_data = json_decode( file_get_contents( $temporary_json_file_path ), true );
-				unlink( $temporary_json_file_path );
+
+				$source     = \Elementor\Plugin::$instance->templates_manager->get_source( 'local' );
+				// FYI, newer versions of Elementor delete a JSON file after successful import
+				$result     = $source->import_template( basename( $temporary_json_file_path ), $temporary_json_file_path );
+
+				if ( file_exists( $temporary_json_file_path ) ) {
+					unlink( $temporary_json_file_path );
+				}
 
 				if ( is_wp_error( $result ) ) {
 					return $this->format_error(

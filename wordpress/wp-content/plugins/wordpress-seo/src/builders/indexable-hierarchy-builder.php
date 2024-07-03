@@ -84,9 +84,11 @@ class Indexable_Hierarchy_Builder {
 	/**
 	 * Sets the indexable repository. Done to avoid circular dependencies.
 	 *
+	 * @required
+	 *
 	 * @param Indexable_Repository $indexable_repository The indexable repository.
 	 *
-	 * @required
+	 * @return void
 	 */
 	public function set_indexable_repository( Indexable_Repository $indexable_repository ) {
 		$this->indexable_repository = $indexable_repository;
@@ -155,7 +157,8 @@ class Indexable_Hierarchy_Builder {
 		}
 		$depth = \count( $indexable->ancestors );
 		foreach ( $indexable->ancestors as $ancestor ) {
-			$this->indexable_hierarchy_repository->add_ancestor( $indexable->id, $ancestor->id, $depth-- );
+			$this->indexable_hierarchy_repository->add_ancestor( $indexable->id, $ancestor->id, $depth );
+			--$depth;
 		}
 	}
 
@@ -339,7 +342,7 @@ class Indexable_Hierarchy_Builder {
 	 * @param int       $indexable_id The indexable id we're adding ancestors for.
 	 * @param int[]     $parents      The indexable ids of the parents already added.
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	private function is_invalid_ancestor( $ancestor, $indexable_id, $parents ) {
 		// If the ancestor is not an Indexable, it is invalid by default.

@@ -44,7 +44,7 @@ class Event_Elementor_Addon_AboutMe extends Widget_Base{
 	 * Register Events Addon for Elementor About Me widget controls.
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	*/
-	protected function _register_controls(){
+	protected function register_controls(){
 
 		$this->start_controls_section(
 			'section_aboutme',
@@ -158,10 +158,11 @@ class Event_Elementor_Addon_AboutMe extends Widget_Base{
 			'social_icon',
 			[
 				'label' => esc_html__( 'Social Icon', 'events-addon-for-elementor' ),
-				'type' => Controls_Manager::ICON,
-				'options' => NAEEP_Controls_Helper_Output::get_include_icons(),
-				'frontend_available' => true,
-				'default' => 'fa fa-facebook-square',
+				'type' => Controls_Manager::ICONS,
+				'default' => [
+					'value' => 'fab fa-facebook-square',
+					'library' => 'fa-solid',
+				],
 			]
 		);
 		$repeater->add_control(
@@ -384,7 +385,6 @@ class Event_Elementor_Addon_AboutMe extends Widget_Base{
 			[
 				'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 				'name' => 'sasstp_title_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .aboutme-info h3',
 			]
 		);
@@ -400,10 +400,6 @@ class Event_Elementor_Addon_AboutMe extends Widget_Base{
 				[
 					'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_1,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .aboutme-info h3, {{WRAPPER}} .aboutme-info h3 a' => 'color: {{VALUE}};',
 					],
@@ -421,10 +417,6 @@ class Event_Elementor_Addon_AboutMe extends Widget_Base{
 				[
 					'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_2,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .aboutme-info h3 a:hover' => 'color: {{VALUE}};',
 					],
@@ -458,7 +450,6 @@ class Event_Elementor_Addon_AboutMe extends Widget_Base{
 			[
 				'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 				'name' => 'subtitle_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_2,
 				'selector' => '{{WRAPPER}} .aboutme-info h5',
 			]
 		);
@@ -467,10 +458,6 @@ class Event_Elementor_Addon_AboutMe extends Widget_Base{
 			[
 				'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_2,
-				],
 				'selectors' => [
 					'{{WRAPPER}} .aboutme-info h5' => 'color: {{VALUE}};',
 				],
@@ -502,8 +489,7 @@ class Event_Elementor_Addon_AboutMe extends Widget_Base{
 			[
 				'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 				'name' => 'content_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_3,
-				'selector' => '{{WRAPPER}} .aboutme-info p',
+				'selector' => '{{WRAPPER}} .aboutme-info p, {{WRAPPER}} .aboutme-info',
 			]
 		);
 		$this->add_control(
@@ -511,12 +497,8 @@ class Event_Elementor_Addon_AboutMe extends Widget_Base{
 			[
 				'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_3,
-				],
 				'selectors' => [
-					'{{WRAPPER}} .aboutme-info p' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .aboutme-info p, {{WRAPPER}} .aboutme-info' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -563,10 +545,6 @@ class Event_Elementor_Addon_AboutMe extends Widget_Base{
 				[
 					'label' => esc_html__( 'Background Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_2,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .naeep-social a' => 'background-color: {{VALUE}};',
 					],
@@ -710,7 +688,6 @@ class Event_Elementor_Addon_AboutMe extends Widget_Base{
 			[
 				'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 				'name' => 'btn_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .naeep-btn',
 			]
 		);
@@ -835,30 +812,31 @@ class Event_Elementor_Addon_AboutMe extends Widget_Base{
 		$aboutme_btn = $aboutme_btn_link ? '<div class="naeep-btn-wrap"><a href="'.esc_url($aboutme_btn_link).'" class="naeep-btn" '.$aboutme_btn_link_attr.'>'.esc_html($aboutme_btn_text).'</a></div>' : '';
 
 		$output = '<div class="naeep-aboutme-item">
-								<div class="aboutme-image'.esc_attr($s_class).'">'.$image.'</div>
-								<div class="aboutme-info'.esc_attr($f_class).'"><div class="aboutme-info-wrap">
-									'.$subtitle.$title;
-									// Group Param Output
-									if ( is_array( $listItems_groups ) && !empty( $listItems_groups ) ){
-										$output .= '<div class="naeep-social rounded">';
-									  foreach ( $listItems_groups as $each_list ) {
-									  $icon_link = !empty( $each_list['icon_link'] ) ? $each_list['icon_link'] : '';
+					<div class="aboutme-image'.esc_attr($s_class).'">'.$image.'</div>
+					<div class="aboutme-info'.esc_attr($f_class).'"><div class="aboutme-info-wrap">
+						'.$subtitle.$title;
+						// Group Param Output
+						if ( is_array( $listItems_groups ) && !empty( $listItems_groups ) ){
+							$output .= '<div class="naeep-social rounded">';
+						    foreach ( $listItems_groups as $each_list ) {
+						    	
+						  		$icon_link = !empty( $each_list['icon_link'] ) ? $each_list['icon_link'] : '';
 
-										$link_url = !empty( $icon_link['url'] ) ? esc_url($icon_link['url']) : '';
-										$link_external = !empty( $icon_link['is_external'] ) ? 'target="_blank"' : '';
-										$link_nofollow = !empty( $icon_link['nofollow'] ) ? 'rel="nofollow"' : '';
-										$link_attr = !empty( $icon_link['url'] ) ?  $link_external.' '.$link_nofollow : '';
+								$link_url = !empty( $icon_link['url'] ) ? esc_url($icon_link['url']) : '';
+								$link_external = !empty( $icon_link['is_external'] ) ? 'target="_blank"' : '';
+								$link_nofollow = !empty( $icon_link['nofollow'] ) ? 'rel="nofollow"' : '';
+								$link_attr = !empty( $icon_link['url'] ) ?  $link_external.' '.$link_nofollow : '';
 
-									  $social_icon = !empty( $each_list['social_icon'] ) ? $each_list['social_icon'] : '';
-										$icon = $social_icon ? '<i class="'.esc_attr($social_icon).'" aria-hidden="true"></i>' : '';
+						  		$social_icon = !empty( $each_list['social_icon'] ) ? $each_list['social_icon'] : '';
+								$icon = $social_icon ? '<i class="'.esc_attr($social_icon['value']).'" aria-hidden="true"></i>' : '';
 
-									  $output .= '<a href="'.esc_url($link_url).'" '.$link_attr.'>'.$icon.'</a>';
-										}
-										$output .= '</div>';
-									}
-		$output .= $content.$aboutme_btn.$sign_image.'</div>
-							</div>
-						</div>';
+						  		$output .= '<a href="'.esc_url($link_url).'" '.$link_attr.'>'.$icon.'</a>';
+							}
+							$output .= '</div>';
+						}
+						$output .= $content.$aboutme_btn.$sign_image.'</div>
+				</div>
+			</div>';
 		echo $output;
 
 	}

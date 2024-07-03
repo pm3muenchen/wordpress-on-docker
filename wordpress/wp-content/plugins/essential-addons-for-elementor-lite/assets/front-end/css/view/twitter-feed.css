@@ -25,11 +25,14 @@
   }
 }
 
+.eael-twitter-feed-item .page-1 {
+  display: block;
+}
+
 .eael-twitter-feed-item .eael-twitter-feed-item-inner {
   background: #fff;
   border: 1px solid rgba(0, 0, 0, 0.1);
   -webkit-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
 
@@ -111,8 +114,7 @@
   color: #666666;
   margin: 0 0 5px;
   min-height: 20px;
-  -o-text-overflow: ellipsis;
-     text-overflow: ellipsis;
+  text-overflow: ellipsis;
   -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
 }
@@ -156,6 +158,22 @@
       -ms-flex-align: center;
           align-items: center;
   -webkit-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
+}
+
+.eael-twitter-feed-carousel.swiper-container {
+  width: 100%;
+}
+
+.eael-twitter-feed-carousel.swiper-container .swiper-button-prev:after,
+.eael-twitter-feed-carousel.swiper-container .swiper-button-next:after {
+  content: none;
+}
+
+.eael-d-block {
+  display: block;
+}
+
+.eael-d-none {
+  display: none;
 }

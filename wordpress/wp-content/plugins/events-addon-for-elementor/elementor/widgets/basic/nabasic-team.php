@@ -44,7 +44,7 @@ class Event_Elementor_Addon_Team extends Widget_Base{
 	 * Register Events Addon for Elementor Team widget controls.
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	*/
-	protected function _register_controls(){
+	protected function register_controls(){
 
 		$this->start_controls_section(
 			'section_team',
@@ -70,10 +70,11 @@ class Event_Elementor_Addon_Team extends Widget_Base{
 			'trigger_icon',
 			[
 				'label' => esc_html__( 'Trigger Icon', 'events-addon-for-elementor' ),
-				'type' => Controls_Manager::ICON,
-				'options' => NAEEP_Controls_Helper_Output::get_include_icons(),
-				'frontend_available' => true,
-				'default' => 'fa fa-share-alt',
+				'type' => Controls_Manager::ICONS,
+				'default' => [
+					'value' => 'fas fa-share-alt',
+					'library' => 'fa-solid',
+				],
 			]
 		);
 		$this->add_control(
@@ -219,10 +220,11 @@ class Event_Elementor_Addon_Team extends Widget_Base{
 			'social_icon',
 			[
 				'label' => esc_html__( 'Contact Icon', 'events-addon-for-elementor' ),
-				'type' => Controls_Manager::ICON,
-				'options' => NAEEP_Controls_Helper_Output::get_include_icons(),
-				'frontend_available' => true,
-				'default' => 'fa fa-facebook-square',
+				'type' => Controls_Manager::ICONS,
+				'default' => [
+					'value' => 'fab fa-facebook-square',
+					'library' => 'fa-solid',
+				],
 			]
 		);
 		$repeaterOne->add_control(
@@ -262,10 +264,11 @@ class Event_Elementor_Addon_Team extends Widget_Base{
 			'social_icon',
 			[
 				'label' => esc_html__( 'Social Icon', 'events-addon-for-elementor' ),
-				'type' => Controls_Manager::ICON,
-				'options' => NAEEP_Controls_Helper_Output::get_include_icons(),
-				'frontend_available' => true,
-				'default' => 'fa fa-facebook-square',
+				'type' => Controls_Manager::ICONS,
+				'default' => [
+					'value' => 'fab fa-facebook-square',
+					'library' => 'fa-solid',
+				],
 			]
 		);
 		$repeater->add_control(
@@ -716,10 +719,6 @@ class Event_Elementor_Addon_Team extends Widget_Base{
 				[
 					'label' => esc_html__( 'Icon Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_2,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .trigger-icon i' => 'color: {{VALUE}};',
 					],
@@ -927,7 +926,6 @@ class Event_Elementor_Addon_Team extends Widget_Base{
 				[
 					'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 					'name' => 'sasstp_title_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 					'selector' => '{{WRAPPER}} .mate-info h3',
 				]
 			);
@@ -943,10 +941,6 @@ class Event_Elementor_Addon_Team extends Widget_Base{
 					[
 						'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'scheme' => [
-							'type' => Scheme_Color::get_type(),
-							'value' => Scheme_Color::COLOR_1,
-						],
 						'selectors' => [
 							'{{WRAPPER}} .mate-info h3, {{WRAPPER}} .mate-info h3 a' => 'color: {{VALUE}};',
 						],
@@ -964,10 +958,6 @@ class Event_Elementor_Addon_Team extends Widget_Base{
 					[
 						'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'scheme' => [
-							'type' => Scheme_Color::get_type(),
-							'value' => Scheme_Color::COLOR_2,
-						],
 						'selectors' => [
 							'{{WRAPPER}} .mate-info h3 a:hover' => 'color: {{VALUE}};',
 						],
@@ -1001,7 +991,6 @@ class Event_Elementor_Addon_Team extends Widget_Base{
 				[
 					'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 					'name' => 'subtitle_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_2,
 					'selector' => '{{WRAPPER}} .mate-info span',
 				]
 			);
@@ -1010,10 +999,6 @@ class Event_Elementor_Addon_Team extends Widget_Base{
 				[
 					'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_2,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .mate-info span' => 'color: {{VALUE}};',
 					],
@@ -1045,7 +1030,6 @@ class Event_Elementor_Addon_Team extends Widget_Base{
 				[
 					'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 					'name' => 'content_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_3,
 					'selector' => '{{WRAPPER}} .mate-info p',
 				]
 			);
@@ -1054,10 +1038,6 @@ class Event_Elementor_Addon_Team extends Widget_Base{
 				[
 					'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_3,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .mate-info p' => 'color: {{VALUE}};',
 					],
@@ -1068,10 +1048,6 @@ class Event_Elementor_Addon_Team extends Widget_Base{
 				[
 					'label' => esc_html__( 'Seperator Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_2,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .mate-info p:before' => 'background-color: {{VALUE}};',
 					],
@@ -1114,7 +1090,6 @@ class Event_Elementor_Addon_Team extends Widget_Base{
 				[
 					'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 					'name' => 'sasstp_clist_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 					'selector' => '{{WRAPPER}} .naeep-contact-list li',
 				]
 			);
@@ -1130,10 +1105,6 @@ class Event_Elementor_Addon_Team extends Widget_Base{
 					[
 						'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'scheme' => [
-							'type' => Scheme_Color::get_type(),
-							'value' => Scheme_Color::COLOR_1,
-						],
 						'selectors' => [
 							'{{WRAPPER}} .naeep-contact-list li, {{WRAPPER}} .naeep-contact-list li a' => 'color: {{VALUE}};',
 						],
@@ -1151,10 +1122,6 @@ class Event_Elementor_Addon_Team extends Widget_Base{
 					[
 						'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'scheme' => [
-							'type' => Scheme_Color::get_type(),
-							'value' => Scheme_Color::COLOR_2,
-						],
 						'selectors' => [
 							'{{WRAPPER}} .naeep-contact-list li a:hover' => 'color: {{VALUE}};',
 						],
@@ -1173,7 +1140,7 @@ class Event_Elementor_Addon_Team extends Widget_Base{
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 		$hover_style = !empty( $settings['hover_style'] ) ? $settings['hover_style'] : '';
-		$trigger_icon = !empty( $settings['trigger_icon'] ) ? $settings['trigger_icon'] : '';
+		$trigger_icon = !empty( $settings['trigger_icon'] ) ? $settings['trigger_icon']['value'] : '';
 		$hover_effect = !empty( $settings['hover_effect'] ) ? $settings['hover_effect'] : '';
 		$team_image = !empty( $settings['team_image']['id'] ) ? $settings['team_image']['id'] : '';
 		$image_link = !empty( $settings['image_link']['url'] ) ? $settings['image_link']['url'] : '';
@@ -1250,7 +1217,7 @@ class Event_Elementor_Addon_Team extends Widget_Base{
 						$link_external = !empty( $icon_link['is_external'] ) ? 'target="_blank"' : '';
 						$link_nofollow = !empty( $icon_link['nofollow'] ) ? 'rel="nofollow"' : '';
 						$link_attr = !empty( $icon_link['url'] ) ?  $link_external.' '.$link_nofollow : '';
-					  $social_icon = !empty( $each_list['social_icon'] ) ? $each_list['social_icon'] : '';
+					  	$social_icon = !empty( $each_list['social_icon'] ) ? $each_list['social_icon']['value'] : '';
 						$icon = $social_icon ? '<i class="'.esc_attr($social_icon).'" aria-hidden="true"></i>' : '';
 			   		?>
 
@@ -1280,7 +1247,7 @@ class Event_Elementor_Addon_Team extends Widget_Base{
 							$link_external = !empty( $icon_link['is_external'] ) ? 'target="_blank"' : '';
 							$link_nofollow = !empty( $icon_link['nofollow'] ) ? 'rel="nofollow"' : '';
 							$link_attr = !empty( $icon_link['url'] ) ?  $link_external.' '.$link_nofollow : '';
-						  $social_icon = !empty( $each_list['social_icon'] ) ? $each_list['social_icon'] : '';
+						  	$social_icon = !empty( $each_list['social_icon'] ) ? $each_list['social_icon']['value'] : '';
 							$icon = $social_icon ? '<i class="'.esc_attr($social_icon).'" aria-hidden="true"></i>' : '';
 				   		?>
 
@@ -1299,7 +1266,7 @@ class Event_Elementor_Addon_Team extends Widget_Base{
 					<ul class="naeep-contact-list">
 					<?php
 				  foreach ( $contactItems_groups as $each_contact ) {
-				  $social_icon = !empty( $each_contact['social_icon'] ) ? $each_contact['social_icon'] : '';
+				  $social_icon = !empty( $each_contact['social_icon'] ) ? $each_contact['social_icon']['value'] : '';
 				  $contact_text = !empty( $each_contact['contact_text'] ) ? $each_contact['contact_text'] : '';
 				  $contact_link = !empty( $each_contact['contact_link'] ) ? $each_contact['contact_link'] : '';
 					$link_url = !empty( $contact_link['url'] ) ? esc_url($contact_link['url']) : '';
@@ -1327,7 +1294,7 @@ class Event_Elementor_Addon_Team extends Widget_Base{
 						$link_external = !empty( $icon_link['is_external'] ) ? 'target="_blank"' : '';
 						$link_nofollow = !empty( $icon_link['nofollow'] ) ? 'rel="nofollow"' : '';
 						$link_attr = !empty( $icon_link['url'] ) ?  $link_external.' '.$link_nofollow : '';
-					  $social_icon = !empty( $each_list['social_icon'] ) ? $each_list['social_icon'] : '';
+					  	$social_icon = !empty( $each_list['social_icon'] ) ? $each_list['social_icon']['value'] : '';
 						$icon = $social_icon ? '<i class="'.esc_attr($social_icon).'" aria-hidden="true"></i>' : '';
 			   		?>
 

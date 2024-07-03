@@ -22,8 +22,18 @@ jQuery(function($) {
 		
 		WPGMZA.EventDispatcher.call(this);
 		
-		if(!(element instanceof HTMLElement))
-			throw new Error("Argument must be a HTMLElement");
+		if(!(element instanceof HTMLElement) && !(element instanceof HTMLDivElement)){
+			if(!window.elementor){
+				/**
+				 * Temporary Solution
+				 * 
+				 * If elementor is active, it won't be an HTML Element just yet, due to preview block loading
+				 * 
+				 * However, our timer initializer will load it later, so we just don't throw the error
+				*/
+				throw new Error("Argument must be a HTMLElement");
+			}
+		}
 		
 		// NB: This should be moved to a getID function or similar and offloaded to Pro. ID should be fixed to 1 in basic.
 		if(element.hasAttribute("data-map-id"))
@@ -47,9 +57,21 @@ jQuery(function($) {
 		this.polylines = [];
 		this.circles = [];
 		this.rectangles = [];
+
+		this.pointlabels = [];
+
+		// GDPR
+		if(WPGMZA.googleAPIStatus && WPGMZA.googleAPIStatus.code == "USER_CONSENT_NOT_GIVEN") {
+			$(element).append($(WPGMZA.api_consent_html));
+			$(element).css({height: "auto"});
+			return;
+		}
 		
 		this.loadSettings(options);
-		
+		this.loadStyling();
+
+		this.applyMobileOverrides();
+
 		this.shortcodeAttributes = {};
 		if($(this.element).attr("data-shortcode-attributes")){
 			try{
@@ -61,21 +83,21 @@ jQuery(function($) {
 				console.warn("Error parsing shortcode attributes");
 			}
 		}
+
+		this.innerStack = $(this.element).find('.wpgmza-inner-stack');
+
+		/* Deprecated to allow for internal stack init (V9.0.0) */
+		/*if(WPGMZA.getCurrentPage() != WPGMZA.PAGE_MAP_EDIT)
+			this.initStoreLocator();*/
 		
-		if(WPGMZA.getCurrentPage() != WPGMZA.PAGE_MAP_EDIT)
-			this.initStoreLocator();
 		this.setDimensions();
 		this.setAlignment();
-		
+
+		/* V9.0.0 - Load internal viewport, this is a new system which allows for container specific redraw logic (More for stacks at the moment) */
+		this.initInternalViewport();
+
 		// Init marker filter
 		this.markerFilter = WPGMZA.MarkerFilter.createInstance(this);
-		
-		// GDPR
-		
-		if(WPGMZA.googleAPIStatus && WPGMZA.googleAPIStatus.code == "USER_CONSENT_NOT_GIVEN") {
-			$(element).append($(WPGMZA.api_consent_html));
-			$(element).css({height: "auto"});
-		}
 		
 		// Initialisation
 		this.on("init", function(event) {
@@ -84,6 +106,12 @@ jQuery(function($) {
 
 		this.on("click", function(event){
 			self.onClick(event);
+		});
+
+		// Fullscreen delegates
+		$(document.body).on('fullscreenchange.wpgmza', function(event){
+			let fullscreen = self.isFullScreen();
+			self.onFullScreenChange(fullscreen);
 		});
 		
 		// Legacy support
@@ -245,6 +273,15 @@ jQuery(function($) {
 		var self = this;
 		
 		this.initPreloader();
+
+		if(this.innerStack.length > 0){
+			$(this.element).append(this.innerStack);
+
+		}
+		
+		if(WPGMZA.getCurrentPage() != WPGMZA.PAGE_MAP_EDIT){
+			this.initStoreLocator();
+		}
 		
 		if(!("autoFetchFeatures" in this.settings) || (this.settings.autoFetchFeatures !== false))
 			this.fetchFeatures();
@@ -300,12 +337,100 @@ jQuery(function($) {
 			
 		this.settings = settings;
 	}
+
+	/**
+	 * Loads global component styling variables onto each map element as it is initialized
+	 * 
+	 * This is a global styling support, but it could be pivoted later into a per map option as well if needed. This is the primary reason for map instancing
+	 * 
+	 * @method
+	 * @memberof WPGMZA.Map
+	*/
+	WPGMZA.Map.prototype.loadStyling = function(){
+		if(!WPGMZA.InternalEngine.isLegacy()){
+			if(WPGMZA.stylingSettings && WPGMZA.stylingSettings instanceof Object){
+				if(Object.keys(WPGMZA.stylingSettings).length > 0){
+					for(let name in WPGMZA.stylingSettings){
+						if(name.indexOf('--') !== -1){
+							/* This is a CSS variable, so it's okay to set this on the wrapper */
+							const value = WPGMZA.stylingSettings[name];
+							if(value){
+								$(this.element).css(name, value);
+							}
+						}
+					}
+				}
+			}
+
+			if(this.settings && this.settings.wpgmza_ol_tile_filter){
+				let tileFilter = this.settings.wpgmza_ol_tile_filter.trim();
+				if(tileFilter){
+					$(this.element).css('--wpgmza-ol-tile-filter', tileFilter);
+				}
+			}
+		}
+	}
+
+	/**
+	 * Applies settings overrides for some key options when browser is in mobile view mode
+	 * 
+	 * This is a direct mutation to the active settings of the map, meaning it must happen early
+	 * 
+	 * @method
+	 * @memberof WPGMZA.Map
+	 */
+	WPGMZA.Map.prototype.applyMobileOverrides = function(){
+		if($(window).width() <= WPGMZA.MOBILE_RESOLUTION_THRESHOLD){
+			if(this.settings.zoom_level_mobile_override_enabled){
+				try {
+					const mobileZoomOverride = parseInt(this.settings.zoom_level_mobile_override);
+					this.settings.map_start_zoom = mobileZoomOverride;
+				} catch (e){
+	
+				}
+			}
+		}
+	}
+
+	/**
+	 * Loads and initializes internal viewport logic
+	 * 
+	 * This allows each stacked item in the map (placed in map, atlas novus) to listen to changes in the document
+	 * 
+	 * These changes are treated as an internal viewport for the map container, allowing panels to resize similar to media queries,
+	 * but with the added benefit of being container based, and not screen based. This means we can resize stacked components/panels without being 
+	 * reliant on the screen size, which is more effective in our opinion
+	 * 
+	 * Note: We could have looked into using container queries, but they just don't seem quite ready yet under the current CSS specification
+	 * 
+	 * This initialized a new module, which is dedicated to monitoring changes in the internal viewport 
+	 * 
+	 * @return void
+	 */
+	WPGMZA.Map.prototype.initInternalViewport = function(){
+		if(WPGMZA.is_admin == "1")
+			return;	// NB: Only on frontend (for now anyway)
+		
+		this.internalViewport = WPGMZA.InternalViewport.createInstance(this);
+	}
 	
 	WPGMZA.Map.prototype.initStoreLocator = function()
 	{
-		var storeLocatorElement = $(".wpgmza_sl_main_div");
-		if(storeLocatorElement.length)
+		let selectors = [
+			".wpgmza-store-locator[data-id='" + this.id + "']",
+			".wpgmza-store-locator",
+			".wpgmza_sl_main_div"
+		];
+
+		let storeLocatorElement = false;
+		for(let i in selectors){
+			if($(selectors[i]).length > 0 && storeLocatorElement === false){
+				storeLocatorElement = $(selectors[i]);
+			}
+		}
+		if(storeLocatorElement.length){
 			this.storeLocator = WPGMZA.StoreLocator.createInstance(this, storeLocatorElement[0]);
+		}
 	}
 	
 	/**
@@ -319,6 +444,7 @@ jQuery(function($) {
 		var arrays = WPGMZA.Map.prototype.getFeatureArrays.call(this);
 		
 		arrays.heatmaps = this.heatmaps;
+		arrays.imageoverlays = this.imageoverlays;
 		
 		return arrays;
 	}
@@ -364,7 +490,7 @@ jQuery(function($) {
 		if(this.fetchFeaturesXhr)
 			this.fetchFeaturesXhr.abort();
 			
-		if(!WPGMZA.settings.fetchMarkersBatchSize)
+		if(!WPGMZA.settings.fetchMarkersBatchSize || !WPGMZA.settings.enable_batch_loading)
 		{
 			data = this.getRESTParameters({
 				filter: JSON.stringify(filter)
@@ -379,18 +505,15 @@ jQuery(function($) {
 				}
 				
 			});
-		}
-		else
-		{
+		} else {
 			var offset = 0;
-			var limit = WPGMZA.settings.fetchMarkersBatchSize;
+			var limit = parseInt(WPGMZA.settings.fetchMarkersBatchSize);
 			
-			function fetchNextBatch()
-			{
+			function fetchNextBatch(){
 				filter.offset = offset;
 				filter.limit = limit;
 				
-				data = this.getRESTParameters({
+				data = self.getRESTParameters({
 					filter: JSON.stringify(filter)
 				});
 				
@@ -400,15 +523,12 @@ jQuery(function($) {
 					data: data,
 					success: function(result, status, xhr) {
 						
-						if(result.length)
-						{
+						if(result.length){
 							self.onMarkersFetched(result, true);	// Expect more batches
 							
 							offset += limit;
 							fetchNextBatch();
-						}
-						else
-						{
+						} else {
 							self.onMarkersFetched(result);			// Final batch
 							
 							data.exclude = "markers";
@@ -544,7 +664,7 @@ jQuery(function($) {
 			var module = type.substr(0, 1).toUpperCase() + type.substr(1).replace(/s$/, "");
 			
 			for(var i = 0; i < data[type].length; i++)
-			{
+			{	
 				var instance = WPGMZA[module].createInstance(data[type][i]);
 				var addFunctionName = "add" + module;
 				
@@ -923,18 +1043,28 @@ jQuery(function($) {
 		switch(parseInt(this.settings.wpgmza_map_align))
 		{
 			case 1:
-				$(this.element).css({"float": "left"});
+				/* Float rules result in unreliable placement in some themes, which can cause overlaps */
+				/* $(this.element).css({"float": "left"}); */
+
+				$(this.element).addClass('wpgmza-auto-left');
 				break;
 				
 			case 2:
+				/*
 				$(this.element).css({
 					"margin-left": "auto",
 					"margin-right": "auto"
 				});
+				*/
+				
+				$(this.element).addClass('wpgmza-auto-left');
 				break;
 			
 			case 3:
-				$(this.element).css({"float": "right"});
+				/* Float rules result in unreliable placement in some themes, which can cause overlaps */
+				/* $(this.element).css({"float": "right"}); */
+
+				$(this.element).addClass('wpgmza-auto-right');
 				break;
 			
 			default:
@@ -1078,6 +1208,7 @@ jQuery(function($) {
 		
 		this.polygons.push(polygon);
 		this.dispatchEvent({type: "polygonadded", polygon: polygon});
+		polygon.dispatchEvent({type: "added"});
 	}
 	
 	/**
@@ -1169,6 +1300,8 @@ jQuery(function($) {
 		
 		this.polylines.push(polyline);
 		this.dispatchEvent({type: "polylineadded", polyline: polyline});
+		polyline.dispatchEvent({type: "added"});
+
 	}
 	
 	/**
@@ -1245,6 +1378,8 @@ jQuery(function($) {
 		
 		this.circles.push(circle);
 		this.dispatchEvent({type: "circleadded", circle: circle});
+		circle.dispatchEvent({type: "added"});
+
 	}
 	
 	/**
@@ -1313,6 +1448,7 @@ jQuery(function($) {
 		
 		this.rectangles.push(rectangle);
 		this.dispatchEvent({type: "rectangleadded", rectangle: rectangle});
+		rectangle.dispatchEvent({type: "added"});
 	}
 	
 	WPGMZA.Map.prototype.removeRectangle = function(rectangle)
@@ -1348,6 +1484,66 @@ jQuery(function($) {
 			return;
 		
 		this.removeRectangle(rectangle);
+	}
+
+	/**
+	 * Adds the specified pointlabel to this map
+	 * @method
+	 * @memberof WPGMZA.Map
+	 * @param {WPGMZA.Pointlabel} pointlabel The Point Label to add
+	 * @fires pointlabeladded
+	 * @throws Argument must be an instance of WPGMZA.Pointlabel
+	 */
+	WPGMZA.Map.prototype.addPointlabel = function(pointlabel)
+	{
+		if(!(pointlabel instanceof WPGMZA.Pointlabel))
+			throw new Error("Argument must be an instance of WPGMZA.Pointlabel");
+		
+		pointlabel.map = this;
+		
+		this.pointlabels.push(pointlabel);
+		this.dispatchEvent({type: "pointlabeladded", pointlabel: pointlabel});
+	}
+
+	/**
+	 * Removes the specified pointlabel from this map
+	 * @method
+	 * @memberof WPGMZA.Map
+	 * @param {WPGMZA.Pointlabel} pointlabel The Point Label to remove
+	 * @fires pointlabelremoved
+	 * @throws Argument must be an instance of WPGMZA.Pointlabel
+	 * @throws Wrong map error
+	 */
+	WPGMZA.Map.prototype.removePointlabel = function(pointlabel)
+	{
+		if(!(pointlabel instanceof WPGMZA.Pointlabel))
+			throw new Error("Argument must be an instance of WPGMZA.Pointlabel");
+		
+		if(pointlabel.map !== this)
+			throw new Error("Wrong map error");
+		
+		pointlabel.map = null;
+		
+		this.pointlabels.splice(this.pointlabels.indexOf(pointlabel), 1);
+		this.dispatchEvent({type: "pointlabelremoved", pointlabel: pointlabel});
+	}
+
+	WPGMZA.Map.prototype.getPointlabelByID = function(id){
+		for(var i = 0; i < this.pointlabels.length; i++){
+			if(this.pointlabels[i].id == id)
+				return this.pointlabels[i];
+		}
+		
+		return null;
+	}
+	
+	WPGMZA.Map.prototype.removePointlabelByID = function(id){
+		var pointlabel = this.getPointlabelByID(id);
+		
+		if(!pointlabel)
+			return;
+		
+		this.removePointlabel(pointlabel);
 	}
 	
 	/**
@@ -1462,6 +1658,24 @@ jQuery(function($) {
 	}
 
 	/**
+	 * On fullscreen change
+	 * 
+	 * @param bool fullscreen Is this map fullscreen
+	 * 
+	 * @return void 
+	 */
+	WPGMZA.Map.prototype.onFullScreenChange = function(fullscreen){
+		this.trigger("fullscreenchange.map");
+
+		/* Add or Remove the 'is-fullscreen' class */
+		if(fullscreen){
+			$(this.element).addClass('is-fullscreen');
+		} else {
+			$(this.element).removeClass('is-fullscreen');
+		}
+	}
+
+	/**
 	 * Find out if the map has visible markers. Only counts filterable markers (not the user location marker, store locator center point marker, etc.)
 	 * @method
 	 * @memberof WPGMZA.Map
@@ -1481,6 +1695,22 @@ jQuery(function($) {
 	
 		return false;
 	}
+
+	/**
+	 * Check if this map is full screen 
+	 * 
+	 * Note: Engine specific maps may need an override
+	 * 
+	 * @return bool
+	*/
+	WPGMZA.Map.prototype.isFullScreen = function(){
+		if(WPGMZA.isFullScreen()){
+			if(parseInt(window.screen.height) === parseInt(this.element.offsetHeight)){
+				return true;
+			}
+		}
+		return false;
+	}
 	
 	WPGMZA.Map.prototype.closeAllInfoWindows = function()
 	{
@@ -1490,6 +1720,14 @@ jQuery(function($) {
 				marker.infoWindow.close();
 				
 		});
+	}
+
+	WPGMZA.Map.prototype.openStreetView = function(options){
+		
+	}
+
+	WPGMZA.Map.prototype.closeStreetView = function(options){
+		
 	}
 	
 	$(document).ready(function(event) {

@@ -5,7 +5,7 @@
  * Description: Custom Blocks for Bloggers and Marketers. Create Better Content With Gutenberg.
  * Author: Ultimate Blocks
  * Author URI: https://ultimateblocks.com/
- * Version: 2.4.5
+ * Version: 3.2.0
  * License: GPL3+
  * License URI: http://www.gnu.org/licenses/gpl-3.0.txt
  * Text Domain: ultimate-blocks
@@ -15,43 +15,11 @@
  */
 
 // Exit if accessed directly.
+use Ultimate_Blocks\includes\Env_Manager;
+use Ultimate_Blocks\includes\pro_manager\Pro_Manager;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
-}
-
-if ( ! function_exists( 'ub_fs' ) ) {
-    // Create a helper function for easy SDK access.
-    function ub_fs() {
-        global $ub_fs;
-
-        if ( ! isset( $ub_fs ) ) {
-            // Include Freemius SDK.
-            require_once dirname(__FILE__) . '/includes/freemius/start.php';
-
-            $ub_fs = fs_dynamic_init( array(
-                'id'                  => '1798',
-                'slug'                => 'ultimate-blocks',
-                'type'                => 'plugin',
-                'public_key'          => 'pk_bd3d3c8e255543256632fd4bb9842',
-                'is_premium'          => false,
-                'has_addons'          => false,
-                'has_paid_plans'      => false,
-                'menu'                => array(
-                    'slug'           => 'ultimate-blocks-settings',
-                    'first-path'     => 'admin.php?page=ultimate-blocks-help',
-                    'account'        => false,
-                    'support'        => false,
-                ),
-            ) );
-        }
-
-        return $ub_fs;
-    }
-
-    // Init Freemius.
-    ub_fs();
-    // Signal that SDK was initiated.
-    do_action( 'ub_fs_loaded' );
 }
 
 require_once 'includes/class-ultimate-blocks-constants.php';
@@ -77,6 +45,13 @@ define( 'ULTIMATE_BLOCKS_URL', Ultimate_Blocks_Constants::plugin_url() );
  * Plugin TextDomain
  */
 define( 'ULTIMATE_BLOCKS_TEXT_DOMAIN', Ultimate_Blocks_Constants::text_domain() );
+
+/**
+ * Plugin __FILE__
+ */
+define( 'ULTIMATE_BLOCKS_PLUGIN_FILE', __FILE__ );
+
+require_once trailingslashit( ULTIMATE_BLOCKS_PATH ) . 'vendor/autoload.php';
 
 /**
  * Block Initializer.
@@ -105,33 +80,6 @@ function deactivate_ultimate_blocks() {
 register_activation_hook( __FILE__, 'activate_ultimate_blocks' );
 register_deactivation_hook( __FILE__, 'deactivate_ultimate_blocks' );
 
-if ( ! function_exists( 'ub_safe_welcome_redirect' ) ) {
-
-	add_action( 'admin_init', 'ub_safe_welcome_redirect' );
-
-	function ub_safe_welcome_redirect() {
-
-		if ( ! get_transient( '_welcome_redirect_ub' ) ) {
-			return;
-		}
-
-		delete_transient( '_welcome_redirect_ub' );
-
-		if ( is_network_admin() || isset( $_GET['activate-multi'] ) ) {
-			return;
-		}
-
-		wp_safe_redirect( add_query_arg(
-			array(
-				'page' => 'ultimate-blocks-help'
-				),
-			admin_url( 'admin.php' )
-		) );
-
-	}
-
-}
-
 /**
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.
@@ -151,6 +99,12 @@ function run_ultimate_blocks() {
 
 	$plugin = new Ultimate_Blocks();
 	$plugin->run();
-
 }
-run_ultimate_blocks();
+
+// initialize env manager.
+Env_Manager::init();
+
+// initialize license provider.
+Pro_Manager::init_freemius();
+
+add_action( 'plugins_loaded', 'run_ultimate_blocks', 10, 1 );

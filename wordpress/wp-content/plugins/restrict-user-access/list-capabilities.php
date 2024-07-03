@@ -3,25 +3,25 @@
  * @package Restrict User Access
  * @author Joachim Jensen <joachim@dev.institute>
  * @license GPLv3
- * @copyright 2020 by Joachim Jensen
+ * @copyright 2024 by Joachim Jensen
  */
 
 defined('ABSPATH') || exit;
 
-if (! class_exists('WP_List_Table')) {
-    require_once(ABSPATH . 'wp-admin/includes/class-wp-list-table.php');
+if (!class_exists('WP_List_Table')) {
+    require_once ABSPATH . 'wp-admin/includes/class-wp-list-table.php';
 }
 
 final class RUA_Capabilities_List extends WP_List_Table
 {
     public function __construct()
     {
-        parent::__construct(array(
-            'singular' => __('Capability', 'restrict-user-access'),
-            'plural'   => __('Capabilities', 'restrict-user-access'),
+        parent::__construct([
+            'singular' => 'capability',
+            'plural'   => 'capabilities',
             'ajax'     => false,
-            'screen'   => RUA_App::TYPE_RESTRICT.'_caps'
-        ));
+            'screen'   => RUA_App::TYPE_RESTRICT . '_caps'
+        ]);
     }
 
     /**
@@ -43,17 +43,17 @@ final class RUA_Capabilities_List extends WP_List_Table
      */
     public function get_columns()
     {
-        return array(
+        return [
             'name'   => __('Capability'),
-            'permit' => __('Permit').$this->get_sum_label(1),
-            'deny'   => __('Deny').$this->get_sum_label(0),
-            'unset'  => __('Unset').$this->get_sum_label(-1)
-        );
+            'permit' => __('Grant', 'restrict-user-access') . $this->get_sum_label(1),
+            'deny'   => __('Deny', 'restrict-user-access') . $this->get_sum_label(0),
+            'unset'  => __('Unset', 'restrict-user-access') . $this->get_sum_label(-1)
+        ];
     }
 
     private function get_sum_label($type)
     {
-        return ' <span class="hide-if-no-js">(<span class="sum-'.$type.'">0</span>)</span>';
+        return ' <span class="hide-if-no-js">(<span class="sum-' . $type . '">0</span>)</span>';
     }
 
     /**
@@ -64,7 +64,7 @@ final class RUA_Capabilities_List extends WP_List_Table
      */
     public function get_sortable_columns()
     {
-        return array();
+        return [];
     }
 
     /**
@@ -103,15 +103,14 @@ final class RUA_Capabilities_List extends WP_List_Table
      */
     protected function column_name($name)
     {
-        return '<strong>'.$name.'</strong>';
+        return '<strong>' . $name . '</strong>';
     }
-
 
     /**
      * Render permit column
      *
      * @since  0.8
-     * @param  string  $user
+     * @param  string  $name
      * @return string
      */
     protected function column_permit($name)
@@ -131,6 +130,10 @@ final class RUA_Capabilities_List extends WP_List_Table
         return $this->_column_cap($name, 0);
     }
 
+    /**
+     * @param string $name
+     * @return string
+     */
     protected function column_unset($name)
     {
         return $this->_column_cap($name, -1);
@@ -154,14 +157,14 @@ final class RUA_Capabilities_List extends WP_List_Table
         if (!is_null($parent_value)) {
             $checked_value = $parent_value;
             if ($checked_value == $value) {
-                $parent_input = '<input type="hidden" name="inherited_caps['.$name.']" value="'.$checked_value.'">';
+                $parent_input = '<input type="hidden" name="inherited_caps[' . $name . ']" value="' . $checked_value . '">';
             }
         }
         if (isset($metadata[$name])) {
             $checked_value = $metadata[$name];
         }
 
-        return $parent_input.sprintf(
+        return $parent_input . sprintf(
             '<input class="rua-cb" type="radio" id="cap-%1$s-%2$d" name="caps[%1$s]" value="%2$d" %3$s/><label class="rua-cb-label rua-cb-label-%2$d" for="cap-%1$s-%2$d"></label>',
             $name,
             $value,
@@ -180,7 +183,7 @@ final class RUA_Capabilities_List extends WP_List_Table
     {
         if (is_null($this->caps)) {
             $level_ids = array_reverse(get_post_ancestors(get_the_ID()));
-            $this->caps = array();
+            $this->caps = [];
             foreach ($level_ids as $level) {
                 $this->caps = array_merge(
                     $this->caps,
@@ -199,7 +202,7 @@ final class RUA_Capabilities_List extends WP_List_Table
      */
     public function get_bulk_actions()
     {
-        return array();
+        return [];
     }
 
     /**
@@ -210,20 +213,6 @@ final class RUA_Capabilities_List extends WP_List_Table
      */
     public function display_tablenav($which)
     {
-        ?>
-<div class="tablenav <?php echo esc_attr($which); ?>">
-
-    <?php if ($this->has_items()): ?>
-    <div class="alignleft actions bulkactions">
-        <?php $this->bulk_actions($which); ?>
-    </div>
-    <?php endif;
-        $this->extra_tablenav($which);
-        $this->pagination($which); ?>
-
-    <br class="clear" />
-</div>
-<?php
     }
 
     /**
@@ -235,15 +224,15 @@ final class RUA_Capabilities_List extends WP_List_Table
      */
     public function print_column_headers($with_id = true)
     {
-        parent::print_column_headers($with_id);
         if ($with_id) {
+            parent::print_column_headers($with_id);
             $sep = '</tr><tr>';
 
-            $sum_columns = array(
+            $sum_columns = [
                 'deny'   => 0,
                 'permit' => 1,
                 'unset'  => -1,
-            );
+            ];
 
             //backwards compat
             if (method_exists(get_parent_class($this), 'get_default_primary_column_name')) {
@@ -255,14 +244,14 @@ final class RUA_Capabilities_List extends WP_List_Table
 
             echo $sep;
             foreach ($columns as $column_key => $column_display) {
-                $class = array( 'manage-column', "column-$column_key" );
+                $class = ['manage-column', "column-$column_key"];
 
                 if (in_array($column_key, $hidden)) {
                     $class[] = 'hidden';
                 }
 
                 if (isset($sum_columns[$column_key])) {
-                    $sum = '<input class="rua-cb js-rua-cb-all" type="radio" value="'.$sum_columns[$column_key].'"/>';
+                    $sum = '<input class="rua-cb js-rua-cb-all" type="radio" value="' . $sum_columns[$column_key] . '"/>';
                 }
 
                 if ($column_key === $primary) {
@@ -313,7 +302,7 @@ final class RUA_Capabilities_List extends WP_List_Table
     {
         global $wp_roles;
 
-        $capabilities = array();
+        $capabilities = [];
         foreach ($wp_roles->role_objects as $role) {
             if (is_array($role->capabilities)) {
                 foreach ($role->capabilities as $cap => $v) {
@@ -329,12 +318,15 @@ final class RUA_Capabilities_List extends WP_List_Table
          * @see {@link https://wordpress.org/plugins/members/}
          */
         $capabilities = apply_filters('members_get_capabilities', array_values($capabilities));
-
-        //$capabilities[] = RUA_App::CAPABILITY;
         $capabilities = array_flip($capabilities);
 
         foreach ($this->get_hidden_capabilities() as $cap) {
             unset($capabilities[$cap]);
+        }
+
+        $user = rua_get_user();
+        if (!$user->has_global_access()) {
+            $capabilities = array_intersect_key($capabilities, $user->get_caps());
         }
 
         return array_keys($capabilities);
@@ -345,7 +337,7 @@ final class RUA_Capabilities_List extends WP_List_Table
      */
     public function get_hidden_capabilities()
     {
-        return array(
+        return [
             'level_0',
             'level_1',
             'level_2',
@@ -357,6 +349,6 @@ final class RUA_Capabilities_List extends WP_List_Table
             'level_8',
             'level_9',
             'level_10'
-        );
+        ];
     }
 }

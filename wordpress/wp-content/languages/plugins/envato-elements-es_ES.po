@@ -2,12 +2,12 @@
 # This file is distributed under the same license as the Plugins - Envato Elements &#8211; Photos &amp; Elementor Templates - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-02-04 07:06:56+0000\n"
+"PO-Revision-Date: 2024-05-02 09:43:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: GlotPress/3.0.0-alpha.2\n"
+"X-Generator: GlotPress/4.0.1\n"
 "Language: es\n"
 "Project-Id-Version: Plugins - Envato Elements &#8211; Photos &amp; Elementor Templates - Stable (latest release)\n"
 
@@ -153,9 +153,10 @@ msgstr "Lo siento, no tienes permiso para instalar temas en este sitio."
 
 #: inc/api/class-requirements.php:259 inc/api/class-requirements.php:346
 msgid "Unable to connect to the filesystem. Please confirm your credentials."
-msgstr "No ha sido posible conectar con el sistema de archivos. Por favor, confirma tus credenciales."
+msgstr "No se ha podido conectar con el sistema de archivos. Por favor, confirma tus credenciales."
 
 #. Description of the plugin
+#: envato-elements.php
 msgid "Access beautifully designed Template Kits + Photos from Envato Elements."
 msgstr "Accede a paquetes de plantillas y fotos bellamente diseñados desde Envato Elements."
 
@@ -164,6 +165,7 @@ msgid "About"
 msgstr "Acerca de"
 
 #. Author URI of the plugin
+#: envato-elements.php
 msgid "https://elements.envato.com/extensions/wordpress/?utm_source=extensions&utm_medium=referral&utm_campaign=elements_extensions_wpplugins"
 msgstr "https://elements.envato.com/extensions/wordpress/?utm_source=extensions&utm_medium=referral&utm_campaign=elements_extensions_wpplugins"
 
@@ -197,11 +199,13 @@ msgid "Envato Elements requires PHP version %s+, plugin is currently NOT ACTIVE.
 msgstr "Envato Elements necesita la versión %s o superior de PHP, actualmente el plugin está como NO ACTIVO. Por favor, contacta con el proveedor de alojamiento. WordPress recomienda la versión %s."
 
 #. Author of the plugin
+#: envato-elements.php
 msgid "Envato"
 msgstr "Envato"
 
 #. Plugin Name of the plugin
-#: inc/backend/class-welcome.php:32 inc/backend/class-welcome.php:44
+#: envato-elements.php inc/backend/class-welcome.php:32
+#: inc/backend/class-welcome.php:44
 msgid "Envato Elements"
 msgstr "Envato Elements"
 

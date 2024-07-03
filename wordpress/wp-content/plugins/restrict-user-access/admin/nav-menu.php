@@ -3,7 +3,7 @@
  * @package Restrict User Access
  * @author Joachim Jensen <joachim@dev.institute>
  * @license GPLv3
- * @copyright 2020 by Joachim Jensen
+ * @copyright 2024 by Joachim Jensen
  */
 
 defined('ABSPATH') || exit;
@@ -21,13 +21,13 @@ final class RUA_Nav_Menu
         if (is_admin()) {
             add_action(
                 'wp_update_nav_menu_item',
-                array($this,'update_item'),
+                [$this,'update_item'],
                 10,
                 3
             );
             add_action(
                 'wp_nav_menu_item_custom_fields',
-                array($this,'render_level_option'),
+                [$this,'render_level_option'],
                 99,
                 4
             );
@@ -36,7 +36,7 @@ final class RUA_Nav_Menu
             if (version_compare(get_bloginfo('version'), '5.4', '<')) {
                 add_filter(
                     'wp_edit_nav_menu_walker',
-                    array($this,'set_edit_walker'),
+                    [$this,'set_edit_walker'],
                     999
                 );
             }
@@ -46,7 +46,7 @@ final class RUA_Nav_Menu
 
             add_filter(
                 'wp_get_nav_menu_items',
-                array($this,'filter_nav_menus'),
+                [$this,'filter_nav_menus'],
                 10,
                 3
             );
@@ -90,19 +90,19 @@ final class RUA_Nav_Menu
     {
         if (isset($query->query['post_type'],$query->query['include']) && $query->query['post_type'] == 'nav_menu_item' && $query->query['include']) {
             $levels = rua_get_user()->get_level_ids();
-            $meta_query = array();
-            $meta_query[] = array(
+            $meta_query = [];
+            $meta_query[] = [
                 'key'     => '_menu_item_level',
                 'value'   => 'wpbug',
                 'compare' => 'NOT EXISTS'
-            );
+            ];
             if ($levels) {
                 $meta_query['relation'] = 'OR';
-                $meta_query[] = array(
-                        'key'     => '_menu_item_level',
-                        'value'   => $levels,
-                        'compare' => 'IN'
-                    );
+                $meta_query[] = [
+                    'key'     => '_menu_item_level',
+                    'value'   => $levels,
+                    'compare' => 'IN'
+                ];
             }
             $query->set('meta_query', $meta_query);
         }
@@ -119,14 +119,15 @@ final class RUA_Nav_Menu
      */
     public function update_item($menu_id, $menu_item_db_id, $args)
     {
-        if (!current_user_can(RUA_App::CAPABILITY)) {
+        $post_type = get_post_type_object(RUA_App::TYPE_RESTRICT);
+        if (!current_user_can($post_type->cap->edit_posts)) {
             return false;
         }
 
         $key = '_menu_item_level';
         $request_key = 'menu-item-access-levels';
 
-        $new_levels = isset($_POST[$request_key][$menu_item_db_id]) ? $_POST[$request_key][$menu_item_db_id] : array();
+        $new_levels = isset($_POST[$request_key][$menu_item_db_id]) ? $_POST[$request_key][$menu_item_db_id] : [];
 
         //weird empty key.
         //possible bug if WP uses nav-menu-data json to mimic $_POST
@@ -155,9 +156,9 @@ final class RUA_Nav_Menu
     {
         // Guard for plugins using wp_edit_nav_menu_walker wrong
         if (!class_exists('Walker_Nav_Menu_Edit')) {
-            require_once(ABSPATH . 'wp-admin/includes/class-walker-nav-menu-edit.php');
+            require_once ABSPATH . 'wp-admin/includes/class-walker-nav-menu-edit.php';
         }
-        require_once(dirname(__FILE__) . '/walker-nav-menu.php');
+        require_once dirname(__FILE__) . '/walker-nav-menu.php';
         return 'RUA_Walker_Nav_Menu_Edit';
     }
 
@@ -173,7 +174,8 @@ final class RUA_Nav_Menu
      */
     public function render_level_option($id, $item, $depth, $args)
     {
-        if (!current_user_can(RUA_App::CAPABILITY)) {
+        $post_type = get_post_type_object(RUA_App::TYPE_RESTRICT);
+        if (!current_user_can($post_type->cap->edit_posts)) {
             return false;
         }
 

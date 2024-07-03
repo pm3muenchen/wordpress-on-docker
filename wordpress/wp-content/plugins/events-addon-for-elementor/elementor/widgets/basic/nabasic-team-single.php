@@ -44,7 +44,7 @@ class Event_Elementor_Addon_Team_Single extends Widget_Base{
 	 * Register Events Addon for Elementor Team Single widget controls.
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	*/
-	protected function _register_controls(){
+	protected function register_controls(){
 
 		$this->start_controls_section(
 			'section_team',
@@ -227,10 +227,11 @@ class Event_Elementor_Addon_Team_Single extends Widget_Base{
 			'social_icon',
 			[
 				'label' => esc_html__( 'Social Icon', 'events-addon-for-elementor' ),
-				'type' => Controls_Manager::ICON,
-				'options' => NAEEP_Controls_Helper_Output::get_include_icons(),
-				'frontend_available' => true,
-				'default' => 'fa fa-facebook-square',
+				'type' => Controls_Manager::ICONS,
+				'default' => [
+					'value' => 'fas fa-facebook-square',
+					'library' => 'fa-solid',
+				],
 			]
 		);
 		$repeater->add_control(
@@ -689,7 +690,6 @@ class Event_Elementor_Addon_Team_Single extends Widget_Base{
 			[
 				'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 				'name' => 'sasstp_title_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .single-mate-info h3',
 			]
 		);
@@ -705,10 +705,6 @@ class Event_Elementor_Addon_Team_Single extends Widget_Base{
 				[
 					'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_1,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .single-mate-info h3, {{WRAPPER}} .single-mate-info h3 a' => 'color: {{VALUE}};',
 					],
@@ -726,10 +722,6 @@ class Event_Elementor_Addon_Team_Single extends Widget_Base{
 				[
 					'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_2,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .single-mate-info h3 a:hover' => 'color: {{VALUE}};',
 					],
@@ -763,7 +755,6 @@ class Event_Elementor_Addon_Team_Single extends Widget_Base{
 			[
 				'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 				'name' => 'subtitle_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_2,
 				'selector' => '{{WRAPPER}} .single-mate-info h5',
 			]
 		);
@@ -772,10 +763,6 @@ class Event_Elementor_Addon_Team_Single extends Widget_Base{
 			[
 				'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_2,
-					],
 				'selectors' => [
 					'{{WRAPPER}} .single-mate-info h5' => 'color: {{VALUE}};',
 				],
@@ -815,7 +802,6 @@ class Event_Elementor_Addon_Team_Single extends Widget_Base{
 			[
 				'label' => esc_html__( 'Title Typography', 'events-addon-for-elementor' ),
 				'name' => 'sasstp_list_title_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_2,
 				'selector' => '{{WRAPPER}} .single-mate-info ul li span',
 			]
 		);
@@ -824,10 +810,6 @@ class Event_Elementor_Addon_Team_Single extends Widget_Base{
 			[
 				'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_2,
-				],
 				'selectors' => [
 					'{{WRAPPER}} .single-mate-info ul li span' => 'color: {{VALUE}};',
 				],
@@ -846,7 +828,6 @@ class Event_Elementor_Addon_Team_Single extends Widget_Base{
 			[
 				'label' => esc_html__( 'Text Typography', 'events-addon-for-elementor' ),
 				'name' => 'sasstp_list_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_3,
 				'selector' => '{{WRAPPER}} .single-mate-info ul li',
 			]
 		);
@@ -862,10 +843,6 @@ class Event_Elementor_Addon_Team_Single extends Widget_Base{
 				[
 					'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_3,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .single-mate-info ul li, {{WRAPPER}} .single-mate-info ul li a' => 'color: {{VALUE}};',
 					],
@@ -883,10 +860,6 @@ class Event_Elementor_Addon_Team_Single extends Widget_Base{
 				[
 					'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_2,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .single-mate-info ul li a:hover' => 'color: {{VALUE}};',
 					],
@@ -920,7 +893,6 @@ class Event_Elementor_Addon_Team_Single extends Widget_Base{
 			[
 				'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 				'name' => 'content_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_3,
 				'selector' => '{{WRAPPER}} .single-mate-info p',
 			]
 		);
@@ -929,10 +901,6 @@ class Event_Elementor_Addon_Team_Single extends Widget_Base{
 			[
 				'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_3,
-					],
 				'selectors' => [
 					'{{WRAPPER}} .single-mate-info p' => 'color: {{VALUE}};',
 				],
@@ -981,10 +949,6 @@ class Event_Elementor_Addon_Team_Single extends Widget_Base{
 				[
 					'label' => esc_html__( 'Background Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_2,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .naeep-social a' => 'background-color: {{VALUE}};',
 					],
@@ -1177,7 +1141,7 @@ class Event_Elementor_Addon_Team_Single extends Widget_Base{
 										$link_nofollow = !empty( $icon_link['nofollow'] ) ? 'rel="nofollow"' : '';
 										$link_attr = !empty( $icon_link['url'] ) ?  $link_external.' '.$link_nofollow : '';
 
-									  $social_icon = !empty( $each_list['social_icon'] ) ? $each_list['social_icon'] : '';
+									  $social_icon = !empty( $each_list['social_icon'] ) ? $each_list['social_icon']['value'] : '';
 										$icon = $social_icon ? '<i class="'.esc_attr($social_icon).'" aria-hidden="true"></i>' : '';
 
 									  $output .= '<a href="'.esc_url($link_url).'" '.$link_attr.'>'.$icon.'</a>';

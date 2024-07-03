@@ -135,6 +135,7 @@ wpautotermsStates.translations = {
   "BE-WLG": "Liegi", 
   "BE-WLX": "Lussemburgo", 
   "BE-WNA": "Namur", 
+  "BE-BRU": "Brussels-Capital Region",
   "BF": "Burkina-Faso", 
   "BF-BAL": "Balé", 
   "BF-BAM": "Bam", 

@@ -5,7 +5,12 @@ use Elementor\Core\Base\App as BaseApp;
 use Elementor\Core\Common\Modules\Ajax\Module as Ajax;
 use Elementor\Core\Common\Modules\Finder\Module as Finder;
 use Elementor\Core\Common\Modules\Connect\Module as Connect;
+use Elementor\Core\Common\Modules\EventTracker\Module as Event_Tracker;
+use Elementor\Core\Files\Uploads_Manager;
+use Elementor\Core\Settings\Manager as SettingsManager;
+use Elementor\Icons_Manager;
 use Elementor\Plugin;
+use Elementor\Utils;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -62,6 +67,8 @@ class App extends BaseApp {
 		}
 
 		$this->add_component( 'connect', new Connect() );
+
+		$this->add_component( 'event-tracker', new Event_Tracker() );
 	}
 
 	/**
@@ -121,7 +128,7 @@ class App extends BaseApp {
 			[
 				'jquery-ui-position',
 			],
-			'4.8.1',
+			'4.9.0',
 			true
 		);
 
@@ -134,8 +141,10 @@ class App extends BaseApp {
 				'backbone-marionette',
 				'backbone-radio',
 				'elementor-common-modules',
+				'elementor-web-cli',
 				'elementor-dialog',
 				'wp-api-request',
+				'elementor-dev-tools',
 			],
 			ELEMENTOR_VERSION,
 			true
@@ -162,7 +171,7 @@ class App extends BaseApp {
 			'elementor-icons',
 			$this->get_css_assets_url( 'elementor-icons', 'assets/lib/eicons/css/' ),
 			[],
-			'5.11.0'
+			Icons_Manager::ELEMENTOR_ICONS_VERSION
 		);
 
 		wp_enqueue_style(
@@ -171,6 +180,13 @@ class App extends BaseApp {
 			[
 				'elementor-icons',
 			],
+			ELEMENTOR_VERSION
+		);
+
+		wp_enqueue_style(
+			'e-theme-ui-light',
+			$this->get_css_assets_url( 'theme-light' ),
+			[],
 			ELEMENTOR_VERSION
 		);
 	}
@@ -208,7 +224,7 @@ class App extends BaseApp {
 	 */
 	public function print_templates() {
 		foreach ( $this->templates as $template ) {
-			echo $template;
+			echo $template; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 	}
 
@@ -227,7 +243,7 @@ class App extends BaseApp {
 
 		$active_experimental_features = array_fill_keys( array_keys( $active_experimental_features ), true );
 
-		return [
+		$config = [
 			'version' => ELEMENTOR_VERSION,
 			'isRTL' => is_rtl(),
 			'isDebug' => ( defined( 'WP_DEBUG' ) && WP_DEBUG ),
@@ -238,7 +254,21 @@ class App extends BaseApp {
 				'assets' => ELEMENTOR_ASSETS_URL,
 				'rest' => get_rest_url(),
 			],
+			'filesUpload' => [
+				'unfilteredFiles' => Uploads_Manager::are_unfiltered_uploads_enabled(),
+			],
 		];
+
+		/**
+		 * Localize common settings.
+		 *
+		 * Filters the editor localized settings.
+		 *
+		 * @since 1.0.0
+		 *
+		 * @param array $config  Common configuration.
+		 */
+		return apply_filters( 'elementor/common/localize_settings', $config );
 	}
 
 	/**

@@ -27,7 +27,10 @@ jQuery(function($) {
 		
 		this.adjustSubMode = false;
 
-		this.onTabActivated(null);
+		if(WPGMZA.InternalEngine.isLegacy()){
+			/* Only applies in legacy */
+			this.onTabActivated(null);
+		}
 
 		$(document.body).on("click", "[data-adjust-" + this.featureType + "-id]", function(event) {
 			self.onAdjustFeature(event);
@@ -84,7 +87,8 @@ jQuery(function($) {
 			return;
 		
 		var pos = this.feature.getPosition();
-		addressField.val(pos.lat + ',' + pos.lng);
+		addressField.val(pos.lat + ', ' + pos.lng);
+		addressField.trigger('change');
 	}
 
 	WPGMZA.MarkerPanel.prototype.setTargetFeature = function(feature){
@@ -114,6 +118,8 @@ jQuery(function($) {
 		$(this.element).find('.wpgmza-hide-in-adjust-mode').removeClass('wpgmza-hidden');				
 		$(this.element).find('.wpgmza-show-in-adjust-mode').addClass('wpgmza-hidden');
 
+		/* Re-add disabled attribute to pro feature fields */
+		$(this.element).find('.wpgmza-pro-feature [data-ajax-name]').attr('disabled', 'disabled');
 
 		if(feature){
 			if(feature.setOpacity){
@@ -169,13 +175,14 @@ jQuery(function($) {
 				geocodingData.lng = parseFloat(cloud_lng);
 			}
 		}
+		
+		var addressUnchanged = !this.hasDirtyField('address');
 
-		if(this.adjustSubMode){
+		if(this.adjustSubMode || addressUnchanged){
 			// Trust the force!
 			WPGMZA.FeaturePanel.prototype.onSave.apply(self, arguments);
 		} else {
 			geocoder.geocode(geocodingData, function(results, status) {
-				
 				switch(status)
 				{
 					case WPGMZA.Geocoder.ZERO_RESULTS:

@@ -84,37 +84,41 @@ function astra_hb_footer_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 	$menu_spacing = astra_get_option( 'footer-main-menu-spacing' );
 
 	// - Desktop.
-	$menu_desktop_spacing_top = ( isset( $menu_spacing['desktop']['top'] ) && ! empty( $menu_spacing['desktop']['top'] ) ) ? $menu_spacing['desktop']['top'] : '';
+	$menu_desktop_spacing_top = ( isset( $menu_spacing['desktop']['top'] ) ) ? $menu_spacing['desktop']['top'] : '';
 
-	$menu_desktop_spacing_bottom = ( isset( $menu_spacing['desktop']['bottom'] ) && ! empty( $menu_spacing['desktop']['bottom'] ) ) ? $menu_spacing['desktop']['bottom'] : '';
+	$menu_desktop_spacing_bottom = ( isset( $menu_spacing['desktop']['bottom'] ) ) ? $menu_spacing['desktop']['bottom'] : '';
 
-	$menu_desktop_spacing_right = ( isset( $menu_spacing['desktop']['right'] ) && ! empty( $menu_spacing['desktop']['right'] ) ) ? $menu_spacing['desktop']['right'] : '';
+	$menu_desktop_spacing_right = ( isset( $menu_spacing['desktop']['right'] ) ) ? $menu_spacing['desktop']['right'] : '';
 
-	$menu_desktop_spacing_left = ( isset( $menu_spacing['desktop']['left'] ) && ! empty( $menu_spacing['desktop']['left'] ) ) ? $menu_spacing['desktop']['left'] : '';
+	$menu_desktop_spacing_left = ( isset( $menu_spacing['desktop']['left'] ) ) ? $menu_spacing['desktop']['left'] : '';
 
 	$menu_desktop_spacing_unit = ( isset( $menu_spacing['desktop-unit'] ) && ! empty( $menu_spacing['desktop-unit'] ) ) ? $menu_spacing['desktop-unit'] : '';
 
 	// - Tablet.
-	$menu_tablet_spacing_top = ( isset( $menu_spacing['tablet']['top'] ) && ! empty( $menu_spacing['tablet']['top'] ) ) ? $menu_spacing['tablet']['top'] : '';
-
-	$menu_tablet_spacing_bottom = ( isset( $menu_spacing['tablet']['bottom'] ) && ! empty( $menu_spacing['tablet']['bottom'] ) ) ? $menu_spacing['tablet']['bottom'] : '';
-
-	$menu_tablet_spacing_right = ( isset( $menu_spacing['tablet']['right'] ) && ! empty( $menu_spacing['tablet']['right'] ) ) ? $menu_spacing['tablet']['right'] : '';
-
-	$menu_tablet_spacing_left = ( isset( $menu_spacing['tablet']['left'] ) && ! empty( $menu_spacing['tablet']['left'] ) ) ? $menu_spacing['tablet']['left'] : '';
-
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+	$menu_tablet_spacing_top = ( isset( $menu_spacing['tablet']['top'] ) ) ? $menu_spacing['tablet']['top'] : '';
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+	$menu_tablet_spacing_bottom = ( isset( $menu_spacing['tablet']['bottom'] ) ) ? $menu_spacing['tablet']['bottom'] : '';
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+	$menu_tablet_spacing_right = ( isset( $menu_spacing['tablet']['right'] ) ) ? $menu_spacing['tablet']['right'] : '';
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+	$menu_tablet_spacing_left = ( isset( $menu_spacing['tablet']['left'] ) ) ? $menu_spacing['tablet']['left'] : '';
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	$menu_tablet_spacing_unit = ( isset( $menu_spacing['tablet-unit'] ) && ! empty( $menu_spacing['tablet-unit'] ) ) ? $menu_spacing['tablet-unit'] : '';
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 	// - Mobile.
-	$menu_mobile_spacing_top = ( isset( $menu_spacing['mobile']['top'] ) && ! empty( $menu_spacing['mobile']['top'] ) ) ? $menu_spacing['mobile']['top'] : '';
-
-	$menu_mobile_spacing_bottom = ( isset( $menu_spacing['mobile']['bottom'] ) && ! empty( $menu_spacing['mobile']['bottom'] ) ) ? $menu_spacing['mobile']['bottom'] : '';
-
-	$menu_mobile_spacing_right = ( isset( $menu_spacing['mobile']['right'] ) && ! empty( $menu_spacing['mobile']['right'] ) ) ? $menu_spacing['mobile']['right'] : '';
-
-	$menu_mobile_spacing_left = ( isset( $menu_spacing['mobile']['left'] ) && ! empty( $menu_spacing['mobile']['left'] ) ) ? $menu_spacing['mobile']['left'] : '';
-
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+	$menu_mobile_spacing_top = ( isset( $menu_spacing['mobile']['top'] ) ) ? $menu_spacing['mobile']['top'] : '';
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+	$menu_mobile_spacing_bottom = ( isset( $menu_spacing['mobile']['bottom'] ) ) ? $menu_spacing['mobile']['bottom'] : '';
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+	$menu_mobile_spacing_right = ( isset( $menu_spacing['mobile']['right'] ) ) ? $menu_spacing['mobile']['right'] : '';
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+	$menu_mobile_spacing_left = ( isset( $menu_spacing['mobile']['left'] ) ) ? $menu_spacing['mobile']['left'] : '';
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	$menu_mobile_spacing_unit = ( isset( $menu_spacing['mobile-unit'] ) && ! empty( $menu_spacing['mobile-unit'] ) ) ? $menu_spacing['mobile-unit'] : '';
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 	$margin = astra_get_option( $_section . '-margin' );
 
@@ -167,9 +171,11 @@ function astra_hb_footer_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 	$css_output_tablet = array(
 		'.footer-widget-area[data-section="section-footer-menu"] .astra-footer-tablet-horizontal-menu' => array(
 			'justify-content' => $tablet_alignment,
+			'display'         => 'flex',
 		),
 		'.footer-widget-area[data-section="section-footer-menu"] .astra-footer-tablet-vertical-menu' => array(
-			'display' => 'grid',
+			'display'         => 'grid',
+			'justify-content' => $tablet_alignment,
 		),
 		'.footer-widget-area[data-section="section-footer-menu"] .astra-footer-tablet-vertical-menu .menu-item' => array(
 			'align-items' => $tablet_alignment,
@@ -207,9 +213,11 @@ function astra_hb_footer_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 		$selector                                       => astra_get_responsive_background_obj( $menu_resp_bg_color, 'mobile' ),
 		'.footer-widget-area[data-section="section-footer-menu"] .astra-footer-mobile-horizontal-menu' => array(
 			'justify-content' => $mobile_alignment,
+			'display'         => 'flex',
 		),
 		'.footer-widget-area[data-section="section-footer-menu"] .astra-footer-mobile-vertical-menu' => array(
-			'display' => 'grid',
+			'display'         => 'grid',
+			'justify-content' => $mobile_alignment,
 		),
 		'.footer-widget-area[data-section="section-footer-menu"] .astra-footer-mobile-vertical-menu .menu-item' => array(
 			'align-items' => $mobile_alignment,
@@ -234,7 +242,8 @@ function astra_hb_footer_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 	);
 
 	/* Parse CSS from array() */
-	$css_output  = astra_parse_css( $css_output_desktop );
+	$css_output  = astra_footer_menu_static_css();
+	$css_output .= astra_parse_css( $css_output_desktop );
 	$css_output .= astra_parse_css( $css_output_tablet, '', astra_get_tablet_breakpoint() );
 	$css_output .= astra_parse_css( $css_output_mobile, '', astra_get_mobile_breakpoint() );
 
@@ -243,4 +252,48 @@ function astra_hb_footer_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 	$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_visibility_css( $_section, $visibility_selector, 'block' );
 
 	return $dynamic_css;
+}
+
+/**
+ * Footer menu static CSS
+ *
+ * @since 3.5.0
+ * @return string
+ */
+function astra_footer_menu_static_css() {
+	$footer_menu_css = '
+	.footer-nav-wrap .astra-footer-vertical-menu {
+		display: grid;
+	}
+	@media (min-width: 769px) {
+		.footer-nav-wrap .astra-footer-horizontal-menu li {
+		  margin: 0;
+		}
+		.footer-nav-wrap .astra-footer-horizontal-menu a {
+		  padding: 0 0.5em;
+		}
+	}';
+
+	if ( is_rtl() ) {
+		$footer_menu_css .= '
+		@media (min-width: 769px) {
+			.footer-nav-wrap .astra-footer-horizontal-menu li:first-child a {
+				padding-right: 0;
+			}
+			.footer-nav-wrap .astra-footer-horizontal-menu li:last-child a {
+				padding-left: 0;
+			}
+		}';
+	} else {
+		$footer_menu_css .= '
+		@media (min-width: 769px) {
+			.footer-nav-wrap .astra-footer-horizontal-menu li:first-child a {
+				padding-left: 0;
+			}
+			.footer-nav-wrap .astra-footer-horizontal-menu li:last-child a {
+				padding-right: 0;
+			}
+		}';
+	}
+	return Astra_Enqueue_Scripts::trim_css( $footer_menu_css );
 }

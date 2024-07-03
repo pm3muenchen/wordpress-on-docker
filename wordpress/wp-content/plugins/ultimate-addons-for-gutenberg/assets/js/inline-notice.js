@@ -1,40 +1,47 @@
-( function( $ ) {
+// eslint-disable-next-line no-undef
+UAGBInlineNotice = {
+	init( attr, id ) {
+		const main = document.querySelectorAll( id );
 
-	UAGBInlineNotice = {
+		if ( main.length === 0 ) {
+			return;
+		}
 
-		_run: function( attr, id ) {
+		const uniqueId = attr.c_id;
+		const isCookie = attr.cookies;
+		const cookiesDays = attr.close_cookie_days;
+		const currentCookie = Cookies.get( 'uagb-notice-' + uniqueId );
 
-			if ( $( id ).length === 0 ) {
-				return;
+		for ( const mainWrap of main ) {
+			if ( 'undefined' === typeof currentCookie && true === isCookie ) {
+				mainWrap.style.display = 'block';
 			}
-
-			var unique_id = attr['c_id'];
-			var is_cookie = attr['cookies'];
-			var cookies_days = attr['close_cookie_days'];
-			var current_cookie = Cookies.get( 'uagb-notice-' + unique_id );
-
-			if( 'undefined' === typeof current_cookie && true === is_cookie ){
-				$( id ).show()
-			}
-
-			if ( attr['noticeDismiss'] !== '' ) {
-				$( id + " .uagb-notice-dismiss" ).on( 'click',function() {
-					if ( true === is_cookie && 'undefined' !== typeof current_cookie) {
-						current_cookies = Cookies.set( 'uagb-notice-' + unique_id, true, { expires: cookies_days } );
-					$( id ).addClass("uagb-notice__active").css('display' ,'none')
+			const noticeDismissClass = mainWrap.querySelector( '.uagb-notice-dismiss' ) || mainWrap.querySelector( 'svg' );
+			const closeBtn = noticeDismissClass ? noticeDismissClass : mainWrap.querySelector( 'button[type="button"] svg' );
+			if ( '' !== attr.noticeDismiss && '' !== attr.icon ) {
+				closeBtn.addEventListener( 'click', function () {
+					dismissClick( isCookie, currentCookie, uniqueId, cookiesDays, main );	
+				} );
+				main[0].addEventListener( 'keydown', function ( e ) {
+					if ( e.keyCode === 13 || e.keyCode === 32 ) {	
+						const focusedVisibleElement = document.querySelector( id + ' :focus-visible' );
+						dismissClick( isCookie, currentCookie, uniqueId, cookiesDays, main, focusedVisibleElement );
 					}
-
-					if( 'undefined' === typeof current_cookie && true === is_cookie ){
-						current_cookies = Cookies.set( 'uagb-notice-' + unique_id, true, { expires: cookies_days } );
-						$( id ).addClass("uagb-notice__active").css('display' ,'none')
-					}
-
-					if( false === is_cookie ){
-						$( id ).addClass("uagb-notice__active").css('display' ,'none')
-					}
-				});
+				} );
 			}
 		}
-	}
+	},
+};
 
-} )( jQuery );
+function dismissClick( isCookie, currentCookie, uniqueId, cookiesDays, main, focusedVisibleElement ) { 
+	if ( true === isCookie && 'undefined' === typeof currentCookie ) {
+		Cookies.set( 'uagb-notice-' + uniqueId, true, { expires: cookiesDays } );
+	} 
+	main[0]?.classList?.add( 'uagb-notice__active' );
+	if ( focusedVisibleElement ) {
+		const closeDismiss = focusedVisibleElement?.parentElement;
+		closeDismiss.style.display = 'none';
+	} else {
+		main[0].style.display = 'none';
+	}
+}

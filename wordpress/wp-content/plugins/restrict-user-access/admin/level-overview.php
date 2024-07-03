@@ -3,14 +3,13 @@
  * @package Restrict User Access
  * @author Joachim Jensen <joachim@dev.institute>
  * @license GPLv3
- * @copyright 2020 by Joachim Jensen
+ * @copyright 2024 by Joachim Jensen
  */
 
 defined('ABSPATH') || exit;
 
 final class RUA_Level_Overview extends RUA_Admin
 {
-
     /**
      * Level table
      * @var RUA_Level_List_Table
@@ -30,16 +29,6 @@ final class RUA_Level_Overview extends RUA_Admin
     }
 
     /**
-     * Add filters and actions for frontend
-     *
-     * @since  0.15
-     * @return void
-     */
-    public function frontend_hooks()
-    {
-    }
-
-    /**
      * Setup admin menus and get current screen
      *
      * @since  0.15
@@ -47,14 +36,14 @@ final class RUA_Level_Overview extends RUA_Admin
      */
     public function get_screen()
     {
-        $post_type_object = get_post_type_object(RUA_App::TYPE_RESTRICT);
+        $post_type_object = $this->get_restrict_type();
 
         add_menu_page(
             __('User Access', 'restrict-user-access'),
             __('User Access', 'restrict-user-access'),
-            $post_type_object->cap->edit_posts,
+            $post_type_object->cap->read_private_posts,
             RUA_App::BASE_SCREEN,
-            array($this,'render_screen'),
+            [$this,'render_screen'],
             RUA_App::ICON_SVG,
             71.099
         );
@@ -63,12 +52,11 @@ final class RUA_Level_Overview extends RUA_Admin
             RUA_App::BASE_SCREEN,
             $post_type_object->labels->name,
             $post_type_object->labels->all_items,
-            $post_type_object->cap->edit_posts,
+            $post_type_object->cap->read_private_posts,
             RUA_App::BASE_SCREEN,
-            array($this,'render_screen')
+            [$this,'render_screen']
         );
     }
-
 
     /**
      * Authorize user for screen
@@ -78,8 +66,7 @@ final class RUA_Level_Overview extends RUA_Admin
      */
     public function authorize_user()
     {
-        $post_type_object = get_post_type_object(RUA_App::TYPE_RESTRICT);
-        return current_user_can($post_type_object->cap->edit_posts);
+        return current_user_can($this->get_restrict_type()->cap->read_private_posts);
     }
 
     /**
@@ -90,10 +77,10 @@ final class RUA_Level_Overview extends RUA_Admin
      */
     public function prepare_screen()
     {
-        add_screen_option('per_page', array(
+        add_screen_option('per_page', [
             'default' => 20,
             'option'  => 'rua_levels_per_page'
-        ));
+        ]);
 
         $this->table = new RUA_Level_List_Table();
         $this->process_actions();//todo:add func to table to actions
@@ -115,19 +102,19 @@ final class RUA_Level_Overview extends RUA_Admin
         echo esc_html($post_type_object->labels->name);
 
         if (current_user_can($post_type_object->cap->create_posts)) {
-            echo ' <a href="' . esc_url(admin_url('admin.php?page=wprua-edit')) . '" class="add-new-h2 page-title-action">' . esc_html($post_type_object->labels->add_new) . '</a>';
+            echo ' <a href="' . esc_url(admin_url('admin.php?page=wprua-level')) . '" class="add-new-h2 page-title-action">' . esc_html($post_type_object->labels->add_new) . '</a>';
         }
-        echo '<a class="add-new-h2 page-title-action" href="'. esc_url(rua_fs()->addon_url('')) .'">'. __('Add-Ons', 'restrict-user-access').'</a>';
         if (isset($_REQUEST['s']) && strlen($_REQUEST['s'])) {
             /* translators: %s: search keywords */
             printf(' <span class="subtitle">' . __('Search results for &#8220;%s&#8221;') . '</span>', get_search_query());
         }
 
         echo '</h1>';
+        echo '<hr class="wp-header-end" />';
 
         $this->bulk_messages();
 
-        $_SERVER['REQUEST_URI'] = remove_query_arg(array( 'locked', 'skipped', 'deleted', 'trashed', 'untrashed' ), $_SERVER['REQUEST_URI']);
+        $_SERVER['REQUEST_URI'] = remove_query_arg(['locked', 'skipped', 'deleted', 'trashed', 'untrashed'], $_SERVER['REQUEST_URI']);
 
         $this->table->views();
 
@@ -136,7 +123,7 @@ final class RUA_Level_Overview extends RUA_Admin
         $this->table->search_box($post_type_object->labels->search_items, 'post');
 
         echo '<input type="hidden" name="page" value="wprua" />';
-        echo '<input type="hidden" name="post_status" class="post_status_page" value="'.(!empty($_REQUEST['post_status']) ? esc_attr($_REQUEST['post_status']) : 'all').'" />';
+        echo '<input type="hidden" name="post_status" class="post_status_page" value="' . (!empty($_REQUEST['post_status']) ? esc_attr($_REQUEST['post_status']) : 'all') . '" />';
 
         $this->table->display();
 
@@ -151,7 +138,6 @@ final class RUA_Level_Overview extends RUA_Admin
      */
     public function process_actions()
     {
-        $post_type = RUA_App::TYPE_RESTRICT;
         $doaction = $this->table->current_action();
 
         if ($doaction) {
@@ -159,7 +145,7 @@ final class RUA_Level_Overview extends RUA_Admin
 
             $pagenum = $this->table->get_pagenum();
 
-            $sendback = remove_query_arg(array('trashed', 'untrashed', 'deleted', 'locked', 'ids'), wp_get_referer());
+            $sendback = remove_query_arg(['trashed', 'untrashed', 'deleted', 'locked', 'ids'], wp_get_referer());
 
             $sendback = add_query_arg('paged', $pagenum, $sendback);
 
@@ -179,12 +165,14 @@ final class RUA_Level_Overview extends RUA_Admin
                 exit;
             }
 
+            $post_type_object = $this->get_restrict_type();
+
             switch ($doaction) {
                 case 'trash':
                     $trashed = $locked = 0;
 
                     foreach ((array) $post_ids as $post_id) {
-                        if (!current_user_can('delete_post', $post_id)) {
+                        if (!current_user_can($post_type_object->cap->delete_post, $post_id)) {
                             wp_die(__('You are not allowed to move this item to the Trash.'));
                         }
 
@@ -200,12 +188,12 @@ final class RUA_Level_Overview extends RUA_Admin
                         $trashed++;
                     }
 
-                    $sendback = add_query_arg(array('trashed' => $trashed, 'ids' => join(',', $post_ids), 'locked' => $locked ), $sendback);
+                    $sendback = add_query_arg(['trashed' => $trashed, 'ids' => join(',', $post_ids), 'locked' => $locked], $sendback);
                     break;
                 case 'untrash':
                     $untrashed = 0;
                     foreach ((array) $post_ids as $post_id) {
-                        if (!current_user_can('delete_post', $post_id)) {
+                        if (!current_user_can($post_type_object->cap->delete_post, $post_id)) {
                             wp_die(__('You are not allowed to restore this item from the Trash.'));
                         }
 
@@ -220,9 +208,7 @@ final class RUA_Level_Overview extends RUA_Admin
                 case 'delete':
                     $deleted = 0;
                     foreach ((array) $post_ids as $post_id) {
-                        $post_del = get_post($post_id);
-
-                        if (!current_user_can('delete_post', $post_id)) {
+                        if (!current_user_can($post_type_object->cap->delete_post, $post_id)) {
                             wp_die(__('You are not allowed to delete this item.'));
                         }
 
@@ -236,12 +222,13 @@ final class RUA_Level_Overview extends RUA_Admin
                     break;
             }
 
-            $sendback = remove_query_arg(array('action', 'action2', 'post_status', 'post', 'bulk_edit'), $sendback);
+            $sendback = remove_query_arg(['action', 'action2', 'post_status', 'post', 'bulk_edit'], $sendback);
 
             wp_safe_redirect($sendback);
             exit;
-        } elseif (! empty($_REQUEST['_wp_http_referer'])) {
-            wp_safe_redirect(remove_query_arg(array('_wp_http_referer', '_wpnonce'), wp_unslash($_SERVER['REQUEST_URI'])));
+        }
+        if (!empty($_REQUEST['_wp_http_referer'])) {
+            wp_safe_redirect(remove_query_arg(['_wp_http_referer', '_wpnonce'], wp_unslash($_SERVER['REQUEST_URI'])));
             exit;
         }
     }
@@ -270,16 +257,16 @@ final class RUA_Level_Overview extends RUA_Admin
      */
     public function bulk_messages()
     {
-        $bulk_messages = array(
+        $bulk_messages = [
             'updated'   => _n_noop('%s access level updated.', '%s levels updated.', 'restrict-user-access'),
             'locked'    => _n_noop('%s access level not updated, somebody is editing it.', '%s levels not updated, somebody is editing them.', 'restrict-user-access'),
             'deleted'   => _n_noop('%s access level permanently deleted.', '%s levels permanently deleted.', 'restrict-user-access'),
             'trashed'   => _n_noop('%s access level moved to the Trash.', '%s levels moved to the Trash.', 'restrict-user-access'),
             'untrashed' => _n_noop('%s access level restored from the Trash.', '%s levels restored from the Trash.', 'restrict-user-access'),
-        );
+        ];
         $bulk_messages = apply_filters('rua/admin/bulk_messages', $bulk_messages);
 
-        $messages = array();
+        $messages = [];
         foreach ($bulk_messages as $key => $message) {
             if (!isset($_REQUEST[$key])) {
                 continue;
@@ -313,5 +300,11 @@ final class RUA_Level_Overview extends RUA_Admin
      */
     public function add_scripts_styles()
     {
+        WPCACore::enqueue_scripts_styles(RUA_App::TYPE_RESTRICT);
+
+        $this->enqueue_script('rua/admin/edit', 'edit', ['select2', 'jquery'], '', true);
+        wp_localize_script('rua/admin/edit', 'RUA', [
+            'copy' => __('Copy to clipboard', 'restrict-user-access')
+        ]);
     }
 }

@@ -56,8 +56,18 @@ if ( ! class_exists( 'Astra_Sites_Compatibility' ) ) :
 			// Plugin - Elementor.
 			require_once ASTRA_SITES_DIR . 'inc/classes/compatibility/elementor/class-astra-sites-compatibility-elementor.php';
 
+			// Plugin - Beaver Builder.
+			require_once ASTRA_SITES_DIR . 'inc/classes/compatibility/beaver-builder/class-astra-sites-compatibility-bb.php';
+
 			// Plugin - LearnDash.
 			require_once ASTRA_SITES_DIR . 'inc/classes/compatibility/learndash/class-astra-sites-compatibility-learndash.php';
+
+			// Plugin - UABB.
+			require_once ASTRA_SITES_DIR . 'inc/classes/compatibility/uabb/class-astra-sites-compatibility-uabb.php';
+
+			// Plugin - Checkout Plugins - Stripe.
+			require_once ASTRA_SITES_DIR . 'inc/classes/compatibility/checkout-plugins-stripe-woo/class-astra-sites-checkout-plugins-stripe-woo.php';
+
 		}
 
 	}

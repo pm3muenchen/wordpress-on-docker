@@ -1,222 +1,129 @@
 <?php
 
-// Accommodation (Unique) - Checkbox
-if ( ! function_exists( 'naeafe_unique_accommodation_render' ) ) {
-  function naeafe_unique_accommodation_render() {
-    $options = get_option( 'eafe_unqw_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_unqw_settings[naeafe_unique_accommodation]' id='naeafe_unique_accommodation-id' <?php checked( isset($options['naeafe_unique_accommodation']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
+// unique widgets options
+if ( ! function_exists( 'naeafe_unique_widgets_settings_init' ) ) {
+  function naeafe_unique_widgets_settings_init() {
+    $naeafe_unique_widgets = [];
+    $naeafe_unique_widgets['unique_accommodation'] = array(
+      'title' => __( 'Accommodation', 'events-addon-for-elementor' ),
+      'demo_url' => 'https://nicheaddons.com/demos/events/elements/accommodation-element/',
+      'documentation_url' => 'https://nicheaddons.com/docs/events-addon-unique-elements/accommodation/',
+      'video_url' => '',
+      'is_premium' => '',
+    );
+    $naeafe_unique_widgets['unique_calendar_button'] = array(
+      'title' => __( 'Calendar Button', 'events-addon-for-elementor' ),
+      'demo_url' => '',
+      'documentation_url' => '',
+      'video_url' => '',
+      'is_premium' => '',
+    );
+    $naeafe_unique_widgets['unique_call_action'] = array(
+      'title' => __( 'Call Action', 'events-addon-for-elementor' ),
+      'demo_url' => '',
+      'documentation_url' => '',
+      'video_url' => '',
+      'is_premium' => '',
+    );
+    $naeafe_unique_widgets['unique_conference'] = array(
+      'title' => __( 'Conference', 'events-addon-for-elementor' ),
+      'demo_url' => 'https://nicheaddons.com/demos/events/elements/conference-element/',
+      'documentation_url' => 'https://nicheaddons.com/docs/events-addon-unique-elements/conference/',
+      'video_url' => '',
+      'is_premium' => '',
+    );
+    $naeafe_unique_widgets['unique_countdown'] = array(
+      'title' => __( 'Countdown', 'events-addon-for-elementor' ),
+      'demo_url' => 'https://nicheaddons.com/demos/events/elements/countdown-element/',
+      'documentation_url' => 'https://nicheaddons.com/docs/events-addon-unique-elements/countdown/',
+      'video_url' => '',
+      'is_premium' => '',
+    );
+    $naeafe_unique_widgets['unique_discussion'] = array(
+      'title' => __( 'Discussion', 'events-addon-for-elementor' ),
+      'demo_url' => 'https://nicheaddons.com/demos/events/elements/discussions-element/',
+      'documentation_url' => 'https://nicheaddons.com/docs/events-addon-unique-elements/discussions/',
+      'video_url' => '',
+      'is_premium' => '',
+    );
+    $naeafe_unique_widgets['unique_event'] = array(
+      'title' => __( 'Event', 'events-addon-for-elementor' ),
+      'demo_url' => 'https://nicheaddons.com/demos/events/elements/event-element/',
+      'documentation_url' => 'https://nicheaddons.com/docs/events-addon-unique-elements/event/',
+      'video_url' => '',
+      'is_premium' => '',
+    );
+    $naeafe_unique_widgets['unique_infobox'] = array(
+      'title' => __( 'Infobox', 'events-addon-for-elementor' ),
+      'demo_url' => 'https://nicheaddons.com/demos/events/elements/info-box-element/',
+      'documentation_url' => 'https://nicheaddons.com/docs/events-addon-unique-elements/info-box/',
+      'video_url' => '',
+      'is_premium' => '',
+    );
+    $naeafe_unique_widgets['unique_organizer'] = array(
+      'title' => __( 'Organizer', 'events-addon-for-elementor' ),
+      'demo_url' => 'https://nicheaddons.com/demos/events/elements/organizer-element/',
+      'documentation_url' => 'https://nicheaddons.com/docs/events-addon-unique-elements/organizer/',
+      'video_url' => '',
+      'is_premium' => '',
+    );
+    $naeafe_unique_widgets['unique_pricing'] = array(
+      'title' => __( 'Pricing', 'events-addon-for-elementor' ),
+      'demo_url' => 'https://nicheaddons.com/demos/events/elements/pricing-element/',
+      'documentation_url' => 'https://nicheaddons.com/docs/events-addon-unique-elements/pricing-table/',
+      'video_url' => '',
+      'is_premium' => '',
+    );
+    $naeafe_unique_widgets['unique_schedule_list'] = array(
+      'title' => __( 'Schedule List', 'events-addon-for-elementor' ),
+      'demo_url' => 'https://nicheaddons.com/demos/events/elements/schedule-list-element/',
+      'documentation_url' => 'https://nicheaddons.com/docs/events-addon-unique-elements/schedule-list/',
+      'video_url' => '',
+      'is_premium' => '',
+    );
+    $naeafe_unique_widgets['unique_schedule_tab'] = array(
+      'title' => __( 'Schedule Tab', 'events-addon-for-elementor' ),
+      'demo_url' => 'https://nicheaddons.com/demos/events/elements/schedule-list-element/',
+      'documentation_url' => 'https://nicheaddons.com/docs/events-addon-unique-elements/schedule-tab/',
+      'video_url' => '',
+      'is_premium' => '',
+    );
+    $naeafe_unique_widgets['unique_schedule'] = array(
+      'title' => __( 'Schedule', 'events-addon-for-elementor' ),
+      'demo_url' => 'https://nicheaddons.com/demos/events/elements/schedule-list-element/',
+      'documentation_url' => 'https://nicheaddons.com/docs/events-addon-unique-elements/schedule/',
+      'video_url' => '',
+      'is_premium' => '',
+    );
+    $naeafe_unique_widgets['unique_sessions'] = array(
+      'title' => __( 'Sessions', 'events-addon-for-elementor' ),
+      'demo_url' => 'https://nicheaddons.com/demos/events/elements/sessions-element/',
+      'documentation_url' => 'https://nicheaddons.com/docs/events-addon-unique-elements/sessions/',
+      'video_url' => '',
+      'is_premium' => '',
+    );
+    $naeafe_unique_widgets['unique_ticket'] = array(
+      'title' => __( 'Ticket', 'events-addon-for-elementor' ),
+      'demo_url' => 'https://nicheaddons.com/demos/events/elements/ticket-element/',
+      'documentation_url' => 'https://nicheaddons.com/docs/events-addon-unique-elements/ticket/',
+      'video_url' => '',
+      'is_premium' => '',
+    );
+    $naeafe_unique_widgets['unique_upcoming'] = array(
+      'title' => __( 'Upcoming', 'events-addon-for-elementor' ),
+      'demo_url' => 'https://nicheaddons.com/demos/events/elements/upcoming-element/',
+      'documentation_url' => 'https://nicheaddons.com/docs/events-addon-unique-elements/upcoming/',
+      'video_url' => '',
+      'is_premium' => '',
+    );
+    $naeafe_unique_widgets['unique_venues'] = array(
+      'title' => __( 'Venues', 'events-addon-for-elementor' ),
+      'demo_url' => 'https://nicheaddons.com/demos/events/elements/venues-element/',
+      'documentation_url' => 'https://nicheaddons.com/docs/events-addon-unique-elements/venues/',
+      'video_url' => '',
+      'is_premium' => '',
+    );
 
-// Calendar Button (Unique) - Checkbox
-if ( ! function_exists( 'naeafe_unique_calendar_button_render' ) ) {
-  function naeafe_unique_calendar_button_render() {
-    $options = get_option( 'eafe_unqw_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_unqw_settings[naeafe_unique_calendar_button]' id='naeafe_unique_calendar_button-id' <?php checked( isset($options['naeafe_unique_calendar_button']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Call Action (Unique) - Checkbox
-if ( ! function_exists( 'naeafe_unique_call_action_render' ) ) {
-  function naeafe_unique_call_action_render() {
-    $options = get_option( 'eafe_unqw_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_unqw_settings[naeafe_unique_call_action]' id='naeafe_unique_call_action-id' <?php checked( isset($options['naeafe_unique_call_action']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Conference (Unique) - Checkbox
-if ( ! function_exists( 'naeafe_unique_conference_render' ) ) {
-  function naeafe_unique_conference_render() {
-    $options = get_option( 'eafe_unqw_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_unqw_settings[naeafe_unique_conference]' id='naeafe_unique_conference-id' <?php checked( isset($options['naeafe_unique_conference']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Countdown (Unique) - Checkbox
-if ( ! function_exists( 'naeafe_unique_countdown_render' ) ) {
-  function naeafe_unique_countdown_render() {
-    $options = get_option( 'eafe_unqw_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_unqw_settings[naeafe_unique_countdown]' id='naeafe_unique_countdown-id' <?php checked( isset($options['naeafe_unique_countdown']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Discussion (Unique) - Checkbox
-if ( ! function_exists( 'naeafe_unique_discussion_render' ) ) {
-  function naeafe_unique_discussion_render() {
-    $options = get_option( 'eafe_unqw_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_unqw_settings[naeafe_unique_discussion]' id='naeafe_unique_discussion-id' <?php checked( isset($options['naeafe_unique_discussion']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Event (Unique) - Checkbox
-if ( ! function_exists( 'naeafe_unique_event_render' ) ) {
-  function naeafe_unique_event_render() {
-    $options = get_option( 'eafe_unqw_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_unqw_settings[naeafe_unique_event]' id='naeafe_unique_event-id' <?php checked( isset($options['naeafe_unique_event']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Infobox (Unique) - Checkbox
-if ( ! function_exists( 'naeafe_unique_infobox_render' ) ) {
-  function naeafe_unique_infobox_render() {
-    $options = get_option( 'eafe_unqw_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_unqw_settings[naeafe_unique_infobox]' id='naeafe_unique_infobox-id' <?php checked( isset($options['naeafe_unique_infobox']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Organizer (Unique) - Checkbox
-if ( ! function_exists( 'naeafe_unique_organizer_render' ) ) {
-  function naeafe_unique_organizer_render() {
-    $options = get_option( 'eafe_unqw_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_unqw_settings[naeafe_unique_organizer]' id='naeafe_unique_organizer-id' <?php checked( isset($options['naeafe_unique_organizer']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Pricing (Unique) - Checkbox
-if ( ! function_exists( 'naeafe_unique_pricing_render' ) ) {
-  function naeafe_unique_pricing_render() {
-    $options = get_option( 'eafe_unqw_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_unqw_settings[naeafe_unique_pricing]' id='naeafe_unique_pricing-id' <?php checked( isset($options['naeafe_unique_pricing']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Schedule List (Unique) - Checkbox
-if ( ! function_exists( 'naeafe_unique_schedule_list_render' ) ) {
-  function naeafe_unique_schedule_list_render() {
-    $options = get_option( 'eafe_unqw_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_unqw_settings[naeafe_unique_schedule_list]' id='naeafe_unique_schedule_list-id' <?php checked( isset($options['naeafe_unique_schedule_list']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Schedule Tab (Unique) - Checkbox
-if ( ! function_exists( 'naeafe_unique_schedule_tab_render' ) ) {
-  function naeafe_unique_schedule_tab_render() {
-    $options = get_option( 'eafe_unqw_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_unqw_settings[naeafe_unique_schedule_tab]' id='naeafe_unique_schedule_tab-id' <?php checked( isset($options['naeafe_unique_schedule_tab']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Schedule (Unique) - Checkbox
-if ( ! function_exists( 'naeafe_unique_schedule_render' ) ) {
-  function naeafe_unique_schedule_render() {
-    $options = get_option( 'eafe_unqw_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_unqw_settings[naeafe_unique_schedule]' id='naeafe_unique_schedule-id' <?php checked( isset($options['naeafe_unique_schedule']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Sessions (Unique) - Checkbox
-if ( ! function_exists( 'naeafe_unique_sessions_render' ) ) {
-  function naeafe_unique_sessions_render() {
-    $options = get_option( 'eafe_unqw_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_unqw_settings[naeafe_unique_sessions]' id='naeafe_unique_sessions-id' <?php checked( isset($options['naeafe_unique_sessions']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Ticket (Unique) - Checkbox
-if ( ! function_exists( 'naeafe_unique_ticket_render' ) ) {
-  function naeafe_unique_ticket_render() {
-    $options = get_option( 'eafe_unqw_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_unqw_settings[naeafe_unique_ticket]' id='naeafe_unique_ticket-id' <?php checked( isset($options['naeafe_unique_ticket']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Upcoming (Unique) - Checkbox
-if ( ! function_exists( 'naeafe_unique_upcoming_render' ) ) {
-  function naeafe_unique_upcoming_render() {
-    $options = get_option( 'eafe_unqw_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_unqw_settings[naeafe_unique_upcoming]' id='naeafe_unique_upcoming-id' <?php checked( isset($options['naeafe_unique_upcoming']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Venues (Unique) - Checkbox
-if ( ! function_exists( 'naeafe_unique_venues_render' ) ) {
-  function naeafe_unique_venues_render() {
-    $options = get_option( 'eafe_unqw_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_unqw_settings[naeafe_unique_venues]' id='naeafe_unique_venues-id' <?php checked( isset($options['naeafe_unique_venues']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
+    return $naeafe_unique_widgets;
   }
 }

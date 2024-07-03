@@ -66,6 +66,7 @@ class Astra_Sites_Batch_Processing_Elementor extends Source_Local {
 			$this->import_single_post( $post_id );
 		}
 	}
+
 	/**
 	 * Update post meta.
 	 *
@@ -108,6 +109,7 @@ class Astra_Sites_Batch_Processing_Elementor extends Source_Local {
 					foreach ( $ids_mapping as $old_id => $new_id ) {
 						$data = str_replace( '[wpforms id=\"' . $old_id, '[wpforms id=\"' . $new_id, $data );
 						$data = str_replace( '"select_form":"' . $old_id, '"select_form":"' . $new_id, $data );
+						$data = str_replace( '"form_id":"' . $old_id, '"form_id":"' . $new_id, $data );
 					}
 				}
 
@@ -125,10 +127,10 @@ class Astra_Sites_Batch_Processing_Elementor extends Source_Local {
 				$data = $this->process_export_import_content( $data, 'on_import' );
 
 				// Replace the site urls.
-				$demo_data = get_option( 'astra_sites_import_data', array() );
+				$demo_data = \Astra_Sites_File_System::get_instance()->get_demo_content();
 				\Astra_Sites_Importer_Log::add( wp_json_encode( $demo_data ) );
 				if ( isset( $demo_data['astra-site-url'] ) ) {
-					$data = wp_json_encode( $data, true );
+					$data = wp_json_encode( $data );
 					if ( ! empty( $data ) ) {
 						$site_url      = get_site_url();
 						$site_url      = str_replace( '/', '\/', $site_url );
@@ -145,6 +147,12 @@ class Astra_Sites_Batch_Processing_Elementor extends Source_Local {
 
 				// !important, Clear the cache after images import.
 				Plugin::$instance->files_manager->clear_cache();
+			}
+
+			// Clean the post excerpt.
+			$clean_post_excerpt = apply_filters( 'astra_sites_pre_process_post_empty_excerpt', true );
+			if ( $clean_post_excerpt ) {
+				astra_sites_empty_post_excerpt( $post_id );
 			}
 		}
 	}

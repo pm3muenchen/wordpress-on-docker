@@ -1,0 +1,1911 @@
+# Translation of Plugins - Gutenberg Blocks &#8211; PublishPress Blocks Gutenberg Editor Plugin - Stable (latest release) in Spanish (Spain)
+# This file is distributed under the same license as the Plugins - Gutenberg Blocks &#8211; PublishPress Blocks Gutenberg Editor Plugin - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2024-07-03 14:48:14+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/4.0.1\n"
+"Language: es\n"
+"Project-Id-Version: Plugins - Gutenberg Blocks &#8211; PublishPress Blocks Gutenberg Editor Plugin - Stable (latest release)\n"
+
+#: incl/pages/main.php:60
+msgid "This feature enables a submenu to manage your Synced Patterns."
+msgstr "Esta característica activa un submenú para gestionar tus patrones sincronizados."
+
+#: incl/advanced-gutenberg-main.php:1870 incl/pages/main.php:59
+msgid "Synced Patterns"
+msgstr "Patrones sincronizados"
+
+#: incl/pages/block-controls/controls.php:125
+msgid "Choose in which pages your blocks can be displayed."
+msgstr "Elige en qué páginas pueden mostrarse tus bloques."
+
+#: incl/pages/block-controls/controls.php:94
+msgid "Choose on which taxonomies and terms archive pages your blocks can be displayed."
+msgstr "Elige en qué taxonomías y páginas de archivo de términos pueden mostrarse tus bloques."
+
+#: incl/pages/block-controls/controls.php:83
+msgid "Term archives"
+msgstr "Archivos de términos"
+
+#: incl/pages/block-controls/controls.php:50
+msgid "User roles"
+msgstr "Perfiles de usuario"
+
+#: incl/pages/block-controls/controls.php:42
+#: incl/pages/block-controls/controls.php:75
+#: incl/pages/block-controls/controls.php:106
+#: incl/pages/block-controls/controls.php:137
+msgid "Site Editor"
+msgstr "Editor del sitio"
+
+#: incl/pages/block-controls/controls.php:40
+#: incl/pages/block-controls/controls.php:73
+#: incl/pages/block-controls/controls.php:104
+#: incl/pages/block-controls/controls.php:135
+msgid "Widgets"
+msgstr "Widgets"
+
+#: incl/pages/block-controls/controls.php:36
+#: incl/pages/block-controls/controls.php:69
+#: incl/pages/block-controls/controls.php:102
+#: incl/pages/block-controls/controls.php:133
+msgid "This block control is available on:"
+msgstr "Este bloque está disponible en:"
+
+#: incl/pages/block-controls/controls.php:17
+msgid "Schedule"
+msgstr "Programar"
+
+#: incl/block-controls-main.php:977
+msgid "404"
+msgstr "404"
+
+#: incl/block-controls-main.php:969
+msgid "Archive"
+msgstr "Archivo"
+
+#: incl/block-controls-main.php:965
+msgid "Blog"
+msgstr "Blog"
+
+#: incl/pages/block-controls/controls.php:28
+msgid "Choose when to start showing and/or stop showing your blocks."
+msgstr "Elige cuándo empezar a mostrar y/o dejar de mostrar tus bloques."
+
+#: incl/pages/main.php:51
+msgid "This feature adds display controls for blocks. You can schedule when blocks are shown, and add user role restrictions."
+msgstr "Esta característica añade los controles para la visualización de los bloques. Tu puedes programar cuando un bloque debe ser mostrado, y añadir restricciones para los perfiles de usuario."
+
+#: incl/pages/block-controls/controls.php:150
+msgid "Save Controls"
+msgstr "Guardar controles"
+
+#: incl/pages/block-controls/controls.php:61
+msgid "Choose which users can see your blocks."
+msgstr "Elige los usuarios que pueden ver tus bloques."
+
+#: incl/pages/block-controls/blocks.php:46
+#: incl/pages/block-controls/blocks.php:71
+msgid "Save Blocks"
+msgstr "Guardar bloques"
+
+#: incl/pages/block-controls/blocks.php:18
+msgid "Enable or disable controls for all blocks"
+msgstr "Activar o desactivar los controles para todos los bloques"
+
+#: incl/pages/block-controls.php:37
+msgid "Controls"
+msgstr "Controles"
+
+#: incl/pages/block-controls.php:16
+msgid "Blocks saved successfully!"
+msgstr "¡Bloques guardados correctamente!"
+
+#: incl/pages/block-controls.php:14
+msgid "Controls saved successfully!"
+msgstr "¡Controles guardados correctamente!"
+
+#: incl/advanced-gutenberg-main.php:3682
+msgid "Page not found. Go to %sDashboard%s"
+msgstr "Página no encontrada. Ve al %sEscritorio%s"
+
+#: incl/pages/settings/recaptcha.php:151
+msgid "Save reCAPTCHA Settings"
+msgstr "Guardar ajustes de reCAPTCHA"
+
+#: incl/pages/settings/recaptcha.php:110
+msgid "Theme"
+msgstr "Tema"
+
+#: incl/pages/settings/recaptcha.php:102
+msgid "Language codes list"
+msgstr "Lista de códigos de idioma"
+
+#: incl/pages/settings/recaptcha.php:85
+msgid "Language"
+msgstr "Idioma"
+
+#: incl/pages/settings/recaptcha.php:66
+msgid "Secret key"
+msgstr "Clave secreta"
+
+#: incl/pages/settings/recaptcha.php:47
+msgid "Site key"
+msgstr "Clave del sitio"
+
+#: incl/pages/settings/maps.php:54
+msgid "Save Maps Settings"
+msgstr "Guardar ajustes de mapas"
+
+#: incl/pages/settings/images.php:122
+msgid "Save Image Settings"
+msgstr "Guardar ajustes de imagenes"
+
+#: incl/pages/settings/images.php:106
+msgid "Set the default post thumbnail to use in Content Display blocks for posts without featured image."
+msgstr "Establece la miniatura de la entrada por defecto que se utilizará en los bloques de visualización de contenido para las entradas sin imagen destacada."
+
+#: incl/pages/settings/general.php:202
+msgid "Save General Settings"
+msgstr "Guardar ajustes generales"
+
+#: incl/pages/settings/general.php:186
+msgid "Autop WordPress function is used to prevent unwanted paragraphs to be added"
+msgstr "La función Autop WordPress se utiliza para evitar que se añadan párrafos no deseados"
+
+#: incl/pages/settings/general.php:164
+msgid "Visual guide for PublishPress Blocks Columns block"
+msgstr "Guía visual para el bloque de columnas de PublishPress Blocks"
+
+#: incl/pages/settings/general.php:125
+msgid "Gutenberg editor width"
+msgstr "Anchura del editor Gutenberg"
+
+#: incl/pages/settings/general.php:114
+msgid "Apply in admin to blocks from PublishPress Blocks plugin."
+msgstr "Aplica en la administración a los bloques del plugin PublishPress Blocks."
+
+#: incl/pages/settings/general.php:68
+msgid "Vertical spacing between blocks"
+msgstr "Espaciado vertical entre bloques"
+
+#: incl/pages/settings/forms.php:118
+msgid "Save Form Settings"
+msgstr "Guardar ajustes de formularios"
+
+#: incl/pages/settings/forms.php:34
+msgid "These email settings apply to messages sent through PublishPress Contact form block."
+msgstr "Estos ajustes de correo electrónico se aplican a los mensajes enviados a través del bloque de formularios de contacto de PublishPress."
+
+#: incl/pages/settings/data.php:64
+msgid "Data stored through Newsletter form blocks."
+msgstr "Datos almacenados a través de bloques de formularios del boletín de noticias."
+
+#: incl/pages/settings/data.php:24
+msgid "Data stored through Contact form blocks."
+msgstr "Datos almacenados a través de bloques de formularios de contacto."
+
+#: incl/pages/settings.php:64
+msgid "License"
+msgstr "Licencia"
+
+#: incl/pages/settings.php:54
+msgid "Data Export"
+msgstr "Exportación de datos"
+
+#: incl/pages/settings.php:50
+msgid "reCAPTCHA"
+msgstr "reCAPTCHA"
+
+#: incl/pages/settings.php:42
+msgid "Maps"
+msgstr "Mapas"
+
+#: incl/pages/settings.php:38
+msgid "Images"
+msgstr "Imágenes"
+
+#: incl/pages/settings.php:29
+msgid "General"
+msgstr "General"
+
+#: incl/pages/main.php:118
+msgid "Remove PublishPress ads and branding"
+msgstr "Eliminar los anuncios y la marca de PublishPress"
+
+#: incl/pages/main.php:117
+msgid "Feature List block"
+msgstr "Bloque de «Lista de características»"
+
+#: incl/pages/main.php:116
+msgid "Pricing Table block"
+msgstr "Bloque de «Tabla de precios»"
+
+#: incl/pages/main.php:115
+msgid "Countdown block"
+msgstr "Bloque de «Cuenta atrás»"
+
+#: incl/pages/main.php:114
+msgid "Google Fonts support"
+msgstr "Compatibilidad con Google Fonts"
+
+#: incl/pages/main.php:113
+msgid "Pro features for Advanced Image block"
+msgstr "Características Pro para el bloque «Imagen avanzada»"
+
+#: incl/pages/main.php:112
+msgid "Pro features for Testimonial block"
+msgstr "Características Pro para el bloque «Recomendaciones»"
+
+#: incl/pages/main.php:111
+msgid "Pro features for Count Up block"
+msgstr "Características Pro para el bloque «Recuento»"
+
+#: incl/pages/main.php:110
+msgid "Pro features for List block"
+msgstr "Características Pro para el bloque «Listas»"
+
+#: incl/pages/main.php:109
+msgid "Pro features for Button block"
+msgstr "Características Pro para el bloque «Botones»"
+
+#: incl/pages/main.php:108
+msgid "Pro features for Images Slider block"
+msgstr "Características Pro para el bloque «Carrusel de imágenes»"
+
+#: incl/pages/main.php:107
+msgid "Pro features for Content Display block"
+msgstr "Características Pro para el bloque «Visualización de contenidos»"
+
+#: incl/pages/main.php:106
+msgid "Pro features for Tabs block"
+msgstr "Características Pro para el bloque «Pestañas»"
+
+#: incl/pages/main.php:105
+msgid "Pro features for Accordion block"
+msgstr "Características Pro para el bloque «Acordeón»"
+
+#: incl/pages/main.php:104
+msgid "Priority, personal support"
+msgstr "Asistencia prioritaria y personal"
+
+#: incl/pages/main.php:83
+msgid "Add Google Fonts support to core blocks including paragraphs and headings."
+msgstr "Añade compatibilidad con Google Fonts a los bloques principales, incluidos los párrafos y los títulos."
+
+#: incl/pages/main.php:82
+msgid "Core Blocks Features"
+msgstr "Características de los bloques básicos"
+
+#: incl/pages/main.php:73
+msgid "If some blocks are not listed in Block Permissions, try enabling this feature."
+msgstr "Si algunos bloques no aparecen en la lista de Permisos de bloque, pruebas a activar esta característica."
+
+#: incl/pages/main.php:69
+msgid "Extend Supported Blocks %sBeta%s"
+msgstr "Ampliar los bloques compatibles %sBeta%s"
+
+#: incl/pages/main.php:42
+msgid "You can add your own CSS styles for your blocks. Anyone editing posts can quickly add the styles to blocks."
+msgstr "Puedes añadir tus propios estilos CSS para tus bloques. Cualquiera que edite entradas puede añadir rápidamente los estilos a los bloques."
+
+#: incl/pages/main.php:33
+msgid "Enable extra blocks including content displays, sliders, buttons, icons, tabs, accordions, and more."
+msgstr "Activa bloques adicionales, como visualizadores de contenido, controles deslizantes, botones, iconos, pestañas, acordeones y mucho más."
+
+#: incl/pages/main.php:24
+msgid "You can control who can use each block, including default WordPress blocks."
+msgstr "Puedes controlar quién puede utilizar cada bloque, incluidos los bloques por defecto de WordPress."
+
+#: incl/pages/custom-styles.php:57
+msgid "Class name"
+msgstr "Nombre de la clase"
+
+#: incl/pages/custom-styles.php:38
+msgid "Add new style"
+msgstr "Añadir nuevo estilo"
+
+#: incl/pages/block-settings.php:71
+msgid "Woo Products - PublishPress"
+msgstr "Productos Woo - PublishPress"
+
+#: incl/pages/block-settings.php:70
+msgid "Testimonial - PublishPress"
+msgstr "Recomendación - PublishPress"
+
+#: incl/pages/block-settings.php:69
+msgid "Table of Contents - PublishPress"
+msgstr "Tabla de contenidos - PublishPress"
+
+#: incl/pages/block-settings.php:68
+msgid "Social Links - PublishPress"
+msgstr "Enlaces sociales - PublishPress"
+
+#: incl/pages/block-settings.php:67
+msgid "Newsletter - PublishPress"
+msgstr "Boletín - PublishPress"
+
+#: incl/pages/block-settings.php:66
+msgid "Map - PublishPress"
+msgstr "Mapa - PublishPress"
+
+#: incl/pages/block-settings.php:65
+msgid "Info Box - PublishPress"
+msgstr "Caja de información - PublishPress"
+
+#: incl/pages/block-settings.php:64
+msgid "Images Slider - PublishPress"
+msgstr "Carrusel de imágenes - PublishPress"
+
+#: incl/pages/block-settings.php:63
+msgid "Count Up - PublishPress"
+msgstr "Contar - PublishPress"
+
+#: incl/pages/block-settings.php:62
+msgid "Contact Form - PublishPress"
+msgstr "Formulario de contacto - PublishPress"
+
+#: incl/pages/block-settings.php:61
+msgid "Column - PublishPress"
+msgstr "Columna - PublishPress"
+
+#: incl/pages/block-settings.php:60
+msgid "Columns - PublishPress"
+msgstr "Columnas - PublishPress"
+
+#: incl/pages/block-settings.php:59
+msgid "Video - PublishPress"
+msgstr "Vídeo - PublishPress"
+
+#: incl/pages/block-settings.php:58
+msgid "Tabs - PublishPress"
+msgstr "Pestañas - PublishPress"
+
+#: incl/pages/block-settings.php:57
+msgid "Table - PublishPress"
+msgstr "Tabla - PublishPress"
+
+#: incl/pages/block-settings.php:56
+msgid "List - PublishPress"
+msgstr "Lista - PublishPress"
+
+#: incl/pages/block-settings.php:55
+msgid "Image - PublishPress"
+msgstr "Imagen - PublishPress"
+
+#: incl/pages/block-settings.php:54
+msgid "Icon - PublishPress"
+msgstr "Icono - PublishPress"
+
+#: incl/pages/block-settings.php:53
+msgid "Button - PublishPress"
+msgstr "Botón - PublishPress"
+
+#: incl/pages/block-settings.php:52
+msgid "Accordion - PublishPress"
+msgstr "Acordeón - PublishPress"
+
+#: incl/advanced-gutenberg-main.php:3259
+#: incl/pages/block-controls/blocks.php:56
+msgid "Loading..."
+msgstr "Cargando…"
+
+#: incl/advanced-gutenberg-main.php:2318
+msgid "Contact"
+msgstr "Contacto"
+
+#: incl/advanced-gutenberg-main.php:2315
+msgid "Contact the PublishPress team"
+msgstr "Contacta el equipo de PublishPress"
+
+#: incl/advanced-gutenberg-main.php:2304 incl/advanced-gutenberg-main.php:2307
+msgid "Documentation"
+msgstr "Documentación"
+
+#: incl/advanced-gutenberg-main.php:2297
+msgid "About"
+msgstr "Acerca de"
+
+#: incl/advanced-gutenberg-main.php:2294
+msgid "About PublishPress Blocks"
+msgstr "Acerca de PublishPress Blocks"
+
+#: incl/advanced-gutenberg-main.php:2277
+msgid "If you like %sPublishPress Blocks%s please leave us a %s rating. Thank you!"
+msgstr "Si te gusta %sPublishPress Blocks%s por favor déjanos una valoración de %s. ¡Gracias!"
+
+#: incl/advanced-gutenberg-main.php:2093 incl/advanced-gutenberg-main.php:2138
+#: incl/advanced-gutenberg-main.php:2171 incl/advanced-gutenberg-main.php:2215
+msgid "This feature is disabled. In order to use, please enable back through %sDashboard%s."
+msgstr "Esta característica está desactivada. Para usarla, por favor, vuelve a activarla a través del %sescritorio%s."
+
+#: incl/advanced-gutenberg-main.php:1856 incl/pages/custom-styles.php:19
+#: incl/pages/main.php:41
+msgid "Block Styles"
+msgstr "Estilos de bloques"
+
+#: incl/advanced-gutenberg-main.php:1842 incl/advanced-gutenberg-main.php:2118
+#: incl/pages/main.php:23
+msgid "Block Permissions"
+msgstr "Permisos de los bloques"
+
+#: incl/advanced-gutenberg-main.php:1436
+msgid "Error while sending the form. Please try again."
+msgstr "Error al enviar el formulario. Por favor, inténtelo de nuevo."
+
+#: incl/advanced-gutenberg-main.php:1283
+msgid "Error: can't edit this feature"
+msgstr "Error: no se puede editar esta característica"
+
+#: incl/advanced-gutenberg-main.php:1253
+msgid "Error: wrong data"
+msgstr "Error: datos incorrectos"
+
+#: incl/advanced-gutenberg-main.php:893
+msgid "You're using PublishPress Blocks Free. The Pro version has more features and support. %sUpgrade to Pro%s"
+msgstr "Estás usando PublishPress Blocks Free. La versión Pro tiene más características y soporte. %sActualiza a Pro%s"
+
+#: incl/advanced-gutenberg-main.php:3249 incl/advanced-gutenberg-main.php:3275
+msgid "Save %s"
+msgstr "Guardar %s"
+
+#: incl/advanced-gutenberg-main.php:3159
+msgid "%s can't be saved. Please try again."
+msgstr "%s no se puede guardar. Por favor, inténtalo de nuevo."
+
+#: incl/advanced-gutenberg-main.php:3149
+msgid "%s saved successfully!"
+msgstr "¡%s guardado correctamente!"
+
+#: incl/advanced-gutenberg-main.php:1863 incl/pages/block-controls.php:30
+#: incl/pages/main.php:50
+msgid "Block Controls"
+msgstr "Controles de bloques"
+
+#: incl/advanced-gutenberg-main.php:3233 incl/advanced-gutenberg-main.php:3283
+#: incl/pages/block-controls/blocks.php:31
+#: incl/pages/block-controls/blocks.php:79
+msgid "To save this configuration, enable at least one block."
+msgstr "Para guardar esta configuración, activa al menos un bloque."
+
+#: incl/advanced-gutenberg-main.php:3220
+msgid "Enable or disable all blocks"
+msgstr "Activar o desactivar todos los bloques"
+
+#: incl/advanced-gutenberg-main.php:1172
+msgid "copy"
+msgstr "copiar"
+
+#: incl/pages/settings/recaptcha.php:128
+msgid "Invisible"
+msgstr "Invisible"
+
+#: incl/pages/settings/recaptcha.php:118
+msgid "Light"
+msgstr "Claro"
+
+#: incl/pages/settings/general.php:48
+msgid "PublishPress logo and links in the footer of the admin pages"
+msgstr "Logotipo y enlaces de PublishPress en el pie de página de las páginas de administración"
+
+#: incl/pages/settings/general.php:47
+msgid "Display PublishPress branding"
+msgstr "Mostrar la marca PublishPress"
+
+#: incl/block-settings-main.php:960
+msgid "Table of Contents Alignment"
+msgstr "Alineación de la tabla de contenidos"
+
+#: incl/block-settings-main.php:950
+msgid "Table of Contents header title"
+msgstr "Título de la cabecera de la tabla de contenidos"
+
+#: incl/pages/block-controls.php:41
+msgid "Blocks"
+msgstr "Bloques"
+
+#: incl/pages/settings/images.php:65
+msgid "Overlay"
+msgstr "Superposición"
+
+#: incl/pages/settings/images.php:55
+msgid "Disabled"
+msgstr "Desactivado"
+
+#: incl/pages/block-settings.php:133
+msgid "No blocks available. Please go to a post edit (without saving either modifying anything). Then come back to Block Settings to see the blocks list."
+msgstr "No hay bloques disponibles. Por favor, edita una entrada (sin guardar ninguna modificación). Luego regresas a Ajustes de bloques para ver la lista de bloques."
+
+#: incl/advanced-gutenberg-main.php:916 incl/pages/main.php:121
+msgid "Upgrade to Pro"
+msgstr "Actualizar a Pro"
+
+#. Description of the plugin
+#: advanced-gutenberg.php
+msgid "PublishPress Blocks has everything you need to build professional websites with the Gutenberg editor."
+msgstr "PublishPress Blocks tiene todo lo que necesitas para crear sitios profesionales con el editor de Gutenberg."
+
+#: assets/blocks/recent-posts/block.php:295
+#: assets/blocks/recent-posts/block.php:1089
+#: assets/blocks/recent-posts/block.php:1102
+msgid "Updated on"
+msgstr "Actualizado el"
+
+#: assets/blocks/recent-posts/block.php:293
+#: assets/blocks/recent-posts/block.php:1088
+#: assets/blocks/recent-posts/block.php:1101
+msgid "Posted on"
+msgstr "Publicado el"
+
+#: incl/pages/block-controls/controls.php:114
+msgid "Pages"
+msgstr "Páginas"
+
+#: incl/pages/block-controls/controls.php:38
+#: incl/pages/block-controls/controls.php:71
+msgid "Post"
+msgstr "Entrada"
+
+#: assets/blocks/recent-posts/block.php:302
+#: assets/blocks/recent-posts/block.php:1076
+msgid "Updated"
+msgstr "Actualizado"
+
+#: assets/blocks/recent-posts/block.php:300
+#: assets/blocks/recent-posts/block.php:302
+#: assets/blocks/recent-posts/block.php:1075
+#: assets/blocks/recent-posts/block.php:1076
+msgid "ago"
+msgstr "hace"
+
+#: assets/blocks/recent-posts/block.php:300
+#: assets/blocks/recent-posts/block.php:1075
+msgid "Posted"
+msgstr "Publicado"
+
+#: incl/advanced-gutenberg-main.php:3627
+msgid "Default configuration for this block is not available."
+msgstr "La configuración por defecto para este bloque no está disponible."
+
+#: incl/advanced-gutenberg-main.php:1877 incl/pages/settings.php:22
+msgid "Settings"
+msgstr "Ajustes"
+
+#: incl/pages/custom-styles.php:121
+msgid "Following Paragraph."
+msgstr "Párrafo siguiente."
+
+#: incl/pages/custom-styles.php:118
+msgid "Example text with this style"
+msgstr "Ejemplo de texto con este estilo"
+
+#: incl/pages/custom-styles.php:114
+msgid "Previous Paragraph."
+msgstr "Párrafo anterior."
+
+#: incl/pages/main.php:102
+msgid "PublishPress Blocks Pro"
+msgstr "PublishPress Blocks Pro"
+
+#: incl/advanced-gutenberg-main.php:2344
+msgid "PublishPress Blocks logo"
+msgstr "Logotipo de PublishPress Blocks"
+
+#. Plugin URI of the plugin
+#: advanced-gutenberg.php
+msgid "https://publishpress.com/blocks/"
+msgstr "https://publishpress.com/blocks/"
+
+#. Plugin Name of the plugin
+#: advanced-gutenberg.php incl/advanced-gutenberg-main.php:256
+#: incl/advanced-gutenberg-main.php:1849 incl/pages/block-settings.php:90
+#: incl/pages/main.php:8 incl/pages/main.php:32
+msgid "PublishPress Blocks"
+msgstr "PublishPress Blocks"
+
+#. Author URI of the plugin
+#: advanced-gutenberg.php
+msgid "https://publishpress.com/"
+msgstr "https://publishpress.com/"
+
+#. Author of the plugin
+#: advanced-gutenberg.php
+msgid "PublishPress"
+msgstr "PublishPress"
+
+#: incl/block-settings-main.php:2002
+msgid "H6"
+msgstr "H6"
+
+#: incl/block-settings-main.php:1998
+msgid "H5"
+msgstr "H5"
+
+#: incl/block-settings-main.php:1994
+msgid "H4"
+msgstr "H4"
+
+#: incl/block-settings-main.php:1990
+msgid "H3"
+msgstr "H3"
+
+#: incl/block-settings-main.php:1986
+msgid "H2"
+msgstr "H2"
+
+#: incl/block-settings-main.php:1982
+msgid "H1"
+msgstr "H1"
+
+#: incl/block-settings-main.php:1977
+msgid "HTML Tag"
+msgstr "Etiqueta HTML"
+
+#: incl/block-settings-main.php:1970 incl/block-settings-main.php:2081
+msgid "Line Height (px)"
+msgstr "Alto de línea (px)"
+
+#: incl/block-settings-main.php:1963 incl/block-settings-main.php:2074
+msgid "Font Size (px)"
+msgstr "Tamaño de fuente (px)"
+
+#: incl/block-settings-main.php:1955
+msgid "Title Settings"
+msgstr "Ajustes del título"
+
+#: incl/block-settings-main.php:1789
+msgid "Number of icons"
+msgstr "Número de iconos"
+
+#: incl/block-settings-main.php:986
+msgid "Vertical"
+msgstr "Vertical"
+
+#: incl/block-settings-main.php:982
+msgid "Horizontal"
+msgstr "Horizontal"
+
+#: incl/block-settings-main.php:977
+msgid "Tabs Style"
+msgstr "Estilos de pestañas"
+
+#: incl/block-settings-main.php:235 incl/block-settings-main.php:1939
+#: incl/block-settings-main.php:2050 incl/block-settings-main.php:2130
+msgid "Margin Left"
+msgstr "Margen izquierdo"
+
+#: incl/block-settings-main.php:228 incl/block-settings-main.php:1932
+#: incl/block-settings-main.php:2043 incl/block-settings-main.php:2123
+msgid "Margin Bottom"
+msgstr "Margen inferior"
+
+#: incl/block-settings-main.php:221 incl/block-settings-main.php:1946
+#: incl/block-settings-main.php:2057 incl/block-settings-main.php:2137
+msgid "Margin Right"
+msgstr "Margen derecho"
+
+#: incl/block-settings-main.php:214 incl/block-settings-main.php:1925
+#: incl/block-settings-main.php:2036 incl/block-settings-main.php:2116
+msgid "Margin Top"
+msgstr "Margen superior"
+
+#: incl/block-settings-main.php:211
+msgid "Margin Settings"
+msgstr "Ajustes de margen"
+
+#: incl/advanced-gutenberg-main.php:1835
+msgid "Dashboard"
+msgstr "Escritorio"
+
+#: incl/block-controls-main.php:961
+msgid "Home"
+msgstr "Inicio"
+
+#: incl/advanced-gutenberg-main.php:4354
+msgid "Username or password is incorrect!"
+msgstr "¡El usuario o la contraseña son incorrectos!"
+
+#: incl/advanced-gutenberg-main.php:4353
+msgid "Captcha must be checked!"
+msgstr "¡El Captcha debe ser comprobado!"
+
+#: incl/advanced-gutenberg-main.php:4351
+msgid "User registration is currently not allowed."
+msgstr "Actualmente no se permite el registro de usuarios."
+
+#: incl/advanced-gutenberg-main.php:1537
+msgid "Captcha is empty"
+msgstr "El captcha está vacío"
+
+#: incl/advanced-gutenberg-main.php:1534
+msgid "Captcha validated"
+msgstr "Captcha validado"
+
+#: incl/block-settings-main.php:1801
+msgid "Container Settings"
+msgstr "Ajustes del contenedor"
+
+#: incl/pages/settings/general.php:138
+msgid "Large"
+msgstr "Grande"
+
+#: incl/block-settings-main.php:1763
+msgid "Text alignment"
+msgstr "Alineación del texto"
+
+#: incl/block-settings-main.php:1760
+msgid "Column Settings"
+msgstr "Ajustes de columna"
+
+#: incl/block-settings-main.php:1702
+msgid "Content Min Height"
+msgstr "Altura mínima del contenido"
+
+#: incl/block-settings-main.php:1695
+msgid "Content Max Width"
+msgstr "Anchura máxima del contenido"
+
+#: incl/block-settings-main.php:1689
+msgid "Footer"
+msgstr "Pié de pagina"
+
+#: incl/block-settings-main.php:1685
+msgid "Aside"
+msgstr "Aside"
+
+#: incl/block-settings-main.php:1681
+msgid "Article"
+msgstr "Artículo"
+
+#: incl/block-settings-main.php:1677
+msgid "Main"
+msgstr "Principal"
+
+#: incl/block-settings-main.php:1673
+msgid "Section"
+msgstr "Sección"
+
+#: incl/block-settings-main.php:1669
+msgid "Header"
+msgstr "Cabecera"
+
+#: incl/block-settings-main.php:1665
+msgid "Div"
+msgstr "Div"
+
+#: incl/block-settings-main.php:1660
+msgid "Wrapper Tag"
+msgstr "Etiqueta de envoltura"
+
+#: incl/block-settings-main.php:1655
+msgid "Columns Wrapped"
+msgstr "Columnas envueltas"
+
+#: incl/block-settings-main.php:1649
+msgid "Full Height"
+msgstr "Altura completa"
+
+#: incl/block-settings-main.php:1641
+msgid "Middle"
+msgstr "En medio"
+
+#: incl/block-settings-main.php:1629
+msgid "Row Settings"
+msgstr "Ajustes de filas"
+
+#: incl/block-settings-main.php:1622
+msgid "Collapsed order RTL"
+msgstr "Orden RTL contraído"
+
+#: incl/block-settings-main.php:1583
+msgid "Vertical space when collapsed"
+msgstr "Espacio vertical cuando esté contraído"
+
+#: incl/block-settings-main.php:1577 incl/block-settings-main.php:1616
+msgid "90px"
+msgstr "90px"
+
+#: incl/block-settings-main.php:1573 incl/block-settings-main.php:1612
+msgid "70px"
+msgstr "70px"
+
+#: incl/block-settings-main.php:1569 incl/block-settings-main.php:1608
+msgid "50px"
+msgstr "50px"
+
+#: incl/block-settings-main.php:1565 incl/block-settings-main.php:1604
+msgid "40px"
+msgstr "40px"
+
+#: incl/block-settings-main.php:1561 incl/block-settings-main.php:1600
+msgid "30px"
+msgstr "30px"
+
+#: incl/block-settings-main.php:1557 incl/block-settings-main.php:1596
+msgid "20px"
+msgstr "20px"
+
+#: incl/block-settings-main.php:1553 incl/block-settings-main.php:1592
+msgid "10px"
+msgstr "10px"
+
+#: incl/block-settings-main.php:1544
+msgid "Space between column"
+msgstr "Espacio entre columnas"
+
+#: incl/block-settings-main.php:1541
+msgid "Columns Settings"
+msgstr "Ajustes de columnas"
+
+#: incl/block-settings-main.php:1450
+msgid "Auto Height"
+msgstr "Altura automática"
+
+#: incl/block-settings-main.php:1427
+msgid "Images Settings"
+msgstr "Ajustes de las imágenes"
+
+#: incl/block-settings-main.php:1325
+msgid "Last Name placeholder"
+msgstr "Marcador de posición de apellido(s)"
+
+#: incl/block-settings-main.php:1320
+msgid "First Name placeholder"
+msgstr "Marcador de posición de nombre"
+
+#: incl/block-settings-main.php:1308
+msgid "Form width"
+msgstr "Ancho del formulario"
+
+#: incl/block-settings-main.php:1267
+msgid "Button Position"
+msgstr "Posición del botón"
+
+#: incl/block-settings-main.php:1250 incl/block-settings-main.php:1406
+msgid "Border and Text Color"
+msgstr "Color del borde y del texto"
+
+#: incl/block-settings-main.php:1189 incl/block-settings-main.php:1345
+msgid "Error text"
+msgstr "Texto de error"
+
+#: incl/block-settings-main.php:1184 incl/block-settings-main.php:1340
+msgid "Success text"
+msgstr "Texto de éxito"
+
+#: incl/block-settings-main.php:1179 incl/block-settings-main.php:1335
+msgid "Submit label"
+msgstr "Etiqueta de envío"
+
+#: incl/block-settings-main.php:1174
+msgid "Message placeholder"
+msgstr "Marcador de posición de mensaje"
+
+#: incl/block-settings-main.php:1169 incl/block-settings-main.php:1330
+msgid "Email placeholder"
+msgstr "Marcador de posición de correo electrónico"
+
+#: incl/block-settings-main.php:1164
+msgid "Name placeholder"
+msgstr "Marcador de posición de nombre"
+
+#: incl/pages/settings/general.php:153
+msgid "Enable columns visual guide"
+msgstr "Activar la guía visual de columnas"
+
+#: incl/pages/settings/general.php:175
+msgid "Remove autop"
+msgstr "Quitar el autop"
+
+#: incl/block-settings-main.php:24
+msgid "Initial Collapsed"
+msgstr "Contraido inicial"
+
+#: incl/pages/settings/images.php:101
+msgid "Reset to default"
+msgstr "Restablecer a los valores por defecto"
+
+#: incl/pages/settings/images.php:82
+msgid "Default thumbnail"
+msgstr "Miniatura por defecto"
+
+#: incl/block-settings-main.php:764
+msgid "Aubergine"
+msgstr "Berenjena"
+
+#: incl/block-settings-main.php:763
+msgid "Night"
+msgstr "Nocturno"
+
+#: incl/block-settings-main.php:762 incl/pages/settings/recaptcha.php:123
+msgid "Dark"
+msgstr "Oscuro"
+
+#: incl/block-settings-main.php:761
+msgid "Retro"
+msgstr "Retro"
+
+#: incl/block-settings-main.php:760
+msgid "Silver"
+msgstr "Plata"
+
+#: incl/block-settings-main.php:756
+msgid "Map style"
+msgstr "Estilo de mapa"
+
+#: incl/advanced-gutenberg-main.php:1383 incl/advanced-gutenberg-main.php:1474
+#: incl/advanced-gutenberg-main.php:1526
+msgid "Cannot validate captcha"
+msgstr "No se puede validar el captcha"
+
+#: incl/block-settings-main.php:356
+msgid "Open link in a new tab"
+msgstr "Abrir enlace en pestaña nueva"
+
+#: incl/block-settings-main.php:346
+msgid "Open image in a lightbox"
+msgstr "Abrir imagen en una caja de luz"
+
+#: incl/block-settings-main.php:334
+msgid "Click action"
+msgstr "Acción del clic"
+
+#: incl/block-settings-main.php:1302
+msgid "Alternative"
+msgstr "Alternativo"
+
+#: incl/block-settings-main.php:1293
+msgid "Form style"
+msgstr "Estilo del formulario"
+
+#: incl/block-settings-main.php:765
+msgid "Custom"
+msgstr "Personalizado"
+
+#: incl/advanced-gutenberg-main.php:1388 incl/advanced-gutenberg-main.php:1479
+#: incl/advanced-gutenberg-main.php:1531
+msgid "Captcha validation error"
+msgstr "Error de validación del captcha"
+
+#: incl/advanced-gutenberg-main.php:1375 incl/advanced-gutenberg-main.php:1466
+#: incl/advanced-gutenberg-main.php:1518
+msgid "Server error. Try again later!"
+msgstr "Error de servidor. ¡Inténtalo de nuevo más tarde!"
+
+#: incl/pages/settings/maps.php:38
+msgid "A Google API key is required to use the Map block without any warning."
+msgstr "Se requiere una clave de API de Google para usar el bloque de mapas sin ninguna advertencia."
+
+#: incl/pages/settings/images.php:71
+msgid "Display caption text on images loaded as lightbox in galleries."
+msgstr "Mostrar el texto de la leyenda en las imágenes cargadas como caja de luz en las galerías."
+
+#: incl/pages/settings/data.php:58
+msgid "Download Newsletter Form data"
+msgstr "Descargar datos de formulario de boletín"
+
+#: incl/pages/settings/recaptcha.php:134
+msgid "We strongly recommend not using Invisible reCAPTCHA if you have more than 1 Newsletter or Contact forms block in a page."
+msgstr "Recomendamos encarecidamente no utilizar reCAPTCHA invisible si tienes más de 1 bloque de boletines o formularios de contacto en una página."
+
+#: incl/pages/settings/recaptcha.php:93
+msgid "Auto detect"
+msgstr "Detección automática"
+
+#: incl/pages/settings/recaptcha.php:49 incl/pages/settings/recaptcha.php:68
+msgid "required"
+msgstr "obligatorio"
+
+#: incl/pages/settings/recaptcha.php:17
+msgid "Use the Google reCAPTCHA to avoid spam in PublishPress Blocks forms. Get credentials for your domain by registering %shere%s."
+msgstr "Utilice el reCAPTCHA de Google para evitar el spam en los formularios de PublishPress Blocks. Obtén las credenciales para tu dominio registrándote en %seste sitio%s."
+
+#: incl/pages/settings/recaptcha.php:30
+msgid "Enable reCAPTCHA"
+msgstr "Activar reCAPTCHA"
+
+#: incl/block-settings-main.php:1247 incl/block-settings-main.php:1403
+msgid "Submit Button Settings"
+msgstr "Enviar - ajustes del botón"
+
+#: incl/block-settings-main.php:1196 incl/block-settings-main.php:1352
+msgid "Input Color"
+msgstr "Color del campo"
+
+#: incl/block-settings-main.php:1161 incl/block-settings-main.php:1317
+msgid "Text Label"
+msgstr "Etiqueta de texto"
+
+#: incl/block-settings-main.php:1290
+msgid "Form Settings"
+msgstr "Ajustes del formulario"
+
+#: incl/advanced-gutenberg-main.php:1428
+msgid "Message"
+msgstr "Mensaje"
+
+#: incl/advanced-gutenberg-main.php:1419
+msgid "You have received a contact from your website."
+msgstr "Has recibido un contacto de tu sitio."
+
+#: incl/advanced-gutenberg-main.php:1367 incl/advanced-gutenberg-main.php:1458
+#: incl/advanced-gutenberg-main.php:1510
+msgid "Bad Request!"
+msgstr "¡Solicitud incorrecta!"
+
+#: incl/pages/settings/data.php:49 incl/pages/settings/data.php:89
+msgid "JSON"
+msgstr "JSON"
+
+#: incl/pages/settings/data.php:38 incl/pages/settings/data.php:78
+msgid "CSV"
+msgstr "CSV"
+
+#: incl/pages/settings/data.php:18
+msgid "Download Contacts Form data"
+msgstr "Descargar datos de formularios de contacto"
+
+#: incl/pages/settings/forms.php:95
+msgid "Email receiver"
+msgstr "Correo electrónico del destinatario"
+
+#: incl/pages/settings/forms.php:78
+msgid "Email title"
+msgstr "Título del correo electrónico"
+
+#: incl/pages/settings/forms.php:61
+msgid "Sender email"
+msgstr "Correo electrónico del remitente"
+
+#: incl/pages/settings/forms.php:44
+msgid "Sender name"
+msgstr "Nombre del remitente"
+
+#: incl/advanced-gutenberg-main.php:1413 incl/pages/settings/forms.php:20
+msgid "Website Contact"
+msgstr "Contacto del sitio"
+
+#: incl/pages/settings.php:46
+msgid "Email & Forms"
+msgstr "Correo electrónico y formularios"
+
+#: incl/block-settings-main.php:1150
+msgid "Number of Products"
+msgstr "Número de productos"
+
+#: incl/block-settings-main.php:1140
+msgid "Layout Settings"
+msgstr "Ajustes de diseño"
+
+#: incl/block-settings-main.php:1479
+msgid "Hover Color"
+msgstr "Color al pasar el cursor"
+
+#: incl/block-settings-main.php:1469
+msgid "Always show overlay"
+msgstr "Mostrar siempre superposición"
+
+#: incl/block-settings-main.php:1439
+msgid "Open custom link"
+msgstr "Abrir enlace personalizado"
+
+#: incl/block-settings-main.php:1632
+msgid "Vertical Align"
+msgstr "Alineación vertical"
+
+#: incl/block-settings-main.php:429 incl/block-settings-main.php:1518
+msgid "Horizontal Alignment"
+msgstr "Alineación horizontal"
+
+#: incl/block-settings-main.php:350
+msgid "Open custom URL"
+msgstr "Abrir URL personalizada"
+
+#: incl/block-settings-main.php:1435
+msgid "Open image in lightbox"
+msgstr "Abrir imagen en una caja de luz"
+
+#: incl/block-settings-main.php:337 incl/block-settings-main.php:1430
+msgid "Action on click"
+msgstr "Acción al hacer clic"
+
+#: incl/block-settings-main.php:1716
+msgid "Border style"
+msgstr "Estilo del borde"
+
+#: incl/block-settings-main.php:17
+msgid "Bottom spacing"
+msgstr "Espaciado inferior"
+
+#: incl/block-settings-main.php:14
+msgid "Accordion Settings"
+msgstr "Ajustes del acordeón"
+
+#: assets/blocks/recent-posts/block.php:413
+msgid "Read More"
+msgstr "Leer más"
+
+#: install.php:24
+msgid "Install Gutenberg Now!"
+msgstr "¡Instala Gutenberg ahora!"
+
+#: install.php:23
+msgid "Gutenberg is not detected! Activate it or"
+msgstr "¡Gutenberg no ha sido detectado! Actívalo o"
+
+#: incl/pages/settings/general.php:99
+msgid "Blocks icon color"
+msgstr "Color del icono de bloques"
+
+#: incl/advanced-gutenberg-main.php:1426
+msgid "Date"
+msgstr "Fecha"
+
+#: incl/block-controls-main.php:973
+msgid "Search"
+msgstr "Buscar"
+
+#: incl/advanced-gutenberg-main.php:3215
+#: incl/pages/block-controls/blocks.php:13 incl/pages/block-settings.php:97
+msgid "Search blocks"
+msgstr "Buscar bloques"
+
+#: incl/pages/custom-styles.php:111
+msgid "Preview"
+msgstr "Vista previa"
+
+#: incl/pages/block-settings.php:123 incl/pages/settings/images.php:99
+msgid "Edit"
+msgstr "Editar"
+
+#: incl/pages/custom-styles.php:34
+msgid "Delete"
+msgstr "Borrar"
+
+#: incl/pages/custom-styles.php:33
+msgid "Copy"
+msgstr "Copiar"
+
+#: incl/pages/custom-styles.php:12
+msgid "Your styles have been saved!"
+msgstr "¡Tus estilos han sido guardado!"
+
+#: incl/pages/block-settings/block-config.php:18
+msgid "block"
+msgstr "bloque"
+
+#: incl/advanced-gutenberg-main.php:4087
+msgid "Type field not defined"
+msgstr "Campo de tipo no definido"
+
+#: incl/block-settings-main.php:1126
+msgid "Position Color"
+msgstr "Color de posición"
+
+#: incl/block-settings-main.php:1121
+msgid "Name Color"
+msgstr "Color del nombre"
+
+#: incl/block-settings-main.php:1109
+msgid "Avatar Size"
+msgstr "Tamaño del avatar"
+
+#: incl/block-settings-main.php:1095
+msgid "Border Radius (%)"
+msgstr "Radio del borde (%)"
+
+#: incl/block-settings-main.php:1082
+msgid "Avatar Settings"
+msgstr "Ajustes del avatar"
+
+#: incl/block-settings-main.php:1073 incl/block-settings-main.php:1143
+msgid "Columns"
+msgstr "Columnas"
+
+#: incl/block-settings-main.php:1004
+msgid "Active Tab Settings"
+msgstr "Ajustes de la pestaña activa"
+
+#: incl/block-settings-main.php:974
+msgid "Tab Settings"
+msgstr "Ajustes de pestaña"
+
+#: incl/block-settings-main.php:955
+msgid "Anchor color"
+msgstr "Color de ancla"
+
+#: incl/block-settings-main.php:945
+msgid "Load minimized"
+msgstr "Cargar minimizado"
+
+#: incl/block-settings-main.php:931
+msgid "Icon Space"
+msgstr "Espacio del icono"
+
+#: incl/block-settings-main.php:914
+msgid "Icon Alignment"
+msgstr "Alineación del icono"
+
+#: incl/block-settings-main.php:870
+msgid "Icon 3 Settings"
+msgstr "Ajustes de icono 3"
+
+#: incl/block-settings-main.php:829
+msgid "Icon 2 Settings"
+msgstr "Ajustes de icono 2"
+
+#: incl/block-settings-main.php:822 incl/block-settings-main.php:863
+#: incl/block-settings-main.php:904
+msgid "Icon Link"
+msgstr "Enlace del icono"
+
+#: incl/block-settings-main.php:817 incl/block-settings-main.php:858
+#: incl/block-settings-main.php:899 incl/block-settings-main.php:1861
+msgid "Icon Color"
+msgstr "Color del icono"
+
+#: incl/block-settings-main.php:813 incl/block-settings-main.php:854
+#: incl/block-settings-main.php:895
+msgid "Youtube"
+msgstr "Youtube"
+
+#: incl/block-settings-main.php:812 incl/block-settings-main.php:853
+#: incl/block-settings-main.php:894
+msgid "Vimeo"
+msgstr "Vimeo"
+
+#: incl/block-settings-main.php:811 incl/block-settings-main.php:852
+#: incl/block-settings-main.php:893
+msgid "Twitter"
+msgstr "Twitter"
+
+#: incl/block-settings-main.php:810 incl/block-settings-main.php:851
+#: incl/block-settings-main.php:892
+msgid "Tumblr"
+msgstr "Tumblr"
+
+#: incl/block-settings-main.php:807 incl/block-settings-main.php:848
+#: incl/block-settings-main.php:889
+msgid "Sound Cloud"
+msgstr "Sound Cloud"
+
+#: incl/block-settings-main.php:805 incl/block-settings-main.php:846
+#: incl/block-settings-main.php:887
+msgid "Skype"
+msgstr "Skype"
+
+#: incl/block-settings-main.php:804 incl/block-settings-main.php:845
+#: incl/block-settings-main.php:886
+msgid "Reddit"
+msgstr "Reddit"
+
+#: incl/block-settings-main.php:803 incl/block-settings-main.php:844
+#: incl/block-settings-main.php:885
+msgid "Pinterest"
+msgstr "Pinterest"
+
+#: incl/block-settings-main.php:802 incl/block-settings-main.php:843
+#: incl/block-settings-main.php:884
+msgid "Picasa"
+msgstr "Picasa"
+
+#: incl/block-settings-main.php:800 incl/block-settings-main.php:841
+#: incl/block-settings-main.php:882
+msgid "LinkedIn"
+msgstr "LinkedIn"
+
+#: incl/block-settings-main.php:799 incl/block-settings-main.php:840
+#: incl/block-settings-main.php:881
+msgid "Instagram"
+msgstr "Instagram"
+
+#: incl/block-settings-main.php:798 incl/block-settings-main.php:839
+#: incl/block-settings-main.php:880
+msgid "Google Plus"
+msgstr "Google Plus"
+
+#: incl/block-settings-main.php:797 incl/block-settings-main.php:838
+#: incl/block-settings-main.php:879
+msgid "Flickr"
+msgstr "Flickr"
+
+#: incl/block-settings-main.php:796 incl/block-settings-main.php:837
+#: incl/block-settings-main.php:878
+msgid "Facebook"
+msgstr "Facebook"
+
+#: incl/block-settings-main.php:795 incl/block-settings-main.php:836
+#: incl/block-settings-main.php:877
+msgid "Blogger"
+msgstr "Blogger"
+
+#: incl/advanced-gutenberg-main.php:4073 incl/pages/settings/general.php:133
+msgid "Default"
+msgstr "Por defecto"
+
+#: incl/block-settings-main.php:791 incl/block-settings-main.php:832
+#: incl/block-settings-main.php:873
+msgid "Icon"
+msgstr "Icono"
+
+#: incl/block-settings-main.php:788
+msgid "Icon 1 Settings"
+msgstr "Ajustes de icono 1"
+
+#: incl/block-settings-main.php:779
+msgid "Marker Description"
+msgstr "Descripción del marcador"
+
+#: incl/block-settings-main.php:774
+msgid "Marker Title"
+msgstr "Título del marcador"
+
+#: incl/block-settings-main.php:771
+msgid "Marker Settings"
+msgstr "Ajustes del marcador"
+
+#: incl/block-settings-main.php:742
+msgid "Zoom Level"
+msgstr "Nivel de acercamiento"
+
+#: incl/block-settings-main.php:739
+msgid "Map Settings"
+msgstr "Ajustes de mapas"
+
+#: incl/block-settings-main.php:730
+msgid "Longitude"
+msgstr "Longitud"
+
+#: incl/block-settings-main.php:723
+msgid "Latitude"
+msgstr "Latitud"
+
+#: incl/block-settings-main.php:715
+msgid "Location Settings"
+msgstr "Ajustes de la ubicación"
+
+#: incl/block-settings-main.php:704
+msgid "Count Up Number Size"
+msgstr "Tamaño del número de contador"
+
+#: incl/block-settings-main.php:701
+msgid "Count Up Settings"
+msgstr "Ajustes del recuento"
+
+#: incl/block-settings-main.php:694 incl/block-settings-main.php:1131
+msgid "Description Color"
+msgstr "Descripción del color"
+
+#: incl/block-settings-main.php:689
+msgid "Count Up Color"
+msgstr "Color del recuento"
+
+#: incl/block-settings-main.php:684
+msgid "Header Color"
+msgstr "Color de cabecera"
+
+#: incl/block-settings-main.php:681 incl/block-settings-main.php:1476
+msgid "Color Settings"
+msgstr "Ajustes del color"
+
+#: incl/block-settings-main.php:672
+msgid "Number of columns"
+msgstr "Número de columnas"
+
+#: incl/block-settings-main.php:669 incl/block-settings-main.php:911
+#: incl/block-settings-main.php:942 incl/block-settings-main.php:1070
+#: incl/block-settings-main.php:1786
+msgid "General Settings"
+msgstr "Ajustes generales"
+
+#: incl/block-settings-main.php:660
+msgid "Button Color"
+msgstr "Color del botón"
+
+#: incl/block-settings-main.php:653
+msgid "Button Size"
+msgstr "Tamaño del botón"
+
+#: incl/block-settings-main.php:647
+msgid "Star Sticker"
+msgstr "Pegatina de estrella"
+
+#: incl/block-settings-main.php:643
+msgid "Filled Square"
+msgstr "Cuadrado relleno"
+
+#: incl/block-settings-main.php:639
+msgid "Video Camera"
+msgstr "Cámara de vídeo"
+
+#: incl/block-settings-main.php:635
+msgid "Outline Circle"
+msgstr "Contorno circular"
+
+#: incl/block-settings-main.php:631
+msgid "Filled Circle"
+msgstr "Círculo relleno"
+
+#: incl/block-settings-main.php:627 incl/block-settings-main.php:1298
+msgid "Normal"
+msgstr "Normal"
+
+#: incl/block-settings-main.php:622
+msgid "Button Icon"
+msgstr "Icono del botón"
+
+#: incl/block-settings-main.php:619
+msgid "Play Button Settings"
+msgstr "Ajustes del botón de reproducción"
+
+#: incl/block-settings-main.php:612
+msgid "Overlay color"
+msgstr "Color de superposición"
+
+#: incl/block-settings-main.php:605
+msgid "Video Height"
+msgstr "Alto de vídeo"
+
+#: incl/block-settings-main.php:598
+msgid "Video Width"
+msgstr "Ancho de vídeo"
+
+#: incl/block-settings-main.php:588
+msgid "Open video in lightbox"
+msgstr "Abrir vídeo en caja de luz"
+
+#: incl/block-settings-main.php:585
+msgid "Video Settings"
+msgstr "Ajustes de vídeo"
+
+#: incl/block-settings-main.php:574
+msgid "Max width"
+msgstr "Anchura máxima"
+
+#: incl/block-settings-main.php:571
+msgid "Table Settings"
+msgstr "Ajustes de la tabla"
+
+#: incl/block-settings-main.php:560
+msgid "Padding"
+msgstr "Relleno"
+
+#: incl/block-settings-main.php:553
+msgid "Margin"
+msgstr "Margen"
+
+#: incl/block-settings-main.php:546
+msgid "Line Height"
+msgstr "Alto de línea"
+
+#: incl/block-settings-main.php:539 incl/block-settings-main.php:924
+#: incl/block-settings-main.php:1866
+msgid "Icon Size"
+msgstr "Tamaño del icono"
+
+#: incl/block-settings-main.php:534
+msgid "Icon color"
+msgstr "Color del icono"
+
+#: incl/block-settings-main.php:528
+msgid "Circle"
+msgstr "Círculo"
+
+#: incl/block-settings-main.php:524
+msgid "Info"
+msgstr "Información"
+
+#: incl/block-settings-main.php:520
+msgid "Help"
+msgstr "Ayuda"
+
+#: incl/block-settings-main.php:516
+msgid "Warning"
+msgstr "Advertencia"
+
+#: incl/block-settings-main.php:512
+msgid "X Cross"
+msgstr "X Cruz"
+
+#: incl/block-settings-main.php:508
+msgid "Arrow Right"
+msgstr "Flecha derecha"
+
+#: incl/block-settings-main.php:504
+msgid "Play"
+msgstr "Reproducir"
+
+#: incl/block-settings-main.php:496
+msgid "Minus"
+msgstr "Menos"
+
+#: incl/block-settings-main.php:492
+msgid "Checkmark"
+msgstr "Marca de comprobación"
+
+#: incl/block-settings-main.php:488
+msgid "Star"
+msgstr "Estrella"
+
+#: incl/block-settings-main.php:484
+msgid "Flag"
+msgstr "Bandera"
+
+#: incl/block-settings-main.php:476
+msgid "Pushpin"
+msgstr "Tachuela"
+
+#: incl/block-settings-main.php:342 incl/block-settings-main.php:472
+#: incl/block-settings-main.php:1549 incl/block-settings-main.php:1588
+#: incl/block-settings-main.php:1721
+msgid "None"
+msgstr "Ninguno"
+
+#: incl/block-settings-main.php:467
+msgid "Icon style"
+msgstr "Estilo del icono"
+
+#: incl/block-settings-main.php:464 incl/block-settings-main.php:1858
+msgid "Icon Settings"
+msgstr "Ajustes del icono"
+
+#: incl/block-settings-main.php:452 incl/block-settings-main.php:1118
+#: incl/block-settings-main.php:2066
+msgid "Text Settings"
+msgstr "Ajustes de texto"
+
+#: incl/block-settings-main.php:442 incl/block-settings-main.php:920
+#: incl/block-settings-main.php:966 incl/block-settings-main.php:1280
+#: incl/block-settings-main.php:1531 incl/block-settings-main.php:1776
+msgid "Right"
+msgstr "Derecha"
+
+#: incl/block-settings-main.php:434 incl/block-settings-main.php:918
+#: incl/block-settings-main.php:964 incl/block-settings-main.php:1276
+#: incl/block-settings-main.php:1523 incl/block-settings-main.php:1768
+msgid "Left"
+msgstr "Izquierda"
+
+#: incl/block-settings-main.php:423 incl/block-settings-main.php:1512
+#: incl/block-settings-main.php:1645 incl/pages/settings/images.php:60
+msgid "Bottom"
+msgstr "Abajo"
+
+#: incl/block-settings-main.php:419 incl/block-settings-main.php:438
+#: incl/block-settings-main.php:919 incl/block-settings-main.php:965
+#: incl/block-settings-main.php:1272 incl/block-settings-main.php:1508
+#: incl/block-settings-main.php:1527 incl/block-settings-main.php:1772
+msgid "Center"
+msgstr "Centro"
+
+#: incl/block-settings-main.php:415 incl/block-settings-main.php:1504
+#: incl/block-settings-main.php:1637
+msgid "Top"
+msgstr "Arriba"
+
+#: incl/block-settings-main.php:410 incl/block-settings-main.php:1499
+msgid "Vertical Alignment"
+msgstr "Alineación vertical"
+
+#: incl/block-settings-main.php:407 incl/block-settings-main.php:1496
+msgid "Text Alignment"
+msgstr "Alineación del texto"
+
+#: incl/block-settings-main.php:400
+msgid "Overlay Color"
+msgstr "Color de superposición"
+
+#: incl/block-settings-main.php:395
+msgid "Subtitle Color"
+msgstr "Color del subtítulo"
+
+#: incl/block-settings-main.php:390 incl/block-settings-main.php:1484
+#: incl/block-settings-main.php:1958
+msgid "Title Color"
+msgstr "Color del título"
+
+#: incl/block-settings-main.php:387 incl/block-settings-main.php:2069
+msgid "Color"
+msgstr "Color"
+
+#: incl/block-settings-main.php:378 incl/block-settings-main.php:1455
+msgid "Width"
+msgstr "Ancho"
+
+#: incl/block-settings-main.php:371 incl/block-settings-main.php:749
+#: incl/block-settings-main.php:1462
+msgid "Height"
+msgstr "Altura"
+
+#: incl/block-settings-main.php:366 incl/block-settings-main.php:593
+#: incl/block-settings-main.php:1445 incl/pages/settings/general.php:143
+msgid "Full width"
+msgstr "Ancho completo"
+
+#: incl/block-settings-main.php:363
+msgid "Image Size"
+msgstr "Tamaño de imagen"
+
+#: incl/block-settings-main.php:323
+msgid "Transition Speed"
+msgstr "Velocidad de transición"
+
+#: incl/block-settings-main.php:316
+msgid "Shadow Spread"
+msgstr "Extensión de la sombra"
+
+#: incl/block-settings-main.php:309
+msgid "Shadow Blur"
+msgstr "Desenfoque de sombra"
+
+#: incl/block-settings-main.php:302
+msgid "Shadow V Offset"
+msgstr "Desplazamiento de sombra vertical"
+
+#: incl/block-settings-main.php:295
+msgid "Shadow H Offset"
+msgstr "Desplazamiento de sombra horizontal"
+
+#: incl/block-settings-main.php:290
+msgid "Shadow Color"
+msgstr "Color de la sombra"
+
+#: incl/block-settings-main.php:277
+msgid "Hover Settings"
+msgstr "Ajustes al pasar el cursor"
+
+#: incl/block-settings-main.php:268 incl/block-settings-main.php:1842
+#: incl/block-settings-main.php:1911 incl/block-settings-main.php:2022
+#: incl/block-settings-main.php:2102
+msgid "Padding Left"
+msgstr "Relleno izquierdo"
+
+#: incl/block-settings-main.php:261 incl/block-settings-main.php:1835
+#: incl/block-settings-main.php:1904 incl/block-settings-main.php:2015
+#: incl/block-settings-main.php:2095
+msgid "Padding Bottom"
+msgstr "Relleno inferior"
+
+#: incl/block-settings-main.php:254 incl/block-settings-main.php:1849
+#: incl/block-settings-main.php:1918 incl/block-settings-main.php:2029
+#: incl/block-settings-main.php:2109
+msgid "Padding Right"
+msgstr "Relleno derecho"
+
+#: incl/block-settings-main.php:247 incl/block-settings-main.php:1828
+#: incl/block-settings-main.php:1897 incl/block-settings-main.php:2008
+#: incl/block-settings-main.php:2088
+msgid "Padding Top"
+msgstr "Relleno superior"
+
+#: incl/block-settings-main.php:244
+msgid "Padding Settings"
+msgstr "Ajustes del relleno"
+
+#: incl/block-settings-main.php:149 incl/block-settings-main.php:455
+msgid "Text Size"
+msgstr "Tamaño del texto"
+
+#: incl/block-settings-main.php:146
+msgid "Text and Color"
+msgstr "Texto y color"
+
+#: incl/block-settings-main.php:135 incl/block-settings-main.php:202
+#: incl/block-settings-main.php:1059 incl/block-settings-main.php:1238
+#: incl/block-settings-main.php:1260 incl/block-settings-main.php:1394
+#: incl/block-settings-main.php:1416 incl/block-settings-main.php:1751
+#: incl/block-settings-main.php:1821 incl/block-settings-main.php:1890
+msgid "Border Radius"
+msgstr "Radio del borde"
+
+#: incl/block-settings-main.php:128 incl/block-settings-main.php:195
+#: incl/block-settings-main.php:1052 incl/block-settings-main.php:1102
+#: incl/block-settings-main.php:1744 incl/block-settings-main.php:1814
+#: incl/block-settings-main.php:1883
+msgid "Border Width"
+msgstr "Ancho del borde"
+
+#: incl/block-settings-main.php:123 incl/block-settings-main.php:190
+#: incl/block-settings-main.php:1047 incl/block-settings-main.php:1090
+#: incl/block-settings-main.php:1214 incl/block-settings-main.php:1370
+#: incl/block-settings-main.php:1739 incl/block-settings-main.php:1809
+#: incl/block-settings-main.php:1878
+msgid "Border Color"
+msgstr "Color del borde"
+
+#: incl/block-settings-main.php:117 incl/block-settings-main.php:184
+#: incl/block-settings-main.php:1043 incl/block-settings-main.php:1232
+#: incl/block-settings-main.php:1388 incl/block-settings-main.php:1729
+msgid "Dotted"
+msgstr "Punteado"
+
+#: incl/block-settings-main.php:113 incl/block-settings-main.php:180
+#: incl/block-settings-main.php:1042 incl/block-settings-main.php:1228
+#: incl/block-settings-main.php:1384 incl/block-settings-main.php:1733
+msgid "Dashed"
+msgstr "Discontinuo"
+
+#: incl/block-settings-main.php:109 incl/block-settings-main.php:176
+#: incl/block-settings-main.php:1041 incl/block-settings-main.php:1224
+#: incl/block-settings-main.php:1380 incl/block-settings-main.php:1725
+msgid "Solid"
+msgstr "Continuo"
+
+#: incl/block-settings-main.php:104 incl/block-settings-main.php:171
+#: incl/block-settings-main.php:1037 incl/block-settings-main.php:1219
+#: incl/block-settings-main.php:1375
+msgid "Border Style"
+msgstr "Estilo del borde"
+
+#: incl/block-settings-main.php:101 incl/block-settings-main.php:168
+#: incl/block-settings-main.php:1034 incl/block-settings-main.php:1211
+#: incl/block-settings-main.php:1367 incl/block-settings-main.php:1713
+msgid "Border Settings"
+msgstr "Ajustes del borde"
+
+#: incl/block-settings-main.php:86 incl/block-settings-main.php:1019
+msgid "Body Settings"
+msgstr "Ajustes del cuerpo"
+
+#: incl/block-settings-main.php:79
+msgid "Header Icon Color"
+msgstr "Color del icono de la cabecera"
+
+#: incl/block-settings-main.php:73
+msgid "Arrow Down"
+msgstr "Flecha abajo"
+
+#: incl/block-settings-main.php:69
+msgid "Horizontal Dots"
+msgstr "Puntos horizontales"
+
+#: incl/block-settings-main.php:65
+msgid "Unfold Arrow"
+msgstr "Flecha desplegada"
+
+#: incl/block-settings-main.php:61
+msgid "Plus Square Outline"
+msgstr "Contorno del cuadrado plus"
+
+#: incl/block-settings-main.php:57
+msgid "Plus Circle Outline"
+msgstr "Contorno del círculo plus"
+
+#: incl/block-settings-main.php:53
+msgid "Plus Circle"
+msgstr "Círculo plus"
+
+#: incl/block-settings-main.php:49 incl/block-settings-main.php:500
+msgid "Plus"
+msgstr "Plus"
+
+#: incl/block-settings-main.php:44
+msgid "Header Icon"
+msgstr "Icono de la cabecera"
+
+#: incl/block-settings-main.php:39 incl/block-settings-main.php:94
+#: incl/block-settings-main.php:156 incl/block-settings-main.php:280
+#: incl/block-settings-main.php:997 incl/block-settings-main.php:1012
+#: incl/block-settings-main.php:1027 incl/block-settings-main.php:1204
+#: incl/block-settings-main.php:1360 incl/block-settings-main.php:1489
+msgid "Text Color"
+msgstr "Color del texto"
+
+#: incl/block-settings-main.php:34 incl/block-settings-main.php:89
+#: incl/block-settings-main.php:161 incl/block-settings-main.php:285
+#: incl/block-settings-main.php:992 incl/block-settings-main.php:1007
+#: incl/block-settings-main.php:1022 incl/block-settings-main.php:1085
+#: incl/block-settings-main.php:1199 incl/block-settings-main.php:1255
+#: incl/block-settings-main.php:1355 incl/block-settings-main.php:1411
+#: incl/block-settings-main.php:1804 incl/block-settings-main.php:1873
+msgid "Background Color"
+msgstr "Color de fondo"
+
+#: incl/block-settings-main.php:31
+msgid "Header Settings"
+msgstr "Ajustes de la cabecera"
+
+#: incl/advanced-gutenberg-main.php:3570 incl/advanced-gutenberg-main.php:3571
+msgid "Block Config"
+msgstr "Ajustes de bloque"
+
+#: incl/advanced-gutenberg-main.php:1121 incl/advanced-gutenberg-main.php:1249
+#: incl/advanced-gutenberg-main.php:1303 incl/advanced-gutenberg-main.php:1362
+#: incl/advanced-gutenberg-main.php:1453
+msgid "Invalid nonce token!"
+msgstr "¡Token nonce no válido!"
+
+#: incl/advanced-gutenberg-main.php:1114 incl/advanced-gutenberg-main.php:1238
+#: incl/advanced-gutenberg-main.php:1297
+msgid "No permission!"
+msgstr "¡No tienes permiso!"
+
+#: incl/pages/settings/general.php:57
+msgid "Enable blocks spacing"
+msgstr "Activar espacio de bloques"
+
+#: incl/pages/settings/general.php:79
+msgid "Blocks spacing"
+msgstr "Espaciado de bloques"
+
+#: incl/pages/settings/maps.php:31
+msgid "How to create a Google API Key"
+msgstr "Como crear una clave API de Google"
+
+#: incl/pages/settings/maps.php:15
+msgid "Google API key"
+msgstr "Clave API de Google"
+
+#: install.php:35
+msgid "Please update Gutenberg then comeback later!"
+msgstr "¡Por favor actualiza Gutenberg y luego regresa!"
+
+#: install.php:33
+msgid "We require at least Gutenberg version "
+msgstr "Se necesita, al menos, la versión de Gutenberg "
+
+#: incl/pages/custom-styles.php:105
+msgid "Save styles"
+msgstr "Guardar estilos"
+
+#: incl/pages/custom-styles.php:92
+msgid "Hint: Use \"Ctrl + Space\" for auto completion"
+msgstr "Pista: usa «Ctrl + espacio» para completar automáticamente"
+
+#: incl/pages/custom-styles.php:86
+msgid "Custom CSS"
+msgstr "CSS personalizado"
+
+#: incl/pages/custom-styles.php:72
+msgid "Identification color"
+msgstr "Color de identificación"
+
+#: incl/pages/custom-styles.php:66
+msgid ""
+"This option help you identify specific custom styles in the list\n"
+"                                            (usually set this same as the custom style's background color)"
+msgstr ""
+"Esta opción te ayuda a identificar estilos personalizados específicos en la lista\n"
+"                                            (por lo general, se establece el mismo que el color de fondo del estilo personalizado)"
+
+#: incl/advanced-gutenberg-main.php:1138 incl/pages/custom-styles.php:49
+msgid "Style title"
+msgstr "Título del estilo"
+
+#: incl/pages/settings/images.php:47
+msgid "Image caption"
+msgstr "Leyenda de la imagen"
+
+#: incl/pages/settings/images.php:25
+msgid "Open galleries in lightbox"
+msgstr "Abrir galerías en caja de luz"
+
+#: incl/pages/settings/images.php:36
+msgid "Open gallery images as a lightbox style popup"
+msgstr "Abrir imágenes de la galería como una ventana emergente con caja de luz"
+
+#: incl/block-settings-main.php:480
+msgid "Configuration"
+msgstr "Configuración"
+
+#: incl/pages/block-controls.php:18 incl/pages/settings.php:15
+msgid "Settings saved successfully!"
+msgstr "¡Ajustes guardados correctamente!"
+
+#: incl/pages/block-settings/block-config.php:14
+#: incl/pages/block-settings/block-config.php:30
+msgid "Save"
+msgstr "Guardar"
+
+#: incl/advanced-gutenberg-main.php:1424 incl/block-settings-main.php:801
+#: incl/block-settings-main.php:842 incl/block-settings-main.php:883
+msgid "Email"
+msgstr "Correo electrónico"
+
+#: incl/advanced-gutenberg-main.php:1422
+msgid "Name"
+msgstr "Nombre"

@@ -34,17 +34,31 @@ if ( ! class_exists( 'Gutentor_E4' ) ) {
 		 */
 		public static function get_instance() {
 
-			// Store the instance locally to avoid private static replication
+			// Store the instance locally to avoid private static replication.
 			static $instance = null;
 
-			// Only run these methods if they haven't been ran previously
+			// Only run these methods if they haven't been ran previously.
 			if ( null === $instance ) {
 				$instance = new self();
 			}
 
-			// Always return the instance
+			// Always return the instance.
 			return $instance;
 
+		}
+
+		/**
+		 * Set register_block_type_args variable on parent
+		 * Used for blog template loading
+		 *
+		 * @since      3.2.6
+		 * @package    Gutentor
+		 * @author     Gutentor <info@gutentor.com>
+		 */
+		public function register_block_type_args() {
+			$this->register_block_type_args = array(
+				'view_script_handles' => array( 'gutentor-google-maps', 'google-maps' ),
+			);
 		}
 
 		/**
@@ -173,12 +187,14 @@ if ( ! class_exists( 'Gutentor_E4' ) ) {
 		 * @return string
 		 */
 		public function render_callback( $attributes, $content ) {
-			$id      = isset( $attributes['id'] ) ? $attributes['id'] : 'gutentor-google-map-' . rand( 10, 100 );
+			$id      = isset( $attributes['id'] ) ? $attributes['id'] : 'gutentor-google-map-' . wp_rand( 10, 100 );
 			$blockID = isset( $attributes['gID'] ) ? $attributes['gID'] : '';
 			$class   = 'gutentor-google-map';
 
+			$default_class = gutentor_block_add_default_classes( 'gutentor-e4', $attributes );
+
 			if ( isset( $attributes['className'] ) ) {
-				$class .= ' ' . esc_attr( $attributes['className'] );
+				$class .= ' ' . $default_class;
 			}
 
 			$align = isset( $attributes['align'] ) ? 'align' . $attributes['align'] : '';
@@ -211,7 +227,7 @@ if ( ! class_exists( 'Gutentor_E4' ) ) {
 			$output .= '<script type="text/javascript">' . "\n";
 			$output .= '	/* <![CDATA[ */' . "\n";
 			$output .= '		if ( ! window.gutentorGoogleMaps ) window.gutentorGoogleMaps =[];' . "\n";
-			$output .= '		window.gutentorGoogleMaps.push( { container: "' . $id . '", attributes: ' . json_encode( $local_attr ) . ' } );' . "\n";
+			$output .= '		window.gutentorGoogleMaps.push( { container: "' . $id . '", attributes: ' . wp_json_encode( $local_attr ) . ' } );' . "\n";
 			$output .= '	/* ]]> */' . "\n";
 			$output .= '</script>' . "\n";
 

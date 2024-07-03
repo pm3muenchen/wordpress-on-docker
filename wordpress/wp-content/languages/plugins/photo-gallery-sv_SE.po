@@ -2,36 +2,397 @@
 # This file is distributed under the same license as the Plugins - Photo Gallery by 10Web &#8211; Mobile-Friendly Image Gallery - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-03-26 14:28:31+0000\n"
+"PO-Revision-Date: 2023-12-21 15:26:15+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: GlotPress/3.0.0-alpha.2\n"
+"X-Generator: GlotPress/4.0.1\n"
 "Language: sv_SE\n"
 "Project-Id-Version: Plugins - Photo Gallery by 10Web &#8211; Mobile-Friendly Image Gallery - Stable (latest release)\n"
 
-#: framework/WDWLibrary.php:310
+#: booster/view.php:202
+msgid "Sign up & optimize"
+msgstr "Registrera och optimera"
+
+#: booster/view.php:183
+msgid "Optimize all images and galleries"
+msgstr "Optimera alla bilder och gallerier"
+
+#: booster/view.php:165
+msgid "Sign up & install"
+msgstr "Logga in och installera"
+
+#: admin/views/Cloudflare.php:77 framework/WDWLibrary.php:3588
+msgid "Upgrade to Pro"
+msgstr "Uppgradera till Pro"
+
+#: admin/views/Cloudflare.php:66
+msgid "275"
+msgstr "275"
+
+#: admin/views/Cloudflare.php:60
+msgid "50%"
+msgstr "50&nbsp;%"
+
+#: admin/views/Cloudflare.php:54
+msgid "30%"
+msgstr "30&nbsp;%"
+
+#: admin/views/Cloudflare.php:47 photo-gallery.php:485
+msgid "Cloudflare CDN"
+msgstr "Cloudflare CDN"
+
+#: admin/views/Cloudflare.php:39
+msgid "Web application firewall (WAF)"
+msgstr "Brandvägg för webbapplikationer (WAF)"
+
+#: admin/views/Cloudflare.php:26
+msgid "Free SSL Certificate"
+msgstr "Gratis SSL-certifikat"
+
+#: admin/views/Cloudflare.php:61
+msgid "faster load times"
+msgstr "snabbare laddningstider"
+
+#: booster/Elementor.php:85
+msgid "PageSpeed Score"
+msgstr "PageSpeed-poäng"
+
+#: booster/TWBLibrary.php:245 booster/assets/js/gutenberg.js:52
+#: booster/assets/js/gutenberg/gutenberg-compiled.js:154
+#: booster/assets/js/gutenberg/gutenberg-compiled.js:102
+msgid "settings"
+msgstr "inställningar"
+
+#: booster/view.php:334
+msgid "%d of 6"
+msgstr "%d av 6"
+
+#: booster/view.php:298 booster/view.php:330 booster/view.php:376
+msgid "%d <span>image</span>"
+msgid_plural "%d <span>images</span>"
+msgstr[0] "%d <span>bild</span>"
+msgstr[1] "%d <span>bilder</span>"
+
+#: booster/view.php:135
+msgid "Activate"
+msgstr "Aktivera"
+
+#: booster/view.php:135
+msgid "Install"
+msgstr "Installera"
+
+#: booster/List.php:75
+msgid "Got it"
+msgstr "Jag förstår"
+
+#: booster/AdminBar.php:325
+msgid "Checking…"
+msgstr "Kontrollerar …"
+
+#: booster/AdminBar.php:175 booster/Elementor.php:44 booster/Elementor.php:91
+#: booster/List.php:68
+msgid "Checking..."
+msgstr "Kontrollerar …"
+
+#: booster/AdminBar.php:79 booster/AdminBar.php:85 booster/AdminBar.php:88
+#: booster/Elementor.php:45 booster/Elementor.php:81 booster/Elementor.php:88
+msgid "Not optimized"
+msgstr "Inte optimerad"
+
+#: booster/view.php:363
+msgid "%d image"
+msgid_plural "%d images"
+msgstr[0] "%d bild"
+msgstr[1] "%d bilder"
+
+#: booster/List.php:65
+msgid "Check score"
+msgstr "Kontrollera poäng"
+
+#: booster/List.php:62
+msgid "Optimize images and speed"
+msgstr "Optimera bilder och hastighet"
+
+#: booster/view.php:248
+msgid "Sign up and connect"
+msgstr "Registrera och anslut"
+
+#: booster/view.php:333
+msgid "Optimized pages"
+msgstr "Optimerade sidor"
+
+#: booster/view.php:309 booster/view.php:384
+msgid "Total size:"
+msgstr "Total storlek:"
+
+#: booster/view.php:297 booster/view.php:375
+msgid "Not Optimized"
+msgstr "Inte optimerad"
+
+#: admin/views/Galleries.php:414 admin/views/Galleries.php:713
+msgid "Total size: %s"
+msgstr "Total storlek: %s"
+
+#: booster/view.php:329
+msgid "Optimized for free"
+msgstr "Optimerad gratis"
+
+#: booster/view.php:244
+msgid "Install 10Web Booster"
+msgstr "Installera 10Web Booster"
+
+#: booster/view.php:245
+msgid "Activate plugin on the website"
+msgstr "Aktivera tillägget på webbplatsen"
+
+#: booster/view.php:249
+msgid "Start the optimization process"
+msgstr "Starta optimeringsprocessen"
+
+#: booster/view.php:74
+msgid "PageSpeed optimization"
+msgstr "PageSpeed-optimering"
+
+#: booster/main.php:380
+msgid "Connect"
+msgstr "Anslut"
+
+#: booster/main.php:377
+msgid "Please enter a Page URL."
+msgstr "Ange en sid-URL."
+
+#: booster/main.php:376
+msgid "Please enter correct URL."
+msgstr "Ange korrekt URL."
+
+#: booster/main.php:375
+msgid "Please enter a URL from your domain."
+msgstr "Ange en URL från din domän."
+
+#: booster/main.php:374
+msgid "Email field should not be empty."
+msgstr "E-postfält ska inte vara tom."
+
+#: booster/main.php:373
+msgid "Please enter a valid email address."
+msgstr "Ange en giltig e-postadress."
+
+#: photo-gallery.php:130
+msgid "Premium version"
+msgstr "Premiumversion"
+
+#: photo-gallery.php:130
+msgid "This option is available in %s"
+msgstr "Detta alternativ är tillgängligt i %s"
+
+#: frontend/views/BWGViewDownload_gallery.php:53
+msgid "There are no images to download."
+msgstr "Det finns inga bilder att ladda ner."
+
+#: booster/view.php:216
+msgid "Our plugin is now optimizing your website."
+msgstr "Vårt tillägg optimerar nu din webbplats."
+
+#: booster/view.php:215
+msgid "10Web Booster is active"
+msgstr "10Web Booster är aktivt"
+
+#: booster/view.php:232
+msgid "Site is connected"
+msgstr "Webbplats är ansluten"
+
+#: booster/main.php:379 booster/view.php:439
+msgid "Sign up"
+msgstr "Registrera dig"
+
+#: booster/view.php:387
+msgid "Add pages"
+msgstr "Lägg till sidor"
+
+#: booster/view.php:379
+msgid "Optimize pages with photo galleries"
+msgstr "Optimera sidor med fotogallerier"
+
+#: booster/view.php:381
+msgid "Add pages with images you’d like to optimize."
+msgstr "Lägg till sidor med bilder du vill optimera."
+
+#: booster/TWBLibrary.php:17 booster/view.php:312
+msgid "Optimize Now"
+msgstr "Optimera nu"
+
+#: booster/view.php:300
+msgid "Optimize all uploaded images"
+msgstr "Optimera alla uppladdade bilder"
+
+#: booster/view.php:222 booster/view.php:282
+msgid "Manage"
+msgstr "Hantera"
+
+#: booster/view.php:274
+msgid "All images in media library are optimized."
+msgstr "Alla bilder i mediabibliotek är optimerade."
+
+#: booster/view.php:77
+msgid "Page URL"
+msgstr "Sid-URL"
+
+#: admin/views/Options.php:3768
+msgid "Enable AddThis"
+msgstr "Aktivera AddThis"
+
+#: admin/views/Galleries.php:420 admin/views/Galleries.php:716
+#: booster/controller.php:334 booster/TWBLibrary.php:232
+msgid "Optimize now"
+msgstr "Optimera nu"
+
+#: booster/controller.php:309
+msgid "Automatically optimize the entire website with all images."
+msgstr "Optimera hela webbplatsen automatiskt med alla bilder."
+
+#: booster/controller.php:323
+msgid "%s images can be optimized"
+msgstr "%s bilder kan optimeras"
+
+#: booster/controller.php:322
+msgid "%s image can be optimized"
+msgstr "%s bild kan optimeras"
+
+#: booster/controller.php:306
+msgid "Get 10Web Booster Pro"
+msgstr "Skaffa 10Web Booster Pro"
+
+#: booster/view.php:276
+msgid "Auto-optimize all uploaded images."
+msgstr "Optimera alla uppladdade bilder automatiskt."
+
+#: admin/views/Options.php:3778
+msgid "AddThis profile ID"
+msgstr "AddThis profil-ID"
+
+#: booster/view.php:168 booster/view.php:444
+msgid "Terms of Services"
+msgstr "Användarvillkor"
+
+#: booster/main.php:372
+msgid "Activate 10Web Booster plugin"
+msgstr "Aktivera tillägget 10Web Booster"
+
+#: booster/main.php:371
+msgid "Install 10Web Booster plugin"
+msgstr "Installera tillägget 10Web Booster"
+
+#: booster/List.php:73
+msgid "Checking PageSpeed score"
+msgstr "Kontrollerar PageSpeed-poäng"
+
+#: booster/view.php:111
+msgid "Analyzed page:"
+msgstr "Analyserad sida:"
+
+#: booster/view.php:109
+msgid "Google PageSpeed Insights"
+msgstr "Google PageSpeed Insights"
+
+#: booster/view.php:105
+msgid "(slow)"
+msgstr "(långsam)"
+
+#: booster/view.php:104
+msgid "(average)"
+msgstr "(genomsnittlig)"
+
+#: booster/view.php:103
+msgid "(fast)"
+msgstr "(snabb)"
+
+#: booster/view.php:102
+msgid "Scale:"
+msgstr "Skala:"
+
+#: booster/view.php:97
+msgid "Desktop Score"
+msgstr "Poäng för stationär dator"
+
+#: booster/view.php:91 booster/view.php:98
+msgid "Load Time:"
+msgstr "Laddningstid:"
+
+#: booster/view.php:90
+msgid "Mobile Score"
+msgstr "Poäng för mobil"
+
+#: booster/main.php:383 booster/view.php:81
+msgid "Analyze"
+msgstr "Analysera"
+
+#: booster/TWBLibrary.php:190
+msgid "PageSpeed score %s"
+msgstr "PageSpeed-poäng %s"
+
+#: booster/controller.php:592 booster/main.php:378 booster/view.php:79
+msgid "This page is not public. Please publish the page to check the score."
+msgstr "Denna sida är inte offentlig. Publicera sidan för att kontrollera poängen."
+
+#: booster/view.php:109
+msgid "Check your score with %s"
+msgstr "Kolla din poäng med %s"
+
+#: framework/WDWLibrary.php:269
+msgid "Connected successfully."
+msgstr "Ansluten utan problem."
+
+#: admin/views/Galleries.php:259
+msgid "Preview gallery in:"
+msgstr "Förhandsgranska galleri i:"
+
+#: admin/views/Themes.php:4660
+msgid "Buttons"
+msgstr "Knappar"
+
+#: frontend/views/view.php:628
+msgid "All Tags"
+msgstr "Alla etiketter"
+
+#: frontend/views/view.php:638 photo-gallery.php:1444
+msgid "see all tags"
+msgstr "se alla etiketter"
+
+#: photo-gallery.php:1445
+msgid "see less tags"
+msgstr "se färre etiketter"
+
+#: admin/views/Themes.php:4658
+msgid "Select Box"
+msgstr "Välj ruta"
+
+#: admin/views/Options.php:3716
+msgid "Enable zoom"
+msgstr "Aktivera zoom"
+
+#: framework/WDWLibrary.php:348
 msgid "File name (Desc)"
 msgstr "Filnamn (fallande)"
 
-#: framework/WDWLibrary.php:309
+#: framework/WDWLibrary.php:347
 msgid "File name (Asc)"
 msgstr "Filnamn (stigande)"
 
-#: framework/WDWLibrary.php:308
+#: framework/WDWLibrary.php:346
 msgid "Default sorting"
 msgstr "Standardsortering"
 
-#: framework/WDWLibrary.php:314
+#: framework/WDWLibrary.php:352
 msgid "Description (Desc)"
 msgstr "Beskrivning (fallande)"
 
-#: framework/WDWLibrary.php:313
+#: framework/WDWLibrary.php:351
 msgid "Description (Asc)"
 msgstr "Beskrivning (stigande)"
 
-#: admin/views/Themes.php:182
+#: admin/views/Themes.php:53
 msgid "Add new theme"
 msgstr "Lägg till nytt tema"
 
@@ -43,33 +404,19 @@ msgstr "Lägg till nytt galleri"
 msgid "Add new group"
 msgstr "Lägg till ny grupp"
 
-#: admin/views/Themes.php:53
-msgid "UPGRADE TO PREMIUM"
-msgstr "UPPGRADERA TILL PREMIUM"
-
-#: framework/WDWLibrary.php:2917
-msgid "Upgrade Now"
-msgstr "Uppgradera nu"
-
-#: admin/views/Galleries.php:426 photo-gallery.php:127
-msgid "This option is available in Premium version"
-msgstr "Detta alternativ är tillgängligt i Premium-versionen"
-
-#: admin/views/Shortcode.php:256 admin/views/Options.php:548
-#: admin/views/Options.php:646
+#: admin/views/Options.php:540 admin/views/Shortcode.php:240
 msgid "view demo"
 msgstr "visa demo"
 
-#: admin/views/Shortcode.php:255 admin/views/Options.php:547
-#: admin/views/Options.php:645
+#: admin/views/Options.php:539 admin/views/Shortcode.php:239
 msgid "UPGRADE to Premium"
 msgstr "UPPGRADERA till premium"
 
-#: admin/views/Options.php:47
+#: admin/views/Options.php:45
 msgid "Save options"
 msgstr "Spara alternativ"
 
-#: admin/controllers/Options.php:48 photo-gallery.php:489
+#: admin/controllers/Options.php:52 photo-gallery.php:497
 msgid "Global Settings"
 msgstr "Globala inställningar"
 
@@ -81,87 +428,87 @@ msgstr "Mörk"
 msgid "Light"
 msgstr "Ljus"
 
-#: photo-gallery.php:1925
+#: photo-gallery.php:1882
 msgid "Rate"
 msgstr "Betygsätt"
 
-#: photo-gallery.php:1774
+#: photo-gallery.php:1761
 msgid "Albums"
 msgstr "Album"
 
-#: photo-gallery.php:1558
+#: photo-gallery.php:1545
 msgid "Global Options"
 msgstr "Globala alternativ"
 
-#: photo-gallery.php:1529
+#: photo-gallery.php:1516
 msgid "Installing"
 msgstr "Installerar"
 
-#: photo-gallery.php:1514
+#: photo-gallery.php:1501
 msgid "Customizable"
 msgstr "Anpassningsbar"
 
-#: photo-gallery.php:1451
+#: photo-gallery.php:1438
 msgid "Ok"
 msgstr "Ok"
 
-#: photo-gallery.php:1428
+#: photo-gallery.php:1415
 msgid "Order By"
 msgstr "Sortera efter"
 
-#: photo-gallery.php:1427
+#: photo-gallery.php:1414
 msgid "Select Tag"
 msgstr "Välj etikett"
 
-#: photo-gallery.php:1021
+#: photo-gallery.php:1012
 msgid "Add Photo Gallery"
 msgstr "Lägg till fotogalleri"
 
-#: photo-gallery.php:1019
+#: photo-gallery.php:1010
 msgid "Insert Photo Gallery"
 msgstr "Infoga fotogalleri"
 
-#: photo-gallery.php:660
+#: photo-gallery.php:681
 msgid "Insert"
 msgstr "Infoga"
 
-#: photo-gallery.php:641
+#: photo-gallery.php:662
 msgid "Error"
 msgstr "Fel"
 
-#: photo-gallery.php:498
+#: photo-gallery.php:506
 msgid "Ratings"
 msgstr "Betyg"
 
-#: photo-gallery.php:495
+#: photo-gallery.php:503
 msgid "Comments"
 msgstr "Kommentarer"
 
-#: photo-gallery.php:437
+#: photo-gallery.php:431
 msgid "Options page"
 msgstr "Alternativsida"
 
-#: photo-gallery.php:437
+#: photo-gallery.php:431
 msgid "Options"
 msgstr "Alternativ"
 
-#: photo-gallery.php:428
+#: photo-gallery.php:422
 msgid "rotate"
 msgstr "rotera"
 
-#: photo-gallery.php:428
+#: photo-gallery.php:422
 msgid "edit"
 msgstr "redigera"
 
-#: photo-gallery.php:428
+#: photo-gallery.php:422
 msgid "crop"
 msgstr "beskär"
 
-#: photo-gallery.php:289
+#: photo-gallery.php:283
 msgid "Help"
 msgstr "Hjälp"
 
-#: wd/wd.php:53 wd/wd.php:57
+#: admin/views/Galleries.php:218 wd/wd.php:53 wd/wd.php:57
 msgid "Premium"
 msgstr "Premium"
 
@@ -205,39 +552,39 @@ msgstr "Tillåt och fortsätt"
 msgid "Hi there!"
 msgstr "Hej där!"
 
-#: photo-gallery.php:1594
+#: photo-gallery.php:1581
 msgid "Carousel Options"
 msgstr "Karusellalternativ"
 
-#: photo-gallery.php:1590
+#: photo-gallery.php:1577
 msgid "Social Options"
 msgstr "Sociala alternativ"
 
-#: photo-gallery.php:1586
+#: photo-gallery.php:1573
 msgid "Image Options"
 msgstr "Bildalternativ"
 
-#: photo-gallery.php:1449
+#: photo-gallery.php:1436
 msgid "Hide rating"
 msgstr "Dölj betyg"
 
-#: photo-gallery.php:1439
+#: photo-gallery.php:1426
 msgid "No tags found"
 msgstr "Inga etiketter hittades"
 
-#: photo-gallery.php:655
+#: photo-gallery.php:676
 msgid "Save Tag"
 msgstr "Spara etikett"
 
-#: photo-gallery.php:633
+#: photo-gallery.php:654
 msgid "You must select an audio file."
 msgstr "Du måste välja en ljudfil."
 
-#: photo-gallery.php:632
+#: photo-gallery.php:653
 msgid "You must select an image file."
 msgstr "Du måste välja en bildfil."
 
-#: photo-gallery.php:366
+#: photo-gallery.php:360
 msgid "Select %s"
 msgstr "Välj %s"
 
@@ -281,79 +628,79 @@ msgstr "Klistra in koden"
 msgid "Copy the Code"
 msgstr "Kopiera koden"
 
-#: photo-gallery.php:1632
+#: photo-gallery.php:1619
 msgid "Extended Album"
 msgstr "Utökat album"
 
-#: photo-gallery.php:1628
+#: photo-gallery.php:1615
 msgid "Masonry Album"
 msgstr "Mosaikalbum"
 
-#: photo-gallery.php:1624
+#: photo-gallery.php:1611
 msgid "Compact Album"
 msgstr "Kompakt album"
 
-#: photo-gallery.php:1600
+#: photo-gallery.php:1587
 msgid "Creating/Editing Themes"
 msgstr "Skapa/redigera teman"
 
-#: photo-gallery.php:1582
+#: photo-gallery.php:1569
 msgid "Thumbnail Options"
 msgstr "Miniatyralternativ"
 
-#: photo-gallery.php:1574
+#: photo-gallery.php:1561
 msgid "Album Options"
 msgstr "Albumalternativ"
 
-#: photo-gallery.php:1554
+#: photo-gallery.php:1541
 msgid "Editing Options"
 msgstr "Redigeringsalternativ"
 
-#: photo-gallery.php:1549
+#: photo-gallery.php:1536
 msgid "Creating/Editing Albums"
 msgstr "Skapa/redigera album"
 
-#: photo-gallery.php:1544
+#: photo-gallery.php:1531
 msgid "Creating/Editing Tags"
 msgstr "Skapa/redigera etiketter"
 
-#: photo-gallery.php:1538
+#: photo-gallery.php:1525
 msgid "Instagram Gallery"
 msgstr "Instagram-galleri"
 
-#: photo-gallery.php:1534
+#: photo-gallery.php:1521
 msgid "Creating/Editing Galleries"
 msgstr "Skapa/redigera gallerier"
 
-#: photo-gallery.php:1518
+#: photo-gallery.php:1505
 msgid "10 View Options"
 msgstr "10 visningsalternativ"
 
-#: photo-gallery.php:1510
+#: photo-gallery.php:1497
 msgid "Unlimited Photos and Albums"
 msgstr "Obegränsade foton och album"
 
-#: photo-gallery.php:1506
+#: photo-gallery.php:1493
 msgid "Easy Set-up and Management"
 msgstr "Enkel installation och hantering"
 
-#: photo-gallery.php:640
+#: photo-gallery.php:661
 msgid "Error: something wrong happened at the server."
 msgstr "Fel: något fel hände på servern."
 
-#: photo-gallery.php:639
+#: photo-gallery.php:660
 msgid "Error: cannot get response from the server."
 msgstr "Fel: kan inte få svar från servern."
 
-#: photo-gallery.php:638
+#: photo-gallery.php:659
 msgid "Please enter url to embed."
 msgstr "Ange URL att bädda in."
 
-#: photo-gallery.php:392
+#: photo-gallery.php:386
 msgid "Nothing selected."
 msgstr "Inget valt."
 
-#: photo-gallery.php:393
+#: photo-gallery.php:387
 msgid "- Select -"
 msgstr "- Välj -"
 
@@ -381,23 +728,23 @@ msgstr " funktioner du får!"
 msgid "60+ pro plugins/Extensions"
 msgstr "60+ pro-tillägg/utökningar"
 
-#: photo-gallery.php:1691
+#: photo-gallery.php:1678
 msgid "Tag Cloud"
 msgstr "Etikettmoln"
 
-#: photo-gallery.php:1673
+#: photo-gallery.php:1660
 msgid "General Parameters"
 msgstr "Allmänna parametrar"
 
-#: photo-gallery.php:1654
+#: photo-gallery.php:1641
 msgid "Generating Shortcode"
 msgstr "Genererar kortkod"
 
-#: photo-gallery.php:1659
+#: photo-gallery.php:1646
 msgid "Editing Comments"
 msgstr "Redigerar kommentarer"
 
-#: photo-gallery.php:427
+#: photo-gallery.php:421
 msgid "PHP GD"
 msgstr "PHP GD"
 
@@ -405,19 +752,19 @@ msgstr "PHP GD"
 msgid "Add Galleries/Images"
 msgstr "Lägg till gallerier/bilder"
 
-#: photo-gallery.php:1789
+#: photo-gallery.php:1776
 msgid "Gallery tags"
 msgstr "Gallerietiketter"
 
-#: photo-gallery.php:1441
+#: photo-gallery.php:1428
 msgid "tags selected"
 msgstr "etiketter valda"
 
-#: photo-gallery.php:1644
+#: photo-gallery.php:1631
 msgid "Page Navigation"
 msgstr "Sidnavigering"
 
-#: photo-gallery.php:1522
+#: photo-gallery.php:1509
 msgid "Audio and Video Support"
 msgstr "Stöd för ljud och video"
 
@@ -429,40 +776,64 @@ msgstr "Gratisversion är begränsad"
 msgid "Get free for 14 days"
 msgstr "Skaffa gratis i 14 dagar"
 
-#: framework/WDWLibrary.php:3044
+#: photo-gallery.php:1427
+msgid "All tags selected"
+msgstr "Alla etiketter valda"
+
+#: photo-gallery.php:688
+msgid "All images are successfully reset."
+msgstr "Alla bilder är återställda."
+
+#: admin/controllers/Options.php:259 photo-gallery.php:687
+msgid "Thumbnails successfully recreated."
+msgstr "Miniatyrer är återsskapade."
+
+#: photo-gallery.php:683
+msgid "Sorry, only jpg, jpeg, gif, png types are allowed."
+msgstr "Endast typer av jpg, jpeg, gif, png är tillåtna."
+
+#: photo-gallery.php:330
+msgid "10WEB Plugins"
+msgstr "10WEB-tillägg"
+
+#: wd/templates/display_subscribe.php:6
+msgid "Allow 10Web to collect some usage data"
+msgstr "Tillåt 10Web att samla in vissa användardata"
+
+#: framework/WDWLibrary.php:3167
 msgid "All tags"
 msgstr "Alla etiketter"
 
-#: framework/WDWLibrary.php:2999
+#: framework/WDWLibrary.php:3122
 msgid "All galleries"
 msgstr "Alla gallerier"
 
-#: framework/WDWLibrary.php:2796
+#: framework/WDWLibrary.php:2942
 msgid "Premium Version"
 msgstr "Premiumversion"
 
-#: framework/WDWLibrary.php:2792 photo-gallery.php:508
+#: framework/WDWLibrary.php:2938 photo-gallery.php:512
 msgid "Add-ons"
 msgstr "Utökningar"
 
-#: framework/WDWLibrary.php:2788
+#: framework/WDWLibrary.php:2934
 msgid "Forms"
 msgstr "Formulär"
 
-#: framework/WDWLibrary.php:2774 framework/WDWLibrary.php:2919
-#: framework/WDWLibrary.php:2933 photo-gallery.php:518 photo-gallery.php:1924
+#: framework/WDWLibrary.php:2920 framework/WDWLibrary.php:3057
+#: photo-gallery.php:522 photo-gallery.php:1881
 msgid "Ask a question"
 msgstr "Ställ en fråga"
 
-#: framework/WDWLibrary.php:2796
+#: booster/controller.php:315 framework/WDWLibrary.php:2942
 msgid "Upgrade"
 msgstr "Uppgradera"
 
-#: framework/WDWLibrary.php:2582
+#: framework/WDWLibrary.php:2727
 msgid "reset"
 msgstr "återställ"
 
-#: framework/WDWLibrary.php:93 framework/WDWLibrary.php:196
+#: framework/WDWLibrary.php:116 framework/WDWLibrary.php:219
 msgid "Failed."
 msgstr "Misslyckades."
 
@@ -474,7 +845,7 @@ msgstr "Gratis"
 msgid "Integration"
 msgstr "Integration"
 
-#: admin/views/Editimage.php:836
+#: admin/views/Editimage.php:877
 msgid "Reset image"
 msgstr "Återställ bild"
 
@@ -518,23 +889,23 @@ msgstr "VARNING:"
 msgid "Contact us"
 msgstr "Kontakta oss"
 
-#: admin/views/Shortcode.php:550
+#: admin/views/Shortcode.php:530
 msgid "Shortcode"
 msgstr "Kortkod"
 
-#: admin/views/Shortcode.php:544 admin/views/Shortcode.php:628
+#: admin/views/Shortcode.php:524 admin/views/Shortcode.php:608
 msgid "Generate"
 msgstr "Generera"
 
-#: admin/views/Shortcode.php:535
+#: admin/views/Shortcode.php:515
 msgid "New shortcode"
 msgstr "Ny kortkod"
 
-#: admin/views/Shortcode.php:336 admin/views/Options.php:3864
+#: admin/views/Options.php:3782 admin/views/Shortcode.php:320
 msgid "here"
 msgstr "här"
 
-#: admin/views/Shortcode.php:317
+#: admin/views/Shortcode.php:301
 msgid "Theme"
 msgstr "Tema"
 
@@ -558,84 +929,84 @@ msgstr "Textfärg:"
 msgid "Background Color:"
 msgstr "Bakgrundsfärg:"
 
-#: admin/views/Widget.php:173 admin/views/WidgetTags.php:124
-#: admin/views/WidgetSlideshow.php:147
+#: admin/views/Widget.php:168 admin/views/WidgetSlideshow.php:143
+#: admin/views/WidgetTags.php:124
 msgid "Themes:"
 msgstr "Teman:"
 
-#: admin/views/Widget.php:168 admin/views/WidgetTags.php:105
-#: admin/views/WidgetSlideshow.php:131
+#: admin/views/Widget.php:163 admin/views/WidgetSlideshow.php:130
+#: admin/views/WidgetTags.php:105
 msgid "Dimensions:"
 msgstr "Dimensioner:"
 
-#: admin/views/Widget.php:125 framework/WDWLibrary.php:2980
+#: admin/views/Widget.php:124 framework/WDWLibrary.php:3103
 msgid "All images"
 msgstr "Alla bilder"
 
-#: admin/views/Widget.php:123 admin/views/WidgetSlideshow.php:86
+#: admin/views/Widget.php:122 admin/views/WidgetSlideshow.php:86
 msgid "Galleries:"
 msgstr "Gallerier:"
 
-#: admin/views/Widget.php:114 admin/views/WidgetTags.php:78
-#: admin/views/WidgetSlideshow.php:82
+#: admin/views/Widget.php:113 admin/views/WidgetSlideshow.php:82
+#: admin/views/WidgetTags.php:78
 msgid "Title:"
 msgstr "Rubrik:"
 
-#: admin/views/Albums.php:347
+#: admin/views/Albums.php:387
 msgid "Remove"
 msgstr "Ta bort"
 
-#: admin/views/Albums.php:253 admin/views/Galleries.php:296
+#: admin/views/Albums.php:289 admin/views/Galleries.php:341
 msgid "Slug"
 msgstr "Slug"
 
-#: admin/views/Albums.php:245 admin/views/Shortcode.php:375
-#: admin/views/Options.php:113 admin/views/Galleries.php:285
+#: admin/views/Albums.php:278 admin/views/Galleries.php:330
+#: admin/views/Options.php:110 admin/views/Shortcode.php:359
 msgid "Advanced"
 msgstr "Avancerat"
 
-#: admin/views/Albums.php:226 admin/views/Galleries.php:266
+#: admin/views/Albums.php:259 admin/views/Galleries.php:311
 msgid "Published"
 msgstr "Publicerat"
 
-#: admin/views/Albums.php:116 admin/views/Albums.php:190
-#: admin/views/Galleries.php:124 admin/views/Galleries.php:223
+#: admin/views/Albums.php:116 admin/views/Albums.php:210
+#: admin/views/Galleries.php:124 admin/views/Galleries.php:257
 msgid "Preview"
 msgstr "Förhandsgranska"
 
 #: admin/views/Albums.php:63 admin/views/Albums.php:122
-#: admin/views/Albums.php:249 admin/views/Galleries.php:66
-#: admin/views/Galleries.php:131 admin/views/Galleries.php:292
+#: admin/views/Albums.php:285 admin/views/Galleries.php:66
+#: admin/views/Galleries.php:131 admin/views/Galleries.php:337
 msgid "Author"
 msgstr "Författare"
 
-#: admin/views/Themes.php:4689
+#: admin/views/Themes.php:4562
 msgid "Title color:"
 msgstr "Rubrikfärg:"
 
-#: admin/views/Themes.php:4464
+#: admin/views/Themes.php:4337
 msgid "Arrow"
 msgstr "Pil"
 
-#: admin/views/Themes.php:4462 admin/views/WidgetTags.php:83
-#: admin/views/Shortcode.php:382 admin/views/Options.php:857
-#: admin/views/Options.php:1015
+#: admin/views/Options.php:774 admin/views/Options.php:933
+#: admin/views/Shortcode.php:367 admin/views/Themes.php:4335
+#: admin/views/WidgetTags.php:83
 msgid "Text"
 msgstr "Text"
 
-#: admin/views/Themes.php:4459
+#: admin/views/Themes.php:4332
 msgid "Button text:"
 msgstr "Knapptext:"
 
-#: admin/views/Themes.php:4427
+#: admin/views/Themes.php:4300
 msgid "Position:"
 msgstr "Position:"
 
-#: admin/views/Themes.php:4317 admin/views/Themes.php:4815
+#: admin/views/Themes.php:4190 admin/views/Themes.php:4688
 msgid "Font weight:"
 msgstr "Typsnittsvikt:"
 
-#: admin/views/Themes.php:3220
+#: admin/views/Themes.php:3093
 msgid "Buttons size:"
 msgstr "Knappstorlek:"
 
@@ -664,417 +1035,369 @@ msgstr "Grattis!"
 msgid "Configure and Insert"
 msgstr "Konfigurera och infoga"
 
-#: framework/WDWLibrary.php:2632
+#: framework/WDWLibrary.php:2777
 msgid "Remove pricelist"
 msgstr "Ta bort prislista"
 
-#: framework/WDWLibrary.php:2627
+#: framework/WDWLibrary.php:2772
 msgid "Add pricelist"
 msgstr "Lägg till prislista"
 
-#: framework/WDWLibrary.php:2594
+#: framework/WDWLibrary.php:2739
 msgid "Edit description"
 msgstr "Redigera beskrivning"
 
-#: framework/WDWLibrary.php:2577 framework/WDWLibrary.php:2590
-#: framework/WDWLibrary.php:2595 framework/WDWLibrary.php:2600
-#: framework/WDWLibrary.php:2605 framework/WDWLibrary.php:2628
-#: framework/WDWLibrary.php:2633
+#: framework/WDWLibrary.php:2722 framework/WDWLibrary.php:2735
+#: framework/WDWLibrary.php:2740 framework/WDWLibrary.php:2745
+#: framework/WDWLibrary.php:2750 framework/WDWLibrary.php:2773
+#: framework/WDWLibrary.php:2778
 msgid "edited"
 msgstr "redigerad"
 
-#: framework/WDWLibrary.php:172
+#: framework/WDWLibrary.php:195
 msgid "Name field is required."
 msgstr "Namnfält är obligatoriskt."
 
-#: admin/views/Galleries.php:823
+#: admin/views/Galleries.php:829
 msgid "Add tag"
 msgstr "Lägg till etikett"
 
-#: admin/views/Galleries.php:813
+#: admin/views/Galleries.php:819
 msgid "Remove tag"
 msgstr "Ta bort etikett"
 
-#: admin/views/Galleries.php:794
+#: admin/views/Galleries.php:800
 msgid "Options > General"
 msgstr "Alternativ > Allmänt"
 
-#: admin/views/Galleries.php:747
+#: admin/views/Galleries.php:753
 msgid "Crop Thumbnail"
 msgstr "Beskär miniatyr"
 
-#: admin/views/Galleries.php:586
+#: admin/views/Galleries.php:558
 msgid "Description: "
 msgstr "Beskrivning: "
 
-#: admin/views/Galleries.php:558 admin/views/Galleries.php:577
-#: admin/views/Galleries.php:597
+#: admin/views/Galleries.php:530 admin/views/Galleries.php:549
+#: admin/views/Galleries.php:569
 msgid "Save changes"
 msgstr "Spara ändringar"
 
-#: admin/views/Galleries.php:537 framework/WDWLibrary.php:2556
+#: admin/views/Galleries.php:509 framework/WDWLibrary.php:2701
 msgid "Resize"
 msgstr "Ändra storlek"
 
-#: admin/views/Galleries.php:493
-msgid "username:"
-msgstr "användarnamn:"
-
-#: admin/views/Galleries.php:447 admin/views/Galleries.php:482
+#: admin/views/Galleries.php:469
 msgid "Add to gallery"
 msgstr "Lägg till i galleri"
 
-#: admin/views/Galleries.php:429
-msgid "Optimize Images"
-msgstr "Optimera bilder"
-
-#: admin/views/Galleries.php:421 admin/views/Galleries.php:423
+#: admin/views/Galleries.php:451
 msgid "Embed Media"
 msgstr "Bädda in media"
 
-#: admin/views/Galleries.php:414
+#: admin/views/Galleries.php:444
 msgid "Import from Media Library"
 msgstr "Infoga från mediabibliotek"
 
-#: admin/views/Galleries.php:408 admin/views/Galleries.php:412
+#: admin/views/Galleries.php:440 admin/views/Galleries.php:442
 msgid "Add Images"
 msgstr "Lägg till bilder"
 
-#: admin/views/Galleries.php:355 admin/views/Galleries.php:512
-msgid "Content"
-msgstr "Innehåll"
-
-#: admin/views/Options.php:3903
+#: admin/views/Options.php:3817
 msgid "Show Tumblr button"
 msgstr "Visa Tumblr-knapp"
 
-#: admin/views/Options.php:3892
+#: admin/views/Options.php:3807
 msgid "Show Pinterest button"
 msgstr "Visa Pinterest-knapp"
 
-#: admin/views/Options.php:3881
+#: admin/views/Options.php:3797
 msgid "Show Twitter button"
 msgstr "Visa Twitter-knapp"
 
-#: admin/views/Options.php:3870
+#: admin/views/Options.php:3787
 msgid "Show Facebook button"
 msgstr "Visa Facebook-knapp"
 
-#: admin/views/Options.php:3917
+#: admin/views/Options.php:3830
 msgid "Show Ecommerce button"
 msgstr "Visa Ecommerce-knapp"
 
-#: admin/views/Options.php:3860
-msgid "profile ID"
-msgstr "profil-ID"
-
-#: admin/views/Options.php:3849
-msgid "Enable"
-msgstr "Aktivera"
-
-#: admin/views/Options.php:3819
+#: admin/views/Options.php:3738
 msgid "Show download button"
 msgstr "Visa nedladdningsknapp"
 
-#: admin/views/Options.php:3785
+#: admin/views/Options.php:3705
 msgid "Enable rating"
 msgstr "Aktivera betyg"
 
-#: admin/views/Options.php:3685
+#: admin/views/Options.php:3606
 msgid "Enable comments"
 msgstr "Aktivera kommentarer"
 
-#: admin/views/Options.php:3223
+#: admin/views/Options.php:3154
 msgid "3 column"
 msgstr "3 kolumner"
 
-#: admin/views/Options.php:3222
+#: admin/views/Options.php:3153
 msgid "2 column"
 msgstr "2 kolumner"
 
-#: admin/views/Options.php:3221
+#: admin/views/Options.php:3152
 msgid "1 column"
 msgstr "1 kolumn"
 
-#: admin/views/Options.php:3219
+#: admin/views/Options.php:3150
 msgid "Number of columns"
 msgstr "Antal kolumner"
 
-#: admin/views/Options.php:2537
+#: admin/views/Options.php:2458
 msgid "Fixed width"
 msgstr "Fast bredd"
 
-#: admin/views/Options.php:2187 admin/views/Options.php:2327
+#: admin/views/Options.php:2095 admin/views/Options.php:2234
 msgid "Image width"
 msgstr "Bildbredd"
 
-#: admin/views/Options.php:2034 admin/views/Options.php:3767
+#: admin/views/Options.php:1935 admin/views/Options.php:3688
 msgid "Always"
 msgstr "Alltid"
 
-#: admin/views/Options.php:2033 admin/views/Options.php:3766
+#: admin/views/Options.php:1934 admin/views/Options.php:3687
 msgid "On hover"
 msgstr "Vid hovring"
 
-#: admin/views/Options.php:2001 admin/views/Options.php:2571
+#: admin/views/Options.php:1902 admin/views/Options.php:2509
 msgid "Enable autoplay"
 msgstr "Aktivera automatisk uppspelning"
 
-#: admin/views/Options.php:1711 admin/views/Options.php:2895
-#: admin/views/Options.php:3430
+#: admin/views/Options.php:1617 admin/views/Options.php:2833
+#: admin/views/Options.php:3361
 msgid "Horizontal"
 msgstr "Horisontell"
 
-#: admin/views/Options.php:1710 admin/views/Options.php:2894
-#: admin/views/Options.php:3429
+#: admin/views/Options.php:1616 admin/views/Options.php:2832
+#: admin/views/Options.php:3360
 msgid "Vertical"
 msgstr "Vertikal"
 
-#: admin/views/Options.php:1496 admin/views/Options.php:1740
+#: admin/views/Options.php:1404 admin/views/Options.php:1643
 msgid "Thumbnail size"
 msgstr "Miniatyrstorlek"
 
-#: admin/views/Options.php:1418 admin/views/Options.php:1468
-#: admin/views/Options.php:1644 admin/views/Options.php:1694
-#: admin/views/Options.php:1877 admin/views/Options.php:1916
-#: admin/views/Options.php:2869 admin/views/Options.php:2931
-#: admin/views/Options.php:2971 admin/views/Options.php:3167
-#: admin/views/Options.php:3196 admin/views/Options.php:3466
-#: admin/views/Options.php:3506
+#: admin/views/Options.php:1341 admin/views/Options.php:1390
+#: admin/views/Options.php:1552 admin/views/Options.php:1600
+#: admin/views/Options.php:1780 admin/views/Options.php:1818
+#: admin/views/Options.php:2808 admin/views/Options.php:2863
+#: admin/views/Options.php:2902 admin/views/Options.php:3099
+#: admin/views/Options.php:3127 admin/views/Options.php:3391
+#: admin/views/Options.php:3430
 msgid "Don't show"
 msgstr "Visa inte"
 
-#: admin/views/Options.php:1417 admin/views/Options.php:1467
-#: admin/views/Options.php:1643 admin/views/Options.php:2868
-#: admin/views/Options.php:2929 admin/views/Options.php:2970
-#: admin/views/Options.php:3166 admin/views/Options.php:3464
-#: admin/views/Options.php:3505
+#: admin/views/Options.php:1340 admin/views/Options.php:1389
+#: admin/views/Options.php:1551 admin/views/Options.php:2807
+#: admin/views/Options.php:2862 admin/views/Options.php:2901
+#: admin/views/Options.php:3098 admin/views/Options.php:3390
+#: admin/views/Options.php:3429
 msgid "Always show"
 msgstr "Visa alltid"
 
-#: admin/views/Options.php:1338 admin/views/Options.php:1564
-#: admin/views/Options.php:1798 admin/views/Options.php:1993
-#: admin/views/Options.php:2231 admin/views/Options.php:2388
-#: admin/views/Options.php:2563 admin/views/Options.php:2769
-#: admin/views/Options.php:2789 admin/views/Options.php:3067
-#: admin/views/Options.php:3087 admin/views/Options.php:3305
-#: admin/views/Options.php:3325
+#: admin/views/Options.php:1261 admin/views/Options.php:1472
+#: admin/views/Options.php:1701 admin/views/Options.php:1894
+#: admin/views/Options.php:2139 admin/views/Options.php:2292
+#: admin/views/Options.php:2501 admin/views/Options.php:2708
+#: admin/views/Options.php:2728 admin/views/Options.php:2999
+#: admin/views/Options.php:3019 admin/views/Options.php:3237
+#: admin/views/Options.php:3257
 msgid "Descending"
 msgstr "Fallande"
 
-#: admin/views/Options.php:1337 admin/views/Options.php:1563
-#: admin/views/Options.php:1797 admin/views/Options.php:1992
-#: admin/views/Options.php:2230 admin/views/Options.php:2387
-#: admin/views/Options.php:2562 admin/views/Options.php:2768
-#: admin/views/Options.php:2788 admin/views/Options.php:3066
-#: admin/views/Options.php:3086 admin/views/Options.php:3304
-#: admin/views/Options.php:3324
+#: admin/views/Options.php:1260 admin/views/Options.php:1471
+#: admin/views/Options.php:1700 admin/views/Options.php:1893
+#: admin/views/Options.php:2138 admin/views/Options.php:2291
+#: admin/views/Options.php:2500 admin/views/Options.php:2707
+#: admin/views/Options.php:2727 admin/views/Options.php:2998
+#: admin/views/Options.php:3018 admin/views/Options.php:3236
+#: admin/views/Options.php:3256
 msgid "Ascending"
 msgstr "Stigande"
 
-#: admin/views/Galleries.php:731
+#: admin/views/Galleries.php:733
 msgid "Resolution"
 msgstr "Upplösning"
 
-#: admin/views/Options.php:1325 admin/views/Options.php:1550
-#: admin/views/Options.php:1784 admin/views/Options.php:1979
-#: admin/views/Options.php:2217 admin/views/Options.php:2374
-#: admin/views/Options.php:2549
+#: admin/views/Options.php:1248 admin/views/Options.php:1458
+#: admin/views/Options.php:1687 admin/views/Options.php:1880
+#: admin/views/Options.php:2125 admin/views/Options.php:2278
+#: admin/views/Options.php:2475
 msgid "Order by"
 msgstr "Sortera efter"
 
-#: admin/views/Options.php:1304 admin/views/Options.php:1530
-#: admin/views/Options.php:1764 admin/views/Options.php:2353
-#: admin/views/Options.php:2747 admin/views/Options.php:3045
-#: admin/views/Options.php:3283
+#: admin/views/Options.php:1227 admin/views/Options.php:1438
+#: admin/views/Options.php:1667 admin/views/Options.php:2258
+#: admin/views/Options.php:2685 admin/views/Options.php:2976
+#: admin/views/Options.php:3214
 msgid "Images per page"
 msgstr "Bilder per sida"
 
-#: admin/views/Options.php:1293 admin/views/Options.php:1519
-#: admin/views/Options.php:1753 admin/views/Options.php:2341
-#: admin/views/Options.php:2727 admin/views/Options.php:3025
-#: admin/views/Options.php:3263
+#: admin/views/Options.php:1216 admin/views/Options.php:1427
+#: admin/views/Options.php:1656 admin/views/Options.php:2247
+#: admin/views/Options.php:2665 admin/views/Options.php:2956
+#: admin/views/Options.php:3194
 msgid "Load More"
 msgstr "Ladda mer"
 
-#: admin/views/Options.php:1292 admin/views/Options.php:1518
-#: admin/views/Options.php:1752 admin/views/Options.php:2340
-#: admin/views/Options.php:2726 admin/views/Options.php:3024
-#: admin/views/Options.php:3262
+#: admin/views/Options.php:1215 admin/views/Options.php:1426
+#: admin/views/Options.php:1655 admin/views/Options.php:2246
+#: admin/views/Options.php:2664 admin/views/Options.php:2955
+#: admin/views/Options.php:3193
 msgid "Simple"
 msgstr "Enkel"
 
-#: admin/views/Options.php:1289 admin/views/Options.php:1515
-#: admin/views/Options.php:1749 admin/views/Options.php:2337
-#: admin/views/Options.php:2723 admin/views/Options.php:3021
-#: admin/views/Options.php:3259
+#: admin/views/Options.php:1212 admin/views/Options.php:1423
+#: admin/views/Options.php:1652 admin/views/Options.php:2243
+#: admin/views/Options.php:2661 admin/views/Options.php:2952
+#: admin/views/Options.php:3190
 msgid "Pagination"
 msgstr "Paginering"
 
-#: admin/views/Options.php:879 admin/views/Options.php:881
-#: admin/views/Options.php:1032 admin/views/Options.php:1034
+#: admin/views/Options.php:795 admin/views/Options.php:797
+#: admin/views/Options.php:950 admin/views/Options.php:952
 msgid "Select Image"
 msgstr "Välj bild"
 
-#: admin/views/Options.php:745 admin/views/Options.php:751
+#: admin/views/Options.php:664 admin/views/Options.php:670
 msgid "Roles"
 msgstr "Roller"
 
-#: admin/views/Options.php:696
-msgid "Instagram"
-msgstr "Instagram"
-
-#: admin/views/Options.php:688
-msgid "min"
-msgstr "min"
-
-#: admin/views/Options.php:686
-msgid "hour"
-msgstr "timme"
-
-#: admin/views/Options.php:677
+#: admin/views/Options.php:645
 msgid "Social"
 msgstr "Social"
 
-#: admin/views/Options.php:402 photo-gallery.php:510
+#: admin/views/Options.php:403 photo-gallery.php:514
 msgid "Uninstall"
 msgstr "Avinstallera"
 
-#: admin/views/Options.php:388
+#: admin/views/Options.php:387
 msgid "Developer mode"
 msgstr "Utvecklarläge"
 
-#: admin/views/Options.php:373 admin/views/Options.php:376
-#: photo-gallery.php:511
+#: admin/views/Options.php:370 admin/views/Options.php:373
+#: photo-gallery.php:515
 msgid "Generate Shortcode"
 msgstr "Generera kortkod"
 
-#: admin/views/Options.php:324
+#: admin/views/Options.php:321
 msgid "Enable Google fonts"
 msgstr "Aktivera Google fonts"
 
-#: admin/views/Options.php:293
+#: admin/views/Options.php:290
 msgid "Save IP "
 msgstr "Spara IP "
 
-#: admin/views/Options.php:193
+#: admin/views/Options.php:190
 msgid "Image quality"
 msgstr "Bildkvalitet"
 
-#: admin/views/Options.php:171 admin/views/Options.php:2516
+#: admin/views/Options.php:168 admin/views/Options.php:2424
 msgid "Image dimensions"
 msgstr "Bilddimensioner"
 
-#: admin/views/Options.php:161 admin/views/Options.php:3537
+#: admin/views/Options.php:158 admin/views/Options.php:3461
 msgid "Open in a new window"
 msgstr "Öppna i ett nytt fönster"
 
-#: admin/views/Options.php:155 admin/views/Options.php:3531
+#: admin/views/Options.php:152 admin/views/Options.php:3455
 msgid "Do Nothing"
 msgstr "Gör ingenting"
 
-#: admin/views/Options.php:154 admin/views/Options.php:3530
+#: admin/views/Options.php:151 admin/views/Options.php:3454
 msgid "Redirect to url"
 msgstr "Omdirigera till URL"
 
-#: admin/views/Options.php:153 admin/views/Options.php:3529
+#: admin/views/Options.php:150 admin/views/Options.php:3453
 msgid "Open lightbox"
 msgstr "Öppna lightbox"
 
-#: admin/views/Themes.php:4388 admin/views/Themes.php:4866
+#: admin/views/Themes.php:4261 admin/views/Themes.php:4739
 msgid "Button background color:"
 msgstr "Knappens bakgrundsfärg:"
 
-#: framework/WDWLibrary.php:2759
+#: framework/WDWLibrary.php:2905
 msgid "User guide"
 msgstr "Användarguide"
 
-#: framework/WDWLibrary.php:2604
+#: framework/WDWLibrary.php:2749
 msgid "Add/Remove tag"
 msgstr "Lägg till/ta bort etikett"
 
-#: framework/WDWLibrary.php:2572
+#: framework/WDWLibrary.php:2717
 msgid "rotated right"
 msgstr "roterad höger"
 
-#: framework/WDWLibrary.php:2571
+#: framework/WDWLibrary.php:2716
 msgid "Rotate right"
 msgstr "Rotera höger"
 
-#: framework/WDWLibrary.php:2567
+#: framework/WDWLibrary.php:2712
 msgid "rotated left"
 msgstr "roterad vänster"
 
-#: framework/WDWLibrary.php:2566
+#: framework/WDWLibrary.php:2711
 msgid "Rotate left"
 msgstr "Rotera vänster"
 
-#: framework/WDWLibrary.php:2561
+#: framework/WDWLibrary.php:2706
 msgid "Recreate thumbnail"
 msgstr "Återskapa miniatyr"
 
-#: framework/WDWLibrary.php:184
+#: framework/WDWLibrary.php:207
 msgid "Changes must be saved."
 msgstr "Ändringar måste sparas."
 
-#: framework/WDWLibrary.php:178
+#: framework/WDWLibrary.php:201
 msgid "The slug must be unique."
 msgstr "Slug måste vara unikt."
 
-#: admin/views/Galleries.php:790
+#: admin/views/Galleries.php:796
 msgid "Redirect URL"
 msgstr "Omdirigera URL"
 
-#: framework/WDWLibraryEmbed.php:338 framework/WDWLibraryEmbed.php:347
-#: framework/WDWLibraryEmbed.php:349
+#: framework/WDWLibraryEmbed.php:361 framework/WDWLibraryEmbed.php:370
+#: framework/WDWLibraryEmbed.php:372
 msgid "The entered URL is incorrect. Please check the URL and try again."
 msgstr "Den angivna URL:en är felaktig. Kontrollera URL:en och försök igen."
 
-#: admin/views/Galleries.php:615
+#: admin/views/Galleries.php:589
 msgid "You have unsaved changes."
 msgstr "Du har osparade ändringar."
 
-#: admin/views/Galleries.php:567
+#: admin/views/Galleries.php:539
 msgid "Redirect URL: "
 msgstr "Omdirigera URL: "
 
-#: admin/views/Galleries.php:509
-msgid "embed type:"
-msgstr "inbäddningstyp:"
-
-#: admin/views/Galleries.php:474
+#: admin/views/Galleries.php:492
 msgid "<b>Dailymotion</b> URL example:"
 msgstr "<b>Dailymotion</b> URL-exempel:"
 
-#: admin/views/Galleries.php:470
+#: admin/views/Galleries.php:488
 msgid "<b>Flickr</b> URL example:"
 msgstr "<b>Flickr</b> URL-exempel:"
 
-#: admin/views/Galleries.php:461
-msgid "<b>Instagram</b> URL example:"
-msgstr "<b>Instagram</b> URL-exempel:"
-
-#: admin/views/Galleries.php:457
+#: admin/views/Galleries.php:479
 msgid "<b>Vimeo</b> URL example:"
 msgstr "<b>Vimeo</b> URL-exempel:"
 
-#: admin/views/Galleries.php:453
+#: admin/views/Galleries.php:475
 msgid "<b>Youtube</b> URL example:"
 msgstr "<b>Youtube</b> URL-exempel:"
 
-#: admin/views/Galleries.php:446
-msgid "Enter YouTube, Vimeo, Instagram, Flickr or Dailymotion URL here."
-msgstr "Ange URL för YouTube, Vimeo, Instagram, Flickr eller Dailymotion här."
-
-#: admin/views/Galleries.php:362
-msgid "No update"
-msgstr "Ingen uppdatering"
-
-#: admin/views/Galleries.php:205
+#: admin/views/Galleries.php:239
 msgid "Gallery title"
 msgstr "Gallerirubrik"
 
-#: admin/views/Galleries.php:638
+#: admin/views/Galleries.php:612
 msgid "Drag&Drop"
 msgstr "Dra och släpp"
 
@@ -1082,11 +1405,11 @@ msgstr "Dra och släpp"
 msgid "Pro Version"
 msgstr "Pro-version"
 
-#: admin/views/Editimage.php:810
+#: admin/views/Editimage.php:851
 msgid "Grayscale"
 msgstr "Gråskala"
 
-#: admin/views/Editimage.php:311
+#: admin/views/Editimage.php:277
 msgid "Crop"
 msgstr "Beskär"
 
@@ -1111,56 +1434,56 @@ msgid "Select"
 msgstr "Välj"
 
 #: admin/views/Albumsgalleries.php:80 admin/views/Albumsgalleries.php:119
-#: admin/views/Galleries.php:733
+#: admin/views/Galleries.php:741
 msgid "Type"
 msgstr "Typ"
 
-#: admin/views/Shortcode.php:2272 admin/views/Options.php:1506
+#: admin/views/Options.php:1414 admin/views/Shortcode.php:2261
 msgid "Number of image rows"
 msgstr "Antal bildrader"
 
-#: admin/views/Shortcode.php:557
+#: admin/views/Shortcode.php:537
 msgid "PHP function"
 msgstr "PHP-funktion"
 
-#: admin/views/Shortcode.php:507
+#: admin/views/Shortcode.php:495
 msgid "Insert into post"
 msgstr "Infoga i inlägg"
 
-#: admin/views/Shortcode.php:300
+#: admin/views/Shortcode.php:284
 msgid "Tag"
 msgstr "Etikett"
 
-#: admin/views/Shortcode.php:335
+#: admin/views/Shortcode.php:319
 msgid "Use default options"
 msgstr "Använd standardalternativ"
 
-#: admin/views/Shortcode.php:361
+#: admin/views/Shortcode.php:345
 msgid "Action on image click"
 msgstr "Åtgärd vid bildklick"
 
-#: admin/views/Shortcode.php:294
+#: admin/views/Shortcode.php:278
 msgid "Select the gallery group to display."
 msgstr "Välj gallerigruppen som ska visas."
 
-#: admin/views/Shortcode.php:283
+#: admin/views/Shortcode.php:267
 msgid "Gallery Group"
 msgstr "Gallerigrupp"
 
-#: admin/views/Shortcode.php:280
+#: admin/views/Shortcode.php:264
 msgid "Select the gallery to display."
 msgstr "Välj galleriet som ska visas."
 
-#: admin/views/Shortcode.php:65 admin/views/Shortcode.php:346
-#: admin/views/Albumsgalleries.php:120
+#: admin/views/Albumsgalleries.php:120 admin/views/Shortcode.php:64
+#: admin/views/Shortcode.php:330
 msgid "Gallery group"
 msgstr "Gallerigrupp"
 
-#: admin/views/AddTags.php:110
+#: admin/views/AddTags.php:121
 msgid "Add to image"
 msgstr "Lägg till i bild"
 
-#: admin/views/AddTags.php:109
+#: admin/views/AddTags.php:120
 msgid "Remove from image"
 msgstr "Ta bort från bild"
 
@@ -1184,133 +1507,125 @@ msgstr "0 för alla."
 msgid "Open in:"
 msgstr "Öppna i:"
 
-#: admin/views/WidgetTags.php:84 admin/views/Shortcode.php:383
-#: admin/views/Options.php:859 admin/views/Options.php:1017
-#: admin/views/Galleries.php:656
+#: admin/views/Galleries.php:630 admin/views/Options.php:775
+#: admin/views/Options.php:935 admin/views/Shortcode.php:368
+#: admin/views/WidgetTags.php:84
 msgid "Image"
 msgstr "Bild"
 
-#: admin/views/Widget.php:164
+#: admin/views/Widget.php:159
 msgid "Count:"
 msgstr "Antal:"
 
-#: admin/views/Widget.php:157
+#: admin/views/Widget.php:153
 msgid "Sort:"
 msgstr "Sortera:"
 
-#: admin/views/Widget.php:146
+#: admin/views/Widget.php:142
 msgid "All Galleries"
 msgstr "Alla gallerier"
 
-#: admin/views/Widget.php:144
+#: admin/views/Widget.php:140
 msgid "Gallery Groups:"
 msgstr "Gallerigrupper:"
 
-#: admin/views/Widget.php:136
+#: admin/views/Widget.php:135
 msgid "Gallery Type:"
 msgstr "Gallerityp:"
 
-#: admin/views/Widget.php:120
+#: admin/views/Widget.php:119
 msgid "Gallery groups"
 msgstr "Gallerigrupper"
 
-#: admin/views/Widget.php:118 admin/views/WidgetTags.php:82
+#: admin/views/Widget.php:117 admin/views/WidgetTags.php:82
 msgid "Type:"
 msgstr "Typ:"
 
-#: admin/views/Albums.php:285
+#: admin/views/Albums.php:325
 msgid "Galleries and Gallery Groups"
 msgstr "Gallerier och gallerigrupper"
 
-#: admin/views/Albums.php:209 admin/views/Galleries.php:244
+#: admin/views/Albums.php:242 admin/views/Galleries.php:289
 msgid "Basic"
 msgstr "Grundläggande"
 
-#: framework/WDWLibrary.php:2342
+#: framework/WDWLibrary.php:2472
 msgid "Gallery Tags"
 msgstr "Gallerietiketter"
 
-#: admin/views/Options.php:3734
+#: admin/views/Options.php:3655
 msgid "Show image info"
 msgstr "Visa bildinformation"
 
-#: admin/views/Options.php:3744
+#: admin/views/Options.php:3665
 msgid "Display info by default"
 msgstr "Visa information som standard"
 
-#: admin/views/Options.php:3012
+#: admin/views/Options.php:2943
 msgid "Thumbnail width"
 msgstr "Bredd för miniatyrer"
 
-#: admin/views/Options.php:2775 admin/views/Options.php:3073
-#: admin/views/Options.php:3312
+#: admin/views/Options.php:2714 admin/views/Options.php:3005
+#: admin/views/Options.php:3244
 msgid "Order images by"
 msgstr "Sortera bilder efter"
 
-#: admin/views/Options.php:2074
+#: admin/views/Options.php:1983
 msgid "Title position"
 msgstr "Rubrikposition"
 
-#: admin/views/Options.php:1416 admin/views/Options.php:1466
-#: admin/views/Options.php:1642 admin/views/Options.php:1693
-#: admin/views/Options.php:1876 admin/views/Options.php:1915
-#: admin/views/Options.php:2867 admin/views/Options.php:2927
-#: admin/views/Options.php:2969 admin/views/Options.php:3165
-#: admin/views/Options.php:3195 admin/views/Options.php:3462
-#: admin/views/Options.php:3504
+#: admin/views/Options.php:1339 admin/views/Options.php:1388
+#: admin/views/Options.php:1550 admin/views/Options.php:1599
+#: admin/views/Options.php:1779 admin/views/Options.php:1817
+#: admin/views/Options.php:2806 admin/views/Options.php:2861
+#: admin/views/Options.php:2900 admin/views/Options.php:3097
+#: admin/views/Options.php:3126 admin/views/Options.php:3389
+#: admin/views/Options.php:3428
 msgid "Show on hover"
 msgstr "Visa vid hovring"
 
-#: admin/views/Options.php:1414 admin/views/Options.php:1640
-#: admin/views/Options.php:1874 admin/views/Options.php:2064
-#: admin/views/Options.php:2196 admin/views/Options.php:2464
-#: admin/views/Options.php:2637 admin/views/Options.php:2924
-#: admin/views/Options.php:3163 admin/views/Options.php:3459
+#: admin/views/Options.php:1337 admin/views/Options.php:1548
+#: admin/views/Options.php:1777 admin/views/Options.php:1973
+#: admin/views/Options.php:2104 admin/views/Options.php:2368
+#: admin/views/Options.php:2575 admin/views/Options.php:2859
+#: admin/views/Options.php:3095 admin/views/Options.php:3387
 msgid "Show image title"
 msgstr "Visa bildrubrik"
 
-#: admin/views/Options.php:1404 admin/views/Options.php:1630
-#: admin/views/Options.php:1864 admin/views/Options.php:2297
-#: admin/views/Options.php:2454 admin/views/Options.php:2627
+#: admin/views/Options.php:1327 admin/views/Options.php:1538
+#: admin/views/Options.php:1767 admin/views/Options.php:2205
+#: admin/views/Options.php:2358 admin/views/Options.php:2565
 msgid "Show gallery description"
 msgstr "Visa galleribeskrivning"
 
-#: admin/views/Options.php:1394 admin/views/Options.php:1620
-#: admin/views/Options.php:1854 admin/views/Options.php:2287
-#: admin/views/Options.php:2444 admin/views/Options.php:2616
-#: admin/views/Options.php:2865
+#: admin/views/Options.php:1317 admin/views/Options.php:1528
+#: admin/views/Options.php:1757 admin/views/Options.php:2195
+#: admin/views/Options.php:2348 admin/views/Options.php:2554
+#: admin/views/Options.php:2804
 msgid "Show gallery title"
 msgstr "Visa gallerirubrik"
 
-#: admin/views/Options.php:715
-msgid "Sign out from Instagram"
-msgstr "Logga ut från Instagram"
-
-#: admin/views/Options.php:706
-msgid "Sign in with Instagram"
-msgstr "Logga in med Instagram"
-
-#: admin/views/Options.php:241
+#: admin/views/Options.php:238
 msgid "Show custom posts"
 msgstr "Visa anpassade inlägg"
 
-#: admin/views/Editimage.php:887
+#: admin/views/Editimage.php:928
 msgid "Contrast"
 msgstr "Kontrast"
 
-#: admin/views/Editimage.php:864 admin/views/Editimage.php:889
+#: admin/views/Editimage.php:905 admin/views/Editimage.php:930
 msgid "Press for result"
 msgstr "Tryck för resultat"
 
-#: admin/views/Editimage.php:862
+#: admin/views/Editimage.php:903
 msgid "Brightness"
 msgstr "Ljusstyrka"
 
-#: admin/views/Editimage.php:822
+#: admin/views/Editimage.php:863
 msgid "Sepia"
 msgstr "Sepia"
 
-#: admin/views/Editimage.php:814
+#: admin/views/Editimage.php:855
 msgid "Negative"
 msgstr "Negativ"
 
@@ -1322,29 +1637,25 @@ msgstr "Ange en giltig e-post."
 msgid "Number:"
 msgstr "Nummer:"
 
-#: admin/views/Albums.php:205 admin/views/Albums.php:241
-#: admin/views/Shortcode.php:342 admin/views/Shortcode.php:357
-#: admin/views/Options.php:673 admin/views/Options.php:741
-#: admin/views/Options.php:842 admin/views/Galleries.php:240
-#: admin/views/Galleries.php:281
+#: admin/views/Albums.php:238 admin/views/Albums.php:274
+#: admin/views/Galleries.php:285 admin/views/Galleries.php:326
+#: admin/views/Options.php:641 admin/views/Options.php:660
+#: admin/views/Options.php:761 admin/views/Shortcode.php:326
+#: admin/views/Shortcode.php:341
 msgid "Toggle panel:"
 msgstr "Slå på/av panel:"
 
-#: admin/views/Albums.php:108 admin/views/Albums.php:348
+#: admin/views/Albums.php:108 admin/views/Albums.php:388
 #: admin/views/Albumsgalleries.php:112 admin/views/Galleries.php:116
-#: admin/views/Galleries.php:739
+#: admin/views/Galleries.php:745
 msgid "Unpublished"
 msgstr "Opublicerat"
 
-#: framework/howto/howto.php:409
-msgid "How to use"
-msgstr "Hur man använder"
-
-#: admin/views/Shortcode.php:371
+#: admin/views/Shortcode.php:355
 msgid "Toggle panel"
 msgstr "Slå på/av panel"
 
-#: framework/howto/howto.php:339 framework/howto/howto.php:357
+#: framework/howto/howto.php:346 framework/howto/howto.php:364
 msgid "How to ..."
 msgstr "Hur man …"
 
@@ -1352,500 +1663,636 @@ msgstr "Hur man …"
 msgid "Responsive Design and Layout"
 msgstr "Responsiv design och layout"
 
-#: admin/views/Themes.php:1783 admin/views/Themes.php:3155
-#: admin/views/Themes.php:4314 admin/views/Themes.php:4812
+#: framework/howto/data.php:52
+msgid "How to insert a shortcode in Gutenberg?"
+msgstr "Hur infogar man en kortkod i Gutenberg?"
+
+#: framework/WDWLibrary.php:2707
+msgid "recreated"
+msgstr "återskapad"
+
+#: admin/views/Options.php:3782
+msgid "Create an account %s."
+msgstr "Skapa ett konto %s."
+
+#: admin/views/Options.php:3632
+msgid "Show Captcha for comments"
+msgstr "Visa Captcha för kommentarer"
+
+#: admin/views/Options.php:3621
+msgid "Show Email for comments"
+msgstr "Visa e-post för kommentarer"
+
+#: admin/views/Options.php:2541
+msgid "Next/Previous buttons"
+msgstr "Knappar för nästa/föregående"
+
+#: admin/views/Options.php:2408
+msgid "Max. number of images"
+msgstr "Max antal bilder"
+
+#: admin/views/Options.php:2067
+msgid "Audio URL"
+msgstr "Ljud-URL"
+
+#: admin/views/Options.php:1859 admin/views/Options.php:2520
+#: admin/views/Options.php:3530
+msgid "Time interval"
+msgstr "Tidsintervall"
+
+#: admin/views/Options.php:1348 admin/views/Options.php:1559
+msgid "Show image descriptions"
+msgstr "Visa bildbeskrivningar"
+
+#: admin/views/Options.php:1269 admin/views/Options.php:1480
+#: admin/views/Options.php:1709 admin/views/Options.php:2147
+#: admin/views/Options.php:2300 admin/views/Options.php:2736
+#: admin/views/Options.php:3027 admin/views/Options.php:3265
+msgid "Show search box"
+msgstr "Visa sökruta"
+
+#: admin/views/Options.php:258
+msgid "Show comments for custom posts"
+msgstr "Visa kommentarer för anpassade inlägg"
+
+#: admin/views/Options.php:209
+msgid "Lazy load"
+msgstr "Uppskjuten inläsning"
+
+#: admin/views/Options.php:183 photo-gallery.php:431
+msgid "Recreate"
+msgstr "Återskapa"
+
+#: admin/views/Uninstall.php:67
+msgid "Delete the folder containing uploaded images."
+msgstr "Ta bort mappen som innehåller uppladdade bilder."
+
+#: admin/views/Uninstall.php:44
+msgid "The following Database Tables will be deleted:"
+msgstr "Följande databastabeller kommer att tas bort:"
+
+#: admin/views/WidgetTags.php:88
+msgid "Show Tag Names:"
+msgstr "Visa etikettnamn:"
+
+#: admin/views/Albums.php:249 admin/views/Galleries.php:298
+msgid "Add Preview Image"
+msgstr "Lägg till bild att förhandsgranska"
+
+#: admin/views/Themes.php:4503
+msgid "Image border color:"
+msgstr "Ramfärg för bild:"
+
+#: admin/views/Themes.php:3450
+msgid "Share buttons color:"
+msgstr "Färg på delningsknappar:"
+
+#: admin/views/Themes.php:2453
+msgid "Text background color:"
+msgstr "Textens bakgrundsfärg:"
+
+#: admin/views/Editimage.php:871
+msgid "Saturate"
+msgstr "Mättnad"
+
+#: admin/views/Editimage.php:867
+msgid "Slate"
+msgstr "Tegel"
+
+#: admin/views/Editimage.php:875 admin/views/Galleries.php:754
+msgid "Do you want to reset the image?"
+msgstr "Vill du återställa bilden?"
+
+#: admin/views/Albums.php:247 admin/views/Galleries.php:294
+msgid "Preview image"
+msgstr "Förhandsgranska bild"
+
+#: admin/views/Galleries.php:468
+msgid "Enter YouTube, Vimeo, Flickr or Dailymotion URL here."
+msgstr "Ange URL för YouTube, Vimeo, Flickr eller Dailymotion här."
+
+#: framework/WDWLibrary.php:213
+msgid "Theme successfully copied."
+msgstr "Temat kopierat."
+
+#: framework/WDWLibrary.php:189
+msgid "A term with the name provided already exists."
+msgstr "En term med det angivna namnet finns redan."
+
+#: framework/WDWLibrary.php:152
+msgid "Options successfully saved."
+msgstr "Alternativ sparades."
+
+#: framework/WDWLibrary.php:128
+msgid "You can't delete default theme."
+msgstr "Du kan inte ta bort standardtema."
+
+#: admin/views/Themes.php:1656 admin/views/Themes.php:3028
+#: admin/views/Themes.php:4187 admin/views/Themes.php:4685
 msgid "Font family:"
 msgstr "Typsnittsfamilj:"
 
-#: admin/views/Themes.php:1776 admin/views/Themes.php:3164
-#: admin/views/Themes.php:4307 admin/views/Themes.php:4807
+#: admin/views/Themes.php:1649 admin/views/Themes.php:3037
+#: admin/views/Themes.php:4180 admin/views/Themes.php:4680
 msgid "Font color:"
 msgstr "Textfärg:"
 
-#: admin/views/Themes.php:1770 admin/views/Themes.php:3158
-#: admin/views/Themes.php:4301 admin/views/Themes.php:4801
+#: admin/views/Themes.php:1643 admin/views/Themes.php:3031
+#: admin/views/Themes.php:4174 admin/views/Themes.php:4674
 msgid "Font size:"
 msgstr "Textstorlek:"
 
-#: admin/views/Themes.php:1526
+#: admin/views/Themes.php:1399
 msgid "Title color: "
 msgstr "Rubrikfärg:"
 
-#: admin/views/Themes.php:456 admin/views/Themes.php:753
-#: admin/views/Themes.php:1028
+#: admin/views/Themes.php:329 admin/views/Themes.php:626
+#: admin/views/Themes.php:901
 msgid "Transition:"
 msgstr "Övergång:"
 
-#: admin/views/Themes.php:435 admin/views/Themes.php:732
-#: admin/views/Themes.php:1007 admin/views/Themes.php:1975
-#: admin/views/Themes.php:2852
+#: admin/views/Themes.php:308 admin/views/Themes.php:605
+#: admin/views/Themes.php:880 admin/views/Themes.php:1848
+#: admin/views/Themes.php:2725
 msgid "Hover effect:"
 msgstr "Hovringseffekt:"
 
-#: admin/views/Themes.php:428 admin/views/Themes.php:1968
+#: admin/views/Themes.php:301 admin/views/Themes.php:1841
 msgid "Shadow:"
 msgstr "Skugga:"
 
-#: admin/views/Themes.php:384 admin/views/Themes.php:461
-#: admin/views/Themes.php:694 admin/views/Themes.php:758
-#: admin/views/Themes.php:969 admin/views/Themes.php:1033
-#: admin/views/Themes.php:1923 admin/views/Themes.php:2001
-#: admin/views/Themes.php:2297 admin/views/Themes.php:2814
-#: admin/views/Themes.php:2878 admin/views/Themes.php:4406
-#: admin/views/Themes.php:4455 admin/views/Albums.php:230
-#: admin/views/WidgetTags.php:90 admin/views/WidgetTags.php:112
-#: admin/views/WidgetSlideshow.php:115 admin/views/WidgetSlideshow.php:121
-#: admin/views/WidgetSlideshow.php:127 admin/views/Options.php:164
-#: admin/views/Options.php:205 admin/views/Options.php:215
-#: admin/views/Options.php:225 admin/views/Options.php:244
-#: admin/views/Options.php:254 admin/views/Options.php:264
-#: admin/views/Options.php:274 admin/views/Options.php:284
-#: admin/views/Options.php:296 admin/views/Options.php:307
-#: admin/views/Options.php:317 admin/views/Options.php:327
-#: admin/views/Options.php:337 admin/views/Options.php:346
-#: admin/views/Options.php:356 admin/views/Options.php:366
-#: admin/views/Options.php:384 admin/views/Options.php:390
-#: admin/views/Options.php:774 admin/views/Options.php:785
-#: admin/views/Options.php:796 admin/views/Options.php:807
-#: admin/views/Options.php:818 admin/views/Options.php:829
-#: admin/views/Options.php:1349 admin/views/Options.php:1375
-#: admin/views/Options.php:1385 admin/views/Options.php:1397
-#: admin/views/Options.php:1407 admin/views/Options.php:1428
-#: admin/views/Options.php:1438 admin/views/Options.php:1448
-#: admin/views/Options.php:1575 admin/views/Options.php:1601
-#: admin/views/Options.php:1611 admin/views/Options.php:1623
-#: admin/views/Options.php:1633 admin/views/Options.php:1654
-#: admin/views/Options.php:1665 admin/views/Options.php:1675
-#: admin/views/Options.php:1722 admin/views/Options.php:1809
-#: admin/views/Options.php:1835 admin/views/Options.php:1845
-#: admin/views/Options.php:1857 admin/views/Options.php:1867
-#: admin/views/Options.php:1887 admin/views/Options.php:1897
-#: admin/views/Options.php:2004 admin/views/Options.php:2014
-#: admin/views/Options.php:2024 admin/views/Options.php:2046
-#: admin/views/Options.php:2067 admin/views/Options.php:2104
-#: admin/views/Options.php:2114 admin/views/Options.php:2151
-#: admin/views/Options.php:2170 admin/views/Options.php:2199
-#: admin/views/Options.php:2208 admin/views/Options.php:2242
-#: admin/views/Options.php:2268 admin/views/Options.php:2278
-#: admin/views/Options.php:2290 admin/views/Options.php:2300
-#: admin/views/Options.php:2310 admin/views/Options.php:2399
-#: admin/views/Options.php:2425 admin/views/Options.php:2435
-#: admin/views/Options.php:2447 admin/views/Options.php:2457
-#: admin/views/Options.php:2467 admin/views/Options.php:2478
-#: admin/views/Options.php:2489 admin/views/Options.php:2574
-#: admin/views/Options.php:2595 admin/views/Options.php:2606
-#: admin/views/Options.php:2619 admin/views/Options.php:2630
-#: admin/views/Options.php:2640 admin/views/Options.php:2651
-#: admin/views/Options.php:2662 admin/views/Options.php:2725
-#: admin/views/Options.php:2800 admin/views/Options.php:2826
-#: admin/views/Options.php:2836 admin/views/Options.php:2848
-#: admin/views/Options.php:2858 admin/views/Options.php:2906
-#: admin/views/Options.php:2941 admin/views/Options.php:2951
-#: admin/views/Options.php:3023 admin/views/Options.php:3098
-#: admin/views/Options.php:3124 admin/views/Options.php:3134
-#: admin/views/Options.php:3146 admin/views/Options.php:3156
-#: admin/views/Options.php:3177 admin/views/Options.php:3261
-#: admin/views/Options.php:3336 admin/views/Options.php:3362
-#: admin/views/Options.php:3372 admin/views/Options.php:3384
-#: admin/views/Options.php:3394 admin/views/Options.php:3404
-#: admin/views/Options.php:3441 admin/views/Options.php:3476
-#: admin/views/Options.php:3486 admin/views/Options.php:3540
-#: admin/views/Options.php:3551 admin/views/Options.php:3600
-#: admin/views/Options.php:3619 admin/views/Options.php:3668
-#: admin/views/Options.php:3678 admin/views/Options.php:3692
-#: admin/views/Options.php:3703 admin/views/Options.php:3714
-#: admin/views/Options.php:3726 admin/views/Options.php:3737
-#: admin/views/Options.php:3747 admin/views/Options.php:3757
-#: admin/views/Options.php:3777 admin/views/Options.php:3788
-#: admin/views/Options.php:3799 admin/views/Options.php:3812
-#: admin/views/Options.php:3822 admin/views/Options.php:3832
-#: admin/views/Options.php:3842 admin/views/Options.php:3852
-#: admin/views/Options.php:3873 admin/views/Options.php:3884
-#: admin/views/Options.php:3895 admin/views/Options.php:3906
-#: admin/views/Options.php:3920 admin/views/Galleries.php:270
+#: admin/views/Albums.php:263 admin/views/Galleries.php:315
+#: admin/views/Options.php:161 admin/views/Options.php:202
+#: admin/views/Options.php:212 admin/views/Options.php:222
+#: admin/views/Options.php:241 admin/views/Options.php:251
+#: admin/views/Options.php:261 admin/views/Options.php:271
+#: admin/views/Options.php:281 admin/views/Options.php:293
+#: admin/views/Options.php:304 admin/views/Options.php:314
+#: admin/views/Options.php:324 admin/views/Options.php:334
+#: admin/views/Options.php:343 admin/views/Options.php:353
+#: admin/views/Options.php:363 admin/views/Options.php:382
+#: admin/views/Options.php:390 admin/views/Options.php:693
+#: admin/views/Options.php:704 admin/views/Options.php:715
+#: admin/views/Options.php:726 admin/views/Options.php:737
+#: admin/views/Options.php:748 admin/views/Options.php:1272
+#: admin/views/Options.php:1298 admin/views/Options.php:1308
+#: admin/views/Options.php:1320 admin/views/Options.php:1330
+#: admin/views/Options.php:1351 admin/views/Options.php:1361
+#: admin/views/Options.php:1371 admin/views/Options.php:1483
+#: admin/views/Options.php:1509 admin/views/Options.php:1519
+#: admin/views/Options.php:1531 admin/views/Options.php:1541
+#: admin/views/Options.php:1562 admin/views/Options.php:1572
+#: admin/views/Options.php:1582 admin/views/Options.php:1627
+#: admin/views/Options.php:1712 admin/views/Options.php:1738
+#: admin/views/Options.php:1748 admin/views/Options.php:1760
+#: admin/views/Options.php:1770 admin/views/Options.php:1790
+#: admin/views/Options.php:1800 admin/views/Options.php:1905
+#: admin/views/Options.php:1915 admin/views/Options.php:1925
+#: admin/views/Options.php:1976 admin/views/Options.php:2013
+#: admin/views/Options.php:2023 admin/views/Options.php:2060
+#: admin/views/Options.php:2079 admin/views/Options.php:2107
+#: admin/views/Options.php:2116 admin/views/Options.php:2150
+#: admin/views/Options.php:2176 admin/views/Options.php:2186
+#: admin/views/Options.php:2198 admin/views/Options.php:2208
+#: admin/views/Options.php:2218 admin/views/Options.php:2303
+#: admin/views/Options.php:2329 admin/views/Options.php:2339
+#: admin/views/Options.php:2351 admin/views/Options.php:2361
+#: admin/views/Options.php:2371 admin/views/Options.php:2381
+#: admin/views/Options.php:2391 admin/views/Options.php:2512
+#: admin/views/Options.php:2533 admin/views/Options.php:2544
+#: admin/views/Options.php:2557 admin/views/Options.php:2568
+#: admin/views/Options.php:2578 admin/views/Options.php:2589
+#: admin/views/Options.php:2600 admin/views/Options.php:2663
+#: admin/views/Options.php:2739 admin/views/Options.php:2765
+#: admin/views/Options.php:2775 admin/views/Options.php:2787
+#: admin/views/Options.php:2797 admin/views/Options.php:2843
+#: admin/views/Options.php:2873 admin/views/Options.php:2883
+#: admin/views/Options.php:2954 admin/views/Options.php:3030
+#: admin/views/Options.php:3056 admin/views/Options.php:3066
+#: admin/views/Options.php:3078 admin/views/Options.php:3088
+#: admin/views/Options.php:3109 admin/views/Options.php:3192
+#: admin/views/Options.php:3268 admin/views/Options.php:3294
+#: admin/views/Options.php:3304 admin/views/Options.php:3316
+#: admin/views/Options.php:3326 admin/views/Options.php:3336
+#: admin/views/Options.php:3371 admin/views/Options.php:3401
+#: admin/views/Options.php:3411 admin/views/Options.php:3464
+#: admin/views/Options.php:3475 admin/views/Options.php:3523
+#: admin/views/Options.php:3542 admin/views/Options.php:3589
+#: admin/views/Options.php:3599 admin/views/Options.php:3613
+#: admin/views/Options.php:3624 admin/views/Options.php:3635
+#: admin/views/Options.php:3647 admin/views/Options.php:3658
+#: admin/views/Options.php:3668 admin/views/Options.php:3678
+#: admin/views/Options.php:3698 admin/views/Options.php:3708
+#: admin/views/Options.php:3719 admin/views/Options.php:3731
+#: admin/views/Options.php:3741 admin/views/Options.php:3751
+#: admin/views/Options.php:3761 admin/views/Options.php:3771
+#: admin/views/Options.php:3790 admin/views/Options.php:3800
+#: admin/views/Options.php:3810 admin/views/Options.php:3820
+#: admin/views/Options.php:3833 admin/views/Themes.php:257
+#: admin/views/Themes.php:334 admin/views/Themes.php:567
+#: admin/views/Themes.php:631 admin/views/Themes.php:842
+#: admin/views/Themes.php:906 admin/views/Themes.php:1796
+#: admin/views/Themes.php:1874 admin/views/Themes.php:2170
+#: admin/views/Themes.php:2687 admin/views/Themes.php:2751
+#: admin/views/Themes.php:4279 admin/views/Themes.php:4328
+#: admin/views/WidgetSlideshow.php:114 admin/views/WidgetSlideshow.php:120
+#: admin/views/WidgetSlideshow.php:126 admin/views/WidgetTags.php:90
+#: admin/views/WidgetTags.php:112
 msgid "No"
 msgstr "Nej"
 
-#: admin/views/Themes.php:342
+#: admin/views/Themes.php:216
 msgid "Save"
 msgstr "Spara"
 
-#: admin/views/Themes.php:342 admin/views/Albums.php:187
-#: admin/views/Shortcode.php:659 admin/views/Shortcode.php:2239
-#: admin/views/Galleries.php:219
+#: admin/views/Albums.php:205 admin/views/Galleries.php:253
+#: admin/views/Shortcode.php:639 admin/views/Shortcode.php:2228
+#: admin/views/Themes.php:216
 msgid "Update"
 msgstr "Uppdatera"
 
-#: admin/views/Themes.php:296 admin/views/Shortcode.php:427
-#: admin/views/Options.php:943
+#: admin/views/Options.php:860 admin/views/Shortcode.php:414
+#: admin/views/Themes.php:171
 msgid "Google fonts"
 msgstr "Google fonts"
 
-#: admin/views/Themes.php:228 admin/views/Albums.php:119
-#: admin/views/Albumsgalleries.php:116 admin/views/Galleries.php:127
-#: admin/views/Galleries.php:762
+#: admin/views/Albums.php:119 admin/views/Albumsgalleries.php:116
+#: admin/views/Galleries.php:127 admin/views/Galleries.php:768
+#: admin/views/Themes.php:99
 msgid "Show more details"
 msgstr "Visa mer detaljer"
 
-#: admin/views/Themes.php:223 admin/views/Albums.php:112
-#: admin/views/Editimage.php:326 admin/views/Galleries.php:120
-#: admin/views/Galleries.php:746
+#: admin/views/Albums.php:112 admin/views/Editimage.php:292
+#: admin/views/Galleries.php:120 admin/views/Galleries.php:752
+#: admin/views/Themes.php:94
 msgid "Edit"
 msgstr "Redigera"
 
-#: frontend/views/view.php:483 admin/views/Themes.php:199
-#: admin/views/Themes.php:218 admin/views/Albums.php:62
-#: admin/views/Albums.php:99 admin/views/Albumsgalleries.php:79
-#: admin/views/Albumsgalleries.php:103 admin/views/Options.php:1328
-#: admin/views/Options.php:1554 admin/views/Options.php:1788
-#: admin/views/Options.php:1983 admin/views/Options.php:2221
-#: admin/views/Options.php:2378 admin/views/Options.php:2553
-#: admin/views/Options.php:2762 admin/views/Options.php:2779
-#: admin/views/Options.php:3060 admin/views/Options.php:3077
-#: admin/views/Options.php:3298 admin/views/Options.php:3315
+#: admin/views/Albums.php:62 admin/views/Albums.php:99
+#: admin/views/Albumsgalleries.php:79 admin/views/Albumsgalleries.php:103
 #: admin/views/Galleries.php:61 admin/views/Galleries.php:64
-#: admin/views/Galleries.php:107
+#: admin/views/Galleries.php:107 admin/views/Options.php:1251
+#: admin/views/Options.php:1462 admin/views/Options.php:1691
+#: admin/views/Options.php:1884 admin/views/Options.php:2129
+#: admin/views/Options.php:2282 admin/views/Options.php:2483
+#: admin/views/Options.php:2700 admin/views/Options.php:2718
+#: admin/views/Options.php:2991 admin/views/Options.php:3009
+#: admin/views/Options.php:3229 admin/views/Options.php:3247
+#: admin/views/Themes.php:70 admin/views/Themes.php:89
+#: frontend/views/view.php:517
 msgid "Title"
 msgstr "Rubrik"
 
-#: admin/views/Themes.php:196 admin/views/Albums.php:59
-#: admin/views/AddTags.php:67 photo-gallery.php:1453
+#: admin/views/AddTags.php:78 admin/views/Albums.php:59
+#: admin/views/Themes.php:67 photo-gallery.php:1440
 msgid "Select all"
 msgstr "Välj alla"
 
-#: admin/controllers/Galleries.php:379 admin/views/Options.php:726
+#: admin/controllers/Galleries.php:413
 msgid "Facebook"
 msgstr "Facebook"
 
-#: admin/controllers/Galleries.php:377
-msgid "Instagram only"
-msgstr "Endast Instagram"
-
-#: admin/views/Themes.php:382 admin/views/Themes.php:459
-#: admin/views/Themes.php:692 admin/views/Themes.php:756
-#: admin/views/Themes.php:967 admin/views/Themes.php:1031
-#: admin/views/Themes.php:1921 admin/views/Themes.php:1999
-#: admin/views/Themes.php:2295 admin/views/Themes.php:2812
-#: admin/views/Themes.php:2876 admin/views/Themes.php:4404
-#: admin/views/Themes.php:4453 admin/views/Albums.php:228
-#: admin/views/WidgetTags.php:89 admin/views/WidgetTags.php:111
-#: admin/views/WidgetSlideshow.php:114 admin/views/WidgetSlideshow.php:120
-#: admin/views/WidgetSlideshow.php:126 admin/views/Uninstall.php:77
-#: admin/views/Options.php:163 admin/views/Options.php:204
-#: admin/views/Options.php:214 admin/views/Options.php:224
-#: admin/views/Options.php:243 admin/views/Options.php:253
-#: admin/views/Options.php:263 admin/views/Options.php:273
-#: admin/views/Options.php:283 admin/views/Options.php:295
-#: admin/views/Options.php:306 admin/views/Options.php:316
-#: admin/views/Options.php:326 admin/views/Options.php:336
-#: admin/views/Options.php:345 admin/views/Options.php:355
-#: admin/views/Options.php:365 admin/views/Options.php:383
-#: admin/views/Options.php:389 admin/views/Options.php:773
-#: admin/views/Options.php:784 admin/views/Options.php:795
-#: admin/views/Options.php:806 admin/views/Options.php:817
-#: admin/views/Options.php:828 admin/views/Options.php:1348
-#: admin/views/Options.php:1374 admin/views/Options.php:1384
-#: admin/views/Options.php:1396 admin/views/Options.php:1406
-#: admin/views/Options.php:1427 admin/views/Options.php:1437
-#: admin/views/Options.php:1447 admin/views/Options.php:1574
-#: admin/views/Options.php:1600 admin/views/Options.php:1610
-#: admin/views/Options.php:1622 admin/views/Options.php:1632
-#: admin/views/Options.php:1653 admin/views/Options.php:1664
-#: admin/views/Options.php:1674 admin/views/Options.php:1721
-#: admin/views/Options.php:1808 admin/views/Options.php:1834
-#: admin/views/Options.php:1844 admin/views/Options.php:1856
-#: admin/views/Options.php:1866 admin/views/Options.php:1886
-#: admin/views/Options.php:1896 admin/views/Options.php:2003
-#: admin/views/Options.php:2013 admin/views/Options.php:2023
-#: admin/views/Options.php:2045 admin/views/Options.php:2066
-#: admin/views/Options.php:2103 admin/views/Options.php:2113
-#: admin/views/Options.php:2150 admin/views/Options.php:2169
-#: admin/views/Options.php:2198 admin/views/Options.php:2207
-#: admin/views/Options.php:2241 admin/views/Options.php:2267
-#: admin/views/Options.php:2277 admin/views/Options.php:2289
-#: admin/views/Options.php:2299 admin/views/Options.php:2309
-#: admin/views/Options.php:2398 admin/views/Options.php:2424
-#: admin/views/Options.php:2434 admin/views/Options.php:2446
-#: admin/views/Options.php:2456 admin/views/Options.php:2466
-#: admin/views/Options.php:2477 admin/views/Options.php:2488
-#: admin/views/Options.php:2573 admin/views/Options.php:2594
-#: admin/views/Options.php:2605 admin/views/Options.php:2618
-#: admin/views/Options.php:2629 admin/views/Options.php:2639
-#: admin/views/Options.php:2650 admin/views/Options.php:2661
-#: admin/views/Options.php:2799 admin/views/Options.php:2825
-#: admin/views/Options.php:2835 admin/views/Options.php:2847
-#: admin/views/Options.php:2857 admin/views/Options.php:2905
-#: admin/views/Options.php:2940 admin/views/Options.php:2950
-#: admin/views/Options.php:3097 admin/views/Options.php:3123
-#: admin/views/Options.php:3133 admin/views/Options.php:3145
-#: admin/views/Options.php:3155 admin/views/Options.php:3176
-#: admin/views/Options.php:3335 admin/views/Options.php:3361
-#: admin/views/Options.php:3371 admin/views/Options.php:3383
-#: admin/views/Options.php:3393 admin/views/Options.php:3403
-#: admin/views/Options.php:3440 admin/views/Options.php:3475
-#: admin/views/Options.php:3485 admin/views/Options.php:3539
-#: admin/views/Options.php:3550 admin/views/Options.php:3599
-#: admin/views/Options.php:3618 admin/views/Options.php:3654
-#: admin/views/Options.php:3677 admin/views/Options.php:3689
-#: admin/views/Options.php:3702 admin/views/Options.php:3713
-#: admin/views/Options.php:3725 admin/views/Options.php:3736
-#: admin/views/Options.php:3746 admin/views/Options.php:3756
-#: admin/views/Options.php:3776 admin/views/Options.php:3787
-#: admin/views/Options.php:3798 admin/views/Options.php:3811
-#: admin/views/Options.php:3821 admin/views/Options.php:3831
-#: admin/views/Options.php:3841 admin/views/Options.php:3851
-#: admin/views/Options.php:3872 admin/views/Options.php:3883
-#: admin/views/Options.php:3894 admin/views/Options.php:3905
-#: admin/views/Options.php:3919 admin/views/Galleries.php:268
-msgid "Yes"
-msgstr "Ja"
-
-#: admin/controllers/Galleries.php:97 photo-gallery.php:1759
+#: admin/controllers/Galleries.php:97 photo-gallery.php:1746
 msgid "Galleries"
 msgstr "Gallerier"
 
-#: admin/controllers/elementorWidget.php:68 admin/views/Options.php:83
-#: photo-gallery.php:437
+#: admin/views/Albums.php:261 admin/views/Galleries.php:313
+#: admin/views/Options.php:160 admin/views/Options.php:201
+#: admin/views/Options.php:211 admin/views/Options.php:221
+#: admin/views/Options.php:240 admin/views/Options.php:250
+#: admin/views/Options.php:260 admin/views/Options.php:270
+#: admin/views/Options.php:280 admin/views/Options.php:292
+#: admin/views/Options.php:303 admin/views/Options.php:313
+#: admin/views/Options.php:323 admin/views/Options.php:333
+#: admin/views/Options.php:342 admin/views/Options.php:352
+#: admin/views/Options.php:362 admin/views/Options.php:381
+#: admin/views/Options.php:389 admin/views/Options.php:692
+#: admin/views/Options.php:703 admin/views/Options.php:714
+#: admin/views/Options.php:725 admin/views/Options.php:736
+#: admin/views/Options.php:747 admin/views/Options.php:1271
+#: admin/views/Options.php:1297 admin/views/Options.php:1307
+#: admin/views/Options.php:1319 admin/views/Options.php:1329
+#: admin/views/Options.php:1350 admin/views/Options.php:1360
+#: admin/views/Options.php:1370 admin/views/Options.php:1482
+#: admin/views/Options.php:1508 admin/views/Options.php:1518
+#: admin/views/Options.php:1530 admin/views/Options.php:1540
+#: admin/views/Options.php:1561 admin/views/Options.php:1571
+#: admin/views/Options.php:1581 admin/views/Options.php:1626
+#: admin/views/Options.php:1711 admin/views/Options.php:1737
+#: admin/views/Options.php:1747 admin/views/Options.php:1759
+#: admin/views/Options.php:1769 admin/views/Options.php:1789
+#: admin/views/Options.php:1799 admin/views/Options.php:1904
+#: admin/views/Options.php:1914 admin/views/Options.php:1924
+#: admin/views/Options.php:1975 admin/views/Options.php:2012
+#: admin/views/Options.php:2022 admin/views/Options.php:2059
+#: admin/views/Options.php:2078 admin/views/Options.php:2106
+#: admin/views/Options.php:2115 admin/views/Options.php:2149
+#: admin/views/Options.php:2175 admin/views/Options.php:2185
+#: admin/views/Options.php:2197 admin/views/Options.php:2207
+#: admin/views/Options.php:2217 admin/views/Options.php:2302
+#: admin/views/Options.php:2328 admin/views/Options.php:2338
+#: admin/views/Options.php:2350 admin/views/Options.php:2360
+#: admin/views/Options.php:2370 admin/views/Options.php:2380
+#: admin/views/Options.php:2390 admin/views/Options.php:2511
+#: admin/views/Options.php:2532 admin/views/Options.php:2543
+#: admin/views/Options.php:2556 admin/views/Options.php:2567
+#: admin/views/Options.php:2577 admin/views/Options.php:2588
+#: admin/views/Options.php:2599 admin/views/Options.php:2738
+#: admin/views/Options.php:2764 admin/views/Options.php:2774
+#: admin/views/Options.php:2786 admin/views/Options.php:2796
+#: admin/views/Options.php:2842 admin/views/Options.php:2872
+#: admin/views/Options.php:2882 admin/views/Options.php:3029
+#: admin/views/Options.php:3055 admin/views/Options.php:3065
+#: admin/views/Options.php:3077 admin/views/Options.php:3087
+#: admin/views/Options.php:3108 admin/views/Options.php:3267
+#: admin/views/Options.php:3293 admin/views/Options.php:3303
+#: admin/views/Options.php:3315 admin/views/Options.php:3325
+#: admin/views/Options.php:3335 admin/views/Options.php:3370
+#: admin/views/Options.php:3400 admin/views/Options.php:3410
+#: admin/views/Options.php:3463 admin/views/Options.php:3474
+#: admin/views/Options.php:3522 admin/views/Options.php:3541
+#: admin/views/Options.php:3575 admin/views/Options.php:3598
+#: admin/views/Options.php:3610 admin/views/Options.php:3623
+#: admin/views/Options.php:3634 admin/views/Options.php:3646
+#: admin/views/Options.php:3657 admin/views/Options.php:3667
+#: admin/views/Options.php:3677 admin/views/Options.php:3697
+#: admin/views/Options.php:3707 admin/views/Options.php:3718
+#: admin/views/Options.php:3730 admin/views/Options.php:3740
+#: admin/views/Options.php:3750 admin/views/Options.php:3760
+#: admin/views/Options.php:3770 admin/views/Options.php:3789
+#: admin/views/Options.php:3799 admin/views/Options.php:3809
+#: admin/views/Options.php:3819 admin/views/Options.php:3832
+#: admin/views/Themes.php:255 admin/views/Themes.php:332
+#: admin/views/Themes.php:565 admin/views/Themes.php:629
+#: admin/views/Themes.php:840 admin/views/Themes.php:904
+#: admin/views/Themes.php:1794 admin/views/Themes.php:1872
+#: admin/views/Themes.php:2168 admin/views/Themes.php:2685
+#: admin/views/Themes.php:2749 admin/views/Themes.php:4277
+#: admin/views/Themes.php:4326 admin/views/Uninstall.php:77
+#: admin/views/WidgetSlideshow.php:113 admin/views/WidgetSlideshow.php:119
+#: admin/views/WidgetSlideshow.php:125 admin/views/WidgetTags.php:89
+#: admin/views/WidgetTags.php:111
+msgid "Yes"
+msgstr "Ja"
+
+#: admin/controllers/elementorWidget.php:68 admin/views/Options.php:80
+#: photo-gallery.php:431
 msgid "General"
 msgstr "Allmänt"
 
-#: admin/controllers/elementorWidget.php:36 admin/views/Widget.php:119
-#: admin/views/Shortcode.php:62 admin/views/Shortcode.php:268
-#: admin/views/Shortcode.php:346 admin/views/Albumsgalleries.php:120
+#: admin/views/Albumsgalleries.php:120 admin/views/Shortcode.php:61
+#: admin/views/Shortcode.php:252 admin/views/Shortcode.php:330
+#: admin/views/Widget.php:118
 msgid "Gallery"
 msgstr "Galleri "
 
-#: admin/controllers/Shortcode.php:40 admin/controllers/Options.php:53
-#: admin/views/Shortcode.php:76 admin/views/Options.php:429
-#: photo-gallery.php:1604
+#: admin/controllers/Options.php:57 admin/controllers/Shortcode.php:40
+#: admin/views/Galleries.php:194 admin/views/Options.php:430
+#: admin/views/Shortcode.php:75 photo-gallery.php:1591
 msgid "Thumbnails"
 msgstr "Miniatyrer"
 
-#: admin/controllers/Themes.php:255 admin/controllers/AddTags.php:53
-#: admin/views/Galleries.php:802 photo-gallery.php:487
+#: admin/controllers/AddTags.php:53 admin/controllers/Themes.php:279
+#: admin/views/Galleries.php:808 photo-gallery.php:495
 msgid "Tags"
 msgstr "Etiketter"
 
-#: admin/controllers/Themes.php:324
+#: admin/controllers/Themes.php:348
 msgid "Square"
 msgstr "Fyrkant"
 
-#: admin/controllers/Themes.php:323
+#: admin/controllers/Themes.php:347
 msgid "Heart"
 msgstr "Hjärta"
 
-#: admin/controllers/Themes.php:322
+#: admin/controllers/Themes.php:346
 msgid "Flag"
 msgstr "Flagga"
 
-#: admin/controllers/Themes.php:321
+#: admin/controllers/Themes.php:345
 msgid "Circle"
 msgstr "Cirkel"
 
-#: admin/controllers/Themes.php:319
+#: admin/controllers/Themes.php:343
 msgid "Star"
 msgstr "Stjärna"
 
-#: admin/controllers/Themes.php:313
+#: admin/controllers/Themes.php:337
 msgid "Angle"
 msgstr "Vinkel"
 
-#: admin/controllers/Themes.php:308
+#: admin/controllers/Themes.php:332
 msgid "Zoom"
 msgstr "Zoom"
 
-#: admin/controllers/Themes.php:299 admin/controllers/Themes.php:306
+#: admin/controllers/Themes.php:323 admin/controllers/Themes.php:330
 msgid "Rotate"
 msgstr "Rotera"
 
-#: admin/controllers/Themes.php:293
+#: admin/controllers/Themes.php:317
 msgid "Bold"
 msgstr "Fet"
 
-#: admin/controllers/Themes.php:292
+#: admin/controllers/Themes.php:316
 msgid "Normal"
 msgstr "Normal"
 
-#: admin/controllers/Themes.php:291
+#: admin/controllers/Themes.php:315
 msgid "Lighter"
 msgstr "Lättare"
 
-#: admin/controllers/Themes.php:287 admin/views/Themes.php:1349
-#: admin/views/Themes.php:3693 admin/views/Themes.php:4125
+#: admin/controllers/Themes.php:311 admin/views/Themes.php:1222
+#: admin/views/Themes.php:3566 admin/views/Themes.php:3998
 msgid "Right"
 msgstr "Höger"
 
-#: admin/controllers/Themes.php:286
+#: admin/controllers/Themes.php:310
 msgid "Center"
 msgstr "Centrerat"
 
-#: admin/controllers/Themes.php:285 admin/views/Themes.php:1351
-#: admin/views/Themes.php:3695 admin/views/Themes.php:4123
+#: admin/controllers/Themes.php:309 admin/views/Themes.php:1224
+#: admin/views/Themes.php:3568 admin/views/Themes.php:3996
 msgid "Left"
 msgstr "Vänster"
 
-#: admin/controllers/Themes.php:263 admin/controllers/Themes.php:315
+#: admin/controllers/Themes.php:287 admin/controllers/Themes.php:339
 msgid "Double"
 msgstr "Dubbel"
 
-#: admin/controllers/Themes.php:262
+#: admin/controllers/Themes.php:286
 msgid "Dashed"
 msgstr "Streckad"
 
-#: admin/controllers/Themes.php:261
+#: admin/controllers/Themes.php:285
 msgid "Dotted"
 msgstr "Prickad"
 
-#: admin/controllers/Themes.php:260
+#: admin/controllers/Themes.php:284
 msgid "Solid"
 msgstr "Solid"
 
-#: admin/controllers/Themes.php:259 admin/controllers/Themes.php:298
-#: admin/controllers/Themes.php:305 admin/controllers/WidgetSlideshow.php:44
-#: admin/views/Shortcode.php:381 admin/views/Options.php:855
-#: admin/views/Options.php:1013 admin/views/Options.php:1243
-#: admin/views/Options.php:1291 admin/views/Options.php:1517
-#: admin/views/Options.php:1751 admin/views/Options.php:2339
+#: admin/controllers/Themes.php:283 admin/controllers/Themes.php:322
+#: admin/controllers/Themes.php:329 admin/controllers/WidgetSlideshow.php:44
+#: admin/views/Options.php:773 admin/views/Options.php:931
+#: admin/views/Options.php:1166 admin/views/Options.php:1214
+#: admin/views/Options.php:1425 admin/views/Options.php:1654
+#: admin/views/Options.php:1946 admin/views/Options.php:2245
+#: admin/views/Shortcode.php:366
 msgid "None"
 msgstr "Ingen"
 
-#: admin/controllers/Themes.php:254 admin/controllers/Shortcode.php:46
-#: admin/controllers/Options.php:59 admin/views/Shortcode.php:140
-#: admin/views/Options.php:498 admin/views/Options.php:2884
-#: admin/views/Options.php:3419 photo-gallery.php:1648
+#: admin/controllers/Options.php:63 admin/controllers/Shortcode.php:46
+#: admin/controllers/Themes.php:278 admin/views/Galleries.php:218
+#: admin/views/Options.php:490 admin/views/Options.php:2823
+#: admin/views/Options.php:3351 admin/views/Shortcode.php:130
+#: photo-gallery.php:1635
 msgid "Carousel"
 msgstr "Karusell"
 
-#: admin/controllers/Themes.php:253
+#: admin/controllers/Themes.php:277
 msgid "Navigation"
 msgstr "Navigation"
 
-#: admin/controllers/Themes.php:252 admin/views/WidgetTags.php:96
-#: admin/views/Options.php:101 photo-gallery.php:1570 photo-gallery.php:1640
+#: admin/controllers/Themes.php:276 admin/views/Options.php:98
+#: admin/views/WidgetTags.php:96 photo-gallery.php:1557 photo-gallery.php:1627
 msgid "Lightbox"
 msgstr "Lightbox"
 
-#: admin/controllers/Themes.php:251
+#: admin/controllers/Themes.php:275
 msgid "Blog style"
 msgstr "Bloggstil"
 
-#: admin/controllers/Themes.php:246 admin/controllers/Shortcode.php:43
-#: admin/controllers/Options.php:56 admin/views/Shortcode.php:110
-#: admin/views/Options.php:465 admin/views/Options.php:2881
-#: admin/views/Options.php:3416 photo-gallery.php:1578 photo-gallery.php:1616
+#: admin/controllers/Options.php:60 admin/controllers/Shortcode.php:43
+#: admin/controllers/Themes.php:270 admin/views/Galleries.php:206
+#: admin/views/Options.php:460 admin/views/Options.php:2820
+#: admin/views/Options.php:3348 admin/views/Shortcode.php:103
+#: photo-gallery.php:1565 photo-gallery.php:1603
 msgid "Slideshow"
 msgstr "Bildspel"
 
-#: admin/controllers/Themes.php:245 admin/controllers/Shortcode.php:42
-#: admin/controllers/Options.php:55 admin/views/Shortcode.php:98
-#: admin/views/Options.php:452 admin/views/Options.php:2880
-#: admin/views/Options.php:3415 photo-gallery.php:1612
+#: admin/controllers/Options.php:59 admin/controllers/Shortcode.php:42
+#: admin/controllers/Themes.php:269 admin/views/Galleries.php:202
+#: admin/views/Options.php:450 admin/views/Options.php:2819
+#: admin/views/Options.php:3347 admin/views/Shortcode.php:94
+#: photo-gallery.php:1599
 msgid "Mosaic"
 msgstr "Mosaik"
 
-#: admin/controllers/Themes.php:243 admin/views/Widget.php:137
-#: admin/views/Options.php:2878 admin/views/Options.php:3413
+#: admin/controllers/Themes.php:267 admin/views/Options.php:2817
+#: admin/views/Options.php:3345 admin/views/Widget.php:136
 msgid "Thumbnail"
 msgstr "Miniatyr"
 
-#: admin/controllers/Themes.php:88 photo-gallery.php:491
+#: admin/controllers/Themes.php:88 photo-gallery.php:499
 msgid "Themes"
 msgstr "Teman"
 
-#: admin/controllers/Themes.php:43 admin/controllers/Albums.php:50
-#: admin/controllers/Galleries.php:46 admin/views/Themes.php:225
-#: admin/views/Albums.php:115 admin/views/Galleries.php:122
-#: admin/views/Galleries.php:758 framework/WDWLibrary.php:2619
+#: admin/controllers/Albums.php:50 admin/controllers/Galleries.php:46
+#: admin/controllers/Themes.php:43 admin/views/Albums.php:115
+#: admin/views/Galleries.php:122 admin/views/Galleries.php:764
+#: admin/views/Themes.php:96 framework/WDWLibrary.php:2764
 msgid "Delete"
 msgstr "Ta bort"
 
-#: frontend/views/view.php:486 admin/views/Options.php:1329
-#: admin/views/Options.php:1555 admin/views/Options.php:1789
-#: admin/views/Options.php:1984 admin/views/Options.php:2222
-#: admin/views/Options.php:2379 admin/views/Options.php:2554
-#: admin/views/Options.php:2780 admin/views/Options.php:3078
-#: admin/views/Options.php:3316 admin/views/Galleries.php:730
+#: admin/views/Galleries.php:732 admin/views/Options.php:1252
+#: admin/views/Options.php:1463 admin/views/Options.php:1692
+#: admin/views/Options.php:1885 admin/views/Options.php:2130
+#: admin/views/Options.php:2283 admin/views/Options.php:2486
+#: admin/views/Options.php:2701 admin/views/Options.php:2719
+#: admin/views/Options.php:2992 admin/views/Options.php:3010
+#: admin/views/Options.php:3230 admin/views/Options.php:3248
+#: frontend/views/view.php:520
 msgid "Date"
 msgstr "Datum"
 
-#: frontend/views/BWGViewGalleryBox.php:1287
+#: frontend/views/BWGViewGalleryBox.php:1309
 msgid "View cart"
 msgstr "Visa varukorg"
 
-#: frontend/views/BWGViewGalleryBox.php:1248
+#: frontend/views/BWGViewGalleryBox.php:1270
 msgid "Choose"
 msgstr "Välj"
 
-#: frontend/views/BWGViewGalleryBox.php:1246
+#: frontend/views/BWGViewGalleryBox.php:1268
 msgid "Dimensions"
 msgstr "Dimensioner"
 
-#: frontend/views/BWGViewGalleryBox.php:1235
-#: frontend/views/BWGViewGalleryBox.php:1279
+#: frontend/views/BWGViewGalleryBox.php:1257
+#: frontend/views/BWGViewGalleryBox.php:1301
 msgid "Total"
 msgstr "Totalt"
 
-#: frontend/views/BWGViewGalleryBox.php:1155
+#: frontend/views/BWGViewGalleryBox.php:1177
 msgid "Count"
 msgstr "Antal"
 
-#: frontend/views/BWGViewGalleryBox.php:1146 admin/views/Albums.php:258
-#: admin/views/Galleries.php:301 admin/views/Galleries.php:772
+#: admin/views/Albums.php:294 admin/views/Galleries.php:346
+#: admin/views/Galleries.php:778 frontend/views/BWGViewGalleryBox.php:1168
 msgid "Description"
 msgstr "Beskrivning"
 
-#: frontend/views/BWGViewGalleryBox.php:1135
-#: frontend/views/BWGViewGalleryBox.php:1247
+#: frontend/views/BWGViewGalleryBox.php:1157
+#: frontend/views/BWGViewGalleryBox.php:1269
 msgid "Price"
 msgstr "Pris"
 
-#: frontend/views/BWGViewGalleryBox.php:1121
+#: frontend/views/BWGViewGalleryBox.php:1143
 msgid "Downloads"
 msgstr "Nedladdningar"
 
-#: frontend/views/BWGViewGalleryBox.php:1103
-#: frontend/views/BWGViewGalleryBox.php:1286
+#: frontend/views/BWGViewGalleryBox.php:1125
+#: frontend/views/BWGViewGalleryBox.php:1308
 msgid "Add to cart"
 msgstr "Lägg till i varukorg"
 
-#: frontend/views/BWGViewGalleryBox.php:1060
+#: frontend/views/BWGViewGalleryBox.php:1082
 msgid "Submit"
 msgstr "Skicka"
 
-#: frontend/views/BWGViewGalleryBox.php:1051
+#: booster/view.php:169 booster/view.php:445
+#: frontend/views/BWGViewGalleryBox.php:1073
 #: wd/templates/display_subscribe.php:39
 msgid "Privacy Policy"
 msgstr "Integritetspolicy"
 
-#: frontend/views/BWGViewGalleryBox.php:1027
+#: frontend/views/BWGViewGalleryBox.php:1049
 msgid "Verification Code"
 msgstr "Verifieringskod"
 
-#: frontend/views/BWGViewGalleryBox.php:1016
+#: frontend/views/BWGViewGalleryBox.php:1041
 msgid "Email"
 msgstr "E-post"
 
-#: frontend/views/BWGViewGalleryBox.php:827
-#: frontend/views/BWGViewGalleryBox.php:828
+#: frontend/views/BWGViewBlog_style.php:180
+#: frontend/views/BWGViewBlog_style.php:181
+#: frontend/views/BWGViewGalleryBox.php:831
+#: frontend/views/BWGViewGalleryBox.php:832
 msgid "Share on Tumblr"
 msgstr "Dela på Tumblr"
 
-#: frontend/views/BWGViewGalleryBox.php:820
-#: frontend/views/BWGViewGalleryBox.php:821
+#: frontend/views/BWGViewBlog_style.php:173
+#: frontend/views/BWGViewBlog_style.php:174
+#: frontend/views/BWGViewGalleryBox.php:824
+#: frontend/views/BWGViewGalleryBox.php:825
 msgid "Share on Pinterest"
 msgstr "Dela på Pinterest"
 
-#: frontend/views/BWGViewGalleryBox.php:813
-#: frontend/views/BWGViewGalleryBox.php:814
+#: frontend/views/BWGViewBlog_style.php:166
+#: frontend/views/BWGViewBlog_style.php:167
+#: frontend/views/BWGViewGalleryBox.php:817
+#: frontend/views/BWGViewGalleryBox.php:818
 msgid "Share on Twitter"
 msgstr "Dela på Twitter"
 
-#: frontend/views/BWGViewGalleryBox.php:806
-#: frontend/views/BWGViewGalleryBox.php:807
+#: frontend/views/BWGViewBlog_style.php:159
+#: frontend/views/BWGViewBlog_style.php:160
+#: frontend/views/BWGViewGalleryBox.php:810
+#: frontend/views/BWGViewGalleryBox.php:811
 msgid "Share on Facebook"
 msgstr "Dela på Facebook"
 
-#: frontend/views/BWGViewGalleryBox.php:796
+#: frontend/views/BWGViewBlog_style.php:150
+#: frontend/views/BWGViewGalleryBox.php:797
 msgid "Show comments"
 msgstr "Visa kommentarer"
 
@@ -1853,8 +2300,8 @@ msgstr "Visa kommentarer"
 msgid "Select Files"
 msgstr "Välj filer"
 
-#: filemanager/view.php:249 admin/views/Options.php:883
-#: admin/views/Options.php:1036
+#: admin/views/Options.php:799 admin/views/Options.php:954
+#: filemanager/view.php:249
 msgid "or"
 msgstr "eller"
 
@@ -1866,27 +2313,26 @@ msgstr "Bild:"
 msgid "Thumbnail:"
 msgstr "Miniatyr:"
 
-#: filemanager/view.php:221 filemanager/view.php:222
-#: admin/views/Galleries.php:448 admin/views/Galleries.php:481
-#: admin/views/Galleries.php:538 admin/views/Galleries.php:559
-#: admin/views/Galleries.php:578 admin/views/Galleries.php:598
-#: photo-gallery.php:1452
+#: admin/views/Galleries.php:470 admin/views/Galleries.php:510
+#: admin/views/Galleries.php:531 admin/views/Galleries.php:550
+#: admin/views/Galleries.php:570 filemanager/view.php:221
+#: filemanager/view.php:222 photo-gallery.php:1439
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: filemanager/view.php:216 admin/views/Albums.php:217
-#: admin/views/Albums.php:304 admin/views/Galleries.php:256
+#: admin/views/Albums.php:250 admin/views/Albums.php:344
+#: admin/views/Galleries.php:301 filemanager/view.php:216
 msgid "Add"
 msgstr "Lägg till"
 
-#: filemanager/view.php:208 admin/views/AdminView.php:337
+#: admin/views/AdminView.php:337 filemanager/view.php:208
 msgid "Select All"
 msgstr "Välj alla"
 
-#: filemanager/view.php:138 frontend/views/BWGViewGalleryBox.php:1010
-#: frontend/views/BWGViewGalleryBox.php:1131
-#: frontend/views/BWGViewGalleryBox.php:1245 admin/views/AddTags.php:70
-#: admin/views/AddTags.php:88
+#: admin/views/AddTags.php:81 admin/views/AddTags.php:99
+#: filemanager/view.php:138 frontend/views/BWGViewGalleryBox.php:1036
+#: frontend/views/BWGViewGalleryBox.php:1153
+#: frontend/views/BWGViewGalleryBox.php:1267
 msgid "Name"
 msgstr "Namn"
 
@@ -1922,35 +2368,35 @@ msgstr "Upp"
 msgid "Enter new name"
 msgstr "Ange nytt namn"
 
-#: admin/views/Themes.php:510 admin/views/Themes.php:807
-#: admin/views/Themes.php:1080 admin/views/Themes.php:1656
-#: admin/views/Themes.php:2048 admin/views/Themes.php:2920
-#: admin/views/Themes.php:3109 admin/views/Themes.php:4436
+#: admin/views/Themes.php:383 admin/views/Themes.php:680
+#: admin/views/Themes.php:953 admin/views/Themes.php:1529
+#: admin/views/Themes.php:1921 admin/views/Themes.php:2793
+#: admin/views/Themes.php:2982 admin/views/Themes.php:4309
 msgid "Alignment:"
 msgstr "Justering:"
 
-#: admin/views/Themes.php:539 admin/views/Themes.php:1350
-#: admin/views/Themes.php:1752 admin/views/Themes.php:2077
-#: admin/views/Themes.php:3414 admin/views/Themes.php:3694
-#: admin/views/Themes.php:3782 admin/views/Themes.php:3850
-#: admin/views/Themes.php:3974 admin/views/Themes.php:4432
+#: admin/views/Themes.php:412 admin/views/Themes.php:1223
+#: admin/views/Themes.php:1625 admin/views/Themes.php:1950
+#: admin/views/Themes.php:3287 admin/views/Themes.php:3567
+#: admin/views/Themes.php:3655 admin/views/Themes.php:3723
+#: admin/views/Themes.php:3847 admin/views/Themes.php:4305
 msgid "Bottom"
 msgstr "Botten"
 
-#: admin/views/Themes.php:537 admin/views/Themes.php:1348
-#: admin/views/Themes.php:1750 admin/views/Themes.php:2075
-#: admin/views/Themes.php:3412 admin/views/Themes.php:3692
-#: admin/views/Themes.php:3780 admin/views/Themes.php:3848
-#: admin/views/Themes.php:3972 admin/views/Themes.php:4430
+#: admin/views/Themes.php:410 admin/views/Themes.php:1221
+#: admin/views/Themes.php:1623 admin/views/Themes.php:1948
+#: admin/views/Themes.php:3285 admin/views/Themes.php:3565
+#: admin/views/Themes.php:3653 admin/views/Themes.php:3721
+#: admin/views/Themes.php:3845 admin/views/Themes.php:4303
 msgid "Top"
 msgstr "Toppen"
 
 #: admin/controllers/Uninstall.php:59 admin/controllers/Uninstall.php:100
-#: admin/views/Options.php:399
+#: admin/views/Options.php:400
 msgid "Uninstall %s"
 msgstr "Avinstallera %s"
 
-#: admin/controllers/WidgetSlideshow.php:47 admin/views/Options.php:1246
+#: admin/controllers/WidgetSlideshow.php:47 admin/views/Options.php:1169
 msgid "Fade"
 msgstr "Tona"
 
@@ -1958,24 +2404,26 @@ msgstr "Tona"
 msgid "Galleries / Gallery groups"
 msgstr "Gallerier/gallerigrupper"
 
-#: admin/controllers/Shortcode.php:51 admin/controllers/Options.php:64
-#: admin/views/Shortcode.php:209 admin/views/Options.php:599
+#: admin/controllers/Options.php:68 admin/controllers/Shortcode.php:51
+#: admin/views/Albums.php:187 admin/views/Options.php:588
+#: admin/views/Shortcode.php:196
 msgid "Extended"
 msgstr "Utöka"
 
-#: admin/controllers/Shortcode.php:49 admin/controllers/Options.php:62
-#: admin/views/Shortcode.php:188 admin/views/Options.php:575
+#: admin/controllers/Options.php:66 admin/controllers/Shortcode.php:49
+#: admin/views/Albums.php:179 admin/views/Options.php:567
+#: admin/views/Shortcode.php:178
 msgid "Compact"
 msgstr "Kompakt"
 
-#: admin/controllers/Shortcode.php:45 admin/controllers/Options.php:58
-#: admin/views/Shortcode.php:128 admin/views/Options.php:485
-#: admin/views/Options.php:2883 admin/views/Options.php:3418
-#: photo-gallery.php:1636
+#: admin/controllers/Options.php:62 admin/controllers/Shortcode.php:45
+#: admin/views/Galleries.php:214 admin/views/Options.php:480
+#: admin/views/Options.php:2822 admin/views/Options.php:3350
+#: admin/views/Shortcode.php:121 photo-gallery.php:1623
 msgid "Blog Style"
 msgstr "Bloggstil"
 
-#: admin/controllers/Albums.php:95 photo-gallery.php:484
+#: admin/controllers/Albums.php:95 photo-gallery.php:492
 msgid "Gallery Groups"
 msgstr "Gallerigrupper"
 
@@ -1983,73 +2431,71 @@ msgstr "Gallerigrupper"
 msgid "duplicate"
 msgstr "duplicera"
 
-#: admin/controllers/Themes.php:250
+#: admin/controllers/Themes.php:274
 msgid "Extended album"
 msgstr "Utökat album"
 
-#: admin/controllers/Themes.php:249
+#: admin/controllers/Themes.php:273
 msgid "Masonry album"
 msgstr "Mosaikalbum"
 
-#: admin/controllers/Themes.php:248
+#: admin/controllers/Themes.php:272
 msgid "Compact album"
 msgstr "Kompakt album"
 
-#: admin/controllers/Themes.php:244 admin/controllers/Shortcode.php:41
-#: admin/controllers/Shortcode.php:50 admin/controllers/Options.php:54
-#: admin/controllers/Options.php:63 admin/views/Widget.php:138
-#: admin/views/Shortcode.php:86 admin/views/Shortcode.php:197
-#: admin/views/Options.php:439 admin/views/Options.php:586
-#: admin/views/Options.php:2879 admin/views/Options.php:3414
-#: photo-gallery.php:1608
+#: admin/controllers/Options.php:58 admin/controllers/Options.php:67
+#: admin/controllers/Shortcode.php:41 admin/controllers/Shortcode.php:50
+#: admin/controllers/Themes.php:268 admin/views/Albums.php:183
+#: admin/views/Galleries.php:198 admin/views/Options.php:440
+#: admin/views/Options.php:578 admin/views/Options.php:2818
+#: admin/views/Options.php:3346 admin/views/Shortcode.php:85
+#: admin/views/Shortcode.php:187 admin/views/Widget.php:137
+#: photo-gallery.php:1595
 msgid "Masonry"
 msgstr "Mosaik"
 
-#: admin/controllers/Themes.php:44 admin/controllers/Albums.php:51
-#: admin/controllers/Galleries.php:47 framework/WDWLibrary.php:2620
+#: admin/controllers/Albums.php:51 admin/controllers/Galleries.php:47
+#: admin/controllers/Themes.php:44 framework/WDWLibrary.php:2765
 msgid "deleted"
 msgstr "borttagen"
 
-#: admin/controllers/Themes.php:40 admin/controllers/Galleries.php:43
+#: admin/controllers/Galleries.php:43 admin/controllers/Themes.php:40
 msgid "duplicated"
 msgstr "duplicerad"
 
-#: admin/controllers/Themes.php:39 admin/controllers/Albums.php:46
-#: admin/controllers/Galleries.php:42 admin/views/Themes.php:224
-#: admin/views/Albums.php:114 admin/views/Galleries.php:123
+#: admin/controllers/Albums.php:46 admin/controllers/Galleries.php:42
+#: admin/controllers/Themes.php:39 admin/views/Albums.php:114
+#: admin/views/Galleries.php:123 admin/views/Themes.php:95
 msgid "Duplicate"
 msgstr "Duplicera"
 
-#: frontend/views/view.php:432 frontend/views/view.php:441
-#: photo-gallery.php:1438
-msgid "SEARCH..."
-msgstr "SÖK…"
-
-#: frontend/views/view.php:378
+#: frontend/views/view.php:412
 msgid "Download gallery"
 msgstr "Ladda ner galleri"
 
-#: frontend/views/view.php:129 frontend/views/view.php:231
+#: frontend/views/view.php:165 frontend/views/view.php:267
 msgid "No Images found."
 msgstr "Inga bilder hittades."
 
-#: frontend/views/view.php:126 frontend/views/view.php:228
+#: frontend/views/view.php:162 frontend/views/view.php:264
 msgid "There are no images."
 msgstr "Det finns inga bilder."
 
-#: frontend/views/BWGViewThumbnails.php:44
+#: frontend/views/BWGViewThumbnails.php:45
+#: frontend/views/BWGViewThumbnails_masonry.php:54
+#: frontend/views/BWGViewThumbnails_mosaic.php:104
 msgid "Open"
 msgstr "Öppna"
 
-#: frontend/views/BWGViewGalleryBox.php:1394
+#: frontend/views/BWGViewGalleryBox.php:1423
 msgid "Delete Comment"
 msgstr "Ta bort kommentar"
 
-#: frontend/views/BWGViewGalleryBox.php:798 photo-gallery.php:1450
+#: frontend/views/BWGViewGalleryBox.php:799 photo-gallery.php:1437
 msgid "Show rating"
 msgstr "Visa betyg"
 
-#: frontend/controllers/BWGControllerGalleryBox.php:101
+#: frontend/controllers/BWGControllerGalleryBox.php:106
 msgid "Incorrect Security code."
 msgstr "Felaktig säkerhetskod."
 
@@ -2069,97 +2515,196 @@ msgstr "Inga filer att ladda upp"
 msgid "Drag files here"
 msgstr "Dra filer hit"
 
-#: filemanager/controller.php:275
+#: filemanager/controller.php:305
 msgid "File doesn't exist."
 msgstr "Fil finns inte."
 
-#: filemanager/controller.php:177
+#: filemanager/controller.php:205
 msgid "Directory already exists."
 msgstr "Katalog finns redan."
 
-#: filemanager/controller.php:279 filemanager/controller.php:338
-#: filemanager/controller.php:378
+#: filemanager/controller.php:309 filemanager/controller.php:370
+#: filemanager/controller.php:410
 msgid "Can't rename the file."
 msgstr "Kan inte byta namn på filen."
 
-#: filemanager/controller.php:417
+#: filemanager/controller.php:454
 msgid "Some of the files couldn't be removed."
 msgstr "Några av filerna kunde inte tas bort."
 
-#: filemanager/controller.php:528
+#: filemanager/controller.php:568
 msgid "Failed to copy some of the files."
 msgstr "Misslyckades att kopiera några av filerna."
 
 #. Author URI of the plugin
+#: photo-gallery.php
 msgid "https://10web.io/plugins/?utm_source=photo_gallery&utm_medium=free_plugin"
 msgstr "https://10web.io/plugins/?utm_source=photo_gallery&utm_medium=free_plugin"
 
 #. Plugin URI of the plugin
+#: photo-gallery.php
 msgid "https://10web.io/plugins/wordpress-photo-gallery/?utm_source=photo_gallery&utm_medium=free_plugin"
 msgstr "https://10web.io/plugins/wordpress-photo-gallery/?utm_source=photo_gallery&utm_medium=free_plugin"
 
 #. Author of the plugin
+#: photo-gallery.php
 msgid "Photo Gallery Team"
 msgstr "Photo Gallery Team"
 
-#: frontend/controllers/BWGControllerGalleryBox.php:75
 #: frontend/controllers/BWGControllerGalleryBox.php:80
-#: frontend/controllers/BWGControllerGalleryBox.php:89
-#: frontend/controllers/BWGControllerGalleryBox.php:97
-#: frontend/controllers/BWGControllerGalleryBox.php:107
+#: frontend/controllers/BWGControllerGalleryBox.php:85
+#: frontend/controllers/BWGControllerGalleryBox.php:94
+#: frontend/controllers/BWGControllerGalleryBox.php:102
+#: frontend/controllers/BWGControllerGalleryBox.php:112
 msgid "The %s field is required."
 msgstr "Fältet %s är obligatoriskt."
 
-#: admin/views/Themes.php:1670 admin/views/Themes.php:2420
-#: admin/views/Themes.php:3123 admin/views/Themes.php:4374
-#: admin/views/Themes.php:4825
+#: admin/views/Themes.php:1543 admin/views/Themes.php:2293
+#: admin/views/Themes.php:2996 admin/views/Themes.php:4247
+#: admin/views/Themes.php:4698
 msgid "Margin:"
 msgstr "Marginal:"
 
-#: admin/views/Themes.php:1226 admin/views/Themes.php:1717
-#: admin/views/Themes.php:2433 admin/views/Themes.php:3096
-#: admin/views/Themes.php:4483
+#: admin/views/Themes.php:1099 admin/views/Themes.php:1590
+#: admin/views/Themes.php:2306 admin/views/Themes.php:2969
+#: admin/views/Themes.php:4356
 msgid "Background color:"
 msgstr "Bakgrundsfärg:"
 
-#: admin/views/Themes.php:389 admin/views/Themes.php:1677
-#: admin/views/Themes.php:1928 admin/views/Themes.php:2427
-#: admin/views/Themes.php:3130 admin/views/Themes.php:4381
-#: admin/views/Themes.php:4832
+#: admin/views/Themes.php:262 admin/views/Themes.php:1550
+#: admin/views/Themes.php:1801 admin/views/Themes.php:2300
+#: admin/views/Themes.php:3003 admin/views/Themes.php:4254
+#: admin/views/Themes.php:4705
 msgid "Padding:"
 msgstr "Padding:"
 
-#: admin/views/Themes.php:415 admin/views/Themes.php:719
-#: admin/views/Themes.php:994 admin/views/Themes.php:1704
-#: admin/views/Themes.php:1955 admin/views/Themes.php:2839
-#: admin/views/Themes.php:3190 admin/views/Themes.php:4351
-#: admin/views/Themes.php:4855
+#: admin/views/Themes.php:288 admin/views/Themes.php:592
+#: admin/views/Themes.php:867 admin/views/Themes.php:1577
+#: admin/views/Themes.php:1828 admin/views/Themes.php:2712
+#: admin/views/Themes.php:3063 admin/views/Themes.php:4224
+#: admin/views/Themes.php:4728
 msgid "Border color:"
 msgstr "Ramfärg:"
 
-#: admin/views/Themes.php:401 admin/views/Themes.php:705
-#: admin/views/Themes.php:980 admin/views/Themes.php:1690
-#: admin/views/Themes.php:1941 admin/views/Themes.php:2825
-#: admin/views/Themes.php:3176 admin/views/Themes.php:4337
-#: admin/views/Themes.php:4845
+#: admin/views/Themes.php:274 admin/views/Themes.php:578
+#: admin/views/Themes.php:853 admin/views/Themes.php:1563
+#: admin/views/Themes.php:1814 admin/views/Themes.php:2698
+#: admin/views/Themes.php:3049 admin/views/Themes.php:4210
+#: admin/views/Themes.php:4718
 msgid "Border style:"
 msgstr "Ramstil:"
 
-#: admin/views/Themes.php:395 admin/views/Themes.php:699
-#: admin/views/Themes.php:974 admin/views/Themes.php:1684
-#: admin/views/Themes.php:1935 admin/views/Themes.php:2819
-#: admin/views/Themes.php:3170 admin/views/Themes.php:4331
-#: admin/views/Themes.php:4839
+#: admin/views/Themes.php:268 admin/views/Themes.php:572
+#: admin/views/Themes.php:847 admin/views/Themes.php:1557
+#: admin/views/Themes.php:1808 admin/views/Themes.php:2692
+#: admin/views/Themes.php:3043 admin/views/Themes.php:4204
+#: admin/views/Themes.php:4712
 msgid "Border width:"
 msgstr "Rambredd:"
 
-#: admin/views/Themes.php:421 admin/views/Themes.php:725
-#: admin/views/Themes.php:1000 admin/views/Themes.php:1710
-#: admin/views/Themes.php:1961 admin/views/Themes.php:2446
-#: admin/views/Themes.php:2845 admin/views/Themes.php:3196
-#: admin/views/Themes.php:4357 admin/views/Themes.php:4859
+#: admin/views/Themes.php:294 admin/views/Themes.php:598
+#: admin/views/Themes.php:873 admin/views/Themes.php:1583
+#: admin/views/Themes.php:1834 admin/views/Themes.php:2319
+#: admin/views/Themes.php:2718 admin/views/Themes.php:3069
+#: admin/views/Themes.php:4230 admin/views/Themes.php:4732
 msgid "Border radius:"
 msgstr "Ramradie:"
+
+#: admin/views/Themes.php:1442
+msgid "Description color:"
+msgstr "Färg på beskrivning:"
+
+#: admin/views/Themes.php:1393
+msgid "Title font size: "
+msgstr "Textstorlek på rubrik:"
+
+#: admin/views/Themes.php:416 admin/views/Themes.php:700
+#: admin/views/Themes.php:977 admin/views/Themes.php:1954
+#: admin/views/Themes.php:2498 admin/views/Themes.php:2817
+#: admin/views/Themes.php:3949 admin/views/Themes.php:4556
+msgid "Title font size:"
+msgstr "Textstorlek på rubrik:"
+
+#: admin/views/Themes.php:359 admin/views/Themes.php:366
+#: admin/views/Themes.php:379 admin/views/Themes.php:656
+#: admin/views/Themes.php:663 admin/views/Themes.php:676
+#: admin/views/Themes.php:929 admin/views/Themes.php:936
+#: admin/views/Themes.php:949 admin/views/Themes.php:1126
+#: admin/views/Themes.php:1285 admin/views/Themes.php:1375
+#: admin/views/Themes.php:1418 admin/views/Themes.php:1482
+#: admin/views/Themes.php:1599 admin/views/Themes.php:1897
+#: admin/views/Themes.php:1904 admin/views/Themes.php:1917
+#: admin/views/Themes.php:2191 admin/views/Themes.php:2231
+#: admin/views/Themes.php:2315 admin/views/Themes.php:2776
+#: admin/views/Themes.php:2789 admin/views/Themes.php:2978
+#: admin/views/Themes.php:3147 admin/views/Themes.php:3247
+#: admin/views/Themes.php:3260 admin/views/Themes.php:3307
+#: admin/views/Themes.php:3334 admin/views/Themes.php:3628
+#: admin/views/Themes.php:3750 admin/views/Themes.php:3874
+#: admin/views/Themes.php:4270 admin/views/Themes.php:4365
+#: admin/views/Themes.php:4390 admin/views/Themes.php:4529
+msgid "Value must be between 0 to 100."
+msgstr "Värde måste vara mellan 0 till 100."
+
+#: admin/views/Options.php:52 admin/views/Themes.php:221
+msgid "Do you want to reset to default?"
+msgstr "Vill du återställa till standard?"
+
+#: admin/controllers/Albums.php:38 admin/controllers/Galleries.php:34
+#: admin/views/Albums.php:113 admin/views/Albums.php:205
+#: admin/views/Galleries.php:121 admin/views/Galleries.php:253
+#: admin/views/Galleries.php:757 framework/WDWLibrary.php:2754
+msgid "Publish"
+msgstr "Publicera"
+
+#: frontend/views/BWGViewGalleryBox.php:1084
+msgid "Your comment is awaiting moderation"
+msgstr "Din kommentar inväntar granskning."
+
+#: frontend/views/BWGViewGalleryBox.php:1045
+msgid "Comment"
+msgstr "Kommentera"
+
+#: filemanager/view.php:135
+msgid "Click to sort by name"
+msgstr "Klicka för att sortera efter namn"
+
+#: filemanager/view.php:97
+msgid "Make a directory"
+msgstr "Gör en katalog"
+
+#: filemanager/view.php:73
+msgid "Enter directory name"
+msgstr "Ange katalognamn"
+
+#: filemanager/controller.php:618
+msgid "Failed to move some of the files."
+msgstr "Misslyckades att flytta några av filerna."
+
+#: admin/views/Themes.php:1629
+msgid "Title alignment:"
+msgstr "Rubrikjustering:"
+
+#: admin/views/Themes.php:1117 admin/views/Themes.php:3099
+#: admin/views/Themes.php:4381
+msgid "Buttons color:"
+msgstr "Knappfärger:"
+
+#: admin/views/Themes.php:660 admin/views/Themes.php:933
+msgid "Transparency:"
+msgstr "Transparens:"
+
+#: admin/views/Themes.php:438 admin/views/Themes.php:722
+#: admin/views/Themes.php:999 admin/views/Themes.php:1976
+#: admin/views/Themes.php:2514 admin/views/Themes.php:2839
+#: admin/views/Themes.php:3935 admin/views/Themes.php:4568
+msgid "Title font weight:"
+msgstr "Rubrikens typsnittsvikt:"
+
+#: frontend/views/view.php:466 frontend/views/view.php:475
+#: photo-gallery.php:1425
+msgid "SEARCH..."
+msgstr "SÖK …"
 
 #: addons/addons.php:13
 msgid "Photo Gallery Export / Import"
@@ -2181,115 +2726,121 @@ msgstr "SKAFFA DENNA UTÖKNING"
 msgid "Photo Gallery Add-ons"
 msgstr "Photo Gallery-utökningar"
 
-#: frontend/views/view.php:796 admin/views/Widget.php:159
+#: framework/howto/data.php:79
+msgid "Attention:"
+msgstr "Observera:"
+
+#: admin/views/Widget.php:155 frontend/views/view.php:826
 msgid "First"
 msgstr "Först"
 
-#: frontend/views/view.php:797
+#: frontend/views/view.php:827
 msgid "Previous"
 msgstr "Föregående"
 
-#: frontend/views/view.php:798
+#: frontend/views/view.php:828
 msgid "Next"
 msgstr "Nästa"
 
-#: frontend/views/view.php:819
+#: frontend/views/view.php:853
 msgid "Go to the previous page"
 msgstr "Gå till föregående sida"
 
-#: frontend/views/view.php:823 admin/views/AdminView.php:288
-#: framework/WDWLibrary.php:478 framework/WDWLibrary.php:625
+#: admin/views/AdminView.php:288 framework/WDWLibrary.php:516
+#: framework/WDWLibrary.php:663 frontend/views/view.php:857
 msgid "of"
 msgstr "av"
 
-#: frontend/views/view.php:829
+#: frontend/views/view.php:863
 msgid "Go to the next page"
 msgstr "Gå till nästa sida"
 
-#: frontend/views/view.php:436 admin/views/Themes.php:352
-#: admin/views/Options.php:53 admin/views/Galleries.php:748
-#: framework/WDWLibrary.php:373 framework/WDWLibrary.php:525
-#: framework/WDWLibrary.php:2581
+#: admin/views/Galleries.php:754 admin/views/Options.php:51
+#: admin/views/Themes.php:226 framework/WDWLibrary.php:411
+#: framework/WDWLibrary.php:563 framework/WDWLibrary.php:2726
+#: frontend/views/view.php:470
 msgid "Reset"
 msgstr "Återställ"
 
-#: admin/views/AdminView.php:218 framework/WDWLibrary.php:372
-#: framework/WDWLibrary.php:524 photo-gallery.php:1429
+#: admin/views/AdminView.php:218 framework/WDWLibrary.php:410
+#: framework/WDWLibrary.php:562 photo-gallery.php:1416
 msgid "Search"
 msgstr "Sök"
 
-#: admin/views/Themes.php:200 admin/views/Themes.php:231
-#: admin/views/Themes.php:298 admin/views/Shortcode.php:429
-#: admin/views/Options.php:945 admin/views/Options.php:1327
-#: admin/views/Options.php:1553 admin/views/Options.php:1787
-#: admin/views/Options.php:1982 admin/views/Options.php:2220
-#: admin/views/Options.php:2377 admin/views/Options.php:2552
-#: admin/views/Options.php:2761 admin/views/Options.php:2778
-#: admin/views/Options.php:3059 admin/views/Options.php:3076
-#: admin/views/Options.php:3297 admin/views/Options.php:3314
+#: admin/views/Options.php:862 admin/views/Options.php:1250
+#: admin/views/Options.php:1461 admin/views/Options.php:1690
+#: admin/views/Options.php:1883 admin/views/Options.php:2128
+#: admin/views/Options.php:2281 admin/views/Options.php:2480
+#: admin/views/Options.php:2699 admin/views/Options.php:2717
+#: admin/views/Options.php:2990 admin/views/Options.php:3008
+#: admin/views/Options.php:3228 admin/views/Options.php:3246
+#: admin/views/Shortcode.php:416 admin/views/Themes.php:71
+#: admin/views/Themes.php:102 admin/views/Themes.php:173
 msgid "Default"
 msgstr "Standard"
 
-#: frontend/views/view.php:495 admin/controllers/WidgetSlideshow.php:59
-#: admin/views/Widget.php:158 admin/views/Options.php:1258
-#: admin/views/Options.php:1332 admin/views/Options.php:1558
-#: admin/views/Options.php:1792 admin/views/Options.php:1987
-#: admin/views/Options.php:2225 admin/views/Options.php:2382
-#: admin/views/Options.php:2557 admin/views/Options.php:2763
-#: admin/views/Options.php:2783 admin/views/Options.php:3061
-#: admin/views/Options.php:3081 admin/views/Options.php:3299
-#: admin/views/Options.php:3319
+#: admin/controllers/WidgetSlideshow.php:59 admin/views/Options.php:1181
+#: admin/views/Options.php:1255 admin/views/Options.php:1466
+#: admin/views/Options.php:1695 admin/views/Options.php:1888
+#: admin/views/Options.php:2133 admin/views/Options.php:2286
+#: admin/views/Options.php:2495 admin/views/Options.php:2702
+#: admin/views/Options.php:2722 admin/views/Options.php:2993
+#: admin/views/Options.php:3013 admin/views/Options.php:3231
+#: admin/views/Options.php:3251 admin/views/Widget.php:154
+#: frontend/views/view.php:529
 msgid "Random"
 msgstr "Slumpmässig"
 
-#: photo-gallery.php:1426
+#: photo-gallery.php:1413
 msgid "There are no images matching your search."
 msgstr "Det finns inga bilder som matchar din sökning."
 
-#: frontend/views/BWGViewGalleryBox.php:784
-#: frontend/views/BWGViewThumbnails.php:41 photo-gallery.php:1442
-#: photo-gallery.php:1445
+#: frontend/views/BWGViewGalleryBox.php:785
+#: frontend/views/BWGViewThumbnails.php:42
+#: frontend/views/BWGViewThumbnails_masonry.php:51
+#: frontend/views/BWGViewThumbnails_mosaic.php:87 photo-gallery.php:1429
+#: photo-gallery.php:1432
 msgid "Play"
 msgstr "Spela"
 
-#: frontend/views/BWGViewAlbum_extended_preview.php:160
-#: frontend/views/BWGViewAlbum_extended_preview.php:163
+#: frontend/views/BWGViewAlbum_extended_preview.php:172
+#: frontend/views/BWGViewAlbum_extended_preview.php:175
 msgid "More"
 msgstr "Mer"
 
-#: frontend/views/BWGViewGalleryBox.php:645
+#: frontend/views/BWGViewGalleryBox.php:635
 msgid "The image has been deleted."
 msgstr "Bilden har tagits bort."
 
-#: frontend/views/BWGViewGalleryBox.php:788 photo-gallery.php:1435
+#: frontend/views/BWGViewGalleryBox.php:789 photo-gallery.php:1422
 msgid "Maximize"
 msgstr "Maximera"
 
-#: frontend/views/BWGViewGalleryBox.php:794 photo-gallery.php:1448
+#: frontend/views/BWGViewGalleryBox.php:795 photo-gallery.php:1435
 msgid "Show info"
 msgstr "Visa info"
 
-#: frontend/views/BWGViewGalleryBox.php:835
+#: frontend/views/BWGViewGalleryBox.php:839
 msgid "Open image in original size."
 msgstr "Öppna bilden i originalstorlek. "
 
-#: photo-gallery.php:1432
+#: photo-gallery.php:1419
 msgid "Show Comments"
 msgstr "Visa kommentarer"
 
-#: photo-gallery.php:1434
+#: photo-gallery.php:1421
 msgid "Restore"
 msgstr "Återställ"
 
-#: photo-gallery.php:1437
+#: photo-gallery.php:1424
 msgid "Exit Fullscreen"
 msgstr "Avsluta fullskärm"
 
-#: photo-gallery.php:1443 photo-gallery.php:1446
+#: photo-gallery.php:1430 photo-gallery.php:1433
 msgid "Pause"
 msgstr "Paus"
 
-#: photo-gallery.php:1425
+#: photo-gallery.php:1412
 msgid "This is not a valid email address."
 msgstr "Detta är inte en giltig e-postadress."
 
@@ -2313,12 +2864,13 @@ msgstr "Lämna en recension?"
 msgid "Never show again"
 msgstr "Visa aldrig igen"
 
-#: frontend/views/view.php:843
+#: frontend/views/view.php:877
 msgid "Load More..."
 msgstr "Ladda mer..."
 
 #. Plugin Name of the plugin
-#: admin/views/Widget.php:97 photo-gallery.php:111
+#: photo-gallery.php admin/controllers/elementorWidget.php:36
+#: admin/views/Widget.php:96 photo-gallery.php:114
 msgid "Photo Gallery"
 msgstr "Photo Gallery"
 
@@ -2326,75 +2878,76 @@ msgstr "Photo Gallery"
 msgid "We hope you've enjoyed using WordPress %s! Would you consider leaving us a review on WordPress.org?"
 msgstr "Vi hoppas att du har haft glädje av att använda WordPress %s! Skulle du kunna överväga att lämna oss en recension på WordPress.org?"
 
-#: frontend/views/BWGViewAlbum_extended_preview.php:161
+#: frontend/views/BWGViewAlbum_extended_preview.php:173
 msgid "Hide"
 msgstr "Dölj"
 
-#: filemanager/view.php:231 frontend/views/view.php:302
+#: filemanager/view.php:231 frontend/views/view.php:334
 msgid "Back"
 msgstr "Tillbaka"
 
-#: frontend/views/view.php:799 admin/views/Widget.php:160
+#: admin/views/Widget.php:156 frontend/views/view.php:829
 msgid "Last"
 msgstr "Sist"
 
-#: frontend/views/BWGViewGalleryBox.php:1006 photo-gallery.php:1433
+#: frontend/views/BWGViewGalleryBox.php:1032 photo-gallery.php:1420
 msgid "Hide Comments"
 msgstr "Dölj kommentarer"
 
-#: frontend/views/view.php:791
+#: frontend/views/view.php:821
 msgid " item(s)"
 msgstr "objekt"
 
 #. Description of the plugin
+#: photo-gallery.php
 msgid "This plugin is a fully responsive gallery plugin with advanced functionality.  It allows having different image galleries for your posts and pages. You can create unlimited number of galleries, combine them into albums, and provide descriptions and tags."
 msgstr "Detta tillägg är ett fullt responsivt bildgalleri och har avancerade funktioner. Det möjliggör olika bildgallerier för dina sidor och inlägg, Du kan skapa obegränsat antal gallerier, kombinera dem till album och lägga till beskrivningar och taggar."
 
-#: frontend/views/BWGViewGalleryBox.php:792 photo-gallery.php:1436
+#: frontend/views/BWGViewGalleryBox.php:793 photo-gallery.php:1423
 msgid "Fullscreen"
 msgstr "Fullskärm"
 
-#: filemanager/view.php:154 frontend/views/view.php:492
-#: admin/views/Options.php:1331 admin/views/Options.php:1557
-#: admin/views/Options.php:1791 admin/views/Options.php:1986
-#: admin/views/Options.php:2224 admin/views/Options.php:2381
-#: admin/views/Options.php:2556 admin/views/Options.php:2782
-#: admin/views/Options.php:3080 admin/views/Options.php:3318
-#: admin/views/Galleries.php:732
+#: admin/views/Galleries.php:737 admin/views/Options.php:1254
+#: admin/views/Options.php:1465 admin/views/Options.php:1694
+#: admin/views/Options.php:1887 admin/views/Options.php:2132
+#: admin/views/Options.php:2285 admin/views/Options.php:2492
+#: admin/views/Options.php:2721 admin/views/Options.php:3012
+#: admin/views/Options.php:3250 filemanager/view.php:154
+#: frontend/views/view.php:526
 msgid "Size"
 msgstr "Storlek"
 
-#: frontend/views/view.php:489 admin/views/Options.php:1330
-#: admin/views/Options.php:1556 admin/views/Options.php:1790
-#: admin/views/Options.php:1985 admin/views/Options.php:2223
-#: admin/views/Options.php:2380 admin/views/Options.php:2555
-#: admin/views/Options.php:2781 admin/views/Options.php:3079
-#: admin/views/Options.php:3317 admin/views/Galleries.php:651
-#: admin/views/Galleries.php:719
+#: admin/views/Galleries.php:625 admin/views/Galleries.php:694
+#: admin/views/Options.php:1253 admin/views/Options.php:1464
+#: admin/views/Options.php:1693 admin/views/Options.php:1886
+#: admin/views/Options.php:2131 admin/views/Options.php:2284
+#: admin/views/Options.php:2489 admin/views/Options.php:2720
+#: admin/views/Options.php:3011 admin/views/Options.php:3249
+#: frontend/views/view.php:523
 msgid "Filename"
 msgstr "Filnamn"
 
-#: frontend/views/view.php:830
+#: frontend/views/view.php:864
 msgid "Go to the last page"
 msgstr "Gå till sista sidan"
 
-#: frontend/views/view.php:818
+#: frontend/views/view.php:852
 msgid "Go to the first page"
 msgstr "Gå till första sidan"
 
-#: frontend/controllers/controller.php:281
-#: frontend/controllers/controller.php:315
+#: frontend/controllers/controller.php:286
+#: frontend/controllers/controller.php:325
 msgid "There is no gallery selected or the gallery was deleted."
 msgstr "Inget galleri har valts eller galleriet har tagits bort."
 
-#: photo-gallery.php:1447
+#: photo-gallery.php:1434
 msgid "Hide info"
 msgstr "Dölj info"
 
-#: frontend/views/BWGViewGalleryBox.php:850
+#: frontend/views/BWGViewGalleryBox.php:854
 msgid "Download original image"
 msgstr "Ladda ner originalbild"
 
-#: photo-gallery.php:631 photo-gallery.php:1424
+#: photo-gallery.php:652 photo-gallery.php:1411
 msgid "field is required."
 msgstr "fält är obligatoriskt."

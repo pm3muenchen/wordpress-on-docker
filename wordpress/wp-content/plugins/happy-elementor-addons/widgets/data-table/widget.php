@@ -10,14 +10,13 @@ namespace Happy_Addons\Elementor\Widget;
 use Elementor\Controls_Manager;
 use Elementor\Icons_Manager;
 use Elementor\Repeater;
-use Elementor\Scheme_Typography;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Background;
-use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Utils;
 use Elementor\Control_Media;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 
 defined('ABSPATH') || die();
 
@@ -53,9 +52,16 @@ class Data_Table extends Base {
 
 
 	/**
-	 * Register content related controls
-	 */
+     * Register widget content controls
+     */
 	protected function register_content_controls() {
+		$this->__table_head_content_controls();
+		$this->__table_row_content_controls();
+		$this->__table_settings_controls();
+	}
+
+	protected function __table_head_content_controls() {
+
 		$this->start_controls_section(
 			'_section_table_column',
 			[
@@ -221,18 +227,18 @@ class Data_Table extends Base {
 				'options' => [
 					'left' => [
 						'title' => __( 'Left', 'happy-elementor-addons' ),
-						'icon' => 'fa fa-align-left',
+						'icon' => 'eicon-text-align-left',
 					],
 					'center' => [
 						'title' => __( 'Center', 'happy-elementor-addons' ),
-						'icon' => 'fa fa-align-center',
+						'icon' => 'eicon-text-align-center',
 					],
 					'right' => [
 						'title' => __( 'Right', 'happy-elementor-addons' ),
-						'icon' => 'fa fa-align-right',
+						'icon' => 'eicon-text-align-right',
 					]
 				],
-				'default' => 'center',
+				'default' => 'left',
 				'toggle' => false,
 				'prefix_class' => 'ha-column-alignment-',
 				'selectors' => [
@@ -271,11 +277,14 @@ class Data_Table extends Base {
 		);
 
 		$this->end_controls_section();
+	}
+
+	protected function __table_row_content_controls() {
 
 		$this->start_controls_section(
 			'_section_table_row',
 			[
-				'label' => __( 'Row', 'happy-elementor-addons' ),
+				'label' => __( 'Table Row', 'happy-elementor-addons' ),
 				'tab' => Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -561,15 +570,15 @@ class Data_Table extends Base {
 				'options' => [
 					'left' => [
 						'title' => __( 'Left', 'happy-elementor-addons' ),
-						'icon' => 'fa fa-align-left',
+						'icon' => 'eicon-text-align-left',
 					],
 					'center' => [
 						'title' => __( 'Center', 'happy-elementor-addons' ),
-						'icon' => 'fa fa-align-center',
+						'icon' => 'eicon-text-align-center',
 					],
 					'right' => [
 						'title' => __( 'Right', 'happy-elementor-addons' ),
-						'icon' => 'fa fa-align-right',
+						'icon' => 'eicon-text-align-right',
 					]
 				],
 				'default' => 'left',
@@ -616,11 +625,57 @@ class Data_Table extends Base {
 
 	}
 
+	protected function __table_settings_controls() {
+		$this->start_controls_section(
+			'_section_table_settings',
+			[
+				'label' => __( 'Settings', 'happy-elementor-addons' ),
+				'tab' => Controls_Manager::TAB_CONTENT,
+			]
+		);
+
+		$this->add_control(
+			'show_responsive_scroll_view',
+			[
+				'label' => __( 'Enable Scroll View', 'happy-elementor-addons' ),
+				'type' => Controls_Manager::SWITCHER,
+				'label_on' => __( 'Yes', 'happy-elementor-addons' ),
+				'label_off' => __( 'No', 'happy-elementor-addons' ),
+				'return_value' => 'yes',
+				'default' => 'no',
+				'prefix_class' => 'ha-data-table-responsive-scroll-',
+				'description' => __('Enable the switch to activate horizontal scrolling on responsive view.', 'happy-elementor-addons'),
+			]
+		);
+		
+		$this->add_control(
+			'disable_word_wrap',
+			[
+				'label' => __( 'Disable Word Break', 'happy-elementor-addons' ),
+				'type' => Controls_Manager::SWITCHER,
+				'label_on' => __( 'Yes', 'happy-elementor-addons' ),
+				'label_off' => __( 'No', 'happy-elementor-addons' ),
+				'return_value' => 'yes',
+				'default' => 'yes',
+				'prefix_class' => 'ha-data-table-disable-wordwrap-',
+				'condition' => [ 'show_responsive_scroll_view' => 'yes' ],
+				'description' => __('The word break option effective only mobile screen view.', 'happy-elementor-addons'),
+			]
+		);
+
+		$this->end_controls_section();
+	}
+
 
 	/**
-	 * Register styles related controls
-	 */
+     * Register widget style controls
+     */
 	protected function register_style_controls() {
+		$this->__table_head_style_controls();
+		$this->__table_row_style_controls();
+	}
+
+	protected function __table_head_style_controls() {
 
 		$this->start_controls_section(
 			'_section_table_head',
@@ -689,7 +744,9 @@ class Data_Table extends Base {
 			[
 				'name' => 'head_typography',
 				'selector' => '{{WRAPPER}} .ha-table .ha-table__head-column-cell-text',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_3,
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_TEXT,
+				],
 			]
 		);
 
@@ -768,6 +825,9 @@ class Data_Table extends Base {
 		);
 
 		$this->end_controls_section();
+	}
+
+	protected function __table_row_style_controls() {
 
 		$this->start_controls_section(
 			'_section_table_row_style',
@@ -783,6 +843,13 @@ class Data_Table extends Base {
 				'label' => __( 'Padding', 'happy-elementor-addons' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
+				'default' => [
+					'top' => 10,
+					'right' => 10,
+					'bottom' => 10,
+					'left' => 10,
+					'unit' => 'px',
+				],
 				'selectors' => [
 					'(desktop){{WRAPPER}} .ha-table__body .ha-table__body-row-cell' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 					'(tablet){{WRAPPER}} .ha-table__body .ha-table__body-row-cell' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
@@ -963,7 +1030,9 @@ class Data_Table extends Base {
 			[
 				'name' => 'row_text_typography',
 				'selector' => '{{WRAPPER}} .ha-table__body .ha-table__body-row-cell-text',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_3,
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_TEXT,
+				],
 			]
 		);
 
@@ -1036,10 +1105,7 @@ class Data_Table extends Base {
 	}
 
 	protected function render() {
-		$this->data_table_render();
-	}
 
-	protected function data_table_render() {
 		$settings = $this->get_settings_for_display();
 
 		$table_row  = [];
@@ -1061,7 +1127,7 @@ class Data_Table extends Base {
 
 				$table_cell[] = [
 					'repeater_id'        => $row['_id'],
-					'row_id'             => $table_row[$cell_key]['id'],
+					'row_id'             => isset($table_row[$cell_key]['id'])? $table_row[$cell_key]['id']: '',
 					'title'              => $row['cell_name'],
 					'row_span'           => $row['row_span'],
 					'row_column_span'    => $row['row_column_span'],
@@ -1099,7 +1165,7 @@ class Data_Table extends Base {
 									<?php endif; ?>
 
 									<?php
-									if ( $column_cell['column_image']['url'] || $column_cell['column_image']['id'] ) :
+									if ( !empty($column_cell['column_image']['url']) || !empty($column_cell['column_image']['id']) ) :
 										$this->add_render_attribute( 'column_image', 'src', $column_cell['column_image']['url'] );
 										$this->add_render_attribute( 'column_image', 'alt', Control_Media::get_image_alt( $column_cell['column_image'] ) );
 										$this->add_render_attribute( 'column_image', 'title', Control_Media::get_image_title( $column_cell['column_image'] ) );
@@ -1156,7 +1222,7 @@ class Data_Table extends Base {
 										<?php endif; ?>
 
 										<?php
-										if ( $table_cell[$j]['row_image']['url'] || $table_cell[$j]['row_image']['id'] ) :
+										if ( !empty($table_cell[$j]['row_image']['url']) || !empty($table_cell[$j]['row_image']['id']) ) :
 											$image = wp_get_attachment_image_url( $table_cell[$j]['row_image']['id'], $table_cell[$j]['row_thumbnail_size'] );
 											if ( ! $image ) {
 												$image = $table_cell[$j]['row_image']['url'];

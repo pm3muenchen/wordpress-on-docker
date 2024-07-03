@@ -44,7 +44,7 @@ class Event_Elementor_Addon_Unique_Discussions extends Widget_Base{
 	 * Register Events Addon for Elementor Discussions widget controls.
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	*/
-	protected function _register_controls(){
+	protected function register_controls(){
 
 		$this->start_controls_section(
 			'section_active',
@@ -76,7 +76,7 @@ class Event_Elementor_Addon_Unique_Discussions extends Widget_Base{
 				'label' => esc_html__( 'Discussions Date ', 'events-addon-for-elementor' ),
 				'type' => Controls_Manager::DATE_TIME,
 				'picker_options' => [
-					'dateFormat' => 'M d, Y',
+					'dateFormat' => get_option( 'date_format' ),
 					'enableTime' => 'false',
 				],
 				'placeholder' => esc_html__( 'Aug 15, 2019', 'events-addon-for-elementor' ),
@@ -339,10 +339,6 @@ class Event_Elementor_Addon_Unique_Discussions extends Widget_Base{
 				[
 					'label' => esc_html__( 'Title Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_1,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .naeep-tab-links a span.title' => 'color: {{VALUE}};',
 					],
@@ -353,10 +349,6 @@ class Event_Elementor_Addon_Unique_Discussions extends Widget_Base{
 				[
 					'label' => esc_html__( 'Border Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_1,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .naeep-tab-links a' => 'border-color: {{VALUE}};',
 					],
@@ -384,10 +376,6 @@ class Event_Elementor_Addon_Unique_Discussions extends Widget_Base{
 				[
 					'label' => esc_html__( 'Border Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_2,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .naeep-tab-links li.active a:after' => 'background-color: {{VALUE}};',
 					],
@@ -468,7 +456,6 @@ class Event_Elementor_Addon_Unique_Discussions extends Widget_Base{
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'cat_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_3,
 				'selector' => '{{WRAPPER}} span.discussion-cat',
 			]
 		);
@@ -507,7 +494,6 @@ class Event_Elementor_Addon_Unique_Discussions extends Widget_Base{
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'date_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_3,
 				'selector' => '{{WRAPPER}} .naeep-discussion-tab h5',
 			]
 		);
@@ -516,10 +502,6 @@ class Event_Elementor_Addon_Unique_Discussions extends Widget_Base{
 			[
 				'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_3,
-				],
 				'selectors' => [
 					'{{WRAPPER}} .naeep-discussion-tab h5' => 'color: {{VALUE}};',
 				],
@@ -550,7 +532,6 @@ class Event_Elementor_Addon_Unique_Discussions extends Widget_Base{
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'title_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .naeep-discussion-tab .naeep-tab h2',
 			]
 		);
@@ -559,10 +540,6 @@ class Event_Elementor_Addon_Unique_Discussions extends Widget_Base{
 			[
 				'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
-				],
 				'selectors' => [
 					'{{WRAPPER}} .naeep-discussion-tab .naeep-tab h2' => 'color: {{VALUE}};',
 				],
@@ -593,7 +570,6 @@ class Event_Elementor_Addon_Unique_Discussions extends Widget_Base{
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'content_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_3,
 				'selector' => '{{WRAPPER}} .naeep-discussion-tab .naeep-tab p',
 			]
 		);
@@ -602,10 +578,6 @@ class Event_Elementor_Addon_Unique_Discussions extends Widget_Base{
 			[
 				'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_3,
-				],
 				'selectors' => [
 					'{{WRAPPER}} .naeep-discussion-tab .naeep-tab p' => 'color: {{VALUE}};',
 				],

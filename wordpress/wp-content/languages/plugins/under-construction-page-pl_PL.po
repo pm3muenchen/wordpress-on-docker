@@ -1,0 +1,709 @@
+# Translation of Plugins - Under Construction - Development (trunk) in Polish
+# This file is distributed under the same license as the Plugins - Under Construction - Development (trunk) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2024-05-02 04:39:49+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n == 1) ? 0 : ((n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14)) ? 1 : 2);\n"
+"X-Generator: GlotPress/4.0.1\n"
+"Language: pl\n"
+"Project-Id-Version: Plugins - Under Construction - Development (trunk)\n"
+
+#: under-construction.php:1782
+msgid "Photography"
+msgstr "Fotografia"
+
+#: under-construction.php:1778
+msgid "Sport Shop"
+msgstr "Sklep sportowy"
+
+#: under-construction.php:1786
+msgid "Stunning Nature"
+msgstr "Zachwycająca Natura"
+
+#: under-construction.php:1824
+msgid "Wedding"
+msgstr "Wesele"
+
+#: under-construction.php:1774
+msgid "Model Portfolio"
+msgstr "Portfolio modelingowe"
+
+#: under-construction.php:1946
+msgid "URL Based Rules"
+msgstr "Reguły oparte na adresach URL"
+
+#: under-construction.php:1823
+msgid "Research"
+msgstr "Badania"
+
+#: under-construction.php:348
+msgid "Weglot"
+msgstr "Weglot"
+
+#: under-construction.php:1821
+msgid "Grayscale City"
+msgstr "Miasto w odcieniach szarości."
+
+#: under-construction.php:1822
+msgid "Work Desk"
+msgstr "Biurko"
+
+#: under-construction.php:1820
+msgid "000webhost"
+msgstr "000webhost"
+
+#: under-construction.php:1740
+msgid "WhatsApp phone number in international format without + or 00 prefix."
+msgstr "Numer telefonu WhatsApp bez prefiksów (+ lub 00)."
+
+#: under-construction.php:1739
+msgid "123-456-789"
+msgstr "123-456-789"
+
+#: under-construction.php:1819
+msgid "Dumper Truck"
+msgstr "Śmieciarka"
+
+#: under-construction.php:1710
+msgid "Complete URL, with https prefix, to Behance profile."
+msgstr "Kompletny adres URL, z prefiksem https do profilu Behance."
+
+#: under-construction.php:1721
+msgid "VK profile URL"
+msgstr "URL do profilu VK"
+
+#: under-construction.php:1720
+msgid "VK Profile"
+msgstr "Profil VK"
+
+#: under-construction.php:1818
+msgid "Simple Green Animated"
+msgstr "Prosty Zielony Animowany"
+
+#: under-construction.php:1817
+msgid "Temporarily Closed"
+msgstr "Czasowo Zamknięta"
+
+#: under-construction.php:1815
+msgid "Pink Lips"
+msgstr "Różowe Usta"
+
+#: under-construction.php:1772
+msgid "Simple Office"
+msgstr "Proste Biuro"
+
+#: under-construction.php:1806
+msgid "Sunset"
+msgstr "Zachód Słońca"
+
+#: under-construction.php:1816
+msgid "Hard Worker"
+msgstr "Oddany Pracownik"
+
+#: under-construction.php:1809
+msgid "Fitness Studio Landing Page"
+msgstr "Strona Studia Fitness"
+
+#: under-construction.php:1794
+msgid "Soothing Nature"
+msgstr "Kojąca Natura"
+
+#: under-construction.php:1788
+msgid "Small Office"
+msgstr "Małe Biuro"
+
+#: under-construction.php:1803
+msgid "Forest in the Fog"
+msgstr "Las we Mgle"
+
+#: under-construction.php:1800
+msgid "Travel Blog"
+msgstr "Blog o Podróżach"
+
+#: under-construction.php:1770
+msgid "Simple Beige Text"
+msgstr "Prosty Beżowy Tekst"
+
+#: under-construction.php:1780
+msgid "Cloud Business"
+msgstr "Biznes w Chmurach"
+
+#: under-construction.php:2091 under-construction.php:2098
+msgid "License Status"
+msgstr "Status licencji"
+
+#: under-construction.php:2114
+msgid "Save &amp; Validate License Key"
+msgstr "Zapisz &amp; Sprawdź klucz licencyjny"
+
+#: under-construction.php:2071
+msgid "License Key"
+msgstr "Klucz licencji"
+
+#: under-construction.php:1919
+msgid "Secret Direct Access Links"
+msgstr "Tajny link bezpośredniego dostępu"
+
+#: under-construction.php:2223
+msgid "Features"
+msgstr "Możliwości"
+
+#: under-construction.php:1784
+msgid "Green Smoothie Webinar"
+msgstr "Zielony Smoothie Webinar"
+
+#: under-construction.php:1286
+msgid "License key saved and activated!"
+msgstr "Klucz licencyjny został zapisany i aktywowany!"
+
+#: under-construction.php:862 under-construction.php:880
+#: under-construction.php:898
+msgid "I'm not interested (remove this notice)"
+msgstr "Nie jestem zainteresowany (usuń to powiadomienie)"
+
+#: under-construction.php:347
+msgid "UnderConstructionPage PRO"
+msgstr "UnderConstructionPage PRO"
+
+#: under-construction.php:1460
+msgid "Prevent Search Engines from Indexing the Temporary Site"
+msgstr "Zapobiegaj indeksowaniu strony przez wyszukiwarki"
+
+#: under-construction.php:1278
+msgid "License key saved."
+msgstr "Klucz licencyjny został zapisany."
+
+#: under-construction.php:861
+msgid "Translate UCP into your language &amp; get a PRO license for free"
+msgstr "Przetłumacz UCP na swój język i otrzymaj bezpłatną licencję PRO"
+
+#: under-construction.php:1776
+msgid "The Watch Store"
+msgstr "Sklep z Zegarkami"
+
+#: under-construction.php:1812
+msgid "Mountain Peak"
+msgstr "Szczyt"
+
+#: under-construction.php:1632
+msgid "3rd Party Shortcode Support in Content"
+msgstr "Obsługa shortcode w treści przez stronę trzecią"
+
+#: under-construction.php:1467
+msgid "While performing maintenance or having any temporary content displayed, it is favorable for SEO to prevent search engines from indexing the temporaray site. This is a <a href=\"#\" class=\"open-ucp-upsell\" data-pro-ad=\"search_engines_text\">PRO feature</a>."
+msgstr "Podczas przeprowadzania konserwacji lub wyświetlania jakichkolwiek tymczasowych treści, korzystnie jest wyłączyć SEO, aby zapobiec indeksowaniu witryny tymczasowej przez wyszukiwarki. To jest <a href=\"#\" class=\"open-ucp-upsell\">funkcja PRO</a>."
+
+#: under-construction.php:1909
+msgid "Whitelisted IP Addresses"
+msgstr "Adresy IP umieszczone na białej liście"
+
+#: under-construction.php:1768 under-construction.php:1791
+msgid "Build Your Own Custom Theme"
+msgstr "Zbuduj swój własny niestandardowy motyw"
+
+#: under-construction.php:1814
+msgid "Christmas Greetings"
+msgstr "Życzenia Bożonarodzeniowe"
+
+#: under-construction.php:1498
+msgid "Reset all settings to default values"
+msgstr "Zresetuj wszystkie ustawienia do wartości domyślnych"
+
+#. Author of the plugin
+#: under-construction.php under-construction.php:1115
+msgid "WebFactory Ltd"
+msgstr "WebFactory Ltd"
+
+#. Description of the plugin
+#: under-construction.php
+msgid "Put your site behind a great looking under construction, coming soon, maintenance mode or landing page."
+msgstr "Umieść swoją witrynę jako świetnie wyglądającą stronę w trakcie budowy, Stronę \"coming soon\", tryb konserwacji lub stronę docelową."
+
+#: under-construction.php:1096
+msgid "Get the <b>PRO</b> version"
+msgstr "Pobierz wesję <b>PRO</b>"
+
+#: under-construction.php:1083
+msgid "Go <b>PRO</b>"
+msgstr "Włącz <b>PRO</b>"
+
+#: under-construction.php:1083 under-construction.php:1096
+#: under-construction.php:2222
+msgid "Get PRO"
+msgstr "Pobierz PRO"
+
+#: under-construction.php:1593
+msgid "Description"
+msgstr "Opis"
+
+#: under-construction.php:1579
+msgid "Title"
+msgstr "Tytuł"
+
+#: under-construction.php:1599
+msgid "Headline"
+msgstr "Nagłówek"
+
+#: under-construction.php:1680
+msgid "Complete URL, with https prefix, to LinkedIn profile page."
+msgstr "Uzupełnij link z prefiksem \"https\" do profilu LinkedIn."
+
+#: under-construction.php:1679
+msgid "LinkedIn profile page URL"
+msgstr "Link do profilu LinkedIn"
+
+#: under-construction.php:1678
+msgid "LinkedIn Profile"
+msgstr "Profil LinkedIn"
+
+#: under-construction.php:1674
+msgid "Complete URL, with https prefix, to Twitter profile page."
+msgstr "Uzupełnij link z prefiksem \"https\" do profilu na Twitterze. "
+
+#: under-construction.php:1673
+msgid "Twitter profile URL"
+msgstr "Link do profilu Twitter"
+
+#: under-construction.php:1672
+msgid "Twitter Profile"
+msgstr "Profil Twitter"
+
+#: under-construction.php:1668
+msgid "Complete URL, with https prefix, to Facebook page."
+msgstr "Uzupełnij link z prefiksem \"https\" do profilu Facebook. "
+
+#: under-construction.php:1722
+msgid "Complete URL, with https prefix, to VK profile."
+msgstr "Uzupełnij link z prefiksem \"https\" do profilu VK. "
+
+#: under-construction.php:1708
+msgid "Behance Profile"
+msgstr "Profil Behance"
+
+#: under-construction.php:1703
+msgid "Dribbble profile URL"
+msgstr "Link do profilu Dribbble"
+
+#: under-construction.php:1709
+msgid "Behance profile URL"
+msgstr "Link do profilu Behance"
+
+#: under-construction.php:1702
+msgid "Dribbble Profile"
+msgstr "Profil Dribbble"
+
+#: under-construction.php:1697
+msgid "Pinterest profile URL"
+msgstr "Link do profilu Printerest"
+
+#: under-construction.php:1745
+msgid "name@domain.com"
+msgstr "nazwa@domena.com"
+
+#: under-construction.php:1751
+msgid "+1-123-456-789"
+msgstr "+48-123-456-789"
+
+#: under-construction.php:1733
+msgid "Skype username or account name"
+msgstr "Nazwa użytkownika lub konta na Skype"
+
+#: under-construction.php:1734
+msgid "Skype username or account name."
+msgstr "Nazwa użytkownika lub konta na Skype."
+
+#: under-construction.php:1732
+msgid "Skype Username"
+msgstr "Nazwa użytkownika Skype"
+
+#: under-construction.php:1738
+msgid "WhatsApp Phone Number"
+msgstr "Numer Telefonu WhatsApp"
+
+#: under-construction.php:1728
+msgid "Complete URL, with https prefix to Telegram group, channel or account."
+msgstr "Pełny adres URL z prefiksem https do grupy Telegram, kanału lub konta."
+
+#: under-construction.php:1727
+msgid "Telegram group, channel or account URL"
+msgstr "Grupa Telegram, adres URL kanału lub konta"
+
+#: under-construction.php:1726
+msgid "Telegram Group, Channel or Account"
+msgstr "Grupa Telegram, Kanał lub Konto"
+
+#: under-construction.php:1714
+msgid "Instagram Profile"
+msgstr "Profil na Instagramie"
+
+#: under-construction.php:1704
+msgid "Complete URL, with https prefix, to Dribbble profile."
+msgstr "Pełny adres URL, z prefiksem http, do profilu Dribbble."
+
+#: under-construction.php:1698
+msgid "Complete URL, with https prefix, to Pinterest profile."
+msgstr "Pełny adres URL, z prefiksem http, do profilu na Pinterest."
+
+#: under-construction.php:1692
+msgid "Complete URL, with https prefix, to Vimeo page or video."
+msgstr "Pełny adres URL, z prefiksem http, do strony Vimeo lub wideo."
+
+#: under-construction.php:1691
+msgid "Vimeo page or video URL"
+msgstr "Strona Vimeo lub adres URL filmu"
+
+#: under-construction.php:1690
+msgid "Vimeo Profile Page or Video"
+msgstr "Strona profilu Vimeo lub Wideo"
+
+#: under-construction.php:1612
+msgid "Show Some Love"
+msgstr "Okaż Trochę Miłości"
+
+#: under-construction.php:1642
+msgid "Login Button"
+msgstr "Przycisk logowania"
+
+#: under-construction.php:1115
+msgid "Visit our site to get more great plugins"
+msgstr "Odwiedź naszą stronę, aby uzyskać więcej doskonałych wtyczek"
+
+#: under-construction.php:1115
+msgid "Visit UCP's site for more info"
+msgstr "Odwiedź stronę UCP, aby uzyskać więcej informacji"
+
+#: under-construction.php:1716
+msgid "Complete URL, with https prefix, to Instagram profile."
+msgstr "Pełny adres URL, z prefiksem http, do profilu na Instagramie."
+
+#: under-construction.php:1686
+msgid "Complete URL, with https prefix, to YouTube page or video."
+msgstr "Pełny adres URL, z prefiksem http, do Twojej strony YouTube lub filmu"
+
+#: under-construction.php:837
+msgid "Thank you very much! The UCP team"
+msgstr "Dziękuję Ci bardzo! Zespół UCP"
+
+#: under-construction.php:788
+msgid "Configure UnderConstructionPage"
+msgstr "Skonfiguruj stronę UnderConstructionPage"
+
+#: under-construction.php:788
+msgid "Preview UnderConstructionPage"
+msgstr "Podgląd UnderConstructionPage"
+
+#: under-construction.php:788
+msgid "<b>Under Construction Mode is enabled</b> but you are whitelisted so you see the normal site."
+msgstr "<b>Tryb budowy jest włączony</b>, ale jesteś na białej liście, więc widzisz normalną stronę."
+
+#: under-construction.php:441
+msgid "Please double-check your email address."
+msgstr "Proszę dokładnie sprawdzić swój adres e-mail."
+
+#: under-construction.php:1942
+msgid "Selected users (when logged in) will <b>not</b> be affected by the under construction mode and will always see the \"normal\" site."
+msgstr "Wybrani użytkownicy (po zalogowaniu) <b>nie będą</ b> widzieli trybu budowy i zawsze zobaczą \"normalną\" stronę."
+
+#: under-construction.php:1752
+msgid "Phone number in full international format."
+msgstr "Numer telefonu w pełnym formacie międzynarodowym."
+
+#: under-construction.php:1746
+msgid "Email will be encoded on the page to protect it from email address harvesters."
+msgstr "E-mail zostanie zakodowany na stronie, aby chronić go przed zbieraczami adresów e-mail."
+
+#: under-construction.php:1478
+msgid ""
+"If enabled, construction mode will automatically stop showing on the selected date.\n"
+"    This option will not \"auto-enable\" construction mode. Status has to be set to \"On\"."
+msgstr ""
+"Jeśli ta opcja jest włączona, tryb budowy automatycznie przestanie się wyświetlać w wybranym dniu\n"
+"Ta opcja nie \"włącza automatycznie\" trybu konstrukcyjnego. Status musi być ustawiony na \"Włączony\"."
+
+#: under-construction.php:1715
+msgid "Instagram profile URL"
+msgstr "Adres URL profilu na Instagramie"
+
+#: under-construction.php:1744
+msgid "Email Address"
+msgstr "Adres e-mail"
+
+#: under-construction.php:1750
+msgid "Phone Number"
+msgstr "Numer telefonu"
+
+#: under-construction.php:1496
+msgid "Reset Settings"
+msgstr "Zresetuj ustawienia"
+
+#: under-construction.php:1696
+msgid "Pinterest Profile"
+msgstr "Profil Pinteresta"
+
+#: under-construction.php:1666
+msgid "Facebook Page"
+msgstr "Strona na Facebooku"
+
+#: under-construction.php:1813
+msgid "Bulldozer at Work"
+msgstr "Buldożer w pracy"
+
+#: under-construction.php:2138
+msgid "PRO"
+msgstr "PRO"
+
+#: under-construction.php:1268
+msgid "Please enter a valid Google Analytics Tracking ID or disable tracking."
+msgstr "Podaj poprawny identyfikator śledzenia Google Analytics lub wyłącz śledzenie."
+
+#: under-construction.php:1811
+msgid "Clock"
+msgstr "Zegar"
+
+#: under-construction.php:1989
+msgid "Contact Support"
+msgstr "Kontakt z pomocą techniczną"
+
+#: under-construction.php:1810
+msgid "Stop"
+msgstr "Zatrzymaj"
+
+#: under-construction.php:1808
+msgid "Setup"
+msgstr "Konfiguracja"
+
+#: under-construction.php:1807
+msgid "Internet of Things"
+msgstr "Internet rzeczy"
+
+#: under-construction.php:1805
+msgid "Puzzles"
+msgstr "Puzzle"
+
+#: under-construction.php:1804
+msgid "Laptop"
+msgstr "Laptop"
+
+#: under-construction.php:1802
+msgid "Ambulance"
+msgstr "Ambulans"
+
+#: under-construction.php:1031
+msgid "Under construction mode is disabled"
+msgstr "Tryb w budowie jest wyłączony"
+
+#: under-construction.php:1024
+msgid "Under construction mode is enabled"
+msgstr "Tryb w budowie jest włączony"
+
+#: under-construction.php:835
+msgid "Help make the plugin better by rating it"
+msgstr "Pomóż ulepszyć wtyczkę, oceniając ją"
+
+#: under-construction.php:1028 under-construction.php:1035
+#: under-construction.php:1448
+msgid "Under Construction Mode"
+msgstr "Tryb w budowie"
+
+#: under-construction.php:1801
+msgid "Light Bulb"
+msgstr "Żarówka"
+
+#: under-construction.php:1061 under-construction.php:1082
+msgid "Settings"
+msgstr "Ustawienia"
+
+#: under-construction.php:836
+msgid "I've already rated the plugin"
+msgstr "Już oceniłem wtyczkę"
+
+#: under-construction.php:700
+msgid "Free UnderConstructionPage plugin for WordPress"
+msgstr "Darmowa wtyczka UnderConstructionPage dla WordPress"
+
+#: under-construction.php:1771
+msgid "Plain Text"
+msgstr "Zwykły tekst"
+
+#: under-construction.php:1769
+msgid "Mad Designer"
+msgstr "Szalony projektant"
+
+#: under-construction.php:1483
+msgid "Google Analytics Tracking"
+msgstr "Śledzenie Google Analytics"
+
+#: under-construction.php:1177
+msgid "Thank you for being patient. We are doing some work on the site and will be back shortly."
+msgstr "Dziękuję za cierpliwość. Pracujemy nad stroną i wkrótce wrócimy."
+
+#: under-construction.php:1176
+msgid "Sorry, we're doing some work on the site"
+msgstr "Przepraszamy, pracujemy nad stroną"
+
+#: under-construction.php:1095 under-construction.php:2137
+msgid "Support"
+msgstr "Pomoc"
+
+#: under-construction.php:677
+msgid "Log in to WordPress admin"
+msgstr "Zaloguj się do administratora WordPress"
+
+#: under-construction.php:674
+msgid "Open WordPress admin"
+msgstr "Otwórz admin WordPress"
+
+#: under-construction.php:342
+msgid "Select whitelisted user(s)"
+msgstr "Wybierz białą listę użytkowników"
+
+#: under-construction.php:1842
+msgid "Theme"
+msgstr "Motyw"
+
+#: under-construction.php:1799
+msgid "Rocket Launch #2"
+msgstr "Start Rakiety #2"
+
+#: under-construction.php:1798
+msgid "People at Work #2"
+msgstr "Ludzie w pracy # 2"
+
+#: under-construction.php:1796
+msgid "Hot Air Balloon"
+msgstr "Balon na gorące powietrze"
+
+#: under-construction.php:1795
+msgid "Lighthouse"
+msgstr "Latarnia morska"
+
+#: under-construction.php:1793
+msgid "Sad Site"
+msgstr "Smutna strona"
+
+#: under-construction.php:1792
+msgid "Windmill"
+msgstr "Wiatrak"
+
+#: under-construction.php:1790
+msgid "People at Work"
+msgstr "Ludzie w pracy"
+
+#: under-construction.php:1789
+msgid "Safe"
+msgstr "Bezpieczny"
+
+#: under-construction.php:1783
+msgid "Rocket Launch"
+msgstr "Start Rakiety"
+
+#: under-construction.php:1054 under-construction.php:2378
+msgid "Preview"
+msgstr "Podgląd"
+
+#: under-construction.php:2377
+msgid "Save Changes"
+msgstr "Zapisz zmiany"
+
+#: under-construction.php:2136
+msgid "Access"
+msgstr "Dostęp"
+
+#: under-construction.php:1605 under-construction.php:2135
+msgid "Content"
+msgstr "Treść"
+
+#: under-construction.php:1477
+msgid "Open date & time picker"
+msgstr "Otwórz ustawienia daty i czasu"
+
+#: under-construction.php:1938
+msgid "Whitelisted Users"
+msgstr "Użytkownicy na białej liście"
+
+#: under-construction.php:1929
+msgid "Whitelisted User Roles"
+msgstr "Role użytkowników na białej liście"
+
+#: under-construction.php:1787
+msgid "Cyber Chick Dark"
+msgstr "Cyber Piskle Ciemne"
+
+#: under-construction.php:1785
+msgid "Loader at Work"
+msgstr "Ładowarka w Pracy"
+
+#: under-construction.php:1781
+msgid "Cyber Chick"
+msgstr "Cyber Piskle"
+
+#: under-construction.php:1779
+msgid "Under Construction Text"
+msgstr "Napis, w budowie"
+
+#: under-construction.php:1777
+msgid "Forklift at Work"
+msgstr "Wózek widłowy w pracy"
+
+#: under-construction.php:1082
+msgid "UnderConstruction Settings"
+msgstr "Ustawienia W Budowie"
+
+#: under-construction.php:1072
+msgid "Under Construction Mode is <b>enabled</b>."
+msgstr "Tryb w budowie jest <b>włączony</b>."
+
+#: under-construction.php:150
+msgid "UnderConstruction plugin <b>requires WordPress version 4.0</b> or higher to function properly. You are using WordPress version %s. Please <a href=\"%s\">update it</a>."
+msgstr "Wtyczka UnderConstruction do poprawnego działania <b>wymaga WordPress w wersji 4.0</b> lub wyższej. Używasz WordPress w wwersji %s. Proszę <a href=\"%s\">wykonaj aktualizację</a>."
+
+#: under-construction.php:1874
+msgid "Custom CSS"
+msgstr "Własny CSS"
+
+#: under-construction.php:2134
+msgid "Design"
+msgstr "Wygląd"
+
+#: under-construction.php:2133
+msgid "Main"
+msgstr "Główne"
+
+#: under-construction.php:1095
+msgid "Get help"
+msgstr "Uzyskaj pomoc"
+
+#: under-construction.php:1990
+msgid "FAQ"
+msgstr "Najczęściej zadawane pytania"
+
+#: under-construction.php:340 under-construction.php:1115
+msgid "UnderConstructionPage"
+msgstr "Strona w budowie"
+
+#: under-construction.php:1024 under-construction.php:1031
+#: under-construction.php:1150
+msgid "UnderConstruction"
+msgstr "W Budowie"
+
+#. Plugin URI of the plugin
+#: under-construction.php
+msgid "https://underconstructionpage.com/"
+msgstr "https://underconstructionpage.com/"
+
+#: under-construction.php:339
+msgid "An undocumented error has occured. Please refresh the page and try again."
+msgstr "Wystąpił nieudokumentowany błąd. Odśwież stronę i spróbuj ponownie."
+
+#. Plugin Name of the plugin
+#: under-construction.php under-construction.php:1773
+msgid "Under Construction"
+msgstr "W Budowie"
+
+#. Author URI of the plugin
+#: under-construction.php
+msgid "https://www.webfactoryltd.com/"
+msgstr "https://www.webfactoryltd.com/"

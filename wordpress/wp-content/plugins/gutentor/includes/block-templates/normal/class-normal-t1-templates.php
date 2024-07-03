@@ -58,7 +58,7 @@ if ( ! class_exists( 'Gutentor_T1_Templates' ) ) {
 		 */
 		public function gutentor_t1_grid_template1( $data, $term, $attributes ) {
 			$query_sorting       = array_key_exists( 'blockSortableItems', $attributes ) ? $attributes['blockSortableItems'] : false;
-			$enable_featured_img = ( isset( $attributes['tOnFImg'] ) ) ? $attributes['tOnFImg'] : false;
+			$enable_featured_img = isset( $attributes['tOnFImg'] ) && $attributes['tOnFImg'];
 			$output              = '';
 			if ( $query_sorting ) :
 				foreach ( $query_sorting as $element ) :
@@ -84,8 +84,8 @@ if ( ! class_exists( 'Gutentor_T1_Templates' ) ) {
 								$output .= $this->get_term_button( $term, $attributes );
 							break;
 						default:
-							$output .= '';
-							break;
+                            $output .= $this->get_term_dynamic_element( $element,$term, $attributes );
+                            break;
 					}
 				endforeach;
 			endif;
@@ -103,7 +103,7 @@ if ( ! class_exists( 'Gutentor_T1_Templates' ) ) {
 		public function gutentor_t1_list_template1( $data, $term, $attributes ) {
 
 			$query_sorting       = array_key_exists( 'blockSortableItems', $attributes ) ? $attributes['blockSortableItems'] : false;
-			$enable_featured_img = ( isset( $attributes['tOnFImg'] ) ) ? $attributes['tOnFImg'] : false;
+			$enable_featured_img = isset( $attributes['tOnFImg'] ) && $attributes['tOnFImg'];
 
 			$output = '';
 			if ( $enable_featured_img && $this->has_term_thumbnail( $term ) ) {
@@ -131,15 +131,66 @@ if ( ! class_exists( 'Gutentor_T1_Templates' ) ) {
 						case 'button':
 							$output .= $this->get_term_button( $term, $attributes );
 							break;
-						default:
-							$output .= '';
-							break;
+                        default:
+                            $output .= $this->get_term_dynamic_element( $element,$term, $attributes );
+                            break;
 					}
 				endforeach;
 			endif;
 			$output .= '</div>';/*.gutentor-term-content*/
 			return $output;
 
+		}
+
+		/**
+		 * Template 2
+		 *
+		 * @param {string} $data
+		 * @param {array}  $term
+		 * @param {array}  $attributes
+		 * @return {mix}
+		 */
+		public function gutentor_t1_template2( $data, $term, $attributes ) {
+			$url            = array();
+			$bg_image_class = $custom_style = '';
+			$thumbnail_size = ( isset( $attributes['tFImgSize'] ) ) ? $attributes['tFImgSize'] : 'large';
+			$overlay        = ( isset( $attributes['tFImgOC']['enable'] ) ) ? $attributes['tFImgOC']['enable'] : '';
+			$overlay        = $overlay ? 'g-overlay' : '';
+			if ( $this->has_term_thumbnail( $term ) ) {
+				$url            = wp_get_attachment_image_src( $this->get_term_thumbnail_id( $term ), $thumbnail_size );
+				$bg_image_class = 'gtf-bg-image';
+				$custom_style   = "style='background-image:url(" . esc_url( is_array( $url ) && ! empty( $url ) ? $url[0] : '' ) . ")'";
+			}
+			$query_sorting = array_key_exists( 'blockSortableItems', $attributes ) ? $attributes['blockSortableItems'] : false;
+			$output        = "<div class='" . apply_filters( 'gutentor_term_module_t1_template2_item_height', gutentor_concat_space( 'gtf-item-height', $bg_image_class, $overlay ), $attributes ) . "' " . $custom_style . '>';
+			$output       .= '<div class="gtf-content">';
+			if ( $query_sorting ) :
+				foreach ( $query_sorting as $element ) :
+					if ( ! ( array_key_exists( 'itemValue', $element ) ) ) {
+						return $output;
+					}
+					switch ( $element['itemValue'] ) {
+						case 'title':
+							$output .= $this->get_term_title_and_count_updated( $term, $attributes, 'title' );
+							break;
+						case 'count':
+							$output .= $this->get_term_title_and_count_updated( $term, $attributes, 'count' );
+							break;
+						case 'description':
+							$output .= $this->get_term_description( $term, $attributes );
+							break;
+						case 'button':
+							$output .= $this->get_term_button( $term, $attributes );
+							break;
+                        default:
+                            $output .= $this->get_term_dynamic_element( $element,$term, $attributes );
+                            break;
+					}
+				endforeach;
+			endif;
+			$output .= '</div>';/*.gtf-content*/
+			$output .= '</div>';/*.gtf-item-height*/
+			return $output;
 		}
 
 		/**
@@ -154,10 +205,10 @@ if ( ! class_exists( 'Gutentor_T1_Templates' ) ) {
 
 			$template_style = isset( $attributes['termStyle'] ) ? $attributes['termStyle'] : false;
 			$output         = '';
-			if ( $template_style == 'gtf-grid' ) {
+			if ( $template_style === 'gtf-grid' ) {
 				$output = $this->gutentor_t1_grid_template1( $data, $term, $attributes );
-			} elseif ( $template_style == 'gtf-list' ) {
-				$output = $output = $this->gutentor_t1_list_template1( $data, $term, $attributes );
+			} elseif ( $template_style === 'gtf-list' ) {
+				$output = $this->gutentor_t1_list_template1( $data, $term, $attributes );
 			}
 			return $output;
 		}
@@ -173,10 +224,10 @@ if ( ! class_exists( 'Gutentor_T1_Templates' ) ) {
 
 		public function load_blog_post_template( $data, $term, $attributes, $index ) {
 
-			$output   = $data;
-			$no_thumb = '';
-			$template = ( isset( $attributes['t1Temp'] ) ) ? $attributes['t1Temp'] : '';
-			if ( $this->has_term_thumbnail( $term ) ) {
+			$output              = $data;
+			$template            = ( isset( $attributes['t1Temp'] ) ) ? $attributes['t1Temp'] : '';
+			$enable_featured_img = isset( $attributes['tOnFImg'] ) && $attributes['tOnFImg'];
+			if ( $enable_featured_img && $this->has_term_thumbnail( $term ) ) {
 				$no_thumb = '';
 
 			} else {

@@ -12,6 +12,7 @@ use \Elementor\Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Typography;
 use \Elementor\Plugin;
 use \Elementor\Widget_Base;
+use Essential_Addons_Elementor\Classes\Helper;
 
 class Advanced_Data_Table extends Widget_Base
 {
@@ -63,7 +64,7 @@ class Advanced_Data_Table extends Widget_Base
         return 'https://essential-addons.com/elementor/docs/advanced-data-table/';
     }
 
-    protected function _register_controls()
+    protected function register_controls()
     {
         // general
         $this->start_controls_section(
@@ -81,26 +82,39 @@ class Advanced_Data_Table extends Widget_Base
                 'options' => call_user_func(function () {
                     $source = [];
                     $source['static'] = __('Static Data', 'essential-addons-for-elementor-lite');
-
+	                $source['ninja'] = __('Ninja Tables', 'essential-addons-for-elementor-lite');
                     if (apply_filters('eael/pro_enabled', false)) {
                         $source['database'] = __('Database', 'essential-addons-for-elementor-lite');
                         $source['remote'] = __('Remote Database', 'essential-addons-for-elementor-lite');
                         $source['google'] = __('Google Sheets', 'essential-addons-for-elementor-lite');
                         $source['tablepress'] = __('TablePress', 'essential-addons-for-elementor-lite');
                     } else {
-                        $source['database'] = __('Database(PRO)', 'essential-addons-for-elementor-lite');
-                        $source['remote'] = __('Remote Database(PRO)', 'essential-addons-for-elementor-lite');
-                        $source['google'] = __('Google Sheets(PRO)', 'essential-addons-for-elementor-lite');
-                        $source['tablepress'] = __('TablePress(PRO)', 'essential-addons-for-elementor-lite');
+                        $source['database'] = __('Database (Pro)', 'essential-addons-for-elementor-lite');
+                        $source['remote'] = __('Remote Database (Pro)', 'essential-addons-for-elementor-lite');
+                        $source['google'] = __('Google Sheets (Pro)', 'essential-addons-for-elementor-lite');
+                        $source['tablepress'] = __('TablePress (Pro)', 'essential-addons-for-elementor-lite');
                     }
 
-                    $source['ninja'] = __('Ninja Tables', 'essential-addons-for-elementor-lite');
+
 
                     return $source;
                 }),
                 'default' => 'static',
             ]
         );
+
+	    if (!apply_filters('eael/pro_enabled', false)) {
+		    $this->add_control(
+			    'eael_adv_data_table_pro_enable_warning',
+			    [
+				    'label' => sprintf( '<a target="_blank" href="https://wpdeveloper.com/upgrade/ea-pro">%s</a>', esc_html__('Only Available in Pro Version!', 'essential-addons-for-elementor-lite')),
+				    'type' => Controls_Manager::RAW_HTML,
+				    'condition' => [
+					    'ea_adv_data_table_source' => ['database','remote','google','tablepress'],
+				    ],
+			    ]
+		    );
+	    }
 
         // TODO: RM
         do_action('eael/advanced-data-table/source/control', $this);
@@ -157,6 +171,9 @@ class Advanced_Data_Table extends Widget_Base
                 'condition' => [
                     'ea_adv_data_table_search' => 'yes',
                 ],
+                'ai' => [
+					'active' => false,
+				],
             ]
         );
 
@@ -186,18 +203,19 @@ class Advanced_Data_Table extends Widget_Base
             ]
         );
 
-        $this->add_control(
-            'ea_adv_data_table_items_per_page',
-            [
-                'label' => esc_html__('Rows Per Page', 'essential-addons-for-elementor-lite'),
-                'type' => Controls_Manager::NUMBER,
-                'min' => 1,
-                'default' => 10,
-                'condition' => [
-                    'ea_adv_data_table_pagination' => 'yes',
-                ],
-            ]
-        );
+	    $this->add_control(
+		    'ea_adv_data_table_items_per_page',
+		    [
+			    'label'       => esc_html__( 'Rows Per Page', 'essential-addons-for-elementor-lite' ),
+			    'type'        => Controls_Manager::NUMBER,
+			    'min'         => 1,
+			    'default'     => 10,
+			    'description' => esc_html__( 'If you left blank or 0 it will show 10 items by default.', 'essential-addons-for-elementor-lite' ),
+			    'condition'   => [
+				    'ea_adv_data_table_pagination' => 'yes',
+			    ],
+		    ]
+	    );
 
         $this->add_control(
             'eael_global_warning_text',
@@ -415,15 +433,15 @@ class Advanced_Data_Table extends Widget_Base
                 'options' => [
                     'left' => [
                         'title' => esc_html__('Left', 'essential-addons-for-elementor-lite'),
-                        'icon' => 'fa fa-align-left',
+                        'icon' => 'eicon-text-align-left',
                     ],
                     'center' => [
                         'title' => esc_html__('Center', 'essential-addons-for-elementor-lite'),
-                        'icon' => 'fa fa-align-center',
+                        'icon' => 'eicon-text-align-center',
                     ],
                     'right' => [
                         'title' => esc_html__('Right', 'essential-addons-for-elementor-lite'),
-                        'icon' => 'fa fa-align-right',
+                        'icon' => 'eicon-text-align-right',
                     ],
                 ],
                 'default' => 'left',
@@ -441,9 +459,9 @@ class Advanced_Data_Table extends Widget_Base
                 'type' => Controls_Manager::COLOR,
                 'default' => '#444444',
                 'selectors' => [
-                    '{{WRAPPER}} th' => 'color: {{VALUE}};',
-                    '{{WRAPPER}} th:before' => 'border-bottom-color: {{VALUE}};',
-                    '{{WRAPPER}} th:after' => 'border-top-color: {{VALUE}};',
+                    '{{WRAPPER}} .ea-advanced-data-table-wrap .ea-advanced-data-table th' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .ea-advanced-data-table-wrap .ea-advanced-data-table th:before' => 'border-bottom-color: {{VALUE}};',
+                    '{{WRAPPER}} .ea-advanced-data-table-wrap .ea-advanced-data-table th:after' => 'border-top-color: {{VALUE}};',
                 ],
             ]
         );
@@ -534,15 +552,15 @@ class Advanced_Data_Table extends Widget_Base
                 'options' => [
                     'left' => [
                         'title' => esc_html__('Left', 'essential-addons-for-elementor-lite'),
-                        'icon' => 'fa fa-align-left',
+                        'icon' => 'eicon-text-align-left',
                     ],
                     'center' => [
                         'title' => esc_html__('Center', 'essential-addons-for-elementor-lite'),
-                        'icon' => 'fa fa-align-center',
+                        'icon' => 'eicon-text-align-center',
                     ],
                     'right' => [
                         'title' => esc_html__('Right', 'essential-addons-for-elementor-lite'),
-                        'icon' => 'fa fa-align-right',
+                        'icon' => 'eicon-text-align-right',
                     ],
                 ],
                 'default' => 'left',
@@ -779,6 +797,7 @@ class Advanced_Data_Table extends Widget_Base
                 'default' => '#444444',
                 'selectors' => [
                     '{{WRAPPER}} tbody tr:nth-child(even)' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} tbody tr:nth-child(even) td' => 'color: {{VALUE}}',
                 ],
                 'condition' => [
                     'ea_adv_data_table_body_highlight' => 'e-row',
@@ -810,6 +829,7 @@ class Advanced_Data_Table extends Widget_Base
                 'default' => '#444444',
                 'selectors' => [
                     '{{WRAPPER}} tbody tr:nth-child(odd)' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} tbody tr:nth-child(odd) td' => 'color: {{VALUE}}',
                 ],
                 'condition' => [
                     'ea_adv_data_table_body_highlight' => 'o-row',
@@ -960,15 +980,15 @@ class Advanced_Data_Table extends Widget_Base
                 'options' => [
                     'left' => [
                         'title' => esc_html__('Left', 'essential-addons-for-elementor-lite'),
-                        'icon' => 'fa fa-align-left',
+                        'icon' => 'eicon-text-align-left',
                     ],
                     'center' => [
                         'title' => esc_html__('Center', 'essential-addons-for-elementor-lite'),
-                        'icon' => 'fa fa-align-center',
+                        'icon' => 'eicon-text-align-center',
                     ],
                     'right' => [
                         'title' => esc_html__('Right', 'essential-addons-for-elementor-lite'),
-                        'icon' => 'fa fa-align-right',
+                        'icon' => 'eicon-text-align-right',
                     ],
                 ],
                 'default' => 'right',
@@ -1107,15 +1127,15 @@ class Advanced_Data_Table extends Widget_Base
                 'options' => [
                     'left' => [
                         'title' => esc_html__('Left', 'essential-addons-for-elementor-lite'),
-                        'icon' => 'fa fa-align-left',
+                        'icon' => 'eicon-text-align-left',
                     ],
                     'center' => [
                         'title' => esc_html__('Center', 'essential-addons-for-elementor-lite'),
-                        'icon' => 'fa fa-align-center',
+                        'icon' => 'eicon-text-align-center',
                     ],
                     'right' => [
                         'title' => esc_html__('Right', 'essential-addons-for-elementor-lite'),
-                        'icon' => 'fa fa-align-right',
+                        'icon' => 'eicon-text-align-right',
                     ],
                 ],
                 'default' => 'left',
@@ -1258,7 +1278,7 @@ class Advanced_Data_Table extends Widget_Base
                 'default' => '#666666',
                 'selectors' => [
                     '{{WRAPPER}} .ea-advanced-data-table-pagination a:hover' => 'color: {{VALUE}};',
-                    '{{WRAPPER}} .ea-advanced-data-table-pagination a.ea-advanced-data-table-pagination-current' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .ea-advanced-data-table-pagination a.ea-adtp-current' => 'color: {{VALUE}};',
                     '{{WRAPPER}} .ea-advanced-data-table-pagination select:hover' => 'color: {{VALUE}};',
                 ],
             ]
@@ -1272,7 +1292,7 @@ class Advanced_Data_Table extends Widget_Base
                 'default' => '#fafafa',
                 'selectors' => [
                     '{{WRAPPER}} .ea-advanced-data-table-pagination a:hover' => 'background-color: {{VALUE}};',
-                    '{{WRAPPER}} .ea-advanced-data-table-pagination a.ea-advanced-data-table-pagination-current' => 'background-color: {{VALUE}};',
+                    '{{WRAPPER}} .ea-advanced-data-table-pagination a.ea-adtp-current' => 'background-color: {{VALUE}};',
                     '{{WRAPPER}} .ea-advanced-data-table-pagination select:hover' => 'background-color: {{VALUE}};',
                 ],
             ]
@@ -1301,7 +1321,7 @@ class Advanced_Data_Table extends Widget_Base
                         'default' => '#eeeeee',
                     ],
                 ],
-                'selector' => '{{WRAPPER}} .ea-advanced-data-table-pagination a:hover, {{WRAPPER}} .ea-advanced-data-table-pagination a.ea-advanced-data-table-pagination-current, {{WRAPPER}} .ea-advanced-data-table-pagination select:hover',
+                'selector' => '{{WRAPPER}} .ea-advanced-data-table-pagination a:hover, {{WRAPPER}} .ea-advanced-data-table-pagination a.ea-adtp-current, {{WRAPPER}} .ea-advanced-data-table-pagination select:hover',
             ]
         );
 
@@ -1313,7 +1333,7 @@ class Advanced_Data_Table extends Widget_Base
                 'size_units' => ['px'],
                 'selectors' => [
                     '{{WRAPPER}} .ea-advanced-data-table-pagination a:hover' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                    '{{WRAPPER}} .ea-advanced-data-table-pagination a.ea-advanced-data-table-pagination-current' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .ea-advanced-data-table-pagination a.ea-adtp-current' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                     '{{WRAPPER}} .ea-advanced-data-table-pagination select' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
@@ -1330,6 +1350,9 @@ class Advanced_Data_Table extends Widget_Base
             [
                 'label' => __('Button', 'essential-addons-for-elementor-lite'),
                 'tab' => Controls_Manager::TAB_STYLE,
+                'condition' => [
+                    'ea_adv_data_table_source' => 'ninja'
+                ]
             ]
         );
 
@@ -1514,7 +1537,7 @@ class Advanced_Data_Table extends Widget_Base
         if ($settings['ea_adv_data_table_pagination'] == 'yes') {
             $this->add_render_attribute('ea-adv-data-table', [
                 'class' => "ea-advanced-data-table-paginated",
-                'data-items-per-page' => $settings['ea_adv_data_table_items_per_page'],
+                'data-items-per-page' => ! empty( $settings['ea_adv_data_table_items_per_page'] ) ? $settings['ea_adv_data_table_items_per_page'] : 10,
             ]);
         }
 
@@ -1532,11 +1555,11 @@ class Advanced_Data_Table extends Widget_Base
 
         if ($content = $this->get_table_content()) {
             if ($settings['ea_adv_data_table_search'] == 'yes') {
-                echo '<div ' . $this->get_render_attribute_string('ea-adv-data-table-search-wrap') . '><input type="search" placeholder="' . $settings['ea_adv_data_table_search_placeholder'] . '" class="ea-advanced-data-table-search"></div>';
+                echo '<div ' . $this->get_render_attribute_string('ea-adv-data-table-search-wrap') . '><input type="search" placeholder="' . esc_attr( Helper::eael_wp_kses($settings['ea_adv_data_table_search_placeholder'] ) ). '" class="ea-advanced-data-table-search"></div>';
             }
 
             echo '<div class="ea-advanced-data-table-wrap-inner">
-                <table ' . $this->get_render_attribute_string('ea-adv-data-table') . '>' . $content . '</table>
+                <table ' . $this->get_render_attribute_string('ea-adv-data-table') . '>' . Helper::eael_wp_kses( $content ) . '</table>
             </div>';
 
             if ($settings['ea_adv_data_table_pagination'] == 'yes') {
@@ -1557,11 +1580,12 @@ class Advanced_Data_Table extends Widget_Base
                         </div>';
                     }
                 } else {
-                    echo '<div class="ea-advanced-data-table-pagination ea-advanced-data-table-pagination-' . $settings['ea_adv_data_table_pagination_type'] . ' clearfix"></div>';
+                    echo '<div class="ea-advanced-data-table-pagination ea-advanced-data-table-pagination-' . esc_attr( $settings['ea_adv_data_table_pagination_type'] ) . ' clearfix"></div>';
                 }
             }
         } else {
-            _e('No content found', 'essential-addons-for-elementor-lite');
+	        $no_content = apply_filters( 'eael/advanced-data-table/no-content-found-text', __( 'No content found', 'essential-addons-for-elementor-lite' ) );
+	        echo esc_html( $no_content );
         }
 
         echo '</div>';
@@ -1626,13 +1650,13 @@ class Advanced_Data_Table extends Widget_Base
                     }
 
                     if ($th['data_type'] == 'image') {
-                        $html .= '<td>' . (isset($tr[$th['key']]['image_thumb']) ? '<a href="' . $tr[$th['key']]['image_full'] . '"><img src="' . $tr[$th['key']]['image_thumb'] . '"></a>' : '') . '</td>';
+                        $html .= '<td>' . (isset($tr[$th['key']]['image_thumb']) ? '<a href="' . esc_url( $tr[$th['key']]['image_full'] ) . '"><img src="' . esc_url( $tr[$th['key']]['image_thumb'] ) . '"></a>' : '') . '</td>';
                     } elseif ($th['data_type'] == 'selection') {
                         $html .= '<td>' . (!empty($tr[$th['key']]) ? implode((array) $tr[$th['key']], ', ') : '') . '</td>';
                     } elseif ($th['data_type'] == 'button') {
-                        $html .= '<td>' . (!empty($tr[$th['key']]) ? '<a href="' . $tr[$th['key']] . '" class="button" target="' . $th['link_target'] . '">' . $th['button_text'] . '</a>' : '') . '</td>';
+                        $html .= '<td>' . (!empty($tr[$th['key']]) ? '<a href="' . esc_url( $tr[$th['key']] ) . '" class="button" target="' . esc_attr( $th['link_target'] ) . '">' . $th['button_text'] . '</a>' : '') . '</td>';
                     } else {
-                        $html .= '<td>' . (!empty($tr[$th['key']]) ? $tr[$th['key']] : '') . '</td>';
+	                    $html .= '<td>' . ( isset( $tr[ $th['key'] ] ) ? $tr[ $th['key'] ] : '' ) . '</td>';
                     }
                 }
                 $html .= '</tr>';

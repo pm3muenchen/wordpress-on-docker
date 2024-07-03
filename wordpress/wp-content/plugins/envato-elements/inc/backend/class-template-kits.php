@@ -55,7 +55,7 @@ class Template_Kits extends Base {
 		$this->load_template_kit_library();
 
 		// Reach into our included Template Kit import plugin functions to do the actual import.
-		return \Envato_Template_Kit_Import\Importer::get_instance()->unpack_zip_file( $zip_file );
+		return \Envato_Template_Kit_Import\Importer::get_instance()->install_template_kit_zip_to_db( $zip_file );
 	}
 
 	/**
@@ -94,10 +94,11 @@ class Template_Kits extends Base {
 					$template_kit_templates = $template_kit_manager->get_available_templates();
 					$installed_kits[]       = [
 						'id'             => $template_kit_id,
-						'screenshot_url' => $template_kit_templates[0]['screenshot_url'],
+						'screenshot_url' => $template_kit_manager->get_screenshot_url(),
 						'title'          => $template_kit->post_title,
 						'template_count' => count( $template_kit_templates ),
 						'uploaded'       => date_i18n( 'F j, Y g:i:a', strtotime( $template_kit->post_date ) ),
+						'builder'        => $template_kit_manager->builder,
 					];
 				}
 			}
@@ -128,13 +129,17 @@ class Template_Kits extends Base {
 		$template_kit_data = [
 			'id'           => $template_kit_id,
 			'title'        => $template_kit->get_name(),
-			'requirements' => [
-				'theme'        => $template_kit->get_required_theme(),
-				'plugins'      => $template_kit->get_required_plugins(),
-				'css' 			   => $template_kit->get_required_css(),
-			],
+			'requirements' => $template_kit->get_requirements(),
 			'templates'    => [],
+			'builder'      => $template_kit->builder,
+			'screenshot'   => $template_kit->get_screenshot_url(),
+			'sourceZipUrl' => $template_kit->get_source_zip_url(),
 		];
+
+		if ( class_exists( '\Elementor\Plugin' ) ) {
+			// Copied from Elementor implementation.
+			$template_kit_data['elementorImportUrl'] = \Elementor\Plugin::$instance->app->get_base_url() . '#/import';
+		}
 
 		// Loop over available templates and include any additional data we might need in the UI:
 		foreach ( $template_kit->get_available_templates() as $template_id => $template ) {

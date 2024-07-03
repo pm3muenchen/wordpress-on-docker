@@ -1,11 +1,11 @@
-=== Starter Templates – Elementor, Beaver Builder, Gutenberg & Brizy Templates ===
+=== Starter Templates — Elementor, WordPress & Beaver Builder Templates ===
 Contributors: brainstormforce
 Donate link: https://wpastra.com/pro/
-Tags: Elementor,Beaver Builder,Templates,Gutenberg,Astra Starter Sites
+Tags: Elementor,Templates,Gutenberg,Block Editor,Astra Starter Sites
 Requires at least: 4.4
-Requires PHP: 5.3
-Tested up to: 5.7
-Stable tag: 2.6.2
+Requires PHP: 7.4
+Tested up to: 6.5
+Stable tag: 4.3.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,534 +13,433 @@ The growing library of 300+ ready-to-use templates that work with all WordPress 
 
 == Description ==
 
-https://www.youtube.com/watch?v=QUb3gRPtWQg&feature=youtu.be
+= Starter Templates: AI Website Builder and Elementor Templates =
 
-= FREE TEMPLATES FOR ELEMENTOR, BEAVER BUILDER, BRIZY AND GUTENBERG =
+The future of website creation is here! With Starter Templates, you can create professional-looking websites in just minutes, powered by AI.
 
-Create professional designed pixel perfect websites in minutes with the Starter Templates plugin.
+Leverage the Starter Templates AI website builder to generate websites with:
 
-This plugin gives you access to 280+ pre-made full website templates and individual pages for your favorite page builder such as Elementor, Beaver Builder, Brizy and the WordPress default editor Gutenberg.
+- Stunning designs
+- All relevant sections and pages
+- High quality stock images to help engage visitors
+- Compelling website copy tailored to your business
+- Extensive customization options
 
-All you need to do is select the demo that suits your needs, import, tweak and go live!
+Say goodbye to spending days or weeks designing and building a website. With Starter Templates, you can build websites faster than ever with AI.
 
-> I love the fact that the Astra Starter Sites plugin comes with dozens of pre-built sites that were built using Elementor and that can be used to create a full website with one click. – Ben Pines, CMO at Elementor
+[Try this plugin on a demo site](https://bsf.io/starter-templates-demo)
 
-> Astra Sites allows anyone to have a beautiful website in under 5 minutes while using all open source software. The theme is free, the plugin is free, it’s almost unbelievable. You have to see it with your own eyes. – Adam Preiser, WPCrafter
+= HIGHLIGHTS =
 
-= INTRODUCING STARTER TEMPLATES 2.0! =
+★ WordPress AI website builder
+★ Built-in AI assistant
+★ Fast and easy to use
+★ Large library of Elementor templates
+★ Hundreds of WordPress block editor (Gutenberg) templates
+★ 200+ Sections and block patterns
+★ Supported page builders: Spectra, Elementor, Beaver Builder, WordPress editor
+★ Fully customizable websites
 
-The Astra Starter Sites plugin allowed you to import complete website demos, tweak them and build professional websites.
+= How Does Starter Template AI Website Builder Work? =
 
-With Starter Templates 2.0, you can now do that by importing specific pages, complete websites or even Elementor blocks that give you lots of flexibility to import only what you need.
+Starter Templates integrates with ZipWP, our amazing AI website building platform. It takes care of everything for you, from design to content generation. 
 
-= HIGHLIGHTS OF STARTER TEMPLATES 2.0 =
+Let AI do the heavy lifting, so you can focus on your ideas!
 
-- An improved and easier template search option.
-- Filters that let you pick templates of a specific page builder.
-- Ability to mark your favorite templates.
-- Easier way to fetch the latest templates with a single click.
-- Ability to import individual pages to mix-n-match and build websites.
-- Option to inherit theme settings while importing a template.
-- Image search to import images from Pixabay through the WordPress Media Library.
-- Import ready Elementor blocks and templates through the page builder itself!
+Our mission is to unlock the power of the internet for small businesses. Creating a website shouldn't be difficult, and growing a business on the internet shouldn't be complicated.
 
-= GET A WEBSITE LIVE IN 5 CLICKS! =
+With Starter Templates, you can create a stunning website in a matter of minutes. Simply describe your idea, and watch as a WordPress website is built before your eyes.
 
-1. Install and activate Starter Templates Plugin
-2. Select the page builder you wish to work with
-3. Pick a website / page demo that suits your needs
-4. Install required plugins with a single click
-5. Import the website / page template
-6. Done!
+Want to create a lightweight website for your business that also looks exceptional? 
 
+= Follow the steps below: =
 
-= FULL WEBSITE TEMPLATES FOR =
+1. Select the type of website you're creating (portfolio, business site, landing page, or something else).
+2. Provide your business name.
+3. Describe your business. Use AI to refine your description prompt if you need to. 
+4. The AI will suggest images based on your input. Select the images you want to use.
+5. Add your contact details and social media handles so people can interact.
+6. Choose the website structure from the options. 
+7. Select any site features you need. 
+8. The AI will generate a website in under 2 minutes.
+9. Customize your site as you see fit!
 
-Businesses like restaurants, lawyers, agencies, interior designers, artist shops, brandstore, pet services, charity, plumber, dental clinic, construction, fitness trainer, gardening, makeup artist and a lot more. You can take a look at all of them built with different page builders.
+Whether you're a beginner with no website building experience, or a seasoned web designer, Starter Templates has you covered.
 
-- [Elementor Free Website Templates](https://wpastra.com/elementor-templates-free-downloads/)
-- [Beaver Builder Free Website Templates](https://wpastra.com/ready-websites/?page-builder=beaver-builder&category=free)
-- [Gutenberg Free Website Templates](https://wpastra.com/ready-websites/?page-builder=gutenberg&category=free)
-- [Brizy Free Website Templates](https://wpastra.com/ready-websites/?page-builder=brizy&category=free)
+= All Features =
 
-You can extend this library with premium ready-to-use website demos by purchasing one of the Agency Bundles, i.e. either the Mini Agency Bundle or the Agency Bundle.
+Starter Template has all the essentials you need to create amazing websites!
 
-= WHY PEOPLE LOVE THE ASTRA THEME? =
+= AI Website Builder =
 
-Over 1+ million users are empowering their websites with Astra! From beginners to industry experts, everyone is loving Astra for its performance and ease of use.
+Thanks to the power of AI, you can create your dream website effortlessly. Our AI analyzes your business description and goals, then selects the perfect design, generates professional copy, and curates visuals to match your brand.
 
-= HERE ARE A FEW REASONS WHY THEY LOVE ASTRA – =
+No more wrestling with complex themes or plugins – just describe your idea and let AI do the rest!
 
-**Faster Performance** - Built with speed and performance in mind, Astra follows the best coding standards and lets you build faster loading and better performing websites.
+= Lightning Fast Websites =
 
-**Easy Customization** - With all the settings managed through the customizer, Astra keeps it simple and gives you lots of options to customize everything with a few clicks.
+Starter Templates prioritizes speed and efficiency without compromising quality.
 
-**Pixel Perfect Design** - Astra reduces your design time by giving you pixel-perfect FREE ready-to-use websites demos within a huge library of starter sites.
+Here's what sets us apart:
 
-**Deeper Integrations** - Astra works seamlessly with all WooCommerce plugins, LifterLMS, LearnDash etc. This means that you can create and beautify eCommerce websites and those that offer online courses in minutes.
+= Optimized Code =
 
-Fetch the website, tweak images and content and go live!
+Pages created with Starter Templates have efficient code, and are free from all unnecessary elements. 
 
-Use this imported site as a base for your project and don’t waste time starting from scratch!
+This translates to faster load times and a smoother user experience for visitors regardless of browser or device.
 
-_<a href="https://wpastra.com/ready-websites/?utm_source=wp-repo&utm_medium=link&utm_campaign=readme">See list of all available sites to import »</a>_
+= Realistic Templates =
 
-**Credits**
+Starter Templates goes beyond stunning design. It delivers readymade website templates specifically crafted with your business in mind.
 
-- [History.js](https://github.com/browserstate/history.js) is distributed under the terms of the BSD  License.
-- [WP Background Process](https://github.com/A5hleyRich/wp-background-processing/) is distributed under the terms of the GNU General Public License v2.0.
-- [Widget Importer Exporter](https://github.com/churchthemes/widget-importer-exporter/) is distributed under the terms of the GNU General Public License v2.0.
-- [WordPress Importer](https://github.com/humanmade/WordPress-Importer/) is distributed under the terms of the GNU General Public License v2.0.
-- [EventSource](https://github.com/Yaffle/EventSource/) is distributed under the terms of the MIT License.
-- [Fetch](https://github.com/github/fetch/) is distributed under the terms of the MIT License.
+Launching an eCommerce store? We have a diverse selection of store templates to get you selling in no time. 
 
-== Installation ==
+Creating a business website? We have dozens of professional-quality designs ready for you to make your mark.
 
-1. Upload the plugin files to the `/wp-content/plugins/astra-sites` directory, or install the plugin through the WordPress plugins screen directly.
-2. Activate the plugin through the 'Plugins' screen in WordPress.
-3. Navigate to Appearance -> Astra Sites to preview and import sites.
+No matter your industry or niche, we have a template that perfectly aligns with your vision.
+
+= Classic Starter Templates =
+
+Whether you're a small business owner, freelancer, or nonprofit organization, there's a template that suits your needs. Templates are carefully crafted to provide a polished and attractive look for your website. 
+
+The cherry on top? Starter Template supports multiple page builders, including Elementor, Spectra, Gutenberg, and Beaver Builder. 
+
+You have the flexibility to customize your website your way.
+
+= Hundreds of Sections and Block Patterns =
+
+Want to customize your website to make it truly unique? Use sections and block patterns to add your personal style.
+
+Available sections include: 
+
+- Hero
+- Page Header
+- About
+- Services
+- Features
+- Contact
+- Why Choose Us
+- Call To Action
+- Portfolio
+- Gallery
+- Testimonials
+- Pricing
+- FAQ
+- Team
+- Statistics
+
+= AI-Integrated Adaptive Design Library =
+
+Personalize blocks and patterns to match your website style with the power of AI. 
+
+The design library within the Starter Templates plugin is integrated with AI and royalty-free image repositories. All elements come pre-populated with relevant text and images that you can easily customize to match your brand.
+
+= Elementor Templates =
+
+A fan of Elementor? Look no further! Starter Templates offers a vast collection of professionally designed Elementor templates. 
+
+You can effortlessly import entire websites crafted with Elementor, individual pages, or even specific blocks to enhance your site's functionality and aesthetic appeal. 
+
+Then just drag, drop, customize, and launch your website!
+
+= Beaver Builder Templates =
+
+Explore the incredible library of professionally-designed Beaver Builder templates. Whether you're building a complete website or just need some inspiration, we've got you covered.
+
+You can save hours of design time compared to building your website from scratch!
+
+= WordPress Block Editor Templates =
+
+The WordPress block editor (formerly Gutenberg) is changing the game for website creation. 
+
+Building from scratch can be time-consuming. Fortunately, Starter Templates offers a vast library of readymade templates to ignite your website's potential.
+
+= AI Assistant for WordPress =
+
+Our AI Assistant works in a similar way to ChatGPT but is specifically tailored for WordPress. 
+
+With just a click of a button, you can use the power of artificial intelligence to help write copy for landing pages, proofread blog posts, translate content into different languages, generate custom HTML and CSS codes, and much more!
+
+= Royalty-Free Images =
+
+The Starter Templates plugin offers seamless integration with leading royalty-free image repositories such as Pexels and Unsplash. 
+
+You have access to millions of top-tier images within your WordPress dashboard. Simply search for the image you need and select it.
+
+= Training Videos =
+
+As the saying goes, "Give someone a fish, and they will eat for a day; teach them how to fish, and they will eat for a lifetime." 
+
+Embracing this philosophy, we offer a range of comprehensive training videos designed to complement our templates. They provide the knowledge and skills necessary to build, launch, and maintain your website.
+
+= Types of Websites You Can Create =
+
+Starter Templates is perfect for building websites for:
+
+✔ Personal branding
+✔ Restaurants
+✔ Service providers
+✔ Nonprofits and charities
+✔ Events
+✔ Startups
+✔ Local businesses
+✔ Wellness businesses
+✔ Landing pages
+✔ Lead generation websites
+✔ eCommerce stores
+✔ Blogs
+✔ Manufacturing businesses
+✔ Any other type of WordPress website
+
+There’s no limit to what you can create!
+
+Please note: To access templates and AI features, you’ll need a ZipWP account. [ZipWP platform](https://zipwp.com/). Signing up is quick, easy, and 100% free.
+
+= Fun Facts About Starter Templates =
+
+➜ Over 5,000 websites are built with Starter Templates every day.
+➜ The plugin has been installed on more than 1.6 million websites.
+➜ Starter Templates has more than 4,000 five-star reviews.
+➜ Our team of dedicated full-time WordPress experts help and support hundreds of users daily.
+➜ A devoted team full-time designers keep the design library up to date.
+➜ Our plugin offers more than 100 free Elementor templates.
+➜ You can import a complete website, individual page, or section of a page in seconds.
+➜ We support 3 page builders: Spectra, Elementor, and Beaver Builder as well as the WordPress editor
+➜ "eCommerce" is the most searched keyword in our library.
+
+= The Starter Templates Plugin Works With... =
+
+➜ Astra Theme
+➜ Spectra website builder
+➜ WordPress block editor/Gutenberg
+➜ Elementor page builder
+➜ Beaver Builder
+➜ WooCommerce
+➜ WPForms
+➜ Sitekit
 
 == Frequently Asked Questions ==
 
-= Will the Starter Templates plugin work with my theme? =
+= Why Is this awesome plugin free? =
 
-We've certainly used Astra to build all our starter templates and recommend you to do so. However, in Starter Templates 2.0 onward all the starter sites or individual page templates you import are theme independent and blend well with the theme you have.
+Free is always the best price. We offer Starter Templates for free to showcase what our team is capable of. It’s also good business.
 
-= Are all the starter templates FREE? =
+If you have a positive experience with Starter Templates, you might be tempted by the extra features included in premium versions of ZipWP, the Astra WordPress theme and other products we produce.
 
-You get over 90+ FREE ready-to-use websites as of now. There are many more premium website demos that can be accessed when you purchase one of our Agency Bundles - (i.e. either the Mini Agency or the Agency Bundles)
+We’re not afraid to prove our worth and offering a plugin for free is a great way to do that.
 
-= How can I install and import starter templates? =
+= Which theme Is used by the AI website builder? =
 
-Here is an article that will help you install and import [Starter Templates](https://wpastra.com/docs/installing-importing-astra-sites/?utm_source=wp-repo&utm_medium=link&utm_campaign=readme) on your website.
+Starter Templates, uses the Astra theme. It’s the world's most popular WordPress theme with millions of users. Since Starter Templates and Astra are developed by the same company, we can control their development plans to make the AI website builder work perfectly every time.
 
-= Can I import a website / page demo on an existing website? =
+= What kind of customizations can I make to an AI generated website? =
 
-It is recommended to install and import a website demo on a fresh WordPress installation or a blank website to avoid overriding of settings and page design.
-
-A page template can however be imported on an existing website as well.
-
-= Can I deactivate the Starter Templates plugin after importing a website? =
-
-Yes! The Starter Templates plugin acts as a medium through which you can import and install a website from our cloud server. Once you have the website at your end, you can go ahead and deactivate the plugin.
-
-= Do I need to install any other plugin before importing a website? =
-
-All you need to do is install the Starter Templates plugin and select the website demo you wish to import. While the site is being imported, you will come across a step in which the plugin asks you to click on a button that says Install plugins. This step will install and activate the necessary plugins.
-
-= Will you add more website demos? =
-
-Yes! We are working on many more free website demos built using Elementor, Beaver Builder, Gutenberg and Brizy.
-
-= What if I do not find a website for the topic I am looking for? =
-
-We are open to suggestions and would love to work on topics that our users are looking out for. Please feel free to drop your suggestions through the [form here].(https://wpastra.com/sites-suggestions/?utm_source=wp-repo&utm_medium=link&utm_campaign=readme).
-
+Once your website is generated, you have complete control over its content and layout. You can customize it as you would any other website, including changing colors, text, adding images, and creating new sections and pages.
 
 == Screenshots ==
 
-1. Select the page builder of your choice.
-2. Browse through available Starter Templtes and select the site that you like.
-3. Filter using available Starter Temapltes categories.
-4. View all the pages for the starter site.
-5. Click the import button to start the import process.
-6. Blocks import in Elementor editor.
-7. Free Images by Pixabay right inside the WordPress media popup.
+1. AI Website Builder - Starter Templates has been integrated with ZipWP - our innovative AI Website Builder to make building websites super easy.
+2. Unlimited Customizations - Enjoy complete control of your website content and layout. Change colors, fonts, add images, create and add new patterns and pages.
+3. Hundreds of Templates - Choose from over 200 diverse designs to build your dream website in minutes. Whether it's eCommerce, Business, Portfolio, or any niche, find the perfect template tailored to your vision.
+4. Limitless Customizations- Explore fonts and colors with a simple click. Effortlessly change images add new patterns/pages.
+5. Design Library - No more starting from scratch, no more design roadblocks. Jumpstart your designs with any of our professionally designed pages and patterns templates.
+6. Use the power of AI with a single click to write copy, proofread, translate content into different languages. Adjust content length and tone seamlessly for maximum appeal.
 
 == Changelog ==
 
-v2.6.2 - 10-March-2021
-
-- Improvement: Used better and optimised way to show the initial sites and pages list on Starter Template dashboard.
-- Improvement: Block Templates - Used version.json instead of package.json to manage the dependency.
-- Improvement: Block Templates - Now users can suggest their required templates via suggestion link.
-- Improvement: Block Templates - Added filter to disable the Block Templates. - https://wpastra.com/docs/filter-to-remove-starter-templates-button/
-- Fix: Block Templates - Retained the selected block pattern category filter after switching between Pages/Patterns tabs.
-- Fix: Rectified the invisible icon from the 'View Site' button.
-- Fix: Brizy pages initially not showing any content.
-
-v2.6.1 - 17-February-2021
-- Fix: Version file was missing due to Auto-Release command.
-
-v2.6.0 - 17-February-2021
-- New: Added the single pages and blocks for the Gutenberg. Read more https://wpastra.com/docs/import-gb-pages-patterns/
-
-v2.5.1 - 1-February-2021
-- Improvement: Improved the admin notice first view logic.
-- Improvement: Improved the experience while subscribing to Starter Templates' news.
-
-v2.5.0 - 29-January-2021
-- New: Added an ability to subscribe to Starter Templates' updates.
-- Improvement: Added new API to support asynchronous import for the Starter Templates.
-
-v2.4.0 - 30-December-2020
-- Improvement: Additional compatibility with WordPress 5.6.
-
-v2.3.9 - 9-December-2020
-- Improvement - Compatibility to WordPress 5.6.
-
-v2.3.8 - 23-October-2020
-- Fix: LearnDash grid CSS not loading after site import.
-
-v2.3.7 - 28-September-2020
-- Fix: Prefixed all Starter Templates Icon classes in order to avoid 3rd party conflicts.
-
-v2.3.6 - 23-September-2020
-- Improvement: Added the Pixabay images support for new post, pages, and custom post type screen.
-- Improvement: Better handling of notices in the case of sync process.
-
-v2.3.5 - 27-August-2020
-- Improvement: Added Safe Search checkbox for Pixabay Image Search.
-- Fix: Elementor 3.0.0 and above import compatibility.
-- Fix: Resolved hotlink issue with Single page import.
-- Fix: Resolved edit permission issue while importing on Elementor page.
-
-v2.3.4 - 13-August-2020
-- Improvement - Compatibility to WordPress 5.5.
-
-v2.3.3 - 7-August-2020
-- Improvement: Minor code changes.
-
-v2.3.2 - 29-June-2020
-- Improvement: Added CartFlows Landing page compatibility to LeadDash courses.
-- Improvement: Handle the LearnDash add-ons links if LearnDash is installed and activated.
-- Fix: Resolve an invalid response from the site import complete AJAX request.
-
-v2.3.1 - 17-June-2020
-- Fix: Fixed the user role and capability issue for WP CLI demo import.
-
-v2.3.0 - 15-June-2020
-- New: Users can now share non-personal usage data to help us test and develop better products.
-
-v2.2.5 - 15-June-2020
-- Improvement: Performance enhancements in order to improve the TTFB (time to first byte).
-- Improvement: Now users can see better error messages (if any) while import.
-- Improvement: Handled the multisite plugin install/activate capability issue for standard administrator user.
-- Fix: Resolved a conflict with Groundhogg plugin.
-- Fix: Resolved a conflict between 3rd party plugins and Pixabay Images.
-- Fix: Fixed latest Brizy page builder related issues.
-- Fix: Fixed the repeated content import issues.
-
-v2.2.4 - 04-May-2020
-- Improvement: Demo data is stored Network Wide for Multisite instance.
-- Improvement: Users can opt-out from Elementor Theme Kit if needed while importing the site.
-- Fix: Double slash for REST endpoint removed.
-- Fix: Changed user permissions for a few actions.
-
-v2.2.3 - 29-April-2020
-- Fix: Handled duplicate data being imported due to Imagick image editor.
-
-v2.2.2 - 22-April-2020
-- Improvement: Added missing slash to the website preview URL.
-- Improvement: Added Elementor Theme Kit Compatibility.
-
-v2.2.1 - 15-April-2020
-- Improvement: Improved the file permissions check functionality.
-
-v2.2.0 - 6-April-2020
-- Improvement: Added an Update Button for un-updated plugin list popup.
-- Improvement: Used text-domain `astra-sites` to make translation ready strings.
-- Improvement: Imported all the hotlink images from Astra theme customizer settings.
-- Improvement: WP 5.4 compatibility issue.
-- Fix: The category not visible in the dropdown list from the Elementor Popup.
-
-v2.1.0 - 23-March-2020
-- New: Added `starter-templates` WP CLI command which is a new alias for WP CLI command  `astra-sites`. We can use either `starter-templates` or `astra-sites`.
-- Improvement: WordFence firewall setting breaks the site content import AJAX request.
-- Improvement: Added WordPress version 4.9 compatibility.
-- Improvement: Update needed for plugin notice now shows the list of plugins that needs to be updated.
-- Improvement: Elementor Popup for Page/Block import has a revamped UI.
-- Improvement: Now one can filter Free/Agency pages in Elementor Popup.
-- Improvement: Showing the inconsistent file permissions message.
-- Fix: Fixed issue regarding images not getting imported for Gutenberg sites.
-- Fix: Starter Template Blocks manual sync for more than 100 blocks not getting synced.
-
-v2.0.2 - 07-March-2020
-- Fix: Plugin not activated after importing from WP CLI command.
+v4.3.5 - 02-July-2024
+- New
+    - Design Kit - Added a page preview feature along with other page options.
+    - Design Kit - Introduced error boundaries for better error management.
+- Improvement
+    - Design Kit - Introduced a new "Favorites" tab, separated from Patterns, Pages, and Kits.
+    - Design Kit - Added clickable navigation in the sidebar, allowing users to jump to previous steps.
+    - Design Kit - Disabled live preview and other actions while inserting the kit into a page.
+    - Design Kit - Improved UI/UX for a better user experience.
+    - Design Kit - Enhanced error handling during the import process.
+    - Design Kit - Added an admin notice for missing file permissions.
+    - Design Kit - Removed validation for the mobile field in AI onboarding.
+    - Design Kit - Added a loader while inserting the block.
+    - AI Builder - Added ZipWP new features icon support.
+    - AI Builder - Added a filter to disable the Premium Badge for templates.
+- Fix
+    - Design Kit - Fixed console error causing a blank screen in GT AI onboarding if already prefilled.
+    - Design Kit - Resolved an issue where the Design Library button was not displayed in the Spectra One theme editor when the Gutenberg Plugin was activated.
+    - Design Kit - Fixed a console error that occurred on the screen of the image when AI data was prefilled.
+    - Design Kit - Addressed a blank screen issue when accessing the "Design Library" on Bedrock-powered sites.
+    - Design Kit - Fixed option 'ast-block-templates_data-' not getting deleted after importing the site template.
+    - Design Kit - Prevented adding a block to a new page after Spectra installation.
+    - Design Kit - Fixed shuffling of images when changing the orientation multiple times.
+    - Design Kit - Fixed AI-generated business description response count not working as expected.
+    - Design Kit - Fixed issue with authentication redirection.
+    - AI Builder - Made compulsory features enabled by default and non-clickable.
+    - AI Builder - UI improvements.
+    - AI Builder - Fixed acceptance of incorrect input in the email field.
+    - AI Builder - Ensured the "site creation limit exceeded" popup is displayed correctly.
+
+v4.3.4 - 24-June-2024
+- Chore: AI-Builder - Included build files.
+- Improvement: AI-Builder - Added ability to skip the Features screen using a filter.
+- Improvement: AI-Builder - Improved UI/UX.
+- Fix: AI-Builder - Site creation limit exceeded popup was not displaying.
+- Fix: AI-Builder - Removed irrelevant error messages from logs during import failures.
+
+v4.3.3 - 12-June-2024
+- Improvement: AI Builder - Error Boundary Screen in case of unexpected errors.
+- Improvement: AI Builder - Removed phone validations to match this phone format - Ex: +1 (888) SIXT-CAR (749-8227)
+- Improvement: ZipWP Images - Updated preview screen for better UX.
+- Fix: AI Builder - Better handling of console errors due to missing URLs in Image object from ZipWP images API.
+- Fix: Design Kit - Fixed a console error in Gutenberg Templates library due to missing URLs for author and engine for placeholder images.
+- Fix: Resolved PHP 8.2 deprecated notice related to the creation of dynamic properties.
+- Fix: ZipWP Images - "Select" of media library was not showing in the customiser preview.
+
+v4.3.2 - 11-June-2024
+- Fix: Fixed an issue where the search functionality in the Elementor editor was not working.
+
+v4.3.1 - 06-June-2024
+- Improvement: Added logging for import failures with a user alert for log details, warning that retries will exhaust AI site attempts.
+- Improvement: Prefill websites based on the previous site creation.
+- Fix: Resolved issue causing infinite skeleton loading for the classic template library.
+- Fix: Resolved blog posts throwing 404 errors.
+- Fix: Fixed an error when using the Spectra One theme and Starter Templates to import websites with ZipAI.
+- Fix: The title for the `Description` step does not change for exceptional cases.
+- Fix: Design Kit - Resolved Console error for undefined images.
+
+v4.3.0 - 04-June-2024
+- New: What's New - Ability to see the new updates for Starter Templates plugin in the form of feed.
+- New: Free Images - Added all new library for Free Images with new free image search engines like Pexels and Pixabay.
+- Improvement: Added Admin Notice if Required XML Reader Class Not Found.
+- Improvement: Consistent UI Changes for AI Builder.
+- Improvement: UI - Improved the tooltip UI.
+- Fix: Classic Templates Not Showing for New Sites During Sync.
+- Fix: AI Builder - Fixed an issue with inconsistent font sizes and line height in the onboarding process.
+
+v4.2.6 - 27-May-2024
+- Improvement: AI Builder - Added a pre-installation confirmation modal before building the site.
+- Fix: Fixed a redirection issue with the "Try the New AI Builder" button on Starter Templates dashboard.
+- Fix: Corrected template listing for the Spectra One theme.
+- Fix: Fixed an issue where import failed for Beaver Builder templates.
+- Fix: Addressed an issue where fonts, colors, and other settings were not applied after importing Elementor templates.
+
+v4.2.5 - 21-May-2024
+- Fix: Resolved an issue that caused plugin activation errors on multisite installations.
+- Fix: Design Kit - The library not displaying on subdomain sites when the plugin is network activated.
+
+v4.2.4 - 17-May-2024
+- Improvement: Added a way to disable Classic Templates Importer.
+- Fix: Fixed broken WP-CLI import process for classic templates.
+
+v4.2.3 - 14-May-2024
+- Fix: Fixed the error while importing the classic templates.
+
+v4.2.2 - 10-May-2024
+- Improvement: Better error handling.
+- Improvement: Better preview for the color palette.
+- Improvement: Better UX while selecting Starter Templates.
+- Improvement: Improved the way Starter Templates stores JSON data while sync process to address memory issues.
+- Improvement: AI Builder - Improved the user experience by blocking unwanted options while processing data on a particular step.
+- Fix: Fixed an issue where the Starter Templates won't get imported on an RTL website.
+- Fix: Design Kit: Rectified an issue where the Template kit names went missing due to library update.
+- Fix: AI Builder - Fixed an issue where the import would remain stuck at 98%.
+- Fix: Made Starter Templates more secure while uploading SVG files.
+
+v4.2.1 - 03-May-2024
+- Fix: Fixed an incorrect type casting of a string on a popup for AI Builder.
+
+v4.2.0 - 29-April-2024
+- New: Added custom color palette selection option in AI Builder.
+- New: Added "Features" screen to the Classic Builder onboarding.
+- New: 'Load More' templates option in AI Builder.
+- New: Design Kit - Added language compatibility for personalizing the AI copy.
+- Improvement: Enhanced template search functionality.
+- Improvement: Improved the way Starter Templates store JSON data during the import process to address memory issues.
+- Improvement: Optimized and enhanced code for a better user experience.
+- Improvement: User Interface improvements for the Template Kit library.
+- Improvement: Design Kit - Improved responsive design and UX.
+- Improvement: Classic Templates - Improved responsive design and UX.
+- Improvement: Ability to edit the previous step of AI Onboarding by clicking on the sidebar.
+- Improvement: Now, Upload images are available in a new tab within same screen.
+- Fix: Resolved issue with import for RTL sites.
+- Fix: Design Kit - Fixed an issue where the Design Kit button was not visible on an FSE-based theme.
+- Fix: Design Kit - Fixed an issue where the line height of the Design Kit templates appeared messed up.
+- Fix: Design Kit - Fixed a fatal error caused by unavailable error_log related libraries on the user's server.
 
-v2.0.1 - 02-March-2020
-- Hot Fix: Removed wp-editor dependency.
+v4.1.7 - 22-April-2024
+- Improvement: Hardened the security of the plugin.
 
-v2.0.0 - 20-February-2020
-- New: Astra Sites is now **Starter Templates**
-- New: Added favorite or unfavorite the demo site.
-- New: Improve the sites and pages loading time speed.
-- New: Added block import support with 200+ blocks in the Elementor editor window.
-- New: Added single page import as Elementor template in the Elementor editor window.
-- New: Added single page import support from any demo site with 1800+ pages.
-- Improvement: Showing all Astra sites with more user-friendly and interactive UI.
-- Improvement: Updated the Astra Notices library.
+v4.1.6 - 09-April-2024
+- Fix: Resolved issue with Media library not functioning properly.
 
-v1.4.5 - 21-November-2019
-- Improvement: Added missing font awesome icons support for the Elementor sites.
+v4.1.5 - 08-April-2024
+- Improvement: Streamlined the Gutenberg Templates library structure to reduce resource consumption.
 
-v1.4.4 - 14-November-2019
-- Improvement: Added the old browser compatibility in which Astra Sites not loading.
-- Improvement: Used `gmdate()` function instead of `date()` which affected by runtime timezone changes.
+v4.1.4 - 01-April-2024
+- Fix: AI image replacement batch was inadvertently functioning for Classic editor templates.
+- Fix: Displaying "Download images fail" message when no images are selected during onboarding.
 
-v1.4.3 - 7-November-2019
-- Fix: Installing premium plugin from the WP CLI import.
-- Fix: WP CLI command `wp astra-sites list` showing the old result.
-- Fix: PHP error Astra_Sites_Batch_Processing_Elementor does not exist from WP CLI import.
-- Improvement: Some Elementor templates broken due to the missing wp_slash() from WP CLI import.
+v4.1.3 - 28-March-2024
+- Fix: Resolved import process getting stuck due to resource limitations on certain hosts.
 
-v1.4.2 - 4-November-2019
-- Fix: Correctly added nonce to allow notice to be dismissed.
-- Fix: Restore the timeout time to be 300 seconds which is the default for `download_url()`
+v4.1.2 - 25-March-2024
+- Improvement: Added Wordpress 6.5 compatibility.
 
-v1.4.1 - 31-October-2019
-- Fix: PHP Error on PHP Versions below 7.0 due to usage of a PHP reserved function name.
+v4.1.1 - 20-March-2024
+- Fix: Import process was getting stuck after activating the plugin required for selected feature.
 
-v1.4.0 - 30-October-2019
-- New: Added the WP CLI command `wp astra-sites list` to list the demo sites.
-- New: Added the WP CLI command `wp astra-sites import <id>` to import the demo with ID.
-- New: Added the WP CLI command `wp astra-sites page_builder list` to list all page builders.
-- New: Added the WP CLI command `wp astra-sites page_builder set <slug>` to set the default page builder by page builder slug.
+v4.1.0 - 19-March-2024
+- New: Introduced local language support in AI building.
+- New: Added an upload image feature when selecting images for your site.
+- Improvement: Enhanced AI building for a better user experience.
+- Improvement: Consolidated Logo, Font, and Color Palette support into one screen on the Classic Builder.
+- Improvement: Enhanced and optimised code for an improved user experience.
 
-v1.3.21 - 25-October-2019
-- Security Fix: XSS vulnerability fixed by adding nonce verification and capability checks.
+v4.0.13 - 21-February-2024
+- Fix: Resolved an issue where the AI description won't get generated on WordPress.com sites.
 
-v1.3.20 - 15-October-2019
-- Fix: Updated Astra Notice library to v1.1.4.
+v4.0.12 - 12-February-2024
+- Fix: Resolved an issue where the Template Kit button was not visible due to mismatched business categories.
 
-v1.3.19 - 12-September-2019
-- Improvement: Allow extra query parameters to be added to the API calls for Astra Sites using filters.
+v4.0.11 - 10-February-2024
+- Fix: Resolved an issue where the import process stayed stuck at 95% with AI Website Builder.
 
-v1.3.18 - 5-September-2019
-- Improvement: Error handling while getting import data from API request.
+v4.0.10 - 07-February-2024
+- Fix: Resolved an issue where the Template Kit button was not visible.
 
-v1.3.17 - 28-June-2019
-- Improvement: Minor changes in Links
+v4.0.9 - 05-February-2024
+- Fix: Resolved an issue where the category was not assigned after import.
 
-v1.3.16 - 21-June-2019
-- Fix: WooCommerce onboarding setup blocked issue fixed.
+v4.0.8 - 01-February-2024
+- Improvement: AI Website Builder - Ability to create a site with desired features like Donations, Automation, Sales Funnels Video Player, etc for the website.
 
-v1.3.15 - 20-June-2019
-- Fix: Importing pages, post twice from the import process.
+v4.0.7 - 29-January-2024
+- Fix: Resolved an issue where the Premium Template Kits won't get imported.
 
-v1.3.14 - 14-June-2019
-- Improvement: Added Support for Learndash WooCommerce integration plugin.
+v4.0.6 - 25-January-2024
+- Improvement: Enhanced user experience by providing informative error messages for better troubleshooting.
 
-v1.3.13 - 5-June-2019
-- New: Added LearnDash plugin support for the LearnDash demo sites.
+v4.0.5 - 23-January-2024
+- Improvement: Added Flexbox Container compatibility for Elementor templates.
 
-v1.3.12 - 14-May-2019
-- Improvement: Added compatibility for below WordPress 5.1.
+v4.0.4 - 22-January-2024
+- Fix: Fixed the fatal error issue that would occur after Spectra v2.12.0.
 
-v1.3.11 - 13-May-2019
-- Improvement: Added compatibility to WordPress 5.2.
+v4.0.3 - 17-January-2024
+- Fix: Fixed an issue where the import process was breaking for AI websites.
+- Fix: Fixed an issue where the images won't get reflected in search results as per the search keyword.
 
-v1.3.10 - 13-May-2019
-- Improvement: Added LarnDash plugin support for LarnDash demos.
-- Fix: SVG images are not importing in media library.
-- Fix: Images not uploaded due to timeout issue.
+v4.0.2 - 15-January-2024
+- Improvement: Added Flexbox Container compatibility in Elementor.
+- Improvement: Added ability to resume back to last session while building AI website.
+- Improvement: Better UX while using AI Website Builder.
 
-v1.3.9 - 29-April-2019
-- Fix: Fatal error for below WordPress version 5.1.0.
+v4.0.1 - 04-January-2024
+- Fix: Fixed an issue where the CSS looked messed up after importing using AI Website Builder.
 
-v1.3.8 - 26-April-2019
-- Improvement: Improve logic for importing images.
-- Fix: Implemented better caching technique for Astra Sites.
+v4.0.0 - 03-January-2024
+- New: AI Website Builder.
+- Fix: Tightened the plugin security.
 
-v1.3.7 - 23-April-2019
-- Fix: Compatibility to WP Forms in Header and Footer of the demo site for Elementor.
+v3.5.7 - 30-December-2023
+- Fix: Fixed Template Kit library conflict ( 503 Error ) with Gravity Form plugin.
 
-v1.3.6 - 19-April-2019
-- Fix: After Import UAG - Post Grid categories do not retain issue fixed
-- Fix: Premium Sites not importing due to invalid URL error.
-
-v1.3.5 - 18-April-2019
-- Improvement: Updated page builder selection screen UI.
-- Improvement: Showing import process on separate window. In which we can see all the current import process.
-- Improvement: Added one time welcome notice after plugin install and activate.
-- Improvement: Used fetch() instead of AJAX to load the Astra Sites. Also, Caching the Astra sites response and initially showing 30 sites.
-
-v1.3.4 - 16-April-2019
-- Hot Fix: Sites not visible for import.
-
-v1.3.3 - 2-April-2019
-- Improvement: Added compatibility for WP Forms pro version.
-- Fix: PHP error while importing customizer settings.
-
-v1.3.2 - 1-April-2019
-- Improvement: One click install and activate Astra theme on click on admin notice.
-
-v1.3.1 - 28-March-2019
-- Improvement: Set the max height for the website image from the website preview window.
-
-v1.3.0 - 26-March-2019
-- New: Improve the user experience by removing unnecessary steps required in importing a site. Now an Astra site can be imported with just one click.
-- New: Display page builder selection only once on the first load of Astra Sites.
-- New: Take a backup of customizer options before importing new settings.
-- New: Allow to reset the previously imported site when importing multiple Astra sites.
-
-v1.2.15 - 14-March-2019
-- Improvement: Admin page UI improvements.
-- Improvement: Added filter `astra_sites_page_title` to change the page title.
-
-v1.2.14 - 13-March-2019
-- Improvement: Added support for the WPForms plugin.
-
-v1.2.13 - 12-March-2019
-- Improvement: Improved logic to download images in the Elementor templates.
-- Improvement: Added description of the Agency sites when license is not activated.
-- Fix: Incorrect images was set after batch process complete.
-
-v1.2.12 - 29-Jan-2019
-- Fix: Gutenberg render markup is invalid due to encoded characterless e.g. <, > are decoded into HTML tag.
-
-v1.2.11 - 24-Jan-2019
-- Improvement: Display a maintenance message if the Astra Sites API is unreachable.
-- Fix: EventSource abort the import process if default charset is not UTF-8.
-
-v1.2.10 - 4-Jan-2019
-- Fix: Astra Sites not accessible due to incorrect query parameters.
-
-v1.2.9 - 17-Dec-2018
-- Fix: XML not import due to getting different MIME file types on different PHP versions.
-
-v1.2.8 - 14-Dec-2018
-- Improvement: Added admin notice if XMLReader is not installed. XMLReader is required to import the XML of the website.
-- Fix: XML not import due to improved verification of MIME file types in WordPress v5.0.1.
-
-v1.2.7 - 12-July-2018
-- Improvement: Added page builder and category filter support to show selected page builder with selected categories.
-- Improvement: Added filter `astra_sites_show_filters` to enable/disable the filter list from admin page.
-
-v1.2.6 - 9-July-2018
-- Fix: We have added `wp_slash` to normalize the Elementor post meta. Elementor have also normalize it. So, We have avoided `wp_slash` while importing sites.
-
-v1.2.5 - 5-July-2018
-- Fix: Normalize Elementor post meta by using `wp_slash` to avoid the unslashing data.
-
-v1.2.4 - 29-June-2018
-- Improvement: Removed custom license validation form and used Graupi in-build license validation form.
-- Improvement: Set default page builders depends on the packaged purchase.
-
-v1.2.3 - 13-June-2018
-- Improvement: Added windows EDGE browser support for importing the sites.
-- Improvement: The log file was not created if server does not support the file handling functions.
-- Fix: Load WXR importer on init to avoid redirect loop when loading WooCommerce importer.
-- Fix: Clear the Astra Pro plugin cache after site import.
-
-v1.2.2 - 26-March-2018
-- Fix: Correctly load the Elementor Pro 2.0 compatibility class for beta versions.
-
-v1.2.1 - 23-March-2018
-- Improvement: Clear the Astra Pro plugin cache after site import.
-
-v1.2.0 - 22-March-2018
-- Improvement: Added compatibility for Elemetor version 2.0.0. Older versions throw the PHP warning for function process_element_export_import_content().
-
-v1.1.9 - 12-March-2018
-- Fix: String `Select Your Favorite Page Builder` jerk while loading the sites.
-
-v1.1.8 - 5-March-2018
-- Improvements: Updated processing button animation while installation/activating plugin and importing site.
-- Improvements: Updated suggestion box message.
-- Fix: PHP fatal errors for WXR importer classes `WXR_Import_Info`, `WXR_Importer`, `WP_Importer_Logger_ServerSentEvents` and `WP_Importer_Logger`.
-
-v1.1.7 - 2-February-2018
-- Improvements: Some users reported confusion in the default option of choosing page builder. We have made UX improvements so users now must select the Page Builder first before selecting any website.
-
-v1.1.6 - 22-January-2018
-- New: Added filter `astra_sites_xml_import_options` to change the XML import options.
-- Fix: Astra Pro plugin 'Custom Layouts' & 'Page Headers' not setting right display location due to different page, tax, category ids.
-- Fix: WooCommerce shop, checkout cart page ids not setting issue.
-- Fix: After site import updated demo url from the nav menus.
-
-v1.1.5 - 11-January-2018
-- New: Added SVG file support for importing the SVG images.
-
-v1.1.4 - 28-Dec-2017
-- Improvement: Importing WooCommerce product category images.
-- Improvement: Retain WooCommerce cart, checkout & my account pages when importing the ready WooCommerce sites.
-- Fix: Disabled WooCommerce plugin setup wizard after plugin install & activate.
-
-v1.1.3 - 20-Dec-2017
-- Improvement: Retain WooCommerce shop page when importing the ready WooCommerce sites.
-
-v1.1.2 - 24-Nov-2017
-- Fix: Handling plugin installation errors.
-
-v1.1.1 - 23-Nov-2017
-- New: Change the api url for Astra sites to https://websitedemos.net/ from https://sites.wpastra.com/
-
-v1.1.0 - 21-Nov-2017
-- New: Import the site content using Event Source (SSE) which ensures faithful imports.
-- New: Divided the site import process in separate AJAX calls to reduce the possibility of timeouts.
-- New: Generated the import log file. It will be displayed in the UI if the import fails.
-- Improvement: Validate all the possible errors.
-- Improvement: Updated Astra sites HTML grid structure for WordPress v4.9 compatibility.
-- Enhancement: Updated plugin name from Astra Sites - Lite with Astra Starter Sites.
-
-v1.0.14 - 9-Nov-2017
-- New: All the linked images on the Astra Sites will be downloaded to your site, No more loading images from external URLs.
-- New: Added suggestion box at as the last column in when listing sites so that you can add a suggest the sites you want.
-- New: Added site responsive preview buttons.
-- Improvement: Search string will not be removed when switching the page builder when scrolling through sites.
-- Improvement: Loading 15 sites instead of 6 Astra sites in the first load.
-- Improvement: Removed LazyLoad which is not useful in admin back-end for showing Astra Sites.
-
-v1.0.13 - 9-Oct-2017
-- New: Browsing the Astra Sites in the Admin panel is not faster with JS rendering.
-
-v1.0.12 - 29-Sept-2017
-- New: Added White Label support from <a href="https://wpastra.com/pro/">Astra Pro</a>.
-- Improvement: Don't display sites from both the page builders in the same view.
-- Fix: Astra Sites admin area not working in the Firefox.
-
-v1.0.11 - 22-Sept-2017
-- New: Single click Install & activate required plugins.
-- New: Added filter `astra_sites_menu_item` for adding extra tabs in admin page.
-- New: Added back image import feature for `elementor` page builder. In batch image import we import all images from astra site into client site.
-- Improvement: Updated JS code with object prototype.
-- Fix: Screen bounce on retina devices.
-
-v1.0.10 - 11-Sept-2017
-- Improvement: Added support for retina logo import.
-- Fix: Site logo image not displayed in customizer.
-- Fix: Updated `Astra Agency` purchase link.
-
-v1.0.9 - 8-Sept-2017
-- New: Added page builder categories for listing sites as per page builder.
-
-v1.0.8 - 6-Sept-2017
-- Fix: Beaver Builder option import.
-- Enhancement: Disabled dismiss-able notice visible once for each user.
-- Enhancement: Showing error message for for user who have not `manage_plugins` capability.
-
-v1.0.7 - 1-Sept-2017
-- Fix: Custom Menu widget not setting imported widget.
-
-v1.0.6 - 30-Aug-2017
-- New: Addd custom menu for Astra Sites.
-- Fix: Validate site options before storing in database.
-
-v1.0.5 - 29-Aug-2017
-- New: Added filter `astra_sites_api_args` for adding extra arguments in api call.
-- Enhancement: Plugin name updated from `Astra Sites` with `Astra Free Sites`.
-- Fix: PHP error while ignoring users.
-
-v1.0.4 - 21-Aug-2017
-- New: Added filter `astra_sites_api_params` for adding extra params in api call.
-- New: Added filter `astra_sites_api_args` for adding extra arguments in api call.
-- New: Added filter `astra_sites_category_hide_empty` for showing categories which are not set for any site.
-
-v1.0.3 - 11-Aug-2017
-- Fix: Avoided Astra users from site import process.
-
-v1.0.2 - 09-Aug-2017
-- Fix: Listing appropriate next and previous Astra sites.
-- Enhancement: Listing Astra sites though AJAX API call.
-
-v1.0.1 - 04-Aug-2017
-- New: Added Elementor plugin options support.
-- New: Added Customizer CSS support.
-- Enhancement: Avoided Lite Plugin version if Pro version is Installed. Now added support for Beaver Builder Plugin (Lite Version).
-- Enhancement: Astra sites API call validated before import.
-- Enhancement: Site logo imported from Astra sites.
-- Fix: Bug where widgets created with SiteOrigin plugin were not being imported.
-
-v1.0.0
-- Initial release
+Check out the detailed changelog [here](https://startertemplates.com/whats-new/).

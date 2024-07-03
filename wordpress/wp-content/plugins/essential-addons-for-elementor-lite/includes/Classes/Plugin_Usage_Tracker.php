@@ -19,11 +19,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 		/**
 		 * WP Insights Version
 		 */
-		const WPINS_VERSION = '3.0.2';
+		const WPINS_VERSION = '3.0.3';
 		/**
 		 * API URL
 		 */
-		// const API_URL = 'http://app.wpdeveloper.net?usage_tracker=hello';
 		const API_URL = 'https://send.wpinsight.com/process-plugin-data';
 		/**
 		 * Installed Plugin File
@@ -48,6 +47,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 		 * @var Plugin_Usage_Tracker
 		 */
 		private static $_instance = null;
+
+		private $disabled_wp_cron;
+		private $enable_self_cron;
+		private $require_optin;
+		private $include_goodbye_form;
+		private $marketing;
+		private $options;
+		private $item_id;
+		private $notice_options;
+
 		/**
 		 * Get Instance of Plugin_Usage_Tracker
 		 * @return Plugin_Usage_Tracker
@@ -346,6 +355,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 				$email = $current_user->user_email;
 				if( is_email( $email ) ) {
 					$body['email'] = $email;
+				} else {
+					$email = get_option( 'admin_email' );
+					if( is_email($email) ) {
+						$body['email'] = $email;
+					}
 				}
 			}
 			$body['marketing_method'] = $this->marketing;
@@ -390,26 +404,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 			}
 
 			/**
-			 * Get our plugin options
-			 * @since 1.0.0
-			 */
-			// $options = $this->options;
-			// $plugin_options = array();
-			// if( ! empty( $options ) && is_array( $options ) ) {
-			// 	foreach( $options as $option ) {
-			// 		$fields = get_option( $option );
-			// 		// Check for permission to send this option
-			// 		if( isset( $fields['wpins_registered_setting'] ) ) {
-			// 			foreach( $fields as $key=>$value ) {
-			// 				$plugin_options[$key] = $value;
-			// 			}
-			// 		}
-			// 	}
-			// }
-			// $body['plugin_options'] = $this->options; // Returns array
-			// $body['plugin_options_fields'] = $plugin_options; // Returns object
-
-			/**
 			 * Get active theme name and version
 			 * @since 3.0.0
 			 */
@@ -420,6 +414,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 			if( $theme->Version ) {
 				$body['theme_version'] = sanitize_text_field( $theme->Version );
 			}
+
+			if ( ! empty( $this->get_used_elements_count() ) ) {
+				$body['optional_data'] = $this->get_used_elements_count();
+			}
+
 			return $body;
 		}
 
@@ -561,7 +560,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			));
 			$request = wp_remote_post( esc_url( self::API_URL ), $args );
 			if( is_wp_error( $request ) || ( isset( $request['response'], $request['response']['code'] ) && $request['response']['code'] != 200 ) ) {
-				return new WP_Error( 500, 'Something went wrong.' );
+				return new \WP_Error( 500, 'Something went wrong.' );
 			}
 			return $request;
 		}
@@ -618,8 +617,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'plugin_action'	=> 'no'
 			) );
 
+			$url_yes = wp_nonce_url( $url_yes, '_wpnonce_optin_' . $this->plugin_name );
+			$url_no  = wp_nonce_url( $url_no, '_wpnonce_optin_' . $this->plugin_name );
+
 			// Decide on notice text
-			$notice_text = $this->notice_options['notice'] . ' <a href="#" class="wpinsights-'. $this->plugin_name .'-collect">'. $this->notice_options['consent_button_text'] .'</a>';
+			$notice_text = $this->notice_options['notice'] . ' <a href="#" class="wpinsights-'. esc_attr( $this->plugin_name ) .'-collect">'. $this->notice_options['consent_button_text'] .'</a>';
 			$extra_notice_text = $this->notice_options['extra_notice'];
 
 			$output = '';
@@ -632,10 +634,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 					$output .= '<a href="'. esc_url( $url_yes ) .'" class="button-primary">'. $this->notice_options['yes'] .'</a>&nbsp;';
 					$output .= '<a href="'. esc_url( $url_no ) .'" class="button-secondary">'. $this->notice_options['no'] .'</a>';
 				$output .= '</p>';
-				$output .= "<script type='text/javascript'>jQuery('.wpinsights-". $this->plugin_name ."-collect').on('click', function(e) {e.preventDefault();jQuery('.wpinsights-data').slideToggle('fast');});</script>";
+				$output .= "<script type='text/javascript'>jQuery('.wpinsights-". esc_attr( $this->plugin_name ) ."-collect').on('click', function(e) {e.preventDefault();jQuery('.wpinsights-data').slideToggle('fast');});</script>";
 			$output .= '</div>';
 
-			echo $output;
+			printf( '%1$s', $output );
 		}
 		/**
 		 * Set all notice options to customized notice.
@@ -658,7 +660,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 		 * @return void
 		 */
 		public function clicked(){
-			if( isset( $_GET['plugin'] ) && trim($_GET['plugin']) === $this->plugin_name && isset( $_GET['plugin_action'] ) ) {
+			if ( isset( $_GET['_wpnonce'] ) && isset( $_GET['plugin'] ) && trim( $_GET['plugin'] ) === $this->plugin_name && isset( $_GET['plugin_action'] ) ) {
+				if ( ! wp_verify_nonce( $_GET['_wpnonce'], '_wpnonce_optin_' . $this->plugin_name ) ) {
+					return;
+				}
+
 				if( isset( $_GET['tab'] ) && $_GET['tab'] === 'plugin-information' ) {
                     return;
                 }
@@ -704,7 +710,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		public function deactivate_reasons_form_submit() {
 			check_ajax_referer( 'wpins_deactivation_nonce', 'security' );
 			if( isset( $_POST['values'] ) ) {
-				$values = $_POST['values'];
+				$values = sanitize_text_field( $_POST['values'] );
 				update_option( 'wpins_deactivation_reason_' . $this->plugin_name, $values );
 			}
 			if( isset( $_POST['details'] ) ) {
@@ -778,19 +784,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 						$id = strtolower( str_replace( " ", "_", esc_attr( $option['label'] ) ) );
 						$id = $id . '_' . $class_plugin_name;
 						$html .= '<li class="has-goodbye-extra">';
-						$html .= '<input type="radio" name="wpinsights-'. $class_plugin_name .'-goodbye-options" id="' . $id . '" value="' . esc_attr( $option['label'] ) . '">';
+						$html .= '<input type="radio" name="wpinsights-'. esc_attr( $class_plugin_name ) .'-goodbye-options" id="' . esc_attr( $id ) . '" value="' . esc_attr( $option['label'] ) . '">';
 						$html .= '<div><label for="' . $id . '">' . esc_attr( $option['label'] ) . '</label>';
 						if( isset( $option[ 'extra_field' ] ) && ! isset( $option['type'] )) {
-							$html .= '<input type="text" style="display: none" name="'. $id .'" id="' . str_replace( " ", "", esc_attr( $option['extra_field'] ) ) . '" placeholder="' . esc_attr( $option['extra_field'] ) . '">';
+							$html .= '<input type="text" style="display: none" name="'. esc_attr( $id ) .'" id="' . str_replace( " ", "", esc_attr( $option['extra_field'] ) ) . '" placeholder="' . esc_attr( $option['extra_field'] ) . '">';
 						}
 						if( isset( $option[ 'extra_field' ] ) && isset( $option['type'] )) {
-							$html .= '<'. $option['type'] .' style="display: none" type="text" name="'. $id .'" id="' . str_replace( " ", "", esc_attr( $option['extra_field'] ) ) . '" placeholder="' . esc_attr( $option['extra_field'] ) . '"></' . $option['type'] . '>';
+							$html .= '<'. $option['type'] .' style="display: none" type="text" name="'. esc_attr( $id ) .'" id="' . str_replace( " ", "", esc_attr( $option['extra_field'] ) ) . '" placeholder="' . esc_attr( $option['extra_field'] ) . '"></' . $option['type'] . '>';
 						}
 						$html .= '</div></li>';
 					} else {
 						$id = strtolower( str_replace( " ", "_", esc_attr( $option ) ) );
 						$id = $id . '_' . $class_plugin_name;
-						$html .= '<li><input type="radio" name="wpinsights-'. $class_plugin_name .'-goodbye-options" id="' . $id . '" value="' . esc_attr( $option ) . '"> <label for="' . $id . '">' . esc_attr( $option ) . '</label></li>';
+						$html .= '<li><input type="radio" name="wpinsights-'. $class_plugin_name .'-goodbye-options" id="' . esc_attr( $id ) . '" value="' . esc_attr( $option ) . '"> <label for="' . $id . '">' . esc_attr( $option ) . '</label></li>';
 					}
 				}
 				$html .= '</ul></div><!-- .wpinsights-'. $class_plugin_name .'-goodbye-options -->';
@@ -835,7 +841,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 				$styles .= $wrapper_class . ' .wpinsights-goodbye-form-footer { padding: 8px 18px; margin-bottom: 15px; }';
 				$styles .= $wrapper_class . ' .wpinsights-goodbye-form-footer > .wpinsights-goodbye-form-buttons { display: flex; align-items: center; justify-content: space-between; }';
 				$styles .= $wrapper_class . ' .wpinsights-goodbye-form-footer .wpinsights-submit-btn {';
-					$styles .= 'background-color: #d30c5c; -webkit-border-radius: 3px; border-radius: 3px; color: #fff; line-height: 1; padding: 15px 20px; font-size: 13px;';
+					$styles .= 'background-color: #f3bafd; -webkit-border-radius: 3px; border-radius: 3px; color: #0c0d0e; line-height: 1; padding: 10px 20px; font-size: 13px; font-weight: 500; text-transform: uppercase; transition: .3s;';
+				$styles .= '}';
+                $styles .= $wrapper_class . ' .wpinsights-goodbye-form-footer .wpinsights-submit-btn:hover {';
+					$styles .= 'background-color: #f5d0fe;';
 				$styles .= '}';
 				$styles .= $wrapper_class . ' .wpinsights-goodbye-form-footer .wpinsights-deactivate-btn {';
 					$styles .= 'font-size: 13px; color: #a4afb7; background: none; float: right; padding-right: 10px; width: auto; text-decoration: underline;';
@@ -862,7 +871,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 							// Fade in spinner
 							$("#wpinsights-goodbye-form-<?php echo $class_plugin_name; ?> .deactivating-spinner").fadeIn();
 							e.preventDefault();
-							var checkedInput = $("input[name='wpinsights-<?php echo $class_plugin_name; ?>-goodbye-options']:checked"),
+							var checkedInput = $("input[name='wpinsights-<?php echo esc_attr( $class_plugin_name ); ?>-goodbye-options']:checked"),
 								checkedInputVal, details;
 							if( checkedInput.length > 0 ) {
 								checkedInputVal = checkedInput.val();
@@ -877,7 +886,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 							}
 
 							var data = {
-								'action': 'deactivation_form_<?php echo $class_plugin_name; ?>',
+								'action': 'deactivation_form_<?php echo esc_attr( $class_plugin_name ); ?>',
 								'values': checkedInputVal,
 								'details': details,
 								'security': "<?php echo wp_create_nonce ( 'wpins_deactivation_nonce' ); ?>",
@@ -901,10 +910,73 @@ if ( ! defined( 'ABSPATH' ) ) {
 						// If we click outside the form, the form will close
 						$('.wpinsights-goodbye-form-bg').on('click',function(){
 							$("#wpinsights-goodbye-form").fadeOut();
-							$('body').removeClass('wpinsights-form-active-<?php echo $class_plugin_name; ?>');
+							$('body').removeClass('wpinsights-form-active-<?php echo esc_attr( $class_plugin_name ); ?>');
 						});
 					});
 				});
 			</script>
 		<?php }
+
+		/**
+         * Get Used Elements Count
+         * Get eael all used elements from all pages
+		 * @return array
+         *
+         * @since 3.7.0
+		 */
+		public static function get_used_elements_count() {
+			global $wpdb;
+
+			$sql           = "SELECT `post_id`
+            FROM  $wpdb->postmeta
+            WHERE `meta_key` = '_eael_widget_elements'";
+			$post_ids      = $wpdb->get_col( $sql );
+			$used_elements = [];
+
+			foreach ( $post_ids as $post_id ) {
+				$ea_elements = get_post_meta( (int) $post_id, '_eael_widget_elements', true );
+				$el_controls = get_post_meta( (int) $post_id, '_elementor_controls_usage', true );
+				if ( empty( $ea_elements ) || empty( $el_controls ) || ! is_array( $ea_elements ) || ! is_array( $el_controls ) ) {
+					continue;
+				}
+
+				foreach ( $ea_elements as $element ) {
+					$element_name        = "eael-{$element}";
+					$replace_widget_name = array_flip( Elements_Manager::replace_widget_name() );
+					$count               = 0;
+
+					if ( isset( $replace_widget_name[ $element_name ] ) ) {
+						$element_name = $replace_widget_name[ $element_name ];
+					}
+
+					if ( ! empty( $el_controls[ $element_name ] ) && is_array( $el_controls[ $element_name ] ) ) {
+						$count = $el_controls[ $element_name ]['count'];
+					}
+
+					$used_elements[ $element_name ] = isset( $used_elements[ $element_name ] ) ? $used_elements[ $element_name ] + $count : $count;
+				}
+
+				array_walk_recursive( $el_controls, function ( $value, $key ) use ( &$used_elements ) {
+					$element_name = '';
+
+					if ( $key === 'eael_particle_switch' ) {
+						$element_name = 'eael-section-particles';
+					} elseif ( $key === 'eael_parallax_switcher' ) {
+						$element_name = 'eael-section-parallax';
+					} elseif ( $key === 'eael_tooltip_section_enable' ) {
+						$element_name = 'eael-tooltip-section';
+					} elseif ( $key === 'eael_ext_content_protection' ) {
+						$element_name = 'eael-content-protection';
+					} elseif ( $key === 'eael_cl_enable' ) {
+						$element_name = 'eael-conditional-display';
+					}
+
+					if ( ! empty( $element_name ) ) {
+						$used_elements[ $element_name ] = isset( $used_elements[ $element_name ] ) ? $used_elements[ $element_name ] + $value : $value;
+					}
+				} );
+			}
+
+			return $used_elements;
+		}
 	}

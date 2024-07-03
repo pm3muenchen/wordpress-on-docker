@@ -44,17 +44,17 @@ class Event_Elementor_Addon_Unique_ScheduleTab extends Widget_Base{
 	 * Register Events Addon for Elementor Schedule Tab widget controls.
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	*/
-	protected function _register_controls(){
+	protected function register_controls(){
 
 		$templates = get_posts( 'post_type="elementor_library"&numberposts=-1' );
-	  $elementor_templates = array();
-	  if ( $templates ) {
-	    foreach ( $templates as $template ) {
-	      $elementor_templates[ $template->ID ] = $template->post_title;
-	    }
-	  } else {
-	    $elementor_templates[ __( 'No templates found', 'events-addon-for-elementor' ) ] = 0;
-	  }
+		$elementor_templates = array();
+		if ( $templates ) {
+			foreach ( $templates as $template ) {
+				$elementor_templates[ $template->ID ] = $template->post_title;
+			}
+		} else {
+			$elementor_templates[ __( 'No templates found', 'events-addon-for-elementor' ) ] = 0;
+		}
 
 		$this->start_controls_section(
 			'section_active',
@@ -113,7 +113,7 @@ class Event_Elementor_Addon_Unique_ScheduleTab extends Widget_Base{
 				'label' => esc_html__( 'Schedule Date ', 'events-addon-for-elementor' ),
 				'type' => Controls_Manager::DATE_TIME,
 				'picker_options' => [
-					'dateFormat' => 'M d, Y',
+					'dateFormat' => get_option( 'date_format' ),
 					'enableTime' => 'false',
 				],
 				'placeholder' => esc_html__( 'Aug 15, 2019', 'events-addon-for-elementor' ),
@@ -226,7 +226,6 @@ class Event_Elementor_Addon_Unique_ScheduleTab extends Widget_Base{
 			[
 				'label' => esc_html__( 'Title Typography', 'events-addon-for-elementor' ),
 				'name' => 'title_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .naeep-tab-links a span.title',
 			]
 		);
@@ -235,7 +234,6 @@ class Event_Elementor_Addon_Unique_ScheduleTab extends Widget_Base{
 			[
 				'label' => esc_html__( 'Date Typography', 'events-addon-for-elementor' ),
 				'name' => 'date_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .naeep-tab-links a span.date',
 			]
 		);
@@ -326,10 +324,6 @@ class Event_Elementor_Addon_Unique_ScheduleTab extends Widget_Base{
 				[
 					'label' => esc_html__( 'Border Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_2,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .naeep-tab-links a:hover' => 'border-color: {{VALUE}};',
 					],
@@ -376,10 +370,6 @@ class Event_Elementor_Addon_Unique_ScheduleTab extends Widget_Base{
 				[
 					'label' => esc_html__( 'Active Tip Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_2,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .naeep-tab-links li.active a:after' => 'border-top-color: {{VALUE}};',
 					],
@@ -390,10 +380,6 @@ class Event_Elementor_Addon_Unique_ScheduleTab extends Widget_Base{
 				[
 					'label' => esc_html__( 'Border Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_2,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .naeep-tab-links li.active a' => 'border-color: {{VALUE}};',
 					],

@@ -1,0 +1,4538 @@
+# Translation of Plugins - WP Go Maps (formerly WP Google Maps) - Development (trunk) in Czech
+# This file is distributed under the same license as the Plugins - WP Go Maps (formerly WP Google Maps) - Development (trunk) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2023-08-04 09:25:07+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n == 1) ? 0 : ((n >= 2 && n <= 4) ? 1 : 2);\n"
+"X-Generator: GlotPress/4.0.1\n"
+"Language: cs_CZ\n"
+"Project-Id-Version: Plugins - WP Go Maps (formerly WP Google Maps) - Development (trunk)\n"
+
+#: html/atlas-novus/welcome.html.php:52 html/welcome.html.php:59
+msgid "Join Newsletter"
+msgstr "Připojte se k odběru novinek"
+
+#: html/welcome.html.php:57
+msgid "Receive specials, guides and latest news"
+msgstr "Dostávejte speciální nabídky, průvodce a nejnovější zprávy"
+
+#: html/atlas-novus/welcome.html.php:44 html/welcome.html.php:51
+msgid "Share your maps, speak to the development team, receive updates on upcoming features, and view release specific changelogs"
+msgstr "Sdílejte své mapy, mluvte s vývojovým týmem, dostávejte aktualizace o chystaných funkcích a prohlížejte si seznamy změn pro jednotlivé verze"
+
+#: html/welcome.html.php:61
+msgid "* Clicking this button will send your email address (%s) to our server and automatically sign you up to the newsletter"
+msgstr "* Kliknutím na toto tlačítko odešlete svou e-mailovou adresu (%s) na náš server a automaticky se přihlásíte k odběru newsletteru"
+
+#: html/atlas-novus/welcome.html.php:49 html/welcome.html.php:56
+msgid "Newsletters"
+msgstr "Zpravodaje"
+
+#: html/atlas-novus/welcome.html.php:45 html/welcome.html.php:49
+msgid "Join Subreddit"
+msgstr "Připojte se k Subredditu"
+
+#: html/welcome.html.php:47
+msgid "Join our Reddit Community"
+msgstr "Připojte se k naší komunitě Reddit"
+
+#: html/atlas-novus/welcome.html.php:42 html/welcome.html.php:46
+msgid "Reddit"
+msgstr "Reddit"
+
+#: html/atlas-novus/welcome.html.php:38 html/welcome.html.php:39
+msgid "Join Facebook"
+msgstr "Připojte se ke službě Facebook"
+
+#: html/welcome.html.php:37
+msgid "Join our Facebook Community"
+msgstr "Připojte se k naší komunitě na Facebooku"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:3653
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:3655
+#: html/atlas-novus/support.html.php:138 html/support.html.php:105
+msgid "Facebook Community"
+msgstr "Komunita na Facebooku"
+
+#: html/atlas-novus/newsletter-opt-in.html.php:18
+#: html/newsletter-opt-in.html.php:15
+msgid "Your email address (%s) has been sent to our server and automatically added to our mailing list"
+msgstr "Vaše e-mailová adresa (%s) byla odeslána na náš server a automaticky přidána do našeho mailing listu"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:3661
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:3663
+#: html/atlas-novus/support.html.php:139 html/support.html.php:106
+msgid "Reddit Community"
+msgstr "Komunita Reddit"
+
+#: html/atlas-novus/welcome.html.php:35 html/welcome.html.php:36
+msgid "Facebook Group"
+msgstr "Skupina na Facebooku"
+
+#: html/atlas-novus/welcome.html.php:37 html/welcome.html.php:41
+msgid "Get to know other WP Go Maps users, receive updates on upcoming features, and share your maps with the community"
+msgstr "Seznamte se s ostatními uživateli WP Mapy Google, dostávejte aktualizace o chystaných funkcích a sdílejte své mapy s komunitou"
+
+#: html/atlas-novus/newsletter-opt-in.html.php:17
+#: html/newsletter-opt-in.html.php:13
+msgid "Thank you for joining our newsletter!"
+msgstr "Děkujeme, že jste se připojili k našemu zpravodaji!"
+
+#: html/atlas-novus/settings-page.html.php:231 html/settings-page.html.php:420
+msgid "MapTiler Streets"
+msgstr "MapTiler Ulice *"
+
+#: html/atlas-novus/settings-page.html.php:237 html/settings-page.html.php:426
+msgid "MapTiler Outdoor"
+msgstr "MapTiler Outdoor *"
+
+#: html/atlas-novus/settings-page.html.php:243 html/settings-page.html.php:432
+msgid "MapTiler Pastel"
+msgstr "MapTiler Pastel *"
+
+#: html/atlas-novus/settings-page.html.php:249 html/settings-page.html.php:438
+msgid "MapTiler Basic"
+msgstr "MapTiler Basic *"
+
+#: html/map-edit-page/map-edit-page.html.php:1927
+msgid "Override zoom level on listing click"
+msgstr "Přepsání úrovně přiblížení při kliknutí na výpis"
+
+#: html/map-edit-page/map-edit-page.html.php:2727
+msgid "WPML"
+msgstr "WPML"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:791
+#: html/map-edit-page/map-edit-page.html.php:423
+msgid "Marker listings will not be filtered based on visible markers. Enable the 'Only load markers within viewport (beta)' option for beta filtering support"
+msgstr "Výpisy značek nebudou filtrovány na základě viditelných značek. Povolte možnost \"Načítat značky pouze v rámci viewportu (beta)\" pro podporu filtrování v beta verzi"
+
+#: html/map-edit-page/map-edit-page.html.php:2726
+msgid "Translating the plugin with"
+msgstr "Překlad zásuvného modulu pomocí"
+
+#: html/atlas-novus/settings-page.html.php:325 html/settings-page.html.php:122
+msgid "Disable Tilt Controls"
+msgstr "Zakázat ovládání náklonu"
+
+#: html/atlas-novus/settings-page.html.php:1520
+#: html/atlas-novus/settings-page.html.php:2096
+#: html/settings-page.html.php:1750
+msgid "Important Note"
+msgstr "Důležitá poznámka"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1075
+#: html/map-edit-page/map-edit-page.html.php:544
+msgid "Show distance from search"
+msgstr "Zobrazit vzdálenost od vyhledávání"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:2917
+#: html/map-edit-page/map-edit-page.html.php:1414
+msgid "This feature may not work as expected with bounds specific settings"
+msgstr "Tato funkce nemusí fungovat podle očekávání při specifickém nastavení hranic"
+
+#: html/atlas-novus/settings-page.html.php:2206
+#: html/settings-page.html.php:1645
+msgid "We recommend leaving automatic backups enabled. We will automatically backup your data before an import or update to our plugin."
+msgstr "Doporučujeme ponechat zapnuté automatické zálohování. Před importem nebo aktualizací našeho zásuvného modulu automaticky zálohujeme vaše data."
+
+#: html/atlas-novus/settings-page.html.php:1522
+#: html/settings-page.html.php:1752
+msgid "GDPR consent automatically enabled and configured by Complianz"
+msgstr "Souhlas GDPR automaticky povolen a nakonfigurován společností Complianz"
+
+#: html/atlas-novus/settings-page.html.php:1526
+#: html/settings-page.html.php:1756
+msgid "WP Go Maps GDPR options have been disabled as they are fully controlled by Complianz"
+msgstr "Možnosti WP Mapy Google GDPR byly zakázány, protože jsou plně pod kontrolou společnosti Complianz"
+
+#: html/atlas-novus/settings-page.html.php:2195
+#: html/settings-page.html.php:1639
+msgid "Disable Automatic Backups (beta)"
+msgstr "Zakázat automatické zálohování (beta)"
+
+#: html/atlas-novus/settings-page.html.php:575 html/settings-page.html.php:659
+msgid "Database"
+msgstr "Databáze"
+
+#: html/atlas-novus/settings-page.html.php:583 html/settings-page.html.php:667
+msgid "XML File"
+msgstr "Soubor XML"
+
+#: html/map-edit-page/map-edit-page.html.php:1330
+msgid "Disable Polygon InfoWindows"
+msgstr "Zakázání informačních oken Polygon"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:2496
+#: html/map-edit-page/map-edit-page.html.php:993
+msgid "Override User Location Zoom Level"
+msgstr "Přepsání úrovně přiblížení uživatelského umístění"
+
+#: html/atlas-novus/settings-page.html.php:261 html/settings-page.html.php:450
+msgid "Other (Enter URL)"
+msgstr "Jiné (zadejte adresu URL)"
+
+#: html/atlas-novus/settings-page.html.php:276 html/settings-page.html.php:459
+msgid "Custom Tile Server URL"
+msgstr "Vlastní adresa URL serveru dlaždic"
+
+#: html/atlas-novus/settings-page.html.php:1025
+#: html/atlas-novus/settings-page.html.php:1298
+#: html/settings-page.html.php:1142 html/settings-page.html.php:1317
+msgid "Dependencies"
+msgstr "Závislosti"
+
+#: html/atlas-novus/settings-page.html.php:1311
+#: html/settings-page.html.php:1332
+msgid "Do not Enqueue Owl Carousel"
+msgstr "Nezařazovat Owl Karusel"
+
+#: html/atlas-novus/settings-page.html.php:1326
+#: html/settings-page.html.php:1346
+msgid "Do not Enqueue Owl Theme"
+msgstr "Nezadávat Own motiv"
+
+#: html/atlas-novus/settings-page.html.php:2086
+#: html/settings-page.html.php:1559
+msgid "This will delete all shapes."
+msgstr "Tím se odstraní všechny tvary."
+
+#: html/atlas-novus/settings-page.html.php:2059
+#: html/settings-page.html.php:1522
+msgid "This will reset all settings back to their default."
+msgstr "Tím obnovíte všechna nastavení na výchozí hodnoty."
+
+#: html/atlas-novus/settings-page.html.php:2068
+#: html/settings-page.html.php:1535
+msgid "This will delete all maps, markers, shapes, categories, and custom fields."
+msgstr "Tím odstraníte všechny mapy, značky, tvary, kategorie a vlastní pole."
+
+#: html/atlas-novus/settings-page.html.php:2077
+#: html/settings-page.html.php:1547
+msgid "This will delete all markers."
+msgstr "Tím se odstraní všechny značky."
+
+#: html/atlas-novus/settings-page.html.php:87
+#: html/atlas-novus/settings-page.html.php:2003
+#: html/settings-page.html.php:1498
+msgid "Danger Zone"
+msgstr "Nebezpečná zóna"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:2604
+#: html/atlas-novus/map-edit-page/marker-panel.html.php:74
+#: html/map-edit-page/marker-panel.html.php:85
+msgid "Position"
+msgstr "Pozice"
+
+#: html/atlas-novus/map-edit-page/marker-panel.html.php:42
+#: html/map-edit-page/marker-panel.html.php:49
+msgid "You can now drag the marker to adjust the position without updating the address field. Field editing is disabled in this mode"
+msgstr "Nyní můžete přetažením značky upravit polohu bez aktualizace pole adresy. Úprava polí je v tomto režimu zakázána"
+
+#: html/atlas-novus/settings-page.html.php:2042
+#: html/settings-page.html.php:1501
+msgid "Data Management"
+msgstr "Správa dat"
+
+#: html/atlas-novus/settings-page.html.php:2050
+#: html/settings-page.html.php:1509
+msgid "This will delete all settings, maps, markers, shapes, categories, and custom fields and reset the plugin back to the first time you used it."
+msgstr "Tím se odstraní všechna nastavení, mapy, značky, tvary, kategorie a vlastní pole a zásuvný modul se vrátí do stavu, kdy jste jej použili poprvé."
+
+#: html/atlas-novus/map-edit-page/marker-panel.html.php:40
+#: html/map-edit-page/marker-panel.html.php:47
+msgid "Position Adjustment"
+msgstr "Nastavení polohy"
+
+#: html/atlas-novus/settings-page.html.php:1720
+#: html/settings-page.html.php:1444
+msgid "This is an optional API key provided by your preferred OpenLayers tile service, and should only be added if required by the TileServer provider"
+msgstr "Jedná se o volitelný klíč API poskytovaný preferovanou službou dlaždic OpenLayers, který by měl být přidán pouze v případě, že jej poskytovatel služby TileServer vyžaduje"
+
+#: html/atlas-novus/settings-page.html.php:356 html/settings-page.html.php:152
+msgid "examples"
+msgstr "příklady"
+
+#: html/atlas-novus/settings-page.html.php:271 html/settings-page.html.php:455
+msgid "You can add an API key under the Advanced Settings tab if required by your TileServer provider"
+msgstr "Pokud to poskytovatel služby TileServer vyžaduje, můžete na kartě Rozšířená nastavení přidat klíč API"
+
+#: html/atlas-novus/settings-page.html.php:1711
+#: html/settings-page.html.php:1438
+msgid "OpenLayers Tileserver Key"
+msgstr "Klíč k dlaždicovému serveru OpenLayers"
+
+#: html/atlas-novus/settings-page.html.php:1470 html/settings-page.html.php:256
+msgid "Checkboxes"
+msgstr "Zaškrtávací pole"
+
+#: html/atlas-novus/settings-page.html.php:1464 html/settings-page.html.php:250
+msgid "Dropdown"
+msgstr "Rozbalovací seznam"
+
+#: html/atlas-novus/settings-page.html.php:1436 html/settings-page.html.php:223
+msgid "Category Selection Logic"
+msgstr "Logika výběru kategorie"
+
+#: html/atlas-novus/settings-page.html.php:1442 html/settings-page.html.php:229
+msgid "Example: Show the marker if it belongs to Cat A _OR_ Cat B."
+msgstr "Příklad: Zobrazit značku, pokud patří do kategorie A _nebo_ do kategorie B."
+
+#: html/atlas-novus/settings-page.html.php:1449 html/settings-page.html.php:236
+msgid "AND"
+msgstr "A"
+
+#: html/atlas-novus/settings-page.html.php:1449 html/settings-page.html.php:236
+msgid "Example: Only show the marker if it belongs to Cat A _AND_ Cat B."
+msgstr "Příklad: Pouze v případě, že značka patří do kategorie A _a_ do kategorie B."
+
+#: html/atlas-novus/settings-page.html.php:1458 html/settings-page.html.php:244
+msgid "Filter by category displayed as"
+msgstr "Filtrování podle kategorie zobrazené jako"
+
+#: html/atlas-novus/settings-page.html.php:552 html/settings-page.html.php:630
+msgid "Retina Icon Width"
+msgstr "Šířka ikony Retina"
+
+#: html/atlas-novus/settings-page.html.php:560 html/settings-page.html.php:637
+msgid "Retina Icon Height"
+msgstr "Výška ikony Retina"
+
+#: includes/compat/class.pro-below-8.1-compatibility.php:86
+msgid "Add a Polygon"
+msgstr "Přidání polygonu"
+
+#: html/atlas-novus/map-edit-page/circle-panel.html.php:76
+#: html/atlas-novus/map-edit-page/circle-panel.html.php:129
+#: html/atlas-novus/map-edit-page/pointlabel-panel.html.php:44
+#: html/atlas-novus/map-edit-page/polygon-panel.html.php:77
+#: html/atlas-novus/map-edit-page/polygon-panel.html.php:118
+#: html/atlas-novus/map-edit-page/rectangle-panel.html.php:68
+#: html/atlas-novus/map-edit-page/rectangle-panel.html.php:125
+#: html/map-edit-page/circle-panel.html.php:71
+#: html/map-edit-page/polygon-panel.html.php:113
+#: html/map-edit-page/rectangle-panel.html.php:57
+#: includes/compat/class.pro-below-8.1-compatibility.php:108
+#: includes/compat/class.pro-below-8.1-compatibility.php:198
+msgid "Fill Color"
+msgstr "Barva výplně"
+
+#: includes/compat/class.pro-below-8.1-compatibility.php:620
+msgid "Add a Polyline"
+msgstr "Přidání křivky"
+
+#: html/atlas-novus/map-edit-page/circle-panel.html.php:95
+#: html/atlas-novus/map-edit-page/circle-panel.html.php:148
+#: html/atlas-novus/map-edit-page/pointlabel-panel.html.php:50
+#: html/atlas-novus/map-edit-page/polygon-panel.html.php:96
+#: html/atlas-novus/map-edit-page/polygon-panel.html.php:137
+#: html/atlas-novus/map-edit-page/polyline-panel.html.php:62
+#: html/atlas-novus/map-edit-page/rectangle-panel.html.php:89
+#: html/atlas-novus/map-edit-page/rectangle-panel.html.php:144
+#: html/map-edit-page/polygon-panel.html.php:90
+#: html/map-edit-page/polyline-panel.html.php:72
+#: includes/compat/class.pro-below-8.1-compatibility.php:102
+#: includes/compat/class.pro-below-8.1-compatibility.php:192
+#: includes/compat/class.pro-below-8.1-compatibility.php:635
+#: includes/compat/class.pro-below-8.1-compatibility.php:733
+msgid "Line Color"
+msgstr "Barva linky"
+
+#: html/atlas-novus/map-edit-page/polygon-panel.html.php:102
+#: html/map-edit-page/polygon-panel.html.php:99
+#: includes/compat/class.pro-below-8.1-compatibility.php:105
+#: includes/compat/class.pro-below-8.1-compatibility.php:195
+msgid "Line Opacity"
+msgstr "Průhlednost čáry"
+
+#: includes/tables/class.admin-map-datatable.php:116
+#: includes/tables/class.admin-marker-datatable.php:93
+msgid "Duplicate"
+msgstr "Duplikovat"
+
+#: includes/compat/class.pro-below-8.1-compatibility.php:1153
+msgid "Custom Fields"
+msgstr "Uživatelská pole"
+
+#: includes/class.country-select.php:30
+msgid "Please select"
+msgstr "Prosím vyberte"
+
+#: html/atlas-novus/footer.html.php:22 html/footer.html.php:19
+msgid "WP Go Maps Support Forum"
+msgstr "Forum podpory WP Google Maps "
+
+#: html/atlas-novus/footer.html.php:13
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:3637
+#: html/footer.html.php:9
+msgid "WP Go Maps Troubleshooting Section"
+msgstr "Sekce odstraňování problémů s WP Google Maps"
+
+#: html/atlas-novus/map-edit-page/circle-panel.html.php:187
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:3442
+#: html/map-edit-page/circle-panel.html.php:95
+msgid "Add Circle"
+msgstr "Přidat kruh"
+
+#: html/atlas-novus/credits.html.php:102 html/credits.html.php:94
+msgid "Quality Assurance"
+msgstr "Zajištění kvality"
+
+#: html/atlas-novus/credits.html.php:119 html/credits.html.php:106
+msgid "Security Analyst"
+msgstr "Bezpečnostní analytik"
+
+#: html/atlas-novus/map-edit-page/circle-panel.html.php:27
+#: html/map-edit-page/circle-panel.html.php:32
+msgid "<strong>Click and drag</strong> the center of the circle to move it."
+msgstr "<strong>Kliknutím a přetažením</strong> středu kruhu jej přesuňte."
+
+#: html/atlas-novus/map-edit-page/circle-panel.html.php:55
+#: html/map-edit-page/circle-panel.html.php:61
+msgid "Radius (km)"
+msgstr "Poloměr (km)"
+
+#: includes/class.page.php:29
+msgid "Get the Pro add-on to enable this feature"
+msgstr "Chcete-li tuto funkci povolit, pořiďte si doplněk Pro"
+
+#: includes/map-edit-page/class.map-edit-page.php:380
+#: includes/map-edit-page/class.map-edit-page.php:385
+msgid "Enable this feature with WP Go Maps - Pro add-on"
+msgstr "Povolení této funkce pomocí doplňku WP Google Maps - Pro"
+
+#: includes/tables/trait.admin-feature-datatable.php:24
+msgid "Delete this feature"
+msgstr "Odstranění této funkce"
+
+#: html/atlas-novus/map-edit-page/circle-panel.html.php:30
+#: html/map-edit-page/circle-panel.html.php:37
+msgid "<strong>Click and drag</strong> the edge of the circle to alter it's radius."
+msgstr "<strong>Kliknutím na</strong> okraj kruhu a jeho přetažením změníte jeho poloměr."
+
+#: html/atlas-novus/map-edit-page/circle-panel.html.php:8
+#: html/map-edit-page/circle-panel.html.php:7
+msgid "<strong>Click</strong> on the map to set your circles center."
+msgstr "<strong>Kliknutím na</strong> mapu nastavte střed kruhů."
+
+#: html/atlas-novus/map-edit-page/circle-panel.html.php:11
+#: html/map-edit-page/circle-panel.html.php:12
+msgid "<strong>Move</strong> the mouse to adjust your circles radius."
+msgstr "<strong>Pohybem</strong> myši upravte poloměr kruhů."
+
+#: html/atlas-novus/map-edit-page/circle-panel.html.php:14
+#: html/map-edit-page/circle-panel.html.php:17
+msgid "<strong>Click</strong> a second time to finish drawing your circle."
+msgstr "Druhým<strong>kliknutím</strong> dokončete kreslení kruhu."
+
+#: html/atlas-novus/map-edit-page/circle-panel.html.php:24
+#: html/map-edit-page/circle-panel.html.php:27
+msgid "Use the fields below to edit this circles information."
+msgstr "Pomocí níže uvedených polí můžete upravit informace o těchto kruzích."
+
+#: html/atlas-novus/map-edit-page/marker-panel.html.php:11
+#: html/map-edit-page/marker-panel.html.php:12
+msgid "Alternatively, <strong>right click</strong> to manually position your marker."
+msgstr "Případně <strong>klikněte pravým tlačítkem myši a</strong> umístěte značku ručně."
+
+#: html/atlas-novus/map-edit-page/marker-panel.html.php:14
+#: html/atlas-novus/map-edit-page/marker-panel.html.php:30
+#: html/map-edit-page/marker-panel.html.php:17
+#: html/map-edit-page/marker-panel.html.php:37
+msgid "<strong>Click and drag</strong> to adjust the markers position."
+msgstr "<strong>Kliknutím a přetažením</strong> upravte polohu značek."
+
+#: html/atlas-novus/map-edit-page/marker-panel.html.php:17
+#: html/map-edit-page/marker-panel.html.php:22
+msgid "Click the <strong>Add Marker</strong> button to create the marker."
+msgstr "Kliknutím na tlačítko <strong>Přidat značku</strong> vytvoříte značku."
+
+#: html/atlas-novus/map-edit-page/marker-panel.html.php:27
+#: html/map-edit-page/marker-panel.html.php:32
+msgid "Use the fields in the marker editor to edit this markers information"
+msgstr "K úpravě informací o této značce použijte pole v editoru značek"
+
+#: html/atlas-novus/map-edit-page/marker-panel.html.php:62
+#: html/map-edit-page/marker-panel.html.php:74
+msgid "Extract address from picture"
+msgstr "Extrahování adresy z obrázku"
+
+#: html/atlas-novus/map-edit-page/marker-panel.html.php:89
+#: html/map-edit-page/marker-panel.html.php:112
+msgid "Gallery"
+msgstr "Galerie"
+
+#: html/atlas-novus/map-edit-page/bulk-marker-editor-dialog.html.php:63
+#: html/atlas-novus/map-edit-page/marker-panel.html.php:160
+#: html/map-edit-page/marker-panel.html.php:174
+msgid "Display on front end"
+msgstr "Zobrazení na frontendu"
+
+#: html/atlas-novus/map-edit-page/bulk-marker-editor-dialog.html.php:54
+#: html/atlas-novus/map-edit-page/marker-panel.html.php:179
+#: html/map-edit-page/marker-panel.html.php:201
+msgid "Always on top in Marker Listings"
+msgstr "Vždy na vrcholu v nabídkách značek"
+
+#: html/atlas-novus/map-edit-page/heatmap-panel.html.php:17
+#: html/map-edit-page/heatmap-panel.html.php:22
+msgid "<strong>Hold right mouse</strong> to draw points freehand"
+msgstr "<strong>Podržením pravého tlačítka myši</strong> můžete kreslit body volnou rukou"
+
+#: html/atlas-novus/map-edit-page/heatmap-panel.html.php:47
+#: html/map-edit-page/heatmap-panel.html.php:43
+msgid "Gradient"
+msgstr "Přechod (gradient)"
+
+#: html/atlas-novus/map-edit-page/heatmap-panel.html.php:25
+#: html/map-edit-page/heatmap-panel.html.php:102
+msgid "Add dynamic heatmap data with the <a href=\"%s\" target=\"_BLANK\">Pro version</a>. <a href=\"%s\" target=\"_BLANK\">View a demo</a>"
+msgstr "Ve <a href=\"%s\" target=\"_BLANK\">verzi Pro</a> můžete přidat dynamická data teplotních map. <a href=\"%s\" target=\"_BLANK\">Zobrazit ukázku</a>"
+
+#: html/atlas-novus/map-edit-page/marker-panel.html.php:8
+#: html/map-edit-page/marker-panel.html.php:7
+msgid "Use the <strong>address</strong> field to add a marker."
+msgstr "K přidání značky použijte pole <strong>adresy</strong>."
+
+#: html/atlas-novus/map-edit-page/heatmap-panel.html.php:8
+#: html/map-edit-page/heatmap-panel.html.php:7
+msgid "<strong>Click</strong> on the map to add points to your heatmap."
+msgstr "<strong>Klepnutím na</strong> mapu přidáte body  tepelné mapy."
+
+#: html/atlas-novus/map-edit-page/heatmap-panel.html.php:11
+#: html/map-edit-page/heatmap-panel.html.php:12
+msgid "<strong>Click</strong> an existing heatmap point to remove points from the heatmap."
+msgstr "<strong>Kliknutím na</strong> existující bod teplotní mapy odstraníte body z mapy."
+
+#: html/atlas-novus/map-edit-page/heatmap-panel.html.php:14
+#: html/map-edit-page/heatmap-panel.html.php:17
+msgid "<strong>Drag</strong> points on the heatmap to re-position them."
+msgstr "<strong>Přetažením</strong> bodů na teplotní mapě změníte jejich polohu."
+
+#: html/map-edit-page/map-edit-page.html.php:2711
+msgid "WP Go Maps is a product of <img src='%s' alt='CODECABIN_' style='height: 1em;' class='wpgmze_cc_footer_image'/>"
+msgstr "WP Mapy Google jsou produktem <img src='%s' alt='CODECABIN_' style='height: 1em;' class='wpgmze_cc_footer_image'/>"
+
+#: html/map-edit-page/map-edit-page.html.php:2423
+#: html/map-edit-page/map-edit-page.html.php:2427
+msgid "Add a new Marker"
+msgstr "Přidání nové značky"
+
+#: html/map-edit-page/map-edit-page.html.php:2486
+#: html/map-edit-page/map-edit-page.html.php:2489
+msgid "Add a new Heatmap"
+msgstr "Přidání nové teplotní mapy"
+
+#: html/map-edit-page/map-edit-page.html.php:2505
+#: html/map-edit-page/map-edit-page.html.php:2509
+msgid "Add a new Circle"
+msgstr "Přidání nového kruhu"
+
+#: html/map-edit-page/map-edit-page.html.php:2526
+#: html/map-edit-page/map-edit-page.html.php:2529
+msgid "Add a new Rectangle"
+msgstr "Přidání nového obdélníku"
+
+#: html/map-edit-page/map-edit-page.html.php:2586
+msgid "Edit existing Rectangles"
+msgstr "Úprava stávajících obdélníků"
+
+#: html/map-edit-page/map-edit-page.html.php:2587
+msgid "Edit existing Circles"
+msgstr "Upravit existující kruhy"
+
+#: html/map-edit-page/map-edit-page.html.php:2588
+msgid "Edit existing Heatmaps"
+msgstr "Úprava stávajících teplotních map"
+
+#: html/map-edit-page/map-edit-page.html.php:2589
+msgid "Edit existing Polylines"
+msgstr "Úprava stávajících křivek"
+
+#: html/map-edit-page/map-edit-page.html.php:2590
+msgid "Edit existing Polygons"
+msgstr "Úprava stávajících polygonů"
+
+#: html/map-edit-page/map-edit-page.html.php:2591
+msgid "Edit existing Markers"
+msgstr "Upravit existující značky"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:3134
+#: html/map-edit-page/map-edit-page.html.php:2314
+msgid "Get all of this and more for only $39.99 once off"
+msgstr "Získejte to vše a ještě více za pouhých 39,99 dolarů, navždy"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:3217
+#: html/map-edit-page/map-edit-page.html.php:2325
+msgid "View the demos"
+msgstr "Zobrazit ukázky"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:2068
+#: html/map-edit-page/map-edit-page.html.php:2130
+#: html/map-edit-page/map-edit-page.html.php:2134
+msgid "to"
+msgstr "do"
+
+#: html/map-edit-page/map-edit-page.html.php:2019
+msgid "Remove search box from Marker Listing Table?"
+msgstr "Odstranění vyhledávacího pole z tabulky výpisu značek?"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1868
+#: html/map-edit-page/map-edit-page.html.php:2027
+msgid "Select different pagination style"
+msgstr "Výběr jiného stylu stránkování"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1875
+#: html/map-edit-page/map-edit-page.html.php:2039
+msgid "Page number buttons only"
+msgstr "Pouze tlačítka s číslem stránky"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1878
+#: html/map-edit-page/map-edit-page.html.php:2044
+msgid "Previous and Next buttons only"
+msgstr "Pouze tlačítka Předchozí a Další"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1881
+#: html/map-edit-page/map-edit-page.html.php:2049
+msgid "Previous and Next buttons, plus page numbers"
+msgstr "Tlačítka Předchozí a Další a čísla stránek"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1884
+#: html/map-edit-page/map-edit-page.html.php:2054
+msgid "First, Previous, Next and Last buttons"
+msgstr "Tlačítka První, Předchozí, Další a Poslední"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1887
+#: html/map-edit-page/map-edit-page.html.php:2059
+msgid "First, Previous, Next and Last buttons, plus page numbers"
+msgstr "Tlačítka První, Předchozí, Další a Poslední a čísla stránek"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1890
+#: html/map-edit-page/map-edit-page.html.php:2064
+msgid "First and Last buttons, plus page numbers"
+msgstr "Tlačítka První a Poslední a čísla stránek"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:2026
+#: html/map-edit-page/map-edit-page.html.php:2076
+msgid "Change listing table search string"
+msgstr "Změna vyhledávacího řetězce tabulky výpisu"
+
+#: html/map-edit-page/map-edit-page.html.php:2099
+msgid "Example: Showing 1 of 6 to 6 entries"
+msgstr "Příklad: Zobrazeno 1 z 6 až 6 záznamů"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:2037
+#: html/map-edit-page/map-edit-page.html.php:2107
+msgid "Change results string"
+msgstr "Změna řetězce výsledků"
+
+#: html/map-edit-page/map-edit-page.html.php:2153
+msgid "Change entries string"
+msgstr "Řetězec změn položek"
+
+#: html/map-edit-page/map-edit-page.html.php:2165
+msgid "Example: Showing entries"
+msgstr "Příklad: Zobrazení záznamů"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1770
+#: html/map-edit-page/map-edit-page.html.php:1689
+msgid "Grid"
+msgstr "Mřížka"
+
+#: html/map-edit-page/map-edit-page.html.php:1591
+msgid "Marker Listing Style"
+msgstr "Styl zápisu značky"
+
+#: html/map-edit-page/map-edit-page.html.php:1604
+msgid "No marker listing"
+msgstr "Žádný seznam značek"
+
+#: html/map-edit-page/map-edit-page.html.php:1633
+msgid "Basic list"
+msgstr "Základní seznam"
+
+#: html/map-edit-page/map-edit-page.html.php:1647
+msgid "Advanced table"
+msgstr "Pokročilá tabulka"
+
+#: html/map-edit-page/map-edit-page.html.php:1702
+msgid "Marker Listing Placement"
+msgstr "Umístění seznamu značek"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1842
+#: html/map-edit-page/map-edit-page.html.php:1754
+msgid "Category Priority"
+msgstr "Priorita kategorie"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1845
+#: html/map-edit-page/map-edit-page.html.php:1759
+msgid "Distance"
+msgstr "Poloha"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1848
+#: html/map-edit-page/map-edit-page.html.php:1764
+msgid "Rating"
+msgstr "Hodnocení"
+
+#: html/map-edit-page/map-edit-page.html.php:1874
+msgid "Container Width: "
+msgstr "Šířka kontejneru "
+
+#: html/map-edit-page/map-edit-page.html.php:1886
+msgid "Set as % or px, eg. 30% or 400px"
+msgstr "Nastavte jako % or px, např. 30% or 400px"
+
+#: html/map-edit-page/map-edit-page.html.php:1894
+msgid "Container Height: "
+msgstr "Výška kontejneru "
+
+#: html/map-edit-page/map-edit-page.html.php:1984
+msgid "DataTable Options"
+msgstr "Možnosti tabulky DataTable"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:2000
+#: html/map-edit-page/map-edit-page.html.php:1991
+msgid "No results message"
+msgstr "Žádné výsledky"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:2011
+#: html/map-edit-page/map-edit-page.html.php:2007
+msgid "Remove search box"
+msgstr "Odstranění vyhledávacího pole"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:2260
+#: html/map-edit-page/map-edit-page.html.php:1101
+msgid "Click marker opens link"
+msgstr "Kliknutím na značku se otevře odkaz"
+
+#: html/map-edit-page/map-edit-page.html.php:1120
+msgid "Fit map bounds to markers?"
+msgstr "Přizpůsobení hranic mapy značkám?"
+
+#: html/map-edit-page/map-edit-page.html.php:1139
+msgid "Fit map bounds to markers after filtering?"
+msgstr "Přizpůsobení hranic mapy značkám po filtrování?"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:2709
+#: html/map-edit-page/map-edit-page.html.php:1158
+msgid "Hide point of interest"
+msgstr "Skrýt bod zájmu"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:2280
+#: html/map-edit-page/map-edit-page.html.php:1178
+msgid "Zoom on marker click"
+msgstr "Přiblížení při kliknutí na značku"
+
+#: html/map-edit-page/map-edit-page.html.php:1215
+msgid "Enable Layers"
+msgstr "Povolení vrstev"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:2750
+#: html/map-edit-page/map-edit-page.html.php:1228
+msgid "Bicycle Layer"
+msgstr "Vrstva cyklotras"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:2765
+#: html/map-edit-page/map-edit-page.html.php:1243
+msgid "Traffic Layer"
+msgstr "Vrstva dopravy"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:2780
+#: html/map-edit-page/map-edit-page.html.php:1258
+msgid "Transit Layer"
+msgstr "Vrstva Tranzit"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1598
+#: html/map-edit-page/map-edit-page.html.php:1270
+msgid "Close InfoWindow on Map Click"
+msgstr "Zavřít informační okno kliknutím do mapy"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:2792
+#: html/map-edit-page/map-edit-page.html.php:1285
+msgid "Disable lightbox for marker images"
+msgstr "Vypnout lightbox pro obrázky značek"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:2809
+#: html/map-edit-page/map-edit-page.html.php:1300
+msgid "Use Raw JPEG coordinates?"
+msgstr "Používání souřadnic JPEG v surovém stavu?"
+
+#: html/map-edit-page/map-edit-page.html.php:1315
+msgid "Enable Polygon Labels"
+msgstr "Povolení štítků polygonů"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:2851
+#: html/map-edit-page/map-edit-page.html.php:1358
+msgid "For multiple sources, separate each one by a comma."
+msgstr "V případě více zdrojů oddělte každý z nich čárkou."
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:2887
+#: html/map-edit-page/map-edit-page.html.php:1367
+msgid "Integration"
+msgstr "Integrace"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:2826
+#: html/map-edit-page/map-edit-page.html.php:1375
+msgid "Enable Marker Ratings"
+msgstr "Povolení hodnocení značek"
+
+#: html/map-edit-page/map-edit-page.html.php:1405
+msgid "Only load markers within viewport (beta)"
+msgstr "Načítání značek pouze v rámci oblasti zobrazení (beta)"
+
+#: html/map-edit-page/map-edit-page.html.php:1529
+#: html/map-edit-page/map-edit-page.html.php:1534
+msgid "Inherit Global Setting"
+msgstr "Zdědit globální nastavení"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1575
+#: html/map-edit-page/map-edit-page.html.php:1546
+msgid "Infowindow Colors"
+msgstr "Barvy informačního okna"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1581
+#: html/map-edit-page/map-edit-page.html.php:1555
+msgid "Primary Color"
+msgstr "Základní barva"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1586
+#: html/atlas-novus/styling-page.html.php:46
+#: html/map-edit-page/map-edit-page.html.php:1563
+msgid "Accent Color"
+msgstr "Barva zvýraznění"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1590
+#: html/atlas-novus/styling-page.html.php:34
+#: html/map-edit-page/map-edit-page.html.php:1571
+msgid "Text Color"
+msgstr "Barva textu"
+
+#: html/map-edit-page/map-edit-page.html.php:945
+msgid "Enable user geolocation features with our <a href=\"https://www.wpgmaps.com/purchase-professional-version/?utm_source=plugin&amp;utm_medium=link&amp;utm_campaign=advanced\">Pro add-on</a>"
+msgstr "Povolení funkcí geolokace uživatele pomocí našeho <a href=\"https://www.wpgmaps.com/purchase-professional-version/?utm_source=plugin&amp;utm_medium=link&amp;utm_campaign=advanced\">doplňku Pro</a>"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:2473
+#: html/map-edit-page/map-edit-page.html.php:952
+msgid "Default User Location Icon"
+msgstr "Ikona výchozího umístění uživatele"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:2239
+#: html/map-edit-page/map-edit-page.html.php:960
+msgid "Jump to nearest marker on initialization?"
+msgstr "Skok na nejbližší značku při inicializaci?"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:2479
+#: html/map-edit-page/map-edit-page.html.php:977
+msgid "Automatically pan to users location?"
+msgstr "Automatické posunutí na místo uživatele?"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:2521
+#: html/map-edit-page/map-edit-page.html.php:1024
+msgid "Show distance from location?"
+msgstr "Zobrazit vzdálenost od místa?"
+
+#: html/map-edit-page/map-edit-page.html.php:1044
+msgid "This feature will use the users location (where available) or the searched address when a store locator search is performed."
+msgstr "Tato funkce použije při vyhledávání obchodu polohu uživatele (je-li k dispozici) nebo hledanou adresu."
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:2656
+#: html/map-edit-page/map-edit-page.html.php:1054
+msgid "Maximum Zoom Out Level"
+msgstr "Maximální úroveň oddálení"
+
+#: html/map-edit-page/map-edit-page.html.php:819
+msgid "Enable custom styling options with our <a href=\"https://www.wpgmaps.com/purchase-professional-version/?utm_source=plugin&amp;utm_medium=link&amp;utm_campaign=store-locator\">Pro add-on</a>"
+msgstr "Povolení vlastních možností stylování pomocí našeho <a href=\"https://www.wpgmaps.com/purchase-professional-version/?utm_source=plugin&amp;utm_medium=link&amp;utm_campaign=store-locator\">doplňku Pro</a>"
+
+#: html/map-edit-page/map-edit-page.html.php:840
+msgid "Advanced Settings:"
+msgstr "Rozšířená nastavení:"
+
+#: html/map-edit-page/map-edit-page.html.php:854
+msgid "Enable custom marker icons with our <a href=\"https://www.wpgmaps.com/purchase-professional-version/?utm_source=plugin&amp;utm_medium=link&amp;utm_campaign=advanced\">Pro add-on</a>"
+msgstr "Povolení vlastních ikon značek pomocí našeho <a href=\"https://www.wpgmaps.com/purchase-professional-version/?utm_source=plugin&amp;utm_medium=link&amp;utm_campaign=advanced\">doplňku Pro</a>"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1142
+#: html/map-edit-page/map-edit-page.html.php:658
+msgid "Hide all markers until a search is done"
+msgstr "Skryjte všechny značky, dokud nebude vyhledávání dokončeno"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1014
+#: html/map-edit-page/map-edit-page.html.php:708
+msgid "Enable title search"
+msgstr "Povolení vyhledávání nadpisů"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1030
+#: html/map-edit-page/map-edit-page.html.php:724
+msgid "Title search String"
+msgstr "Vyhledání řetezce v názvu"
+
+#: html/map-edit-page/map-edit-page.html.php:749
+msgid "Style options"
+msgstr "Možnosti stylu"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:940
+#: html/map-edit-page/map-edit-page.html.php:803
+msgid "Fill opacity"
+msgstr "Průhlednost výplně"
+
+#: html/map-edit-page/map-edit-page.html.php:576
+msgid "Enable search by category with our <a href=\"https://www.wpgmaps.com/purchase-professional-version/?utm_source=plugin&amp;utm_medium=link&amp;utm_campaign=store-locator\">Pro add-on</a>"
+msgstr "Povolení vyhledávání podle kategorií pomocí našeho <a href=\"https://www.wpgmaps.com/purchase-professional-version/?utm_source=plugin&amp;utm_medium=link&amp;utm_campaign=store-locator\">doplňku Pro</a>"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1118
+#: html/map-edit-page/map-edit-page.html.php:583
+msgid "Allow users to use their location as the starting point"
+msgstr "Umožnit uživatelům použít svoji polohu jako výchozí bod"
+
+#: html/map-edit-page/map-edit-page.html.php:599
+msgid "Enable user geolocation features with our <a href=\"https://www.wpgmaps.com/purchase-professional-version/?utm_source=plugin&amp;utm_medium=link&amp;utm_campaign=store-locator\">Pro add-on</a>"
+msgstr "Povolení funkcí geolokace uživatele pomocí našeho <a href=\"https://www.wpgmaps.com/purchase-professional-version/?utm_source=plugin&amp;utm_medium=link&amp;utm_campaign=store-locator\">doplňku Pro</a>"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:867
+#: html/map-edit-page/map-edit-page.html.php:606
+msgid "Show center point as an icon"
+msgstr "Zobrazení středového bodu jako ikony"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:887
+#: html/map-edit-page/map-edit-page.html.php:624
+msgid "Default Icon"
+msgstr "Výchozí ikona"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:894
+#: html/map-edit-page/map-edit-page.html.php:632
+msgid "Marker animation"
+msgstr "Animace značky"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:787
+#: html/map-edit-page/map-edit-page.html.php:415
+msgid "Intelligently detects the zoom level based on the location entered"
+msgstr "Inteligentně rozpozná úroveň přiblížení na základě zadané polohy"
+
+#: html/map-edit-page/map-edit-page.html.php:434
+msgid "Enable intelligent, automatic search area with our <a href=\"https://www.wpgmaps.com/purchase-professional-version/?utm_source=plugin&amp;utm_medium=link&amp;utm_campaign=store-locator\">Pro add-on</a>"
+msgstr "Povolte inteligentní, automatické vyhledávání oblasti pomocí našeho <a href=\"https://www.wpgmaps.com/purchase-professional-version/?utm_source=plugin&amp;utm_medium=link&amp;utm_campaign=store-locator\">doplňku Pro</a>"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:815
+#: html/map-edit-page/map-edit-page.html.php:485
+msgid "Maximum zoom"
+msgstr "Maximální přiblížení"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:852
+#: html/map-edit-page/map-edit-page.html.php:524
+msgid "Store Locator Placement"
+msgstr "Umístění vyhledávače obchodů"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1093
+#: html/map-edit-page/map-edit-page.html.php:560
+msgid "Allow category selection"
+msgstr "Povolit výběr kategorie"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:770
+#: html/map-edit-page/map-edit-page.html.php:372
+msgid "Search Area"
+msgstr "Oblast vyhledávání"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:776
+#: html/map-edit-page/map-edit-page.html.php:387
+msgid "Radial"
+msgstr "Radiální"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:779
+#: html/map-edit-page/map-edit-page.html.php:394
+msgid "Allows the user to select a radius from a predefined list"
+msgstr "Umožňuje uživateli vybrat poloměr z předem definovaného seznamu"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:784
+#: html/map-edit-page/map-edit-page.html.php:408
+msgid "Auto"
+msgstr "Automaticky"
+
+#: html/map-edit-page/map-edit-page.html.php:87
+msgid "Marker Filtering"
+msgstr "Filtrování značek"
+
+#: html/map-edit-page/map-edit-page.html.php:18
+msgid "New"
+msgstr "Nový"
+
+#: html/map-edit-page/map-edit-page.html.php:24
+msgid "Unsaved data will be lost"
+msgstr "Neuložená data budou ztracena"
+
+#: html/atlas-novus/map-edit-page/rectangle-panel.html.php:24
+#: html/map-edit-page/rectangle-panel.html.php:27
+msgid "<strong>Click and drag</strong> corners of the rectangle to resize it."
+msgstr "<strong>Kliknutím a přetažením</strong> rohů obdélníku změníte jeho velikost."
+
+#: html/atlas-novus/map-edit-page/rectangle-panel.html.php:27
+#: html/map-edit-page/rectangle-panel.html.php:32
+msgid "<strong>Click and drag</strong> the edges of the rectangle to resize it."
+msgstr "<strong>Kliknutím a přetažením</strong> okrajů obdélníku změníte jeho velikost."
+
+#: html/atlas-novus/map-edit-page/rectangle-panel.html.php:8
+#: html/map-edit-page/rectangle-panel.html.php:7
+msgid "<strong>Click</strong> on the map to set the first corner of your rectangle."
+msgstr "<strong>Kliknutím na</strong> mapu nastavte první roh obdélníku."
+
+#: html/atlas-novus/map-edit-page/rectangle-panel.html.php:11
+#: html/map-edit-page/rectangle-panel.html.php:12
+msgid "<strong>Click</strong> again to set the other corner and to finish drawing your rectangle."
+msgstr "Dalším<strong>kliknutím</strong> nastavte druhý roh a dokončete kreslení obdélníku."
+
+#: html/atlas-novus/map-edit-page/rectangle-panel.html.php:21
+#: html/map-edit-page/rectangle-panel.html.php:22
+msgid "Use the fields below to edit this rectangles information."
+msgstr "Pomocí níže uvedených polí můžete upravit informace o tomto obdélníku."
+
+#: html/atlas-novus/map-edit-page/polyline-panel.html.php:8
+#: html/map-edit-page/polyline-panel.html.php:7
+msgid "<strong>Click</strong> on the map to start drawing your polyline."
+msgstr "<strong>Kliknutím na</strong> mapu začněte kreslit křivku."
+
+#: html/atlas-novus/map-edit-page/polyline-panel.html.php:11
+#: html/map-edit-page/polyline-panel.html.php:12
+msgid "Add at least <strong>two</strong> points"
+msgstr "Přidejte alespoň <strong>dva</strong> body"
+
+#: html/atlas-novus/map-edit-page/polyline-panel.html.php:14
+#: html/map-edit-page/polyline-panel.html.php:17
+msgid "<strong>Complete</strong> drawing your polyline by <strong>clicking</strong> the end point a second time."
+msgstr "<strong>Dokončete</strong> kreslení křivky druhým <strong>kliknutím na</strong> koncový bod."
+
+#: html/atlas-novus/map-edit-page/polyline-panel.html.php:24
+#: html/map-edit-page/polyline-panel.html.php:27
+msgid "Use the fields below to edit this polylines information."
+msgstr "Pomocí níže uvedených polí můžete upravit tyto informace o křivkách."
+
+#: html/map-edit-page/polyline-panel.html.php:104
+msgid "Polyline data"
+msgstr "Data křivky"
+
+#: html/atlas-novus/map-edit-page/heatmap-panel.html.php:73
+#: html/atlas-novus/map-edit-page/polyline-panel.html.php:74
+#: html/map-edit-page/circle-panel.html.php:86
+#: html/map-edit-page/heatmap-panel.html.php:72
+#: html/map-edit-page/map-edit-page.html.php:782
+#: html/map-edit-page/polygon-panel.html.php:105
+#: html/map-edit-page/polygon-panel.html.php:128
+#: html/map-edit-page/polygon-panel.html.php:160
+#: html/map-edit-page/polyline-panel.html.php:87
+#: html/map-edit-page/rectangle-panel.html.php:72
+msgid "(0 - 1.0) example: 0.5 for 50%"
+msgstr "(0 - 1,0) příklad: 0,5 pro 50%"
+
+#: html/atlas-novus/map-edit-page/polygon-panel.html.php:14
+#: html/map-edit-page/polygon-panel.html.php:17
+msgid "<strong>Complete</strong> drawing your polygon by <strong>clicking</strong> the start point a second time."
+msgstr "<strong>Dokončete</strong> kreslení polygonu druhým <strong>kliknutím na</strong> počáteční bod."
+
+#: html/atlas-novus/map-edit-page/polygon-panel.html.php:24
+#: html/map-edit-page/polygon-panel.html.php:27
+msgid "Use the fields below to edit this polygons information."
+msgstr "Pomocí níže uvedených polí můžete upravit informace o těchto polygonech."
+
+#: html/atlas-novus/map-edit-page/polygon-panel.html.php:27
+#: html/atlas-novus/map-edit-page/polyline-panel.html.php:27
+#: html/map-edit-page/polygon-panel.html.php:32
+#: html/map-edit-page/polyline-panel.html.php:32
+msgid "<strong>Click and drag</strong> existing vertices to move them."
+msgstr "<strong>Kliknutím a přetažením</strong> stávajících vrcholů je můžete přesunout."
+
+#: html/atlas-novus/map-edit-page/polygon-panel.html.php:30
+#: html/atlas-novus/map-edit-page/polyline-panel.html.php:30
+#: html/map-edit-page/polygon-panel.html.php:37
+#: html/map-edit-page/polyline-panel.html.php:37
+msgid "<strong>Click and drag</strong> any edge to add vertices."
+msgstr "<strong>Kliknutím a přetažením</strong> libovolné hrany přidáte vrcholy."
+
+#: html/atlas-novus/map-edit-page/polygon-panel.html.php:33
+#: html/atlas-novus/map-edit-page/polyline-panel.html.php:33
+#: html/map-edit-page/polygon-panel.html.php:42
+#: html/map-edit-page/polyline-panel.html.php:42
+msgid "<strong>Hold Alt</strong> and click to remove vertices."
+msgstr "<strong>Podržením klávesy Alt</strong> a kliknutím odstraníte vrcholy."
+
+#: html/map-edit-page/polygon-panel.html.php:168
+msgid "Polygon data"
+msgstr "Polygonová data"
+
+#: html/atlas-novus/map-edit-page/polygon-panel.html.php:8
+#: html/map-edit-page/polygon-panel.html.php:7
+msgid "<strong>Click</strong> on the map to start drawing your polygon."
+msgstr "<strong>Kliknutím na</strong> mapu začněte kreslit polygon."
+
+#: html/atlas-novus/map-edit-page/polygon-panel.html.php:11
+#: html/map-edit-page/polygon-panel.html.php:12
+msgid "Add at least <strong>three</strong> points"
+msgstr "Přidejte alespoň <strong>tři</strong> body"
+
+#: includes/class.strings.php:41
+msgid "Please create the rectangle first."
+msgstr "Nejprve vytvořte obdélník."
+
+#: includes/class.strings.php:42
+msgid "Please create the polygon first."
+msgstr "Nejprve vytvořte polygon."
+
+#: includes/class.strings.php:43
+msgid "Please create the polyline first."
+msgstr "Nejprve vytvořte první křivku."
+
+#: includes/class.strings.php:40
+msgid "Please create the circle first."
+msgstr "Nejprve vytvořte kruh."
+
+#: wpGoogleMaps.php:493
+msgid "We have automatically given all PRO users the ability to update to 8.0.34 and then further to 8.1. Any major versions below 8 will no longer be supported."
+msgstr "Všem uživatelům PRO jsme automaticky umožnili aktualizaci na verzi 8.0.34 a následně na verzi 8.1. Všechny hlavní verze nižší než 8 již nebudou podporovány."
+
+#: wpGoogleMaps.php:497 wpGoogleMaps.php:527
+msgid "If you are struggling to update your Pro version from within WordPress, please get the latest ZIP file <a target=\"_BLANK\" href=\"%s\">here</a>."
+msgstr "Pokud se vám nedaří aktualizovat verzi Pro ze systému WordPress, získejte nejnovější soubor ZIP <a target=\"_BLANK\" href=\"%s\">zde</a>."
+
+#: wpGoogleMaps.php:486 wpGoogleMaps.php:515
+msgid "Urgent notice"
+msgstr "Naléhavé upozornění"
+
+#: html/atlas-novus/settings-page.html.php:1735
+#: html/settings-page.html.php:1460
+msgid "This API key can be obtained from the <a href='https://openrouteservice.org/dev/#/login' target='_BLANK'>OpenRouteService Developers Console</a>."
+msgstr "Tento klíč API lze získat z <a href='https://openrouteservice.org/dev/#/login' target='_BLANK'>vývojářské konzoly služby OpenRouteService</a>."
+
+#: wpGoogleMaps.php:489
+msgid "You are currently using an outdated PRO version. You need to <a href=\"%s\">update your PRO version</a> to the latest version (8.*)."
+msgstr "V současné době používáte zastaralou verzi PRO. Je třeba <a href=\"%s\">aktualizovat verzi PRO</a> na nejnovější verzi (8.*)."
+
+#: html/atlas-novus/settings-page.html.php:1636
+#: html/settings-page.html.php:1421
+msgid "Alternative Import API Key"
+msgstr "Alternativní klíč API pro import"
+
+#: html/atlas-novus/settings-page.html.php:1645
+#: html/settings-page.html.php:1429
+msgid "Generate an IP restricted key to paste into this field if you are experiencing 'Request Denied' when running imports"
+msgstr "Vygenerujte klíč s omezenou adresou IP, který vložte do tohoto pole, pokud se při importu objeví zpráva \"Request Denied\""
+
+#: html/atlas-novus/settings-page.html.php:1726
+#: html/settings-page.html.php:1454
+msgid "OpenRouteService Key"
+msgstr "Klíč služby OpenRouteService"
+
+#: html/settings-page.html.php:1036
+msgid "Basic Marker Listings"
+msgstr "Základní seznamy značek"
+
+#: html/atlas-novus/settings-page.html.php:929 html/settings-page.html.php:1044
+msgid "Column Visibility"
+msgstr "Viditelnost sloupců"
+
+#: html/atlas-novus/settings-page.html.php:956 html/settings-page.html.php:1073
+msgid "Hide the Link column"
+msgstr "Skrytí sloupce Odkaz"
+
+#: html/atlas-novus/settings-page.html.php:871 html/settings-page.html.php:991
+msgid "Show X items by default"
+msgstr "Zobrazení X položek ve výchozím nastavení"
+
+#: html/atlas-novus/settings-page.html.php:1105
+#: html/settings-page.html.php:1243
+msgid "Field Visibility"
+msgstr "Pole Viditelnost"
+
+#: html/settings-page.html.php:1283
+msgid "Image and Carousel options"
+msgstr "Možnosti obrázků a karuselů"
+
+#: html/settings-page.html.php:1355
+msgid "Responsivity Settings"
+msgstr "Nastavení responzivity"
+
+#: html/settings-page.html.php:1367
+msgid "Items (Tablet)"
+msgstr "Položky (Tablet)"
+
+#: html/settings-page.html.php:1372
+msgid "Items (Mobile)"
+msgstr "Položky (mobilní telefon)"
+
+#: html/atlas-novus/settings-page.html.php:769 html/settings-page.html.php:888
+msgid "(Tick this if you want to open your links in a new window)"
+msgstr "(Zaškrtněte, pokud chcete odkazy otevřít v novém okně)"
+
+#: html/atlas-novus/settings-page.html.php:716 html/settings-page.html.php:900
+msgid "Hide the address field"
+msgstr "Skrytí pole adresy"
+
+#: html/atlas-novus/settings-page.html.php:778 html/settings-page.html.php:916
+msgid "Link text"
+msgstr "Text odkazu"
+
+#: html/atlas-novus/settings-page.html.php:794 html/settings-page.html.php:945
+msgid "Enabling this setting will prevent any infowindows from opening for all your maps"
+msgstr "Povolením tohoto nastavení zabráníte otevření všech informačních oken pro všechny vaše mapy"
+
+#: html/atlas-novus/settings-page.html.php:650
+#: html/map-edit-page/map-edit-page.html.php:1449
+#: html/settings-page.html.php:739
+msgid "Infowindow Style"
+msgstr "Styl okna Infowindow"
+
+#: html/map-edit-page/map-edit-page.html.php:1464
+#: html/settings-page.html.php:756
+msgid "Default Infowindow"
+msgstr "Výchozí informační okno"
+
+#: html/map-edit-page/map-edit-page.html.php:1481
+#: html/settings-page.html.php:773
+msgid "Modern Infowindow"
+msgstr "Moderní informační okno"
+
+#: html/map-edit-page/map-edit-page.html.php:1498
+#: html/settings-page.html.php:790
+msgid "Modern Plus Infowindow"
+msgstr "Infokino Modern Plus"
+
+#: html/map-edit-page/map-edit-page.html.php:1515
+#: html/settings-page.html.php:807
+msgid "Circular Infowindow"
+msgstr "Kruhové informační okno"
+
+#: html/atlas-novus/settings-page.html.php:476 html/settings-page.html.php:564
+msgid "Prevents the larger image lightbox from opening up when pictures in the infowindow or marker listing are clicked"
+msgstr "Zabraňuje otevření většího lightboxu s obrázky při kliknutí na obrázky v infokně nebo ve výpisu značek"
+
+#: html/settings-page.html.php:820 html/settings-page.html.php:826
+msgid "No Global Setting"
+msgstr "Žádné globální nastavení"
+
+#: html/atlas-novus/settings-page.html.php:801 html/settings-page.html.php:836
+msgid "Resize Images"
+msgstr "Změna velikosti obrázků"
+
+#: html/atlas-novus/settings-page.html.php:811 html/settings-page.html.php:847
+msgid "Resize all images to the below sizes"
+msgstr "Změňte velikost všech obrázků na níže uvedené velikosti"
+
+#: html/atlas-novus/settings-page.html.php:819 html/settings-page.html.php:853
+msgid "Default Image Width"
+msgstr "Výchozí šířka obrázku"
+
+#: html/atlas-novus/settings-page.html.php:823 html/settings-page.html.php:856
+msgid "(can be left blank - max width will be limited to max infowindow width)"
+msgstr "(lze ponechat prázdné - maximální šířka bude omezena na maximální šířku informačního okna)"
+
+#: html/atlas-novus/settings-page.html.php:829 html/settings-page.html.php:860
+msgid "Default Image Height"
+msgstr "Výchozí výška obrázku"
+
+#: html/atlas-novus/settings-page.html.php:833
+#: html/atlas-novus/settings-page.html.php:843 html/settings-page.html.php:863
+#: html/settings-page.html.php:870
+msgid "(can be left blank - leaving both the width and height blank will revert to full size images being used)"
+msgstr "(lze ponechat prázdné - ponecháním prázdné šířky i výšky se vrátí k použití obrázků v plné velikosti)"
+
+#: html/atlas-novus/settings-page.html.php:839 html/settings-page.html.php:867
+msgid "Max InfoWindow Width"
+msgstr "Maximální šířka informačního okna"
+
+#: html/settings-page.html.php:874
+msgid "Other settings"
+msgstr "Ostatní nastavení"
+
+#: html/atlas-novus/settings-page.html.php:767 html/settings-page.html.php:887
+msgid "Open links in a new window "
+msgstr "Otevřít odkazy v novém okně "
+
+#: html/atlas-novus/settings-page.html.php:1703 html/settings-page.html.php:521
+msgid "Use this setting if you are experiencing Google Maps API issues, such as invalid key warnings, or Multiple API warnings"
+msgstr "Toto nastavení použijte, pokud máte problémy s rozhraním Google Maps API, například varování o neplatném klíči nebo varování o vícenásobném rozhraní API"
+
+#: html/atlas-novus/settings-page.html.php:464 html/settings-page.html.php:550
+msgid "Check this setting to disable two finger pan on mobiles, and Ctrl + Zoom on desktops. Enabling this setting will allow one finger panning on mobiles, and will enable zoom without Ctrl on desktops."
+msgstr "Zaškrtnutím tohoto nastavení zakážete posouvání dvěma prsty na mobilních telefonech a Ctrl + Zoom na stolních počítačích. Povolením tohoto nastavení se na mobilních telefonech povolí posouvání jedním prstem a na stolních počítačích se povolí zoomování bez použití klávesy Ctrl."
+
+#: html/atlas-novus/settings-page.html.php:471 html/settings-page.html.php:558
+msgid "Disable Lightbox"
+msgstr "Zakázat Lightbox"
+
+#: html/atlas-novus/settings-page.html.php:407 html/settings-page.html.php:203
+msgid "<strong>Minimal</strong> - The same as Compact, but with icons instead of text labels."
+msgstr "<strong>Minimální</strong> - Stejné jako Kompaktní, ale s ikonami místo textových popisků."
+
+#: html/atlas-novus/settings-page.html.php:377 html/settings-page.html.php:173
+msgid "<strong>Modern</strong> - Puts components inside the map, with pull-out panels."
+msgstr "<strong>Moderní</strong> - Umístění komponent uvnitř mapy s výsuvnými panely."
+
+#: html/atlas-novus/settings-page.html.php:397 html/settings-page.html.php:193
+msgid "<strong>Compact</strong> - Puts all components and their labels inline."
+msgstr "<strong>Kompaktní</strong> - všechny součásti a jejich popisky jsou v řádku."
+
+#: html/atlas-novus/settings-page.html.php:367 html/settings-page.html.php:163
+msgid "<strong>Default</strong> - The default front end."
+msgstr "<strong>Default</strong> - Výchozí front end."
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1442
+#: html/atlas-novus/theme-panel.html.php:229 html/theme-panel.html.php:235
+msgid "Looking for more themes? <a href=\"%s\" target=\"_BLANK\">Browse our theme directory</a>."
+msgstr "Hledáte další témata? <a href=\"%s\" target=\"_BLANK\">Projděte si náš adresář motivů</a>."
+
+#: html/theme-panel.html.php:259 html/theme-panel.html.php:260
+msgid "Enter theme JSON data manually"
+msgstr "Ručně vložit data JSON do motivu"
+
+#: wpGoogleMaps.php:585
+msgid "PHP 8 includes significant changes from PHP 7, which may cause unexpected issues with our core functionality. WP Go Maps is not officially supported with PHP 8, but support will be added in the near future."
+msgstr "PHP 8 obsahuje oproti PHP 7 významné změny, které mohou způsobit neočekávané problémy s našimi základními funkcemi. WP Google Maps nejsou oficiálně podporovány v PHP 8, ale v blízké budoucnosti bude podpora přidána."
+
+#: wpGoogleMaps.php:591
+msgid "To continue using WP Go Maps, please downgrade to PHP 7, as it is fully supported by our plugin."
+msgstr "Chcete-li i nadále používat WP Google Maps, přejděte prosím na PHP 7, protože náš plugin jej plně podporuje."
+
+#: includes/class.strings.php:109
+msgid "Autocomplete disabled. <a href=\"%s\" target=\"_BLANK\">Find out more</a>."
+msgstr "Automatické dokončování je zakázáno.  <a href=\"%s\" target=\"_BLANK\">Zjistěte více</a>."
+
+#: includes/class.strings.php:61
+msgid "This address could not be found. WP Go Maps uses a 3rd party service (eg Google) to convert addresses to geographic coordinates. Unfortunately, the service has no records for this address at present. Please try an alternative format, or manually position the marker using right click."
+msgstr "Tuto adresu se nepodařilo najít. WP Mapy Google používají k převodu adres na zeměpisné souřadnice službu třetí strany (např. Google). Tato služba bohužel v současné době nemá pro tuto adresu žádné záznamy. Zkuste prosím použít alternativní formát nebo značku umístěte ručně pomocí pravého tlačítka myši."
+
+#: html/atlas-novus/store-locator.html.php:17 html/store-locator.html.php:17
+msgid "Radius:"
+msgstr "Poloměr:"
+
+#: includes/class.strings.php:102
+msgid "Are you sure you want to delete this map?"
+msgstr "Opravdu chcete tuto mapu odstranit?"
+
+#: includes/class.strings.php:103
+msgid "Are you sure you want to delete these maps?"
+msgstr "Opravdu chcete tyto mapy odstranit?"
+
+#: html/atlas-novus/settings-page.html.php:387 html/settings-page.html.php:183
+msgid "<strong>Legacy</strong> - This setting is the same as Default, but provides options to change individual components to the modern style."
+msgstr "<strong>Legacy</strong> - Toto nastavení je stejné jako výchozí, ale poskytuje možnosti změny jednotlivých komponent na moderní styl."
+
+#: html/atlas-novus/settings-page.html.php:417 html/settings-page.html.php:213
+msgid "<strong>Bare Bones</strong> - Applies no styling to the components at all. This is recommended for designers and developers who want to style the components from scratch."
+msgstr "<strong>Barevný</strong> - Na součásti není použit žádný styl. Doporučuje se pro návrháře a vývojáře, kteří chtějí komponenty stylovat od začátku."
+
+#: includes/class.strings.php:28
+msgid "You have not entered a <b>Google Maps API Key</b>.<br /><br />Please go to the your admin area, then Maps, then Settings, then the Advanced tab to <a href=\"%s\">enter your Google Maps API key</a>.<br /><br />Alternatively, <a href=\"%s\">choose the Open Layers engine</a> to avoid getting an API key."
+msgstr "Nezadali jste <b>klíč Google Maps API</b>.<br /><br />Přejděte do své administrátorské oblasti, pak do Map, pak do Nastavení a na kartu Rozšířené <a href=\"%s\">zadejte svůj klíč Google Maps API</a>.<br /><br />Případně <a href=\"%s\">zvolte engine vrstev</a>, abyste se vyhnuli zadávání klíče API."
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1272
+#: html/ol-feature-unavailable.html.php:9
+msgid "Not available while using the OpenLayers engine."
+msgstr "Není k dispozici při použití enginu OpenLayers."
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:3739
+#: html/map-edit-page/map-edit-page.html.php:2567
+msgid "Please ensure you <a href=\"%s\">enter a Google Maps API key</a> to continue using Google Maps. Alternatively, swap over to Open Layers by clicking <a id=\"wpgm-swap-to-open-layers\" href=\"%s\">here</a>."
+msgstr "Pro další používání Map Google se ujistěte, že jste <a href=\"%s\">zadali klíč Google Maps API</a>. Případně přejděte na aplikaci Open Layers kliknutím <a id=\"wpgm-swap-to-open-layers\" href=\"%s\">sem</a>."
+
+#: html/atlas-novus/map-list-page.html.php:70 html/map-list-page.html.php:72
+#: legacy-core.php:1087
+msgid "once off!"
+msgstr "jednou vypnout!"
+
+#: includes/class.strings.php:100
+msgid "Geocoding this address failed. Please check you have enabled the Geocoding API for your Google Maps API project."
+msgstr "Geokódování této adresy se nezdařilo. Zkontrolujte prosím, zda máte v projektu Google Maps API povoleno rozhraní Geocoding API."
+
+#: includes/class.strings.php:99
+msgid "Geocode was not successful for the following reason: "
+msgstr "Geokódování nebylo úspěšné z následujícího důvodu "
+
+#: includes/class.strings.php:91
+msgid "Duplicate custom field names, please ensure you only add unique custom field names."
+msgstr "Duplicitní názvy vlastních polí, dbejte na to, abyste přidávali pouze jedinečné názvy vlastních polí."
+
+#: includes/class.strings.php:93
+msgid "Some interactions are disabled."
+msgstr "Některé interakce jsou zakázány."
+
+#: includes/class.strings.php:94
+msgid "Interactions Enabled"
+msgstr "Povolené interakce"
+
+#: includes/class.strings.php:95
+msgid "Re-Enable Interactions"
+msgstr "Znovu povolit interakce"
+
+#: html/map-edit-page/map-edit-page.html.php:2330
+msgid "Have a sales question? Contact Nick on <a href=\"mailto:nick@wpgmaps.com\">nick@wpgmaps.com</a> or use our <a href=\"https://www.wpgmaps.com/contact-us/\" target=\"_BLANK\">contact form</a>."
+msgstr "Máte dotaz k prodeji? Kontaktujte Nicka na <a href=\"mailto:nick@wpgmaps.com\">nick@wpgmaps.com</a> nebo použijte náš <a href=\"https://www.wpgmaps.com/contact-us/\" target=\"_BLANK\">kontaktní formulář</a>."
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:3232
+#: html/map-edit-page/map-edit-page.html.php:2335
+msgid "Need help? <a href=\"https://www.wpgmaps.com/forums/\" target=\"_BLANK\">Ask a question on our support forum</a>."
+msgstr "Potřebujete pomoc? Položte <a href=\"https://www.wpgmaps.com/forums/\" target=\"_BLANK\">dotaz na našem fóru podpory</a>."
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:3212
+#: html/map-edit-page/map-edit-page.html.php:2305
+msgid "Free updates and support forever"
+msgstr "Bezplatné aktualizace a podpora navždy"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:3213
+#: html/map-edit-page/map-edit-page.html.php:2306
+msgid "Once you're a pro user, you'll receive free updates and support forever! You'll also receive amazing specials on any future plugins we release."
+msgstr "Jakmile se stanete profesionálním uživatelem, získáte bezplatné aktualizace a podporu navždy! Získáte také úžasné slevy na všechny budoucí pluginy, které vydáme."
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:3141
+#: html/map-edit-page/map-edit-page.html.php:2319
+msgid "Upgrade Now"
+msgstr "Upgradovat nyní"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:3201
+#: html/map-edit-page/map-edit-page.html.php:2288
+msgid "We pride ourselves on providing quick and amazing support. <a target=\"_BLANK\" href=\"http://wordpress.org/support/view/plugin-reviews/wp-google-maps?filter=5\">Read what some of our users think of our support</a>."
+msgstr "Jsme hrdí na to, že poskytujeme rychlou a úžasnou podporu. <a target=\"_BLANK\" href=\"http://wordpress.org/support/view/plugin-reviews/wp-google-maps?filter=5\">Přečtěte si, co si o naší podpoře myslí někteří uživatelé</a>."
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:3206
+#: html/map-edit-page/map-edit-page.html.php:2296
+msgid "Easy Upgrade"
+msgstr "Snadná aktualizace"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:3207
+#: html/map-edit-page/map-edit-page.html.php:2297
+msgid "You'll receive a download link immediately. Simply upload and activate the Pro plugin to your WordPress admin area and you're done!"
+msgstr "Ihned obdržíte odkaz ke stažení. Jednoduše nahrajte a aktivujte plugin Pro do administrace WordPressu a je hotovo!"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:3183
+#: html/map-edit-page/map-edit-page.html.php:2261
+msgid "Export your markers to a CSV file for quick and easy editing. Import large quantities of markers at once."
+msgstr "Exportovat značky do souboru CSV pro rychlé a snadné úpravy. Importovat velké množství značek najednou."
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:3188
+#: html/map-edit-page/map-edit-page.html.php:2269
+msgid "Add KML &amp; Fusion Tables"
+msgstr "Přidání KML &amp; Tabulky Fusion"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:3189
+#: html/map-edit-page/map-edit-page.html.php:2270
+msgid "Add your own KML layers or Fusion Table data to your map"
+msgstr "Přidání vlastních vrstev KML nebo dat Fusion Table do mapy"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:3194
+#: html/map-edit-page/map-edit-page.html.php:2278
+msgid "Polygons and Polylines"
+msgstr "Mnohoúhelníky a křivky"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:3195
+#: html/map-edit-page/map-edit-page.html.php:2279
+msgid "Add custom polygons and polylines to your map by simply clicking on the map. Perfect for displaying routes and serviced areas."
+msgstr "Jednoduchým kliknutím na mapu můžete přidat vlastní polygony a křivky. Ideální pro zobrazení tras a obsluhovaných oblastí."
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:3200
+#: html/map-edit-page/map-edit-page.html.php:2287
+msgid "Amazing Support"
+msgstr "Úžasná podpora"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:3171
+#: html/map-edit-page/map-edit-page.html.php:2243
+msgid "Create and assign categories to your markers which can then be filtered on your map."
+msgstr "Vytvářejte a přiřazujte kategorie ke značkám, které pak můžete na mapě filtrovat."
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:3176
+#: html/map-edit-page/map-edit-page.html.php:2251
+msgid "Advanced options"
+msgstr "Rozšířené možnosti"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:3177
+#: html/map-edit-page/map-edit-page.html.php:2252
+msgid "Enable advanced options such as showing your visitor's location, marker sorting, bicycle layers, traffic layers and more!"
+msgstr "Povolte pokročilé možnosti, jako je zobrazení polohy návštěvníka, třídění značek, vrstvy jízdních kol, dopravní vrstvy a další!"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:3182
+#: html/map-edit-page/map-edit-page.html.php:2260
+msgid "Import / Export"
+msgstr "Import / Export"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:3147
+#: html/map-edit-page/map-edit-page.html.php:2207
+msgid "Add titles, descriptions, HTML, images, animations and custom icons to your markers."
+msgstr "Přidejte do značek názvy, popisy, HTML, obrázky, animace a vlastní ikony."
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:3153
+#: html/map-edit-page/map-edit-page.html.php:2216
+msgid "Allow your visitors to get directions to your markers. Either use their location as the starting point or allow them to type in an address."
+msgstr "Umožněte návštěvníkům získat pokyny k vašim značkám. Jako výchozí bod použijte jejich polohu nebo jim umožněte zadat adresu."
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:3159
+#: html/map-edit-page/map-edit-page.html.php:2225
+msgid "Create as many maps as you like."
+msgstr "Vytvořte si libovolný počet map."
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:3165
+#: html/map-edit-page/map-edit-page.html.php:2234
+msgid "Choose between three methods of listing your markers."
+msgstr "Můžete si vybrat ze tří způsobů zápisu značek."
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:3170
+#: html/map-edit-page/map-edit-page.html.php:2242
+msgid "Add categories to your markers"
+msgstr "Přidávání kategorií do značek"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:3146
+#: html/map-edit-page/map-edit-page.html.php:2206
+msgid "Create custom markers with detailed info windows"
+msgstr "Vytváření vlastních značek s podrobnými informačními okny"
+
+#: includes/class.strings.php:97
+msgid "Use two fingers to move the map"
+msgstr "Mapou pohybujte dvěma prsty"
+
+#: includes/class.strings.php:98
+msgid "Use ctrl + scroll to zoom the map"
+msgstr "Pro přiblížení mapy použijte kombinaci kláves CTRL + rolovací kolečko"
+
+#: html/atlas-novus/settings-page.html.php:1442 html/settings-page.html.php:229
+msgid "OR"
+msgstr "NEBO"
+
+#: html/atlas-novus/map-list-page.html.php:18 includes/class.map.php:155
+#: includes/class.strings.php:107
+msgid "New Map"
+msgstr "Nová mapa"
+
+#: includes/class.strings.php:89
+msgid "Invalid theme data"
+msgstr "Neplatná data vzhledu"
+
+#: includes/class.plugin.php:171
+msgid "<strong>WP Go Maps:</strong> Execution time limit was reached whilst generating XML cache. This has been switched back to the Database method in Maps -> Settings -> Advanced"
+msgstr "<strong>WP Mapy Google:</strong> Při generování mezipaměti XML bylo dosaženo časového limitu provádění. Bylo přepnuto zpět na databázovou metodu v Mapy -&gt; Nastavení -&gt; Pokročilé"
+
+#: includes/class.plugin.php:180
+msgid "<strong>WP Go Maps:</strong> Allowed memory size was reached whilst generating XML cache. This has been switched back to the Database method in Maps -> Settings -> Advanced"
+msgstr "<strong>WP Mapy Google:</strong> Při generování mezipaměti XML bylo dosaženo povolené velikosti paměti. Bylo přepnuto zpět na databázovou metodu v Mapy -&gt; Nastavení -&gt; Pokročilé"
+
+#: includes/class.strings.php:87
+msgid "This operation is not reversable. We recommend you take a backup before proceeding. Would you like to continue?"
+msgstr "Tuto operaci nelze zvrátit. Před pokračováním doporučujeme provést zálohu. Chcete pokračovat?"
+
+#: html/settings-page.html.php:1487
+msgid "Other Caching"
+msgstr "Další ukládání do mezipaměti"
+
+#: html/atlas-novus/settings-page.html.php:1755
+#: html/settings-page.html.php:1494
+msgid "Flush"
+msgstr "Pročistit"
+
+#: html/settings-page.html.php:1579
+msgid "Miscellaneous Settings"
+msgstr "Různá nastavení"
+
+#: html/atlas-novus/settings-page.html.php:2286
+#: html/settings-page.html.php:1701
+msgid "Always rebuilds combined script files and script cache, does not load combined and minified scripts. Includes database query SQL with REST API responses."
+msgstr "Vždy obnoví kombinované soubory skriptů a mezipaměť skriptů, nenačítá kombinované a minifikované skripty. Obsahuje databázový dotaz SQL s odpověďmi rozhraní REST API."
+
+#: html/settings-page.html.php:1410
+msgid ""
+"This API key can be obtained from \n"
+"\t\t\t\t\t\tthe <a href='https://wpgmaps.com/google-maps-developer-console/' target='_BLANK'>Google Developers Console</a>. Our <a href='https://docs.wpgmaps.com/creating-a-google-maps-api-key' target='_BLANK'>documentation</a> provides a full guide on how to obtain this."
+msgstr ""
+"Tento klíč API lze získat z \n"
+"\t\t\t\t\t\tv <a href='https://wpgmaps.com/google-maps-developer-console/' target='_BLANK'>konzole Google Developers Console</a>. V naší <a href='https://docs.wpgmaps.com/creating-a-google-maps-api-key' target='_BLANK'>dokumentaci</a> najdete úplný návod, jak jej získat."
+
+#: html/atlas-novus/map-edit-page/heatmap-panel.html.php:59
+#: html/atlas-novus/theme-panel.html.php:30
+#: html/map-edit-page/heatmap-panel.html.php:57 html/theme-panel.html.php:36
+msgid "Blue"
+msgstr "Modrá"
+
+#: html/map-edit-page/map-edit-page.html.php:361
+msgid "Looking for styling settings? Try our new <a href='%s' target='_blank'>User Interface Style</a> setting."
+msgstr "Hledáte nastavení stylů? Vyzkoušejte naše nové nastavení <a href='%s' target='_blank'>stylu uživatelského rozhraní</a>."
+
+#: html/atlas-novus/settings-page.html.php:107 html/settings-page.html.php:58
+msgid "Maps Engine"
+msgstr "Mapový modul"
+
+#: html/atlas-novus/settings-page.html.php:355 html/settings-page.html.php:151
+msgid "User Interface Style"
+msgstr "Styl uživatelského rozhraní"
+
+#: html/atlas-novus/settings-page.html.php:1762 html/settings-page.html.php:285
+msgid "Use FontAwesome"
+msgstr "Použití aplikace FontAwesome"
+
+#: html/atlas-novus/settings-page.html.php:131 html/settings-page.html.php:321
+msgid "Tile Server URL"
+msgstr "Adresa URL dlaždicového serveru"
+
+#: html/atlas-novus/settings-page.html.php:1652 html/settings-page.html.php:465
+msgid "Load Maps Engine API"
+msgstr "Rozhraní API pro načítání map"
+
+#: html/atlas-novus/settings-page.html.php:1741 html/settings-page.html.php:497
+msgid "Always include engine API on pages"
+msgstr "Na stránkách vždy uvádějte rozhraní API engine"
+
+#: html/atlas-novus/settings-page.html.php:1747 html/settings-page.html.php:502
+msgid "Always exclude engine API on pages"
+msgstr "Vždy vyloučit rozhraní API engine na stránkách"
+
+#: html/atlas-novus/settings-page.html.php:1698 html/settings-page.html.php:517
+msgid "Prevent other plugins and theme loading API"
+msgstr "Zabránění načítání API jiných pluginů a motivů"
+
+#: html/atlas-novus/settings-page.html.php:428 html/settings-page.html.php:529
+msgid "Admin"
+msgstr "Admin"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1244
+#: html/atlas-novus/settings-page.html.php:429 html/settings-page.html.php:530
+msgid "Editor"
+msgstr "Editor"
+
+#: html/atlas-novus/settings-page.html.php:430 html/settings-page.html.php:531
+msgid "Author"
+msgstr "Autor"
+
+#: html/atlas-novus/settings-page.html.php:431 html/settings-page.html.php:532
+msgid "Contributor"
+msgstr "Přispěvatel"
+
+#: html/atlas-novus/settings-page.html.php:432 html/settings-page.html.php:533
+msgid "Subscriber"
+msgstr "Odběratel"
+
+#: html/atlas-novus/map-edit-page/circle-panel.html.php:68
+#: html/atlas-novus/map-edit-page/marker-panel.html.php:107
+#: html/atlas-novus/map-edit-page/polygon-panel.html.php:69
+#: html/atlas-novus/map-edit-page/rectangle-panel.html.php:60
+#: html/atlas-novus/settings-page.html.php:691 html/settings-page.html.php:934
+msgid "Hover"
+msgstr "Přejetí myší"
+
+#: html/settings-page.html.php:975
+msgid ""
+"Add Beautiful Marker Listings\n"
+"\t\t\t</a> \n"
+"\t\t\tto your maps with the Pro version for only $39.99 once off. Support and updates included forever."
+msgstr ""
+"<a>Přidat seznamy krásných značek</a> \n"
+"\t\t\t \n"
+"\t\t\tdo svých map s verzí Pro za pouhých 39,99 USD jednorázově. Podpora a aktualizace navždy v ceně."
+
+#: html/settings-page.html.php:1399
+msgid "API Keys"
+msgstr "Klíče API"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1263
+#: html/theme-panel.html.php:5
+msgid "Theme Presets"
+msgstr "Předvolby motivu"
+
+#: html/atlas-novus/ol-theme-panel.html.php:9
+#: html/atlas-novus/ol-theme-panel.html.php:20
+#: html/atlas-novus/ol-theme-panel.html.php:31
+#: html/atlas-novus/ol-theme-panel.html.php:42
+#: html/atlas-novus/ol-theme-panel.html.php:53
+#: html/atlas-novus/ol-theme-panel.html.php:64
+#: html/atlas-novus/ol-theme-panel.html.php:75
+#: html/atlas-novus/ol-theme-panel.html.php:86
+#: html/atlas-novus/styling-page.html.php:128
+#: html/atlas-novus/theme-panel.html.php:21
+#: html/atlas-novus/theme-panel.html.php:43
+#: html/atlas-novus/theme-panel.html.php:65
+#: html/atlas-novus/theme-panel.html.php:87
+#: html/atlas-novus/theme-panel.html.php:109
+#: html/atlas-novus/theme-panel.html.php:131
+#: html/atlas-novus/theme-panel.html.php:153
+#: html/atlas-novus/theme-panel.html.php:175
+#: html/atlas-novus/theme-panel.html.php:197
+#: html/atlas-novus/theme-panel.html.php:219 html/theme-panel.html.php:27
+#: html/theme-panel.html.php:49 html/theme-panel.html.php:71
+#: html/theme-panel.html.php:93 html/theme-panel.html.php:115
+#: html/theme-panel.html.php:137 html/theme-panel.html.php:159
+#: html/theme-panel.html.php:181 html/theme-panel.html.php:203
+#: html/theme-panel.html.php:225
+msgid "Select Preset"
+msgstr "Výběr předvolby"
+
+#: html/atlas-novus/theme-panel.html.php:52 html/theme-panel.html.php:58
+msgid "Apple Maps"
+msgstr "Mapy Apple"
+
+#: html/atlas-novus/ol-theme-panel.html.php:16
+#: html/atlas-novus/theme-panel.html.php:74 html/theme-panel.html.php:80
+msgid "Grayscale"
+msgstr "Odstíny šedé"
+
+#: html/atlas-novus/theme-panel.html.php:96 html/theme-panel.html.php:102
+msgid "Pale"
+msgstr "Světlá"
+
+#: html/atlas-novus/theme-panel.html.php:118 html/theme-panel.html.php:124
+msgid "Red"
+msgstr "Červený"
+
+#: html/atlas-novus/theme-panel.html.php:140 html/theme-panel.html.php:146
+msgid "Dark Grey"
+msgstr "Tmavě šedá"
+
+#: html/atlas-novus/theme-panel.html.php:162 html/theme-panel.html.php:168
+msgid "Monochrome"
+msgstr "Monochromatické"
+
+#: html/atlas-novus/ol-theme-panel.html.php:60
+#: html/atlas-novus/theme-panel.html.php:184 html/theme-panel.html.php:190
+msgid "Old Fashioned"
+msgstr "Staromódní"
+
+#: html/atlas-novus/theme-panel.html.php:206 html/theme-panel.html.php:212
+msgid "Night Mode"
+msgstr "Noční režim"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1282
+#: html/theme-panel.html.php:241
+msgid "Theme Editor"
+msgstr "Editor motivů"
+
+#: html/theme-panel.html.php:248
+msgid "Customise Theme"
+msgstr "Přizpůsobení motivu"
+
+#: html/theme-panel.html.php:254
+msgid "Open Theme Editor"
+msgstr "Otevření editoru motivů"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1291
+#: html/theme-panel.html.php:268
+msgid "Feature"
+msgstr "Funkce"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1299
+#: html/theme-panel.html.php:282
+msgid "Visibility"
+msgstr "Viditelnost"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1303
+#: html/theme-panel.html.php:288
+msgid "Inherit"
+msgstr "Zdědit"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1306
+#: html/theme-panel.html.php:293
+msgid "Off"
+msgstr "Vypnuto"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1309
+#: html/theme-panel.html.php:298
+msgid "Simplified"
+msgstr "Zjednodušené"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1312
+#: html/theme-panel.html.php:303
+msgid "On"
+msgstr "Zapnuto"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1319
+#: html/theme-panel.html.php:312
+msgid "Label"
+msgstr "Štítek"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1325
+#: html/theme-panel.html.php:320
+msgid "Weight"
+msgstr "Váha"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1331
+#: html/theme-panel.html.php:332
+msgid "Gamma"
+msgstr "Gama"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1337
+#: html/theme-panel.html.php:341
+msgid "Saturation"
+msgstr "Saturace"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1343
+#: html/theme-panel.html.php:350
+msgid "Lightness"
+msgstr "Světlost"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1372
+#: html/theme-panel.html.php:374
+msgid "Hue"
+msgstr "Odstín"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1393
+#: html/theme-panel.html.php:385
+msgid "Invert Lightness"
+msgstr "Invertovat světlost"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1249
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1424
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1431
+#: html/theme-panel.html.php:413
+msgid "Theme Data"
+msgstr "Data motivu"
+
+#: html/atlas-novus/map-edit-page/heatmap-panel.html.php:53
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1545
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1872
+#: html/atlas-novus/ol-theme-panel.html.php:5
+#: html/atlas-novus/settings-page.html.php:660
+#: html/atlas-novus/styling-page.html.php:129
+#: html/atlas-novus/theme-panel.html.php:8
+#: html/map-edit-page/heatmap-panel.html.php:50
+#: html/map-edit-page/map-edit-page.html.php:1459
+#: html/map-edit-page/map-edit-page.html.php:1476
+#: html/map-edit-page/map-edit-page.html.php:1493
+#: html/map-edit-page/map-edit-page.html.php:1510
+#: html/map-edit-page/map-edit-page.html.php:2034
+#: html/settings-page.html.php:751 html/settings-page.html.php:768
+#: html/settings-page.html.php:785 html/settings-page.html.php:802
+#: html/theme-panel.html.php:14
+msgid "Default"
+msgstr "Výchozí"
+
+#: html/atlas-novus/settings-page.html.php:2112
+#: html/settings-page.html.php:1582
+msgid "Disable Compressed Path Variables"
+msgstr "Zakázat komprimované proměnné cesty"
+
+#: html/atlas-novus/settings-page.html.php:2123
+#: html/settings-page.html.php:1588
+msgid "We recommend using this setting if you frequently experience HTTP 414 - Request URI too long. We do not recommend using this setting if your site uses REST caching or a CDN."
+msgstr "Toto nastavení doporučujeme použít, pokud se často objevuje protokol HTTP 414 - Request URI too long. Toto nastavení nedoporučujeme používat, pokud váš web používá REST caching nebo CDN."
+
+#: includes/class.map.php:302
+msgid "The plugin couldn't find the directory %s, which is the directory your settings specify to use for XML caching. Please make sure the directory exists, and that you assign file permissions of 755 to this directory."
+msgstr "Zásuvný modul nemohl najít adresář %s, což je adresář, který má být podle vašeho nastavení použit pro ukládání do mezipaměti XML. Ujistěte se, že adresář existuje a že jste tomuto adresáři přiřadili oprávnění k souboru 755."
+
+#: html/atlas-novus/map-edit-page/bulk-marker-editor-dialog.html.php:47
+#: html/atlas-novus/map-edit-page/marker-panel.html.php:173
+#: html/map-edit-page/marker-panel.html.php:194
+#: includes/tables/class.admin-marker-datatable.php:47
+msgid "Sticky"
+msgstr "Zvýrazněný"
+
+#: includes/class.strings.php:79
+msgid "from your location"
+msgstr "z vaší polohy"
+
+#: includes/class.strings.php:80
+msgid "from searched location"
+msgstr "z hledaného místa"
+
+#: includes/class.strings.php:68
+msgid "Fetching directions..."
+msgstr "Získávání směru..."
+
+#: includes/class.strings.php:66
+msgid "No GPS coordinates found"
+msgstr "Nebyly nalezeny žádné souřadnice GPS"
+
+#: includes/class.strings.php:69
+msgid "Unknown directions service status"
+msgstr "Neznámý stav služby směr"
+
+#: includes/class.strings.php:70
+msgid "Please fill out both the \"from\" and \"to\" fields"
+msgstr "Vyplňte pole \"od\" i \"do\""
+
+#: includes/class.strings.php:72
+msgid "No picture found"
+msgstr "Nenalezen žádný obrázek"
+
+#: includes/class.strings.php:73
+msgid "Are you sure you want to overwrite the existing theme data?"
+msgstr "Jste si jisti, že chcete přepsat stávající data motivu?"
+
+#: includes/class.strings.php:75
+msgid "Upload Complete"
+msgstr "Nahrávání dokončeno"
+
+#: includes/class.strings.php:76
+msgid "Uploading file"
+msgstr "Nahrávání souboru"
+
+#: includes/class.strings.php:77
+msgid "WP Go Maps - Bulk JPEG Upload"
+msgstr "WP Mapy Google - Hromadné nahrávání souborů JPEG"
+
+#: includes/class.strings.php:85
+msgid "Requires WP Go Maps - Gold add-on 5.0.0 or above"
+msgstr "Vyžaduje doplněk WP Google Maps - Gold 5.0.0 nebo vyšší"
+
+#: html/atlas-novus/settings-page.html.php:449 html/settings-page.html.php:546
+msgid "Greedy Gesture Handling"
+msgstr "Zvládání chamtivých gest"
+
+#: html/atlas-novus/settings-page.html.php:1038
+#: html/settings-page.html.php:1157
+msgid "Do not Enqueue Datatables"
+msgstr "Nepřidávat datové soubory Enqueue"
+
+#: includes/compat/class.pro-below-8.1-compatibility.php:2481
+msgid "<strong>WP Go Maps:</strong> The Pro add-on is not compatible with this version of WP Go Maps. Please update your Pro addon to 5.24 or above"
+msgstr "<strong>WP Mapy Google:</strong> Doplněk Pro není s touto verzí WP Google Maps kompatibilní. Aktualizujte prosím svůj doplněk Pro na verzi 5.24 nebo vyšší"
+
+#: includes/compat/class.pro-below-8.1-compatibility.php:1824
+#: includes/compat/class.pro-below-8.1-compatibility.php:1960
+#: includes/compat/class.pro-below-8.1-compatibility.php:1994
+#: includes/compat/class.pro-below-8.1-compatibility.php:2057
+#: includes/compat/class.pro-below-8.1-compatibility.php:2123
+#: includes/compat/class.pro-below-8.1-compatibility.php:2173
+#: includes/compat/class.pro-below-8.1-compatibility.php:2221
+#: includes/compat/class.pro-below-8.1-compatibility.php:2271
+msgid "You do not have permission to perform this function"
+msgstr "K provedení této funkce nemáte oprávnění"
+
+#: html/atlas-novus/settings-page.html.php:2132
+#: html/settings-page.html.php:1596
+msgid "Disable Autoptimize Compatibility Fix"
+msgstr "Zakázat automatickou optimalizaci Opravy kompatibility"
+
+#: html/atlas-novus/settings-page.html.php:2143
+#: html/settings-page.html.php:1602
+msgid "Use this setting if you are experiencing issues with Autoptimize's CSS aggregation. This may cause issues on setups with a large amount of marker data."
+msgstr "Toto nastavení použijte, pokud máte problémy s agregací CSS v nástroji Autoptimize. To může způsobit problémy u nastavení s velkým množstvím dat značek."
+
+#: html/atlas-novus/settings-page.html.php:1753
+#: html/settings-page.html.php:1491
+msgid "Flush Geocode Cache"
+msgstr "Vymazat cache geokódu"
+
+#: includes/class.strings.php:64
+msgid "You must check the GDPR consent box to continue"
+msgstr "Chcete-li pokračovat, musíte zaškrtnout políčko souhlasu s GDPR"
+
+#: includes/class.auto-loader.php:249
+msgid "The plugins autoloader failed to register one or more modules. This is usually due to missing files. Please re-install the plugin and any relevant add-ons. Technical details are as follows: "
+msgstr "Automatickému spouštěči zásuvných modulů se nepodařilo zaregistrovat jeden nebo více modulů. Příčinou jsou obvykle chybějící soubory. Znovu nainstalujte zásuvný modul a všechny příslušné doplňky. Technické podrobnosti jsou následující: "
+
+#: includes/class.plugin.php:1192
+msgid "The plugin cannot initialise due to a fatal error. This is usually due to missing files or incompatible software. Please re-install the plugin and any relevant add-ons. We recommend that you use at least PHP 5.6. Technical details are as follows: "
+msgstr "Zásuvný modul nelze inicializovat z důvodu fatální chyby. Příčinou jsou obvykle chybějící soubory nebo nekompatibilní software. Znovu nainstalujte zásuvný modul a všechny příslušné doplňky. Doporučujeme používat alespoň PHP 5.6. Technické podrobnosti jsou následující "
+
+#: wpGoogleMaps.php:663
+msgid "The plugin failed to load due to a fatal error. This is usually due to missing files, or incompatible software. Please re-install the plugin. We recommend you use PHP 5.6 or above. Technical details are as follows: "
+msgstr "Zásuvný modul se nepodařilo načíst z důvodu fatální chyby. Příčinou jsou obvykle chybějící soubory nebo nekompatibilní software. Znovu nainstalujte zásuvný modul. Doporučujeme používat PHP 5.6 nebo vyšší. Technické podrobnosti jsou následující "
+
+#: includes/class.plugin.php:162
+msgid "<strong>WP Go Maps:</strong> Cannot find the specified XML folder. This has been switched back to the Database method in Maps -> Settings -> Advanced"
+msgstr "<strong>WP Mapy Google:</strong> Nelze najít zadanou složku XML. V Mapách -&gt; Nastavení -&gt; Rozšířené bylo přepnuto zpět na databázovou metodu"
+
+#: includes/class.strings.php:56
+msgid "No address specified"
+msgstr "Není uvedena žádná adresa"
+
+#: includes/class.strings.php:59
+msgid "Please Wait..."
+msgstr "Čekej prosím…"
+
+#: includes/class.strings.php:62
+msgid "Geocode failed due to technical reasons"
+msgstr "Geokódování se z technických důvodů nezdařilo"
+
+#: includes/class.script-loader.php:430
+msgid ""
+"\n"
+"\t\t\t\t\t\t\t<p>\n"
+"\t\t\t\t\t\t\t\t<strong>WP Go Maps:</strong> Failed to build combined script file, the resulting file would be blank.\n"
+"\t\t\t\t\t\t\t</p>\n"
+"\t\t\t\t\t\t\t<p>\n"
+"\t\t\t\t\t\t\t\t<strong>Developers:</strong> Please check that the file is writable and that all script dependencies are resolved.\n"
+"\t\t\t\t\t\t\t</p>\n"
+"\t\t\t\t\t\t\t<p>\n"
+"\t\t\t\t\t\t\t\t<strong>Users:</strong> Please disable \"Developer Mode\" in Maps &rarr; Settings &rarr; Advanced.\n"
+"\t\t\t\t\t\t\t</p>\n"
+"\t\t\t\t\t\t\t"
+msgstr ""
+"\n"
+"\t\t\t\t\t\t\t<p>\n"
+"\t\t\t\t\t\t\t\t<strong>WP Mapy Google:</strong> Výsledný soubor by byl prázdný.\n"
+"\t\t\t\t\t\t\t</p>\n"
+"\t\t\t\t\t\t\t<p>\n"
+"\t\t\t\t\t\t\t\t<strong>Vývojáři:</strong> Zkontrolujte prosím, zda je soubor zapisovatelný a zda jsou vyřešeny všechny závislosti skriptu.\n"
+"\t\t\t\t\t\t\t</p>\n"
+"\t\t\t\t\t\t\t<p>\n"
+"\t\t\t\t\t\t\t\t<strong>Uživatelé:</strong> Uživatelé: Vypněte prosím \"Režim pro vývojáře\" v Mapy → Nastavení → Pokročilé.\n"
+"\t\t\t\t\t\t\t</p>\n"
+"\t\t\t\t\t\t\t"
+
+#: html/atlas-novus/settings-page.html.php:1487
+#: html/gdpr-compliance-settings.html.php:14 html/settings-page.html.php:1719
+msgid "Our GDPR notice will be displayed whenever the agreement cookie is not set. Agreeing to the notice will set this cookie."
+msgstr "Naše upozornění GDPR se zobrazí vždy, když není nastaven soubor cookie dohody. Odsouhlasením oznámení se tento soubor cookie nastaví."
+
+#: html/atlas-novus/settings-page.html.php:1492
+#: html/gdpr-compliance-settings.html.php:19 html/settings-page.html.php:1724
+msgid "Some caching and optimization plugins will continue to serve your map page with the GDPR agreement, disregarding this cookie. In this instance, clicking \"I Agree\" will reload the page and appear to have no effect. To solve this issue, we recommend you exclude your map page from caching and optimization."
+msgstr "Některé zásuvné moduly pro ukládání do mezipaměti a optimalizaci budou nadále zobrazovat stránku s mapou se souhlasem GDPR, aniž by tento soubor cookie zohlednily. V takovém případě se po kliknutí na tlačítko \"Souhlasím\" stránka znovu načte a zdá se, že to nemá žádný účinek. Chcete-li tento problém vyřešit, doporučujeme vyloučit stránku s mapami z ukládání do mezipaměti a optimalizace."
+
+#: includes/class.strings.php:54
+msgid "Importing, this may take a moment..."
+msgstr "Importování může chvíli trvat..."
+
+#: includes/class.strings.php:53
+msgid "Import completed."
+msgstr "Import byl dokončen."
+
+#: includes/class.strings.php:48
+msgid "My Location"
+msgstr "Moje lokalita"
+
+#: includes/class.strings.php:46
+msgid "Failed to create marker %d - this marker cannot be placed on the map."
+msgstr "Nepodařilo se vytvořit značku %d - tuto značku nelze na mapu umístit."
+
+#: html/atlas-novus/settings-page.html.php:255 html/settings-page.html.php:444
+#: html/tile-server-fieldset.html.php:127
+msgid "Caltopo"
+msgstr "Caltopo"
+
+#: legacy-core.php:37 wpGoogleMaps.php:468
+msgid "<strong>WP Go Maps:</strong> This plugin requires the WordPress REST API, which does not appear to be present on this installation. Please update WordPress to version 4.7 or above."
+msgstr "<strong>WP Mapy Google:</strong> Tento doplněk vyžaduje rozhraní WordPress REST API, které v této instalaci není přítomno. Aktualizujte prosím WordPress na verzi 4.7 nebo vyšší."
+
+#: includes/tables/class.admin-map-datatable.php:24
+#: includes/tables/class.admin-marker-datatable.php:29
+msgid "Select All"
+msgstr "Vybrat vše"
+
+#: includes/tables/class.admin-map-datatable.php:25
+#: includes/tables/class.admin-marker-datatable.php:31
+msgid "Bulk Delete"
+msgstr "Hromadné odstranění"
+
+#: wpGoogleMaps.php:452
+msgid "<strong>WP Go Maps:</strong> This plugin uses the DOMDocument class, which is unavailable on this server. Please contact your host to request they enable this library."
+msgstr "<strong>WP Mapy Google:</strong> Tento zásuvný modul používá třídu DOMDocument, která není na tomto serveru dostupná. Kontaktujte prosím svého hostitele a požádejte ho o povolení této knihovny."
+
+#: html/gdpr-default-notice.html.php:6
+msgid ""
+"I agree for my personal data to be processed by {COMPANY_NAME}.\n"
+"\t\t\n"
+"I agree for my personal data, provided via map API calls, to be processed by the API provider, for the purposes of geocoding (converting addresses to coordinates), reverse geocoding and generating directions.\n"
+"\n"
+"Some visual components of WP Go Maps use 3rd party libraries which are loaded over the network. At present the libraries are Google Maps, Open Street Map, jQuery DataTables and FontAwesome. When loading resources over a network, the 3rd party server will receive your IP address and User Agent string amongst other details. Please refer to the Privacy Policy of the respective libraries for details on how they use data and the process to exercise your rights under the GDPR regulations.\n"
+"\n"
+"WP Go Maps uses jQuery DataTables to display sortable, searchable tables, such as that seen in the Advanced Marker Listing and on the Map Edit Page. jQuery DataTables in certain circumstances uses a cookie to save and later recall the \"state\" of a given table - that is, the search term, sort column and order and current page. This data is help in local storage and retained until this is cleared manually. No libraries used by WP Go Maps transmit this information.\n"
+"\n"
+"Please <a href=\"https://developers.google.com/maps/terms\">see here</a> and <a href=\"https://maps.google.com/help/terms_maps.html\">here</a> for Google's terms. Please also see <a href=\"https://policies.google.com/privacy?hl=en-GB&amp;gl=uk\">Google's Privacy Policy</a>. We do not send the API provider any personally identifying information, or information that could uniquely identify your device.\n"
+"\n"
+"Where this notice is displayed in place of a map, agreeing to this notice will store a cookie recording your agreement so you are not prompted again."
+msgstr ""
+"Souhlasím, aby mé osobní údaje zpracovávala společnost {COMPANY_NAME}.\n"
+"\t\t\n"
+"Souhlasím s tím, aby mé osobní údaje poskytnuté prostřednictvím volání mapového API byly zpracovávány poskytovatelem API pro účely geokódování (převod adres na souřadnice), reverzního geokódování a generování směrů.\n"
+"\n"
+"Některé vizuální součásti WP Google Maps používají knihovny třetích stran, které se načítají přes síť. V současné době se jedná o tyto knihovny: Google Maps, Open Street Map, jQuery DataTables a FontAwesome. Při načítání zdrojů přes síť obdrží server třetí strany mimo jiné vaši IP adresu a řetězec User Agent. Podrobnosti o způsobu použití údajů a postupu při uplatňování vašich práv podle nařízení GDPR naleznete v zásadách ochrany osobních údajů příslušných knihoven.\n"
+"\n"
+"WP Mapy Google používá jQuery DataTables k zobrazení tříditelných tabulek s možností vyhledávání, například v pokročilém výpisu značek a na stránce s úpravami mapy. jQuery DataTables za určitých okolností používá soubor cookie k uložení a pozdějšímu vyvolání \"stavu\" dané tabulky - tj. vyhledávacího výrazu, sloupce a pořadí třídění a aktuální stránky. Tato data pomáhají v místním úložišti a uchovávají se, dokud je ručně nevymažete. Žádná knihovna používaná aplikací WP Google Maps tyto informace nepřenáší.\n"
+"\n"
+"Podmínky společnosti Google <a href=\"https://developers.google.com/maps/terms\">naleznete zde</a> a <a href=\"https://maps.google.com/help/terms_maps.html\">zde</a>. Podívejte se také na <a href=\"https://policies.google.com/privacy?hl=en-GB&amp;gl=uk\">Zásady ochrany osobních údajů společnosti Google</a>. Poskytovateli rozhraní API neodesíláme žádné osobní identifikační údaje ani informace, které by mohly jednoznačně identifikovat vaše zařízení.\n"
+"\n"
+"Pokud se toto upozornění zobrazuje místo mapy, uloží se při odsouhlasení tohoto upozornění soubor cookie, který zaznamená váš souhlas, takže nebudete znovu vyzváni."
+
+#: includes/class.strings.php:23
+msgid "Use my location"
+msgstr "Použít moji polohu"
+
+#: includes/class.strings.php:45
+msgid "Failed to get address"
+msgstr "Nepodařilo se získat adresu"
+
+#: html/atlas-novus/installer-page.html.php:285
+#: html/atlas-novus/settings-page.html.php:140 html/installer-page.html.php:183
+#: html/settings-page.html.php:329 html/tile-server-fieldset.html.php:16
+msgid "OpenStreetMap"
+msgstr "OpenStreetMap"
+
+#: html/atlas-novus/installer-page.html.php:294
+#: html/atlas-novus/settings-page.html.php:149 html/installer-page.html.php:192
+#: html/settings-page.html.php:338 html/tile-server-fieldset.html.php:25
+msgid "Wikimedia Maps"
+msgstr "Mapy Wikimedia"
+
+#: html/atlas-novus/installer-page.html.php:301
+#: html/atlas-novus/settings-page.html.php:163 html/installer-page.html.php:199
+#: html/settings-page.html.php:352 html/tile-server-fieldset.html.php:39
+msgid "Humanitarian"
+msgstr "Humanitární"
+
+#: html/tile-server-fieldset.html.php:46
+msgid "Mapnik OSM B&amp;W"
+msgstr "Mapnik OSM B&amp;W"
+
+#: html/tile-server-fieldset.html.php:53
+msgid "Mapnik OSM No Labels"
+msgstr "Mapnik OSM bez štítků"
+
+#: html/atlas-novus/settings-page.html.php:170 html/settings-page.html.php:359
+#: html/tile-server-fieldset.html.php:60
+msgid "Stamen Toner"
+msgstr "Stamen Toner"
+
+#: html/atlas-novus/settings-page.html.php:177 html/settings-page.html.php:366
+#: html/tile-server-fieldset.html.php:67
+msgid "Stamen Watercolor"
+msgstr "Stamen Watercolor"
+
+#: html/atlas-novus/installer-page.html.php:308
+#: html/atlas-novus/settings-page.html.php:205 html/installer-page.html.php:206
+#: html/settings-page.html.php:394 html/tile-server-fieldset.html.php:95
+msgid "Öpnvkarte"
+msgstr "Öpnvkarte"
+
+#: html/atlas-novus/settings-page.html.php:212 html/settings-page.html.php:401
+#: html/tile-server-fieldset.html.php:102
+msgid "OpenPtMap"
+msgstr "OpenPtMap"
+
+#: html/tile-server-fieldset.html.php:7
+msgid "Tile Server URL:"
+msgstr "Dlaždice - adresa URL serveru:"
+
+#: html/atlas-novus/settings-page.html.php:156 html/settings-page.html.php:345
+#: html/tile-server-fieldset.html.php:32
+msgid "OpenCycleMap"
+msgstr "OpenCycleMap"
+
+#: html/atlas-novus/settings-page.html.php:184 html/settings-page.html.php:373
+#: html/tile-server-fieldset.html.php:74
+msgid "Transport Map"
+msgstr "Mapa dopravy"
+
+#: html/atlas-novus/settings-page.html.php:191 html/settings-page.html.php:380
+#: html/tile-server-fieldset.html.php:81
+msgid "Thunderforest Landscape"
+msgstr "Krajina Thunderforest"
+
+#: html/atlas-novus/settings-page.html.php:198 html/settings-page.html.php:387
+#: html/tile-server-fieldset.html.php:88
+msgid "Thunderforest Outdoors"
+msgstr "Thunderforest Outdoor"
+
+#: html/atlas-novus/settings-page.html.php:218 html/settings-page.html.php:407
+#: html/tile-server-fieldset.html.php:108
+msgid "Carto Light (Positron)"
+msgstr "Carto Light (pozitron)"
+
+#: html/atlas-novus/settings-page.html.php:225 html/settings-page.html.php:414
+#: html/tile-server-fieldset.html.php:115
+msgid "Carto Dark (Dark Matter)"
+msgstr "Carto Dark (Temná hmota)"
+
+#: html/tile-server-fieldset.html.php:121
+msgid "Klokantech 3d"
+msgstr "Klokantech 3d"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:2859
+#: html/map-edit-page/map-edit-page.html.php:1088
+msgid "Get the rest of these advanced features with the Pro version for only <a href=\"%s\" target=\"_BLANK\">$39.99 once off</a>. Support and updates included forever."
+msgstr "Ostatní pokročilé funkce získáte ve verzi Pro za pouhých <a href=\"%s\" target=\"_BLANK\"> 39,99 USD jednorázově</a>. Podpora a aktualizace jsou navždy v ceně."
+
+#. translators: %s: WP Go Maps Settings Link
+#: legacy-core.php:1076 legacy-core.php:1102
+msgid "We have detected a conflict between your current theme's version and our plugin. Should you be experiencing issues with your maps displaying, please update Avada to version 3.9.4 or go to <a href='%s'>settings page</a> and check the highlighted checkbox."
+msgstr "Zjistili jsme konflikt mezi aktuální verzí vašeho tématu a naším pluginem. Pokud máte problémy se zobrazováním map, aktualizujte prosím Avadu na verzi 3.9.4 nebo přejděte na <a href='%s'>stránku nastavení</a> a zaškrtněte zvýrazněné políčko."
+
+#: js/v8/3rd-party-integration/gutenberg/blocks/map/block.js:83
+#: js/v8/3rd-party-integration/gutenberg/legacy/map/dist/gutenberg.js:112
+#: js/v8/3rd-party-integration/gutenberg/legacy/map/src/gutenberg.jsx:116
+msgid "Go to Map Editor"
+msgstr "Přejít do editoru map"
+
+#: js/v8/3rd-party-integration/gutenberg/blocks/map/block.js:95
+#: js/v8/3rd-party-integration/gutenberg/legacy/map/dist/gutenberg.js:124
+#: js/v8/3rd-party-integration/gutenberg/legacy/map/src/gutenberg.jsx:125
+msgid "View Documentation"
+msgstr "Zobrazit dokumentaci"
+
+#: js/v8/3rd-party-integration/gutenberg/blocks/map/block.js:50
+#: js/v8/3rd-party-integration/gutenberg/legacy/map/dist/gutenberg.js:154
+#: js/v8/3rd-party-integration/gutenberg/legacy/map/src/gutenberg.jsx:164
+msgid "Your map will appear here on your websites front end"
+msgstr "Vaše mapa se zobrazí zde na vaši web stránce"
+
+#: html/atlas-novus/map-edit-page/bulk-marker-editor-dialog.html.php:25
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:2932
+#: js/v8/3rd-party-integration/gutenberg/legacy/map/dist/gutenberg.js:139
+#: js/v8/3rd-party-integration/gutenberg/legacy/map/dist/gutenberg.js:143
+#: js/v8/3rd-party-integration/gutenberg/legacy/map/src/gutenberg.jsx:143
+#: js/v8/3rd-party-integration/gutenberg/legacy/map/src/gutenberg.jsx:148
+msgid "Map"
+msgstr "Mapa"
+
+#: js/v8/3rd-party-integration/gutenberg/legacy/map/dist/gutenberg.js:143
+#: js/v8/3rd-party-integration/gutenberg/legacy/map/src/gutenberg.jsx:150
+msgid "Google"
+msgstr "Google"
+
+#: includes/class.strings.php:25
+msgid "The map cannot be initialized because the Maps API has not been loaded. Please check your settings."
+msgstr "Mapu nelze inicializovat, protože nebylo načteno rozhraní Maps API. Zkontrolujte prosím své nastavení."
+
+#: html/atlas-novus/google-maps-api-error-dialog.html.php:10
+#: html/google-maps-api-error-dialog.html.php:8
+msgid "Maps API Error"
+msgstr "Chyba rozhraní API Mapy"
+
+#: html/atlas-novus/google-maps-api-error-dialog.html.php:12
+#: html/google-maps-api-error-dialog.html.php:14
+msgid "One or more error(s) have occured attempting to initialize the Maps API:"
+msgstr "Při pokusu o inicializaci rozhraní API Maps došlo k jedné nebo více chybám:"
+
+#: html/atlas-novus/google-maps-api-error-dialog.html.php:31
+#: html/google-maps-api-error-dialog.html.php:84
+msgid "This dialog is only visible to administrators"
+msgstr "Tento dialog je viditelný pouze pro správce"
+
+#: html/atlas-novus/map-edit-page/map-editor-tour.html.php:10
+#: html/google-maps-api-error-dialog.html.php:90
+msgid "Dismiss"
+msgstr "Skrýt"
+
+#: includes/class.strings.php:36
+msgid "API Dashboard"
+msgstr "Panel API"
+
+#: includes/class.strings.php:37
+msgid "Verify Project"
+msgstr "Ověřit projekt"
+
+#: html/map-edit-page/map-edit-page.html.php:2706
+msgid "Thank you for using <a href='https://www.wpgmaps.com'>WP Go Maps</a>! Please <a href='https://wordpress.org/support/plugin/wp-google-maps/reviews/'>rate us on WordPress.org</a>"
+msgstr "Děkujeme, že používáte <a href='https://www.wpgmaps.com'>WP Mapy Google</a>! Prosím, <a href='https://wordpress.org/support/plugin/wp-google-maps/reviews/'>ohodnoťte nás na WordPress.org</a>"
+
+#: html/map-edit-page/map-edit-page.html.php:2717
+msgid "Please refer to our <a href='https://www.wpgmaps.com/privacy-policy' target='_blank'>Privacy Policy</a> for information on Data Processing"
+msgstr "Informace o zpracování údajů naleznete v našich <a href='https://www.wpgmaps.com/privacy-policy' target='_blank'>Zásadách ochrany osobních údajů</a>"
+
+#: html/gdpr-compliance-settings.html.php:27 html/settings-page.html.php:1733
+msgid "General Complicance"
+msgstr "Obecná stížnost"
+
+#: html/atlas-novus/settings-page.html.php:1506
+#: html/gdpr-compliance-settings.html.php:34 html/settings-page.html.php:1741
+msgid "Require consent before loading Maps API"
+msgstr "Vyžadování souhlasu před načtením rozhraní API Mapy"
+
+#: html/gdpr-compliance-settings.html.php:37 html/settings-page.html.php:1744
+msgid "The GDPR views IP Addresses as Personal Data, which requires consent before being processed. Loading the Google Maps API stores some user information, such as IP Addresses. WP Go Maps endeavours to uphold the spirit of data protection as per the GDPR. Enable this to option to prevent the Maps API from loading, until a user has consented to it."
+msgstr "Nařízení GDPR považuje IP adresy za osobní údaje, k jejichž zpracování je třeba souhlasu. Při načítání rozhraní Google Maps API se ukládají některé informace o uživatelích, například IP adresy. WP Mapy Google se snaží dodržovat ducha ochrany údajů podle GDPR. Povolením této možnosti zabráníte načítání rozhraní API Map, dokud k tomu uživatel nedá souhlas."
+
+#: html/gdpr-compliance-settings.html.php:47 html/settings-page.html.php:1765
+msgid "GDPR Consent Notice"
+msgstr "Oznámení o souhlasu s GDPR"
+
+#: html/atlas-novus/settings-page.html.php:1549
+#: html/gdpr-compliance-settings.html.php:83 html/settings-page.html.php:1809
+msgid "The GDPR regulates that you need to state why you are processing data."
+msgstr "GDPR stanoví, že musíte uvést, proč údaje zpracováváte."
+
+#: html/atlas-novus/settings-page.html.php:1580
+#: html/gdpr-compliance-settings.html.php:92 html/settings-page.html.php:1820
+msgid "Override GDPR Notice"
+msgstr "Zrušení oznámení GDPR"
+
+#: html/atlas-novus/settings-page.html.php:1594
+#: html/gdpr-compliance-settings.html.php:100 html/settings-page.html.php:1829
+msgid "By checking this box, you agree to take sole responsibility for GDPR Compliance with regards to this plugin."
+msgstr "Zaškrtnutím tohoto políčka souhlasíte s tím, že přebíráte výhradní odpovědnost za dodržování GDPR v souvislosti s tímto pluginem."
+
+#: html/atlas-novus/settings-page.html.php:1599
+#: html/gdpr-compliance-settings.html.php:109 html/settings-page.html.php:1837
+msgid "Override Text"
+msgstr "Přepsat text"
+
+#: html/atlas-novus/settings-page.html.php:1498
+#: html/gdpr-compliance-settings.html.php:120 html/settings-page.html.php:1851
+msgid "For more information about WPGM and GDPR compliance, please refer to our <a href=\"https://www.wpgmaps.com/gdpr/\">GDPR information page</a> and our <a href=\"https://www.wpgmaps.com/privacy-policy/\">Privacy Policy</a>"
+msgstr "Další informace o společnosti WPGM a dodržování GDPR naleznete na naší <a href=\"https://www.wpgmaps.com/gdpr/\">informační stránce o GDPR</a> a v našich <a href=\"https://www.wpgmaps.com/privacy-policy/\">zásadách ochrany osobních údajů</a>"
+
+#: includes/class.gdpr-compliance.php:40
+msgid ""
+"<p>\n"
+"\tI agree for my personal data to be processed by <span name=\"wpgmza_gdpr_company_name\"></span>, for the purpose(s) of <span name=\"wpgmza_gdpr_retention_purpose\"></span>.\n"
+"</p>\n"
+"\n"
+"<p>\t\n"
+"\tI agree for my personal data, provided via map API calls, to be processed by the API provider, for the purposes of geocoding (converting addresses to coordinates), reverse geocoding and\tgenerating directions.\n"
+"</p>\n"
+"<p>\n"
+"\tSome visual components of WP Go Maps use 3rd party libraries which are loaded over the network. At present the libraries are Google Maps, Open Street Map, jQuery DataTables and FontAwesome. When loading resources over a network, the 3rd party server will receive your IP address and User Agent string amongst other details. Please refer to the Privacy Policy of the respective libraries for details on how they use data and the process to exercise your rights under the GDPR regulations.\n"
+"</p>\n"
+"<p>\n"
+"\tWP Go Maps uses jQuery DataTables to display sortable, searchable tables, such as that seen in the Advanced Marker Listing and on the Map Edit Page. jQuery DataTables in certain circumstances uses a cookie to save and later recall the \"state\" of a given table - that is, the search term, sort column and order and current page. This data is held in local storage and retained until this is cleared manually. No libraries used by WP Go Maps transmit this information.\n"
+"</p>\n"
+"<p>\n"
+"\tPlease <a href=\"https://developers.google.com/maps/terms\">see here</a> and <a href=\"https://maps.google.com/help/terms_maps.html\">here</a> for Google's terms. Please also see <a href=\"https://policies.google.com/privacy?hl=en-GB&amp;gl=uk\">Google's Privacy Policy</a>. We do not send the API provider any personally identifying information, or information that could uniquely identify your device.\n"
+"</p>\n"
+"<p>\n"
+"\tWhere this notice is displayed in place of a map, agreeing to this notice will store a cookie recording your agreement so you are not prompted again.\n"
+"</p>"
+msgstr ""
+"<p>\n"
+"\tSouhlasím s tím, aby mé osobní údaje zpracovávala společnost <span name=\"wpgmza_gdpr_company_name\"></span>, a to pro účely <span name=\"wpgmza_gdpr_retention_purpose\"></span>.\n"
+"</p>\n"
+"\n"
+"<p>\t\n"
+"\tSouhlasím s tím, aby mé osobní údaje poskytnuté prostřednictvím volání mapového rozhraní API byly zpracovávány poskytovatelem rozhraní API pro účely geokódování (převodu adres na souřadnice), reverzního geokódování a generování směrů.\n"
+"</p>\n"
+"<p>\n"
+"\tNěkteré vizuální součásti WP Google Maps používají knihovny třetích stran, které se načítají přes síť. V současné době se jedná o tyto knihovny: Google Maps, Open Street Map, jQuery DataTables a FontAwesome. Při načítání zdrojů přes síť obdrží server třetí strany mimo jiné vaši IP adresu a řetězec User Agent. Podrobnosti o způsobu použití údajů a postupu při uplatňování vašich práv podle nařízení GDPR naleznete v zásadách ochrany osobních údajů příslušných knihoven.\n"
+"</p>\n"
+"<p>\n"
+"\tWP Mapy Google používá jQuery DataTables k zobrazení tříditelných tabulek s možností vyhledávání, například v pokročilém výpisu značek a na stránce s úpravami mapy. jQuery DataTables za určitých okolností používá soubor cookie k uložení a pozdějšímu vyvolání \"stavu\" dané tabulky - tj. vyhledávacího výrazu, sloupce a pořadí třídění a aktuální stránky. Tato data jsou uložena v místním úložišti a uchovávána, dokud nejsou ručně vymazána. Žádná knihovna používaná aplikací WP Google Maps tyto informace nepřenáší.\n"
+"</p>\n"
+"<p>\n"
+"\tPodmínky společnosti Google <a href=\"https://developers.google.com/maps/terms\">naleznete zde</a> a <a href=\"https://maps.google.com/help/terms_maps.html\">zde</a>. Podívejte se také na <a href=\"https://policies.google.com/privacy?hl=en-GB&amp;gl=uk\">Zásady ochrany osobních údajů společnosti Google</a>. Poskytovateli rozhraní API neposíláme žádné osobní údaje ani informace, které by mohly jednoznačně identifikovat vaše zařízení.\n"
+"</p>\n"
+"<p>\n"
+"\tPokud se toto upozornění zobrazuje místo mapy, uloží se po odsouhlasení tohoto upozornění soubor cookie, který zaznamená váš souhlas, takže nebudete znovu vyzváni.\n"
+"</p>"
+
+#: html/google-maps-api-settings.html.php:58
+msgid "Prevent other plugins and theme loading API:"
+msgstr "Zabránit načítání API jiných zásuvných modulů a motivů:"
+
+#: includes/class.gdpr-compliance.php:189
+msgid "I agree"
+msgstr "Souhlasím"
+
+#: html/atlas-novus/settings-page.html.php:1657
+#: html/google-maps-api-settings.html.php:14 html/settings-page.html.php:470
+msgid "Where required"
+msgstr "V případě potřeby"
+
+#: html/atlas-novus/settings-page.html.php:1662
+#: html/google-maps-api-settings.html.php:19 html/settings-page.html.php:475
+msgid "Always"
+msgstr "Vždy"
+
+#: html/atlas-novus/settings-page.html.php:1667
+#: html/google-maps-api-settings.html.php:24 html/settings-page.html.php:480
+msgid "Only Front End"
+msgstr "Pouze Front End"
+
+#: html/atlas-novus/settings-page.html.php:1672
+#: html/google-maps-api-settings.html.php:29 html/settings-page.html.php:485
+msgid "Only Back End"
+msgstr "Pouze Back End"
+
+#: html/atlas-novus/settings-page.html.php:1677
+#: html/google-maps-api-settings.html.php:34 html/settings-page.html.php:490
+msgid "Never"
+msgstr "Nikdy"
+
+#: html/atlas-novus/settings-page.html.php:1742
+#: html/atlas-novus/settings-page.html.php:1748
+#: html/google-maps-api-settings.html.php:45
+#: html/google-maps-api-settings.html.php:53 html/settings-page.html.php:498
+#: html/settings-page.html.php:503
+msgid "Page IDs"
+msgstr "ID stránek"
+
+#: wpGoogleMaps.php:436
+msgid "<strong>WP Go Maps:</strong> This plugin does not support PHP version 5.2 or below. Please use your cPanel or contact your host to switch version."
+msgstr "<strong>WP Mapy Google:</strong> Tento plugin nepodporuje PHP verze 5.2 nebo nižší. Pro přepnutí verze prosím použijte cPanel nebo kontaktujte svého hostitele."
+
+#: html/google-maps-api-settings.html.php:8
+msgid "Load Maps Engine API:"
+msgstr "Načtení rozhraní API Maps Engine:"
+
+#: html/google-maps-api-settings.html.php:42
+msgid "Always include engine API on pages:"
+msgstr "Na stránkách vždy uvádějte rozhraní API engine:"
+
+#: html/google-maps-api-settings.html.php:50
+msgid "Always exclude engine API on pages:"
+msgstr "Na stránkách vždy vylučte rozhraní engine API:"
+
+#: html/ol-feature-coming-soon.html.php:9
+msgid "<strong>Coming soon</strong> to OpenLayers. If you need to use this feature, please go to settings then select and configure Google Maps to enable it."
+msgstr "<strong>Již brzy</strong> v OpenLayers. Pokud potřebujete tuto funkci používat, přejděte do nastavení a poté vyberte a nakonfigurujte Mapy Google a povolte ji."
+
+#: html/atlas-novus/installer-page.html.php:124
+#: html/atlas-novus/settings-page.html.php:110 html/installer-page.html.php:132
+#: html/settings-page.html.php:61 includes/class.maps-engine-dialog.php:124
+msgid "Google Maps"
+msgstr "Google Mapy"
+
+#: html/atlas-novus/installer-page.html.php:270
+#: html/atlas-novus/settings-page.html.php:111 html/installer-page.html.php:167
+#: html/settings-page.html.php:62 includes/class.maps-engine-dialog.php:83
+msgid "OpenLayers"
+msgstr "OpenLayers"
+
+#: html/atlas-novus/settings-page.html.php:2275
+#: html/settings-page.html.php:1695
+msgid "Developer Mode"
+msgstr "Vývojářský režim"
+
+#: includes/class.maps-engine-dialog.php:68
+msgid "Choose a maps engine"
+msgstr "Výběr mapového enginu"
+
+#: html/atlas-novus/installer-page.html.php:87 html/installer-page.html.php:93
+#: includes/class.maps-engine-dialog.php:91
+msgid "No API keys required"
+msgstr "Nejsou vyžadovány žádné klíče API"
+
+#: includes/class.maps-engine-dialog.php:99
+msgid "Use OpenLayers"
+msgstr "Použití aplikace OpenLayers"
+
+#: includes/class.maps-engine-dialog.php:132
+msgid "Full functionality"
+msgstr "Plná funkčnost"
+
+#: includes/class.maps-engine-dialog.php:138
+msgid "API Key required"
+msgstr "Požadovaný klíč API"
+
+#: includes/class.maps-engine-dialog.php:146
+msgid "Use Google Maps"
+msgstr "Použití Map Google"
+
+#: includes/class.maps-engine-dialog.php:164
+msgid "Select Engine"
+msgstr "Zvolte engine"
+
+#: includes/class.strings.php:22
+msgid "Many browsers are no longer allowing geolocation from unsecured origins. You will need to secure your site with an SSL certificate (HTTPS) or this feature may not work for your visitors"
+msgstr "Mnoho prohlížečů již neumožňuje geolokaci z nezabezpečeného původu. Své stránky musíte zabezpečit certifikátem SSL (HTTPS), jinak tato funkce nemusí návštěvníkům fungovat"
+
+#: legacy-core.php:1649
+msgid "Create an API key now"
+msgstr "Vytvoření klíče API nyní"
+
+#: legacy-core.php:1660
+msgid "<strong>Alternatively, please switch to the OpenLayers map engine</strong> on the maps settings page"
+msgstr "<strong>Případně přepněte na mapový engine OpenLayers</strong> na stránce nastavení map"
+
+#: html/atlas-novus/settings-page.html.php:57
+#: html/atlas-novus/settings-page.html.php:1480
+#: html/gdpr-compliance-settings.html.php:11 html/settings-page.html.php:49
+#: html/settings-page.html.php:1716 includes/class.gdpr-compliance.php:201
+msgid "GDPR Compliance"
+msgstr "Soulad s nařízením GDPR"
+
+#: html/gdpr-compliance-settings.html.php:53 html/settings-page.html.php:1772
+msgid "GDPR Notice"
+msgstr "Oznámení o GDPR"
+
+#: html/atlas-novus/settings-page.html.php:1569
+#: html/gdpr-compliance-settings.html.php:56 html/settings-page.html.php:1775
+msgid "Users will be asked to accept the notice shown here, in the form of a check box."
+msgstr "Uživatelé budou vyzváni k přijetí zde uvedeného oznámení ve formě zaškrtávacího políčka."
+
+#: html/atlas-novus/settings-page.html.php:1535
+#: html/gdpr-compliance-settings.html.php:65 html/settings-page.html.php:1785
+msgid "Company Name"
+msgstr "Název společnosti"
+
+#: html/atlas-novus/settings-page.html.php:1544
+#: html/gdpr-compliance-settings.html.php:75 html/settings-page.html.php:1799
+msgid "Retention Purpose(s)"
+msgstr "Účel(e) uchovávání"
+
+#: includes/class.gdpr-compliance.php:177
+msgid "In light of recent EU GDPR regulation, we strongly recommend reviewing the <a target=\"_blank\" href=\"https://www.wpgmaps.com/privacy-policy\">WP Go Maps Privacy Policy</a>"
+msgstr "S ohledem na nedávné nařízení EU GDPR důrazně doporučujeme přečíst si <a target=\"_blank\" href=\"https://www.wpgmaps.com/privacy-policy\">Zásady ochrany osobních údajů WP Mapy Google</a>"
+
+#: includes/compat/class.pro-below-8.1-compatibility.php:213
+msgid "Show Polygon"
+msgstr "Zobrazit mnohoúhelník"
+
+#: includes/compat/class.pro-below-8.1-compatibility.php:218
+#: includes/compat/class.pro-below-8.1-compatibility.php:765
+#: includes/legacy/functions.circle.php:173
+#: includes/legacy/functions.rectangle.php:176
+msgid "Fit map bounds to shape"
+msgstr "Přizpůsobení hranice mapy tvaru"
+
+#: includes/compat/class.pro-below-8.1-compatibility.php:759
+msgid "Show Polyline"
+msgstr "Zobrazit křivky"
+
+#: includes/legacy/functions.rectangle.php:170
+msgid "Show Rectangle"
+msgstr "Zobrazit obdélník"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:762
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:844
+#: html/map-edit-page/map-edit-page.html.php:344
+#: html/map-edit-page/map-edit-page.html.php:465
+#: html/map-edit-page/map-edit-page.html.php:1675
+msgid "Modern"
+msgstr "Moderní"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:50
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:3436
+#: html/atlas-novus/welcome.html.php:114
+#: html/map-edit-page/map-edit-page.html.php:2397 html/welcome.html.php:92
+#: includes/compat/backwards_compat_v6.php:60
+msgid "Circles"
+msgstr "Kruhy"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:55
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:3471
+#: html/map-edit-page/map-edit-page.html.php:2403
+#: includes/compat/backwards_compat_v6.php:61
+msgid "Rectangles"
+msgstr "Obdélníky"
+
+#: includes/class.store-locator.php:162
+#: includes/map-edit-page/class.map-edit-page.php:74
+msgid "mi"
+msgstr "mi"
+
+#: includes/class.store-locator.php:155
+#: includes/map-edit-page/class.map-edit-page.php:74
+msgid "km"
+msgstr "km"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:750
+#: html/map-edit-page/map-edit-page.html.php:319
+#: html/map-edit-page/map-edit-page.html.php:354
+msgid "Store Locator Style"
+msgstr "Styl lokátoru obchodů"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:756
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:838
+#: html/atlas-novus/settings-page.html.php:123
+#: html/map-edit-page/map-edit-page.html.php:332
+#: html/map-edit-page/map-edit-page.html.php:454 html/settings-page.html.php:73
+msgid "Legacy"
+msgstr "Starší"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:833
+#: html/map-edit-page/map-edit-page.html.php:441
+msgid "Radius Style"
+msgstr "Styl poloměru"
+
+#: html/map-edit-page/map-edit-page.html.php:2721
+msgid "WP Go Maps encourages you to make use of the amazing icons at "
+msgstr "WP Mapy Google vás vybízí, abyste využívali úžasné ikony na "
+
+#: html/atlas-novus/settings-page.html.php:1389
+#: html/settings-page.html.php:1386
+msgid "Store Locator Radii"
+msgstr "Vyhledávač prodejen Radii"
+
+#: html/atlas-novus/settings-page.html.php:1393
+#: html/settings-page.html.php:1391
+msgid "Use a comma to separate values, eg: 1, 5, 10, 50, 100"
+msgstr "Pro oddělení hodnot použijte čárku, např.: 1, 5, 10, 50, 100"
+
+#: html/atlas-novus/settings-page.html.php:81
+#: html/atlas-novus/settings-page.html.php:1983
+#: html/settings-page.html.php:1471
+msgid "Custom Scripts"
+msgstr "Vlastní skripty"
+
+#: html/settings-page.html.php:1482
+msgid "Custom JS"
+msgstr "Vlastní JS"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1350
+#: html/theme-panel.html.php:362 includes/legacy/functions.circle.php:58
+#: includes/legacy/functions.circle.php:181
+#: includes/legacy/functions.rectangle.php:58
+#: includes/legacy/functions.rectangle.php:154
+msgid "Color"
+msgstr "Barva"
+
+#: html/atlas-novus/welcome.html.php:114 html/welcome.html.php:92
+msgid "and Squares"
+msgstr "a čtverce"
+
+#: html/welcome.html.php:93
+msgid "Add custom shapes such as polygons, polylines, circles and squares!"
+msgstr "Přidejte vlastní tvary, jako jsou mnohoúhelníky, křivky, kruhy a čtverce!"
+
+#: includes/compat/backwards_compat_v6.php:65
+#: includes/compat/backwards_compat_v6.php:67
+msgid "Add a Circle"
+msgstr "Přidání kruhu"
+
+#: includes/compat/backwards_compat_v6.php:73
+#: includes/compat/backwards_compat_v6.php:75
+msgid "Add a Rectangle"
+msgstr "Přidání obdélníku"
+
+#: includes/legacy/functions.circle.php:41
+msgid "Add circle"
+msgstr "Přidat kruh"
+
+#: includes/legacy/functions.circle.php:84
+#: includes/legacy/functions.circle.php:207
+msgid "Please note your circle may be too small to be visible at this zoom level"
+msgstr "Vezměte prosím na vědomí, že váš kruh může být při této úrovni zvětšení příliš malý na to, aby byl viditelný"
+
+#: includes/legacy/functions.circle.php:93
+msgid "Click on the map to insert a circle."
+msgstr "Kliknutím na mapu vložíte kruh."
+
+#: includes/legacy/functions.circle.php:94
+#: includes/legacy/functions.circle.php:216
+msgid "Click or drag the circle to move it."
+msgstr "Kliknutím nebo přetažením na kruh jej přesunete."
+
+#: html/atlas-novus/map-edit-page/circle-panel.html.php:188
+#: html/map-edit-page/circle-panel.html.php:96
+#: includes/legacy/functions.circle.php:99
+#: includes/legacy/functions.circle.php:221
+msgid "Save Circle"
+msgstr "Uložit kruh"
+
+#: includes/legacy/functions.circle.php:132
+msgid "Invalid circle ID"
+msgstr "Neplatné ID kruhu"
+
+#: includes/legacy/functions.circle.php:146
+msgid "Edit circle"
+msgstr "Upravit kruh"
+
+#: includes/legacy/functions.circle.php:316
+msgid "Delete this circle"
+msgstr "Vymazat tento kruh"
+
+#: includes/legacy/functions.rectangle.php:41
+msgid "Add rectangle"
+msgstr "Přidat obdélník"
+
+#: includes/legacy/functions.rectangle.php:78
+msgid "Click on the map to insert a rectangle."
+msgstr "Kliknutím na mapu vložíte obdélník."
+
+#: includes/legacy/functions.rectangle.php:79
+#: includes/legacy/functions.rectangle.php:187
+msgid "Click or drag the rectangle to move it."
+msgstr "Kliknutím nebo přetažením obdélník přesuňte."
+
+#: includes/legacy/functions.rectangle.php:84
+#: includes/legacy/functions.rectangle.php:192
+msgid "Save rectangle"
+msgstr "Uložit obdélník"
+
+#: includes/legacy/functions.rectangle.php:117
+msgid "Invalid rectangle ID"
+msgstr "Nesprávné ID obdélníku"
+
+#: includes/legacy/functions.rectangle.php:136
+msgid "Edit rectangle"
+msgstr "Upravit obdélník"
+
+#: includes/legacy/functions.rectangle.php:285
+msgid "Delete this rectangle"
+msgstr "Odstranění tohoto obdélníku"
+
+#: html/credits.html.php:6 html/welcome.html.php:17
+msgid "Welcome to WP Go Maps version %s"
+msgstr "Vítejte ve WP Mapy Google verze %s"
+
+#: html/atlas-novus/credits.html.php:88 html/credits.html.php:82
+msgid "Support &amp; Developer"
+msgstr "Podpora &amp; Vývojář"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:807
+#: html/map-edit-page/map-edit-page.html.php:475
+msgid "Default radius"
+msgstr "Výchozí poloměr"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1042
+#: html/map-edit-page/map-edit-page.html.php:737
+msgid "Not found message"
+msgstr "Nenalezena zpráva"
+
+#: html/atlas-novus/settings-page.html.php:785 html/settings-page.html.php:941
+msgid "Disable InfoWindows"
+msgstr "Zakázat InfoWindows"
+
+#: includes/class.store-locator.php:102 includes/class.strings.php:60
+msgid "No results found in this location. Please try again."
+msgstr "V tomto umístění nebyly nalezeny žádné výsledky. Zkuste to prosím znovu."
+
+#: includes/compat/class.pro-below-8.1-compatibility.php:1504
+#: includes/tables/class.admin-marker-datatable.php:38
+msgid "Mark"
+msgstr "Označit"
+
+#: legacy-core.php:193
+msgid "Map Editor"
+msgstr "Editor map"
+
+#: legacy-core.php:207
+msgid "Get Pro Version"
+msgstr "Získat verzi Pro"
+
+#: html/atlas-novus/map-edit-page/bulk-marker-editor-dialog.html.php:95
+#: html/atlas-novus/map-edit-page/map-select-dialog.html.php:18
+#: includes/compat/class.pro-below-8.1-compatibility.php:141
+#: includes/compat/class.pro-below-8.1-compatibility.php:241
+#: includes/compat/class.pro-below-8.1-compatibility.php:677
+#: includes/compat/class.pro-below-8.1-compatibility.php:787
+#: includes/legacy/functions.circle.php:99
+#: includes/legacy/functions.circle.php:221
+#: includes/legacy/functions.rectangle.php:84
+#: includes/legacy/functions.rectangle.php:192
+msgid "Cancel"
+msgstr "Zrušit"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1000
+#: html/map-edit-page/map-edit-page.html.php:694
+msgid "Default address"
+msgstr "Výchozí adresa"
+
+#: html/atlas-novus/settings-page.html.php:290 html/settings-page.html.php:87
+msgid "Disable Full Screen Control"
+msgstr "Zakázat ovládání celé obrazovky"
+
+#: legacy-core.php:1721
+msgid "One or more markers have been added or changed, please <a href='%s' class='button'>clear your cache.</a>"
+msgstr "Byla přidána nebo změněna jedna nebo více značek, <a href='%s' class='button'>vymažte prosím mezipaměť.</a>"
+
+#: legacy-core.php:1723
+msgid "We have detected that you are using %s on your website. Please <a href='%s' class='button'>clear your cache</a> to ensure that your map is updated."
+msgstr "Zjistili jsme, že na svých webových stránkách používáte %s. <a href='%s' class='button'>Vymažte</a> prosím mezipaměť, abyste zajistili aktualizaci mapy."
+
+#: html/welcome.html.php:23
+msgid "Skip intro and create a map"
+msgstr "Přeskočení úvodu a vytvořte mapu"
+
+#: html/welcome.html.php:134
+msgid "Submit and create a map"
+msgstr "Odeslání a vytvoření mapy"
+
+#: html/welcome.html.php:21
+msgid "Build amazing maps through a simple interface and powerful functionality along with world class support."
+msgstr "Vytvářejte úžasné mapy pomocí jednoduchého rozhraní a výkonných funkcí spolu s prvotřídní podporou."
+
+#: legacy-core.php:1644
+msgid "*ALL* Google Maps now require an API key to function."
+msgstr "*VŠECHNY* Mapy Google nyní ke svému fungování vyžadují klíč API."
+
+#: legacy-core.php:1646
+msgid "Before creating a map please follow these steps:"
+msgstr "Před vytvořením mapy postupujte podle následujících kroků:"
+
+#: legacy-core.php:1652
+msgid "Paste your API key here and press save:"
+msgstr "Zde vložte svůj klíč API a stiskněte tlačítko uložit:"
+
+#: legacy-core.php:1653
+msgid "paste your Google Maps JavaScript API Key here"
+msgstr "vložte sem svůj JavaScriptový klíč API Map Google"
+
+#: html/atlas-novus/credits.html.php:25 html/credits.html.php:29
+msgid "Project Leaders"
+msgstr "Vedení projektu"
+
+#: html/atlas-novus/credits.html.php:39 html/credits.html.php:42
+msgid "Founder &amp; Lead Developer"
+msgstr "Zakladatel a vedoucí vývojář"
+
+#: html/atlas-novus/credits.html.php:54 html/credits.html.php:54
+msgid "Lead Developer &amp; Support"
+msgstr "Vedoucí vývojář a podpora"
+
+#: html/atlas-novus/credits.html.php:61 html/credits.html.php:59
+msgid "Contributors"
+msgstr "Přispěvatelé"
+
+#: html/atlas-novus/credits.html.php:74 html/credits.html.php:70
+msgid "Marketing"
+msgstr "Marketing"
+
+#: html/atlas-novus/credits.html.php:240 html/credits.html.php:112
+msgid "Want to see your name on this page?"
+msgstr "Chcete vidět své jméno na této stránce?"
+
+#: html/atlas-novus/credits.html.php:242 html/credits.html.php:114
+msgid "Get involved on GitHub."
+msgstr "Zapojte se na GitHubu."
+
+#: html/atlas-novus/welcome.html.php:68 html/welcome.html.php:69
+msgid "Unlimited Markers"
+msgstr "Neomezený počet značek"
+
+#: html/welcome.html.php:70
+msgid "Create as many markers as you like"
+msgstr "Vytvořte si libovolný počet značek"
+
+#: html/welcome.html.php:86
+msgid "Select from various <a href='http://wpgmaps.com/map-themes/' target='_BLANK'>map themes</a>, or make your own."
+msgstr "Vyberte si z různých <a href='http://wpgmaps.com/map-themes/' target='_BLANK'>motivů map</a> nebo si vytvořte vlastní."
+
+#: html/atlas-novus/welcome.html.php:140 html/welcome.html.php:150
+msgid "Support Desk"
+msgstr "Oddělení podpory"
+
+#: html/credits.html.php:11
+msgid "Thank you for updating! WP Go Maps helps you build amazing maps through a simple interface and powerful functionality along with world class support."
+msgstr "Děkujeme za aktualizaci! WP Google Maps vám pomůže vytvořit úžasné mapy díky jednoduchému rozhraní a výkonným funkcím spolu s prvotřídní podporou."
+
+#: html/atlas-novus/credits.html.php:9
+#: html/atlas-novus/installer-page.html.php:8
+#: html/atlas-novus/installer-page.html.php:343
+#: html/atlas-novus/welcome.html.php:12 html/credits.html.php:17
+#: html/installer-page.html.php:8 html/installer-page.html.php:240
+#: html/welcome.html.php:28
+msgid "Welcome"
+msgstr "Vítejte"
+
+#: html/atlas-novus/credits.html.php:10 html/atlas-novus/welcome.html.php:13
+#: html/credits.html.php:20 html/welcome.html.php:29
+msgid "Credits"
+msgstr "Poděkování"
+
+#: html/credits.html.php:26
+msgid "WP Go Maps is created by an international team of developers."
+msgstr "WP Mapy Google vytváří mezinárodní tým vývojářů."
+
+#: html/settings-page.html.php:278
+msgid "Do not load the Google Maps API (Only check this if your theme loads the Google Maps API by default)"
+msgstr "Nenačítat rozhraní Google Maps API (Zaškrtněte pouze v případě, že vaše téma ve výchozím nastavení načítá rozhraní Google Maps API)"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:45
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:3363
+#: html/map-edit-page/map-edit-page.html.php:2391
+msgid "Heatmaps"
+msgstr "Teplotní mapy"
+
+#: legacy-core.php:1640
+msgid "View the instruction video"
+msgstr "Prohlédněte si instruktážní video"
+
+#: legacy-core.php:1641
+msgid "Read the documentation"
+msgstr "Přečtěte si dokumentaci"
+
+#: legacy-core.php:1642
+msgid "Important Notification"
+msgstr "Důležité oznámení"
+
+#: legacy-core.php:1643
+msgid "You can read more about that here."
+msgstr "Více se o tom dočtete zde."
+
+#: legacy-core.php:1662
+msgid "Need help? %s or %s."
+msgstr "Potřebujete pomoc? %s nebo %s."
+
+#: legacy-core.php:1653
+msgid "Save"
+msgstr "Uložit"
+
+#: html/map-edit-page/map-edit-page.html.php:12
+msgid "Create your Map"
+msgstr "Vytvoření vaší mapy"
+
+#: html/atlas-novus/settings-page.html.php:1615
+#: html/settings-page.html.php:1402
+msgid "Google Maps API Key (required)"
+msgstr "Klíč Google Maps API (vyžadováno)"
+
+#: includes/compat/class.pro-below-8.1-compatibility.php:1337
+#: includes/tables/class.admin-map-datatable.php:41
+msgid "Shortcode"
+msgstr "Zkrácený kód"
+
+#: includes/compat/class.pro-below-8.1-compatibility.php:1481
+#: includes/tables/class.admin-marker-datatable.php:64
+#: includes/tables/class.admin-marker-datatable.php:86
+msgid "Edit this marker location"
+msgstr "Upravit umístění této značky"
+
+#: legacy-core.php:1624
+msgid "United States of America"
+msgstr "Spojené státy americké"
+
+#: html/map-list-page.html.php:18 legacy-core.php:1061
+msgid "Wizard"
+msgstr "Průvodce"
+
+#: html/settings-page.html.php:271
+msgid "Over-ride current jQuery with version 1.11.3 (Tick this box if you are receiving jQuery related errors after updating to WordPress 4.5)"
+msgstr "Přepsat aktuální jQuery verzí 1.11.3 (Zaškrtněte toto políčko, pokud se vám po aktualizaci na WordPress 4.5 zobrazují chyby související s jQuery)"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:2594
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:2596
+msgid "Preview"
+msgstr "Náhled"
+
+#: html/map-list-page.html.php:43 legacy-core.php:1041
+msgid "Close"
+msgstr "Zavřít"
+
+#: html/atlas-novus/map-list-page.html.php:32 html/map-list-page.html.php:34
+#: legacy-core.php:1036
+msgid "<h3>We need your love!</h3><p>If you are enjoying our plugin, please consider <a href=\"%1$s\" target=\"_blank\" class=\"button-border button-border__green\">reviewing WP Go Maps</a>. It would mean the world to us! If you are experiencing issues with the plugin, please <a href=\"%2$s\" target=\"_blank\"  class=\"button-border button-border__green\">contact us</a> and we will help you as soon as humanly possible!</p>"
+msgstr "<h3>Potřebujeme vaši lásku!</h3><p>Pokud se vám náš plugin líbí, zvažte prosím <a href=\"%1$s\" target=\"_blank\" class=\"button-border button-border__green\">recenzi WP Google Maps</a>. Znamenalo by to pro nás svět! Pokud máte s pluginem problémy, <a href=\"%2$s\" target=\"_blank\"  class=\"button-border button-border__green\">kontaktujte nás</a> a my vám pomůžeme, jakmile to bude v lidských silách!</p>"
+
+#: html/atlas-novus/map-list-page.html.php:39 html/map-list-page.html.php:41
+#: legacy-core.php:1041
+msgid "We will not nag you again, promise!"
+msgstr "Už vás nebudeme otravovat, slibujeme!"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:532
+#: html/map-edit-page/map-edit-page.html.php:166
+msgid "Map Name"
+msgstr "Název mapy"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:2727
+#: html/map-edit-page/map-edit-page.html.php:847
+msgid "Default Marker Image"
+msgstr "Výchozí obrázek značky"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:591
+#: html/map-edit-page/map-edit-page.html.php:862
+msgid "Map type"
+msgstr "Typ mapy"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:571
+#: html/map-edit-page/map-edit-page.html.php:895
+msgid "Map Alignment"
+msgstr "Zarovnání mapy"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:575
+#: html/map-edit-page/map-edit-page.html.php:904
+msgid "Left"
+msgstr "Vlevo"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:581
+#: html/map-edit-page/map-edit-page.html.php:914
+msgid "Right"
+msgstr "Vpravo"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:12
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:3727
+#: html/map-edit-page/map-edit-page.html.php:2345
+msgid "Save Map"
+msgstr "Uložit mapu"
+
+#: html/atlas-novus/map-edit-page/marker-panel.html.php:97
+#: html/map-edit-page/marker-panel.html.php:119
+msgid "Link URL"
+msgstr "URL odkazu"
+
+#: html/map-edit-page/marker-panel.html.php:124
+msgid "Custom Marker"
+msgstr "Vlastní značka"
+
+#: html/atlas-novus/map-edit-page/marker-panel.html.php:130
+#: html/map-edit-page/marker-panel.html.php:134
+msgid "Animation"
+msgstr "Animace"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:3247
+#: html/atlas-novus/map-edit-page/marker-panel.html.php:204
+#: html/map-edit-page/marker-panel.html.php:211 includes/class.strings.php:57
+msgid "Add Marker"
+msgstr "Přidat značku"
+
+#: html/atlas-novus/map-edit-page/marker-panel.html.php:205
+#: html/map-edit-page/marker-panel.html.php:212 includes/class.strings.php:58
+msgid "Save Marker"
+msgstr "Uložit značku"
+
+#: html/atlas-novus/map-edit-page/map-editor-tour.html.php:41
+msgid "Your markers"
+msgstr "Vaše značky"
+
+#: html/atlas-novus/settings-page.html.php:685
+#: html/map-edit-page/map-edit-page.html.php:2624
+#: html/map-edit-page/map-edit-page.html.php:2657
+#: html/map-edit-page/map-edit-page.html.php:2688
+#: html/settings-page.html.php:928
+msgid "Click"
+msgstr "Klikněte"
+
+#: html/map-edit-page/map-edit-page.html.php:2631
+#: html/map-edit-page/map-edit-page.html.php:2663
+#: html/map-edit-page/map-edit-page.html.php:2694
+msgid "here"
+msgstr "zde"
+
+#: includes/compat/class.pro-below-8.1-compatibility.php:1506
+#: includes/tables/class.admin-marker-datatable.php:40 legacy-core.php:1147
+msgid "Icon"
+msgstr "Ikona"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1833
+#: html/map-edit-page/map-edit-page.html.php:1739
+#: includes/compat/class.pro-below-8.1-compatibility.php:1509
+#: includes/compat/class.pro-below-8.1-compatibility.php:1528
+#: includes/tables/class.admin-marker-datatable.php:43
+#: includes/tables/class.marker-datatable.php:22 legacy-core.php:1150
+#: js/v8/3rd-party-integration/gutenberg/blocks/store-locator/block.js:63
+msgid "Address"
+msgstr "Adresa"
+
+#: html/atlas-novus/map-edit-page/imageoverlay-panel.html.php:71
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1478
+#: includes/compat/class.pro-below-8.1-compatibility.php:1511
+#: includes/tables/class.admin-marker-datatable.php:45
+msgid "Image"
+msgstr "Obrázek"
+
+#: includes/compat/class.pro-below-8.1-compatibility.php:1480
+msgid "Edit this marker"
+msgstr "Upravit tuto značku"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1212
+#: html/map-edit-page/map-edit-page.html.php:273
+msgid "Yes, on the left"
+msgstr "Ano, vlevo"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1213
+#: html/map-edit-page/map-edit-page.html.php:274
+msgid "Yes, on the right"
+msgstr "Ano, vpravo"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:3631
+#: html/atlas-novus/support.html.php:6 html/support.html.php:8
+#: includes/class.strings.php:35
+msgid "Documentation"
+msgstr "Dokumentace"
+
+#: html/map-edit-page/map-edit-page.html.php:1849
+msgid "Right Bottom"
+msgstr "Vpravo dole"
+
+#: html/map-edit-page/map-edit-page.html.php:1834
+msgid "Right Top"
+msgstr "Vpravo nahoře"
+
+#: html/map-edit-page/map-edit-page.html.php:1844
+msgid "Left Bottom"
+msgstr "Vlevo dole"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:957
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:2595
+#: html/map-edit-page/map-edit-page.html.php:826
+msgid "View"
+msgstr "Zobrazit"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:584
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:898
+#: html/atlas-novus/map-edit-page/marker-panel.html.php:134
+#: html/atlas-novus/settings-page.html.php:1767
+#: html/map-edit-page/map-edit-page.html.php:639
+#: html/map-edit-page/map-edit-page.html.php:919
+#: html/map-edit-page/marker-panel.html.php:139 html/settings-page.html.php:290
+msgid "None"
+msgstr "Žádný"
+
+#: includes/compat/class.pro-below-8.1-compatibility.php:1348
+#: includes/tables/class.admin-map-datatable.php:110
+msgid "Trash"
+msgstr "Koš"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1208
+#: html/map-edit-page/map-edit-page.html.php:268
+msgid "Directions Box Open by Default?"
+msgstr "Box směrů Otevřít ve výchozím nastavení?"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1214
+#: html/map-edit-page/map-edit-page.html.php:275
+msgid "Yes, above"
+msgstr "Ano, výše"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1215
+#: html/map-edit-page/map-edit-page.html.php:276
+msgid "Yes, below"
+msgstr "Ano, níže"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1221
+#: html/map-edit-page/map-edit-page.html.php:282
+msgid "Directions Box Width"
+msgstr "Pokyny Šířka boxu"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:30
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:3241
+#: html/atlas-novus/settings-page.html.php:27
+#: html/atlas-novus/settings-page.html.php:505
+#: html/map-edit-page/map-edit-page.html.php:2365
+#: html/settings-page.html.php:24
+msgid "Markers"
+msgstr "Markery"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:427
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1181
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:3098
+#: html/map-edit-page/map-edit-page.html.php:59
+msgid "Directions"
+msgstr "Navigace"
+
+#: html/atlas-novus/map-edit-page/circle-panel.html.php:49
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1836
+#: html/atlas-novus/map-edit-page/marker-panel.html.php:83
+#: html/atlas-novus/map-edit-page/polygon-panel.html.php:56
+#: html/atlas-novus/map-edit-page/polyline-panel.html.php:53
+#: html/atlas-novus/map-edit-page/rectangle-panel.html.php:47
+#: html/map-edit-page/map-edit-page.html.php:1744
+#: html/map-edit-page/marker-panel.html.php:97
+#: html/map-edit-page/polygon-panel.html.php:72
+#: html/map-edit-page/polyline-panel.html.php:63
+#: includes/compat/class.pro-below-8.1-compatibility.php:186
+#: includes/compat/class.pro-below-8.1-compatibility.php:1510
+#: includes/compat/class.pro-below-8.1-compatibility.php:1529
+#: includes/tables/class.admin-marker-datatable.php:44
+#: includes/tables/class.marker-datatable.php:23
+#: includes/tables/class.polygon-datatable.php:24
+msgid "Description"
+msgstr "Popis"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:741
+#: html/map-edit-page/map-edit-page.html.php:516
+msgid "Miles"
+msgstr "Mile"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:742
+#: html/map-edit-page/map-edit-page.html.php:517
+msgid "Kilometers"
+msgstr "Kilometry"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1760
+#: html/map-edit-page/map-edit-page.html.php:1661
+msgid "Carousel"
+msgstr "Carousel"
+
+#: includes/compat/class.pro-below-8.1-compatibility.php:1483
+msgid "Approve this marker"
+msgstr "Schválení této značky"
+
+#: js/v8/3rd-party-integration/gutenberg/legacy/map/dist/gutenberg.js:140
+#: js/v8/3rd-party-integration/gutenberg/legacy/map/src/gutenberg.jsx:144
+msgid "The easiest to use Google Maps plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss."
+msgstr "Nejsnadněji použitelný doplněk Mapy Google! Vytvářejte vlastní Mapy Google s vysoce kvalitními značkami obsahujícími místa, popisy, obrázky a odkazy. Pomocí dodaného zkráceného kódu můžete snadno a rychle přidat vlastní mapu do příspěvků a/nebo stránek WordPress. Žádný rozruch."
+
+#: html/atlas-novus/settings-page.html.php:21
+#: html/atlas-novus/settings-page.html.php:865
+#: html/map-edit-page/map-edit-page.html.php:45 html/settings-page.html.php:19
+#: html/settings-page.html.php:984
+msgid "General Settings"
+msgstr "Hlavní nastavení"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:432
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1233
+#: html/atlas-novus/welcome.html.php:96
+#: html/map-edit-page/map-edit-page.html.php:52 html/welcome.html.php:85
+msgid "Themes"
+msgstr "Vzhled"
+
+#: html/map-edit-page/map-edit-page.html.php:94
+msgid "Pro Upgrade"
+msgstr "Upgrade na verzi Pro"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:538
+#: html/map-edit-page/map-edit-page.html.php:143
+msgid "Short code"
+msgstr "Krátký kód"
+
+#: html/map-edit-page/map-edit-page.html.php:153
+msgid "copy this into your post or page to display the map"
+msgstr "zkopírujte toto do svého příspěvku nebo stránky pro zobrazení mapy"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:559
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1958
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:2299
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:2512
+#: html/map-edit-page/map-edit-page.html.php:176
+#: html/map-edit-page/map-edit-page.html.php:1012
+#: html/map-edit-page/map-edit-page.html.php:1202
+#: html/map-edit-page/map-edit-page.html.php:1951
+msgid "Zoom Level"
+msgstr "Úroveň přiblížení"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:624
+#: html/map-edit-page/map-edit-page.html.php:203
+msgid "Set to 100% for a responsive map"
+msgstr "Nastavte na 100% fpro responzivitu mapy"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:640
+#: html/map-edit-page/map-edit-page.html.php:227
+msgid "We recommend that you leave your height in PX. Depending on your theme, using % for the height may break your map."
+msgstr "Doporučujeme, abyste svou výšku ponechali v systému PX. V závislosti na vašem tématu může použití % fprotože výška může poškodit vaši mapu."
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1196
+#: html/map-edit-page/map-edit-page.html.php:259
+msgid "Enable Directions?"
+msgstr "Povolit Trasy?"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:717
+#: html/map-edit-page/map-edit-page.html.php:300
+msgid "Enable Store Locator"
+msgstr "Povolit vyhledávání obchodů"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1067
+#: html/map-edit-page/map-edit-page.html.php:498
+msgid "Restrict to country"
+msgstr "Omezit na zemi"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:730
+#: html/map-edit-page/map-edit-page.html.php:506
+msgid "Show distance in"
+msgstr "Zobrazit vzdálenost v"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:901
+#: html/atlas-novus/map-edit-page/marker-panel.html.php:137
+#: html/map-edit-page/map-edit-page.html.php:644
+#: html/map-edit-page/marker-panel.html.php:144
+msgid "Bounce"
+msgstr "Skákání"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:904
+#: html/atlas-novus/map-edit-page/marker-panel.html.php:140
+#: html/map-edit-page/map-edit-page.html.php:649
+#: html/map-edit-page/marker-panel.html.php:149
+msgid "Drop"
+msgstr "Pád"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:988
+#: html/map-edit-page/map-edit-page.html.php:674
+msgid "Query String"
+msgstr "Řetězec dotazu"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:961
+#: html/map-edit-page/map-edit-page.html.php:830
+msgid "Store Locator Documentation"
+msgstr "Dokumentace k vyhledávání obchodů"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:578
+#: html/map-edit-page/map-edit-page.html.php:909
+#: includes/legacy/functions.circle.php:166
+#: includes/tables/class.admin-marker-datatable.php:90
+msgid "Center"
+msgstr "Uprostřed"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:2456
+#: html/map-edit-page/map-edit-page.html.php:928
+msgid "Show User's Location?"
+msgstr "Zobrazit polohu uživatele?"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:2670
+#: html/map-edit-page/map-edit-page.html.php:1070
+msgid "Maximum Zoom In Level"
+msgstr "Maximální úroveň přiblížení"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:2843
+#: html/map-edit-page/map-edit-page.html.php:1345
+msgid "KML/GeoRSS URL"
+msgstr "Adresa URL KML/GeoRSS"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:2849
+#: html/map-edit-page/map-edit-page.html.php:1356
+msgid "The KML/GeoRSS layer will over-ride most of your map settings"
+msgstr "Vrstva KML/GeoRSS přepíše většinu nastavení mapy"
+
+#: html/map-edit-page/map-edit-page.html.php:1584
+msgid "Enable Marker Listing with the <a href=\"https://www.wpgmaps.com/purchase-professional-version/?utm_source=plugin&amp;utm_medium=link&amp;utm_campaign=marker_listing\"target=\"_BLANK\">Pro version for only $39.99 once off</a>. Support and updates included forever."
+msgstr "Povolte si Marker Listing ve <a href=\"https://www.wpgmaps.com/purchase-professional-version/?utm_source=plugin&amp;utm_medium=link&amp;utm_campaign=marker_listing\"target=\"_BLANK\">verzi Pro za pouhých 39,99 USD jednorázově</a>. Podpora a aktualizace navždy v ceně."
+
+#: html/map-edit-page/map-edit-page.html.php:1618
+msgid "Basic table"
+msgstr "Základní tabulka"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1821
+#: html/map-edit-page/map-edit-page.html.php:1722
+msgid "Order markers by"
+msgstr "Objednejte si značky podle"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1856
+#: html/map-edit-page/map-edit-page.html.php:1772
+msgid "Ascending"
+msgstr "Vzestupně"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1859
+#: html/map-edit-page/map-edit-page.html.php:1777
+msgid "Descending"
+msgstr "Sestupně"
+
+#: html/map-edit-page/map-edit-page.html.php:1786
+msgid "Move list inside map"
+msgstr "Přesunutí seznamu uvnitř mapy"
+
+#: html/map-edit-page/map-edit-page.html.php:1803
+msgid "Placement: "
+msgstr "Umístění: "
+
+#: html/map-edit-page/map-edit-page.html.php:1809
+msgid "Top Left"
+msgstr "Vlevo nahoře"
+
+#: html/map-edit-page/map-edit-page.html.php:1814
+msgid "Top Center"
+msgstr "Nahoře uprostřed"
+
+#: html/map-edit-page/map-edit-page.html.php:1819
+msgid "Top Right"
+msgstr "Vpravo nahoře"
+
+#: html/map-edit-page/map-edit-page.html.php:1824
+msgid "Left Top"
+msgstr "Vlevo nahoře"
+
+#: html/map-edit-page/map-edit-page.html.php:1829
+msgid "Left Center"
+msgstr "Vlevo na střed"
+
+#: html/map-edit-page/map-edit-page.html.php:1839
+msgid "Right Center"
+msgstr "Vpravo na střed"
+
+#: html/map-edit-page/map-edit-page.html.php:1854
+msgid "Bottom Center"
+msgstr "Dole uprostřed"
+
+#: html/map-edit-page/map-edit-page.html.php:1859
+msgid "Bottom Left"
+msgstr "Vlevo dole"
+
+#: html/map-edit-page/map-edit-page.html.php:1864
+msgid "Bottom Right"
+msgstr "Vpravo dole"
+
+#: html/map-edit-page/map-edit-page.html.php:1907
+msgid "Filter by Category"
+msgstr "Filtrovat podle kategorie"
+
+#: html/map-edit-page/map-edit-page.html.php:1919
+msgid "Allow users to filter by category?"
+msgstr "Umožnit uživatelům filtrovat podle kategorií?"
+
+#: html/map-edit-page/map-edit-page.html.php:2350
+msgid "Tip: Use your mouse to change the layout of your map. When you have positioned the map to your desired location, press \"Save Map\" to keep your settings."
+msgstr "Tip: Pomocí myši můžete měnit rozložení mapy. Po umístění mapy na požadované místo stiskněte tlačítko \"Uložit mapu\", abyste zachovali svá nastavení."
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:3281
+#: html/map-edit-page/map-edit-page.html.php:2372
+msgid "Advanced Markers"
+msgstr "Pokročilé značky"
+
+#: html/map-edit-page/map-edit-page.html.php:2446
+#: html/map-edit-page/map-edit-page.html.php:2450
+msgid "Add a new Polygon"
+msgstr "Přidání nového polygonu"
+
+#: html/map-edit-page/map-edit-page.html.php:2467
+#: html/map-edit-page/map-edit-page.html.php:2471
+msgid "Add a new Polyline"
+msgstr "Přidání nové křivky"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:3268
+#: html/map-edit-page/map-edit-page.html.php:2545
+msgid "Add advanced markers"
+msgstr "Přidání pokročilých značek"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:3269
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:3378
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:3556
+#: html/map-edit-page/map-edit-page.html.php:2547
+msgid "with the Pro version"
+msgstr "podporováno ve verzi PRO"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:3794
+#: html/map-edit-page/map-edit-page.html.php:2579
+msgid "Remember to save your map!"
+msgstr "Nezapomeňte si mapu uložit!"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:83
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:84
+#: html/map-edit-page/map-edit-page.html.php:2610
+msgid "Add detailed information to your markers!"
+msgstr "Přidejte podrobné informace ke svým značkám!"
+
+#: html/map-edit-page/map-edit-page.html.php:2611
+#: html/map-edit-page/map-edit-page.html.php:2644
+#: html/map-edit-page/map-edit-page.html.php:2645
+#: html/map-edit-page/map-edit-page.html.php:2676
+#: html/map-edit-page/map-edit-page.html.php:2677
+msgid "Add custom markers to your map!"
+msgstr "Přidejte do mapy vlastní značky!"
+
+#: html/map-edit-page/map-edit-page.html.php:2620
+msgid "Add detailed information to your markers for only"
+msgstr "Přidejte podrobné informace ke svým značkám pouze za"
+
+#: html/map-edit-page/map-edit-page.html.php:2653
+msgid "Add different marker icons, or your own icons to make your map really stand out!"
+msgstr "Přidejte různé ikony značek nebo vlastní ikony, aby vaše mapa opravdu vynikla!"
+
+#: html/map-edit-page/map-edit-page.html.php:2660
+#: html/map-edit-page/map-edit-page.html.php:2691
+msgid "Pro Edition"
+msgstr "Pro Edice"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:143
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:144
+#: html/map-edit-page/map-edit-page.html.php:2684
+msgid "Allow your visitors to get directions to your markers!"
+msgstr "Umožněte návštěvníkům získat pokyny k vašim značkám!"
+
+#: html/atlas-novus/map-edit-page/marker-panel.html.php:54
+#: html/map-edit-page/marker-panel.html.php:65
+msgid "Address/GPS"
+msgstr "Adresa/GPS"
+
+#: html/atlas-novus/map-edit-page/marker-panel.html.php:147
+#: html/map-edit-page/marker-panel.html.php:156
+msgid "InfoWindow open by default"
+msgstr "Infookno otevřít ve výchozím nastavení"
+
+#: html/atlas-novus/support.html.php:36 html/support.html.php:11
+msgid "Getting started? Read through some of these articles to help you along your way."
+msgstr "Začínáme? Přečtěte si některé z těchto článků, které vám pomohou na vaší cestě."
+
+#: html/support.html.php:15
+msgid "Documentation:"
+msgstr "Dokumentace:"
+
+#: html/atlas-novus/support.html.php:44 html/atlas-novus/support.html.php:46
+#: html/support.html.php:22 html/support.html.php:24
+msgid "Creating your first map"
+msgstr "Vytvoření první mapy"
+
+#: html/support.html.php:41 html/support.html.php:43
+msgid "Using your map as a Widget"
+msgstr "Použití mapy jako widgetu"
+
+#: html/support.html.php:50 html/support.html.php:52
+msgid "Changing the Google Maps language"
+msgstr "Změna jazyka Map Google"
+
+#: html/atlas-novus/support.html.php:71 html/support.html.php:59
+msgid "WP Go Maps Documentation"
+msgstr "Dokumentace WP Mapy Google"
+
+#: html/atlas-novus/support.html.php:73 html/support.html.php:61
+msgid "View all documentation."
+msgstr "Zobrazit veškerou dokumentaci."
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:3639
+#: html/atlas-novus/support.html.php:12 html/atlas-novus/support.html.php:84
+#: html/support.html.php:73
+msgid "Troubleshooting"
+msgstr "Řešení problémů"
+
+#: html/atlas-novus/support.html.php:88 html/support.html.php:78
+msgid "WP Go Maps has a diverse and wide range of features which may, from time to time, run into conflicts with the thousands of themes and other plugins on the market."
+msgstr "WP Mapy Google má rozmanitou a širokou škálu funkcí, které mohou čas od času narazit na konflikty s tisíci tématy a dalšími pluginy na trhu."
+
+#: html/support.html.php:83
+msgid "Common issues:"
+msgstr "Běžné problémy:"
+
+#: html/atlas-novus/support.html.php:94 html/support.html.php:88
+msgid "My map is not showing on my website"
+msgstr "Na mých webových stránkách se nezobrazuje mapa"
+
+#: html/atlas-novus/support.html.php:97 html/support.html.php:91
+msgid "My markers are not showing on my map in the front-end"
+msgstr "Moje značky se nezobrazují na mapě ve front-endu"
+
+#: html/atlas-novus/support.html.php:100 html/support.html.php:94
+msgid "I'm getting jQuery errors showing on my website"
+msgstr "Na mých webových stránkách se zobrazují chyby jQuery"
+
+#: html/atlas-novus/support.html.php:132 html/support.html.php:102
+msgid "Still need help? Use one of these links below."
+msgstr "Stále potřebujete pomoc? Použijte jeden z těchto odkazů níže."
+
+#: html/atlas-novus/support.html.php:137 html/support.html.php:104
+#: html/support.html.php:105 html/support.html.php:106
+msgid "Support forum"
+msgstr "Fórum podpory"
+
+#: html/atlas-novus/support.html.php:140 html/support.html.php:107
+msgid "Contact us"
+msgstr "Kontaktujte nás"
+
+#: includes/compat/class.pro-below-8.1-compatibility.php:1452
+msgid "View this link"
+msgstr "Zobrazit tento odkaz"
+
+#: includes/compat/class.pro-below-8.1-compatibility.php:1485
+#: includes/tables/class.admin-marker-datatable.php:71
+#: includes/tables/class.admin-marker-datatable.php:99
+msgid "Delete this marker"
+msgstr "Odstranit tuto značku"
+
+#: legacy-core.php:1122
+msgid "My Markers"
+msgstr "Moje značky"
+
+#: legacy-core.php:1148
+msgid "Linked to"
+msgstr "Souvisí s"
+
+#: legacy-core.php:1151
+msgid "GPS"
+msgstr "GPS"
+
+#: legacy-core.php:1152
+msgid "Pic"
+msgstr "Img"
+
+#: legacy-core.php:1198
+msgid "Edit Marker Location"
+msgstr "Upravit umístění značky"
+
+#: legacy-core.php:1208
+msgid "Marker Latitude"
+msgstr "Značka LAT"
+
+#: legacy-core.php:1212
+msgid "Marker Longitude"
+msgstr "Značka LON"
+
+#: legacy-core.php:1217
+msgid "Save Marker Location"
+msgstr "Uložit umístění značky"
+
+#: legacy-core.php:1218
+msgid "Tip: Use your mouse to change the location of the marker. Simply click and drag it to your desired location."
+msgstr "Tip: Umístění značky můžete změnit pomocí myši. Jednoduše na ni klikněte a přetáhněte ji na požadované místo."
+
+#: legacy-core.php:1224
+msgid "The map could not load."
+msgstr "Mapu se nepodařilo načíst."
+
+#: legacy-core.php:1224
+msgid "This is normally caused by a conflict with another plugin or a JavaScript error that is preventing our plugin's Javascript from executing. Please try disable all plugins one by one and see if this problem persists. If it persists, please contact nick@wpgmaps.com for support."
+msgstr "Obvykle je to způsobeno konfliktem s jiným zásuvným modulem nebo chybou JavaScriptu, která brání spuštění našeho zásuvného modulu. Zkuste prosím postupně vypnout všechny zásuvné moduly a zjistěte, zda tento problém přetrvává. Pokud přetrvává, obraťte se na podporu na adrese nick@wpgmaps.com."
+
+#: legacy-core.php:1304
+msgid "The plugin directory does not have 'write' permissions. Please enable 'write' permissions (755) for "
+msgstr "Adresář zásuvných modulů nemá oprávnění k zápisu. Povolte prosím oprávnění 'zapisovat' (755) pro "
+
+#: legacy-core.php:1306
+msgid "in order for this plugin to work! Please see "
+msgstr "aby tento plugin fungoval! Podívejte se prosím na "
+
+#: legacy-core.php:1310
+msgid "for help on how to do it."
+msgstr "zažádat o pomoc, jak to udělat."
+
+#: legacy-core.php:1590
+msgid "WP Go Maps does not have write permission to the marker location directory. This is required to store marker data. Please CHMOD the folder "
+msgstr "Aplikace WP Mapy Google nemá oprávnění k zápisu do adresáře umístění značky. To je nutné pro ukládání dat značek. Prosíme, změňte příkazem CHMOD v adresáří "
+
+#: legacy-core.php:1590
+msgid " to 755 or 777, or change the directory in the Maps->Settings page. (Current file permissions are "
+msgstr " na 755 nebo 777 nebo změňte adresář na stránce Mapy->Nastavení. (Aktuální práva k souborům jsou "
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+#: wpGoogleMaps.php
+msgid "https://www.wpgmaps.com"
+msgstr "https://www.wpgmaps.com"
+
+#: html/atlas-novus/map-list-page.html.php:8 includes/class.admin-ui.php:34
+#: includes/compat/class.pro-below-8.1-compatibility.php:1124
+#: includes/compat/class.pro-below-8.1-compatibility.php:1129
+#: js/v8/3rd-party-integration/gutenberg/legacy/map/dist/gutenberg.js:143
+#: js/v8/3rd-party-integration/gutenberg/legacy/map/src/gutenberg.jsx:149
+msgid "Maps"
+msgstr "Mapy"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:25
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:411
+#: includes/class.admin-ui.php:47
+#: includes/compat/class.pro-below-8.1-compatibility.php:1160
+#: legacy-core.php:195
+msgid "Settings"
+msgstr "Nastavení"
+
+#: html/atlas-novus/map-edit-page/bulk-marker-editor-dialog.html.php:69
+#: html/atlas-novus/map-edit-page/circle-panel.html.php:121
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:722
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1471
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:2140
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:2270
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:2290
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:2318
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:2408
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:2428
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:2534
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:2574
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:2719
+#: html/atlas-novus/map-edit-page/marker-panel.html.php:153
+#: html/atlas-novus/map-edit-page/marker-panel.html.php:163
+#: html/atlas-novus/map-edit-page/rectangle-panel.html.php:117
+#: html/map-edit-page/map-edit-page.html.php:310
+#: html/map-edit-page/map-edit-page.html.php:1037
+#: html/map-edit-page/map-edit-page.html.php:1111
+#: html/map-edit-page/map-edit-page.html.php:1130
+#: html/map-edit-page/map-edit-page.html.php:1149
+#: html/map-edit-page/map-edit-page.html.php:1168
+#: html/map-edit-page/map-edit-page.html.php:1189
+#: html/map-edit-page/map-edit-page.html.php:1428
+#: html/map-edit-page/map-edit-page.html.php:1938
+#: html/map-edit-page/map-edit-page.html.php:1974
+#: html/map-edit-page/marker-panel.html.php:165
+#: html/map-edit-page/marker-panel.html.php:180 includes/class.strings.php:82
+#: includes/compat/class.pro-below-8.1-compatibility.php:1208
+#: legacy-core.php:952
+msgid "Yes"
+msgstr "Ano"
+
+#: html/atlas-novus/map-edit-page/bulk-marker-editor-dialog.html.php:72
+#: html/atlas-novus/map-edit-page/circle-panel.html.php:121
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:722
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1201
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1211
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1471
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:2140
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:2271
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:2291
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:2319
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:2409
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:2429
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:2535
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:2574
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:2720
+#: html/atlas-novus/map-edit-page/marker-panel.html.php:150
+#: html/atlas-novus/map-edit-page/marker-panel.html.php:166
+#: html/atlas-novus/map-edit-page/rectangle-panel.html.php:117
+#: html/map-edit-page/map-edit-page.html.php:262
+#: html/map-edit-page/map-edit-page.html.php:272
+#: html/map-edit-page/map-edit-page.html.php:311
+#: html/map-edit-page/map-edit-page.html.php:1038
+#: html/map-edit-page/map-edit-page.html.php:1112
+#: html/map-edit-page/map-edit-page.html.php:1131
+#: html/map-edit-page/map-edit-page.html.php:1150
+#: html/map-edit-page/map-edit-page.html.php:1169
+#: html/map-edit-page/map-edit-page.html.php:1190
+#: html/map-edit-page/map-edit-page.html.php:1429
+#: html/map-edit-page/map-edit-page.html.php:1939
+#: html/map-edit-page/map-edit-page.html.php:1975
+#: html/map-edit-page/marker-panel.html.php:160
+#: html/map-edit-page/marker-panel.html.php:185 includes/class.strings.php:83
+#: includes/compat/class.pro-below-8.1-compatibility.php:1208
+#: legacy-core.php:952
+msgid "No"
+msgstr "Ne"
+
+#: html/atlas-novus/map-edit-page/map-editor-tour.html.php:46
+#: html/atlas-novus/settings-page.html.php:283
+#: html/map-edit-page/map-edit-page.html.php:103
+#: js/v8/3rd-party-integration/gutenberg/blocks/map/block.js:73
+#: js/v8/3rd-party-integration/gutenberg/legacy/map/dist/gutenberg.js:102
+#: js/v8/3rd-party-integration/gutenberg/legacy/map/src/gutenberg.jsx:109
+msgid "Map Settings"
+msgstr "Nastavení mapy"
+
+#: html/atlas-novus/settings-page.html.php:2301
+#: html/settings-page.html.php:1864
+msgid "Save Settings"
+msgstr "Uložit nastavení"
+
+#: html/atlas-novus/map-list-page.html.php:56 html/map-list-page.html.php:58
+#: legacy-core.php:1087
+msgid "with the"
+msgstr "s"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:613
+#: html/map-edit-page/map-edit-page.html.php:188
+#: includes/compat/class.pro-below-8.1-compatibility.php:1333
+#: includes/tables/class.admin-map-datatable.php:37
+msgid "Width"
+msgstr "Šířka"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:629
+#: html/map-edit-page/map-edit-page.html.php:212
+#: includes/compat/class.pro-below-8.1-compatibility.php:1334
+#: includes/tables/class.admin-map-datatable.php:38
+msgid "Height"
+msgstr "Výška"
+
+#: includes/compat/class.pro-below-8.1-compatibility.php:1335
+#: includes/tables/class.admin-map-datatable.php:39
+msgid "Type"
+msgstr "Typ"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:2588
+#: includes/compat/class.pro-below-8.1-compatibility.php:520
+#: includes/compat/class.pro-below-8.1-compatibility.php:1034
+#: includes/compat/class.pro-below-8.1-compatibility.php:1354
+#: includes/compat/class.pro-below-8.1-compatibility.php:1358
+#: includes/legacy/functions.circle.php:310
+#: includes/legacy/functions.rectangle.php:279
+#: includes/tables/class.admin-map-datatable.php:104
+#: includes/tables/class.admin-map-datatable.php:126
+#: includes/tables/class.admin-marker-datatable.php:84
+msgid "Edit"
+msgstr "Upravit"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1827
+#: html/map-edit-page/map-edit-page.html.php:1729
+#: includes/compat/class.pro-below-8.1-compatibility.php:490
+#: includes/compat/class.pro-below-8.1-compatibility.php:1006
+#: includes/compat/class.pro-below-8.1-compatibility.php:1331
+#: includes/compat/class.pro-below-8.1-compatibility.php:1505
+#: includes/legacy/functions.circle.php:290
+#: includes/legacy/functions.rectangle.php:259
+#: includes/tables/class.admin-map-datatable.php:35
+#: includes/tables/class.admin-marker-datatable.php:39
+#: includes/tables/class.circle-datatable.php:20
+#: includes/tables/class.heatmap-datatable.php:20
+#: includes/tables/class.imageoverlay-datatable.php:16
+#: includes/tables/class.pointlabel-datatable.php:16
+#: includes/tables/class.polygon-datatable.php:22
+#: includes/tables/class.polyline-datatable.php:20
+#: includes/tables/class.rectangle-datatable.php:20 legacy-core.php:1146
+#: legacy-core.php:1198
+msgid "ID"
+msgstr "ID"
+
+#: html/atlas-novus/map-edit-page/circle-panel.html.php:61
+#: html/atlas-novus/map-edit-page/polygon-panel.html.php:62
+#: html/atlas-novus/map-edit-page/rectangle-panel.html.php:53
+#: html/map-edit-page/polygon-panel.html.php:81
+#: includes/compat/class.pro-below-8.1-compatibility.php:99
+#: includes/compat/class.pro-below-8.1-compatibility.php:189
+#: includes/compat/class.pro-below-8.1-compatibility.php:1512
+#: includes/tables/class.admin-marker-datatable.php:46
+#: includes/tables/class.polygon-datatable.php:25 legacy-core.php:1153
+msgid "Link"
+msgstr "Odkaz"
+
+#: legacy-core.php:1308
+msgid "this page"
+msgstr "tuto stránku"
+
+#: includes/compat/class.pro-below-8.1-compatibility.php:492
+#: includes/compat/class.pro-below-8.1-compatibility.php:1008
+#: includes/compat/class.pro-below-8.1-compatibility.php:1336
+#: includes/compat/class.pro-below-8.1-compatibility.php:1513
+#: includes/legacy/functions.circle.php:292
+#: includes/legacy/functions.rectangle.php:261
+#: includes/tables/class.admin-circle-datatable.php:22
+#: includes/tables/class.admin-heatmap-datatable.php:22
+#: includes/tables/class.admin-imageoverlay-datatable.php:20
+#: includes/tables/class.admin-map-datatable.php:40
+#: includes/tables/class.admin-marker-datatable.php:48
+#: includes/tables/class.admin-pointlabel-datatable.php:20
+#: includes/tables/class.admin-polygon-datatable.php:22
+#: includes/tables/class.admin-polyline-datatable.php:22
+#: includes/tables/class.admin-rectangle-datatable.php:22
+msgid "Action"
+msgstr "Akce"
+
+#: html/settings-page.html.php:1475
+msgid "Custom CSS"
+msgstr "Vlastní CSS"
+
+#: html/atlas-novus/settings-page.html.php:1098
+#: html/settings-page.html.php:1234
+msgid "Black"
+msgstr "Černá"
+
+#: html/atlas-novus/settings-page.html.php:1095
+#: html/settings-page.html.php:1229
+msgid "White"
+msgstr "Bílá"
+
+#: includes/class.shortcodes.php:265 includes/class.shortcodes.php:338
+#: legacy-core.php:701
+msgid "does not exist"
+msgstr "neexistuje"
+
+#: base/classes/WPGM_templates.php:124 html/atlas-novus/welcome.html.php:149
+#: html/welcome.html.php:155
+msgid "Feedback"
+msgstr "Zpětná vazba"
+
+#: html/atlas-novus/store-locator.html.php:22 html/store-locator.html.php:24
+msgid "Search"
+msgstr "Vyhledání"
+
+#: html/atlas-novus/support.html.php:24 html/atlas-novus/support.html.php:128
+#: html/support.html.php:101 includes/class.admin-ui.php:69
+#: includes/compat/class.pro-below-8.1-compatibility.php:1161
+msgid "Support"
+msgstr "Podpora"
+
+#: html/atlas-novus/map-edit-page/circle-panel.html.php:43
+#: html/atlas-novus/map-edit-page/heatmap-panel.html.php:41
+#: html/atlas-novus/map-edit-page/imageoverlay-panel.html.php:53
+#: html/atlas-novus/map-edit-page/pointlabel-panel.html.php:37
+#: html/atlas-novus/map-edit-page/polygon-panel.html.php:44
+#: html/atlas-novus/map-edit-page/polyline-panel.html.php:44
+#: html/atlas-novus/map-edit-page/rectangle-panel.html.php:41
+#: html/map-edit-page/circle-panel.html.php:51
+#: html/map-edit-page/heatmap-panel.html.php:34
+#: html/map-edit-page/polygon-panel.html.php:54
+#: html/map-edit-page/polyline-panel.html.php:54
+#: html/map-edit-page/rectangle-panel.html.php:47
+#: includes/compat/class.pro-below-8.1-compatibility.php:93
+#: includes/compat/class.pro-below-8.1-compatibility.php:180
+#: includes/compat/class.pro-below-8.1-compatibility.php:491
+#: includes/compat/class.pro-below-8.1-compatibility.php:627
+#: includes/compat/class.pro-below-8.1-compatibility.php:725
+#: includes/compat/class.pro-below-8.1-compatibility.php:1007
+#: includes/legacy/functions.circle.php:50
+#: includes/legacy/functions.circle.php:158
+#: includes/legacy/functions.circle.php:291
+#: includes/legacy/functions.rectangle.php:50
+#: includes/legacy/functions.rectangle.php:146
+#: includes/legacy/functions.rectangle.php:260
+#: includes/tables/class.circle-datatable.php:21
+#: includes/tables/class.heatmap-datatable.php:21
+#: includes/tables/class.imageoverlay-datatable.php:17
+#: includes/tables/class.pointlabel-datatable.php:17
+#: includes/tables/class.polygon-datatable.php:23
+#: includes/tables/class.polyline-datatable.php:21
+#: includes/tables/class.rectangle-datatable.php:21
+msgid "Name"
+msgstr "Jméno"
+
+#: includes/compat/class.pro-below-8.1-compatibility.php:1950
+msgid "Your settings have been saved."
+msgstr "Vaše nastavení bylo uloženo."
+
+#: html/atlas-novus/settings-page.html.php:63
+#: html/atlas-novus/settings-page.html.php:1610
+#: html/map-edit-page/map-edit-page.html.php:73 html/settings-page.html.php:44
+msgid "Advanced Settings"
+msgstr "Pokročílé nastavení"
+
+#: html/atlas-novus/map-edit-page/bulk-marker-editor-dialog.html.php:36
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1839
+#: html/atlas-novus/map-edit-page/marker-panel.html.php:124
+#: html/map-edit-page/map-edit-page.html.php:1749
+#: html/map-edit-page/marker-panel.html.php:129
+#: includes/compat/class.pro-below-8.1-compatibility.php:1508
+#: includes/compat/class.pro-below-8.1-compatibility.php:1527
+#: includes/tables/class.admin-marker-datatable.php:42
+#: includes/tables/class.marker-datatable.php:21
+msgid "Category"
+msgstr "Kategorie"
+
+#: base/classes/widget_module.class.php:70
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1830
+#: html/atlas-novus/map-edit-page/marker-panel.html.php:48
+#: html/atlas-novus/map-edit-page/marker-panel.html.php:49
+#: html/atlas-novus/map-edit-page/polygon-panel.html.php:50
+#: html/map-edit-page/map-edit-page.html.php:1734
+#: html/map-edit-page/marker-panel.html.php:56
+#: html/map-edit-page/marker-panel.html.php:59
+#: html/map-edit-page/polygon-panel.html.php:63
+#: includes/compat/class.pro-below-8.1-compatibility.php:96
+#: includes/compat/class.pro-below-8.1-compatibility.php:183
+#: includes/compat/class.pro-below-8.1-compatibility.php:1332
+#: includes/compat/class.pro-below-8.1-compatibility.php:1507
+#: includes/compat/class.pro-below-8.1-compatibility.php:1526
+#: includes/tables/class.admin-map-datatable.php:36
+#: includes/tables/class.admin-marker-datatable.php:41
+#: includes/tables/class.marker-datatable.php:20 legacy-core.php:1149
+msgid "Title"
+msgstr "Nadpis"
+
+#: html/atlas-novus/settings-page.html.php:51
+#: html/atlas-novus/settings-page.html.php:1402
+#: includes/compat/class.pro-below-8.1-compatibility.php:1135
+msgid "Categories"
+msgstr "Kategorie"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:457
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:670
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1059
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:2650
+#: html/theme-panel.html.php:405
+#: includes/compat/class.pro-below-8.1-compatibility.php:1142
+msgid "Advanced"
+msgstr "Pokročilé"
+
+#: html/settings-page.html.php:29
+msgid "InfoWindows"
+msgstr "Infookno"
+
+#: html/atlas-novus/map-list-page.html.php:50
+#: html/atlas-novus/map-list-page.html.php:63 html/map-list-page.html.php:52
+#: html/map-list-page.html.php:65
+#: includes/compat/class.pro-below-8.1-compatibility.php:96
+#: includes/compat/class.pro-below-8.1-compatibility.php:183
+#: includes/compat/class.pro-below-8.1-compatibility.php:186
+#: legacy-core.php:1087
+msgid "Pro Version"
+msgstr "Verze Pro"
+
+#: html/atlas-novus/map-list-page.html.php:67 html/map-list-page.html.php:69
+#: legacy-core.php:1087
+msgid "of WP Go Maps for only"
+msgstr "wP Google Maps pouze za"
+
+#: legacy-core.php:1113 legacy-core.php:1125
+msgid "Problems with the plugin? See the troubleshooting manual."
+msgstr "Problémy se zásuvným modulem? Podívejte se do příručky pro řešení problémů."
+
+#: html/atlas-novus/map-edit-page/polygon-panel.html.php:180
+#: html/map-edit-page/polygon-panel.html.php:179
+#: includes/compat/class.pro-below-8.1-compatibility.php:141
+#: includes/compat/class.pro-below-8.1-compatibility.php:241
+msgid "Save Polygon"
+msgstr "Uložit polygon"
+
+#: html/map-edit-page/map-edit-page.html.php:2447
+#: includes/compat/class.pro-below-8.1-compatibility.php:172
+msgid "Edit Polygon"
+msgstr "Upravit polygon"
+
+#: includes/compat/class.pro-below-8.1-compatibility.php:521
+msgid "Delete this polygon"
+msgstr "Odstranění tohoto polygonu"
+
+#: html/atlas-novus/map-edit-page/polyline-panel.html.php:112
+#: html/map-edit-page/polyline-panel.html.php:115
+#: includes/compat/class.pro-below-8.1-compatibility.php:677
+#: includes/compat/class.pro-below-8.1-compatibility.php:787
+msgid "Save Polyline"
+msgstr "Uložit křivku"
+
+#: html/atlas-novus/map-edit-page/circle-panel.html.php:82
+#: html/atlas-novus/map-edit-page/circle-panel.html.php:101
+#: html/atlas-novus/map-edit-page/circle-panel.html.php:135
+#: html/atlas-novus/map-edit-page/circle-panel.html.php:154
+#: html/atlas-novus/map-edit-page/heatmap-panel.html.php:67
+#: html/atlas-novus/map-edit-page/imageoverlay-panel.html.php:60
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:918
+#: html/atlas-novus/map-edit-page/pointlabel-panel.html.php:58
+#: html/atlas-novus/map-edit-page/polyline-panel.html.php:68
+#: html/atlas-novus/map-edit-page/rectangle-panel.html.php:76
+#: html/atlas-novus/map-edit-page/rectangle-panel.html.php:97
+#: html/atlas-novus/map-edit-page/rectangle-panel.html.php:131
+#: html/atlas-novus/map-edit-page/rectangle-panel.html.php:150
+#: html/map-edit-page/circle-panel.html.php:80
+#: html/map-edit-page/heatmap-panel.html.php:66
+#: html/map-edit-page/polygon-panel.html.php:122
+#: html/map-edit-page/polyline-panel.html.php:81
+#: html/map-edit-page/rectangle-panel.html.php:66
+#: includes/compat/class.pro-below-8.1-compatibility.php:111
+#: includes/compat/class.pro-below-8.1-compatibility.php:201
+#: includes/compat/class.pro-below-8.1-compatibility.php:643
+#: includes/compat/class.pro-below-8.1-compatibility.php:741
+#: includes/legacy/functions.circle.php:66
+#: includes/legacy/functions.circle.php:189
+#: includes/legacy/functions.rectangle.php:66
+#: includes/legacy/functions.rectangle.php:162
+msgid "Opacity"
+msgstr "Průhlednost"
+
+#: html/map-edit-page/map-edit-page.html.php:2468
+#: includes/compat/class.pro-below-8.1-compatibility.php:717
+msgid "Edit Polyline"
+msgstr "Upravit křivku"
+
+#: includes/compat/class.pro-below-8.1-compatibility.php:1035
+msgid "Delete this polyline"
+msgstr "Odstranění křivky"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:442
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:1635
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:3076
+#: html/atlas-novus/settings-page.html.php:39
+#: html/map-edit-page/map-edit-page.html.php:80 html/settings-page.html.php:34
+msgid "Marker Listing"
+msgstr "Seznam značek"
+
+#: includes/class.strings.php:50
+#: includes/compat/class.pro-below-8.1-compatibility.php:1697
+msgid "km away"
+msgstr "km daleko"
+
+#: includes/class.strings.php:51
+#: includes/compat/class.pro-below-8.1-compatibility.php:1698
+msgid "miles away"
+msgstr "mil daleko"
+
+#: base/classes/WPGM_templates.php:121
+msgid "Support Forum"
+msgstr "Fórum podpory"
+
+#: base/classes/WPGM_templates.php:121 html/welcome.html.php:150
+msgid "for quick and friendly help. We'll answer your request within 24hours."
+msgstr "pro rychlou a přátelskou pomoc. Na váš dotaz odpovíme do 24 hodin."
+
+#: base/classes/WPGM_templates.php:125 html/atlas-novus/welcome.html.php:150
+#: html/welcome.html.php:156
+msgid "We need you to help us make this plugin better."
+msgstr "Chcete nám pomoci tento plugin vylepšit."
+
+#: base/classes/WPGM_templates.php:125 html/atlas-novus/welcome.html.php:153
+#: html/welcome.html.php:156
+msgid "Send us your feedback"
+msgstr "Pošlete nám svůj názor"
+
+#: base/classes/WPGM_templates.php:125 html/atlas-novus/welcome.html.php:154
+#: html/welcome.html.php:156
+msgid "and we'll act on it as soon as humanly possible."
+msgstr "a my se jím budeme zabývat, jakmile to bude v lidských silách."
+
+#: base/classes/WPGM_templates.php:129 html/credits.html.php:119
+#: html/welcome.html.php:161
+msgid "OK! Let's start"
+msgstr "OK! Začněme"
+
+#: base/classes/widget_module.class.php:16
+msgid "Add your map as a widget"
+msgstr "Přidání mapy jako widgetu"
+
+#: base/classes/widget_module.class.php:75
+msgid "Select your map:"
+msgstr "Vyberte mapu:"
+
+#: html/atlas-novus/footer.html.php:5 html/footer.html.php:4
+#: includes/compat/class.pro-below-8.1-compatibility.php:1185
+#: legacy-core.php:939
+msgid "Experiencing problems with the plugin?"
+msgstr "Máte problémy se zásuvným modulem?"
+
+#: html/footer.html.php:12
+#: includes/compat/class.pro-below-8.1-compatibility.php:1185
+#: legacy-core.php:939
+msgid "See the troubleshooting manual."
+msgstr "Viz příručka pro řešení problémů."
+
+#: html/footer.html.php:17
+#: includes/compat/class.pro-below-8.1-compatibility.php:1185
+msgid "Or ask a question on our "
+msgstr "Nebo položte otázku na našem "
+
+#: html/atlas-novus/footer.html.php:25 html/footer.html.php:22
+#: includes/compat/class.pro-below-8.1-compatibility.php:1185
+msgid "Support forum."
+msgstr "Navštivte prémiovou zákaznickou podporu."
+
+#: html/atlas-novus/map-edit-page/heatmap-panel.html.php:78
+#: html/map-edit-page/heatmap-panel.html.php:80
+#: includes/legacy/functions.circle.php:74
+#: includes/legacy/functions.circle.php:197
+#: js/v8/3rd-party-integration/gutenberg/blocks/store-locator/block.js:73
+msgid "Radius"
+msgstr "Poloměr"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:912
+#: html/map-edit-page/map-edit-page.html.php:756
+msgid "Line color"
+msgstr "Barva čáry"
+
+#: html/map-edit-page/map-edit-page.html.php:768
+msgid "Line opacity"
+msgstr "Průhlednost čáry"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:934
+#: html/map-edit-page/map-edit-page.html.php:790
+msgid "Fill color"
+msgstr "Barva výplně"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:595
+#: html/map-edit-page/map-edit-page.html.php:869
+#: includes/compat/class.pro-below-8.1-compatibility.php:1343
+#: includes/tables/class.admin-map-datatable.php:88
+msgid "Roadmap"
+msgstr "Cestovní"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:598
+#: html/map-edit-page/map-edit-page.html.php:874
+#: includes/compat/class.pro-below-8.1-compatibility.php:1344
+#: includes/tables/class.admin-map-datatable.php:85
+msgid "Satellite"
+msgstr "Satelitní"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:601
+#: html/map-edit-page/map-edit-page.html.php:879
+#: includes/compat/class.pro-below-8.1-compatibility.php:1345
+#: includes/tables/class.admin-map-datatable.php:86
+msgid "Hybrid"
+msgstr "Hybridní"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:604
+#: html/map-edit-page/map-edit-page.html.php:884
+#: includes/compat/class.pro-below-8.1-compatibility.php:1346
+#: includes/tables/class.admin-map-datatable.php:87
+msgid "Terrain"
+msgstr "Terénní"
+
+#: html/map-edit-page/polygon-panel.html.php:136
+#: includes/compat/class.pro-below-8.1-compatibility.php:114
+#: includes/compat/class.pro-below-8.1-compatibility.php:204
+msgid "On Hover Line Color"
+msgstr "Barva čáry při najetí"
+
+#: html/map-edit-page/polygon-panel.html.php:145
+#: includes/compat/class.pro-below-8.1-compatibility.php:117
+#: includes/compat/class.pro-below-8.1-compatibility.php:207
+msgid "On Hover Fill Color"
+msgstr "Barva výplně při najetí"
+
+#: html/map-edit-page/polygon-panel.html.php:154
+#: includes/compat/class.pro-below-8.1-compatibility.php:120
+#: includes/compat/class.pro-below-8.1-compatibility.php:210
+msgid "On Hover Opacity"
+msgstr "Průhlednost při najetí"
+
+#: html/atlas-novus/map-edit-page/polygon-panel.html.php:147
+#: html/atlas-novus/map-edit-page/polyline-panel.html.php:79
+#: html/map-edit-page/polyline-panel.html.php:95
+#: includes/compat/class.pro-below-8.1-compatibility.php:651
+#: includes/compat/class.pro-below-8.1-compatibility.php:749
+msgid "Line Thickness"
+msgstr "Tloušťka čáry"
+
+#: html/map-list-page.html.php:10 legacy-core.php:1061 legacy-core.php:1122
+msgid "Add New"
+msgstr "Přidat nový"
+
+#: html/map-list-page.html.php:26 legacy-core.php:1061 legacy-core.php:1086
+msgid "My Maps"
+msgstr "Moje mapy"
+
+#: html/atlas-novus/map-list-page.html.php:52 html/map-list-page.html.php:54
+#: legacy-core.php:1087
+msgid "Create unlimited maps"
+msgstr "Vytváření neomezeného počtu map"
+
+#: html/settings-page.html.php:80
+msgid "General Map Settings"
+msgstr "Obecná nastavení mapy"
+
+#: html/atlas-novus/settings-page.html.php:297 html/settings-page.html.php:94
+msgid "Disable StreetView"
+msgstr "Zakázat službu StreetView"
+
+#: html/atlas-novus/settings-page.html.php:304 html/settings-page.html.php:101
+msgid "Disable Zoom Controls"
+msgstr "Zakázat ovládání zoomu"
+
+#: html/atlas-novus/settings-page.html.php:311 html/settings-page.html.php:108
+msgid "Disable Pan Controls"
+msgstr "Zakázat ovládání natáčení"
+
+#: html/atlas-novus/settings-page.html.php:318 html/settings-page.html.php:115
+msgid "Disable Map Type Controls"
+msgstr "Zakázat ovládací prvky typu mapy"
+
+#: html/atlas-novus/settings-page.html.php:332 html/settings-page.html.php:129
+msgid "Disable Mouse Wheel Zoom"
+msgstr "Zakázat zoom kolečkem myši"
+
+#: html/atlas-novus/settings-page.html.php:339 html/settings-page.html.php:136
+msgid "Disable Mouse Dragging"
+msgstr "Zakázat přetahování myší"
+
+#: html/atlas-novus/settings-page.html.php:346 html/settings-page.html.php:143
+msgid "Disable Mouse Double Click Zooming"
+msgstr "Zakázat přibližování dvojitým kliknutím myši"
+
+#: html/settings-page.html.php:265
+msgid "Troubleshooting Options"
+msgstr "Možnosti řešení problémů"
+
+#: html/atlas-novus/settings-page.html.php:426 html/settings-page.html.php:527
+msgid "Lowest level of access to the map editor"
+msgstr "Nejnižší úroveň přístupu k editoru map"
+
+#: html/settings-page.html.php:922
+msgid "Open Marker InfoWindows by"
+msgstr "Otevření informačních oken Marker by"
+
+#: html/settings-page.html.php:956
+msgid "Marker Listing Settings"
+msgstr "Nastavení seznamu značek"
+
+#: html/settings-page.html.php:962
+msgid "Changing these settings will alter the way the marker list appears on your website."
+msgstr "Změnou těchto nastavení se změní způsob, jakým se seznam značek zobrazuje na vašich webových stránkách."
+
+#: html/settings-page.html.php:1032
+msgid "Advanced Marker Listing"
+msgstr "Rozšířený seznam značek"
+
+#: html/atlas-novus/settings-page.html.php:941 html/settings-page.html.php:1059
+msgid "Hide the Icon column"
+msgstr "Skrytí sloupce Ikona"
+
+#: html/atlas-novus/settings-page.html.php:970 html/settings-page.html.php:1086
+msgid "Hide the Title column"
+msgstr "Skrytí sloupce Název"
+
+#: html/atlas-novus/settings-page.html.php:985 html/settings-page.html.php:1100
+msgid "Hide the Address column"
+msgstr "Skrytí sloupce Adresa"
+
+#: html/atlas-novus/settings-page.html.php:1000
+#: html/settings-page.html.php:1114
+msgid "Hide the Category column"
+msgstr "Skrytí sloupce Kategorie"
+
+#: html/atlas-novus/settings-page.html.php:1015
+#: html/settings-page.html.php:1128
+msgid "Hide the Description column"
+msgstr "Skrytí sloupce Popis"
+
+#: html/settings-page.html.php:1190
+msgid "Carousel Marker Listing"
+msgstr "Seznam značek karuselu"
+
+#: html/atlas-novus/settings-page.html.php:1076
+#: html/settings-page.html.php:1197
+msgid "Theme selection"
+msgstr "Výběr motivu"
+
+#: html/atlas-novus/settings-page.html.php:1080
+#: html/settings-page.html.php:1205
+msgid "Sky"
+msgstr "Nebe"
+
+#: html/atlas-novus/settings-page.html.php:1083
+#: html/settings-page.html.php:1210
+msgid "Sun"
+msgstr "Slunce"
+
+#: html/atlas-novus/settings-page.html.php:1086
+#: html/settings-page.html.php:1215
+msgid "Earth"
+msgstr "Země"
+
+#: html/atlas-novus/settings-page.html.php:1089
+#: html/settings-page.html.php:1220
+msgid "Monotone"
+msgstr "Monotónní"
+
+#: html/atlas-novus/settings-page.html.php:1092
+#: html/settings-page.html.php:1225
+msgid "PinkPurple"
+msgstr "Růžovofialový"
+
+#: html/atlas-novus/settings-page.html.php:1118
+#: html/settings-page.html.php:1250
+msgid "Hide the Image"
+msgstr "Skrytí obrázku"
+
+#: html/atlas-novus/settings-page.html.php:1133
+#: html/settings-page.html.php:1254
+msgid "Hide the Title"
+msgstr "Skrytí názvu"
+
+#: html/atlas-novus/settings-page.html.php:1148
+#: html/settings-page.html.php:1258
+msgid "Hide the Marker Icon"
+msgstr "Skrytí ikony značky"
+
+#: html/atlas-novus/settings-page.html.php:1163
+#: html/settings-page.html.php:1262
+msgid "Hide the Address"
+msgstr "Skrytí adresy"
+
+#: html/atlas-novus/settings-page.html.php:1177
+#: html/settings-page.html.php:1266
+msgid "Hide the Description"
+msgstr "Skrýt popis"
+
+#: html/atlas-novus/settings-page.html.php:1192
+#: html/settings-page.html.php:1270
+msgid "Hide the Marker Link"
+msgstr "Skrytí značky Odkaz"
+
+#: html/atlas-novus/settings-page.html.php:1207
+#: html/settings-page.html.php:1274
+msgid "Hide the Directions Link"
+msgstr "Skrytí odkazu na pokyny"
+
+#: html/atlas-novus/settings-page.html.php:1229
+#: html/settings-page.html.php:1289
+msgid "Resize Images with Timthumb"
+msgstr "Změna velikosti obrázků pomocí Timthumb"
+
+#: html/atlas-novus/settings-page.html.php:1244
+#: html/settings-page.html.php:1293
+msgid "Enable lazyload of images"
+msgstr "Povolení pomalého načítání obrázků"
+
+#: html/atlas-novus/settings-page.html.php:1259
+#: html/settings-page.html.php:1297
+msgid "Enable autoheight"
+msgstr "Povolit automatickou výšku"
+
+#: html/atlas-novus/settings-page.html.php:1274
+#: html/settings-page.html.php:1301
+msgid "Enable pagination"
+msgstr "Povolit stránkování"
+
+#: html/atlas-novus/settings-page.html.php:1289
+#: html/settings-page.html.php:1305
+msgid "Enable navigation"
+msgstr "Povolení navigace"
+
+#: html/settings-page.html.php:1362
+msgid "Items"
+msgstr "Položky"
+
+#: html/settings-page.html.php:1377
+msgid "Autoplay after x milliseconds (1000 = 1 second)"
+msgstr "Automatické přehrávání po x milisekundách (1000 = 1 sekunda)"
+
+#: html/settings-page.html.php:645
+msgid "Marker Data Location"
+msgstr "Umístění údajů o značce"
+
+#: html/settings-page.html.php:677
+msgid "We suggest that you change the two fields below ONLY if you are experiencing issues when trying to save the marker XML files."
+msgstr "Níže uvedená dvě pole doporučujeme změnit POUZE v případě, že se při pokusu o uložení souborů XML se značkami vyskytnou problémy."
+
+#: html/atlas-novus/settings-page.html.php:568 html/settings-page.html.php:652
+msgid "Pull marker data from"
+msgstr "Vytáhněte data markerů z"
+
+#: html/atlas-novus/settings-page.html.php:593 html/settings-page.html.php:681
+msgid "Marker data XML directory"
+msgstr "Adresář XML s daty o značkách"
+
+#: html/atlas-novus/settings-page.html.php:603
+#: html/atlas-novus/settings-page.html.php:620 html/settings-page.html.php:685
+#: html/settings-page.html.php:705
+msgid "You can use the following"
+msgstr "Můžete použít následující"
+
+#: html/settings-page.html.php:691 html/settings-page.html.php:711
+msgid "Currently using"
+msgstr "V současné době použito"
+
+#: html/atlas-novus/settings-page.html.php:611 html/settings-page.html.php:701
+msgid "Marker data XML URL"
+msgstr "Adresa URL XML s údaji o značce"
+
+#: includes/class.database.php:309
+msgid "My first map"
+msgstr "Moje první mapa"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:989
+#: includes/class.store-locator.php:92
+msgid "ZIP / Address:"
+msgstr "PSČ / adresa:"
+
+#: includes/compat/class.pro-below-8.1-compatibility.php:96
+#: includes/compat/class.pro-below-8.1-compatibility.php:114
+#: includes/compat/class.pro-below-8.1-compatibility.php:117
+#: includes/compat/class.pro-below-8.1-compatibility.php:120
+#: includes/compat/class.pro-below-8.1-compatibility.php:183
+#: includes/compat/class.pro-below-8.1-compatibility.php:186
+#: includes/compat/class.pro-below-8.1-compatibility.php:204
+#: includes/compat/class.pro-below-8.1-compatibility.php:207
+#: includes/compat/class.pro-below-8.1-compatibility.php:210
+msgid "Pro version only"
+msgstr "Pouze verze Pro"
+
+#: includes/compat/class.pro-below-8.1-compatibility.php:96
+#: includes/compat/class.pro-below-8.1-compatibility.php:183
+#: includes/compat/class.pro-below-8.1-compatibility.php:186
+msgid "Get the Pro add-on"
+msgstr "Získejte doplněk Pro"
+
+#: includes/compat/class.pro-below-8.1-compatibility.php:132
+msgid "Click on the map to insert a vertex."
+msgstr "Kliknutím na mapu vložíte vrchol."
+
+#: includes/compat/class.pro-below-8.1-compatibility.php:133
+msgid "Click on a vertex to remove it."
+msgstr "Kliknutím na vrchol jej odstraníte."
+
+#: includes/compat/class.pro-below-8.1-compatibility.php:134
+msgid "Drag a vertex to move it."
+msgstr "Přetažením vrcholu jej přesunete."
+
+#: includes/compat/class.pro-below-8.1-compatibility.php:1208
+msgid "Delete your map"
+msgstr "Odstranění mapy"
+
+#: includes/compat/class.pro-below-8.1-compatibility.php:1208
+msgid "Are you sure you want to delete the map"
+msgstr "Jste si jisti, že chcete mapu odstranit"
+
+#: includes/compat/class.pro-below-8.1-compatibility.php:1227
+msgid "There was a problem duplicating the map."
+msgstr "Při duplikování mapy se vyskytl problém."
+
+#: includes/compat/class.pro-below-8.1-compatibility.php:1988
+msgid "Your marker location has been saved."
+msgstr "Vaše značka místa byla uložena."
+
+#: includes/compat/class.pro-below-8.1-compatibility.php:2001
+#: includes/compat/class.pro-below-8.1-compatibility.php:2066
+msgid "You cannot save a blank polygon"
+msgstr "Prázdný mnohoúhelník nelze uložit"
+
+#: includes/compat/class.pro-below-8.1-compatibility.php:2048
+msgid "Your polygon has been created."
+msgstr "Váš polygon byl vytvořen."
+
+#: includes/compat/class.pro-below-8.1-compatibility.php:2113
+msgid "Your polygon has been saved."
+msgstr "Váš polygon byl uložen."
+
+#: includes/compat/class.pro-below-8.1-compatibility.php:2131
+#: includes/compat/class.pro-below-8.1-compatibility.php:2183
+msgid "You cannot save a blank polyline"
+msgstr "Prázdnou křivku nelze uložit"
+
+#: includes/compat/class.pro-below-8.1-compatibility.php:2163
+msgid "Your polyline has been created."
+msgstr "Vaše křivka byla vytvořena."
+
+#: includes/compat/class.pro-below-8.1-compatibility.php:2212
+msgid "Your polyline has been saved."
+msgstr "Vaše křivka byla uložena."
+
+#: legacy-core.php:231
+msgid "<strong>WP Go Maps cannot find the directory it uses to save marker data to. Please confirm that <em>"
+msgstr "<strong>WP Mapy Google nemohou najít adresář, do kterého ukládají data značek. Potvrďte prosím, že <em>"
+
+#: legacy-core.php:231
+msgid "</em>exists. Please also ensure that you assign file permissions of 755 (or 777) to this directory."
+msgstr "</em>existuje. Ujistěte se také, že jste tomuto adresáři přiřadili práva k souborům 755 (nebo 777)."
+
+#: includes/class.shortcodes.php:265 includes/class.shortcodes.php:338
+#: legacy-core.php:701
+msgid "Error: The map ID"
+msgstr "Chyba: ID mapy"
+
+#: legacy-core.php:948
+msgid "There was a problem deleting the marker."
+msgstr "Při mazání značky došlo k problému."
+
+#: legacy-core.php:952
+msgid "Delete Marker"
+msgstr "Vymazať značku"
+
+#: legacy-core.php:952
+msgid "Are you sure you want to delete this marker:"
+msgstr "Určitě chcete tuto značku odstranit:"
+
+#: legacy-core.php:1587
+msgid "This folder does not exist. Please create it."
+msgstr "Tato složka neexistuje. Vytvořte ji prosím."
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:3334
+#: html/atlas-novus/map-edit-page/polyline-panel.html.php:111
+#: html/map-edit-page/polyline-panel.html.php:114
+msgid "Add Polyline"
+msgstr "Přidání křivky"
+
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:3299
+#: html/atlas-novus/map-edit-page/polygon-panel.html.php:179
+#: html/map-edit-page/polygon-panel.html.php:178
+msgid "Add Polygon"
+msgstr "Přidání polygonu"
+
+#: base/classes/WPGM_templates.php:93 html/welcome.html.php:127
+msgid "Other"
+msgstr "Ostatní"
+
+#: base/classes/WPGM_templates.php:52
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:35
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:3293
+#: html/atlas-novus/welcome.html.php:114
+#: html/map-edit-page/map-edit-page.html.php:2379 html/welcome.html.php:92
+msgid "Polygons"
+msgstr "Mnohoúhelníky"
+
+#: base/classes/WPGM_templates.php:57
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:40
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:3328
+#: html/atlas-novus/welcome.html.php:114
+#: html/map-edit-page/map-edit-page.html.php:2385 html/welcome.html.php:92
+msgid "Polylines"
+msgstr "Křivky"
+
+#: base/classes/WPGM_templates.php:47
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:422
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:649
+#: html/atlas-novus/map-edit-page/map-edit-page.html.php:2977
+#: html/atlas-novus/settings-page.html.php:45
+#: html/atlas-novus/settings-page.html.php:1385
+#: html/atlas-novus/welcome.html.php:85
+#: html/map-edit-page/map-edit-page.html.php:66 html/settings-page.html.php:39
+#: html/welcome.html.php:76
+msgid "Store Locator"
+msgstr "Vyhledávač obchodů"
+
+#: base/classes/WPGM_templates.php:39
+msgid "Welcome to"
+msgstr "Vítejte na"
+
+#: base/classes/WPGM_templates.php:41
+msgid "Amazing maps. Simple interface. Powerful functionality. World Class Support."
+msgstr "Úžasné mapy. Jednoduché rozhraní. Výkonné funkce. Podpora světové třídy."
+
+#: base/classes/WPGM_templates.php:43
+msgid "What's new?"
+msgstr "Co je nového?"
+
+#: base/classes/WPGM_templates.php:48 html/welcome.html.php:77
+msgid "Let users search for products, branches and stores near them"
+msgstr "Umožnit uživatelům vyhledávat produkty, pobočky a obchody v jejich okolí"
+
+#: base/classes/WPGM_templates.php:53
+msgid "Create service areas or coverage maps with polygons"
+msgstr "Vytváření oblastí služeb nebo map pokrytí pomocí polygonů"
+
+#: base/classes/WPGM_templates.php:58
+msgid "Create custom routes or outlines using polylines"
+msgstr "Vytváření vlastních tras nebo obrysů pomocí polylinií"
+
+#: base/classes/WPGM_templates.php:73 html/welcome.html.php:107
+msgid "How did you find out about us?"
+msgstr "Jak jste se o nás dozvěděli?"
+
+#: base/classes/WPGM_templates.php:80 html/welcome.html.php:114
+msgid "WordPress.org plugin repository"
+msgstr "Úložiště pluginů WordPress.org"
+
+#: base/classes/WPGM_templates.php:81 html/welcome.html.php:115
+msgid "What search term did you use?"
+msgstr "Jaký vyhledávací výraz jste použili?"
+
+#: base/classes/WPGM_templates.php:85 html/welcome.html.php:119
+msgid "Google or other search engine"
+msgstr "Google nebo jiný vyhledávač"
+
+#: base/classes/WPGM_templates.php:89 html/welcome.html.php:123
+msgid "Friend recommendation"
+msgstr "Doporučení přátel"
+
+#: base/classes/WPGM_templates.php:94 html/welcome.html.php:128
+msgid "Please explain"
+msgstr "Vysvětlete mi prosím"
+
+#: base/classes/WPGM_templates.php:117 html/atlas-novus/welcome.html.php:126
+#: html/welcome.html.php:144
+msgid "You may want to"
+msgstr "Možná budete chtít"
+
+#: base/classes/WPGM_templates.php:117 html/atlas-novus/welcome.html.php:128
+#: html/welcome.html.php:144
+msgid "review our documentation"
+msgstr "prohlédněte si naši dokumentaci"
+
+#: base/classes/WPGM_templates.php:117 html/welcome.html.php:144
+msgid "before you get started. If you're a tech-savvy individual, you may skip this step."
+msgstr "než začnete. Pokud jste technicky zdatní, můžete tento krok přeskočit."
+
+#: base/classes/WPGM_templates.php:120 html/atlas-novus/welcome.html.php:136
+#: html/welcome.html.php:149
+msgid "Help me!"
+msgstr "Pomozte mi!"
+
+#: base/classes/WPGM_templates.php:121 html/atlas-novus/welcome.html.php:138
+#: html/welcome.html.php:150
+msgid "Visit our"
+msgstr "Navštivte naši"

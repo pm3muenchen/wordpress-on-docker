@@ -28,7 +28,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs' ) ) {
 		/**
 		 * Member Variable
 		 *
-		 * @var instance
+		 * @var object instance
 		 */
 		private static $instance;
 
@@ -91,6 +91,10 @@ if ( ! class_exists( 'Astra_Breadcrumbs' ) ) {
 
 			if ( function_exists( 'rank_math_the_breadcrumbs' ) ) {
 				$options['rank-math'] = 'Rank Math';
+			}
+
+			if ( function_exists( 'seopress_display_breadcrumbs' ) ) {
+				$options['seopress'] = 'SEOPress';
 			}
 
 			return $options;

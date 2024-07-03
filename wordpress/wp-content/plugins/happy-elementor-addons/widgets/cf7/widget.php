@@ -10,7 +10,7 @@ use Elementor\Controls_Manager;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Typography;
-use Elementor\Scheme_Typography;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 
 defined( 'ABSPATH' ) || die();
 
@@ -48,7 +48,11 @@ class CF7 extends Base {
         return [ 'form', 'contact', 'cf7', 'contact form', 'gravity', 'ninja' ];
     }
 
+	/**
+     * Register widget content controls
+     */
 	protected function register_content_controls() {
+
 		$this->start_controls_section(
 			'_section_cf7',
 			[
@@ -58,6 +62,7 @@ class CF7 extends Base {
 		);
 
         if ( ! ha_is_cf7_activated() ) {
+
             $this->add_control(
                 '_cf7_missing_notice',
                 [
@@ -79,34 +84,45 @@ class CF7 extends Base {
                     'raw' => '<a href="'.esc_url( admin_url( 'plugin-install.php?s=Contact+Form+7&tab=search&type=term' ) ).'" target="_blank" rel="noopener">Click to install or activate Contact Form 7</a>',
                 ]
             );
-            $this->end_controls_section();
-            return;
-        }
 
-        $this->add_control(
-            'form_id',
-            [
-                'label' => __( 'Select Your Form', 'happy-elementor-addons' ),
-                'type' => Controls_Manager::SELECT,
-                'label_block' => true,
-                'options' => ['' => __( '', 'happy-elementor-addons' ) ] + \ha_get_cf7_forms(),
-            ]
-        );
+        }else{
 
-        $this->add_control(
-            'html_class',
-            [
-                'label' => __( 'HTML Class', 'happy-elementor-addons' ),
-                'type' => Controls_Manager::TEXT,
-                'label_block' => true,
-                'description' => __( 'Add CSS custom class to the form.', 'happy-elementor-addons' ),
-            ]
-        );
+			$this->add_control(
+				'form_id',
+				[
+					'label' => __( 'Select Your Form', 'happy-elementor-addons' ),
+					'type' => Controls_Manager::SELECT,
+					'label_block' => true,
+					'options' => ['' => __( '', 'happy-elementor-addons' ) ] + \ha_get_cf7_forms(),
+				]
+			);
+
+			$this->add_control(
+				'html_class',
+				[
+					'label' => __( 'HTML Class', 'happy-elementor-addons' ),
+					'type' => Controls_Manager::TEXT,
+					'label_block' => true,
+					'description' => __( 'Add CSS custom class to the form.', 'happy-elementor-addons' ),
+				]
+			);
+
+		}
 
         $this->end_controls_section();
     }
 
+	/**
+     * Register widget content controls
+     */
     protected function register_style_controls() {
+		$this->__fields_style_controls();
+		$this->__fields_label_style_controls();
+		$this->__submit_btn_style_controls();
+	}
+
+    protected function __fields_style_controls() {
+
         $this->start_controls_section(
             '_section_fields_style',
             [
@@ -203,7 +219,9 @@ class CF7 extends Base {
                 'name' => 'field_typography',
                 'label' => __( 'Typography', 'happy-elementor-addons' ),
                 'selector' => '{{WRAPPER}} .wpcf7-form-control:not(.wpcf7-submit)',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_3
+                'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_TEXT,
+				],
             ]
         );
 
@@ -310,7 +328,9 @@ class CF7 extends Base {
 		$this->end_controls_tabs();
 
 		$this->end_controls_section();
+	}
 
+    protected function __fields_label_style_controls() {
 
         $this->start_controls_section(
             'cf7-form-label',
@@ -352,7 +372,9 @@ class CF7 extends Base {
                 'name' => 'label_typography',
                 'label' => __( 'Typography', 'happy-elementor-addons' ),
                 'selector' => '{{WRAPPER}} label',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_3
+                'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_TEXT,
+				],
             ]
         );
 
@@ -368,6 +390,9 @@ class CF7 extends Base {
         );
 
         $this->end_controls_section();
+	}
+
+    protected function __submit_btn_style_controls() {
 
         $this->start_controls_section(
             'submit',
@@ -406,7 +431,9 @@ class CF7 extends Base {
             [
                 'name' => 'submit_typography',
                 'selector' => '{{WRAPPER}} .wpcf7-submit',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_4
+                'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
             ]
         );
 
@@ -528,6 +555,7 @@ class CF7 extends Base {
 
     protected function render() {
         if ( ! ha_is_cf7_activated() ) {
+			ha_show_plugin_missing_alert(__( 'Contact Forms 7', 'happy-elementor-addons' ) );
             return;
         }
 

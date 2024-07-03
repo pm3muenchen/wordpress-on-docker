@@ -45,7 +45,7 @@ if ( is_plugin_active( 'event-organiser/event-organiser.php' ) ) {
 		 * Register Events Addon for Elementor EventOrganiser Info Box widget controls.
 		 * Adds different input fields to allow the user to change and customize the widget settings.
 		*/
-		protected function _register_controls(){
+		protected function register_controls(){
 
 			$args = array(
 	    'post_type' => 'event',
@@ -88,10 +88,11 @@ if ( is_plugin_active( 'event-organiser/event-organiser.php' ) ) {
 					'when_icon',
 					[
 						'label' => esc_html__( 'When Icon', 'events-addon-for-elementor' ),
-						'type' => Controls_Manager::ICON,
-						'options' => NAEEP_Controls_Helper_Output::get_include_icons(),
-						'frontend_available' => true,
-						'default' => 'fa fa-calendar',
+						'type' => Controls_Manager::ICONS,
+						'default' => [
+							'value' => 'fas fa-calendar',
+							'library' => 'fa-solid',
+						],						
 					]
 				);
 				$this->add_control(
@@ -125,10 +126,11 @@ if ( is_plugin_active( 'event-organiser/event-organiser.php' ) ) {
 					'where_icon',
 					[
 						'label' => esc_html__( 'Where Icon', 'events-addon-for-elementor' ),
-						'type' => Controls_Manager::ICON,
-						'options' => NAEEP_Controls_Helper_Output::get_include_icons(),
-						'frontend_available' => true,
-						'default' => 'fa fa-map-marker',
+						'type' => Controls_Manager::ICONS,
+						'default' => [
+							'value' => 'fas fa-map-marker',
+							'library' => 'fa-solid',
+						],
 					]
 				);
 				$this->add_control(
@@ -309,10 +311,6 @@ if ( is_plugin_active( 'event-organiser/event-organiser.php' ) ) {
 				[
 					'label' => esc_html__( 'Icon Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_2,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .event-info-item .naeep-icon' => 'color: {{VALUE}};',
 					],
@@ -343,7 +341,6 @@ if ( is_plugin_active( 'event-organiser/event-organiser.php' ) ) {
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'name_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 					'selector' => '{{WRAPPER}} .event-info-item h3',
 				]
 			);
@@ -352,10 +349,6 @@ if ( is_plugin_active( 'event-organiser/event-organiser.php' ) ) {
 				[
 					'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_1,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .event-info-item h3' => 'color: {{VALUE}};',
 					],
@@ -386,7 +379,6 @@ if ( is_plugin_active( 'event-organiser/event-organiser.php' ) ) {
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'content_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_3,
 					'selector' => '{{WRAPPER}} .event-info-item span',
 				]
 			);
@@ -395,10 +387,6 @@ if ( is_plugin_active( 'event-organiser/event-organiser.php' ) ) {
 				[
 					'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_3,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .event-info-item span' => 'color: {{VALUE}};',
 					],
@@ -415,9 +403,9 @@ if ( is_plugin_active( 'event-organiser/event-organiser.php' ) ) {
 			$settings = $this->get_settings_for_display();
 
 			$event_id = !empty( $settings['event_id'] ) ? $settings['event_id'] : '';					
-			$when_icon = !empty( $settings['when_icon'] ) ? $settings['when_icon'] : '';
+			$when_icon = !empty( $settings['when_icon'] ) ? $settings['when_icon']['value'] : '';
 			$when_title = !empty( $settings['when_title'] ) ? $settings['when_title'] : '';
-			$where_icon = !empty( $settings['where_icon'] ) ? $settings['where_icon'] : '';
+			$where_icon = !empty( $settings['where_icon'] ) ? $settings['where_icon']['value'] : '';
 			$where_title = !empty( $settings['where_title'] ) ? $settings['where_title'] : '';
 			$date_format = !empty( $settings['date_format'] ) ? $settings['date_format'] : '';
 	  	$date_format = $date_format ? $date_format : 'd M, Y';

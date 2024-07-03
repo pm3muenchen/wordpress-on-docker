@@ -2,7 +2,7 @@
 /*
  * UnderConstructionPage
  * Forklift theme
- * (c) WebFactory Ltd, 2015 - 2021
+ * (c) WebFactory Ltd, 2015 - 2023
  */
 
 
@@ -22,7 +22,7 @@ if (!defined('ABSPATH')) {
     <meta name="generator" content="[generator]">
     <link rel="stylesheet" href="[theme-url-common]css/bootstrap.min.css?v=[version]" type="text/css">
     <link rel="stylesheet" href="[theme-url]style.css?v=[version]" type="text/css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,900">
+    <link rel="stylesheet" href="https://fonts.bunny.net/css?family=Roboto:400,900">
     [head]
   </head>
 

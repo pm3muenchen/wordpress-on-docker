@@ -1,9 +1,9 @@
 <?php
 /**
- * @package WP Content Aware Engine
+ * @package wp-content-aware-engine
  * @author Joachim Jensen <joachim@dev.institute>
  * @license GPLv3
- * @copyright 2020 by Joachim Jensen
+ * @copyright 2023 by Joachim Jensen
  */
 
 defined('ABSPATH') || exit;
@@ -14,7 +14,6 @@ if (!class_exists('WPCAMeta')) {
      */
     class WPCAMeta
     {
-
         /**
          * Id
          * @var string
@@ -67,7 +66,7 @@ if (!class_exists('WPCAMeta')) {
             $title,
             $default_value = '',
             $input_type = 'text',
-            $input_list = array(),
+            $input_list = [],
             $description = '',
             $sanitizer = ''
         ) {
@@ -90,6 +89,7 @@ if (!class_exists('WPCAMeta')) {
         {
             return $this->id;
         }
+
         /**
          * Get meta title
          *
@@ -186,9 +186,7 @@ if (!class_exists('WPCAMeta')) {
          * Save data based on POST
          *
          * @since  4.2
-         * @param  int     $post_id
-         * @param  string  $value
-         * @return void
+         * @param int $post_id
          */
         public function save($post_id)
         {

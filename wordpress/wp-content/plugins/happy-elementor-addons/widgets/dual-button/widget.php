@@ -10,7 +10,7 @@ use Elementor\Controls_Manager;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Typography;
-use Elementor\Scheme_Typography;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 
 defined( 'ABSPATH' ) || die();
 
@@ -48,7 +48,11 @@ class Dual_Button extends Base {
         return [ 'button', 'btn', 'dual', 'advance', 'link' ];
     }
 
+	/**
+     * Register widget content controls
+     */
     protected function register_content_controls() {
+
         $this->start_controls_section(
             '_section_button',
             [
@@ -182,11 +186,11 @@ class Dual_Button extends Base {
                 'options' => [
                     'text' => [
                         'title' => __( 'Text', 'happy-elementor-addons' ),
-                        'icon' => 'fa fa-text-width',
+                        'icon' => 'eicon-t-letter-bold',
                     ],
                     'icon' => [
                         'title' => __( 'Icon', 'happy-elementor-addons' ),
-                        'icon' => 'fa fa-star',
+                        'icon' => 'eicon-star',
                     ]
                 ],
                 'toggle' => false,
@@ -375,7 +379,18 @@ class Dual_Button extends Base {
         $this->end_controls_section();
     }
 
+	/**
+     * Register widget style controls
+     */
     protected function register_style_controls() {
+		$this->__common_style_controls();
+		$this->__primary_btn_style_controls();
+		$this->__connector_style_controls();
+		$this->__secondary_btn_style_controls();
+	}
+
+    protected function __common_style_controls() {
+
         $this->start_controls_section(
             '_section_style_common',
             [
@@ -427,7 +442,9 @@ class Dual_Button extends Base {
                 'name' => 'button_typography',
                 'label' => __( 'Typography', 'happy-elementor-addons' ),
                 'selector' => '{{WRAPPER}} .ha-dual-btn',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_4,
+                'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
             ]
 		);
 
@@ -465,6 +482,9 @@ class Dual_Button extends Base {
         );
 
 		$this->end_controls_section();
+	}
+
+    protected function __primary_btn_style_controls() {
 
 		$this->start_controls_section(
 			'_section_style_left_button',
@@ -512,7 +532,9 @@ class Dual_Button extends Base {
                 'name' => 'left_button_typography',
                 'label' => __( 'Typography', 'happy-elementor-addons' ),
                 'selector' => '{{WRAPPER}} .ha-dual-btn--left',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_4,
+                'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
             ]
         );
 
@@ -604,6 +626,9 @@ class Dual_Button extends Base {
 		$this->end_controls_tabs();
 
 		$this->end_controls_section();
+	}
+
+    protected function __connector_style_controls() {
 
 		$this->start_controls_section(
 			'_section_style_connector',
@@ -653,7 +678,9 @@ class Dual_Button extends Base {
                 'name' => 'connector_typography',
                 'label' => __( 'Typography', 'happy-elementor-addons' ),
                 'selector' => '{{WRAPPER}} .ha-dual-btn-connector',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_3
+                'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
+				],
             ]
 		);
 
@@ -666,6 +693,9 @@ class Dual_Button extends Base {
 		);
 
 		$this->end_controls_section();
+	}
+
+    protected function __secondary_btn_style_controls() {
 
         $this->start_controls_section(
             '_section_style_right_button',
@@ -713,7 +743,9 @@ class Dual_Button extends Base {
                 'name' => 'right_button_typography',
                 'label' => __( 'Typography', 'happy-elementor-addons' ),
                 'selector' => '{{WRAPPER}} .ha-dual-btn--right',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_4,
+                'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
             ]
         );
 

@@ -44,7 +44,7 @@ class Event_Elementor_Addon_Unique_Organizer extends Widget_Base{
 	 * Register Events Addon for Elementor Unique Organizer widget controls.
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	*/
-	protected function _register_controls(){
+	protected function register_controls(){
 
 		$this->start_controls_section(
 			'section_organizer_settings',
@@ -237,7 +237,6 @@ class Event_Elementor_Addon_Unique_Organizer extends Widget_Base{
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'name_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 					'selector' => '{{WRAPPER}} .naeep-organizer-info h3',
 				]
 			);
@@ -253,10 +252,6 @@ class Event_Elementor_Addon_Unique_Organizer extends Widget_Base{
 					[
 						'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'scheme' => [
-							'type' => Scheme_Color::get_type(),
-							'value' => Scheme_Color::COLOR_1,
-						],
 						'selectors' => [
 							'{{WRAPPER}} .naeep-organizer-info h3, {{WRAPPER}} .naeep-organizer-info h3 a' => 'color: {{VALUE}};',
 						],
@@ -275,10 +270,6 @@ class Event_Elementor_Addon_Unique_Organizer extends Widget_Base{
 					[
 						'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'scheme' => [
-							'type' => Scheme_Color::get_type(),
-							'value' => Scheme_Color::COLOR_2,
-						],
 						'selectors' => [
 							'{{WRAPPER}} .naeep-organizer-info h3 a:hover' => 'color: {{VALUE}};',
 						],
@@ -311,7 +302,6 @@ class Event_Elementor_Addon_Unique_Organizer extends Widget_Base{
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'subtitle_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_2,
 					'selector' => '{{WRAPPER}} .naeep-organizer-info h5',
 				]
 			);
@@ -320,10 +310,6 @@ class Event_Elementor_Addon_Unique_Organizer extends Widget_Base{
 				[
 					'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_2,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .naeep-organizer-info h5' => 'color: {{VALUE}};',
 					],
@@ -354,7 +340,6 @@ class Event_Elementor_Addon_Unique_Organizer extends Widget_Base{
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'content_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_3,
 					'selector' => '{{WRAPPER}} .naeep-organizer-info p',
 				]
 			);
@@ -363,10 +348,6 @@ class Event_Elementor_Addon_Unique_Organizer extends Widget_Base{
 				[
 					'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_3,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .naeep-organizer-info p' => 'color: {{VALUE}};',
 					],
@@ -398,7 +379,6 @@ class Event_Elementor_Addon_Unique_Organizer extends Widget_Base{
 				[
 					'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 					'name' => 'sasorganizer_more_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_4,
 					'selector' => '{{WRAPPER}} .naeep-organizer-item a.naeep-link',
 				]
 			);
@@ -414,10 +394,6 @@ class Event_Elementor_Addon_Unique_Organizer extends Widget_Base{
 					[
 						'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'scheme' => [
-							'type' => Scheme_Color::get_type(),
-							'value' => Scheme_Color::COLOR_4,
-						],
 						'selectors' => [
 							'{{WRAPPER}} .naeep-organizer-item a.naeep-link' => 'color: {{VALUE}};',
 						],
@@ -436,10 +412,6 @@ class Event_Elementor_Addon_Unique_Organizer extends Widget_Base{
 					[
 						'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'scheme' => [
-							'type' => Scheme_Color::get_type(),
-							'value' => Scheme_Color::COLOR_2,
-						],
 						'selectors' => [
 							'{{WRAPPER}} .naeep-organizer-item a.naeep-link:hover' => 'color: {{VALUE}};',
 						],
@@ -450,10 +422,6 @@ class Event_Elementor_Addon_Unique_Organizer extends Widget_Base{
 					[
 						'label' => esc_html__( 'Border Color', 'events-addon-for-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'scheme' => [
-							'type' => Scheme_Color::get_type(),
-							'value' => Scheme_Color::COLOR_2,
-						],
 						'selectors' => [
 							'{{WRAPPER}} .naeep-organizer-item a.naeep-link:hover:before' => 'background-color: {{VALUE}};',
 						],

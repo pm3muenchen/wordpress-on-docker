@@ -1,4 +1,8 @@
-<p>
-<img src="<?= gdpr('config')->get('plugin.url'); ?>assets/images/classidocs-logo.svg" width="350" style="float:right;margin-right:50px" />
-<?= esc_html_x('This page allows you to integrate with your ClassiDocs™ instance if you have purchased our advanced option. Click to find out more ', '(Admin)', 'gdpr-framework'); ?><a href="https://www.data443.com/classidocs" target="_blank">here</a>
-</p>
+
+<h3>Free Content Analysis Report!</h3>
+
+<p>Better understand what data you have and where it is stored, so that you can action it appropriately.<br/> Download our FREE scanner now:</p>
+
+<p><a href="https://data443.com/data-identification-manager/data-hound/" target="_blank">Free Content Analysis Report - Data Hound</a></p>
+
+<div style="margin-top:300px;"></div>

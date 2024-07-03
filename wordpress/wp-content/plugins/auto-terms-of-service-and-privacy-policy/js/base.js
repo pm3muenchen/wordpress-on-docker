@@ -15,10 +15,20 @@
     wp.domReady(runHandlers);
 
     function wpAutoTermsDomReady(fn) {
-        handlers.push(fn);
+        if (ran) {
+            fn(jQuery);
+        } else {
+            handlers.push(fn);
+        }
     }
 
     window.wpAutoTermsDomReady = wpAutoTermsDomReady;
-    window.onerror = runHandlers;
+    var oldErrorHandler = window.onerror;
+    window.onerror = function () {
+        runHandlers();
+        if (oldErrorHandler) {
+            oldErrorHandler.apply(null, arguments);
+        }
+    }
     jQuery.readyException = runHandlers;
 })();

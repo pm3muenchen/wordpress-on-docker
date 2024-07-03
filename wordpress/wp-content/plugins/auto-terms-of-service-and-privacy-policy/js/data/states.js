@@ -141,7 +141,8 @@ wpautotermsStates.states = {
     "BE-WHT", 
     "BE-VOV", 
     "BE-VWV", 
-    "BE-WBR"
+    "BE-WBR",
+    "BE-BRU"
   ], 
   "BF": [
     "BF-SOM", 
@@ -684,7 +685,14 @@ wpautotermsStates.states = {
     "IN-TR", 
     "IN-RJ", 
     "IN-SK", 
-    "IN-TN"
+    "IN-TN",
+    "IN-AN",
+    "IN-CH", 
+    "IN-DD", 
+    "IN-LA", 
+    "IN-LD", 
+    "IN-DL", 
+    "IN-PY"
   ], 
   "IO": [], 
   "IQ": [], 

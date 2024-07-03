@@ -1,3 +1,132 @@
+= 2.3.2 =
+
+* [fixed] conflict with ultimate member plugin and some multisite installations (regression from 2.3.1)
+
+= 2.3.1 =
+
+* [new] polylang support for non-member action. props @erpiu
+* [new] wordpress 6.0 support
+* [fixed] levels would in some cases store empty capabilities
+* [updated] wp-content-aware-engine library
+
+= 2.3 =
+
+* [new] admin toolbar menu to view conditions and allowed levels for a given page
+* [new] level option to restrict admin area access
+* [new] users can only manage capabilities they have themselves
+* [new] weglot access condition
+* [new] display traits and triggers in level overview
+* [new] ui and performance improvements
+* [updated] wp-content-aware-engine library
+* [updated] freemius sdk
+* [fixed] members bulk action not working on recent wp versions
+* [fixed] tease action could display duplicate content
+
+
+= 2.2.3 =
+
+* [fixed] fatal error in automator processor (regression from 2.2.2)
+
+= 2.2.2 =
+
+* [new] wordpress 5.9 support
+* [updated] option to fully use role synchronization again
+* [updated] freemius sdk
+
+= 2.2.1 =
+
+* [fixed] nav menu editor not accessible (regression from 2.2)
+* [fixed] in some cases all pages became restricted due to changes in taxonomy condition (regression from 2.2)
+* [fixed] some sites with modsecurity enabled could not add/edit levels due to a false positive by the waf
+
+= 2.2 =
+
+* [new] membership automations - add user levels from role change, login state, woocommerce purchase
+* [new] taxonomy condition added to cache system (all condition types supported now)
+* [new] ui and performance improvements
+* [new] wordpress 5.8 support
+* [new] minimum wordpress version 5.0
+* [updated] simplified "default access" option to "can access unrestricted content"
+* [updated] level management now uses "list_users" and "promote_users" capabilites
+* [updated] wp-content-aware-engine library
+* [updated] freemius sdk
+* [fixed] multiple taxonomy conditions now use AND properly on singular pages (long-standing bug)
+* [fixed] restrict shortcode with negation would not work for users with no levels
+* [fixed] tease option does not support archive pages, fallback to redirect
+* [deprecated] user role synchronizations in favor of automations
+
+= 2.1.3 =
+
+* [new] wordpress 5.6 support
+* [updated] wp-content-aware-engine library
+* [updated] freemius sdk
+
+= 2.1.2 =
+
+* [new] identical taxonomy names are now displayed with their post type
+* [fixed] error when attempting to add member to non-existing level
+* [fixed] non-member redirection for custom links
+* [fixed] taxonomy and attachment condition suggestions would not display all results
+
+= 2.1.1 =
+
+* [fixed] users could not be added to levels, regression from v2.1
+
+= 2.1 =
+
+* [new] intelligent search by id in post type condition
+* [new] intelligent search by id, email in author condition
+* [new] ui and performance improvements
+* [new] wordpress 5.5 support
+* [new] restrict shortcode supports multiple levels
+* [new] restrict shortcode drip_days parameter
+* [new] RUA_User_Level_Interface and RUA_Level_Interface interfaces
+* [updated] wp-content-aware-engine library
+* [updated] freemius sdk
+* [updated] RUA_User_Interface interface
+* [updated] improved non-member redirection
+* [fixed] condition option to auto-select new children
+
+= 2.0 =
+
+* [new] default access option to lockdown levels
+* [new] exception conditions
+* [new] ability to unset capabilities on extended levels
+* [new] level manager shows inherited capabilities
+* [new] compatibility with wooselect
+* [updated] optimized and reduced plugin size with 26%
+* [updated] improved non-member redirection
+* [fixed] nav menu editor in wp5.4+ showing duplicate level options
+* [fixed] level member list would in some cases always redirect to page 1
+* [deprecated] negated conditions
+* [deprecated] simple date archive condition
+
+= 1.3 =
+
+* [new] translatepress access condition
+* [new] wordpress 5.4 support
+* [new] minimum wordpress version 4.8
+* [updated] wp-content-aware-engine library
+* [updated] freemius sdk
+
+= 1.2.1 =
+
+* [fixed] condition type cache would in some cases be primed with bad data
+* [fixed] edge case where negated conditions would be ignored
+
+= 1.2 =
+
+* [new] condition type cache for improved performance
+* [new] categories and search in dropdown for access condition types
+* [new] filter to modify [restrict] shortcode
+* [new] filter to disable nav menu restrictions
+* [new] wordpress 5.3 support
+* [new] minimum wordpress version 4.6
+* [updated] ui improvements
+* [updated] wp-content-aware-engine library
+* [updated] wp-db-updater library
+* [updated] freemius sdk
+
 = 1.1.2 =
 
 * [updated] freemius sdk

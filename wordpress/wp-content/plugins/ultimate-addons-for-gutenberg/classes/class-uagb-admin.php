@@ -17,56 +17,159 @@ if ( ! class_exists( 'UAGB_Admin' ) ) {
 	final class UAGB_Admin {
 
 		/**
-		 * Calls on initialization
+		 * Member Variable
 		 *
-		 * @since 0.0.1
+		 * @var instance
 		 */
-		public static function init() {
+		private static $instance;
+
+		/**
+		 *  Initiator
+		 */
+		public static function get_instance() {
+			if ( ! isset( self::$instance ) ) {
+				self::$instance = new self();
+			}
+			return self::$instance;
+		}
+
+		/**
+		 * Constructor
+		 */
+		public function __construct() {
 
 			if ( ! is_admin() ) {
 				return;
 			}
 
-			self::initialize_ajax();
 
-			// Add UAGB menu option to admin.
-			add_action( 'network_admin_menu', __CLASS__ . '::menu' );
+			add_action( 'admin_notices', array( $this, 'register_notices' ) );
 
-			add_action( 'admin_menu', __CLASS__ . '::menu' );
+			add_filter( 'wp_kses_allowed_html', array( $this, 'add_data_attributes' ), 10, 2 );
 
-			add_action( 'uagb_render_admin_content', __CLASS__ . '::render_content' );
+			add_action( 'admin_enqueue_scripts', array( $this, 'notice_styles_scripts' ) );
 
-			add_action( 'admin_notices', __CLASS__ . '::register_notices' );
+			add_filter( 'rank_math/researches/toc_plugins', array( $this, 'toc_plugin' ) );
 
-			add_filter( 'wp_kses_allowed_html', __CLASS__ . '::add_data_attributes', 10, 2 );
-
-			add_action( 'admin_enqueue_scripts', __CLASS__ . '::notice_styles_scripts' );
-
-			add_action( 'wp_ajax_uag-theme-activate', __CLASS__ . '::theme_activate' );
-
-			add_action( 'wp_ajax_uagb_file_generation', __CLASS__ . '::file_generation' );
-
-			// Enqueue admin scripts.
-			if ( isset( $_GET['page'] ) && UAGB_SLUG === $_GET['page'] ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
-				add_action( 'admin_enqueue_scripts', __CLASS__ . '::styles_scripts' );
-
-				self::save_settings();
-			}
-
-			add_filter( 'rank_math/researches/toc_plugins', __CLASS__ . '::toc_plugin' );
 			// Activation hook.
-			add_action( 'admin_init', __CLASS__ . '::activation_redirect' );
+			add_action( 'admin_init', array( $this, 'activation_redirect' ) );
+
+			add_action( 'admin_init', array( $this, 'update_old_user_option_by_url_params' ) );
+
+			add_action( 'admin_post_uag_rollback', array( $this, 'post_uagb_rollback' ) );
+			
+			// Update get access url in Template Kits.
+			add_filter( 'ast_block_templates_pro_url', array( $this, 'update_gutenberg_templates_pro_url' ) );
 		}
 
 		/**
+		 * Updates the Gutenberg templates pro URL.
+		 * This function returns the URL for the pro version of Gutenberg templates.
+		 * 
+		 * @since 2.13.7
+		 * @return string The URL for Spectra Webpage.
+		 */
+		public function update_gutenberg_templates_pro_url() { 
+			return 'https://wpspectra.com/pricing/?utm_source=gutenberg-templates&utm_medium=dashboard&utm_campaign=Starter-Template-Backend';
+		}
+ 
+
+		/**
+		 * Update Old user option using URL Param.
+		 *
+		 * If any user wants to set the site as old user then just add the URL param as true.
+		 *
+		 * @since 2.0.1
+		 * @access public
+		 */
+		public function update_old_user_option_by_url_params() {
+
+			if ( ! current_user_can( 'manage_options' ) ) {
+				return;
+			}
+
+			$spectra_old_user = isset( $_GET['spectra_old_user'] ) ? sanitize_text_field( $_GET['spectra_old_user'] ) : false; //phpcs:ignore WordPress.Security.NonceVerification.Recommended
+
+			if ( 'yes' === $spectra_old_user ) {
+				update_option( 'uagb-old-user-less-than-2', 'yes' );
+			} elseif ( 'no' === $spectra_old_user ) {
+				delete_option( 'uagb-old-user-less-than-2' );
+			}
+		}
+
+		/**
+		 * UAG version rollback.
+		 *
+		 * Rollback to previous UAG version.
+		 *
+		 * Fired by `admin_post_uag_rollback` action.
+		 *
+		 * @since 1.23.0
+		 * @access public
+		 */
+		public function post_uagb_rollback() {
+
+			if ( ! current_user_can( 'install_plugins' ) ) {
+				wp_die(
+					esc_html__( 'You do not have permission to access this page.', 'ultimate-addons-for-gutenberg' ),
+					esc_html__( 'Rollback to Previous Version', 'ultimate-addons-for-gutenberg' ),
+					array(
+						'response' => 200,
+					)
+				);
+			}
+
+			check_admin_referer( 'uag_rollback' );
+
+			$rollback_versions = UAGB_Admin_Helper::get_instance()->get_rollback_versions();
+			$update_version    = isset( $_GET['version'] ) ? sanitize_text_field( $_GET['version'] ) : '';
+
+			if ( empty( $update_version ) || ! in_array( $update_version, $rollback_versions, true ) ) {
+				wp_die( esc_html__( 'Error occurred, The version selected is invalid. Try selecting different version.', 'ultimate-addons-for-gutenberg' ) );
+			}
+
+			$plugin_slug = basename( UAGB_FILE, '.php' );
+
+			$rollback = new UAGB_Rollback(
+				array(
+					'version'     => $update_version,
+					'plugin_name' => UAGB_BASE,
+					'plugin_slug' => $plugin_slug,
+					'package_url' => sprintf( 'https://downloads.wordpress.org/plugin/%s.%s.zip', $plugin_slug, $update_version ),
+				)
+			);
+
+			$rollback->run();
+
+			wp_die(
+				'',
+				esc_html__( 'Rollback to Previous Version', 'ultimate-addons-for-gutenberg' ),
+				array(
+					'response' => 200,
+				)
+			);
+		}
+		/**
 		 * Activation Reset
 		 */
-		public static function activation_redirect() {
+		public function activation_redirect() {
+
 			$do_redirect = apply_filters( 'uagb_enable_redirect_activation', get_option( '__uagb_do_redirect' ) );
+
 			if ( $do_redirect ) {
+
 				update_option( '__uagb_do_redirect', false );
+
 				if ( ! is_multisite() ) {
-					wp_safe_redirect( esc_url( admin_url( 'options-general.php?page=' . UAGB_SLUG ) ) );
+					wp_safe_redirect(
+						add_query_arg(
+							array(
+								'page' => UAGB_SLUG,
+								'spectra-activation-redirect' => true,
+							),
+							admin_url( 'admin.php' )
+						)
+					);
 					exit();
 				}
 			}
@@ -80,7 +183,7 @@ if ( ! class_exists( 'UAGB_Admin' ) ) {
 		 * @since 1.8.0
 		 * @return Array
 		 */
-		public static function add_data_attributes( $allowedposttags, $context ) {
+		public function add_data_attributes( $allowedposttags, $context ) {
 			$allowedposttags['a']['data-repeat-notice-after'] = true;
 
 			return $allowedposttags;
@@ -91,13 +194,13 @@ if ( ! class_exists( 'UAGB_Admin' ) ) {
 		 *
 		 * @since 1.8.0
 		 */
-		public static function register_notices() {
+		public function register_notices() {
 
 			if ( ! current_user_can( 'manage_options' ) ) {
 				return;
 			}
 
-			$image_path = UAGB_URL . 'admin/assets/images/uagb_notice.svg';
+			$image_path = UAGB_URL . 'admin-core/assets/images/uag-logo.svg';
 
 			Astra_Notices::add_notice(
 				array(
@@ -105,13 +208,13 @@ if ( ! class_exists( 'UAGB_Admin' ) ) {
 					'type'                       => '',
 					'message'                    => sprintf(
 						'<div class="notice-image">
-							<img src="%1$s" class="custom-logo" alt="Ultimate Addons for Gutenberg" itemprop="logo"></div>
+							<img src="%1$s" class="custom-logo" alt="Spectra" itemprop="logo"></div>
 							<div class="notice-content">
 								<div class="notice-heading">
 									%2$s
 								</div>
 								%3$s<br />
-								<div class="uagb-review-notice-container">
+								<div class="astra-review-notice-container">
 									<a href="%4$s" class="astra-notice-close uagb-review-notice button-primary" target="_blank">
 									%5$s
 									</a>
@@ -126,7 +229,7 @@ if ( ! class_exists( 'UAGB_Admin' ) ) {
 								</div>
 							</div>',
 						$image_path,
-						__( 'Wow! The Ultimate Addons for Gutenberg has already powered over 5 pages on your website!', 'ultimate-addons-for-gutenberg' ),
+						__( 'Wow! The Spectra has already powered over 5 pages on your website!', 'ultimate-addons-for-gutenberg' ),
 						__( 'Would you please mind sharing your views and give it a 5 star rating on the WordPress repository?', 'ultimate-addons-for-gutenberg' ),
 						'https://wordpress.org/support/plugin/ultimate-addons-for-gutenberg/reviews/?filter=5#new-post',
 						__( 'Ok, you deserve it', 'ultimate-addons-for-gutenberg' ),
@@ -135,23 +238,23 @@ if ( ! class_exists( 'UAGB_Admin' ) ) {
 						__( 'I already did', 'ultimate-addons-for-gutenberg' )
 					),
 					'repeat-notice-after'        => MONTH_IN_SECONDS,
-					'display-notice-after'       => WEEK_IN_SECONDS,
+					'display-notice-after'       => ( 2 * WEEK_IN_SECONDS ), // Display notice after 2 weeks.
 					'priority'                   => 20,
 					'display-with-other-notices' => false,
-					'show_if'                    => UAGB_Admin_Helper::show_rating_notice(),
+					'show_if'                    => true,
 				)
 			);
 
 			if ( class_exists( 'Classic_Editor' ) ) {
 				$editor_option = get_option( 'classic-editor-replace' );
-				if ( isset( $editor_option ) && 'block' !== $editor_option ) {
+				if ( 'block' !== $editor_option ) {
 					Astra_Notices::add_notice(
 						array(
 							'id'                         => 'uagb-classic-editor',
 							'type'                       => 'warning',
 							'message'                    => sprintf(
 								/* translators: %s: html tags */
-								__( 'Ultimate Addons for Gutenberg requires&nbsp;%3$sBlock Editor%4$s. You can change your editor settings to Block Editor from&nbsp;%1$shere%2$s. Plugin is currently NOT RUNNING.', 'ultimate-addons-for-gutenberg' ),
+								__( 'Spectra requires&nbsp;%3$sBlock Editor%4$s. You can change your editor settings to Block Editor from&nbsp;%1$shere%2$s. Plugin is currently NOT RUNNING.', 'ultimate-addons-for-gutenberg' ),
 								'<a href="' . admin_url( 'options-writing.php' ) . '">',
 								'</a>',
 								'<strong>',
@@ -166,318 +269,15 @@ if ( ! class_exists( 'UAGB_Admin' ) ) {
 		}
 
 		/**
-		 * Renders the admin settings menu.
-		 *
-		 * @since 0.0.1
-		 * @return void
-		 */
-		public static function menu() {
-
-			if ( ! current_user_can( 'manage_options' ) ) {
-				return;
-			}
-
-			add_submenu_page(
-				'options-general.php',
-				UAGB_PLUGIN_SHORT_NAME,
-				UAGB_PLUGIN_SHORT_NAME,
-				'manage_options',
-				UAGB_SLUG,
-				__CLASS__ . '::render'
-			);
-		}
-
-		/**
-		 * Renders the admin settings.
-		 *
-		 * @since 0.0.1
-		 * @return void
-		 */
-		public static function render() {
-			$action = ( isset( $_GET['action'] ) ) ? sanitize_text_field( $_GET['action'] ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
-			$action = ( ! empty( $action ) && '' !== $action ) ? $action : 'general';
-			$action = str_replace( '_', '-', $action );
-
-			// Enable header icon filter below.
-			$uagb_icon                 = apply_filters( 'uagb_header_top_icon', true );
-			$uagb_visit_site_url       = apply_filters( 'uagb_site_url', 'https://www.ultimategutenberg.com/?utm_source=uag-dashboard&utm_medium=link&utm_campaign=uag-dashboard' );
-			$uagb_header_wrapper_class = apply_filters( 'uagb_header_wrapper_class', array( $action ) );
-
-			include_once UAGB_DIR . 'admin/uagb-admin.php';
-		}
-
-		/**
-		 * Renders the admin settings content.
-		 *
-		 * @since 0.0.1
-		 * @return void
-		 */
-		public static function render_content() {
-
-			if ( ! current_user_can( 'manage_options' ) ) {
-				return;
-			}
-
-			$action = ( isset( $_GET['action'] ) ) ? sanitize_text_field( $_GET['action'] ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
-			$action = ( ! empty( $action ) && '' !== $action ) ? $action : 'general';
-			$action = str_replace( '_', '-', $action );
-
-			$uagb_header_wrapper_class = apply_filters( 'uagb_header_wrapper_class', array( $action ) );
-
-			$base_path = realpath( UAGB_DIR . '/admin' );
-			$path      = realpath( $base_path . '/uagb-' . $action . '.php' );
-			if ( $path && $base_path && strpos( $path, $base_path ) === 0 ) {
-				include_once $path;
-			}
-		}
-
-		/**
-		 * Enqueues the needed CSS/JS for the builder's admin settings page.
+		 * Enqueue the needed CSS/JS for the builder's admin settings page.
 		 *
 		 * @since 1.8.0
 		 */
-		public static function notice_styles_scripts() {
-			// Styles.
+		public function notice_styles_scripts() {
+			// Admin Notice Styles.
 			wp_enqueue_style( 'uagb-notice-settings', UAGB_URL . 'admin/assets/admin-notice.css', array(), UAGB_VER );
-		}
-
-		/**
-		 * Enqueues the needed CSS/JS for the builder's admin settings page.
-		 *
-		 * @since 1.0.0
-		 */
-		public static function styles_scripts() {
-
-			if ( ! current_user_can( 'manage_options' ) ) {
-				return;
-			}
-
-			// Styles.
-			wp_enqueue_style( 'uagb-admin-settings', UAGB_URL . 'admin/assets/admin-menu-settings.css', array(), UAGB_VER, 'all' );
-			// Script.
-			wp_enqueue_script( 'uagb-admin-settings', UAGB_URL . 'admin/assets/admin-menu-settings.js', array( 'jquery', 'wp-util', 'updates' ), UAGB_VER, true );
-
-			$localize = array(
-				'ajax_url'        => admin_url( 'admin-ajax.php' ),
-				'ajax_nonce'      => wp_create_nonce( 'uagb-block-nonce' ),
-				'activate'        => __( 'Activate', 'ultimate-addons-for-gutenberg' ),
-				'deactivate'      => __( 'Deactivate', 'ultimate-addons-for-gutenberg' ),
-				'enable_beta'     => __( 'Enable Beta Updates', 'ultimate-addons-for-gutenberg' ),
-				'disable_beta'    => __( 'Disable Beta Updates', 'ultimate-addons-for-gutenberg' ),
-				'installing_text' => __( 'Installing Astra', 'ultimate-addons-for-gutenberg' ),
-				'activating_text' => __( 'Activating Astra', 'ultimate-addons-for-gutenberg' ),
-				'activated_text'  => __( 'Astra Activated!', 'ultimate-addons-for-gutenberg' ),
-			);
-
-			wp_localize_script( 'uagb-admin-settings', 'uagb', apply_filters( 'uagb_js_localize', $localize ) );
-		}
-
-		/**
-		 * Save All admin settings here
-		 */
-		public static function save_settings() {
-
-			// Only admins can save settings.
-			if ( ! current_user_can( 'manage_options' ) ) {
-				return;
-			}
-
-			// Let extensions hook into saving.
-			do_action( 'uagb_admin_settings_save' );
-		}
-
-		/**
-		 * Initialize Ajax
-		 */
-		public static function initialize_ajax() {
-
-			if ( ! current_user_can( 'manage_options' ) ) {
-				return;
-			}
-			// Ajax requests.
-			add_action( 'wp_ajax_uagb_activate_widget', __CLASS__ . '::activate_widget' );
-			add_action( 'wp_ajax_uagb_deactivate_widget', __CLASS__ . '::deactivate_widget' );
-
-			add_action( 'wp_ajax_uagb_bulk_activate_widgets', __CLASS__ . '::bulk_activate_widgets' );
-			add_action( 'wp_ajax_uagb_bulk_deactivate_widgets', __CLASS__ . '::bulk_deactivate_widgets' );
-
-			add_action( 'wp_ajax_uagb_allow_beta_updates', __CLASS__ . '::allow_beta_updates' );
-		}
-
-		/**
-		 * Activate module
-		 */
-		public static function activate_widget() {
-
-			check_ajax_referer( 'uagb-block-nonce', 'nonce' );
-
-			$block_id            = sanitize_text_field( $_POST['block_id'] );
-			$blocks              = UAGB_Admin_Helper::get_admin_settings_option( '_uagb_blocks', array() );
-			$blocks[ $block_id ] = $block_id;
-			$blocks              = array_map( 'esc_attr', $blocks );
-
-			// Update blocks.
-			UAGB_Admin_Helper::update_admin_settings_option( '_uagb_blocks', $blocks );
-			UAGB_Admin_Helper::create_specific_stylesheet();
-
-			wp_send_json_success();
-		}
-
-		/**
-		 * Deactivate module
-		 */
-		public static function deactivate_widget() {
-
-			check_ajax_referer( 'uagb-block-nonce', 'nonce' );
-
-			$block_id            = sanitize_text_field( $_POST['block_id'] );
-			$blocks              = UAGB_Admin_Helper::get_admin_settings_option( '_uagb_blocks', array() );
-			$blocks[ $block_id ] = 'disabled';
-			$blocks              = array_map( 'esc_attr', $blocks );
-
-			// Update blocks.
-			UAGB_Admin_Helper::update_admin_settings_option( '_uagb_blocks', $blocks );
-			UAGB_Admin_Helper::create_specific_stylesheet();
-
-			wp_send_json_success();
-		}
-
-		/**
-		 * Activate all module
-		 */
-		public static function bulk_activate_widgets() {
-
-			check_ajax_referer( 'uagb-block-nonce', 'nonce' );
-
-			// Get all widgets.
-			$all_blocks = UAGB_Helper::$block_list;
-			$new_blocks = array();
-
-			// Set all extension to enabled.
-			foreach ( $all_blocks as $slug => $value ) {
-				$_slug                = str_replace( 'uagb/', '', $slug );
-				$new_blocks[ $_slug ] = $_slug;
-			}
-
-			// Escape attrs.
-			$new_blocks = array_map( 'esc_attr', $new_blocks );
-
-			// Update new_extensions.
-			UAGB_Admin_Helper::update_admin_settings_option( '_uagb_blocks', $new_blocks );
-			UAGB_Admin_Helper::create_specific_stylesheet();
-
-			wp_send_json_success();
-		}
-
-		/**
-		 * Deactivate all module
-		 */
-		public static function bulk_deactivate_widgets() {
-
-			check_ajax_referer( 'uagb-block-nonce', 'nonce' );
-
-			// Get all extensions.
-			$old_blocks = UAGB_Helper::$block_list;
-			$new_blocks = array();
-
-			// Set all extension to enabled.
-			foreach ( $old_blocks as $slug => $value ) {
-				$_slug                = str_replace( 'uagb/', '', $slug );
-				$new_blocks[ $_slug ] = 'disabled';
-			}
-
-			// Escape attrs.
-			$new_blocks = array_map( 'esc_attr', $new_blocks );
-
-			// Update new_extensions.
-			UAGB_Admin_Helper::update_admin_settings_option( '_uagb_blocks', $new_blocks );
-			UAGB_Admin_Helper::create_specific_stylesheet();
-
-			wp_send_json_success();
-		}
-
-		/**
-		 * Allow beta updates
-		 */
-		public static function allow_beta_updates() {
-
-			check_ajax_referer( 'uagb-block-nonce', 'nonce' );
-
-			$beta_update = sanitize_text_field( $_POST['allow_beta'] );
-
-			// Update new_extensions.
-			UAGB_Admin_Helper::update_admin_settings_option( '_uagb_beta', $beta_update );
-
-			wp_send_json_success();
-		}
-
-		/**
-		 * File Generation Flag
-		 *
-		 * @since 1.14.0
-		 */
-		public static function file_generation() {
-
-			if ( ! current_user_can( 'manage_options' ) ) {
-				wp_send_json_error(
-					array(
-						'success' => false,
-						'message' => __( 'Access Denied. You don\'t have enough capabilities to execute this action.', 'ultimate-addons-for-gutenberg' ),
-					)
-				);
-			}
-
-			check_ajax_referer( 'uagb-block-nonce', 'nonce' );
-
-			if ( 'disabled' === $_POST['value'] ) {
-				UAGB_Helper::get_instance()->delete_upload_dir();
-			}
-
-			wp_send_json_success(
-				array(
-					'success' => true,
-					'message' => update_option( '_uagb_allow_file_generation', $_POST['value'] ),
-				)
-			);
-		}
-
-		/**
-		 * Required Plugin Activate
-		 *
-		 * @since 1.8.2
-		 */
-		public static function theme_activate() {
-
-			check_ajax_referer( 'uagb-block-nonce', 'nonce' );
-
-			$theme_slug = ( isset( $_POST['slug'] ) ) ? sanitize_text_field( $_POST['slug'] ) : '';
-
-			if ( ! current_user_can( 'switch_themes' ) || ! $theme_slug ) {
-				wp_send_json_error(
-					array(
-						'success' => false,
-						'message' => __( 'No Theme specified', 'ultimate-addons-for-gutenberg' ),
-					)
-				);
-			}
-
-			$activate = switch_theme( $theme_slug );
-
-			if ( is_wp_error( $activate ) ) {
-				wp_send_json_error(
-					array(
-						'success' => false,
-						'message' => $activate->get_error_message(),
-					)
-				);
-			}
-
-			wp_send_json_success(
-				array(
-					'success' => true,
-					'message' => __( 'Theme Successfully Activated', 'ultimate-addons-for-gutenberg' ),
-				)
-			);
+			// Admin Spectra Submenu Styles.
+			wp_enqueue_style( 'uagb-submenu-settings', UAGB_URL . 'admin/assets/spectra-submenu.css', array(), UAGB_VER );
 		}
 
 		/**
@@ -485,11 +285,11 @@ if ( ! class_exists( 'UAGB_Admin' ) ) {
 		 *
 		 * @param array $plugins TOC plugins.
 		 */
-		public static function toc_plugin( $plugins ) {
-			$plugins['ultimate-addons-for-gutenberg/ultimate-addons-for-gutenberg.php'] = 'Ultimate Addons for Gutenberg';
+		public function toc_plugin( $plugins ) {
+			$plugins['ultimate-addons-for-gutenberg/ultimate-addons-for-gutenberg.php'] = 'Spectra';
 			return $plugins;
 		}
 	}
 
-	UAGB_Admin::init();
+	UAGB_Admin::get_instance();
 }

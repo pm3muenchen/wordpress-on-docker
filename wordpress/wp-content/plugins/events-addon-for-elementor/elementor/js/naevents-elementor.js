@@ -8,6 +8,85 @@ Email: support@nicheaddon.com
 (function($){
 'use strict';
 
+/*----- ELEMENTOR LOAD SWIPER CALL ---*/
+function SwiperSliderInit(slider_el){
+  //Atrakt Swiper Slider Script
+  let animEndEv           = 'webkitAnimationEnd animationend';
+  let swipermw            = (slider_el.hasClass('swiper-mousewheel')) ? true : false;
+  let swiperkb            = (slider_el.hasClass('swiper-keyboard')) ? true : false;
+  let swipercentered      = (slider_el.hasClass('swiper-center')) ? true : false;
+  let swiperautoplay      = slider_el.data('autoplay');
+  let swiperinterval      = slider_el.data('interval');
+  let swiperloop          = slider_el.data('loop');
+  let swipermousedrag     = slider_el.data('mousedrag');
+  let swipereffect        = slider_el.data('effect');
+  let swiperclikable      = slider_el.data('clickpage');
+  let swiperspeed         = slider_el.data('speed');
+  let swiperinteraction   = slider_el.data('interaction');
+
+  let swipersitems        = ( slider_el.data('items') ) ? slider_el.data('items') : 1;
+  let swiperstabitems     = ( slider_el.data('tab-items') ) ? slider_el.data('tab-items') : 1;
+  let swipersmobileitems  = ( slider_el.data('mobile-items') ) ? slider_el.data('mobile-items') : 1;
+
+  //Atrakt Swiper Slides Script
+  let autoplay = swiperinterval;
+  
+  // Init elementor swiper
+  let Swiper = elementorFrontend.utils.swiper;
+  initSwiper();
+
+  async function initSwiper() {
+    let slidervar = await new Swiper( slider_el, {
+    autoplayDisableOnInteraction: swiperinteraction,
+    slidesPerView: swipersitems,
+    effect: swipereffect,
+    speed: swiperspeed,
+    loop: swiperloop,
+    paginationClickable: swiperclikable,
+    watchSlidesProgress: true,
+    autoplay: swiperautoplay,
+    simulateTouch: swipermousedrag,
+    breakpoints: {
+      // when window width is >= 320px
+      320: {
+        slidesPerView: swipersmobileitems,
+      },
+      // when window width is >= 480px
+      480: {
+        slidesPerView: swipersmobileitems,
+      },
+      // when window width is >= 640px
+      640: {
+        slidesPerView: swiperstabitems,
+      },
+      991: {
+        slidesPerView: swipersitems,
+      }
+    },      
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    mousewheelControl: swipermw,
+    keyboardControl: swiperkb,
+  });
+    slidervar.on('slideChange', function (s) {
+      let currentSlide = $(slidervar.slides[slidervar.activeIndex]);
+      let elems = currentSlide.find('.animated')
+      elems.each(function() {
+        let $this = $(this);
+        let animationType = $this.data('animation');
+        $this.addClass(animationType, 100).on(animEndEv, function() {
+          $this.removeClass(animationType);
+        });
+      });
+    });
+  }   
+}
 /*----- ELEMENTOR LOAD FUNTION CALL ---*/
 
 $( window ).on( 'elementor/frontend/init', function() {
@@ -169,92 +248,71 @@ $( window ).on( 'elementor/frontend/init', function() {
 	//Events Addon for Elementor Slider
 	elementorFrontend.hooks.addAction( 'frontend/element_ready/naevents_basic_slider.default', function($scope, $){
 		//Fame Swiper Slider Script
-    $('.swiper-slides').each(function (index) {
-      //Fame Swiper Slider Script
-      var animEndEv = 'webkitAnimationEnd animationend';
-      var swipermw = $('.swiper-container.swiper-mousewheel').length ? true : false;
-      var swiperkb = $('.swiper-container.swiper-keyboard').length ? true : false;
-      var swipercentered = $('.swiper-container.swiper-center').length ? true : false;
-      var swiperautoplay = $('.swiper-container').data('autoplay');
-      var swiperloop = $('.swiper-container').data('loop');
-      var swipermousedrag = $('.swiper-container').data('mousedrag');
-      var swipereffect = $('.swiper-container').data('effect');
-      var swiperclikable = $('.swiper-container').data('clickpage');
-      var swiperspeed = $('.swiper-container').data('speed');
-
-      //Fame Swiper Slides Script
-      var swiper = new Swiper($(this), {
-        autoplay: swiperautoplay,
-        effect: swipereffect,
-        speed: swiperspeed,
-        loop: swiperloop,
-        paginationClickable: swiperclikable,
-        watchSlidesProgress: true,
-        simulateTouch: swipermousedrag,
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true,
-        },
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
-        mousewheelControl: swipermw,
-        keyboardControl: swiperkb,
-      });
-      swiper.on('slideChange', function (s) {
-        var currentSlide = $(swiper.slides[swiper.activeIndex]);
-          var elems = currentSlide.find('.animated')
-          elems.each(function() {
-            var $this = $(this);
-            var animationType = $this.data('animation');
-            $this.addClass(animationType, 100).on(animEndEv, function() {
-              $this.removeClass(animationType);
-            });
-          });
-      });
-    });
+    let slider_el = $scope.find(".swiper-slides");
+    SwiperSliderInit(slider_el);    
 	} );
+
+  //Events Addon for Elementor event_slider
+  elementorFrontend.hooks.addAction( 'frontend/element_ready/naevents_tec_event_slider.default', function($scope, $){
+    //Fame Swiper Slider Script
+    let slider_el = $scope.find(".swiper-slides");
+    SwiperSliderInit(slider_el);    
+  } );
+  
+  elementorFrontend.hooks.addAction( 'frontend/element_ready/naevents_mec_event_slider.default', function($scope, $){
+    //Fame Swiper Slider Script
+    let slider_el = $scope.find(".swiper-slides");
+    SwiperSliderInit(slider_el);    
+  } );
+
+
 	// Events Addon for Elementor Countdown
 	elementorFrontend.hooks.addAction( 'frontend/element_ready/naevents_unique_countdown.default', function($scope, $){
-  	//Countdown Script
-    $('.naeep-countdown.static, .naeep-countdown.dynamic').each( function() {
-      var $countdown = $(this);
-      var date = $countdown.data("date");
-      var format = $countdown.data("format");
-      var count_format = format ? format : 'dHMS';
-      // Plural Labels
-      var years = $countdown.data("years");
-      var months = $countdown.data("months");
-      var weeks = $countdown.data("weeks");
-      var days = $countdown.data("days");
-      var hours = $countdown.data("hours");
-      var minutes = $countdown.data("minutes");
-      var seconds = $countdown.data("seconds");
-      // Singular Labels
-      var year = $countdown.data("year");
-      var month = $countdown.data("month");
-      var week = $countdown.data("week");
-      var day = $countdown.data("day");
-      var hour = $countdown.data("hour");
-      var minute = $countdown.data("minute");
-      var second = $countdown.data("second");
+  	    //Countdown Script
+    var $countdown = $scope.find('.naeep-countdown.static, .naeep-countdown.dynamic');
+    var date = $countdown.data("date");
+    var format = $countdown.data("format");
+    var count_format = format ? format : 'dHMS';
+    // Plural Labels
+    var years = $countdown.data("years");
+    var months = $countdown.data("months");
+    var weeks = $countdown.data("weeks");
+    var days = $countdown.data("days");
+    var hours = $countdown.data("hours");
+    var minutes = $countdown.data("minutes");
+    var seconds = $countdown.data("seconds");
+    // Singular Labels
+    var year = $countdown.data("year");
+    var month = $countdown.data("month");
+    var week = $countdown.data("week");
+    var day = $countdown.data("day");
+    var hour = $countdown.data("hour");
+    var minute = $countdown.data("minute");
+    var second = $countdown.data("second");
+    var timezone = $countdown.data("timezone");
 
-      var austDay = new Date();
-      austDay = new Date(date);
+    var austDay = new Date();
+    austDay = new Date(date);
+    
+    if(timezone){
+        var offset = parseInt(timezone);
+    } else {
+        var offset = (new Date().getTimezoneOffset() / 60);
+        offset = parseInt(offset);
+    }
 
-      $countdown.countdown({
-        until: austDay,
-        labels: [years,months,weeks,days,hours,minutes,seconds],
-        labels1: [year,month,week,day,hour,minute,second],
-        format: count_format,
-      });
+    $countdown.countdown({
+      until: $.countdown.UTCDate(offset, austDay),
+      labels: [years,months,weeks,days,hours,minutes,seconds],
+      labels1: [year,month,week,day,hour,minute,second],
+      format: count_format
     });
 
     // Fake COuntdown Script
+    var $countdown_fake = $scope.find('.naeep-countdown.fake');
     $('.naeep-countdown.fake').each( function() {
-      var $countdown = $(this);
-      var date = $countdown.data("date");
+      var $countdown_fake = $(this);
+      var date = $countdown_fake.data("date");
       var today = new Date();
       var newdate = new Date();
       newdate.setDate(today.getDate() + date);
@@ -263,26 +321,26 @@ $( window ).on( 'elementor/frontend/init', function() {
       today =  new Date(newdate);
 
       // Plural Labels
-      var years = $countdown.data("years");
-      var months = $countdown.data("months");
-      var weeks = $countdown.data("weeks");
-      var days = $countdown.data("days");
-      var hours = $countdown.data("hours");
-      var minutes = $countdown.data("minutes");
-      var seconds = $countdown.data("seconds");
+      var years = $countdown_fake.data("years");
+      var months = $countdown_fake.data("months");
+      var weeks = $countdown_fake.data("weeks");
+      var days = $countdown_fake.data("days");
+      var hours = $countdown_fake.data("hours");
+      var minutes = $countdown_fake.data("minutes");
+      var seconds = $countdown_fake.data("seconds");
       // Singular Labels
-      var year = $countdown.data("year");
-      var month = $countdown.data("month");
-      var week = $countdown.data("week");
-      var day = $countdown.data("day");
-      var hour = $countdown.data("hour");
-      var minute = $countdown.data("minute");
-      var second = $countdown.data("second");
+      var year = $countdown_fake.data("year");
+      var month = $countdown_fake.data("month");
+      var week = $countdown_fake.data("week");
+      var day = $countdown_fake.data("day");
+      var hour = $countdown_fake.data("hour");
+      var minute = $countdown_fake.data("minute");
+      var second = $countdown_fake.data("second");
 
-      $('.naeep-countdown.fake').countdown({
-        until: today,
+      $countdown_fake.countdown({
+        until: $.countdown.UTCDate(offset, today),
         labels: [years,months,weeks,days,hours,minutes,seconds],
-        labels1: [year,month,week,day,hour,minute,second],
+        labels1: [year,month,week,day,hour,minute,second]
       });
     });
 	} );
@@ -347,44 +405,51 @@ $( window ).on( 'elementor/frontend/init', function() {
 	} );
 	// Events Addon for Elementor Conference
 	elementorFrontend.hooks.addAction( 'frontend/element_ready/naevents_unique_conference.default', function($scope, $){
-  	//Countdown Script
-    $('.naeep-countdown.static, .naeep-countdown.dynamic').each( function() {
-      var $countdown = $(this);
-      var date = $countdown.data("date");
-      var format = $countdown.data("format");
-      var count_format = format ? format : 'dHMS';
-      // Plural Labels
-      var years = $countdown.data("years");
-      var months = $countdown.data("months");
-      var weeks = $countdown.data("weeks");
-      var days = $countdown.data("days");
-      var hours = $countdown.data("hours");
-      var minutes = $countdown.data("minutes");
-      var seconds = $countdown.data("seconds");
-      // Singular Labels
-      var year = $countdown.data("year");
-      var month = $countdown.data("month");
-      var week = $countdown.data("week");
-      var day = $countdown.data("day");
-      var hour = $countdown.data("hour");
-      var minute = $countdown.data("minute");
-      var second = $countdown.data("second");
+    //Countdown Script
+    var $countdown = $scope.find('.naeep-countdown.static, .naeep-countdown.dynamic');
+    var date = $countdown.data("date");
+    var format = $countdown.data("format");
+    var count_format = format ? format : 'dHMS';
+    // Plural Labels
+    var years = $countdown.data("years");
+    var months = $countdown.data("months");
+    var weeks = $countdown.data("weeks");
+    var days = $countdown.data("days");
+    var hours = $countdown.data("hours");
+    var minutes = $countdown.data("minutes");
+    var seconds = $countdown.data("seconds");
+    // Singular Labels
+    var year = $countdown.data("year");
+    var month = $countdown.data("month");
+    var week = $countdown.data("week");
+    var day = $countdown.data("day");
+    var hour = $countdown.data("hour");
+    var minute = $countdown.data("minute");
+    var second = $countdown.data("second");
+    var timezone = $countdown.data("timezone");
 
-      var austDay = new Date();
-      austDay = new Date(date);
+    var austDay = new Date();
+    austDay = new Date(date);
+    
+    if(timezone){
+        var offset = parseInt(timezone);
+    } else {
+        var offset = (new Date().getTimezoneOffset() / 60);
+        offset = parseInt(offset);
+    }
 
-      $countdown.countdown({
-        until: austDay,
-        labels: [years,months,weeks,days,hours,minutes,seconds],
-        labels1: [year,month,week,day,hour,minute,second],
-        format: count_format,
-      });
+    $countdown.countdown({
+      until: $.countdown.UTCDate(offset, austDay),
+      labels: [years,months,weeks,days,hours,minutes,seconds],
+      labels1: [year,month,week,day,hour,minute,second],
+      format: count_format
     });
 
     // Fake COuntdown Script
+    var $countdown_fake = $scope.find('.naeep-countdown.fake');
     $('.naeep-countdown.fake').each( function() {
-      var $countdown = $(this);
-      var date = $countdown.data("date");
+      var $countdown_fake = $(this);
+      var date = $countdown_fake.data("date");
       var today = new Date();
       var newdate = new Date();
       newdate.setDate(today.getDate() + date);
@@ -393,28 +458,28 @@ $( window ).on( 'elementor/frontend/init', function() {
       today =  new Date(newdate);
 
       // Plural Labels
-      var years = $countdown.data("years");
-      var months = $countdown.data("months");
-      var weeks = $countdown.data("weeks");
-      var days = $countdown.data("days");
-      var hours = $countdown.data("hours");
-      var minutes = $countdown.data("minutes");
-      var seconds = $countdown.data("seconds");
+      var years = $countdown_fake.data("years");
+      var months = $countdown_fake.data("months");
+      var weeks = $countdown_fake.data("weeks");
+      var days = $countdown_fake.data("days");
+      var hours = $countdown_fake.data("hours");
+      var minutes = $countdown_fake.data("minutes");
+      var seconds = $countdown_fake.data("seconds");
       // Singular Labels
-      var year = $countdown.data("year");
-      var month = $countdown.data("month");
-      var week = $countdown.data("week");
-      var day = $countdown.data("day");
-      var hour = $countdown.data("hour");
-      var minute = $countdown.data("minute");
-      var second = $countdown.data("second");
+      var year = $countdown_fake.data("year");
+      var month = $countdown_fake.data("month");
+      var week = $countdown_fake.data("week");
+      var day = $countdown_fake.data("day");
+      var hour = $countdown_fake.data("hour");
+      var minute = $countdown_fake.data("minute");
+      var second = $countdown_fake.data("second");
 
-      $('.naeep-countdown.fake').countdown({
-        until: today,
+      $countdown_fake.countdown({
+        until: $.countdown.UTCDate(offset, today),
         labels: [years,months,weeks,days,hours,minutes,seconds],
-        labels1: [year,month,week,day,hour,minute,second],
+        labels1: [year,month,week,day,hour,minute,second]
       });
-    });
+    });  	
 	} );
 	//Events Addon for Elementor Pricing
 	elementorFrontend.hooks.addAction( 'frontend/element_ready/naevents_unique_pricing.default', function($scope, $){
@@ -455,8 +520,8 @@ $( window ).on( 'elementor/frontend/init', function() {
 	// Events Addon for Elementor Countdown
 	elementorFrontend.hooks.addAction( 'frontend/element_ready/naevents_tec_countdown.default', function($scope, $){
   	//Countdown Script
-    $('.naeep-countdown.static, .naeep-countdown.dynamic').each( function() {
-      var $countdown = $(this);
+  	var $countdown = $scope.find('.naeep-countdown.static, .naeep-countdown.dynamic');
+    
       var date = $countdown.data("date");
       var format = $countdown.data("format");
       var count_format = format ? format : 'dHMS';
@@ -476,22 +541,30 @@ $( window ).on( 'elementor/frontend/init', function() {
       var hour = $countdown.data("hour");
       var minute = $countdown.data("minute");
       var second = $countdown.data("second");
+      var timezone = $countdown.data("timezone");
 
       var austDay = new Date();
       austDay = new Date(date);
+      
+      if(timezone){
+      	var offset = parseInt(timezone);
+      } else {
+      	var offset = (new Date().getTimezoneOffset() / 60);
+      	offset = parseInt(offset);
+      }
 
       $countdown.countdown({
-        until: austDay,
+        until: $.countdown.UTCDate(offset, austDay),
         labels: [years,months,weeks,days,hours,minutes,seconds],
         labels1: [year,month,week,day,hour,minute,second],
-        format: count_format,
+        format: count_format
       });
-    });
 
     // Fake COuntdown Script
+    var $countdown_fake = $scope.find('.naeep-countdown.fake');
     $('.naeep-countdown.fake').each( function() {
-      var $countdown = $(this);
-      var date = $countdown.data("date");
+      var $countdown_fake = $(this);
+      var date = $countdown_fake.data("date");
       var today = new Date();
       var newdate = new Date();
       newdate.setDate(today.getDate() + date);
@@ -500,26 +573,26 @@ $( window ).on( 'elementor/frontend/init', function() {
       today =  new Date(newdate);
 
       // Plural Labels
-      var years = $countdown.data("years");
-      var months = $countdown.data("months");
-      var weeks = $countdown.data("weeks");
-      var days = $countdown.data("days");
-      var hours = $countdown.data("hours");
-      var minutes = $countdown.data("minutes");
-      var seconds = $countdown.data("seconds");
+      var years = $countdown_fake.data("years");
+      var months = $countdown_fake.data("months");
+      var weeks = $countdown_fake.data("weeks");
+      var days = $countdown_fake.data("days");
+      var hours = $countdown_fake.data("hours");
+      var minutes = $countdown_fake.data("minutes");
+      var seconds = $countdown_fake.data("seconds");
       // Singular Labels
-      var year = $countdown.data("year");
-      var month = $countdown.data("month");
-      var week = $countdown.data("week");
-      var day = $countdown.data("day");
-      var hour = $countdown.data("hour");
-      var minute = $countdown.data("minute");
-      var second = $countdown.data("second");
+      var year = $countdown_fake.data("year");
+      var month = $countdown_fake.data("month");
+      var week = $countdown_fake.data("week");
+      var day = $countdown_fake.data("day");
+      var hour = $countdown_fake.data("hour");
+      var minute = $countdown_fake.data("minute");
+      var second = $countdown_fake.data("second");
 
-      $('.naeep-countdown.fake').countdown({
-        until: today,
+      $countdown_fake.countdown({
+        until: $.countdown.UTCDate(offset, today),
         labels: [years,months,weeks,days,hours,minutes,seconds],
-        labels1: [year,month,week,day,hour,minute,second],
+        labels1: [year,month,week,day,hour,minute,second]
       });
     });
 	} );
@@ -538,43 +611,50 @@ $( window ).on( 'elementor/frontend/init', function() {
 	// Events Addon for Elementor Conference
 	elementorFrontend.hooks.addAction( 'frontend/element_ready/naevents_tec_conference.default', function($scope, $){
   	//Countdown Script
-    $('.naeep-countdown.static, .naeep-countdown.dynamic').each( function() {
-      var $countdown = $(this);
-      var date = $countdown.data("date");
-      var format = $countdown.data("format");
-      var count_format = format ? format : 'dHMS';
-      // Plural Labels
-      var years = $countdown.data("years");
-      var months = $countdown.data("months");
-      var weeks = $countdown.data("weeks");
-      var days = $countdown.data("days");
-      var hours = $countdown.data("hours");
-      var minutes = $countdown.data("minutes");
-      var seconds = $countdown.data("seconds");
-      // Singular Labels
-      var year = $countdown.data("year");
-      var month = $countdown.data("month");
-      var week = $countdown.data("week");
-      var day = $countdown.data("day");
-      var hour = $countdown.data("hour");
-      var minute = $countdown.data("minute");
-      var second = $countdown.data("second");
+  	var $countdown = $scope.find('.naeep-countdown.static, .naeep-countdown.dynamic');
+    var date = $countdown.data("date");
+    var format = $countdown.data("format");
+    var count_format = format ? format : 'dHMS';
+    // Plural Labels
+    var years = $countdown.data("years");
+    var months = $countdown.data("months");
+    var weeks = $countdown.data("weeks");
+    var days = $countdown.data("days");
+    var hours = $countdown.data("hours");
+    var minutes = $countdown.data("minutes");
+    var seconds = $countdown.data("seconds");
+    // Singular Labels
+    var year = $countdown.data("year");
+    var month = $countdown.data("month");
+    var week = $countdown.data("week");
+    var day = $countdown.data("day");
+    var hour = $countdown.data("hour");
+    var minute = $countdown.data("minute");
+    var second = $countdown.data("second");
+    var timezone = $countdown.data("timezone");
 
-      var austDay = new Date();
-      austDay = new Date(date);
+    var austDay = new Date();
+    austDay = new Date(date);
+    
+    if(timezone){
+    	var offset = parseInt(timezone);
+    } else {
+    	var offset = (new Date().getTimezoneOffset() / 60);
+    	offset = parseInt(offset);
+    }
 
-      $countdown.countdown({
-        until: austDay,
-        labels: [years,months,weeks,days,hours,minutes,seconds],
-        labels1: [year,month,week,day,hour,minute,second],
-        format: count_format,
-      });
+    $countdown.countdown({
+      until: $.countdown.UTCDate(offset, austDay),
+      labels: [years,months,weeks,days,hours,minutes,seconds],
+      labels1: [year,month,week,day,hour,minute,second],
+      format: count_format
     });
 
     // Fake COuntdown Script
+    var $countdown_fake = $scope.find('.naeep-countdown.fake');
     $('.naeep-countdown.fake').each( function() {
-      var $countdown = $(this);
-      var date = $countdown.data("date");
+      var $countdown_fake = $(this);
+      var date = $countdown_fake.data("date");
       var today = new Date();
       var newdate = new Date();
       newdate.setDate(today.getDate() + date);
@@ -583,29 +663,30 @@ $( window ).on( 'elementor/frontend/init', function() {
       today =  new Date(newdate);
 
       // Plural Labels
-      var years = $countdown.data("years");
-      var months = $countdown.data("months");
-      var weeks = $countdown.data("weeks");
-      var days = $countdown.data("days");
-      var hours = $countdown.data("hours");
-      var minutes = $countdown.data("minutes");
-      var seconds = $countdown.data("seconds");
+      var years = $countdown_fake.data("years");
+      var months = $countdown_fake.data("months");
+      var weeks = $countdown_fake.data("weeks");
+      var days = $countdown_fake.data("days");
+      var hours = $countdown_fake.data("hours");
+      var minutes = $countdown_fake.data("minutes");
+      var seconds = $countdown_fake.data("seconds");
       // Singular Labels
-      var year = $countdown.data("year");
-      var month = $countdown.data("month");
-      var week = $countdown.data("week");
-      var day = $countdown.data("day");
-      var hour = $countdown.data("hour");
-      var minute = $countdown.data("minute");
-      var second = $countdown.data("second");
+      var year = $countdown_fake.data("year");
+      var month = $countdown_fake.data("month");
+      var week = $countdown_fake.data("week");
+      var day = $countdown_fake.data("day");
+      var hour = $countdown_fake.data("hour");
+      var minute = $countdown_fake.data("minute");
+      var second = $countdown_fake.data("second");
 
-      $('.naeep-countdown.fake').countdown({
-        until: today,
+      $countdown_fake.countdown({
+        until: $.countdown.UTCDate(offset, today),
         labels: [years,months,weeks,days,hours,minutes,seconds],
-        labels1: [year,month,week,day,hour,minute,second],
+        labels1: [year,month,week,day,hour,minute,second]
       });
     });
-	} );
+  });
+
 	//Events Addon for Elementor Event
 	elementorFrontend.hooks.addAction( 'frontend/element_ready/naevents_tec_event.default', function($scope, $){
 	  item_hover_class('.naeep-event-item');
@@ -1003,106 +1084,6 @@ $( window ).on( 'elementor/frontend/init', function() {
   //Events Addon for Elementor event_listing
   elementorFrontend.hooks.addAction( 'frontend/element_ready/naevents_tec_event_listing.default', function($scope, $){
     owl_carousel();
-  } );
-
-  //Events Addon for Elementor Event Slider
-  elementorFrontend.hooks.addAction( 'frontend/element_ready/naevents_tec_event_slider.default', function($scope, $){
-    //Fame Swiper Slider Script
-    $('.swiper-slides').each(function (index) {
-      //Fame Swiper Slider Script
-      var animEndEv = 'webkitAnimationEnd animationend';
-      var swipermw = $('.swiper-container.swiper-mousewheel').length ? true : false;
-      var swiperkb = $('.swiper-container.swiper-keyboard').length ? true : false;
-      var swipercentered = $('.swiper-container.swiper-center').length ? true : false;
-      var swiperautoplay = $('.swiper-container').data('autoplay');
-      var swiperloop = $('.swiper-container').data('loop');
-      var swipermousedrag = $('.swiper-container').data('mousedrag');
-      var swipereffect = $('.swiper-container').data('effect');
-      var swiperclikable = $('.swiper-container').data('clickpage');
-      var swiperspeed = $('.swiper-container').data('speed');
-
-      //Fame Swiper Slides Script
-      var swiper = new Swiper($(this), {
-        autoplay: swiperautoplay,
-        effect: swipereffect,
-        speed: swiperspeed,
-        loop: swiperloop,
-        paginationClickable: swiperclikable,
-        watchSlidesProgress: true,
-        simulateTouch: swipermousedrag,
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true,
-        },
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
-        mousewheelControl: swipermw,
-        keyboardControl: swiperkb,
-      });
-      swiper.on('slideChange', function (s) {
-        var currentSlide = $(swiper.slides[swiper.activeIndex]);
-          var elems = currentSlide.find('.animated')
-          elems.each(function() {
-            var $this = $(this);
-            var animationType = $this.data('animation');
-            $this.addClass(animationType, 100).on(animEndEv, function() {
-              $this.removeClass(animationType);
-            });
-          });
-      });
-    });
-  } );
-
-  //Events Addon for Elementor Event Slider
-  elementorFrontend.hooks.addAction( 'frontend/element_ready/naevents_mec_event_slider.default', function($scope, $){
-    //Fame Swiper Slider Script
-    $('.swiper-slides').each(function (index) {
-      //Fame Swiper Slider Script
-      var animEndEv = 'webkitAnimationEnd animationend';
-      var swipermw = $('.swiper-container.swiper-mousewheel').length ? true : false;
-      var swiperkb = $('.swiper-container.swiper-keyboard').length ? true : false;
-      var swipercentered = $('.swiper-container.swiper-center').length ? true : false;
-      var swiperautoplay = $('.swiper-container').data('autoplay');
-      var swiperloop = $('.swiper-container').data('loop');
-      var swipermousedrag = $('.swiper-container').data('mousedrag');
-      var swipereffect = $('.swiper-container').data('effect');
-      var swiperclikable = $('.swiper-container').data('clickpage');
-      var swiperspeed = $('.swiper-container').data('speed');
-
-      //Fame Swiper Slides Script
-      var swiper = new Swiper($(this), {
-        autoplay: swiperautoplay,
-        effect: swipereffect,
-        speed: swiperspeed,
-        loop: swiperloop,
-        paginationClickable: swiperclikable,
-        watchSlidesProgress: true,
-        simulateTouch: swipermousedrag,
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true,
-        },
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
-        mousewheelControl: swipermw,
-        keyboardControl: swiperkb,
-      });
-      swiper.on('slideChange', function (s) {
-        var currentSlide = $(swiper.slides[swiper.activeIndex]);
-          var elems = currentSlide.find('.animated')
-          elems.each(function() {
-            var $this = $(this);
-            var animationType = $this.data('animation');
-            $this.addClass(animationType, 100).on(animEndEv, function() {
-              $this.removeClass(animationType);
-            });
-          });
-      });
-    });
   } );
 
 } );

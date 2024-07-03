@@ -37,27 +37,57 @@ if ( ! class_exists( 'Stackable_Global_Settings' ) ) {
 		public $generated_body_typography_css = false;
 
 		/**
+		 * Corresponds to the stackable_global_force_typography option for forcing important
+		 *
+		 * @var boolean
+		 */
+		private $force_typography = false;
+
+		/**
 		 * Initialize
 		 */
-        function __construct() {
+  		function __construct() {
 			// Register our settings.
-			add_action( 'init', array( $this, 'register_global_settings' ) );
+			add_action( 'admin_init', array( $this, 'register_global_settings' ) );
+			add_action( 'rest_api_init', array( $this, 'register_global_settings' ) );
 
-			/**
-			 * Color hooks
-			 */
-add_action( 'wp_enqueue_scripts', array( $this, 'color_add_global_styles' ) );
+			if ( is_frontend() ) {
 
-			add_action( 'after_setup_theme', array( $this, 'color_add_global_color_palette' ), 9999 );
+				/**
+				 * Color hooks
+				 */
+				// Add the color styles in the frontend only.
+				add_filter( 'stackable_inline_styles_nodep', array( $this, 'color_add_global_styles' ) );
 
-			/**
-			 * Typography hooks
-			 */
+				/**
+				 * Typography hooks
+				 */
 
-			add_action( 'wp_enqueue_scripts', array( $this, 'typography_add_global_styles' ) );
+				/**
+				 * Use `after_setup_theme` to check early if there are global
+				 * typography used the `typograhy_detect_native_blocks`  method.
+				 *
+				 * @since 2.17.1
+				 */
+				// Don't do anything if we don't have any global typography.
+				$typography = get_option( 'stackable_global_typography' );
+				if ( ! empty( $typography ) && is_array( $typography ) ) {
+					$this->force_typography = get_option( 'stackable_global_force_typography' );
+					add_action( 'after_setup_theme', array( $this, 'typography_parse_global_styles' ) );
+				}
 
-			// For some native blocks, add a note that they're core blocks.
-			add_filter( 'render_block', array( $this, 'typography_detect_native_blocks' ), 10, 2 );
+				// For some native blocks, add a note that they're core blocks.
+				// Only do this when we need to style native blocks.
+				if ( in_array( $this->get_apply_typography_to(), array( 'blocks-stackable-native', 'blocks-all' ) ) ) {
+					add_filter( 'render_block', array( $this, 'typography_detect_native_blocks' ), 10, 2 );
+				}
+
+				// Fixes columns issue with Native Posts block.
+				add_filter( 'stackable_global_typography_selectors', array( $this, 'posts_block_columns_fix' ), 10, 2 );
+
+				// Add our global typography styles in the frontend only.
+				add_filter( 'stackable_inline_styles_nodep', array( $this, 'typography_add_global_styles' ) );
+			}
 		}
 
 		/**
@@ -66,6 +96,8 @@ add_action( 'wp_enqueue_scripts', array( $this, 'color_add_global_styles' ) );
 		 * @return void
 		 */
 		public function register_global_settings() {
+			$this->fix_deprecated_options();
+
 			register_setting(
 				'stackable_global_settings',
 				'stackable_global_colors',
@@ -103,10 +135,34 @@ add_action( 'wp_enqueue_scripts', array( $this, 'color_add_global_styles' ) );
 
 			register_setting(
 				'stackable_global_settings',
-				'stackable_global_colors_palette_only',
+				'stackable_global_hide_theme_colors',
 				array(
 					'type' => 'boolean',
-					'description' => __( 'Stackable global colors display only global colors', STACKABLE_I18N ),
+					'description' => __( 'Hide theme colors in the Stackable color picker', STACKABLE_I18N ),
+					'sanitize_callback' => 'sanitize_text_field',
+					'show_in_rest' => true,
+					'default' => '',
+				)
+			);
+
+			register_setting(
+				'stackable_global_settings',
+				'stackable_global_hide_default_colors',
+				array(
+					'type' => 'boolean',
+					'description' => __( 'Hide default colors in the Stackable color picker', STACKABLE_I18N ),
+					'sanitize_callback' => 'sanitize_text_field',
+					'show_in_rest' => true,
+					'default' => '',
+				)
+			);
+
+			register_setting(
+				'stackable_global_settings',
+				'stackable_global_hide_site_editor_colors',
+				array(
+					'type' => 'boolean',
+					'description' => __( 'Hide Site Editor colors in the Stackable color picker', STACKABLE_I18N ),
 					'sanitize_callback' => 'sanitize_text_field',
 					'show_in_rest' => true,
 					'default' => '',
@@ -119,18 +175,6 @@ add_action( 'wp_enqueue_scripts', array( $this, 'color_add_global_styles' ) );
 				array(
 					'type' => 'string',
 					'description' => __( 'Stackable global typography apply to setting', STACKABLE_I18N ),
-					'sanitize_callback' => 'sanitize_text_field',
-					'show_in_rest' => true,
-					'default' => '',
-				)
-			);
-
-			register_setting(
-				'stackable_global_settings',
-				'stackable_global_content_selector',
-				array(
-					'type' => 'string',
-					'description' => __( 'Stackable global typography content selector', STACKABLE_I18N ),
 					'sanitize_callback' => 'sanitize_text_field',
 					'show_in_rest' => true,
 					'default' => '',
@@ -200,6 +244,12 @@ add_action( 'wp_enqueue_scripts', array( $this, 'color_add_global_styles' ) );
 					'letterSpacing' => array(
 						'type' => 'number',
 					),
+					'tabletLetterSpacing' => array(
+						'type' => 'number',
+					),
+					'mobileLetterSpacing' => array(
+						'type' => 'number',
+					),
 				)
 			);
 
@@ -223,6 +273,7 @@ add_action( 'wp_enqueue_scripts', array( $this, 'color_add_global_styles' ) );
 									'h5' => $stackable_global_typography_schema,
 									'h6' => $stackable_global_typography_schema,
 									'p' => $stackable_global_typography_schema,
+									'.stk-subtitle' => $stackable_global_typography_schema,
 								)
 							)
 						)
@@ -230,6 +281,22 @@ add_action( 'wp_enqueue_scripts', array( $this, 'color_add_global_styles' ) );
 					'default' => '',
 				)
 			);
+		}
+
+		/**
+		 * Updates the old "use Stackable colors only" option to the new individual hide options.
+		 *
+		 * @return void
+		 *
+		 * @since 3.11.0
+		 */
+		public function fix_deprecated_options() {
+			if ( ! empty( get_option( 'stackable_global_colors_palette_only' ) ) ) {
+				update_option( 'stackable_global_hide_theme_colors', '1', 'no' );
+				update_option( 'stackable_global_hide_default_colors', '1', 'no' );
+				update_option( 'stackable_global_hide_site_editor_colors', '1', 'no' );
+				delete_option( 'stackable_global_colors_palette_only' );
+			}
 		}
 
 		public function sanitize_array_setting( $input ) {
@@ -241,134 +308,27 @@ add_action( 'wp_enqueue_scripts', array( $this, 'color_add_global_styles' ) );
 		 * Color functions
 		 *-----------------------------------------------------------------------------*/
 
-		 /**
-		  * Add our global colors in the editor.
-		  *
-		  * @return void
-		  */
-		public function color_add_global_color_palette() {
-			$global_colors = get_option( 'stackable_global_colors' );
-			if ( ! empty( $global_colors ) ) {
-
-				// Get the current set of colors.
-				$colors = get_theme_support( 'editor-color-palette' );
-				if ( isset( $colors[0] ) ) {
-					$colors = $colors[0];
-				}
-
-				// If no colors, create defaults.
-				if ( empty( $colors ) ) {
-					$colors = array(
-						array(
-							'name' => __( 'Black', STACKABLE_I18N ),
-							'slug' => 'black',
-							'color' => '#000000',
-						),
-						array(
-							'name' => __( 'Cyan bluish gray', STACKABLE_I18N ),
-							'slug' => 'cyan-bluish-gray',
-							'color' => '#abb8c3',
-						),
-						array(
-							'name' => __( 'White', STACKABLE_I18N ),
-							'slug' => 'white',
-							'color' => '#ffffff',
-						),
-						array(
-							'name' => __( 'Pale pink', STACKABLE_I18N ),
-							'slug' => 'pale-pink',
-							'color' => '#f78da7',
-						),
-						array(
-							'name' => __( 'Vivid red', STACKABLE_I18N ),
-							'slug' => 'vivid-red',
-							'color' => '#cf2e2e',
-						),
-						array(
-							'name' => __( 'Luminous vivid orange', STACKABLE_I18N ),
-							'slug' => 'luminous-vivid-orange',
-							'color' => '#ff6900',
-						),
-						array(
-							'name' => __( 'Luminous vivid amber', STACKABLE_I18N ),
-							'slug' => 'luminous-vivid-amber',
-							'color' => '#fcb900',
-						),
-						array(
-							'name' => __( 'Light green cyan', STACKABLE_I18N ),
-							'slug' => 'light-green-cyan',
-							'color' => '#7bdcb5',
-						),
-						array(
-							'name' => __( 'Vivid green cyan', STACKABLE_I18N ),
-							'slug' => 'vivid-green-cyan',
-							'color' => '#00d084',
-						),
-						array(
-							'name' => __( 'Pale cyan blue', STACKABLE_I18N ),
-							'slug' => 'pale-cyan-blue',
-							'color' => '#8ed1fc',
-						),
-						array(
-							'name' => __( 'Vivid cyan blue', STACKABLE_I18N ),
-							'slug' => 'vivid-cyan-blue',
-							'color' => '#0693e3',
-						),
-						array(
-							'name' => __( 'Vivid purple', STACKABLE_I18N ),
-							'slug' => 'vivid-purple',
-							'color' => '#9b51e0',
-						),
-					);
-				}
-
-				// Get the first global color set saved. Provision for future global color sets.
-				if ( is_array( $global_colors ) ) {
-					if ( is_array( $global_colors[0] ) ) {
-						$global_colors = $global_colors[0];
-					}
-				}
-
-				// Beta compatibility: if the "color" key exists, this means the
-				// color is invalid and was saved in a beta version. The beta
-				// version worked differently and shouldn't be used.
-				if ( is_array( $global_colors ) ) {
-					if ( array_key_exists( 'color', $global_colors ) ) {
-						$global_colors = array();
-					}
-				}
-
-				if ( empty( $global_colors ) ) {
-					$global_colors = array();
-				}
-
-				// Append our global colors with the theme/default ones.
-				$colors = array_merge( $colors, $global_colors );
-				add_theme_support( 'editor-color-palette', $colors );
-			}
-		}
-
 		/**
 		 * Add our global color styles in the frontend.
 		 *
-		 * @return void
+		 * @param String $current_css
+		 * @return String
 		 */
-		public function color_add_global_styles() {
+		public function color_add_global_styles( $current_css ) {
 			// Don't do anything if we doon't have any global color.
 			$colors = get_option( 'stackable_global_colors' );
 			if ( ! $colors || ! is_array( $colors ) ) {
-				return;
+				return $current_css;
 			}
 
 			$css = array();
-			$core_css = array();
 
-			foreach( $colors as $color_palette ) {
+			foreach ( $colors as $color_palette ) {
 				if ( ! is_array( $color_palette ) ) {
 					continue;
 				}
 
-				foreach( $color_palette as $color ) {
+				foreach ( $color_palette as $color ) {
 					if ( ! is_array( $color ) ) {
 						continue;
 					}
@@ -376,24 +336,11 @@ add_action( 'wp_enqueue_scripts', array( $this, 'color_add_global_styles' ) );
 						continue;
 					}
 
-					$color_name = strtolower( $color['slug'] );
-
-					// Convert the name to kebab casing,
-					$color_typography_name = 'body .has-' . implode( '-', explode( ' ', $color_name ) ) . '-color';
-					$color_background_name = 'body .has-' . implode( '-', explode( ' ', $color_name ) ) . '-background-color';
-
 					// Only do this for our global colors.
 					if ( $color['color'] && $color['slug'] ) {
 						// Add the custom css property.
 						$css[] = '--' . $color['slug'] . ': ' . $color['color'] . ';';
 						$css[] = '--' . $color['slug'] . '-rgba: ' . $color['rgb'] . ';';
-
-						// Add custom css class rule for other blocks.
-						// For typography colors.
-						$core_css[] = $color_typography_name . ' { color: ' . $color['color'] . ' !important; }';
-
-						// For background colors.
-						$core_css[] = $color_background_name . ' { background-color: ' . $color['color'] . ' !important; }';
 					}
 				}
 			}
@@ -401,12 +348,10 @@ add_action( 'wp_enqueue_scripts', array( $this, 'color_add_global_styles' ) );
 			if ( count( $css ) ) {
 				$generated_color_css = "/* Global colors */\n";
 				$generated_color_css .= ':root {' . implode( ' ', $css ) . '}';
-				wp_add_inline_style( 'ugb-style-css', $generated_color_css );
+				$current_css .= $generated_color_css;
 			}
 
-			if ( count( $core_css ) ) {
-				wp_add_inline_style( 'ugb-style-css', implode( ' ', $core_css ) );
-			}
+			return apply_filters( 'stackable_global_colors_frontend_css', $current_css, $colors );
 		}
 
 		/**-----------------------------------------------------------------------------
@@ -418,8 +363,7 @@ add_action( 'wp_enqueue_scripts', array( $this, 'color_add_global_styles' ) );
 		 *
 		 * @return void
 		 */
-		public function typography_add_global_styles() {
-			// Don't do anything if we don't have any global typography.
+		public function typography_parse_global_styles() {
 			$typography = get_option( 'stackable_global_typography' );
 			if ( ! $typography || ! is_array( $typography ) ) {
 				return;
@@ -432,7 +376,6 @@ add_action( 'wp_enqueue_scripts', array( $this, 'color_add_global_styles' ) );
 			}
 
 			$css = array();
-			$google_fonts = array();
 
 			// $tags = array( 'h1', 'h2', 'h3', 'h4', 'h5', 'h6' );
 			foreach ( $active_typography as $tag => $styles ) {
@@ -445,67 +388,92 @@ add_action( 'wp_enqueue_scripts', array( $this, 'color_add_global_styles' ) );
 				$css[] = $this->generate_typography_styles( implode( ', ', $selectors ), $styles );
 
 				// Gather the Google Fonts.
-				if ( array_key_exists( 'fontFamily', $styles ) ) {
-					if ( Stackable_Google_Fonts::is_web_font( $styles['fontFamily'] ) && ! empty( $styles['fontFamily'] ) ) {
-						if ( ! in_array( $styles['fontFamily'], $google_fonts ) ) {
-							$google_fonts[] = $styles['fontFamily'];
-						}
-					}
+				if ( isset( $styles['fontFamily'] ) ) {
+					Stackable_Google_Fonts::register_font( $styles['fontFamily'] );
 				}
 
 				// Note whether we have global typography.
 				if ( in_array( $tag, array( 'h1', 'h2', 'h3', 'h4', 'h5', 'h6' ) ) ) {
 					$this->generated_heading_typography_css = true;
-				} else if ( $tag === 'p' ) {
+				} else if ( $tag === 'p' || stripos( $tag, '.' ) === 0 ) {
+					// When the $tag passed is a class selector, set the generated_body_typography_css also to true so
+					// that we can also generate `data-block-type` attributes to core blocks.
 					$this->generated_body_typography_css = true;
 				}
 			}
 
-			// Load the Google Font.
-			if ( ! empty( $google_fonts ) ) {
-				Stackable_Google_Fonts::enqueue_google_fonts( $google_fonts, 'stackable-global-typography-google-fonts' );
-			}
-
 			if ( count( $css ) ) {
-				$this->generated_typography_css = true;
 				$inline_css = "/* Global typography */\n";
 				$inline_css .= implode( "\n", $css );
-				wp_add_inline_style( 'ugb-style-css', $inline_css );
+				$this->generated_typography_css = apply_filters( 'stackable_frontend_css', $inline_css );
 			}
 		}
 
-		public function form_selectors( $tag ) {
-			if ( in_array( $tag, array( 'h1', 'h2', 'h3', 'h4', 'h5', 'h6' ) ) ) {
-				return $this->form_tag_selector( $tag );
+		/**
+		* Add the inline global typography styles in the frontend
+		*
+		* @return void
+		*
+		* @since 2.17.2
+		*/
+		public function typography_add_global_styles( $css ) {
+			return $css . $this->generated_typography_css;
+		}
+
+		public function form_selectors( $selector ) {
+			if ( in_array( $selector, array( 'h1', 'h2', 'h3', 'h4', 'h5', 'h6' ) ) ) {
+				return $this->form_tag_selector( $selector );
+			} else if ( $selector === 'p' ) {
+				return $this->form_paragraph_selector();
+			} else if ( stripos( $selector, '.' ) === 0 ) {
+				return $this->form_class_selector( $selector );
 			}
-			return $this->form_paragraph_selector();
+		}
+
+		public function form_class_selector( $selector ) {
+			// Content area of the theme.
+			$selectors = array( $selector );
+			// Include Stackable blocks.
+			$selectors[] = '.stk-block ' . $selector;
+			$selectors[] = '.stk-block' . $selector;
+
+			// Include native blocks.
+			$selectors[] = '[data-block-type="core"] ' . $selector;
+			$selectors[] = '[data-block-type="core"]' . $selector;
+			$selectors[] = $selector . '[data-block-type="core"]';
+			$selectors[] = $selector . '[data-block-type="core"] ';
+
+			// Include all other blocks.
+			$selectors[] = '[class*="wp-block-"] ' . $selector;
+			$selectors[] = '[class*="wp-block-"]' . $selector;
+			$selectors[] = $selector . '[class*="wp-block-"]';
+			$selectors[] = $selector . '[class*="wp-block-"] ';
+
+			return apply_filters( 'stackable_global_typography_selectors', $selectors, $selector );
 		}
 
 		public function form_tag_selector( $tag ) {
 			// Content area of the theme.
-			$content_selector = get_option( 'stackable_global_content_selector' );
-			if ( empty( $content_selector ) ) {
-				$content_selector = '.entry-content';
-			}
-
 			$selectors = array();
 
 			// Include Stackable blocks.
-			$selectors[] = $content_selector . ' .ugb-main-block ' . $tag;
+			$selectors[] = '.stk-block ' . $tag;
+
+			$apply_to = $this->get_apply_typography_to();
 
 			// Include native blocks.
-			if ( $this->get_apply_typography_to() !== 'blocks-stackable' ) {
-				$selectors[] = $content_selector . ' [data-block-type="core"] ' . $tag;
-				$selectors[] = $content_selector . ' ' . $tag . '[data-block-type="core"]';
+			if ( $apply_to !== 'blocks-stackable' ) {
+				$selectors[] = '[data-block-type="core"] ' . $tag;
+				$selectors[] = $tag . '[data-block-type="core"]';
 			}
 
 			// Include all other blocks.
-			if ( $this->get_apply_typography_to() === 'blocks-all' ) {
-				$selectors[] = $content_selector . ' [class*="wp-block-"] ' . $tag;
-				$selectors[] = $content_selector . ' ' . $tag . '[class*="wp-block-"]';
+			if ( $apply_to === 'blocks-all' ) {
+				$selectors[] = '[class*="wp-block-"] ' . $tag;
+				$selectors[] = $tag . '[class*="wp-block-"]';
 			}
 
-			return $selectors;
+			return apply_filters( 'stackable_global_typography_selectors', $selectors, $tag );
 		}
 
 		public function form_paragraph_selector() {
@@ -525,13 +493,7 @@ add_action( 'wp_enqueue_scripts', array( $this, 'color_add_global_styles' ) );
 		 * @return string
 		 */
 		public function create_style( $style, $value ) {
-			$imp = get_option( 'stackable_global_force_typography' ) ? ' !important' : '';
-
-			return sprintf( '%s: %s%s;',
-				$style,
-				$value,
-				$imp
-			);
+			return $style . ': ' . $value . ( $this->force_typography ? ' !important' : '' ) . ';';
 		}
 
 		/**
@@ -574,41 +536,44 @@ add_action( 'wp_enqueue_scripts', array( $this, 'color_add_global_styles' ) );
 			/**
 			 * Desktop styles.
 			 */
-			if ( array_key_exists( 'fontFamily', $styles ) ) {
+			if ( isset( $styles['fontFamily'] ) ) {
 				$css['desktop'][] = $this->create_style( 'font-family', $this->get_font_family( $styles['fontFamily'] ) );
 			}
-			if ( array_key_exists( 'fontSize', $styles ) ) {
+			if ( isset( $styles['fontSize'] ) ) {
 				$css['desktop'][] = $this->create_style( 'font-size', $styles['fontSize'] . $styles['fontSizeUnit'] );
 			}
-			if ( array_key_exists( 'fontWeight', $styles ) ) {
+			if ( isset( $styles['fontWeight'] ) ) {
 				$css['desktop'][] = $this->create_style( 'font-weight', $styles['fontWeight'] );
 			}
-			if ( array_key_exists( 'textTransform', $styles ) ) {
+			if ( isset( $styles['textTransform'] ) ) {
 				$css['desktop'][] = $this->create_style( 'text-transform', $styles['textTransform'] );
 			}
-			if ( array_key_exists( 'lineHeight', $styles ) ) {
+			if ( isset( $styles['lineHeight'] ) ) {
 				$css['desktop'][] = $this->create_style( 'line-height', $styles['lineHeight'] . $styles['lineHeightUnit'] );
 			}
-			if ( array_key_exists( 'letterSpacing', $styles ) ) {
+			if ( isset( $styles['letterSpacing'] ) ) {
 				$css['desktop'][] = $this->create_style( 'letter-spacing', $styles['letterSpacing'] . 'px' );
 			}
 
 			/**
 			 * Tablet styles.
 			 */
-			if ( array_key_exists( 'tabletLineHeight', $styles ) ) {
+			if ( isset( $styles['tabletLineHeight'] ) ) {
 				$css['tablet'][] = $this->create_style( 'line-height', $styles['tabletLineHeight'] . $styles['tabletLineHeightUnit'] );
+			}
+			if ( isset( $styles['tabletLetterSpacing'] ) ) {
+				$css['tablet'][] = $this->create_style( 'letter-spacing', $styles['tabletLetterSpacing'] . 'px' );
 			}
 			$font_size = '';
 			if ( $inherit ) {
-				if ( array_key_exists( 'fontSize', $styles ) ) {
+				if ( isset( $styles['fontSize'] ) ) {
 					$clamp_desktop_value = $this->clamp_inherited_style( $styles['fontSize'], $inherit_max );
 					if ( ! empty( $clamp_desktop_value ) ) {
 						$font_size = $this->create_style( 'font-size', $clamp_desktop_value . $styles['fontSizeUnit'] );
 					}
 				}
 			}
-			if ( array_key_exists( 'tabletFontSize', $styles ) ) {
+			if ( isset( $styles['tabletFontSize'] ) ) {
 				$font_size = $this->create_style( 'font-size', $styles['tabletFontSize'] . $styles['tabletFontSizeUnit'] );
 			}
 			if ( ! empty( $font_size ) ) {
@@ -618,15 +583,18 @@ add_action( 'wp_enqueue_scripts', array( $this, 'color_add_global_styles' ) );
 			/**
 			 * Mobile styles.
 			 */
-			if ( array_key_exists( 'mobileLineHeight', $styles ) ) {
+			if ( isset( $styles['mobileLineHeight'] ) ) {
 				$css['mobile'][] = $this->create_style( 'line-height', $styles['mobileLineHeight'] . $styles['mobileLineHeightUnit'] );
+			}
+			if ( isset( $styles['mobileLetterSpacing'] ) ) {
+				$css['mobile'][] = $this->create_style( 'letter-spacing', $styles['mobileLetterSpacing'] . 'px' );
 			}
 
 			$font_size = '';
 			if ( $inherit ) {
 				$clamp_desktop_value = null;
 				$has_clamped_font_size = false;
-				if ( array_key_exists( 'fontSize', $styles ) ) {
+				if ( isset( $styles['fontSize'] ) ) {
 					$clamp_desktop_value = $this->clamp_inherited_style( $styles['fontSize'], $inherit_max );
 					if ( ! empty( $clamp_desktop_value ) ) {
 						$font_size = $this->create_style( 'font-size', $clamp_desktop_value . $styles['fontSizeUnit'] );
@@ -634,14 +602,14 @@ add_action( 'wp_enqueue_scripts', array( $this, 'color_add_global_styles' ) );
 				}
 
 				$clamp_tablet_value = null;
-				if ( array_key_exists( 'tabletFontSize', $styles ) ) {
+				if ( isset( $styles['tabletFontSize'] ) ) {
 					$clamp_tablet_value = $this->clamp_inherited_style( $styles['tabletFontSize'], $inherit_max );
 					if ( ! empty( $clamp_tablet_value ) ) {
 						$font_size = $this->create_style( 'font-size', $clamp_tablet_value . $styles['tabletFontSizeUnit'] );
 					}
 				}
 				if ( empty( $clamp_tablet_value ) ) {
-					if ( ! empty( $clamp_desktop_value ) || array_key_exists( 'tabletFontSize', $styles ) ) {
+					if ( ! empty( $clamp_desktop_value ) || isset( $styles['tabletFontSize'] ) ) {
 						// If we have a desktop value clamped, and there's a tablet value, don't do anything.
 						if ( $has_clamped_font_size ) {
 							$font_size = '';
@@ -649,7 +617,7 @@ add_action( 'wp_enqueue_scripts', array( $this, 'color_add_global_styles' ) );
 					}
 				}
 			}
-			if ( array_key_exists( 'mobileFontSize', $styles ) ) {
+			if ( isset( $styles['mobileFontSize'] ) ) {
 				$font_size = $this->create_style( 'font-size', $styles['mobileFontSize'] . $styles['mobileFontSizeUnit'] );
 			}
 			if ( ! empty( $font_size ) ) {
@@ -723,18 +691,17 @@ add_action( 'wp_enqueue_scripts', array( $this, 'color_add_global_styles' ) );
 		 * @return string Rendered block
 		 */
 		public function typography_detect_native_blocks( $block_content, $block ) {
-			// Only do this when we need to style native blocks.
-			if ( ! in_array( $this->get_apply_typography_to(), array( 'blocks-stackable-native', 'blocks-all' ) ) ) {
-				return $block_content;
-			}
-
 			// Only do this if we have some global typography settings to apply.
-			if ( ! $this->generated_typography_css ) {
+			if ( empty( $this->generated_typography_css ) ) {
 				return $block_content;
 			}
 
 			// Only do this for native blocks.
-			if ( stripos( $block['blockName'], 'core/' ) !== 0 ) {
+			if ( ! isset( $block['blockName'] ) || strpos( $block['blockName'], 'core/' ) !== 0 ) {
+				return $block_content;
+			}
+
+			if ( $block_content === null ) {
 				return $block_content;
 			}
 
@@ -754,10 +721,10 @@ add_action( 'wp_enqueue_scripts', array( $this, 'color_add_global_styles' ) );
 			}
 
 			// If a native block, let's add a new data- attribute to it so we can target it in css.
-			if ( stripos( $block_content, '>' ) !== false ) {
+			if ( strpos( $block_content, '>' ) !== false ) {
 				$new_block_content = $this->str_replace_first( '>', ' data-block-type="core">', $block_content );
 				// If we encounter a comment that got converted, we can detect that.
-				if ( stripos( $new_block_content, '-- data-block-type="core">' ) === false ) {
+				if ( strpos( $new_block_content, '-- data-block-type="core">' ) === false ) {
 					return $new_block_content;
 				}
 			}
@@ -786,6 +753,27 @@ add_action( 'wp_enqueue_scripts', array( $this, 'color_add_global_styles' ) );
 				return substr_replace( $subject, $replace, $pos, strlen( $search ) );
 			}
 			return $subject;
+		}
+
+		/**
+		 * Prevent global settings from affecting the styles of the native Post
+		 * block. This fixes the issue where the last column of the native Posts
+		 * block incorrectly wraps below and leaves a gap.
+		 *
+		 * @param array $selectors
+		 * @param string $tag
+		 * @return void
+		 */
+		public function posts_block_columns_fix( $selectors, $tag ) {
+			// Prevent global settings from affecting the native wp block post.
+			if ( $tag === 'li' ) {
+				$index = array_search( '[data-block-type="core"] li', $selectors );
+				if ( $index !== false ) {
+					$selectors[ $index ] = '[data-block-type="core"] li:not(.wp-block-post)';
+				}
+			}
+
+			return $selectors;
 		}
 	}
 

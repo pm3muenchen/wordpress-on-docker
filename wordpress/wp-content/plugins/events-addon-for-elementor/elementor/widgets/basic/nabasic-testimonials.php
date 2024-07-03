@@ -44,7 +44,7 @@ class Event_Elementor_Addon_Testimonials extends Widget_Base{
 	 * Register Events Addon for Elementor Testimonials widget controls.
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	*/
-	protected function _register_controls(){
+	protected function register_controls(){
 
 		$this->start_controls_section(
 			'section_testimonials',
@@ -98,10 +98,11 @@ class Event_Elementor_Addon_Testimonials extends Widget_Base{
 			'testimonials_icon',
 			[
 				'label' => esc_html__( 'Select Quote Icon', 'events-addon-for-elementor' ),
-				'type' => Controls_Manager::ICON,
-				'options' => NAEEP_Controls_Helper_Output::get_include_icons(),
-				'frontend_available' => true,
-				'default' => 'fa fa-quote-left',
+				'type' => Controls_Manager::ICONS,
+				'default' => [
+					'value' => 'fas fa-quote-left',
+					'library' => 'fa-solid',
+				],
 				'condition' => [
 					'testimonials_style' => 'one',
 				],
@@ -179,10 +180,11 @@ class Event_Elementor_Addon_Testimonials extends Widget_Base{
 			'testimonial_icon',
 			[
 				'label' => esc_html__( 'Select Quote Icon', 'events-addon-for-elementor' ),
-				'type' => Controls_Manager::ICON,
-				'options' => NAEEP_Controls_Helper_Output::get_include_icons(),
-				'frontend_available' => true,
-				'default' => 'fa fa-quote-left',
+				'type' => Controls_Manager::ICONS,
+				'default' => [
+					'value' => 'fas fa-quote-left',
+					'library' => 'fa-solid',
+				],
 			]
 		);
 		$repeater->add_control(
@@ -532,10 +534,6 @@ class Event_Elementor_Addon_Testimonials extends Widget_Base{
 				[
 					'label' => esc_html__( 'Icon Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_2,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .naeep-testimonial-item .naeep-icon i' => 'color: {{VALUE}};',
 					],
@@ -817,7 +815,6 @@ class Event_Elementor_Addon_Testimonials extends Widget_Base{
 					[
 						'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 						'name' => 'sastestimonial_title_typography',
-						'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 						'selector' => '{{WRAPPER}} .naeep-testimonial-item h4',
 					]
 				);
@@ -833,10 +830,6 @@ class Event_Elementor_Addon_Testimonials extends Widget_Base{
 						[
 							'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 							'type' => Controls_Manager::COLOR,
-							'scheme' => [
-								'type' => Scheme_Color::get_type(),
-								'value' => Scheme_Color::COLOR_1,
-							],
 							'selectors' => [
 								'{{WRAPPER}} .naeep-testimonial-item h4, {{WRAPPER}} .naeep-testimonial-item h4 a' => 'color: {{VALUE}};',
 							],
@@ -855,10 +848,6 @@ class Event_Elementor_Addon_Testimonials extends Widget_Base{
 						[
 							'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 							'type' => Controls_Manager::COLOR,
-							'scheme' => [
-								'type' => Scheme_Color::get_type(),
-								'value' => Scheme_Color::COLOR_2,
-							],
 							'selectors' => [
 								'{{WRAPPER}} .naeep-testimonial-item h4 a:hover' => 'color: {{VALUE}};',
 							],
@@ -881,7 +870,6 @@ class Event_Elementor_Addon_Testimonials extends Widget_Base{
 					[
 						'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 						'name' => 'subtitle_typography',
-						'scheme' => Scheme_Typography::TYPOGRAPHY_2,
 						'selector' => '{{WRAPPER}} .naeep-testimonial-item h5',
 					]
 				);
@@ -890,10 +878,6 @@ class Event_Elementor_Addon_Testimonials extends Widget_Base{
 					[
 						'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'scheme' => [
-							'type' => Scheme_Color::get_type(),
-							'value' => Scheme_Color::COLOR_2,
-						],
 						'selectors' => [
 							'{{WRAPPER}} .naeep-testimonial-item h5' => 'color: {{VALUE}};',
 						],
@@ -914,7 +898,6 @@ class Event_Elementor_Addon_Testimonials extends Widget_Base{
 					[
 						'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 						'name' => 'content_typography',
-						'scheme' => Scheme_Typography::TYPOGRAPHY_3,
 						'selector' => '{{WRAPPER}} .naeep-testimonial-item p',
 					]
 				);
@@ -923,10 +906,6 @@ class Event_Elementor_Addon_Testimonials extends Widget_Base{
 					[
 						'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'scheme' => [
-							'type' => Scheme_Color::get_type(),
-							'value' => Scheme_Color::COLOR_3,
-						],
 						'selectors' => [
 							'{{WRAPPER}} .naeep-testimonial-item p' => 'color: {{VALUE}};',
 						],
@@ -1120,10 +1099,6 @@ class Event_Elementor_Addon_Testimonials extends Widget_Base{
 					[
 						'label' => esc_html__( 'Background Color', 'events-addon-for-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'scheme' => [
-							'type' => Scheme_Color::get_type(),
-							'value' => Scheme_Color::COLOR_2,
-						],
 						'selectors' => [
 							'{{WRAPPER}} .owl-carousel .owl-dot.active' => 'background: {{VALUE}};',
 						],
@@ -1155,7 +1130,7 @@ class Event_Elementor_Addon_Testimonials extends Widget_Base{
 		$center_item = !empty( $settings['center_item'] ) ? $settings['center_item'] : '';
 		$info_position = !empty( $settings['info_position'] ) ? $settings['info_position'] : '';
 		$testimonials_image = !empty( $settings['testimonials_image']['id'] ) ? $settings['testimonials_image']['id'] : '';
-		$testimonials_icon = !empty( $settings['testimonials_icon'] ) ? $settings['testimonials_icon'] : '';
+		$testimonials_icon = !empty( $settings['testimonials_icon'] ) ? $settings['testimonials_icon']['value'] : '';
 		$testimonials_title = !empty( $settings['testimonials_title'] ) ? $settings['testimonials_title'] : '';
 
 		$testimonials_title_link = !empty( $settings['testimonials_title_link'] ) ? $settings['testimonials_title_link'] : '';
@@ -1237,7 +1212,7 @@ class Event_Elementor_Addon_Testimonials extends Widget_Base{
 					foreach ( $testimonials_groups as $each_testimonial ) {
 						$testimonial_upload_type = !empty( $each_testimonial['testimonial_upload_type'] ) ? $each_testimonial['testimonial_upload_type'] : '';
 						$testimonial_image = !empty( $each_testimonial['testimonial_image']['id'] ) ? $each_testimonial['testimonial_image']['id'] : '';
-						$testimonial_icon = !empty( $each_testimonial['testimonial_icon'] ) ? $each_testimonial['testimonial_icon'] : '';
+						$testimonial_icon = !empty( $each_testimonial['testimonial_icon'] ) ? $each_testimonial['testimonial_icon']['value'] : '';
 						$testimonial_title = !empty( $each_testimonial['testimonial_title'] ) ? $each_testimonial['testimonial_title'] : '';
 						$testimonial_designation = !empty( $each_testimonial['testimonial_designation'] ) ? $each_testimonial['testimonial_designation'] : '';
 						$testimonial_content = !empty( $each_testimonial['testimonial_content'] ) ? $each_testimonial['testimonial_content'] : '';

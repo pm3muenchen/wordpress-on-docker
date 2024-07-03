@@ -11,16 +11,20 @@ const InputWithButton = ({ Input, Button, instructions, errorMessage }) => (
         {Button}
       </div>
     </div>
-    {errorMessage ? (
-      <div className={styles.errors}>
-        {errorMessage}
-      </div>
-    ) : null}
-    {instructions ? (
-      <div className={styles.instructions}>
-        {instructions}
-      </div>
-    ) : null}
+    {errorMessage
+      ? (
+        <div className={styles.errors}>
+          {errorMessage}
+        </div>
+        )
+      : null}
+    {instructions
+      ? (
+        <div className={styles.instructions}>
+          {instructions}
+        </div>
+        )
+      : null}
   </div>
 )
 

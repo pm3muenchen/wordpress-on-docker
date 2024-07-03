@@ -35,29 +35,31 @@ const Filter = ({ label, name, attributes, searchFilterChange, value, columns = 
         <div className={styles.filterAttributes} data-columns={columns} data-variant={variant}>
           <div className={styles.filterAttributesContent}>
             {attributes.map((attribute) =>
-              attribute.key && attribute.key.length > 0 ? (
-                <div key={attribute.key} className={`${styles.filterAttribute} ${value === attribute.key ? styles.filterAttributeActive : ''}`}>
-                  <label htmlFor={`filter${name}${attribute.key}`}>
-                    <input
-                      type='checkbox'
-                      className={`${styles.filterAttributeCheckbox} ${
-                        variant === 'colors' ? styles[`filterAttributeCheckbox--${attribute.key}`] : ''
+              attribute.key && attribute.key.length > 0
+                ? (
+                  <div key={attribute.key} className={`${styles.filterAttribute} ${value === attribute.key ? styles.filterAttributeActive : ''}`}>
+                    <label htmlFor={`filter${name}${attribute.key}`}>
+                      <input
+                        type='checkbox'
+                        className={`${styles.filterAttributeCheckbox} ${
+                        variant === 'colors' ? styles[`filterAttributeCheckbox--${attribute.key.toLowerCase()}`] : ''
                       }`}
-                      name={attribute.key}
-                      checked={value === attribute.key}
-                      data-testid={`filter${name}${attribute.key}`}
-                      id={`filter${name}${attribute.key}`}
-                      onChange={(e) => {
-                        const newsearchArguments = {}
-                        newsearchArguments[name] = value === attribute.key ? '' : attribute.key
-                        newsearchArguments.page = 1
-                        searchFilterChange(newsearchArguments, true)
-                      }}
-                    />
-                    {attribute.value || attribute.key}
-                  </label>
-                </div>
-              ) : null
+                        name={attribute.key}
+                        checked={value === attribute.key}
+                        data-testid={`filter${name}${attribute.key}`}
+                        id={`filter${name}${attribute.key}`}
+                        onChange={(e) => {
+                          const newsearchArguments = {}
+                          newsearchArguments[name] = value === attribute.key ? '' : attribute.key
+                          newsearchArguments.page = 1
+                          searchFilterChange(newsearchArguments, true)
+                        }}
+                      />
+                      {attribute.value || attribute.key}
+                    </label>
+                  </div>
+                  )
+                : null
             )}
           </div>
         </div>

@@ -3,7 +3,7 @@
  * @package Restrict User Access
  * @author Joachim Jensen <joachim@dev.institute>
  * @license GPLv3
- * @copyright 2020 by Joachim Jensen
+ * @copyright 2024 by Joachim Jensen
  */
 
 defined('ABSPATH') || exit;
@@ -25,7 +25,7 @@ class RUA_Walker_Nav_Menu_Edit extends Walker_Nav_Menu_Edit
      * @param array  $args
      * @param int    $id
      */
-    public function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0)
+    public function start_el(&$output, $item, $depth = 0, $args = [], $id = 0)
     {
         $item_output = '';
         $item_id = esc_attr($item->ID);

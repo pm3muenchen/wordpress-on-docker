@@ -45,7 +45,7 @@ if ( is_plugin_active( 'all-in-one-event-calendar/all-in-one-event-calendar.php'
 		 * Register Events Addon for Elementor All-in-One Event Calendar List widget controls.
 		 * Adds different input fields to allow the user to change and customize the widget settings.
 		*/
-		protected function _register_controls(){
+		protected function register_controls(){
 
 			$events = get_posts( 'post_type="ai1ec_event"&numberposts=-1' );
 	    $EventID = array();
@@ -187,7 +187,6 @@ if ( is_plugin_active( 'all-in-one-event-calendar/all-in-one-event-calendar.php'
 				[
 					'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 					'name' => 'table_head_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 					'selector' => '{{WRAPPER}} .naeep-aoec-list .ai1ec-month-view th, {{WRAPPER}} .naeep-aoec-list .ai1ec-week-view th, {{WRAPPER}} .naeep-aoec-list .ai1ec-oneday-view th',
 				]
 			);
@@ -196,10 +195,6 @@ if ( is_plugin_active( 'all-in-one-event-calendar/all-in-one-event-calendar.php'
 				[
 					'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_1,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .naeep-aoec-list .ai1ec-month-view th, {{WRAPPER}} .naeep-aoec-list .ai1ec-week-view th, {{WRAPPER}} .naeep-aoec-list .ai1ec-oneday-view th' => 'color: {{VALUE}} !important;',
 					],
@@ -227,10 +222,6 @@ if ( is_plugin_active( 'all-in-one-event-calendar/all-in-one-event-calendar.php'
 					[
 						'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'scheme' => [
-							'type' => Scheme_Color::get_type(),
-							'value' => Scheme_Color::COLOR_4,
-						],
 						'selectors' => [
 							'{{WRAPPER}} .ai1ec-month-view .ai1ec-date, {{WRAPPER}} .ai1ec-month-view .ai1ec-date a' => 'color: {{VALUE}};',
 						],
@@ -378,7 +369,6 @@ if ( is_plugin_active( 'all-in-one-event-calendar/all-in-one-event-calendar.php'
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'filter_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 					'selector' => '{{WRAPPER}} .ai1ec-calendar-toolbar',
 				]
 			);
@@ -475,7 +465,6 @@ if ( is_plugin_active( 'all-in-one-event-calendar/all-in-one-event-calendar.php'
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'pagi_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_3,
 					'selector' => '{{WRAPPER}} .ai1ec-pagination a',
 				]
 			);
@@ -491,10 +480,6 @@ if ( is_plugin_active( 'all-in-one-event-calendar/all-in-one-event-calendar.php'
 					[
 						'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'scheme' => [
-							'type' => Scheme_Color::get_type(),
-							'value' => Scheme_Color::COLOR_3,
-						],
 						'selectors' => [
 							'{{WRAPPER}} .ai1ec-pagination a' => 'color: {{VALUE}};',
 						],
@@ -592,7 +577,6 @@ if ( is_plugin_active( 'all-in-one-event-calendar/all-in-one-event-calendar.php'
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'btn_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_4,
 					'selector' => '{{WRAPPER}} .ai1ec-views-dropdown.ai1ec-btn-group a, {{WRAPPER}} .ai1ec-subscribe-dropdown > .ai1ec-subscribe',
 				]
 			);

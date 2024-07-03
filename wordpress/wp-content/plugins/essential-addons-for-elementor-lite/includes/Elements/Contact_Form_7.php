@@ -12,7 +12,7 @@ use \Elementor\Group_Control_Background;
 use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Typography;
-use \Elementor\Scheme_Typography;
+use \Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use \Elementor\Widget_Base;
 
 use \Essential_Addons_Elementor\Classes\Helper;
@@ -97,7 +97,7 @@ class Contact_Form_7 extends Widget_Base
      *
      * @access protected
      */
-    protected function _register_controls()
+    protected function register_controls()
     {
         /*-----------------------------------------------------------------------------------*/
         /*    CONTENT TAB
@@ -166,6 +166,9 @@ class Contact_Form_7 extends Widget_Base
                     'default' => '',
                     'condition' => [
                         'form_title' => 'yes',
+                    ],
+                    'ai' => [
+                        'active' => false,
                     ],
                 ]
             );
@@ -283,7 +286,7 @@ class Contact_Form_7 extends Widget_Base
                             ],
                         ],
                         'default' => '1',
-                        'description' => '<span class="pro-feature"> Get the  <a href="https://wpdeveloper.net/in/upgrade-essential-addons-elementor" target="_blank">Pro version</a> for more stunning elements and customization options.</span>',
+                        'description' => '<span class="pro-feature"> Get the  <a href="https://wpdeveloper.com/upgrade/ea-pro" target="_blank">Pro version</a> for more stunning elements and customization options.</span>',
                     ]
                 );
 
@@ -341,6 +344,9 @@ class Contact_Form_7 extends Widget_Base
                     ],
                 ],
                 'default' => 'default',
+                'selectors' => [
+					'{{WRAPPER}} .eael-contact-form-7-wrapper' => 'text-align: {{VALUE}};',
+				],
             ]
         );
 
@@ -441,15 +447,15 @@ class Contact_Form_7 extends Widget_Base
                 'options' => [
                     'left' => [
                         'title' => __('Left', 'essential-addons-for-elementor-lite'),
-                        'icon' => 'fa fa-align-left',
+                        'icon' => 'eicon-text-align-left',
                     ],
                     'center' => [
                         'title' => __('Center', 'essential-addons-for-elementor-lite'),
-                        'icon' => 'fa fa-align-center',
+                        'icon' => 'eicon-text-align-center',
                     ],
                     'right' => [
                         'title' => __('Right', 'essential-addons-for-elementor-lite'),
-                        'icon' => 'fa fa-align-right',
+                        'icon' => 'eicon-text-align-right',
                     ],
                 ],
                 'default' => '',
@@ -485,7 +491,9 @@ class Contact_Form_7 extends Widget_Base
             [
                 'name' => 'title_typography',
                 'label' => __('Typography', 'essential-addons-for-elementor-lite'),
-                'scheme' => Scheme_Typography::TYPOGRAPHY_4,
+                'global' => [
+	                'default' => Global_Typography::TYPOGRAPHY_ACCENT
+                ],
                 'selector' => '{{WRAPPER}} .eael-contact-form-7 .eael-contact-form-7-title',
             ]
         );
@@ -516,7 +524,9 @@ class Contact_Form_7 extends Widget_Base
             [
                 'name' => 'description_typography',
                 'label' => __('Typography', 'essential-addons-for-elementor-lite'),
-                'scheme' => Scheme_Typography::TYPOGRAPHY_4,
+                'global' => [
+	                'default' => Global_Typography::TYPOGRAPHY_ACCENT
+                ],
                 'selector' => '{{WRAPPER}} .eael-contact-form-7 .eael-contact-form-7-description',
             ]
         );
@@ -733,7 +743,9 @@ class Contact_Form_7 extends Widget_Base
             [
                 'name' => 'field_typography',
                 'label' => __('Typography', 'essential-addons-for-elementor-lite'),
-                'scheme' => Scheme_Typography::TYPOGRAPHY_4,
+                'global' => [
+	                'default' => Global_Typography::TYPOGRAPHY_ACCENT
+                ],
                 'selector' => '{{WRAPPER}} .eael-contact-form-7 .wpcf7-form-control.wpcf7-text, {{WRAPPER}} .eael-contact-form-7 .wpcf7-form-control.wpcf7-quiz, {{WRAPPER}} .eael-contact-form-7 .wpcf7-form-control.wpcf7-quiz, {{WRAPPER}} .eael-contact-form-7 .wpcf7-form-control.wpcf7-textarea, {{WRAPPER}} .eael-contact-form-7 .wpcf7-form-control.wpcf7-select',
                 'separator' => 'before',
             ]
@@ -881,7 +893,9 @@ class Contact_Form_7 extends Widget_Base
             [
                 'name' => 'typography_label',
                 'label' => __('Typography', 'essential-addons-for-elementor-lite'),
-                'scheme' => Scheme_Typography::TYPOGRAPHY_4,
+                'global' => [
+	                'default' => Global_Typography::TYPOGRAPHY_ACCENT
+                ],
                 'selector' => '{{WRAPPER}} .eael-contact-form-7 .wpcf7-form label, {{WRAPPER}} .eael-contact-form-7 .wpcf7-form .wpcf7-quiz-label',
                 'condition' => [
                     'labels_switch' => 'yes',
@@ -933,7 +947,9 @@ class Contact_Form_7 extends Widget_Base
             [
                 'name' => 'typography_placeholder',
                 'label' => __('Typography', 'essential-addons-for-elementor-lite'),
-                'scheme' => Scheme_Typography::TYPOGRAPHY_4,
+                'global' => [
+	                'default' => Global_Typography::TYPOGRAPHY_ACCENT
+                ],
                 'selector' => '{{WRAPPER}} .eael-contact-form-7 .wpcf7-form-control::-webkit-input-placeholder',
                 'condition' => [
                     'placeholder_switch' => 'yes',
@@ -1306,7 +1322,9 @@ class Contact_Form_7 extends Widget_Base
             [
                 'name' => 'button_typography',
                 'label' => __('Typography', 'essential-addons-for-elementor-lite'),
-                'scheme' => Scheme_Typography::TYPOGRAPHY_4,
+                'global' => [
+	                'default' => Global_Typography::TYPOGRAPHY_ACCENT
+                ],
                 'selector' => '{{WRAPPER}} .eael-contact-form-7 .wpcf7-form input[type="submit"]',
                 'separator' => 'before',
             ]
@@ -1441,7 +1459,9 @@ class Contact_Form_7 extends Widget_Base
             [
                 'name' => 'error_alert_typography',
                 'label' => __('Typography', 'essential-addons-for-elementor-lite'),
-                'scheme' => Scheme_Typography::TYPOGRAPHY_4,
+                'global' => [
+	                'default' => Global_Typography::TYPOGRAPHY_ACCENT
+                ],
                 'selector' => '{{WRAPPER}} .eael-contact-form-7 .wpcf7-not-valid-tip',
                 'separator' => 'before',
                 'condition' => [
@@ -1735,7 +1755,7 @@ class Contact_Form_7 extends Widget_Base
                 }
                 echo '</div>';
             }
-            echo do_shortcode('[contact-form-7 id="' . $settings['contact_form_list'] . '" ]');
+            echo do_shortcode('[contact-form-7 id="' . esc_attr( $settings['contact_form_list'] ) . '" ]');
             echo '</div>
             </div>';
         }

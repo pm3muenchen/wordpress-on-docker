@@ -41,7 +41,7 @@ class Widget_Icon extends Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return __( 'Icon', 'elementor' );
+		return esc_html__( 'Icon', 'elementor' );
 	}
 
 	/**
@@ -88,6 +88,10 @@ class Widget_Icon extends Widget_Base {
 		return [ 'icon' ];
 	}
 
+	protected function is_dynamic_content(): bool {
+		return false;
+	}
+
 	/**
 	 * Register icon widget controls.
 	 *
@@ -100,14 +104,14 @@ class Widget_Icon extends Widget_Base {
 		$this->start_controls_section(
 			'section_icon',
 			[
-				'label' => __( 'Icon', 'elementor' ),
+				'label' => esc_html__( 'Icon', 'elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'selected_icon',
 			[
-				'label' => __( 'Icon', 'elementor' ),
+				'label' => esc_html__( 'Icon', 'elementor' ),
 				'type' => Controls_Manager::ICONS,
 				'fa4compatibility' => 'icon',
 				'default' => [
@@ -120,12 +124,12 @@ class Widget_Icon extends Widget_Base {
 		$this->add_control(
 			'view',
 			[
-				'label' => __( 'View', 'elementor' ),
+				'label' => esc_html__( 'View', 'elementor' ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'default' => __( 'Default', 'elementor' ),
-					'stacked' => __( 'Stacked', 'elementor' ),
-					'framed' => __( 'Framed', 'elementor' ),
+					'default' => esc_html__( 'Default', 'elementor' ),
+					'stacked' => esc_html__( 'Stacked', 'elementor' ),
+					'framed' => esc_html__( 'Framed', 'elementor' ),
 				],
 				'default' => 'default',
 				'prefix_class' => 'elementor-view-',
@@ -135,11 +139,11 @@ class Widget_Icon extends Widget_Base {
 		$this->add_control(
 			'shape',
 			[
-				'label' => __( 'Shape', 'elementor' ),
+				'label' => esc_html__( 'Shape', 'elementor' ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'circle' => __( 'Circle', 'elementor' ),
-					'square' => __( 'Square', 'elementor' ),
+					'circle' => esc_html__( 'Circle', 'elementor' ),
+					'square' => esc_html__( 'Square', 'elementor' ),
 				],
 				'default' => 'circle',
 				'condition' => [
@@ -152,31 +156,40 @@ class Widget_Icon extends Widget_Base {
 		$this->add_control(
 			'link',
 			[
-				'label' => __( 'Link', 'elementor' ),
+				'label' => esc_html__( 'Link', 'elementor' ),
 				'type' => Controls_Manager::URL,
 				'dynamic' => [
 					'active' => true,
 				],
-				'placeholder' => __( 'https://your-link.com', 'elementor' ),
+			]
+		);
+
+		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'section_style_icon',
+			[
+				'label' => esc_html__( 'Icon', 'elementor' ),
+				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
 
 		$this->add_responsive_control(
 			'align',
 			[
-				'label' => __( 'Alignment', 'elementor' ),
+				'label' => esc_html__( 'Alignment', 'elementor' ),
 				'type' => Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
-						'title' => __( 'Left', 'elementor' ),
+						'title' => esc_html__( 'Left', 'elementor' ),
 						'icon' => 'eicon-text-align-left',
 					],
 					'center' => [
-						'title' => __( 'Center', 'elementor' ),
+						'title' => esc_html__( 'Center', 'elementor' ),
 						'icon' => 'eicon-text-align-center',
 					],
 					'right' => [
-						'title' => __( 'Right', 'elementor' ),
+						'title' => esc_html__( 'Right', 'elementor' ),
 						'icon' => 'eicon-text-align-right',
 					],
 				],
@@ -187,29 +200,19 @@ class Widget_Icon extends Widget_Base {
 			]
 		);
 
-		$this->end_controls_section();
-
-		$this->start_controls_section(
-			'section_style_icon',
-			[
-				'label' => __( 'Icon', 'elementor' ),
-				'tab' => Controls_Manager::TAB_STYLE,
-			]
-		);
-
 		$this->start_controls_tabs( 'icon_colors' );
 
 		$this->start_controls_tab(
 			'icon_colors_normal',
 			[
-				'label' => __( 'Normal', 'elementor' ),
+				'label' => esc_html__( 'Normal', 'elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'primary_color',
 			[
-				'label' => __( 'Primary Color', 'elementor' ),
+				'label' => esc_html__( 'Primary Color', 'elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
@@ -226,7 +229,7 @@ class Widget_Icon extends Widget_Base {
 		$this->add_control(
 			'secondary_color',
 			[
-				'label' => __( 'Secondary Color', 'elementor' ),
+				'label' => esc_html__( 'Secondary Color', 'elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'condition' => [
@@ -245,14 +248,14 @@ class Widget_Icon extends Widget_Base {
 		$this->start_controls_tab(
 			'icon_colors_hover',
 			[
-				'label' => __( 'Hover', 'elementor' ),
+				'label' => esc_html__( 'Hover', 'elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'hover_primary_color',
 			[
-				'label' => __( 'Primary Color', 'elementor' ),
+				'label' => esc_html__( 'Primary Color', 'elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
@@ -266,7 +269,7 @@ class Widget_Icon extends Widget_Base {
 		$this->add_control(
 			'hover_secondary_color',
 			[
-				'label' => __( 'Secondary Color', 'elementor' ),
+				'label' => esc_html__( 'Secondary Color', 'elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'condition' => [
@@ -283,7 +286,7 @@ class Widget_Icon extends Widget_Base {
 		$this->add_control(
 			'hover_animation',
 			[
-				'label' => __( 'Hover Animation', 'elementor' ),
+				'label' => esc_html__( 'Hover Animation', 'elementor' ),
 				'type' => Controls_Manager::HOVER_ANIMATION,
 			]
 		);
@@ -295,8 +298,9 @@ class Widget_Icon extends Widget_Base {
 		$this->add_responsive_control(
 			'size',
 			[
-				'label' => __( 'Size', 'elementor' ),
+				'label' => esc_html__( 'Size', 'elementor' ),
 				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'range' => [
 					'px' => [
 						'min' => 6,
@@ -305,21 +309,47 @@ class Widget_Icon extends Widget_Base {
 				],
 				'selectors' => [
 					'{{WRAPPER}} .elementor-icon' => 'font-size: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .elementor-icon svg' => 'height: {{SIZE}}{{UNIT}};',
 				],
 				'separator' => 'before',
 			]
 		);
 
 		$this->add_control(
+			'fit_to_size',
+			[
+				'label' => esc_html__( 'Fit to Size', 'elementor' ),
+				'type' => Controls_Manager::SWITCHER,
+				'description' => 'Avoid gaps around icons when width and height aren\'t equal',
+				'label_off' => esc_html__( 'Off', 'elementor' ),
+				'label_on' => esc_html__( 'On', 'elementor' ),
+				'condition' => [
+					'selected_icon[library]' => 'svg',
+				],
+				'selectors' => [
+					'{{WRAPPER}} .elementor-icon-wrapper svg' => 'width: 100%;',
+				],
+			]
+		);
+
+		$this->add_control(
 			'icon_padding',
 			[
-				'label' => __( 'Padding', 'elementor' ),
+				'label' => esc_html__( 'Padding', 'elementor' ),
 				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors' => [
 					'{{WRAPPER}} .elementor-icon' => 'padding: {{SIZE}}{{UNIT}};',
 				],
 				'range' => [
+					'px' => [
+						'max' => 50,
+					],
 					'em' => [
+						'min' => 0,
+						'max' => 5,
+					],
+					'rem' => [
 						'min' => 0,
 						'max' => 5,
 					],
@@ -333,11 +363,10 @@ class Widget_Icon extends Widget_Base {
 		$this->add_responsive_control(
 			'rotate',
 			[
-				'label' => __( 'Rotate', 'elementor' ),
+				'label' => esc_html__( 'Rotate', 'elementor' ),
 				'type' => Controls_Manager::SLIDER,
-				'size_units' => [ 'deg' ],
+				'size_units' => [ 'deg', 'grad', 'rad', 'turn', 'custom' ],
 				'default' => [
-					'size' => 0,
 					'unit' => 'deg',
 				],
 				'tablet_default' => [
@@ -355,8 +384,9 @@ class Widget_Icon extends Widget_Base {
 		$this->add_control(
 			'border_width',
 			[
-				'label' => __( 'Border Width', 'elementor' ),
+				'label' => esc_html__( 'Border Width', 'elementor' ),
 				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'selectors' => [
 					'{{WRAPPER}} .elementor-icon' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -366,12 +396,12 @@ class Widget_Icon extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'border_radius',
 			[
-				'label' => __( 'Border Radius', 'elementor' ),
+				'label' => esc_html__( 'Border Radius', 'elementor' ),
 				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%' ],
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors' => [
 					'{{WRAPPER}} .elementor-icon' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -394,6 +424,10 @@ class Widget_Icon extends Widget_Base {
 	 */
 	protected function render() {
 		$settings = $this->get_settings_for_display();
+
+		if ( empty( $settings['selected_icon']['value'] ) ) {
+			return;
+		}
 
 		$this->add_render_attribute( 'wrapper', 'class', 'elementor-icon-wrapper' );
 
@@ -425,14 +459,14 @@ class Widget_Icon extends Widget_Base {
 		$is_new = empty( $settings['icon'] ) && Icons_Manager::is_migration_allowed();
 
 		?>
-		<div <?php echo $this->get_render_attribute_string( 'wrapper' ); ?>>
-			<<?php echo $icon_tag . ' ' . $this->get_render_attribute_string( 'icon-wrapper' ); ?>>
+		<div <?php $this->print_render_attribute_string( 'wrapper' ); ?>>
+			<<?php Utils::print_unescaped_internal_string( $icon_tag . ' ' . $this->get_render_attribute_string( 'icon-wrapper' ) ); ?>>
 			<?php if ( $is_new || $migrated ) :
 				Icons_Manager::render_icon( $settings['selected_icon'], [ 'aria-hidden' => 'true' ] );
 			else : ?>
-				<i <?php echo $this->get_render_attribute_string( 'icon' ); ?>></i>
+				<i <?php $this->print_render_attribute_string( 'icon' ); ?>></i>
 			<?php endif; ?>
-			</<?php echo $icon_tag; ?>>
+			</<?php Utils::print_unescaped_internal_string( $icon_tag ); ?>>
 		</div>
 		<?php
 	}
@@ -447,7 +481,12 @@ class Widget_Icon extends Widget_Base {
 	 */
 	protected function content_template() {
 		?>
-		<# var link = settings.link.url ? 'href="' + settings.link.url + '"' : '',
+		<#
+		if ( '' === settings.selected_icon.value ) {
+			return;
+		}
+
+		const link = settings.link.url ? 'href="' + _.escape( settings.link.url ) + '"' : '',
 				iconHTML = elementor.helpers.renderIcon( view, settings.selected_icon, { 'aria-hidden': true }, 'i' , 'object' ),
 				migrated = elementor.helpers.isIconMigrated( settings, 'selected_icon' ),
 				iconTag = link ? 'a' : 'div';

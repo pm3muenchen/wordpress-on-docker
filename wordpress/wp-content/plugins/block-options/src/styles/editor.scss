@@ -25,12 +25,10 @@
 				.components-checkbox-control__label {
 					display: flex;
 					flex-direction: column;
-					flex: 1;
 				}
 
 				.components-form-toggle {
 					margin-right: 0;
-					margin-left: 16px;
 				}
 
 				.components-toggle-control__label,
@@ -80,7 +78,7 @@
 			content: "H3";
 		}
 
-		h4::after {
+		h4.wp-block[data-type="core/heading"]:not(.is-selected)::after {
 			content: "H4";
 		}
 

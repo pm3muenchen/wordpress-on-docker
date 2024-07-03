@@ -8,6 +8,9 @@ use Codelight\GDPR\DataSubject\DataSubjectManager;
 
 class DashboardProfilePageController
 {
+    protected $dataSubjectManager;
+    protected $dataExporter;
+
     public function __construct(DataSubjectManager $dataSubjectManager, DataExporter $dataExporter)
     {          
         $this->dataSubjectManager = $dataSubjectManager;

@@ -26,10 +26,6 @@ add_filter( 'astra_dynamic_theme_css', 'astra_fb_primary_footer_dynamic_css' );
  */
 function astra_fb_primary_footer_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
-	if ( ! ( Astra_Builder_Helper::is_footer_row_empty( 'primary' ) || is_customize_preview() ) ) {
-		return $dynamic_css;
-	}
-
 	$global_footer_bg = astra_get_option( 'footer-bg-obj-responsive' );
 
 	$css_output_desktop = array(
@@ -38,7 +34,20 @@ function astra_fb_primary_footer_dynamic_css( $dynamic_css, $dynamic_css_filtere
 
 	$dynamic_css .= astra_parse_css( $css_output_desktop );
 	// Advanced CSS for Header Builder.
-	$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_margin_padding_css( 'section-footer-builder-layout', '.ast-hfb-header .site-footer' );
+	$dynamic_css .= Astra_Extended_Base_Dynamic_CSS::prepare_advanced_margin_padding_css( 'section-footer-builder-layout', '.ast-hfb-header .site-footer' );
+
+	$footer_css_output_tablet = array(
+		'.site-footer' => astra_get_responsive_background_obj( $global_footer_bg, 'tablet' ),
+	);
+	$footer_css_output_mobile = array(
+		'.site-footer' => astra_get_responsive_background_obj( $global_footer_bg, 'mobile' ),
+	);
+
+	/* Parse CSS from array() */
+	$css_output  = astra_parse_css( $footer_css_output_tablet, '', astra_get_tablet_breakpoint() );
+	$css_output .= astra_parse_css( $footer_css_output_mobile, '', astra_get_mobile_breakpoint() );
+
+	$dynamic_css .= $css_output;
 
 	if ( ! ( Astra_Builder_Helper::is_footer_row_empty( 'primary' ) || is_customize_preview() ) ) {
 		return $dynamic_css;
@@ -49,18 +58,28 @@ function astra_fb_primary_footer_dynamic_css( $dynamic_css, $dynamic_css_filtere
 	$selector = '.site-primary-footer-wrap[data-section="section-primary-footer-builder"]';
 
 	$footer_bg               = astra_get_option( 'hb-footer-bg-obj-responsive' );
+	$footer_height           = astra_get_option( 'hb-primary-footer-height' );
 	$footer_top_border_size  = astra_get_option( 'hb-footer-main-sep' );
 	$footer_top_border_color = astra_get_option( 'hb-footer-main-sep-color' );
 	$footer_width            = astra_get_option( 'hb-footer-layout-width' );
 	$content_width           = astra_get_option( 'site-content-width' );
 	$inner_spacing           = astra_get_option( 'hb-inner-spacing' );
 
+	$layout = astra_get_option( 'hb-footer-layout' );
+
+	$desk_layout = ( isset( $layout['desktop'] ) ) ? $layout['desktop'] : 'full';
+	$tab_layout  = ( isset( $layout['tablet'] ) ) ? $layout['tablet'] : 'full';
+	$mob_layout  = ( isset( $layout['mobile'] ) ) ? $layout['mobile'] : 'full';
+
 	$inner_spacing_desktop = ( isset( $inner_spacing['desktop'] ) ) ? $inner_spacing['desktop'] : '';
 	$inner_spacing_tablet  = ( isset( $inner_spacing['tablet'] ) ) ? $inner_spacing['tablet'] : '';
 	$inner_spacing_mobile  = ( isset( $inner_spacing['mobile'] ) ) ? $inner_spacing['mobile'] : '';
 
 	$css_output_desktop = array(
-
+		'.site-primary-footer-wrap'          => array(
+			'padding-top'    => '45px',
+			'padding-bottom' => '45px',
+		),
 		$selector                            => astra_get_responsive_background_obj( $footer_bg, 'desktop' ),
 		$selector . ' .ast-builder-grid-row' => array(
 			'grid-column-gap' => astra_get_css_value( $inner_spacing_desktop, 'px' ),
@@ -72,15 +91,20 @@ function astra_fb_primary_footer_dynamic_css( $dynamic_css, $dynamic_css_filtere
 			'display'       => 'flex',
 			'margin-bottom' => '0',
 		),
+		'.ast-builder-grid-row-' . $desk_layout . ' .ast-builder-grid-row' => array(
+			'grid-template-columns' => Astra_Builder_Helper::$grid_size_mapping[ $desk_layout ],
+		),
 
 	);
+
+	$css_output_desktop[ $selector ]['min-height'] = astra_get_css_value( $footer_height, 'px' );
 
 	if ( isset( $footer_top_border_size ) && 1 <= $footer_top_border_size ) {
 
 		$css_output_desktop[ $selector ]['border-style'] = 'solid';
 
 		$css_output_desktop[ $selector ]['border-width'] = '0px';
-		
+
 		$css_output_desktop[ $selector ]['border-top-width'] = astra_get_css_value( $footer_top_border_size, 'px' );
 
 		$css_output_desktop[ $selector ]['border-top-color'] = $footer_top_border_color;
@@ -89,6 +113,7 @@ function astra_fb_primary_footer_dynamic_css( $dynamic_css, $dynamic_css_filtere
 	if ( isset( $footer_width ) && 'content' === $footer_width ) {
 
 		$css_output_desktop[ $selector . ' .ast-builder-grid-row' ]['max-width']    = astra_get_css_value( $content_width, 'px' );
+		$css_output_desktop[ $selector . ' .ast-builder-grid-row' ]['min-height']   = astra_get_css_value( $footer_height, 'px' );
 		$css_output_desktop[ $selector . ' .ast-builder-grid-row' ]['margin-left']  = 'auto';
 		$css_output_desktop[ $selector . ' .ast-builder-grid-row' ]['margin-right'] = 'auto';
 	} else {
@@ -113,6 +138,9 @@ function astra_fb_primary_footer_dynamic_css( $dynamic_css, $dynamic_css_filtere
 			'display'       => 'block',
 			'margin-bottom' => '10px',
 		),
+		'.ast-builder-grid-row-container.ast-builder-grid-row-tablet-' . $tab_layout . ' .ast-builder-grid-row' => array(
+			'grid-template-columns' => Astra_Builder_Helper::$grid_size_mapping[ $tab_layout ],
+		),
 	);
 	$css_output_mobile = array(
 
@@ -130,6 +158,9 @@ function astra_fb_primary_footer_dynamic_css( $dynamic_css, $dynamic_css_filtere
 			'display'       => 'block',
 			'margin-bottom' => '10px',
 		),
+		'.ast-builder-grid-row-container.ast-builder-grid-row-mobile-' . $mob_layout . ' .ast-builder-grid-row' => array(
+			'grid-template-columns' => Astra_Builder_Helper::$grid_size_mapping[ $mob_layout ],
+		),
 	);
 
 	/* Parse CSS from array() */
@@ -139,7 +170,7 @@ function astra_fb_primary_footer_dynamic_css( $dynamic_css, $dynamic_css_filtere
 
 	$dynamic_css .= $css_output;
 
-	$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_margin_padding_css( $_section, $selector );
+	$dynamic_css .= Astra_Extended_Base_Dynamic_CSS::prepare_advanced_margin_padding_css( $_section, $selector );
 
 	$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_visibility_css( $_section, $selector, 'grid' );
 

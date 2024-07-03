@@ -154,7 +154,6 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 						),
 						'primary-header'
 					),
-					'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
 					'partial'  => array(
 						'selector'            => '.main-header-bar .main-navigation .main-header-menu .ast-masthead-custom-menu-items.search-custom-menu-item .ast-search-icon .astra-search-icon, .main-header-bar .main-navigation .main-header-menu .ast-masthead-custom-menu-items.woocommerce-custom-menu-item, .main-header-bar .ast-masthead-custom-menu-items.widget-custom-menu-item .ast-header-widget-area .widget.ast-no-widget-row, .main-header-bar .main-navigation .main-header-menu .ast-masthead-custom-menu-items.edd-custom-menu-item',
 						'container_inclusive' => false,
@@ -313,9 +312,9 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					),
 					'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
 					'priority' => 30,
-					'title'    => __( 'Container Animation', 'astra' ),
+					'title'    => __( 'Submenu Animation', 'astra' ),
 					'choices'  => array(
-						''           => __( 'Default', 'astra' ),
+						''           => __( 'None', 'astra' ),
 						'slide-down' => __( 'Slide Down', 'astra' ),
 						'slide-up'   => __( 'Slide Up', 'astra' ),
 						'fade'       => __( 'Fade', 'astra' ),
@@ -436,13 +435,13 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[header-main-rt-section]',
 							'operator' => 'in',
-							'value'    => array( 'button', 'text-html' ),
+							'value'    => array( 'search', 'button', 'text-html', 'widget', 'woocommerce' ),
 						),
 					),
 					'section'  => 'section-primary-menu',
 					'title'    => __( 'Hide Last Item in Menu on Mobile', 'astra' ),
 					'priority' => 7,
-					'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'  => array( 'ast_class' => 'ast-bottom-divider ast-top-divider' ),
 				),
 
 				/**
@@ -453,6 +452,12 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'type'     => 'control',
 					'control'  => 'ast-toggle-control',
 					'context'  => array(
+						'relation' => 'AND',
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[header-main-rt-section]',
+							'operator' => 'in',
+							'value'    => array( 'search', 'button', 'text-html', 'widget', 'woocommerce' ),
+						),
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[hide-custom-menu-mobile]',
 							'operator' => '!=',
@@ -463,6 +468,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'section'  => 'section-primary-menu',
 					'title'    => __( 'Take Last Item Outside Menu', 'astra' ),
 					'priority' => 7,
+					'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				array(
@@ -667,7 +673,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 						'section'  => 'section-header',
 						'priority' => 999,
 						'title'    => '',
-						'help'     => '<p>' . __( 'More Options Available in Astra Pro!', 'astra' ) . '</p><a href="' . astra_get_pro_url( 'https://wpastra.com/pro/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-secondary"  target="_blank" rel="noopener">' . __( 'Learn More', 'astra' ) . '</a>',
+						'help'     => '<p>' . __( 'More Options Available in Astra Pro!', 'astra' ) . '</p><a href="' . ASTRA_PRO_CUSTOMIZER_UPGRADE_URL . '" class="button button-secondary"  target="_blank" rel="noopener">' . __( 'Learn More', 'astra' ) . '</a>',
 						'settings' => array(),
 						'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
 					),

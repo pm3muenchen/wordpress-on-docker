@@ -44,7 +44,7 @@ class Event_Elementor_Addon_Subscribe extends Widget_Base{
 	 * Register Events Addon for Elementor Subscribe widget controls.
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	*/
-	protected function _register_controls(){
+	protected function register_controls(){
 
 		$this->start_controls_section(
 			'section_subscribe',
@@ -235,7 +235,6 @@ class Event_Elementor_Addon_Subscribe extends Widget_Base{
 			[
 				'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 				'name' => 'sasstp_title_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .naeep-subscribe h3',
 			]
 		);
@@ -244,10 +243,6 @@ class Event_Elementor_Addon_Subscribe extends Widget_Base{
 			[
 				'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
-				],
 				'selectors' => [
 					'{{WRAPPER}} .naeep-subscribe h3' => 'color: {{VALUE}};',
 				],
@@ -279,7 +274,6 @@ class Event_Elementor_Addon_Subscribe extends Widget_Base{
 			[
 				'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 				'name' => 'content_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_3,
 				'selector' => '{{WRAPPER}} .naeep-subscribe p',
 			]
 		);
@@ -288,10 +282,6 @@ class Event_Elementor_Addon_Subscribe extends Widget_Base{
 			[
 				'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_3,
-				],
 				'selectors' => [
 					'{{WRAPPER}} .naeep-subscribe p' => 'color: {{VALUE}};',
 				],
@@ -378,7 +368,6 @@ class Event_Elementor_Addon_Subscribe extends Widget_Base{
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'form_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .naeep-subscribe input[type="text"],
 				{{WRAPPER}} .naeep-subscribe input[type="email"],
 				{{WRAPPER}} .naeep-subscribe input[type="date"],
@@ -511,7 +500,6 @@ class Event_Elementor_Addon_Subscribe extends Widget_Base{
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'button_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .naeep-subscribe input[type="submit"]',
 			]
 		);
@@ -581,10 +569,6 @@ class Event_Elementor_Addon_Subscribe extends Widget_Base{
 				[
 					'label' => esc_html__( 'Background Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_2,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .naeep-subscribe input[type="submit"]' => 'background-color: {{VALUE}};',
 					],

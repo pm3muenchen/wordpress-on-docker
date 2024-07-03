@@ -34,17 +34,31 @@ if ( ! class_exists( 'Gutentor_Google_Map' ) ) {
 		 */
 		public static function get_instance() {
 
-			// Store the instance locally to avoid private static replication
+			// Store the instance locally to avoid private static replication.
 			static $instance = null;
 
-			// Only run these methods if they haven't been ran previously
+			// Only run these methods if they haven't been ran previously.
 			if ( null === $instance ) {
 				$instance = new self();
 			}
 
-			// Always return the instance
+			// Always return the instance.
 			return $instance;
 
+		}
+
+		/**
+		 * Set register_block_type_args variable on parent
+		 * Used for blog template loading
+		 *
+		 * @since      3.2.6
+		 * @package    Gutentor
+		 * @author     Gutentor <info@gutentor.com>
+		 */
+		public function register_block_type_args() {
+			$this->register_block_type_args = array(
+				'view_script_handles' => array( 'gutentor-google-maps', 'google-maps' ),
+			);
 		}
 
 		/**
@@ -54,7 +68,6 @@ if ( ! class_exists( 'Gutentor_Google_Map' ) ) {
 		 * @package    Gutentor
 		 * @author     Gutentor <info@gutentor.com>
 		 */
-
 		public function get_default_values() {
 			$google_map_attr = array(
 				'id'                => '',
@@ -157,6 +170,18 @@ if ( ! class_exists( 'Gutentor_Google_Map' ) ) {
 					'type'    => 'object',
 					'default' => array(),
 				),
+				'mBGImageSrc'       => array(
+					'type'    => 'string',
+					'default' => 'self-hosted-local',
+				),
+				'mBGVideoSrc'       => array(
+					'type'    => 'string',
+					'default' => 'self-hosted-local',
+				),
+				'mBGVideoUrl'       => array(
+					'type'    => 'string',
+					'default' => 'https://www.youtube.com/watch?v=bGMi7L78hVk',
+				),
 			);
 			return $google_map_attr;
 		}
@@ -173,13 +198,10 @@ if ( ! class_exists( 'Gutentor_Google_Map' ) ) {
 		 */
 		public function render_callback( $attributes, $content ) {
 
-			$id      = isset( $attributes['id'] ) ? $attributes['id'] : 'gutentor-google-map-' . rand( 10, 100 );
+			$id      = isset( $attributes['id'] ) ? $attributes['id'] : 'gutentor-google-map-' . wp_rand( 10, 100 );
 			$blockID = isset( $attributes['blockID'] ) ? $attributes['blockID'] : '';
-			$default_class   = '';
 
-			if ( isset( $attributes['className'] ) ) {
-                $default_class = ' ' . esc_attr( $attributes['className'] );
-			}
+			$default_class = gutentor_block_add_default_classes( 'gutentor-google-map', $attributes );
 
 			$align = isset( $attributes['align'] ) ? 'align' . $attributes['align'] : '';
 			$tag   = $attributes['blockSectionHtmlTag'] ? $attributes['blockSectionHtmlTag'] : 'section';
@@ -187,11 +209,11 @@ if ( ! class_exists( 'Gutentor_Google_Map' ) ) {
 			$blockComponentAnimation = isset( $attributes['blockComponentAnimation'] ) ? $attributes['blockComponentAnimation'] : '';
 			$blockItemsWrapAnimation = isset( $attributes['blockItemsWrapAnimation'] ) ? $attributes['blockItemsWrapAnimation'] : '';
 
-			$output  = '<' . $tag . ' class="' . apply_filters( 'gutentor_save_section_class',gutentor_concat_space( 'gutentor-section gutentor-google-map',$align,$default_class ), $attributes ) . '" id="section-' . esc_attr( $blockID ) . '"   ' . GutentorAnimationOptionsDataAttr( $blockComponentAnimation ) . '>' . "\n";
+			$output  = '<' . $tag . ' class="' . apply_filters( 'gutentor_save_section_class', gutentor_concat_space( 'gutentor-section gutentor-google-map', $align, $default_class ), $attributes ) . '" id="section-' . esc_attr( $blockID ) . '"   ' . GutentorAnimationOptionsDataAttr( $blockComponentAnimation ) . '>' . "\n";
 			$output .= apply_filters( 'gutentor_save_before_container', '', $attributes );
 			$output .= "<div class='" . apply_filters( 'gutentor_save_container_class', 'grid-container', $attributes ) . "'>";
 			$output .= apply_filters( 'gutentor_save_before_block_items', '', $attributes );
-			$output .= '<div class="' . apply_filters( 'gutentor_save_grid_row_class', esc_attr('gutentor-grid-item-wrap' ), $attributes ) . '" id="' . esc_attr( $id ) . '" ' . GutentorAnimationOptionsDataAttr( $blockItemsWrapAnimation ) . '></div>' . "\n";
+			$output .= '<div class="' . apply_filters( 'gutentor_save_grid_row_class', esc_attr( 'gutentor-grid-item-wrap' ), $attributes ) . '" id="' . esc_attr( $id ) . '" ' . GutentorAnimationOptionsDataAttr( $blockItemsWrapAnimation ) . '></div>' . "\n";
 			$output .= apply_filters( 'gutentor_save_after_block_items', '', $attributes );
 			$output .= '</div>' . "\n";
 			$output .= apply_filters( 'gutentor_save_after_container', '', $attributes );
@@ -199,7 +221,7 @@ if ( ! class_exists( 'Gutentor_Google_Map' ) ) {
 			$output .= '<script type="text/javascript">' . "\n";
 			$output .= '	/* <![CDATA[ */' . "\n";
 			$output .= '		if ( ! window.gutentorGoogleMaps ) window.gutentorGoogleMaps =[];' . "\n";
-			$output .= '		window.gutentorGoogleMaps.push( { container: "' . $id . '", attributes: ' . json_encode( $attributes ) . ' } );' . "\n";
+			$output .= '		window.gutentorGoogleMaps.push( { container: "' . $id . '", attributes: ' . wp_json_encode( $attributes ) . ' } );' . "\n";
 			$output .= '	/* ]]> */' . "\n";
 			$output .= '</script>' . "\n";
 

@@ -15,6 +15,9 @@ if ( ! class_exists( 'Gutentor_WP_Block_Widget' ) ) {
 			'wp_block_id' => '',
 		);
 
+		/*Used Blocks*/
+		private $used_blocks = array();
+
 		/**
 		 * All blocks on the widgets
 		 *
@@ -38,6 +41,7 @@ if ( ! class_exists( 'Gutentor_WP_Block_Widget' ) ) {
 			/*Add Scripts*/
 			add_action( 'wp_enqueue_scripts', array( $this, 'scripts' ) );
 			add_action( 'wp_footer', array( $this, 'add_missing_assets' ) );
+			add_action( 'wp_footer', array( $this, 'add_used_blocks_css' ), 20 );
 		}
 
 		/*Widget Backend*/
@@ -58,8 +62,10 @@ if ( ! class_exists( 'Gutentor_WP_Block_Widget' ) ) {
 			</p>
 			<?php
 			$item_arg   = array(
-				'post_type' => 'wp_block',
-				'order'     => 'DESC',
+				'post_type'      => 'wp_block',
+				'posts_per_page' => -1,
+				'post_status'    => 'publish',
+				'order'          => 'DESC',
 			);
 			$item_query = new WP_Query( $item_arg );
 			if ( $item_query->have_posts() ) :
@@ -142,17 +148,31 @@ if ( ! class_exists( 'Gutentor_WP_Block_Widget' ) ) {
 					echo '<div class="gutentor-widget gutentor-wp-block-widget">';
 					while ( $g_query->have_posts() ) :
 						$g_query->the_post();
-						$style = get_post_meta( get_the_ID(), 'gutentor_dynamic_css', true );
 
-						$css_info = get_post_meta( get_the_ID(), 'gutentor_css_info', true );
-						if ( isset( $css_info['blocks'] ) && is_array( $css_info['blocks'] ) ) {
-							self::$unique_blocks = array_unique( array_merge( self::$unique_blocks, $css_info['blocks'] ) );
+						$already_used_blocks = false;
+						if ( isset( $GLOBALS['GUTENTOR_GLOBAL']['reusable_block'] ) ) {
+							$reusable_blocks = $GLOBALS['GUTENTOR_GLOBAL']['reusable_block'];
+							if ( in_array( get_the_ID(), $reusable_blocks ) ) {
+								$already_used_blocks = true;
+							} else {
+								array_push( $reusable_blocks, get_the_ID() );
+								$GLOBALS['GUTENTOR_GLOBAL']['reusable_block'] = $reusable_blocks;
+							}
+						} else {
+							$GLOBALS['GUTENTOR_GLOBAL']['reusable_block'] = array(
+								get_the_ID(),
+							);
 						}
-                        if ( get_post_meta( get_the_ID(), 'gutentor_gfont_url', true ) ) {
-                            $fonts_url = get_post_meta( get_the_ID(), 'gutentor_gfont_url', true );
-                            echo '<link id="gutentor-google-fonts-'.esc_attr($this->number).'" href="' . esc_url( $fonts_url ) . '" rel="stylesheet" />';
-                        }
-						echo "<!-- Dynamic CSS -->\n<style type=\"text/css\">\n" . wp_strip_all_tags( $style ) . "\n</style>";
+
+						if ( ! $already_used_blocks ) {
+							array_push( $this->used_blocks, get_the_ID() );
+
+							$css_info = get_post_meta( get_the_ID(), 'gutentor_css_info', true );
+							if ( isset( $css_info['blocks'] ) && is_array( $css_info['blocks'] ) ) {
+								self::$unique_blocks = array_unique( array_merge( self::$unique_blocks, $css_info['blocks'] ) );
+							}
+						}
+
 						the_content();
 					endwhile;
 					echo '</div>';
@@ -235,14 +255,6 @@ if ( ! class_exists( 'Gutentor_WP_Block_Widget' ) ) {
 		 */
 		public function add_missing_assets() {
 
-            $css_info = get_post_meta( get_the_ID(), 'gutentor_css_info', true );
-
-            /*Missing CSS is only needed if optimized css is loaded*/
-            if ( ! gutentor_get_options( 'gutentor_load_optimized_css' ) ) {
-                return;
-            }
-
-
 			$diff_blocks     = array_diff( self::$unique_blocks, gutentor_dynamic_css()->get_unique_blocks() );
 			$block_css_files = array();
 			if ( is_array( $diff_blocks ) && ! empty( $diff_blocks ) ) {
@@ -275,62 +287,77 @@ if ( ! class_exists( 'Gutentor_WP_Block_Widget' ) ) {
 				}
 
 				/*Post/Tax Type*/
-                $types = array(
-                    'gutentor/p1',
-                    'gutentor/p2',
-                    'gutentor/p3',
-                    'gutentor/p4',
-                    'gutentor/p5',
-                    'gutentor/p6',
-                    'gutentor/t1',
-                    'gutentor/t2',
-                    'gutentor/t3',
-                );
-                if ( ! empty( array_intersect( $diff_blocks, $types ) ) ) {
-                    $block_css_files[] .= gutentor_dynamic_css()->get_static_css( 'global-type', true );
-                }
+				$types = array(
+					'gutentor/p1',
+					'gutentor/p2',
+					'gutentor/p3',
+					'gutentor/p4',
+					'gutentor/p5',
+					'gutentor/p6',
+					'gutentor/t1',
+					'gutentor/t2',
+					'gutentor/t3',
+				);
+				if ( ! empty( array_intersect( $diff_blocks, $types ) ) ) {
+					$block_css_files[] .= gutentor_dynamic_css()->get_static_css( 'global-type', true );
+				}
 
 				/*Widget*/
-                $widgets = array(
-                    'gutentor/about-block',
-                    'gutentor/accordion',
-                    'gutentor/author-profile',
-                    'gutentor/blog-post',
-                    'gutentor/call-to-action',
-                    'gutentor/content-box',
-                    'gutentor/count-down',
-                    'gutentor/counter-box',
-                    'gutentor/divider',
-                    'gutentor/featured-block',
-                    'gutentor/gallery',
-                    'gutentor/google-map',
-                    'gutentor/icon-box',
-                    'gutentor/image-box',
-                    'gutentor/image-slider',
-                    'gutentor/list',
-                    'gutentor/notification',
-                    'gutentor/opening-hours',
-                    'gutentor/pricing',
-                    'gutentor/progress-bar',
-                    'gutentor/restaurant-menu',
-                    'gutentor/show-more',
-                    'gutentor/social',
-                    'gutentor/tabs',
-                    'gutentor/team',
-                    'gutentor/testimonial',
-                    'gutentor/timeline',
-                    'gutentor/video-popup',
-                );
-                if ( ! empty( array_intersect( $diff_blocks, $widgets ) ) ) {
-                    $block_css_files[] = gutentor_dynamic_css()->get_static_css( 'global-widget', true );
-                }
-
+				$widgets = array(
+					'gutentor/about-block',
+					'gutentor/accordion',
+					'gutentor/author-profile',
+					'gutentor/blog-post',
+					'gutentor/call-to-action',
+					'gutentor/content-box',
+					'gutentor/count-down',
+					'gutentor/counter-box',
+					'gutentor/divider',
+					'gutentor/featured-block',
+					'gutentor/gallery',
+					'gutentor/google-map',
+					'gutentor/icon-box',
+					'gutentor/image-box',
+					'gutentor/image-slider',
+					'gutentor/list',
+					'gutentor/notification',
+					'gutentor/opening-hours',
+					'gutentor/pricing',
+					'gutentor/progress-bar',
+					'gutentor/restaurant-menu',
+					'gutentor/show-more',
+					'gutentor/social',
+					'gutentor/tabs',
+					'gutentor/team',
+					'gutentor/testimonial',
+					'gutentor/timeline',
+					'gutentor/video-popup',
+				);
+				if ( ! empty( array_intersect( $diff_blocks, $widgets ) ) ) {
+					$block_css_files[] = gutentor_dynamic_css()->get_static_css( 'global-widget', true );
+				}
 
 				foreach ( $diff_blocks as $block ) {
 					$block_css_files[] = gutentor_dynamic_css()->get_static_css( $block, true );
 				}
 				$this->enqueue_missing_assets( $block_css_files );
 			}
+		}
+
+		public function add_used_blocks_css() {
+			if ( ! empty( $this->used_blocks ) ) {
+				foreach ( $this->used_blocks as $used_block ) {
+					$style = get_post_meta( $used_block, 'gutentor_dynamic_css', true );
+
+					if ( get_post_meta( $used_block, 'gutentor_gfont_url', true ) ) {
+						$fonts_url = get_post_meta( $used_block, 'gutentor_gfont_url', true );
+						echo '<link id="gutentor-google-fonts-' . esc_attr( $used_block ) . '" href="' . esc_url( $fonts_url ) . '" rel="stylesheet" />';
+					}
+					echo "<!-- Dynamic CSS -->\n<style type=\"text/css\" id='gutentor-used-block-$used_block'>\n" . wp_strip_all_tags( $style ) . "\n</style>";
+
+				}
+			}
+
 		}
 	} // Class Gutentor_WP_Block_Widget ends here
 }

@@ -45,7 +45,7 @@ if ( function_exists('espresso_version') ) {
 		 * Register Events Addon for Elementor Event Espresso List widget controls.
 		 * Adds different input fields to allow the user to change and customize the widget settings.
 		*/
-		protected function _register_controls(){
+		protected function register_controls(){
 
 			$this->start_controls_section(
 				'section_event',
@@ -204,7 +204,6 @@ if ( function_exists('espresso_version') ) {
 				[
 					'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 					'name' => 'sasstp_title_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 					'selector' => '{{WRAPPER}} .naeep-ee-list h1.page-title',
 				]
 			);
@@ -213,10 +212,6 @@ if ( function_exists('espresso_version') ) {
 				[
 					'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_1,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .naeep-ee-list h1.page-title' => 'color: {{VALUE}};',
 					],
@@ -237,7 +232,6 @@ if ( function_exists('espresso_version') ) {
 				[
 					'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 					'name' => 'event_title_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 					'selector' => '{{WRAPPER}} .naeep-ee-list h2.entry-title',
 				]
 			);
@@ -253,10 +247,6 @@ if ( function_exists('espresso_version') ) {
 					[
 						'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'scheme' => [
-							'type' => Scheme_Color::get_type(),
-							'value' => Scheme_Color::COLOR_1,
-						],
 						'selectors' => [
 							'{{WRAPPER}} .naeep-ee-list h2.entry-title, {{WRAPPER}} .naeep-ee-list h2.entry-title a' => 'color: {{VALUE}};',
 						],
@@ -274,10 +264,6 @@ if ( function_exists('espresso_version') ) {
 					[
 						'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'scheme' => [
-							'type' => Scheme_Color::get_type(),
-							'value' => Scheme_Color::COLOR_2,
-						],
 						'selectors' => [
 							'{{WRAPPER}} .naeep-ee-list h2.entry-title a:hover' => 'color: {{VALUE}};',
 						],
@@ -329,7 +315,6 @@ if ( function_exists('espresso_version') ) {
 				[
 					'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 					'name' => 'address_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_3,
 					'selector' => '{{WRAPPER}} .naeep-ee-list ul.ee-event-datetimes-ul',
 				]
 			);
@@ -338,10 +323,6 @@ if ( function_exists('espresso_version') ) {
 				[
 					'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_3,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .naeep-ee-list ul.ee-event-datetimes-ul' => 'color: {{VALUE}};',
 					],
@@ -373,7 +354,6 @@ if ( function_exists('espresso_version') ) {
 				[
 					'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 					'name' => 'content_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_3,
 					'selector' => '{{WRAPPER}} .naeep-ee-list .event-content p',
 				]
 			);
@@ -382,10 +362,6 @@ if ( function_exists('espresso_version') ) {
 				[
 					'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_3,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .naeep-ee-list .event-content p' => 'color: {{VALUE}};',
 					],
@@ -405,7 +381,6 @@ if ( function_exists('espresso_version') ) {
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'button_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_4,
 					'selector' => '{{WRAPPER}} .naeep-ee-list .event-content input[type="submit"]',
 				]
 			);
@@ -509,7 +484,6 @@ if ( function_exists('espresso_version') ) {
 				[
 					'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 					'name' => 'link_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_4,
 					'selector' => '{{WRAPPER}} .naeep-ee-list p a',
 				]
 			);
@@ -525,10 +499,6 @@ if ( function_exists('espresso_version') ) {
 					[
 						'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'scheme' => [
-							'type' => Scheme_Color::get_type(),
-							'value' => Scheme_Color::COLOR_4,
-						],
 						'selectors' => [
 							'{{WRAPPER}} .naeep-ee-list p a, {{WRAPPER}} .naeep-ee-list p a' => 'color: {{VALUE}};',
 						],
@@ -546,10 +516,6 @@ if ( function_exists('espresso_version') ) {
 					[
 						'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'scheme' => [
-							'type' => Scheme_Color::get_type(),
-							'value' => Scheme_Color::COLOR_2,
-						],
 						'selectors' => [
 							'{{WRAPPER}} .naeep-ee-list p a:hover' => 'color: {{VALUE}};',
 						],

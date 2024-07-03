@@ -44,6 +44,30 @@
   line-height: 1.5;
 }
 
+.eael-team-members-simple.eael-team-item .eael-team-content .eael-team-text.eael-team-text-overlay {
+  display: none;
+}
+
+.eael-team-members-simple.eael-team-item .eael-team-image {
+  position: relative;
+}
+
+.eael-team-members-simple.eael-team-item .eael-team-image .eael-team-text.eael-team-text-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  padding: 10px;
+  margin-bottom: 0;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.eael-team-members-simple.eael-team-item .eael-team-image:hover .eael-team-text.eael-team-text-overlay {
+  opacity: 1;
+}
+
 .eael-team-content > ul {
   margin: 0;
   padding: 0;
@@ -94,18 +118,18 @@
   padding-top: 15%;
   opacity: 0;
   overflow: hidden;
-  -o-text-overflow: ellipsis;
-     text-overflow: ellipsis;
+  text-overflow: ellipsis;
   position: absolute;
   right: 10px;
   top: 10px;
   -webkit-transition: all 0.615s cubic-bezier(0.19, 1, 0.22, 1) 0s;
-  -o-transition: all 0.615s cubic-bezier(0.19, 1, 0.22, 1) 0s;
   transition: all 0.615s cubic-bezier(0.19, 1, 0.22, 1) 0s;
+  visibility: hidden;
 }
 
 .eael-team-item.eael-team-members-overlay:hover .eael-team-content {
   opacity: 1;
+  visibility: visible;
 }
 
 .eael-team-member-social-link > a {
@@ -113,7 +137,6 @@
   display: inline-block;
   text-align: center;
   -webkit-transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1) 0s;
-  -o-transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1) 0s;
   transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1) 0s;
 }
 

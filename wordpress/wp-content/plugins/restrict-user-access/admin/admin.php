@@ -3,27 +3,26 @@
  * @package Restrict User Access
  * @author Joachim Jensen <joachim@dev.institute>
  * @license GPLv3
- * @copyright 2020 by Joachim Jensen
+ * @copyright 2024 by Joachim Jensen
  */
 
 defined('ABSPATH') || exit;
 
 abstract class RUA_Admin
 {
-
     /**
      * Screen identifier
      * @var string
      */
     protected $_screen;
 
+    protected $enable_navbar = true;
+
     public function __construct()
     {
         if (is_admin()) {
             $this->add_action('admin_menu', 'add_menu', 99);
             $this->admin_hooks();
-        } else {
-            $this->frontend_hooks();
         }
     }
 
@@ -35,7 +34,7 @@ abstract class RUA_Admin
     public function add_menu()
     {
         $this->_screen = $this->get_screen();
-        $this->add_action('load-'.$this->_screen, 'load_screen');
+        $this->add_action('load-' . $this->_screen, 'load_screen');
     }
 
     /**
@@ -46,14 +45,6 @@ abstract class RUA_Admin
      * @return void
      */
     abstract public function admin_hooks();
-
-    /**
-     * Add filters and actions for frontend
-     *
-     * @since  0.15
-     * @return void
-     */
-    abstract public function frontend_hooks();
 
     /**
      * Get current screen
@@ -101,6 +92,19 @@ abstract class RUA_Admin
                 403
             );
         }
+
+        $freemius = rua_fs();
+
+        if ($this->enable_navbar && !$freemius->is_activation_mode()) {
+            $path = plugin_dir_path(__FILE__) . '../view/';
+            $view = WPCAView::make($path . '/top_bar.php', [
+                'freemius'  => $freemius,
+                'post_type' => $this->get_restrict_type()
+            ]);
+
+            add_action('in_admin_header', [$view, 'render']);
+        }
+
         $this->prepare_screen();
         $this->add_action('admin_enqueue_scripts', 'add_general_scripts_styles', 11);
     }
@@ -117,6 +121,14 @@ abstract class RUA_Admin
     }
 
     /**
+     * @return WP_Post_Type
+     */
+    protected function get_restrict_type()
+    {
+        return get_post_type_object(RUA_App::TYPE_RESTRICT);
+    }
+
+    /**
      * @since 1.2
      * @param string $tag
      * @param string $callback
@@ -128,7 +140,7 @@ abstract class RUA_Admin
     protected function add_action($tag, $callback, $priority = 10, $accepted_args = 1)
     {
         if (is_string($callback)) {
-            $callback = array($this, $callback);
+            $callback = [$this, $callback];
         }
         add_action($tag, $callback, $priority, $accepted_args);
     }
@@ -145,7 +157,7 @@ abstract class RUA_Admin
     protected function add_filter($tag, $callback, $priority = 10, $accepted_args = 1)
     {
         if (is_string($callback)) {
-            $callback = array($this, $callback);
+            $callback = [$this, $callback];
         }
         add_filter($tag, $callback, $priority, $accepted_args);
     }
@@ -160,7 +172,7 @@ abstract class RUA_Admin
      *
      * @return void
      */
-    protected function enqueue_script($handle, $filename, $deps = array(), $ver = '', $in_footer = false)
+    protected function enqueue_script($handle, $filename, $deps = [], $ver = '', $in_footer = false)
     {
         $this->register_script($handle, $filename, $deps, $ver, $in_footer);
         wp_enqueue_script($handle);
@@ -176,13 +188,13 @@ abstract class RUA_Admin
      *
      * @return void
      */
-    protected function register_script($handle, $filename, $deps = array(), $ver = '', $in_footer = false)
+    protected function register_script($handle, $filename, $deps = [], $ver = '', $in_footer = false)
     {
         $suffix = '.min.js';
         if ($ver === '') {
             $ver = RUA_App::PLUGIN_VERSION;
         }
-        wp_register_script($handle, plugins_url('assets/js/'.$filename.$suffix, dirname(__FILE__)), $deps, $ver, $in_footer);
+        wp_register_script($handle, plugins_url('assets/js/' . $filename . $suffix, dirname(__FILE__)), $deps, $ver, $in_footer);
     }
 
     /**
@@ -194,7 +206,7 @@ abstract class RUA_Admin
      *
      * @return void
      */
-    protected function enqueue_style($handle, $filename, $deps = array(), $ver = '')
+    protected function enqueue_style($handle, $filename, $deps = [], $ver = '')
     {
         $this->register_style($handle, $filename, $deps, $ver);
         wp_enqueue_style($handle);
@@ -209,12 +221,12 @@ abstract class RUA_Admin
      *
      * @return void
      */
-    protected function register_style($handle, $filename, $deps = array(), $ver = '')
+    protected function register_style($handle, $filename, $deps = [], $ver = '')
     {
         $suffix = '.css';
         if ($ver === '') {
             $ver = RUA_App::PLUGIN_VERSION;
         }
-        wp_enqueue_style($handle, plugins_url('assets/css/'.$filename.$suffix, dirname(__FILE__)), $deps, $ver);
+        wp_enqueue_style($handle, plugins_url('assets/css/' . $filename . $suffix, dirname(__FILE__)), $deps, $ver);
     }
 }

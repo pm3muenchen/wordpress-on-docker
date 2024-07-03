@@ -3,11 +3,16 @@
 function ub_render_table_of_contents_block($attributes){
     extract($attributes);
     $linkArray = json_decode($links, true);
+	$linkArray = is_null($linkArray) ? [] : $linkArray;
 
-    $filteredHeaders = array_values(array_filter($linkArray, function ($header) use ($allowedHeaders){
-        return $allowedHeaders[$header['level'] - 1] && 
+    $filteredHeaders = $linkArray ? (array_values(array_filter($linkArray, function ($header) use ($allowedHeaders){
+        return $allowedHeaders[$header['level'] - 1] &&
            (!array_key_exists("disabled",  $header) || (array_key_exists("disabled",  $header) && !$header['disabled']));
-    }));
+        }))) : [];
+
+    if(!isset($gaps) || is_null($gaps)){
+        $gaps = [];
+    }
 
     $currentGaps = array_values(array_filter($gaps, function($gap, $index) use($allowedHeaders, $linkArray){
         return $allowedHeaders[$linkArray[$index]['level'] - 1] && (!array_key_exists("disabled",  $linkArray[$index]) || (array_key_exists("disabled", $linkArray[$index]) && !$linkArray[$index]['disabled']));
@@ -57,7 +62,11 @@ function ub_render_table_of_contents_block($attributes){
                     $anchor = '#' . str_replace("themeisle-otter ", "", $item["anchor"]);
                 }
                 else{
-                    $anchor = '#' . $item["anchor"];
+                    if(isset($item['blockName']) && 'ub/advanced-heading' === $item['blockName']){
+                        $anchor = '#ub-advanced-heading-' . $item["clientId"];
+                    } else {
+                        $anchor = '#' . $item["anchor"];
+                    }
                 }
 
                 if(count($currentGaps) > $num && get_query_var('page') !== $currentGaps[$num]){
@@ -77,7 +86,7 @@ function ub_render_table_of_contents_block($attributes){
                     strrpos($outputString, '</li>'), strlen('</li>'));
 
                 forEach($item as $key => $subItem){
-                    ub_makeListItem($key+1, $subItem, $listStyle, $blockID, $currentGaps);
+                    ub_makeListItem($key + 1, $subItem, $listStyle, $blockID, $currentGaps);
                 }
                 $outputString .= ($listStyle === 'numbered' ? '</ol>' : '</ul>') . '</li>';
             }
@@ -98,36 +107,43 @@ function ub_render_table_of_contents_block($attributes){
     else if ($scrollTargetType === 'class'){
         $targetType = '.';
     }
-    
-    return '<div class="ub_table-of-contents'.(isset($className) ? ' ' . esc_attr($className) : '')
-                .(!$showList && strlen($title) > 0 ? ' ub_table-of-contents-collapsed' : '' ).
-                '" data-showtext="'.__('show', 'ultimate-blocks').'" data-hidetext="'.__('hide', 'ultimate-blocks')
-                .'" data-scrolltype="'.$scrollOption.'"'.($scrollOption === 'fixedamount' ? ' data-scrollamount="'.$scrollOffset.'"':'')
-                .($scrollOption === 'namedelement' ? ' data-scrolltarget="'.$targetType.$scrollTarget.'"':'')
-                .($blockID === ''?'':' id="ub_table-of-contents-'.$blockID.'"').'>'.
-                (strlen($title) > 0 ? ('<div class="ub_table-of-contents-header">
-                    <div class="ub_table-of-contents-title">'.
-                        $title .'</div>'. 
+	$classes                  = array( 'wp-block-ub-table-of-contents-block', 'ub_table-of-contents' );
+	if(!$showList){
+		$classes[] = 'ub_table-of-contents-collapsed';
+	}
+	$block_wrapper_attributes = get_block_wrapper_attributes(
+		array(
+			'class' => implode( ' ', $classes ),
+			'id'    => $blockID === '' ? '' : 'ub_table-of-contents-' . $blockID . '',
+		)
+	);
+    return '<div ' . $block_wrapper_attributes .
+                '" data-showtext="' . ($showText ?: __('show', 'ultimate-blocks') ) . '" data-hidetext="' . ($hideText ?: __('hide', 'ultimate-blocks'))
+                . '" data-scrolltype="' . esc_attr($scrollOption) . '"' . ($scrollOption === 'fixedamount' ? ' data-scrollamount="' . esc_attr($scrollOffset) . '"' : '')
+                . ($scrollOption === 'namedelement' ? ' data-scrolltarget="' . $targetType . esc_attr($scrollTarget) . '"' : '') . ' data-initiallyhideonmobile="' . json_encode($hideOnMobile) . '"
+                    data-initiallyshow="' . json_encode($showList) . '">'.
+                (('<div class="ub_table-of-contents-header-container"><div class="ub_table-of-contents-header">
+                    <div class="ub_table-of-contents-title">'. wp_kses_post($title) . '</div>' .
                     ($allowToCHiding ?
                     '<div class="ub_table-of-contents-header-toggle">
                         <div class="ub_table-of-contents-toggle">
-                        &nbsp;[<a class="ub_table-of-contents-toggle-link" href="#">'.
-                            __($showList ? 'hide' : 'show', 'ultimate-blocks')
-                            .'</a>]</div></div>' :'')
-                .'</div>') : '')
-                .'<div class="ub_table-of-contents-container ub_table-of-contents-' .
-                    $numColumns. '-column ' . ($showList || strlen($title) === 0 ||
-                    (strlen($title) === 1 && $title[0] === '') ? '' : 'ub-hide').'">'.
-                ($listStyle === 'numbered' ? '<ol>' :  '<ul'.($listStyle === 'plain' && $blockID === '' ? ' style="list-style: none;"' : '').'>')
+                        &nbsp;[<a class="ub_table-of-contents-toggle-link" href="#">' .
+                            ( $showList ? ($hideText ?: __('hide', 'ultimate-blocks'))
+                             : ($showText ?: __('show', 'ultimate-blocks')) )
+                            .'</a>]</div></div>' : '')
+                . '</div></div>'))
+                . '<div class="ub_table-of-contents-extra-container"><div class="ub_table-of-contents-container ub_table-of-contents-' .
+                    esc_attr($numColumns) . '-column ' . ($showList ? '' : 'ub-hide') . '">' .
+                ($listStyle === 'numbered' ? '<ol>' :  '<ul'. ($listStyle === 'plain' && $blockID === '' ? ' style="list-style: none;"' : '') . '>')
                 . $listItems .
                 ($listStyle === 'numbered' ? '</ol>' : '</ul>')
-                .'</div></div>';
+                .'</div></div></div>';
 }
 
 function ub_register_table_of_contents_block() {
-	if( function_exists( 'register_block_type' ) ) {
+	if( function_exists( 'register_block_type_from_metadata' ) ) {
         require dirname(dirname(__DIR__)) . '/defaults.php';
-		register_block_type( 'ub/table-of-contents-block', array(
+		register_block_type_from_metadata( dirname(dirname(dirname(__DIR__))) . '/dist/blocks/table-of-contents/block.json', array(
             'attributes' => $defaultValues['ub/table-of-contents-block']['attributes'],
             'render_callback' => 'ub_render_table_of_contents_block'));
     }
@@ -147,7 +163,8 @@ function ub_table_of_contents_add_frontend_assets() {
                 Ultimate_Blocks_Constants::plugin_version(),
                 true
             );
-            if(!wp_script_is('ultimate_blocks-scrollby-polyfill', 'queue')){
+            if(isset($block['attrs']['enableSmoothScroll']) && $block['attrs']['enableSmoothScroll']
+                && !wp_script_is('ultimate_blocks-scrollby-polyfill', 'queue')){
                 wp_enqueue_script(
                     'ultimate_blocks-scrollby-polyfill',
                     plugins_url( 'scrollby-polyfill.js', dirname( __FILE__ ) ),

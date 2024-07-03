@@ -17,23 +17,27 @@ const TemplatePreviewModal = ({ onCloseCallback, templateId, templateKitId, exis
 
   return (
     <TemplateModalWrapper templateId={templateId} templateKitId={templateKitId} existingImports={existingImports} templatePreviewTitle={templatePreviewTitle} isOpen onCloseCallback={onCloseCallback}>
-      {installRequirements && !installedKit.loading && !installedKit.error && installedKit.data ? (
-        <div className={styles.missingRequirementsWrapper}>
-          <MissingRequirements
-            settings={installedKit.data.requirements.settings}
-            theme={installedKit.data.requirements.theme}
-            plugins={installedKit.data.requirements.plugins}
-            requiredCss={installedKit.data.requirements.css}
-            templateKitId={id}
-            completeCallback={() => {
-              // When missing requirements are actioned we get a callback here.
-              // We set a new refresh value which results in a new API call and a complete data refresh of this page
-              // (which includes updated state on missing plugin requirements from our vendored import code)
-              setRefresh(new Date().getTime())
-            }}
-          />
-        </div>
-      ) : null}
+      {
+        (installRequirements && !installedKit.loading && !installedKit.error && installedKit.data)
+          ? (
+            <div className={styles.missingRequirementsWrapper}>
+              <MissingRequirements
+                settings={installedKit.data.requirements.settings}
+                theme={installedKit.data.requirements.theme}
+                plugins={installedKit.data.requirements.plugins}
+                requiredCss={installedKit.data.requirements.css}
+                templateKitId={id}
+                completeCallback={() => {
+                  // When missing requirements are actioned we get a callback here.
+                  // We set a new refresh value which results in a new API call and a complete data refresh of this page
+                  // (which includes updated state on missing plugin requirements from our vendored import code)
+                  setRefresh(new Date().getTime())
+                }}
+              />
+            </div>
+            )
+          : null
+}
       <img className={styles.previewTemplate} src={templateScreenShotUrl} alt={templatePreviewTitle} />
     </TemplateModalWrapper>
   )

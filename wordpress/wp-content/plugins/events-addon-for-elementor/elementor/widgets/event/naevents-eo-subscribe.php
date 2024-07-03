@@ -45,7 +45,7 @@ if ( is_plugin_active( 'event-organiser/event-organiser.php' ) ) {
 		 * Register Events Addon for Elementor Event Organiser Subscribe widget controls.
 		 * Adds different input fields to allow the user to change and customize the widget settings.
 		*/
-		protected function _register_controls(){
+		protected function register_controls(){
 
 			$this->start_controls_section(
 				'section_event',
@@ -231,7 +231,6 @@ if ( is_plugin_active( 'event-organiser/event-organiser.php' ) ) {
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'button_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_4,
 					'selector' => '{{WRAPPER}} .naeep-eo-subscribe a',
 				]
 			);

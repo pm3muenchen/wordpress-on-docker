@@ -1,21 +1,19 @@
 <?php
 /**
- * @package WP Content Aware Engine
+ * @package wp-content-aware-engine
  * @author Joachim Jensen <joachim@dev.institute>
  * @license GPLv3
- * @copyright 2020 by Joachim Jensen
+ * @copyright 2023 by Joachim Jensen
  */
 
 defined('ABSPATH') || exit;
-
 
 if (!class_exists('WPCATypeManager')) {
     /**
      * Manage module objects
      */
-    final class WPCATypeManager extends WPCAObjectManager
+    final class WPCATypeManager extends WPCACollection
     {
-
         /**
          * Constructor
          */
@@ -24,21 +22,18 @@ if (!class_exists('WPCATypeManager')) {
             parent::__construct();
             add_action(
                 'init',
-                array($this,'set_modules'),
+                [$this,'set_modules'],
                 999
             );
         }
 
         /**
-         * Add module to manager
-         *
-         * @since 1.0
-         * @param object  $class
-         * @param string  $name
+         * @param string $name
+         * @return $this
          */
-        public function add($name, $arg = '')
+        public function add($name)
         {
-            parent::add(new WPCAObjectManager(), $name);
+            return parent::put($name, new WPCACollection());
         }
 
         /**
@@ -51,7 +46,7 @@ if (!class_exists('WPCATypeManager')) {
         {
             do_action('wpca/types/init', $this);
 
-            $modules = array(
+            $modules = [
                 'static',
                 'post_type',
                 'author',
@@ -65,11 +60,12 @@ if (!class_exists('WPCATypeManager')) {
                 'qtranslate',
                 'translatepress',
                 'transposh',
+                'weglot',
                 'wpml'
-            );
+            ];
 
             foreach ($modules as $name) {
-                $class_name = WPCACore::CLASS_PREFIX.'Module_'.$name;
+                $class_name = WPCACore::CLASS_PREFIX . 'Module_' . $name;
 
                 if (!class_exists($class_name)) {
                     continue;
@@ -81,21 +77,21 @@ if (!class_exists('WPCATypeManager')) {
                     continue;
                 }
 
-                foreach ($this->get_all() as $post_type) {
-                    $post_type->add($class, $name);
+                foreach ($this->all() as $post_type) {
+                    $post_type->put($name, $class);
                 }
             }
 
             do_action('wpca/modules/init', $this);
 
             //initiate all modules once with backwards compatibility on can_enable()
-            $initiated = array();
-            foreach ($this->get_all() as $post_type_name => $post_type) {
+            $initiated = [];
+            foreach ($this->all() as $post_type_name => $post_type) {
                 if (!WPCACore::get_option($post_type_name, 'legacy.date_module', false)) {
                     $post_type->remove('date');
                 }
 
-                foreach ($post_type->get_all() as $key => $module) {
+                foreach ($post_type->all() as $key => $module) {
                     if (!isset($initiated[$key])) {
                         $initiated[$key] = 1;
                         $module->initiate();

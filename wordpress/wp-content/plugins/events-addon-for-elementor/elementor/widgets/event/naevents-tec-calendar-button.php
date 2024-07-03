@@ -46,7 +46,7 @@ if ( is_plugin_active( 'the-events-calendar/the-events-calendar.php' ) ) {
 		 * Register Events Addon for Elementor TEC Calendar Button widget controls.
 		 * Adds different input fields to allow the user to change and customize the widget settings.
 		*/
-		protected function _register_controls(){
+		protected function register_controls(){
 
 			$args = array(
 	    'post_type' => 'tribe_events',
@@ -99,10 +99,11 @@ if ( is_plugin_active( 'the-events-calendar/the-events-calendar.php' ) ) {
 				'btn_icon',
 				[
 					'label' => esc_html__( 'Button Icon', 'events-addon-for-elementor' ),
-					'type' => Controls_Manager::ICON,
-					'options' => NAEEP_Controls_Helper_Output::get_include_icons(),
-					'frontend_available' => true,
-					'default' => 'fa fa-plus',
+					'type' => Controls_Manager::ICONS,
+					'default' => [
+						'value' => 'fas fa-plus',
+						'library' => 'fa-solid',
+					],
 				]
 			);
 			$this->add_control(
@@ -248,7 +249,6 @@ if ( is_plugin_active( 'the-events-calendar/the-events-calendar.php' ) ) {
 				[
 					'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 					'name' => 'btn_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_4,
 					'selector' => '{{WRAPPER}} .naeep-btn',
 				]
 			);
@@ -336,9 +336,9 @@ if ( is_plugin_active( 'the-events-calendar/the-events-calendar.php' ) ) {
 			$settings = $this->get_settings_for_display();
 			$button_type = !empty( $settings['button_type'] ) ? $settings['button_type'] : '';
 			$event_id = !empty( $settings['event_id'] ) ? $settings['event_id'] : '';
-			$btn_icon = !empty( $settings['btn_icon'] ) ? $settings['btn_icon'] : '';
-		  $btn_text = !empty( $settings['btn_text'] ) ? $settings['btn_text'] : '';
-		  $btn_link = !empty( $settings['btn_link'] ) ? $settings['btn_link'] : '';
+			$btn_icon = !empty( $settings['btn_icon'] ) ? $settings['btn_icon']['value'] : '';
+	  		$btn_text = !empty( $settings['btn_text'] ) ? $settings['btn_text'] : '';
+		  	$btn_link = !empty( $settings['btn_link'] ) ? $settings['btn_link'] : '';
 			$link_url = !empty( $btn_link['url'] ) ? esc_url($btn_link['url']) : '';
 			$link_external = !empty( $btn_link['is_external'] ) ? 'target="_blank"' : '';
 			$link_nofollow = !empty( $btn_link['nofollow'] ) ? 'rel="nofollow"' : '';

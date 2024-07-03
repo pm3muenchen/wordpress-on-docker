@@ -2,18 +2,26 @@
 # This file is distributed under the same license as the Plugins - Envato Elements &#8211; Photos &amp; Elementor Templates - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-02-06 11:22:44+0000\n"
+"PO-Revision-Date: 2021-12-26 12:09:10+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: GlotPress/3.0.0-alpha.2\n"
+"X-Generator: GlotPress/4.0.0\n"
 "Language: sv_SE\n"
 "Project-Id-Version: Plugins - Envato Elements &#8211; Photos &amp; Elementor Templates - Stable (latest release)\n"
 
 #: inc/backend/class-welcome.php:71 inc/backend/class-welcome.php:72
 msgid "Free Blocks"
 msgstr "Gratis block"
+
+#: inc/backend/class-welcome.php:80 inc/backend/class-welcome.php:81
+msgid "Installed Kits"
+msgstr "Installerade kit"
+
+#: inc/backend/class-welcome.php:62 inc/backend/class-welcome.php:63
+msgid "Free Kits"
+msgstr "Gratis kit"
 
 #: inc/backend/class-welcome.php:45
 msgid "Welcome"
@@ -144,6 +152,7 @@ msgid "About"
 msgstr "Om"
 
 #. Author URI of the plugin
+#: envato-elements.php
 msgid "https://elements.envato.com/extensions/wordpress/?utm_source=extensions&utm_medium=referral&utm_campaign=elements_extensions_wpplugins"
 msgstr "https://elements.envato.com/extensions/wordpress/?utm_source=extensions&utm_medium=referral&utm_campaign=elements_extensions_wpplugins"
 
@@ -177,11 +186,13 @@ msgid "Envato Elements requires PHP version %s+, plugin is currently NOT ACTIVE.
 msgstr "Envato Elements kräver PHP-version %s+, tillägget är för närvarande INTE AKTIV. Kontakta webbhotellet. WordPress rekommenderar version %s."
 
 #. Author of the plugin
+#: envato-elements.php
 msgid "Envato"
 msgstr "Envato"
 
 #. Plugin Name of the plugin
-#: inc/backend/class-welcome.php:32 inc/backend/class-welcome.php:44
+#: envato-elements.php inc/backend/class-welcome.php:32
+#: inc/backend/class-welcome.php:44
 msgid "Envato Elements"
 msgstr "Envato Elements"
 

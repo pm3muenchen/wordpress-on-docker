@@ -2,9 +2,11 @@
  * @namespace WPGMZA
  * @module GoogleCircle
  * @requires WPGMZA.Circle
+ * @pro-requires WPGMZA.ProCircle
  */
 jQuery(function($) {
 	
+	var Parent = WPGMZA.Circle;
 	/**
 	 * Subclass, used when Google is the maps engine. <strong>Please <em>do not</em> call this constructor directly. Always use createInstance rather than instantiating this class directly.</strong> Using createInstance allows this class to be externally extensible.
 	 * @class WPGMZA.GoogleCircle
@@ -17,7 +19,7 @@ jQuery(function($) {
 	{
 		var self = this;
 		
-		WPGMZA.Circle.call(this, options, googleCircle);
+		Parent.call(this, options, googleCircle);
 		
 		if(googleCircle)
 		{
@@ -44,9 +46,24 @@ jQuery(function($) {
 		google.maps.event.addListener(this.googleCircle, "click", function() {
 			self.dispatchEvent({type: "click"});
 		});
-	}
+
+		google.maps.event.addListener(this.googleCircle, "rightclick", function(event) {
+			if(typeof self.map !== 'undefined' && self.map instanceof WPGMZA.Map){
+				var wpgmzaEvent = new WPGMZA.Event("rightclick");
+				wpgmzaEvent.latLng = {
+					lat: event.latLng.lat(),
+					lng: event.latLng.lng()
+				};
 	
-	WPGMZA.GoogleCircle.prototype = Object.create(WPGMZA.Circle.prototype);
+				self.map.dispatchEvent(wpgmzaEvent);
+			}
+		});
+	}
+
+	if(WPGMZA.isProVersion())
+		Parent = WPGMZA.ProCircle;
+	
+	WPGMZA.GoogleCircle.prototype = Object.create(Parent.prototype);
 	WPGMZA.GoogleCircle.prototype.constructor = WPGMZA.GoogleCircle;
 	
 	WPGMZA.GoogleCircle.prototype.getCenter = function()

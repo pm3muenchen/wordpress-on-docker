@@ -1,27 +1,45 @@
 <?php
 
-function ub_generateStarDisplay($value, $limit, $id, $inactiveStarColor,
-    $activeStarColor, $starOutlineColor, $className=''){
-    $stars = '';
+function ub_generate_review_block_styling($attributes){
+	$summary_title_font_size	= isset($attributes['summaryTitleFontSize']) ? $attributes['summaryTitleFontSize'] : "";
+	$main_title_font_size 			= isset($attributes['mainTitleFontSize']) ? $attributes['mainTitleFontSize'] : "";
 
-    foreach(range(0, $limit-1) as $current){
-        $stars .= '<svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 150 150">
-        <defs><mask id="ub_review_star_filter-' . $id . '-' . $current
-        .'"><rect height="150" width="' . ($value - $current > 0 ?
-            ($value - $current < 1 ? $value - $current : 1) : 0) * 150
-        .'" y="0" x="0" fill="#fff"/></mask></defs> <path fill="' . $inactiveStarColor . '" stroke-width="2.5"
-        d="m0.75,56.89914l56.02207,0l17.31126,-56.14914l17.31126,56.14914l56.02206,0l-45.32273,34.70168l17.31215,56.14914l-45.32274,-34.70262l-45.32274,34.70262l17.31215,-56.14914l-45.32274,-34.70168z"
-        stroke="' . $starOutlineColor . '"/><path class="star" id="star' . $current .
-        '" mask="url(#ub_review_star_filter-' . $id. '-' . $current . ')" fill="' . $activeStarColor . '" strokeWidth="2.5"
-        d="m0.75,56.89914l56.02207,0l17.31126,-56.14914l17.31126,56.14914l56.02206,0l-45.32273,34.70168l17.31215,56.14914l-45.32274,-34.70262l-45.32274,34.70262l17.31215,-56.14914l-45.32274,-34.70168z"
-        stroke="' . $starOutlineColor . '"/>
-        </svg>';
-    }
+	$styles = array(
+		"--ub-review-summary-title-font-size"	=> $summary_title_font_size,
+		"--ub-review-title-font-size"			=> $main_title_font_size,
+	);
 
-    return '<div class="' . $className . '">' . $stars . '</div>';
+	$css = Ultimate_Blocks\includes\generate_css_string($styles);
+
+	return $css;
 }
 
-function ub_render_review_block($attributes){
+function ub_generatePercentageBar($value, $id, $activeColor, $inactiveColor ){
+    $percentBar = "M 0.5,0.5 L 99.5,0.5";
+    return '<div class="ub_review_percentage">
+            <svg class="ub_review_percentage_bar" viewBox="0 0 100 1" preserveAspectRatio="none" height="10">
+                <path
+                    class="ub_review_percentage_bar_trail"
+                    d="' . $percentBar . '" stroke="' . esc_attr($inactiveColor) . '"
+                    stroke-width="1"
+                ></path>
+                <path
+                    class="ub_review_percentage_bar_path"
+                    d="' . $percentBar . '" stroke="' . esc_attr($activeColor) . '"
+                    stroke-width="1" stroke-dashoffset="' . (100 - $value) . 'px"
+                ></path>
+            </svg>
+            <div>' . wp_kses_post($value) . '%</div>
+    </div>';
+}
+
+function ub_filterJsonldString($string){
+    return str_replace("\'", "'", wp_kses_post($string));
+}
+
+function ub_render_review_block($attributes, $block_content, $block_instance){
+    require_once dirname(dirname(__DIR__)) . '/common.php';
+
     extract($attributes);
     $parsedItems = isset($parts) ? $parts : json_decode($items, true);
 
@@ -33,38 +51,55 @@ function ub_render_review_block($attributes){
                                     return $item['value'];
                                 }, $parsedItems);
 
-    $average = round(array_sum($extractedValues)/count($extractedValues), 1);
+    $average = round(array_sum($extractedValues) / count($extractedValues), 1);
 
-    $starRatings = '';
+    $ratings = '';
 
-    foreach($parsedItems as $key=>$item){
-        $starRatings .= '<div class="ub_review_entry">' . $item['label'].
-        ub_generateStarDisplay($item['value'], $starCount, $blockID . '-' . $key,
-        $inactiveStarColor, $activeStarColor, $starOutlineColor, "ub_review_stars") . '</div>';
+    foreach($parsedItems as $key => $item){
+        $ratings .= '<div class="ub_review_' . ($valueType === 'percent' ? 'percentage_' : '') . 'entry"><span>' . $item['label'] . '</span>' .
+        ($valueType === 'star' ? ub_generateStarDisplay($item['value'], $starCount, $blockID . '-' . $key,
+                                $inactiveStarColor, $activeStarColor, $starOutlineColor, "ub_review_stars", "ub_review_star_filter-")
+                                : ub_generatePercentageBar($item['value'], $blockID . '-' . $key, $activePercentBarColor, $percentBarColor ?: '#d9d9d9')  ) . '</div>';
+    }
+    $button_block = !empty($block_instance->parsed_block['innerBlocks']) ? $block_instance->parsed_block['innerBlocks'][0] : array();
+    $buttons = isset($button_block['attrs']['buttons']) ? $button_block['attrs']['buttons'] : array();
+
+    $offers = array();
+
+    foreach ($buttons as $button) {
+        $offer = array(
+            "@type" => "Offer",
+            "url" => esc_url($button['url']),
+            "priceCurrency" => ub_filterJsonldString($offerCurrency),
+            "price" => ub_filterJsonldString($offerPrice),
+        );
+        if($offerExpiry > 0){
+            array_merge($offer, array('priceValidUntil'=>date("Y-m-d", $offerExpiry)));
+        }
+
+        $offers[] = $offer;
     }
 
-    $offerCode = '"offers":{
+    $all_buttons_offer = json_encode($offers, JSON_UNESCAPED_SLASHES);
+    $aggregate_offer = '{
         "@type": "' . $offerType . '",
-        "priceCurrency": "' . esc_html($offerCurrency) . '",' .
-            ($offerType === 'AggregateOffer' ? 
-                '"lowPrice": "' . $offerLowPrice . '",
-                "highPrice": "' . $offerHighPrice . '",
-                "offerCount": "' . $offerCount . '"' 
-            : '"price": "' . $offerPrice . '",
-                "url": "' . esc_url($callToActionURL) . '"' .
-                ($offerExpiry > 0 ? (', "priceValidUntil": "' . date("Y-m-d", $offerExpiry) . '"') : '')).
-    '}';
+        "priceCurrency": "' . ub_filterJsonldString($offerCurrency) . '",' .
+        '"lowPrice": "' . $offerLowPrice . '",
+        "highPrice": "' . $offerHighPrice . '",
+        "offerCount": "' . absint($offerCount) . '"
+    }';
+    $offerCode = '"offers":' . ($offerType === 'AggregateOffer' ? $aggregate_offer : $all_buttons_offer );
 
     $itemExtras = '';
 
     switch ($itemType){
         case 'Book':
-            $itemExtras = '"author": "'. esc_html($bookAuthorName) . '",
-                            "isbn": "'. esc_html($isbn) . '",
-                            "saveAs": "' . esc_html($itemPage) . '"';
+            $itemExtras = '"author": "'. ub_filterJsonldString($bookAuthorName) . '",
+                            "isbn": "'. ub_filterJsonldString($isbn) . '",
+                            "sameAs": "' . esc_url($itemPage) . '"';
         break;
         case 'Course':
-            $itemExtras = '"provider": "' . esc_html($provider) . '"';
+            $itemExtras = '"provider": "' . ub_filterJsonldString($provider) . '"';
         break;
         case 'Event':
             $itemExtras = $offerCode . ',
@@ -73,44 +108,44 @@ function ub_render_review_block($attributes){
             '"location":{
                 "@type":'. ($usePhysicalAddress ?
                             '"Place",
-                "name": "' . esc_html($addressName) . '",
-                "address": "' . esc_html($address) . '"' :
+                "name": "' . ub_filterJsonldString($addressName) . '",
+                "address": "' . ub_filterJsonldString($address) . '"' :
                             '"VirtualLocation",
                 "url": "' . esc_url($eventPage) . '"').
             '},
-            "organizer": "' . esc_html($organizer) . '",
-            "performer": "' . esc_html($performer) . '"';
+            "organizer": "' . ub_filterJsonldString($organizer) . '",
+            "performer": "' . ub_filterJsonldString($performer) . '"';
         break;
         case 'Product':
             $itemExtras = '"brand": {
                                 "@type": "Brand",
-                                "name": "' . esc_html($brand) . '"
+                                "name": "' . ub_filterJsonldString($brand) . '"
                             },
-                            "sku": "'. esc_html($sku) .'",
-                            "' . esc_html($identifierType) . '": "' . esc_html($identifier) . '",' . $offerCode;
+                            "sku": "'. ub_filterJsonldString($sku) .'",
+                            "' . ub_filterJsonldString($identifierType) . '": "' . ub_filterJsonldString($identifier) . '",' . $offerCode;
         break;
         case 'LocalBusiness':
-            $itemExtras =  isset($cuisines) ? ( '"servesCuisine":' . json_encode($cuisines) . ',') : '' .
-                            '"address": "' . esc_html($address) . '",
-                            "telephone": "' . esc_html($telephone) . '",
-                            "priceRange": "' . esc_html($priceRange) . '",
-                            "saveAs": "' . esc_html($itemPage) . '"';
+            $itemExtras =  isset($cuisines) && !empty($cuisines) ? ( '"servesCuisine":' . json_encode($cuisines) . ',') : '' .
+                            '"address": "' . ub_filterJsonldString($address) . '",
+                            "telephone": "' . ub_filterJsonldString($telephone) . '",
+                            "priceRange": "' . ub_filterJsonldString($priceRange) . '",
+                            "sameAs": "' . esc_url($itemPage) . '"';
         break;
         case 'Movie':
-            $itemExtras = '"saveAs": "' . esc_html($itemPage) . '"';
+            $itemExtras = '"sameAs": "' . esc_url($itemPage) . '"';
         break;
         case 'Organization':
-            $itemExtras = (in_array($itemSubsubtype, array('Dentist', 'Hospital', 'MedicalClinic', 'Pharmacy', 'Physician')) ? ('"priceRange":"' . esc_html($priceRange) . '",'): '').
-            '"address": "' . esc_html($address) . '",
-            "telephone": "' . $telephone . '"';
+            $itemExtras = (in_array($itemSubsubtype, array('Dentist', 'Hospital', 'MedicalClinic', 'Pharmacy', 'Physician')) ? ('"priceRange":"' . ub_filterJsonldString($priceRange) . '",'): '').
+            '"address": "' . ub_filterJsonldString($address) . '",
+            "telephone": "' . ub_filterJsonldString($telephone) . '"';
         break;
         case 'SoftwareApplication':
-            $itemExtras = '"applicationCategory": "' . esc_html($appCategory) . '",
-                            "operatingSystem": "' . esc_html($operatingSystem) . '",' . $offerCode;
+            $itemExtras = '"applicationCategory": "' . ub_filterJsonldString($appCategory) . '",
+                            "operatingSystem": "' . ub_filterJsonldString($operatingSystem) . '",' . $offerCode;
         break;
         case 'MediaObject':
-            $itemExtras = $itemSubtype === 'VideoObject' ? 
-                    ('"uploadDate": "'.date("Y-m-d", $videoUploadDate) . '", 
+            $itemExtras = $itemSubtype === 'VideoObject' ?
+                    ('"uploadDate": "' . date("Y-m-d", $videoUploadDate) . '",
                     "contentUrl": "' . esc_url($videoURL) . '"') : '';
         break;
         default:
@@ -118,66 +153,67 @@ function ub_render_review_block($attributes){
         break;
     }
 
-    return '<div class="ub_review_block' . (isset($className) ? ' ' . esc_attr($className) : '') .
-                '" id="ub_review_' . $blockID . '">
-        <p class="ub_review_item_name"' . ($blockID === '' ? ' style="text-align: ' . $titleAlign . ';"' : '') . '>' .
-            $itemName . '</p><p class="ub_review_author_name"' .
-            ($blockID === '' ? ' style="text-align: ' . $authorAlign . ';"' : '') . '>' . $authorName . '</p>' .
-        (($enableImage || $enableDescription) && ($imgURL != '' || $description != '') ?
-        '<div class="ub_review_description_container">' .
-            (!$enableDescription || $description === '' ? '' : '<div class="ub_review_description">' . $description . '</div>') .
-            (!$enableImage || $imgURL === '' ? '' : '<img class="ub_review_image" src="' . $imgURL . '" alt = "' . $imgAlt . '">') .
-        '</div>' : '').
-            $starRatings
-    .'<div class="ub_review_summary">' .
-        ($useSummary ? '<p class="ub_review_summary_title">' . $summaryTitle . '</p>' : '') .
-        '<div class="ub_review_overall_value">' .
-            ($useSummary ? '<p>' . $summaryDescription . '</p>' : '') .
-            '<div class="ub_review_average"><span class="ub_review_rating">' . $average . '</span>' .
-            ub_generateStarDisplay($average, $starCount, $blockID . '-average',
-            $inactiveStarColor, $activeStarColor, $starOutlineColor, "ub_review_average_stars").
-            '</div>
-        </div>
-        <div class="ub_review_cta_panel">' .
-        ($enableCTA && $callToActionURL != '' ? '<div class="ub_review_cta_main">
-            <a href="' . esc_url($callToActionURL) .
-                '" ' . ($ctaOpenInNewTab ? 'target="_blank" ' : '') . 'rel="' . ($ctaNoFollow ? 'nofollow ' : '') . ($ctaIsSponsored ? 'sponsored ': '') . 'noopener noreferrer"' .
-                    ($blockID === '' ? '  style="color: ' . $callToActionForeColor . ';"' : '') . '>
-                <button class="ub_review_cta_btn"' . ($blockID === '' ? ' style="background-color: ' . $callToActionBackColor
-                . '; border-color: ' . $callToActionForeColor . '; color: ' . $callToActionForeColor . ';"' : '') . '>' .
-                    ($callToActionText === '' ? 'Click here' : $callToActionText) . '</button></a></div>' : '') .
-                '</div></div>' . ($enableReviewSchema ? preg_replace( '/\s+/', ' ', ('<script type="application/ld+json">{
+    $schema_json_content = '{
         "@context": "http://schema.org/",
         "@type": "Review",' .
-        ($useSummary ? '"reviewBody": "' . esc_html(preg_replace('/(<.+?>)/', '', $summaryDescription)) . '",' : '') .
-        '"description": "' . esc_html(preg_replace('/(<.+?>)/', '', $description)) . '",
+        ($useSummary ? '"reviewBody": "' . ub_filterJsonldString($summaryDescription) . '",' : '') .
+        '"description": "' . ub_filterJsonldString($description) . '",
         "itemReviewed": {
             "@type":"' . ($itemSubsubtype ?: $itemSubtype ?: $itemType) . '",' .
-            ($itemName ? ('"name":"' . esc_html(preg_replace('/(<.+?>)/', '', $itemName)) . '",') : '') .
+            ($itemName ? ('"name":"' . ub_filterJsonldString($itemName) . '",') : '') .
             ($imgURL ? (($itemSubtype === 'VideoObject' ? '"thumbnailUrl' : '"image') . '": "' . esc_url($imgURL) . '",') : '') .
-            '"description": "' . esc_html(preg_replace('/(<.+?>)/', '', $description)) .'"'
+            '"description": "' . ub_filterJsonldString($description) .'"'
                 . ($itemExtras === '' ? '' : ',' . $itemExtras ) .
         '},
         "reviewRating":{
             "@type": "Rating",
-            "ratingValue": "' . ($average % 1 === 0 ? $average : number_format($average, 1, '.', '')) . '",
-            "bestRating": "' . $starCount . '"
+            "ratingValue": "' . ((int)$average % 1 === 0 ? $average : number_format($average, 1, '.', '')) . '",
+            "bestRating": "' . ($valueType === 'star' ? $starCount : '100') . '"
         },
         "author":{
             "@type": "Person",
-            "name": "'. esc_html(preg_replace('/(<.+?>)/', '', $authorName)) .'"
+            "name": "'. ub_filterJsonldString($authorName) .'"
         },
-        "publisher": "'.$reviewPublisher.'",
-        "datePublished": "'. date("Y-m-d", $publicationDate) . '",
-        "url": "'.get_permalink().'"
-    }</script>')) : '')
+        "publisher": "' . ub_filterJsonldString($reviewPublisher) . '",
+        "datePublished": "' . date("Y-m-d", $publicationDate) . '",
+        "url": "' . get_permalink() . '"
+    }';
+
+	// review schema filter hook
+	$schema_json_content = apply_filters('ultimate-blocks/filter/review_schema', $enableReviewSchema ? $schema_json_content : '', $attributes);
+
+	$schema_json_ld = ($enableReviewSchema ? preg_replace( '/\s+/', ' ', ('<script type="application/ld+json">' .$schema_json_content . '</script>')) : '');
+
+    return '<div class="wp-block-ub-review ub_review_block' . (isset($className) ? ' ' . esc_attr($className) : '') .
+                '" id="ub_review_' . esc_attr($blockID) . '">
+        <p class="ub_review_item_name"' . ($blockID === '' ? ' style="text-align: ' . esc_attr($titleAlign) . ';"' : '') . '>' .
+            wp_kses_post($itemName) . '</p><p class="ub_review_author_name"' .
+            ($blockID === '' ? ' style="text-align: ' . esc_attr($authorAlign) . ';"' : '') . '>' . wp_kses_post($authorName) . '</p>' .
+        (($enableImage || $enableDescription) && ($imgURL !== '' || $description !== '') ?
+        '<div class="ub_review_description_container ub_review_' . esc_attr($imgPosition) . '_image">' .
+            (!$enableImage || $imgURL === '' ? '' : '<img class="ub_review_image" src="' . esc_url($imgURL) . '" alt = "' . esc_attr($imgAlt) . '">') .
+            (!$enableDescription || $description === '' ? '' : '<div class="ub_review_description">' . wp_kses_post($description) . '</div>') .
+        '</div>' : '').
+            $ratings
+    .'<div class="ub_review_summary">' .
+        ($useSummary ? '<p class="ub_review_summary_title">' . wp_kses_post($summaryTitle) . '</p>' : '') .
+        '<div class="ub_review_overall_value">' .
+            ($useSummary ? '<p>' . wp_kses_post($summaryDescription) . '</p>' : '') .
+            '<div class="ub_review_average"><span class="ub_review_rating">' . $average . ($valueType === 'percent' ? '%':'') . '</span>' .
+            ($valueType === 'star' ? ub_generateStarDisplay($average, $starCount, $blockID . '-average',
+            $inactiveStarColor, $activeStarColor, $starOutlineColor, "ub_review_average_stars", "ub_review_star_filter-") : '' ).
+            '</div>
+        </div>
+        <div class="ub_review_cta_panel">' .
+        ($enableCTA  ? '<div class="ub_review_cta_main">' . $block_content . '</div>' : '') .
+                '</div></div>' . $schema_json_ld
     . '</div>';
 }
 
 function ub_register_review_block() {
-	if( function_exists( 'register_block_type' ) ) {
+	if( function_exists( 'register_block_type_from_metadata' ) ) {
         require dirname(dirname(__DIR__)) . '/defaults.php';
-		register_block_type( 'ub/review', array(           
+		register_block_type_from_metadata( dirname(dirname(dirname(__DIR__))) . '/dist/blocks/review/block.json', array(
             'attributes' => $defaultValues['ub/review']['attributes'],
             'render_callback' => 'ub_render_review_block'));
     }

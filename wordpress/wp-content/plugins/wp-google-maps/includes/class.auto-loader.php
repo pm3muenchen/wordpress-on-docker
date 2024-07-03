@@ -60,51 +60,76 @@ class AutoLoader
 		
 		$buffer = file_get_contents($file);
 		
-		if(!function_exists('token_get_all'))
-		{
+		if(!function_exists('token_get_all')) {
 			// Regex fallback for users without token_get_all
-			
-			if(preg_match('/^\s*namespace\s+(.+);/m', $buffer, $m))
+			if(preg_match('/^\s*namespace\s+(.+);/m', $buffer, $m)){
 				$namespace = '\\' . trim($m[1]);
+			}
 			
-			if(preg_match('/^(abstract)?\s*class\s+(\w+)/m', $buffer, $m))
+			if(preg_match('/^(abstract)?\s*class\s+(\w+)/m', $buffer, $m)){
 				$class = trim($m[2]);
-			
-			$result = $namespace . '\\' . $class;
-		}
-		else
-		{
-			$tokens = @token_get_all($buffer);
-
-			for (;$i<count($tokens);$i++) {
-				if ($tokens[$i][0] === T_NAMESPACE) {
-					for ($j=$i+1;$j<count($tokens); $j++) {
-						if ($tokens[$j][0] === T_STRING) {
-							 $namespace .= '\\'.$tokens[$j][1];
-						} else if ($tokens[$j] === '{' || $tokens[$j] === ';') {
-							 break;
-						}
-					}
-				}
-
-				if ($tokens[$i][0] === T_CLASS) {
-					for ($j=$i+1;$j<count($tokens);$j++) {
-						if ($tokens[$j] === '{') {
-							$class = $tokens[$i+2][1];
-						}
-					}
-				}
-				
-				if(!empty($class))
-					break;
 			}
 			
 			$result = $namespace . '\\' . $class;
+		} else {
+			$triggerFallback = false;
+			try{
+				$tokens = @token_get_all($buffer);
+				for (;$i<count($tokens);$i++) {
+					if ($tokens[$i][0] === T_NAMESPACE) {
+						for ($j=$i+1;$j<count($tokens); $j++) {
+							/* We need to be sure 'T_NAME_QUALIFIED' is defined before testing it */
+							if ($tokens[$j][0] === T_STRING || (defined('T_NAME_QUALIFIED') && $tokens[$j][0] === T_NAME_QUALIFIED)) {
+								$namespace .= '\\'.$tokens[$j][1];
+							} else if ($tokens[$j] === '{' || $tokens[$j] === ';') {
+								break;
+							}
+						}
+					}
+
+					if ($tokens[$i][0] === T_CLASS) {
+						for ($j=$i+1;$j<count($tokens);$j++) {
+							if ($tokens[$j] === '{') {
+								if(!empty($tokens[$i+2]) && !empty($tokens[$i+2][1])){
+									$class = $tokens[$i+2][1];
+								} else {
+									$triggerFallback = true;
+								}
+							}
+						}
+					}
+					
+					if(!empty($class)){
+						break;
+					}
+				}
+				
+				$result = $namespace . '\\' . $class;
+			} catch (\Exception $ex){
+				$triggerFallback = true;
+			} catch (\Error $err){
+				$triggerFallback = true;
+			}
+
+			/* Final fallback check */
+			if(empty($class) && !empty($triggerFallback)){
+				// Regex fallback for users without token_get_all
+				if(preg_match('/^\s*namespace\s+(.+);/m', $buffer, $m)){
+					$namespace = '\\' . trim($m[1]);
+				}
+
+				if(preg_match('/^(abstract)?\s*class\s+(\w+)/m', $buffer, $m)){
+					$class = trim($m[2]);
+				}
+
+				$result = $namespace . '\\' . $class;
+			}
 		}
+
 		
-		if(empty($class))
+		if(empty($class)){
 			return null;
-		
+		}
 		return $result;
 	}
 	
@@ -121,12 +146,40 @@ class AutoLoader
 		$iter 	= new \RecursiveIteratorIterator($dir);
 		$regex 	= new \RegexIterator($iter, '/^.+(\.php)$/i', \RecursiveRegexIterator::GET_MATCH);
 		
+		$phpVersionFiles = array();
 		foreach($regex as $m) {
 			$file = $m[0];
+			
+			$dir = basename(dirname($file));
+			$filename = basename($file);
+
+			if(strpos($dir, 'php') !== FALSE){
+				if(version_compare(phpversion(), str_replace('php', '', $dir), '>=')){
+					$phpVersionFiles[] = $filename;
+				} else {
+					/* Environment doesn't support this PHP version */
+					continue;
+				}
+			}
+
 			$classes = $this->getClassesInFile($file);
 			$results[$file] = $classes;
 		}
-		
+
+		/* Unload any version dependent classes, example: below V8 PHP */
+		/* Note: There are definitely better ways to go about this, but for now, this will help users on V8 PHP */
+		if(!empty($phpVersionFiles)){
+			foreach($phpVersionFiles as $file){
+				foreach($results as $comparison => $class){
+					$dir = basename(dirname($comparison));
+					$filename = basename($comparison);
+					if($filename === $file && strpos($dir, 'php') === FALSE){
+						unset($results[$comparison]);
+					}
+				}
+			}
+		}
+
 		return $results;
 	}
 	
@@ -190,7 +243,7 @@ class AutoLoader
 						<p>
 							<strong>
 							<?php
-							_e('WP Google Maps', 'wp-google-maps');
+							_e('WP Go Maps', 'wp-google-maps');
 							?></strong>:
 							<?php
 							_e('The plugins autoloader failed to register one or more modules. This is usually due to missing files. Please re-install the plugin and any relevant add-ons. Technical details are as follows: ', 'wp-google-maps');

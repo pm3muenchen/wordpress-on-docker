@@ -1,6 +1,13 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) exit;
 
+/*
+ * PublishPress Capabilities [Free]
+ * 
+ * Load general purpose filters which need to execute for any URL, even front end
+ * 
+ */
+
 /**
  * class CME_Extensions
  * 
@@ -31,8 +38,8 @@ if ( defined( 'WC_PLUGIN_FILE' ) ) {
 if (!defined('CME_DISABLE_WP_EDIT_PUBLISHED_WORKAROUND')) {
 	global $wp_version;
 	if (version_compare($wp_version, '4.9.7', '>=')) { // avoid any issues with old REST API implementations
-	require_once (dirname(__FILE__) . '/filters-wp_rest_workarounds.php');
-	new PublishPress\Capabilities\WP_REST_Workarounds();
+		require_once (dirname(__FILE__) . '/filters-wp_rest_workarounds.php');
+		new PublishPress\Capabilities\WP_REST_Workarounds();
 	}
 }
 
@@ -46,23 +53,11 @@ if ( is_admin() ) {
 
 add_filter('plugin_action_links_' . plugin_basename(CME_FILE), '_cme_fltPluginActionLinks', 10, 2);
 
+add_action('publishpress_capabilities_loaded', '_cme_migrate_pp_options');
 
-add_filter('pp_custom_status_list', 'cme_filter_custom_status_list', 10, 2);
-
-add_action('plugins_loaded', '_cme_migrate_pp_options');
-
-add_filter('cme_filterable_post_types', '_cme_filterable_post_types');
-
-function _cme_filterable_post_types($post_type_objects) {
-	if ($advgb_profiles = get_post_type_object('advgb_profiles')) {
-		$post_type_objects['advgb_profiles'] = $advgb_profiles;
-	}
-
-	return $post_type_objects;
-}
 
 function _cme_publishpress_roles_js() {
-	if (defined('PUBLISHPRESS_VERSION') && ((strpos($_SERVER['REQUEST_URI'], 'page=pp-manage-roles')))) {
+	if (defined('PUBLISHPRESS_VERSION') && !empty($_SERVER['REQUEST_URI']) && strpos(sanitize_text_field($_SERVER['REQUEST_URI']), 'page=pp-manage-roles')) {
 		require_once(dirname(__FILE__) . '/publishpress-roles.php');
 		CME_PublishPressRoles::scripts();  // @todo: .js
 	}
@@ -85,59 +80,6 @@ function _cme_migrate_pp_options() {
 
 		update_option('cme_pp_options_migrated', true);
 	}
-}
-
-/**
- * Filters the list of custom statuses
- *
- * @param array   $custom_statuses
- * @param WP_Post $post
- *
- * @return  array
- */
-function cme_filter_custom_status_list($custom_statuses, $post)
-{
-	if (!get_option('cme_custom_status_control')) {
-		return $custom_statuses;
-	}
-
-	if (class_exists('publishpress') && method_exists('publishpress', 'instance')) {
-		$publishpress = publishpress::instance();
-	} else {
-		global $publishpress;
-	}
-
-	if (empty($publishpress)) {
-		return $custom_statuses;
-	}
-
-	$filtered       = [];
-	$option_group   = 'global';
-	
-	$default_status = !empty($publishpress->custom_status->module->options->default_status) ? $publishpress->custom_status->module->options->default_status : 'draft';
-
-	if ( ! is_null($post)) {
-		// Adding a new post? Set the correct default status
-		if ('auto-draft' === $post->post_status) {
-			$post->post_status = $default_status;
-		}
-	}
-
-	foreach ($custom_statuses as &$status) {
-		$slug = str_replace('-', '_', $status->slug);
-
-		// Check if the user, or any of his user groups are capable to use the status. If not, but it is the
-		// current status, we still display it.
-		if (('draft' == $slug)
-			|| current_user_can('status_change_' . $slug)
-			|| (is_null($post) ? false : $status->slug === $post->post_status)
-			|| $status->slug === $default_status
-		) {
-			$filtered[] = $status;
-		}
-	}
-
-	return $filtered;
 }
 
 
@@ -261,31 +203,31 @@ function cme_get_assisted_post_types() {
 // Note: this intentionally does NOT share Press Permit' option name, for back compat reasons
 // Enabling filtered taxonomies in PP previously did not cause the edit_terms, delete_terms, assign_terms capabilities to be enforced
 function cme_get_assisted_taxonomies() {
-	$tx_args = array( 'public' => true );
-	
-	$taxonomies = get_taxonomies( $tx_args );
-	
-	if ( $omit_taxonomies = apply_filters( 'pp_unfiltered_taxonomies', array() ) ) {
-		$taxonomies = array_diff_key( $taxonomies, array_fill_keys( (array) $omit_taxonomies, true ) );
+	$tx_args = ['public' => true, 'show_ui' => true];
+	$taxonomies = apply_filters('cme_filterable_taxonomies', get_taxonomies($tx_args, 'object', 'or'));
+	$taxonomies = array_combine(array_keys($taxonomies), array_keys($taxonomies));
+
+	if ($omit_taxonomies = apply_filters('pp_unfiltered_taxonomies', [])) {
+		$taxonomies = array_diff($taxonomies, (array) $omit_taxonomies);
 	}
 	
 	$option_name = (defined('PPC_VERSION') && !defined('PRESSPERMIT_VERSION')) ? 'pp_enabled_taxonomies' : 'presspermit_enabled_taxonomies';
-	$enabled = (array) get_option( $option_name, array() );
+	$enabled = (array) get_option( $option_name, []);
 	$taxonomies = array_intersect( $taxonomies, array_keys( array_filter( $enabled ) ) );
 	
 	return apply_filters( 'cme_assisted_taxonomies', $taxonomies, $tx_args );
 }
 
 function cme_get_detailed_taxonomies() {
-	$tx_args = array( 'public' => true );
-	
-	$taxonomies = get_taxonomies( $tx_args );
-	
-	if ( $omit_taxonomies = apply_filters( 'pp_unfiltered_taxonomies', array() ) ) {
-		$taxonomies = array_diff_key( $taxonomies, array_fill_keys( (array) $omit_taxonomies, true ) );
+	$tx_args = ['public' => true, 'show_ui' => true];
+	$taxonomies = apply_filters('cme_filterable_taxonomies', get_taxonomies($tx_args, 'object', 'or'));
+	$taxonomies = array_combine(array_keys($taxonomies), array_keys($taxonomies));
+
+	if ($omit_taxonomies = apply_filters('pp_unfiltered_taxonomies', [])) {
+		$taxonomies = array_diff($taxonomies, (array) $omit_taxonomies);
 	}
 	
-	$enabled = (array) get_option( 'cme_detailed_taxonomies', array() );
+	$enabled = (array) get_option('cme_detailed_taxonomies', []);
 	$taxonomies = array_intersect( $taxonomies, array_keys( array_filter( $enabled ) ) );
 	
 	return apply_filters( 'cme_detailed_taxonomies', $taxonomies, $tx_args );
@@ -309,7 +251,7 @@ function _cme_fltPluginActionLinks($links, $file)
 {
 	if ($file == plugin_basename(CME_FILE)) {
 		if (!is_network_admin()) {
-			$links[] = "<a href='" . admin_url("admin.php?page=pp-capabilities") . "'>" . __('Edit Roles', 'capsman-enhanced') . "</a>";
+			$links[] = "<a href='" . admin_url("admin.php?page=pp-capabilities") . "'>" . esc_html__('Edit Roles', 'capability-manager-enhanced') . "</a>";
 		}
 	}
 

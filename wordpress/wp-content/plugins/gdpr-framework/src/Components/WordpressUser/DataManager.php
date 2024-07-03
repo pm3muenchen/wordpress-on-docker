@@ -65,17 +65,44 @@ class DataManager
             $data['meta'] = array_diff_assoc($data['meta'], $blacklist);
         }
         */
+        global $wpdb;
+        $table_prefix = $wpdb->prefix;
+        if (isset($data['meta']) && count($data['meta'])) {
+            foreach ($data['meta'] as $key => $value) {
+                if ($this->startsWith($key, $table_prefix)) {
+                    $newKey = $this->removePrefix($key, $table_prefix);
+                    if (strlen($newKey) > 0) {
+                        $data['meta'][$newKey] = $value;
+                        unset($data['meta'][$key]);
+                    }
+                }
+            }
+        }
 
         return apply_filters('gdpr/wordpress-user/export/data', $data);
     }
 
+    private function removePrefix($string, $prefix)
+    {
+        if (strpos($string, $prefix) === 0) {
+            $string = substr($string, strlen($prefix));
+        }
+        return $string;
+    }
+
+    private function startsWith($string, $prefix)
+    {
+        return substr($string, 0, strlen($prefix)) === $prefix;
+    }
+
     public function deleteUser(DataSubject $dataSubject, $reassign = null)
     {
+        global $gdpr;
         require_once(ABSPATH . 'wp-admin/includes/user.php');
 
-        $reassignOption = gdpr('options')->get('delete_action_reassign');
+        $reassignOption = $gdpr->Options->get('delete_action_reassign');
         if ('reassign' === $reassignOption) {
-            $reassignUserId = gdpr('options')->get('delete_action_reassign_user');
+            $reassignUserId = $gdpr->Options->get('delete_action_reassign_user');
         } else {
             $reassignUserId = false;
         }

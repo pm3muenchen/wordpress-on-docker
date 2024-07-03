@@ -10,7 +10,7 @@ use \Elementor\Controls_Manager;
 use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Typography;
-use \Elementor\Scheme_Typography;
+use \Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use \Elementor\Widget_Base;
 
 use \Essential_Addons_Elementor\Classes\Helper;
@@ -95,7 +95,7 @@ class GravityForms extends Widget_Base {
 	 *
 	 * @access protected
 	 */
-    protected function _register_controls() {
+    protected function register_controls() {
 
         /*-----------------------------------------------------------------------------------*/
         /*	CONTENT TAB
@@ -195,6 +195,9 @@ class GravityForms extends Widget_Base {
                     'condition'             => [
                         'custom_title_description'   => 'yes',
                     ],
+                    'ai' => [
+                        'active' => false,
+                    ],
                 ]
             );
             
@@ -273,11 +276,11 @@ class GravityForms extends Widget_Base {
                         'hide'          => __( 'Hide', 'essential-addons-for-elementor-lite'),
                     ],
                     'selectors_dictionary'  => [
-                        'show'          => 'block',
-                        'hide'          => 'none',
+                        'show'          => ' ',
+                        'hide'          => 'none !important',
                     ],
                     'selectors'             => [
-                        '{{WRAPPER}} .eael-gravity-form .validation_message' => 'display: {{VALUE}} !important;',
+                        '{{WRAPPER}} .eael-gravity-form .validation_message' => 'display: {{VALUE}};',
                     ],
                 ]
             );
@@ -293,11 +296,11 @@ class GravityForms extends Widget_Base {
                         'hide'          => __( 'Hide', 'essential-addons-for-elementor-lite'),
                     ],
                     'selectors_dictionary'  => [
-                        'show'          => 'block',
-                        'hide'          => 'none',
+                        'show'          => ' ',
+                        'hide'          => 'none !important',
                     ],
                     'selectors'             => [
-                        '{{WRAPPER}} .eael-gravity-form .validation_error' => 'display: {{VALUE}} !important;',
+                        '{{WRAPPER}} .eael-gravity-form .validation_error' => 'display: {{VALUE}};',
                     ],
                 ]
             );
@@ -341,7 +344,7 @@ class GravityForms extends Widget_Base {
 				'options' => [
 					'default' => [
 						'title' => __( 'Default', 'essential-addons-for-elementor-lite'),
-						'icon' => 'fa fa-ban',
+						'icon' => 'eicon-ban',
 					],
 					'left' => [
 						'title' => esc_html__( 'Left', 'essential-addons-for-elementor-lite'),
@@ -482,20 +485,20 @@ class GravityForms extends Widget_Base {
 				'options'               => [
 					'left'      => [
 						'title' => __( 'Left', 'essential-addons-for-elementor-lite'),
-						'icon'  => 'fa fa-align-left',
+						'icon'  => 'eicon-text-align-left',
 					],
 					'center'    => [
 						'title' => __( 'Center', 'essential-addons-for-elementor-lite'),
-						'icon'  => 'fa fa-align-center',
+						'icon'  => 'eicon-text-align-center',
 					],
 					'right'     => [
 						'title' => __( 'Right', 'essential-addons-for-elementor-lite'),
-						'icon'  => 'fa fa-align-right',
+						'icon'  => 'eicon-text-align-right',
 					],
 				],
 				'default'               => '',
 				'selectors'             => [
-					'{{WRAPPER}} .eael-gravity-form .gform_wrapper .gform_heading' => 'text-align: {{VALUE}};',
+					'html body {{WRAPPER}} .eael-gravity-form .gform_wrapper .gform_heading, html body {{WRAPPER}} .eael-gravity-form .eael-gravity-form-heading' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -516,7 +519,7 @@ class GravityForms extends Widget_Base {
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
-                    '{{WRAPPER}} .eael-gravity-form .gform_wrapper .gform_title, {{WRAPPER}} .eael-gravity-form .eael-gravity-form-title' => 'color: {{VALUE}}',
+                    'html body {{WRAPPER}} .eael-gravity-form .gform_wrapper .gform_title, html body {{WRAPPER}} .eael-gravity-form .eael-gravity-form-title' => 'color: {{VALUE}}',
                 ],
             ]
         );
@@ -526,8 +529,10 @@ class GravityForms extends Widget_Base {
             [
                 'name'                  => 'title_typography',
                 'label'                 => __( 'Typography', 'essential-addons-for-elementor-lite'),
-                'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
-                'selector'              => '{{WRAPPER}} .eael-gravity-form .gform_wrapper .gform_title, {{WRAPPER}} .eael-gravity-form .eael-gravity-form-title',
+                'global' => [
+	                'default' => Global_Typography::TYPOGRAPHY_ACCENT
+                ],
+                'selector'              => 'html body {{WRAPPER}} .eael-gravity-form .gform_wrapper .gform_title, html body {{WRAPPER}} .eael-gravity-form .eael-gravity-form-title',
             ]
         );
         
@@ -547,7 +552,7 @@ class GravityForms extends Widget_Base {
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
-                    '{{WRAPPER}} .eael-gravity-form .gform_wrapper .gform_description, {{WRAPPER}} .eael-gravity-form .eael-gravity-form-description' => 'color: {{VALUE}}',
+                    'html body {{WRAPPER}} .eael-gravity-form .gform_wrapper .gform_description, html body {{WRAPPER}} .eael-gravity-form .eael-gravity-form-description' => 'color: {{VALUE}}',
                 ],
             ]
         );
@@ -557,12 +562,234 @@ class GravityForms extends Widget_Base {
             [
                 'name'                  => 'description_typography',
                 'label'                 => __( 'Typography', 'essential-addons-for-elementor-lite'),
-                'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
-                'selector'              => '{{WRAPPER}} .eael-gravity-form .gform_wrapper .gform_description, {{WRAPPER}} .eael-gravity-form .eael-gravity-form-description',
+                'global' => [
+	                'default' => Global_Typography::TYPOGRAPHY_ACCENT
+                ],
+                'selector'              => 'html body {{WRAPPER}} .eael-gravity-form .gform_wrapper .gform_description, html body {{WRAPPER}} .eael-gravity-form .eael-gravity-form-description',
             ]
         );
         
         $this->end_controls_section();
+
+	    /**
+	     * Style Tab: Form progress bar
+	     * -------------------------------------------------
+	     */
+	    $this->start_controls_section(
+		    'eael_gform_progressbar_styling',
+		    [
+			    'label' => __( 'Progress Bar', 'essential-addons-for-elementor-lite' ),
+			    'tab'   => Controls_Manager::TAB_STYLE,
+		    ]
+	    );
+
+	    $this->add_control(
+		    'eael_gform_progressbar_title_heading',
+		    [
+			    'label' => __( 'Title', 'essential-addons-for-elementor-lite' ),
+			    'type'  => Controls_Manager::HEADING,
+		    ]
+	    );
+
+	    $this->add_control(
+		    'eael_gform_progressbar_title_color',
+		    [
+			    'label'     => __( 'Text Color', 'essential-addons-for-elementor-lite' ),
+			    'type'      => Controls_Manager::COLOR,
+			    'default'   => '',
+			    'selectors' => [
+				    '{{WRAPPER}} .eael-gravity-form .gf_progressbar_wrapper .gf_progressbar_title' => 'color: {{VALUE}}',
+			    ],
+		    ]
+	    );
+
+	    $this->add_group_control(
+		    Group_Control_Typography::get_type(),
+		    [
+			    'name'     => 'eael_gform_progressbar_title_typography',
+			    'label'    => __( 'Typography', 'essential-addons-for-elementor-lite' ),
+			    'global'   => [
+				    'default' => Global_Typography::TYPOGRAPHY_ACCENT
+			    ],
+			    'selector' => '{{WRAPPER}} .eael-gravity-form .gf_progressbar_wrapper .gf_progressbar_title',
+		    ]
+	    );
+
+	    $this->add_control(
+		    'eael_gform_progressbar_title_align',
+		    [
+			    'label'     => esc_html__( 'Alignment', 'essential-addons-for-elementor-lite' ),
+			    'type'      => \Elementor\Controls_Manager::CHOOSE,
+			    'options'   => [
+				    'left'   => [
+					    'title' => esc_html__( 'Left', 'essential-addons-for-elementor-lite' ),
+					    'icon'  => 'eicon-text-align-left',
+				    ],
+				    'center' => [
+					    'title' => esc_html__( 'Center', 'essential-addons-for-elementor-lite' ),
+					    'icon'  => 'eicon-text-align-center',
+				    ],
+				    'right'  => [
+					    'title' => esc_html__( 'Right', 'essential-addons-for-elementor-lite' ),
+					    'icon'  => 'eicon-text-align-right',
+				    ],
+			    ],
+			    'toggle'    => true,
+			    'selectors' => [
+				    '{{WRAPPER}} .eael-gravity-form .gf_progressbar_wrapper .gf_progressbar_title' => 'text-align: {{VALUE}};',
+			    ],
+		    ]
+	    );
+
+	    $this->add_control(
+		    'eael_gform_progressbar_container',
+		    [
+			    'label'     => __( 'Progress Bar', 'essential-addons-for-elementor-lite' ),
+			    'type'      => Controls_Manager::HEADING,
+			    'separator' => 'before',
+		    ]
+	    );
+
+	    $this->add_group_control(
+		    \Elementor\Group_Control_Background::get_type(),
+		    [
+			    'name'           => 'eael_gform_progressbar_color',
+			    'types'          => [ 'classic', 'gradient' ],
+			    'exclude'        => [ 'image' ],
+			    'fields_options' => [
+				    'background' => [
+					    'label' => __( 'Color', 'essential-addons-for-elementor-lite' ),
+				    ]
+			    ],
+			    'selector'       => '{{WRAPPER}} .eael-gravity-form .gf_progressbar_wrapper .gf_progressbar .gf_progressbar_percentage',
+		    ]
+	    );
+
+	    $this->add_group_control(
+		    \Elementor\Group_Control_Background::get_type(),
+		    [
+			    'name'           => 'eael_gform_progressbar_background_color',
+			    'types'          => [ 'classic', 'gradient' ],
+			    'exclude'        => [ 'image' ],
+			    'separator'      => 'before',
+			    'fields_options' => [
+				    'background' => [
+					    'label' => __( 'Background', 'essential-addons-for-elementor-lite' ),
+				    ]
+			    ],
+			    'selector'       => '{{WRAPPER}} .eael-gravity-form .gf_progressbar_wrapper .gf_progressbar',
+		    ]
+	    );
+
+	    $this->add_group_control(
+		    Group_Control_Border::get_type(),
+		    [
+			    'name'     => 'eael_gform_progressbar_border',
+			    'selector' => '{{WRAPPER}} .eael-gravity-form .gf_progressbar_wrapper .gf_progressbar',
+		    ]
+	    );
+
+	    $this->add_control(
+		    'eael_gform_progressbar_border_radius',
+		    [
+			    'label'      => esc_html__( 'Border Radius', 'essential-addons-for-elementor-lite' ),
+			    'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+			    'size_units' => [ 'px', '%', 'em' ],
+			    'condition'  => [
+				    'eael_gform_progressbar_border_border!' => 'none'
+			    ],
+			    'selectors'  => [
+				    '{{WRAPPER}} .eael-gravity-form .gf_progressbar_wrapper .gf_progressbar'                            => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				    '{{WRAPPER}} .eael-gravity-form .gf_progressbar_wrapper .gf_progressbar .gf_progressbar_percentage' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+			    ],
+		    ]
+	    );
+
+	    $this->add_control(
+		    'eael_gform_progressbar_height',
+		    [
+			    'label'      => esc_html__( 'Height', 'essential-addons-for-elementor-lite' ),
+			    'type'       => \Elementor\Controls_Manager::SLIDER,
+			    'size_units' => [ 'px', '%', 'em' ],
+			    'range'      => [
+				    'px' => [
+					    'min'  => 0,
+					    'max'  => 1000,
+					    'step' => 5,
+				    ],
+				    '%'  => [
+					    'min' => 0,
+					    'max' => 100,
+				    ],
+			    ],
+			    'selectors'  => [
+				    '{{WRAPPER}} .eael-gravity-form .gf_progressbar_wrapper .gf_progressbar .gf_progressbar_percentage' => 'align-items: center;height: {{SIZE}}{{UNIT}};',
+			    ],
+		    ]
+	    );
+
+	    $this->add_control(
+		    'eael_gform_progressbar_percentage_text',
+		    [
+			    'label'     => __( 'Percentage Text', 'essential-addons-for-elementor-lite' ),
+			    'type'      => Controls_Manager::HEADING,
+			    'separator' => 'before'
+		    ]
+	    );
+
+	    $this->add_control(
+		    'eael_gform_progressbar_percentage_text_color',
+		    [
+			    'label'     => __( 'Color', 'essential-addons-for-elementor-lite' ),
+			    'type'      => Controls_Manager::COLOR,
+			    'default'   => '',
+			    'selectors' => [
+				    '{{WRAPPER}} .eael-gravity-form .gf_progressbar_wrapper .gf_progressbar .gf_progressbar_percentage' => 'color: {{VALUE}}',
+			    ],
+		    ]
+	    );
+
+	    $this->add_group_control(
+		    Group_Control_Typography::get_type(),
+		    [
+			    'name'     => 'eael_gform_progressbar_percentage_text_typography',
+			    'label'    => __( 'Typography', 'essential-addons-for-elementor-lite' ),
+			    'global'   => [
+				    'default' => Global_Typography::TYPOGRAPHY_ACCENT
+			    ],
+			    'selector' => '{{WRAPPER}} .eael-gravity-form .gf_progressbar_wrapper .gf_progressbar .gf_progressbar_percentage,
+                {{WRAPPER}} .eael-gravity-form .gf_progressbar_wrapper .gf_progressbar .gf_progressbar_percentage span',
+		    ]
+	    );
+
+	    $this->add_control(
+		    'eael_gform_progressbar_percentage_text_align',
+		    [
+			    'label'     => esc_html__( 'Alignment', 'essential-addons-for-elementor-lite' ),
+			    'type'      => Controls_Manager::CHOOSE,
+			    'options'   => [
+				    'start'  => [
+					    'title' => esc_html__( 'Left', 'essential-addons-for-elementor-lite' ),
+					    'icon'  => 'eicon-text-align-left',
+				    ],
+				    'center' => [
+					    'title' => esc_html__( 'Center', 'essential-addons-for-elementor-lite' ),
+					    'icon'  => 'eicon-text-align-center',
+				    ],
+				    'end'    => [
+					    'title' => esc_html__( 'Right', 'essential-addons-for-elementor-lite' ),
+					    'icon'  => 'eicon-text-align-right',
+				    ],
+			    ],
+			    'default'   => 'end',
+			    'selectors' => [
+				    '{{WRAPPER}} .eael-gravity-form .gf_progressbar_wrapper .gf_progressbar .gf_progressbar_percentage' => 'display: flex;justify-content: {{VALUE}};',
+			    ],
+		    ]
+	    );
+
+
+	    $this->end_controls_section();
 
         /**
          * Style Tab: Labels
@@ -585,7 +812,7 @@ class GravityForms extends Widget_Base {
                 'label'                 => __( 'Text Color', 'essential-addons-for-elementor-lite'),
                 'type'                  => Controls_Manager::COLOR,
                 'selectors'             => [
-                    '{{WRAPPER}} .eael-gravity-form .gfield label' => 'color: {{VALUE}}',
+                    'html body {{WRAPPER}} .eael-gravity-form .gfield .gfield_label' => 'color: {{VALUE}}',
                 ],
                 'condition'             => [
                     'labels_switch'   => 'yes',
@@ -598,13 +825,56 @@ class GravityForms extends Widget_Base {
             [
                 'name'                  => 'typography_label',
                 'label'                 => __( 'Typography', 'essential-addons-for-elementor-lite'),
-                'selector'              => '{{WRAPPER}} .eael-gravity-form .gfield label',
+                'selector'              => 'html body {{WRAPPER}} .eael-gravity-form .gfield .gfield_label',
                 'condition'             => [
                     'labels_switch'   => 'yes',
                 ],
             ]
         );
         
+        $this->end_controls_section();
+
+        /**
+         * Style Tab: Sub-Labels
+         * -------------------------------------------------
+         */
+        $this->start_controls_section(
+            'section_sub_label_style',
+            [
+                'label'                 => __( 'Sub-Labels', 'essential-addons-for-elementor-lite'),
+                'tab'                   => Controls_Manager::TAB_STYLE,
+                'condition'             => [
+                    'labels_switch'   => 'yes',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'text_color_sub_label',
+            [
+                'label'                 => __( 'Text Color', 'essential-addons-for-elementor-lite'),
+                'type'                  => Controls_Manager::COLOR,
+                'selectors'             => [
+                    'html body {{WRAPPER}} .eael-gravity-form .gfield label' => 'color: {{VALUE}}',
+                ],
+                'condition'             => [
+                    'labels_switch'   => 'yes',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name'                  => 'typography_sub_label',
+                'label'                 => __( 'Typography', 'essential-addons-for-elementor-lite'),
+                'selector'              => 'html body {{WRAPPER}} .eael-gravity-form .gfield label',
+                'condition'             => [
+                    'labels_switch'   => 'yes',
+                ],
+            ]
+        );
+
         $this->end_controls_section();
 
         /**
@@ -627,20 +897,20 @@ class GravityForms extends Widget_Base {
 				'options'               => [
 					'left'      => [
 						'title' => __( 'Left', 'essential-addons-for-elementor-lite'),
-						'icon'  => 'fa fa-align-left',
+						'icon'  => 'eicon-text-align-left',
 					],
 					'center'    => [
 						'title' => __( 'Center', 'essential-addons-for-elementor-lite'),
-						'icon'  => 'fa fa-align-center',
+						'icon'  => 'eicon-text-align-center',
 					],
 					'right'     => [
 						'title' => __( 'Right', 'essential-addons-for-elementor-lite'),
-						'icon'  => 'fa fa-align-right',
+						'icon'  => 'eicon-text-align-right',
 					],
 				],
 				'default'               => '',
 				'selectors'             => [
-					'{{WRAPPER}} .eael-gravity-form .gfield input[type="text"], {{WRAPPER}} .eael-gravity-form .gfield textarea' => 'text-align: {{VALUE}};',
+					'html body {{WRAPPER}} .eael-gravity-form .gfield input[type="text"], html body {{WRAPPER}} .eael-gravity-form .gfield input[type="email"], html body {{WRAPPER}} .eael-gravity-form .gfield input[type="tel"], html body {{WRAPPER}} .eael-gravity-form .gfield input[type="number"], html body {{WRAPPER}} .eael-gravity-form .gfield textarea' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -661,7 +931,7 @@ class GravityForms extends Widget_Base {
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
-                    '{{WRAPPER}} .eael-gravity-form .gfield input[type="text"], {{WRAPPER}} .eael-gravity-form .gfield textarea, {{WRAPPER}} .eael-gravity-form .gfield select' => 'background-color: {{VALUE}}',
+                    'html body {{WRAPPER}} .eael-gravity-form .gfield input[type="text"], html body {{WRAPPER}} .eael-gravity-form .gfield input[type="email"], html body {{WRAPPER}} .eael-gravity-form .gfield input[type="tel"], html body {{WRAPPER}} .eael-gravity-form .gfield input[type="number"], html body {{WRAPPER}} .eael-gravity-form .gfield textarea, html body {{WRAPPER}} .eael-gravity-form .gfield select' => 'background-color: {{VALUE}}',
                 ],
             ]
         );
@@ -673,7 +943,7 @@ class GravityForms extends Widget_Base {
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
-                    '{{WRAPPER}} .eael-gravity-form .gfield input[type="text"], {{WRAPPER}} .eael-gravity-form .gfield textarea, {{WRAPPER}} .eael-gravity-form .gfield select' => 'color: {{VALUE}}',
+                    'html body {{WRAPPER}} .eael-gravity-form .gfield input[type="text"], html body {{WRAPPER}} .eael-gravity-form .gfield input[type="email"], html body {{WRAPPER}} .eael-gravity-form .gfield input[type="tel"], html body {{WRAPPER}} .eael-gravity-form .gfield input[type="number"], html body {{WRAPPER}} .eael-gravity-form .gfield textarea, html body {{WRAPPER}} .eael-gravity-form .gfield select' => 'color: {{VALUE}}',
                 ],
             ]
         );
@@ -692,7 +962,7 @@ class GravityForms extends Widget_Base {
                 ],
                 'size_units'            => [ 'px', 'em', '%' ],
                 'selectors'             => [
-                    '{{WRAPPER}} .eael-gravity-form .gfield' => 'margin-bottom: {{SIZE}}{{UNIT}}',
+                    'html body {{WRAPPER}} .eael-gravity-form .gfield' => 'margin-bottom: {{SIZE}}{{UNIT}}',
                 ],
             ]
         );
@@ -711,7 +981,7 @@ class GravityForms extends Widget_Base {
                 ],
                 'size_units'            => [ 'px', 'em', '%' ],
                 'selectors'             => [
-                    '{{WRAPPER}} .eael-gravity-form .gfield.gf_left_half' => 'padding-right: {{SIZE}}{{UNIT}}',
+                    'html body {{WRAPPER}} .eael-gravity-form .gfield.gf_left_half' => 'padding-right: {{SIZE}}{{UNIT}}',
                 ],
             ]
         );
@@ -723,7 +993,7 @@ class GravityForms extends Widget_Base {
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', 'em', '%' ],
 				'selectors'             => [
-					'{{WRAPPER}} .eael-gravity-form .gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), {{WRAPPER}} .eael-gravity-form .gfield textarea' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'html body {{WRAPPER}} .eael-gravity-form .gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), html body {{WRAPPER}} .eael-gravity-form .gfield textarea' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -747,7 +1017,7 @@ class GravityForms extends Widget_Base {
                 ],
                 'size_units'            => [ 'px', 'em', '%' ],
                 'selectors'             => [
-                    '{{WRAPPER}} .eael-gravity-form .gfield input[type="text"], {{WRAPPER}} .eael-gravity-form .gfield textarea, {{WRAPPER}} .eael-gravity-form .gfield select' => 'text-indent: {{SIZE}}{{UNIT}}',
+                    'html body {{WRAPPER}} .eael-gravity-form .gfield input[type="text"], html body {{WRAPPER}} .eael-gravity-form .gfield input[type="email"], html body {{WRAPPER}} .eael-gravity-form .gfield input[type="tel"], html body {{WRAPPER}} .eael-gravity-form .gfield input[type="number"], html body {{WRAPPER}} .eael-gravity-form .gfield textarea, html body {{WRAPPER}} .eael-gravity-form .gfield select' => 'text-indent: {{SIZE}}{{UNIT}}',
                 ],
             ]
         );
@@ -766,7 +1036,7 @@ class GravityForms extends Widget_Base {
                 ],
                 'size_units'            => [ 'px', 'em', '%' ],
                 'selectors'             => [
-                    '{{WRAPPER}} .eael-gravity-form .gfield input[type="text"], {{WRAPPER}} .eael-gravity-form .gfield select' => 'width: {{SIZE}}{{UNIT}}',
+                    'html body {{WRAPPER}} .eael-gravity-form .gfield input[type="text"], html body {{WRAPPER}} .eael-gravity-form .gfield input[type="email"], html body {{WRAPPER}} .eael-gravity-form .gfield input[type="tel"], html body {{WRAPPER}} .eael-gravity-form .gfield input[type="number"], html body {{WRAPPER}} .eael-gravity-form .gfield select' => 'width: {{SIZE}}{{UNIT}}',
                 ],
             ]
         );
@@ -785,7 +1055,7 @@ class GravityForms extends Widget_Base {
                 ],
                 'size_units'            => [ 'px', 'em', '%' ],
                 'selectors'             => [
-                    '{{WRAPPER}} .eael-gravity-form .gfield input[type="text"], {{WRAPPER}} .eael-gravity-form .gfield input[type="email"], {{WRAPPER}} .eael-gravity-form .gfield input[type="url"], {{WRAPPER}} .eael-gravity-form .gfield select' => 'height: {{SIZE}}{{UNIT}}',
+                    'html body {{WRAPPER}} .eael-gravity-form .gfield input[type="text"], html body {{WRAPPER}} .eael-gravity-form .gfield input[type="email"], html body {{WRAPPER}} .eael-gravity-form .gfield input[type="tel"], html body {{WRAPPER}} .eael-gravity-form .gfield input[type="number"], html body {{WRAPPER}} .eael-gravity-form .gfield input[type="email"], html body {{WRAPPER}} .eael-gravity-form .gfield input[type="url"], html body {{WRAPPER}} .eael-gravity-form .gfield select' => 'height: {{SIZE}}{{UNIT}}',
                 ],
             ]
         );
@@ -804,7 +1074,7 @@ class GravityForms extends Widget_Base {
                 ],
                 'size_units'            => [ 'px', 'em', '%' ],
                 'selectors'             => [
-                    '{{WRAPPER}} .eael-gravity-form .gfield textarea' => 'width: {{SIZE}}{{UNIT}}',
+                    'html body {{WRAPPER}} .eael-gravity-form .gfield textarea' => 'width: {{SIZE}}{{UNIT}}',
                 ],
             ]
         );
@@ -823,7 +1093,7 @@ class GravityForms extends Widget_Base {
                 ],
                 'size_units'            => [ 'px', 'em', '%' ],
                 'selectors'             => [
-                    '{{WRAPPER}} .eael-gravity-form .gfield textarea' => 'height: {{SIZE}}{{UNIT}}',
+                    'html body {{WRAPPER}} .eael-gravity-form .gfield textarea' => 'height: {{SIZE}}{{UNIT}}',
                 ],
             ]
         );
@@ -835,7 +1105,7 @@ class GravityForms extends Widget_Base {
 				'label'                 => __( 'Border', 'essential-addons-for-elementor-lite'),
 				'placeholder'           => '1px',
 				'default'               => '1px',
-				'selector'              => '{{WRAPPER}} .eael-gravity-form .gfield input[type="text"], {{WRAPPER}} .eael-gravity-form .gfield textarea, {{WRAPPER}} .eael-gravity-form .gfield select',
+				'selector'              => 'html body {{WRAPPER}} .eael-gravity-form .gfield input[type="text"], html body {{WRAPPER}} .eael-gravity-form .gfield input[type="email"], html body {{WRAPPER}} .eael-gravity-form .gfield input[type="tel"], html body {{WRAPPER}} .eael-gravity-form .gfield input[type="number"], html body {{WRAPPER}} .eael-gravity-form .gfield textarea, html body {{WRAPPER}} .eael-gravity-form .gfield select',
 				'separator'             => 'before',
 			]
 		);
@@ -847,7 +1117,12 @@ class GravityForms extends Widget_Base {
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', 'em', '%' ],
 				'selectors'             => [
-					'{{WRAPPER}} .eael-gravity-form .gfield input[type="text"], {{WRAPPER}} .eael-gravity-form .gfield textarea' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'html body {{WRAPPER}} .eael-gravity-form .gfield input[type="text"], 
+                    html body {{WRAPPER}} .eael-gravity-form .gfield input[type="email"], 
+                    html body {{WRAPPER}} .eael-gravity-form .gfield input[type="tel"], 
+                    html body {{WRAPPER}} .eael-gravity-form .gfield input[type="number"], 
+                    html body {{WRAPPER}} .eael-gravity-form .gfield textarea, 
+                    html body {{WRAPPER}} .eael-gravity-form .gfield select' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -857,7 +1132,7 @@ class GravityForms extends Widget_Base {
             [
                 'name'                  => 'field_typography',
                 'label'                 => __( 'Typography', 'essential-addons-for-elementor-lite'),
-                'selector'              => '{{WRAPPER}} .eael-gravity-form .gfield .ginput_complex.ginput_container input[type="text"], {{WRAPPER}} .eael-gravity-form .gfield .ginput_container_date input[type="text"], {{WRAPPER}} .eael-gravity-form .gfield .ginput_container_phone input[type="text"], {{WRAPPER}} .eael-gravity-form .gfield .ginput_container_email input[type="text"], {{WRAPPER}} .eael-gravity-form .gfield .ginput_container_text input[type="text"], {{WRAPPER}} .eael-gravity-form .gfield textarea, {{WRAPPER}} .eael-gravity-form .gfield select',
+                'selector'              => 'html body {{WRAPPER}} .eael-gravity-form .gfield .ginput_container input[type="text"], html body {{WRAPPER}} .eael-gravity-form .gfield .ginput_container input[type="email"], html body {{WRAPPER}} .eael-gravity-form .gfield .ginput_container input[type="tel"], html body {{WRAPPER}} .eael-gravity-form .gfield .ginput_container input[type="number"], html body {{WRAPPER}} .eael-gravity-form .gfield .ginput_container_date input[type="text"], html body {{WRAPPER}} .eael-gravity-form .gfield .ginput_container_phone input[type="text"], html body {{WRAPPER}} .eael-gravity-form .gfield .ginput_container_email input[type="text"], html body {{WRAPPER}} .eael-gravity-form .gfield .ginput_container_text input[type="text"], html body {{WRAPPER}} .eael-gravity-form .gfield textarea, html body {{WRAPPER}} .eael-gravity-form .gfield select',
 				'separator'             => 'before',
             ]
         );
@@ -866,7 +1141,7 @@ class GravityForms extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'                  => 'field_box_shadow',
-				'selector'              => '{{WRAPPER}} .eael-gravity-form .gfield input[type="text"], {{WRAPPER}} .eael-gravity-form .gfield textarea, {{WRAPPER}} .eael-gravity-form .gfield select',
+				'selector'              => 'html body {{WRAPPER}} .eael-gravity-form .gfield input[type="text"], html body {{WRAPPER}} .eael-gravity-form .gfield input[type="email"], html body {{WRAPPER}} .eael-gravity-form .gfield input[type="tel"], html body {{WRAPPER}} .eael-gravity-form .gfield input[type="number"], html body {{WRAPPER}} .eael-gravity-form .gfield textarea, html body {{WRAPPER}} .eael-gravity-form .gfield select',
 				'separator'             => 'before',
 			]
 		);
@@ -887,7 +1162,7 @@ class GravityForms extends Widget_Base {
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
-                    '{{WRAPPER}} .eael-gravity-form .gfield input:focus, {{WRAPPER}} .eael-gravity-form .gfield textarea:focus' => 'background-color: {{VALUE}}',
+                    'html body {{WRAPPER}} .eael-gravity-form .gfield input:focus, html body {{WRAPPER}} .eael-gravity-form .gfield textarea:focus' => 'background-color: {{VALUE}}',
                 ],
             ]
         );
@@ -899,7 +1174,7 @@ class GravityForms extends Widget_Base {
 				'label'                 => __( 'Border', 'essential-addons-for-elementor-lite'),
 				'placeholder'           => '1px',
 				'default'               => '1px',
-				'selector'              => '{{WRAPPER}} .eael-gravity-form .gfield input:focus, {{WRAPPER}} .eael-gravity-form .gfield textarea:focus',
+				'selector'              => 'html body {{WRAPPER}} .eael-gravity-form .gfield input:focus, html body {{WRAPPER}} .eael-gravity-form .gfield textarea:focus',
 			]
 		);
 
@@ -907,7 +1182,7 @@ class GravityForms extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'                  => 'focus_box_shadow',
-				'selector'              => '{{WRAPPER}} .eael-gravity-form .gfield input:focus, {{WRAPPER}} .eael-gravity-form .gfield textarea:focus',
+				'selector'              => 'html body {{WRAPPER}} .eael-gravity-form .gfield input:focus, html body {{WRAPPER}} .eael-gravity-form .gfield textarea:focus',
 				'separator'             => 'before',
 			]
 		);
@@ -936,7 +1211,7 @@ class GravityForms extends Widget_Base {
                 'label'                 => __( 'Text Color', 'essential-addons-for-elementor-lite'),
                 'type'                  => Controls_Manager::COLOR,
                 'selectors'             => [
-                    '{{WRAPPER}} .eael-gravity-form .gfield .gfield_description' => 'color: {{VALUE}}',
+                    'html body {{WRAPPER}} .eael-gravity-form .gfield .gfield_description' => 'color: {{VALUE}}',
                 ],
             ]
         );
@@ -946,7 +1221,7 @@ class GravityForms extends Widget_Base {
             [
                 'name'                  => 'field_description_typography',
                 'label'                 => __( 'Typography', 'essential-addons-for-elementor-lite'),
-                'selector'              => '{{WRAPPER}} .eael-gravity-form .gfield .gfield_description',
+                'selector'              => 'html body {{WRAPPER}} .eael-gravity-form .gfield .gfield_description',
             ]
         );
         
@@ -964,7 +1239,7 @@ class GravityForms extends Widget_Base {
                 ],
                 'size_units'            => [ 'px', 'em', '%' ],
                 'selectors'             => [
-                    '{{WRAPPER}} .eael-gravity-form .gfield .gfield_description' => 'padding-top: {{SIZE}}{{UNIT}}',
+                    'html body {{WRAPPER}} .eael-gravity-form .gfield .gfield_description' => 'padding-top: {{SIZE}}{{UNIT}}',
                 ],
             ]
         );
@@ -990,7 +1265,7 @@ class GravityForms extends Widget_Base {
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
-                    '{{WRAPPER}} .eael-gravity-form .gfield.gsection .gsection_title' => 'color: {{VALUE}}',
+                    'html body {{WRAPPER}} .eael-gravity-form .gfield.gsection .gsection_title' => 'color: {{VALUE}}',
                 ],
             ]
         );
@@ -1000,8 +1275,10 @@ class GravityForms extends Widget_Base {
             [
                 'name'                  => 'section_field_typography',
                 'label'                 => __( 'Typography', 'essential-addons-for-elementor-lite'),
-                'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
-                'selector'              => '{{WRAPPER}} .eael-gravity-form .gfield.gsection .gsection_title',
+                'global' => [
+	                'default' => Global_Typography::TYPOGRAPHY_ACCENT
+                ],
+                'selector'              => 'html body {{WRAPPER}} .eael-gravity-form .gfield.gsection .gsection_title',
 				'separator'             => 'before',
             ]
         );
@@ -1020,7 +1297,7 @@ class GravityForms extends Widget_Base {
                     'dashed'    => __( 'Dashed', 'essential-addons-for-elementor-lite'),
                 ],
                 'selectors'             => [
-                    '{{WRAPPER}} .eael-gravity-form .gfield.gsection' => 'border-bottom-style: {{VALUE}}',
+                    'html body {{WRAPPER}} .eael-gravity-form .gfield.gsection' => 'border-bottom-style: {{VALUE}}',
                 ],
 				'separator'             => 'before',
             ]
@@ -1043,7 +1320,7 @@ class GravityForms extends Widget_Base {
                 ],
                 'size_units'            => [ 'px' ],
                 'selectors'             => [
-                    '{{WRAPPER}} .eael-gravity-form .gfield.gsection' => 'border-bottom-width: {{SIZE}}{{UNIT}}',
+                    'html body {{WRAPPER}} .eael-gravity-form .gfield.gsection' => 'border-bottom-width: {{SIZE}}{{UNIT}}',
                 ],
                 'condition'             => [
                     'section_field_border_type!'   => 'none',
@@ -1058,7 +1335,7 @@ class GravityForms extends Widget_Base {
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
-                    '{{WRAPPER}} .eael-gravity-form .gfield.gsection' => 'border-bottom-color: {{VALUE}}',
+                    'html body {{WRAPPER}} .eael-gravity-form .gfield.gsection' => 'border-bottom-color: {{VALUE}}',
                 ],
                 'condition'             => [
                     'section_field_border_type!'   => 'none',
@@ -1073,7 +1350,7 @@ class GravityForms extends Widget_Base {
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', 'em', '%' ],
 				'selectors'             => [
-					'{{WRAPPER}} .eael-gravity-form .gfield.gsection' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'html body {{WRAPPER}} .eael-gravity-form .gfield.gsection' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'separator'             => 'before',
 			]
@@ -1100,7 +1377,7 @@ class GravityForms extends Widget_Base {
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
-                    '{{WRAPPER}} .eael-gravity-form .gform_wrapper .ginput_product_price_label' => 'color: {{VALUE}}',
+                    'html body {{WRAPPER}} .eael-gravity-form .gform_wrapper .ginput_product_price_label' => 'color: {{VALUE}}',
                 ],
             ]
         );
@@ -1112,7 +1389,7 @@ class GravityForms extends Widget_Base {
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
-                    '{{WRAPPER}} .eael-gravity-form .gform_wrapper .ginput_product_price' => 'color: {{VALUE}}',
+                    'html body {{WRAPPER}} .eael-gravity-form .gform_wrapper .ginput_product_price' => 'color: {{VALUE}}',
                 ],
             ]
         );
@@ -1136,7 +1413,7 @@ class GravityForms extends Widget_Base {
             [
                 'name'                  => 'total_price_typography',
                 'label'                 => __( 'Typography', 'essential-addons-for-elementor-lite'),
-                'selector'              => '{{WRAPPER}} .eael-gravity-form .gform_wrapper .ginput_container_total .ginput_total',
+                'selector'              => 'html body {{WRAPPER}} .eael-gravity-form .gform_wrapper .ginput_container_total .ginput_total',
 				'separator'             => 'before',
             ]
         );
@@ -1148,7 +1425,7 @@ class GravityForms extends Widget_Base {
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
-                    '{{WRAPPER}} .eael-gravity-form .gform_wrapper .ginput_container_total .ginput_total' => 'color: {{VALUE}}',
+                    'html body {{WRAPPER}} .eael-gravity-form .gform_wrapper .ginput_container_total .ginput_total' => 'color: {{VALUE}}',
                 ],
             ]
         );
@@ -1176,7 +1453,7 @@ class GravityForms extends Widget_Base {
                 'label'                 => __( 'Text Color', 'essential-addons-for-elementor-lite'),
                 'type'                  => Controls_Manager::COLOR,
                 'selectors'             => [
-                    '{{WRAPPER}} .eael-gravity-form .gfield input::-webkit-input-placeholder, {{WRAPPER}} .eael-gravity-form .gfield textarea::-webkit-input-placeholder' => 'color: {{VALUE}}',
+                    'html body {{WRAPPER}} .eael-gravity-form .gfield input::-webkit-input-placeholder, html body {{WRAPPER}} .eael-gravity-form .gfield textarea::-webkit-input-placeholder' => 'color: {{VALUE}}',
                 ],
                 'condition'             => [
                     'placeholder_switch'   => 'yes',
@@ -1227,7 +1504,7 @@ class GravityForms extends Widget_Base {
                 ],
                 'size_units'            => [ 'px', 'em', '%' ],
                 'selectors'             => [
-                    '{{WRAPPER}} .eael-custom-radio-checkbox input[type="checkbox"]' => 'width: {{SIZE}}{{UNIT}} !important; height: {{SIZE}}{{UNIT}}',
+                    'html body {{WRAPPER}} .eael-custom-radio-checkbox input[type="checkbox"]' => 'width: {{SIZE}}{{UNIT}} !important; height: {{SIZE}}{{UNIT}}',
                 ],
                 'condition'             => [
                     'custom_radio_checkbox' => 'yes',
@@ -1254,7 +1531,7 @@ class GravityForms extends Widget_Base {
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
-                    '{{WRAPPER}} .eael-custom-radio-checkbox input[type="checkbox"]' => 'background: {{VALUE}}',
+                    'html body {{WRAPPER}} .eael-custom-radio-checkbox input[type="checkbox"]' => 'background: {{VALUE}}',
                 ],
                 'condition'             => [
                     'custom_radio_checkbox' => 'yes',
@@ -1276,7 +1553,7 @@ class GravityForms extends Widget_Base {
                 ],
                 'size_units'            => [ 'px' ],
                 'selectors'             => [
-                    '{{WRAPPER}} .eael-custom-radio-checkbox input[type="checkbox"]' => 'border-width: {{SIZE}}{{UNIT}}',
+                    'html body {{WRAPPER}} .eael-custom-radio-checkbox input[type="checkbox"]' => 'border-width: {{SIZE}}{{UNIT}}',
                 ],
                 'condition'             => [
                     'custom_radio_checkbox' => 'yes',
@@ -1291,7 +1568,7 @@ class GravityForms extends Widget_Base {
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
-                    '{{WRAPPER}} .eael-custom-radio-checkbox input[type="checkbox"]' => 'border-color: {{VALUE}}',
+                    'html body {{WRAPPER}} .eael-custom-radio-checkbox input[type="checkbox"]' => 'border-color: {{VALUE}}',
                 ],
                 'condition'             => [
                     'custom_radio_checkbox' => 'yes',
@@ -1317,7 +1594,7 @@ class GravityForms extends Widget_Base {
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', 'em', '%' ],
 				'selectors'             => [
-					'{{WRAPPER}} .eael-custom-radio-checkbox input[type="checkbox"], {{WRAPPER}} .eael-custom-radio-checkbox input[type="checkbox"]:before' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'html body {{WRAPPER}} .eael-custom-radio-checkbox input[type="checkbox"], html body {{WRAPPER}} .eael-custom-radio-checkbox input[type="checkbox"]:before' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
                 'condition'             => [
                     'custom_radio_checkbox' => 'yes',
@@ -1332,7 +1609,7 @@ class GravityForms extends Widget_Base {
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors' => [
-					'{{WRAPPER}} .eael-custom-radio-checkbox input[type="checkbox"]' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'html body {{WRAPPER}} .eael-custom-radio-checkbox input[type="checkbox"]' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
         );
@@ -1344,7 +1621,7 @@ class GravityForms extends Widget_Base {
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', 'em', '%' ],
 				'selectors'             => [
-					'{{WRAPPER}} .eael-custom-radio-checkbox input[type="checkbox"]' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'html body {{WRAPPER}} .eael-custom-radio-checkbox input[type="checkbox"]' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
 			]
 		);
@@ -1368,7 +1645,7 @@ class GravityForms extends Widget_Base {
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
-                    '{{WRAPPER}} .eael-custom-radio-checkbox input[type="checkbox"]:checked:before' => 'background: {{VALUE}}',
+                    'html body {{WRAPPER}} .eael-custom-radio-checkbox input[type="checkbox"]:checked:before' => 'background: {{VALUE}}',
                 ],
                 'condition'             => [
                     'custom_radio_checkbox' => 'yes',
@@ -1423,7 +1700,7 @@ class GravityForms extends Widget_Base {
                 ],
                 'size_units'            => [ 'px', 'em', '%' ],
                 'selectors'             => [
-                    '{{WRAPPER}} .eael-custom-radio-checkbox input[type="radio"]' => 'width: {{SIZE}}{{UNIT}} !important; height: {{SIZE}}{{UNIT}}',
+                    'html body {{WRAPPER}} .eael-custom-radio-checkbox input[type="radio"]' => 'width: {{SIZE}}{{UNIT}} !important; height: {{SIZE}}{{UNIT}}',
                 ],
                 'condition'             => [
                     'custom_radio_style' => 'yes',
@@ -1450,7 +1727,7 @@ class GravityForms extends Widget_Base {
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
-                    '{{WRAPPER}} .eael-custom-radio-checkbox input[type="radio"]' => 'background: {{VALUE}}',
+                    'html body {{WRAPPER}} .eael-custom-radio-checkbox input[type="radio"]' => 'background: {{VALUE}}',
                 ],
                 'condition'             => [
                     'custom_radio_style' => 'yes',
@@ -1472,7 +1749,7 @@ class GravityForms extends Widget_Base {
                 ],
                 'size_units'            => [ 'px' ],
                 'selectors'             => [
-                    '{{WRAPPER}} .eael-custom-radio-checkbox input[type="radio"]' => 'border-width: {{SIZE}}{{UNIT}}',
+                    'html body {{WRAPPER}} .eael-custom-radio-checkbox input[type="radio"]' => 'border-width: {{SIZE}}{{UNIT}}',
                 ],
                 'condition'             => [
                     'custom_radio_style' => 'yes',
@@ -1487,7 +1764,7 @@ class GravityForms extends Widget_Base {
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
-                    '{{WRAPPER}} .eael-custom-radio-checkbox input[type="radio"]' => 'border-color: {{VALUE}}',
+                    'html body {{WRAPPER}} .eael-custom-radio-checkbox input[type="radio"]' => 'border-color: {{VALUE}}',
                 ],
                 'condition'             => [
                     'custom_radio_style' => 'yes',
@@ -1513,7 +1790,7 @@ class GravityForms extends Widget_Base {
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', 'em', '%' ],
 				'selectors'             => [
-					'{{WRAPPER}} .eael-custom-radio-checkbox input[type="radio"], {{WRAPPER}} .eael-custom-radio-checkbox input[type="radio"]:before' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'html body {{WRAPPER}} .eael-custom-radio-checkbox input[type="radio"], html body {{WRAPPER}} .eael-custom-radio-checkbox input[type="radio"]:before' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
                 'condition'             => [
                     'custom_radio_style' => 'yes',
@@ -1528,7 +1805,7 @@ class GravityForms extends Widget_Base {
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors' => [
-					'{{WRAPPER}} .eael-custom-radio-checkbox input[type="radio"]' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'html body {{WRAPPER}} .eael-custom-radio-checkbox input[type="radio"]' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
         );
@@ -1540,7 +1817,7 @@ class GravityForms extends Widget_Base {
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', 'em', '%' ],
 				'selectors'             => [
-					'{{WRAPPER}} .eael-custom-radio-checkbox input[type="radio"]' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'html body {{WRAPPER}} .eael-custom-radio-checkbox input[type="radio"]' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
 			]
 		);
@@ -1564,7 +1841,7 @@ class GravityForms extends Widget_Base {
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
-                    '{{WRAPPER}} .eael-custom-radio-checkbox input[type="radio"]:checked:before' => 'background: {{VALUE}}',
+                    'html body {{WRAPPER}} .eael-custom-radio-checkbox input[type="radio"]:checked:before' => 'background: {{VALUE}}',
                 ],
                 'condition'             => [
                     'custom_radio_style' => 'yes',
@@ -1578,6 +1855,193 @@ class GravityForms extends Widget_Base {
 
         $this->end_controls_section();
 
+	    /**
+	     * Style Tab: File upload
+	     * -------------------------------------------------
+	     */
+	    $this->start_controls_section(
+		    'file_upload_style',
+		    [
+			    'label' => __( 'File Upload', 'essential-addons-for-elementor-lite'),
+			    'tab'   => Controls_Manager::TAB_STYLE,
+		    ]
+	    );
+
+	    $this->start_controls_tabs( 'file_upload_tabs_button_style' );
+
+	    $this->start_controls_tab(
+		    'file_upload_tab_button_normal',
+		    [
+			    'label'                 => __( 'Normal', 'essential-addons-for-elementor-lite'),
+		    ]
+	    );
+
+	    $this->add_control(
+		    'file_upload_button_bg_color_normal',
+		    [
+			    'label'                 => __( 'Background Color', 'essential-addons-for-elementor-lite'),
+			    'type'                  => Controls_Manager::COLOR,
+			    'default'               => '',
+			    'selectors'             => [
+				    'html body {{WRAPPER}} .eael-gravity-form .ginput_container_fileupload input[type="file"]::file-selector-button' => 'background-color: {{VALUE}}',
+				    'html body {{WRAPPER}} .eael-gravity-form .ginput_container_fileupload input[type="file"]::-webkit-file-upload-button' => 'background-color: {{VALUE}}',
+				    'html body {{WRAPPER}} .eael-gravity-form .ginput_container_fileupload .button' => 'background-color: {{VALUE}}',
+			    ],
+		    ]
+	    );
+
+	    $this->add_control(
+		    'file_upload_button_text_color_normal',
+		    [
+			    'label'                 => __( 'Text Color', 'essential-addons-for-elementor-lite'),
+			    'type'                  => Controls_Manager::COLOR,
+			    'default'               => '',
+			    'selectors'             => [
+				    'html body {{WRAPPER}} .eael-gravity-form .ginput_container_fileupload input[type="file"]::file-selector-button' => 'color: {{VALUE}}',
+				    'html body {{WRAPPER}} .eael-gravity-form .ginput_container_fileupload input[type="file"]::-webkit-file-upload-button' => 'color: {{VALUE}}',
+				    'html body {{WRAPPER}} .eael-gravity-form .ginput_container_fileupload .button' => 'color: {{VALUE}}',
+			    ],
+		    ]
+	    );
+
+	    $this->add_group_control(
+		    Group_Control_Border::get_type(),
+		    [
+			    'name'                  => 'file_upload_button_border_normal',
+			    'label'                 => __( 'Border', 'essential-addons-for-elementor-lite'),
+			    'placeholder'           => '1px',
+			    'default'               => '1px',
+			    'selector'              => 'html body {{WRAPPER}} .eael-gravity-form .ginput_container_fileupload input[type="file"]::file-selector-button, html body {{WRAPPER}} .eael-gravity-form .ginput_container_fileupload input[type="file"]::-webkit-file-upload-button, html body {{WRAPPER}} .eael-gravity-form .ginput_container_fileupload .button',
+		    ]
+	    );
+
+	    $this->add_control(
+		    'file_upload_button_border_radius',
+		    [
+			    'label'                 => __( 'Border Radius', 'essential-addons-for-elementor-lite'),
+			    'type'                  => Controls_Manager::DIMENSIONS,
+			    'size_units'            => [ 'px', 'em', '%' ],
+			    'selectors'             => [
+				    'html body {{WRAPPER}} .eael-gravity-form .ginput_container_fileupload input[type="file"]::file-selector-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				    'html body {{WRAPPER}} .eael-gravity-form .ginput_container_fileupload input[type="file"]::-webkit-file-upload-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				    'html body {{WRAPPER}} .eael-gravity-form .ginput_container_fileupload .button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+			    ],
+		    ]
+	    );
+
+	    $this->add_responsive_control(
+		    'file_upload_button_padding',
+		    [
+			    'label'                 => __( 'Padding', 'essential-addons-for-elementor-lite'),
+			    'type'                  => Controls_Manager::DIMENSIONS,
+			    'size_units'            => [ 'px', 'em', '%' ],
+			    'selectors'             => [
+				    'html body {{WRAPPER}} .eael-gravity-form .ginput_container_fileupload input[type="file"]::file-selector-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				    'html body {{WRAPPER}} .eael-gravity-form .ginput_container_fileupload input[type="file"]::-webkit-file-upload-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				    'html body {{WRAPPER}} .eael-gravity-form .ginput_container_fileupload .button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+			    ],
+		    ]
+	    );
+
+	    $this->end_controls_tab();
+
+	    $this->start_controls_tab(
+		    'file_upload_tab_button_hover',
+		    [
+			    'label'                 => __( 'Hover', 'essential-addons-for-elementor-lite'),
+		    ]
+	    );
+
+	    $this->add_control(
+		    'file_upload_button_bg_color_hover',
+		    [
+			    'label'                 => __( 'Background Color', 'essential-addons-for-elementor-lite'),
+			    'type'                  => Controls_Manager::COLOR,
+			    'default'               => '',
+			    'selectors'             => [
+				    'html body {{WRAPPER}} .eael-gravity-form .ginput_container_fileupload input[type="file"]::file-selector-button:hover' => 'background-color: {{VALUE}}',
+				    'html body {{WRAPPER}} .eael-gravity-form .ginput_container_fileupload input[type="file"]::-webkit-file-upload-button:hover' => 'background-color: {{VALUE}}',
+				    'html body {{WRAPPER}} .eael-gravity-form .ginput_container_fileupload .button:hover' => 'background-color: {{VALUE}}',
+			    ],
+		    ]
+	    );
+
+	    $this->add_control(
+		    'file_upload_button_text_color_hover',
+		    [
+			    'label'                 => __( 'Text Color', 'essential-addons-for-elementor-lite'),
+			    'type'                  => Controls_Manager::COLOR,
+			    'default'               => '',
+			    'selectors'             => [
+				    'html body {{WRAPPER}} .eael-gravity-form .ginput_container_fileupload input[type="file"]::file-selector-button:hover' => 'color: {{VALUE}}',
+				    'html body {{WRAPPER}} .eael-gravity-form .ginput_container_fileupload input[type="file"]::-webkit-file-upload-button:hover' => 'color: {{VALUE}}',
+				    'html body {{WRAPPER}} .eael-gravity-form .ginput_container_fileupload .button:hover' => 'color: {{VALUE}}',
+			    ],
+		    ]
+	    );
+
+	    $this->add_control(
+		    'file_upload_button_border_color_hover',
+		    [
+			    'label'                 => __( 'Border Color', 'essential-addons-for-elementor-lite'),
+			    'type'                  => Controls_Manager::COLOR,
+			    'default'               => '',
+			    'selectors'             => [
+				    'html body {{WRAPPER}} .eael-gravity-form .ginput_container_fileupload input[type="file"]::file-selector-button:hover' => 'border-color: {{VALUE}}',
+				    'html body {{WRAPPER}} .eael-gravity-form .ginput_container_fileupload input[type="file"]::-webkit-file-upload-button:hover' => 'border-color: {{VALUE}}',
+				    'html body {{WRAPPER}} .eael-gravity-form .ginput_container_fileupload .button:hover' => 'border-color: {{VALUE}}',
+			    ],
+		    ]
+	    );
+
+	    $this->end_controls_tab();
+
+	    $this->end_controls_tabs();
+
+	    $this->add_group_control(
+		    Group_Control_Typography::get_type(),
+		    [
+			    'name'                  => 'file_upload_button_typography',
+			    'label'                 => __( 'Typography', 'essential-addons-for-elementor-lite'),
+			    'global' => [
+				    'default' => Global_Typography::TYPOGRAPHY_ACCENT
+			    ],
+			    'selector'              => 'html body {{WRAPPER}} .eael-gravity-form .ginput_container_fileupload input[type="file"]::file-selector-button, html body {{WRAPPER}} .eael-gravity-form .ginput_container_fileupload input[type="file"]::-webkit-file-upload-button, html body {{WRAPPER}} .eael-gravity-form .ginput_container_fileupload .button',
+			    'separator'             => 'before',
+		    ]
+	    );
+
+	    $this->add_control(
+		    'file_upload_rules_heading',
+		    [
+			    'label'                 => __( 'Rules', 'essential-addons-for-elementor-lite'),
+			    'type'                  => Controls_Manager::HEADING,
+			    'separator'               => 'before',
+		    ]
+	    );
+
+	    $this->add_group_control(
+		    Group_Control_Typography::get_type(),
+		    [
+			    'name'                  => 'file_upload_rulestypography',
+			    'label'                 => __( 'Typography', 'essential-addons-for-elementor-lite'),
+			    'selector'              => 'html body {{WRAPPER}} .eael-gravity-form .gform_wrapper .gform_fileupload_rules',
+		    ]
+	    );
+
+	    $this->add_control(
+		    'file_upload_rules_color',
+		    [
+			    'label'                 => __( 'Color', 'essential-addons-for-elementor-lite'),
+			    'type'                  => Controls_Manager::COLOR,
+			    'default'               => '',
+			    'selectors'             => [
+				    'html body {{WRAPPER}} .eael-gravity-form .gform_wrapper .gform_fileupload_rules' => 'color: {{VALUE}}',
+			    ],
+		    ]
+	    );
+
+	    $this->end_controls_section();
 
         /**
          * Style Tab: Scrolling Text
@@ -1596,7 +2060,7 @@ class GravityForms extends Widget_Base {
             [
                 'name'                  => 'scrolling_text_typography',
                 'label'                 => __( 'Typography', 'essential-addons-for-elementor-lite'),
-                'selector'              => '{{WRAPPER}} .eael-gravity-form .gform_wrapper .gf_scroll_text .gsection_description',
+                'selector'              => 'html body {{WRAPPER}} .eael-gravity-form .gform_wrapper .gf_scroll_text .gsection_description',
 				'separator'             => 'before',
             ]
         );
@@ -1608,7 +2072,7 @@ class GravityForms extends Widget_Base {
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
-                    '{{WRAPPER}} .eael-gravity-form .gform_wrapper .gf_scroll_text .gsection_description' => 'color: {{VALUE}}',
+                    'html body {{WRAPPER}} .eael-gravity-form .gform_wrapper .gf_scroll_text .gsection_description' => 'color: {{VALUE}}',
                 ],
             ]
         );
@@ -1620,7 +2084,7 @@ class GravityForms extends Widget_Base {
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
-                    '{{WRAPPER}} .eael-gravity-form .gform_wrapper .gf_scroll_text .gsection_description' => 'background-color: {{VALUE}}',
+                    'html body {{WRAPPER}} .eael-gravity-form .gform_wrapper .gf_scroll_text .gsection_description' => 'background-color: {{VALUE}}',
                 ],
             ]
         );
@@ -1643,7 +2107,7 @@ class GravityForms extends Widget_Base {
                 ],
                 'size_units'            => [ 'px', '%' ],
                 'selectors'             => [
-                    '{{WRAPPER}} .eael-gravity-form .gform_wrapper .gf_scroll_text' => 'width: {{SIZE}}{{UNIT}}',
+                    'html body {{WRAPPER}} .eael-gravity-form .gform_wrapper .gf_scroll_text' => 'width: {{SIZE}}{{UNIT}}',
                 ],
             ]
         );
@@ -1655,7 +2119,7 @@ class GravityForms extends Widget_Base {
 				'label'                 => __( 'Border', 'essential-addons-for-elementor-lite'),
 				'placeholder'           => '1px',
 				'default'               => '1px',
-				'selector'              => '{{WRAPPER}} .eael-gravity-form .gform_wrapper .gf_scroll_text',
+				'selector'              => 'html body {{WRAPPER}} .eael-gravity-form .gform_wrapper .gf_scroll_text',
 			]
         );
         
@@ -1666,7 +2130,7 @@ class GravityForms extends Widget_Base {
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', 'em', '%' ],
 				'selectors'             => [
-					'{{WRAPPER}} .eael-gravity-form .gform_wrapper .gf_scroll_text' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'html body {{WRAPPER}} .eael-gravity-form .gform_wrapper .gf_scroll_text' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
 			]
         );
@@ -1678,9 +2142,9 @@ class GravityForms extends Widget_Base {
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', 'em', '%' ],
 				'selectors'             => [
-					'{{WRAPPER}} .eael-gravity-form .gform_wrapper .gf_scroll_text' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                    '{{WRAPPER}} .eael-gravity-form .gform_wrapper .gf_scroll_text .gsection_description' => 'margin: 0;',
-                    '{{WRAPPER}} .eael-gravity-form .gform_wrapper .gf_scroll_text::-webkit-scrollbar' => 'border:2px solid #009900;',
+					'html body {{WRAPPER}} .eael-gravity-form .gform_wrapper .gf_scroll_text' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    'html body {{WRAPPER}} .eael-gravity-form .gform_wrapper .gf_scroll_text .gsection_description' => 'margin: 0;',
+                    'html body {{WRAPPER}} .eael-gravity-form .gform_wrapper .gf_scroll_text::-webkit-scrollbar' => 'border:2px solid #009900;',
                 ],
 			]
         );
@@ -1692,7 +2156,7 @@ class GravityForms extends Widget_Base {
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors' => [
-					'{{WRAPPER}} .eael-gravity-form .gform_wrapper .gf_scroll_text' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;',
+					'html body {{WRAPPER}} .eael-gravity-form .gform_wrapper .gf_scroll_text' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;',
 				],
 			]
 		);
@@ -1732,8 +2196,9 @@ class GravityForms extends Widget_Base {
 				],
 				'default'               => '',
 				'selectors'             => [
-					'{{WRAPPER}} .eael-gravity-form .gform_footer'   => 'text-align: {{VALUE}};',
-                    '{{WRAPPER}} .eael-gravity-form .gform_footer input[type="submit"]' => 'display:inline-block;'
+                    'html body {{WRAPPER}} .eael-gravity-form .gform_footer'   => 'text-align: {{VALUE}};justify-content: {{VALUE}};',
+                    'html body {{WRAPPER}} .eael-gravity-form .gfield--type-submit'   => 'text-align: {{VALUE}};justify-content: {{VALUE}};',
+                    'html body {{WRAPPER}} .eael-gravity-form .gform_footer input[type="submit"]' => 'display:inline-block;'
 				],
                 'condition'             => [
                     'button_width_type' => 'custom',
@@ -1773,8 +2238,9 @@ class GravityForms extends Widget_Base {
                 ],
                 'size_units'            => [ 'px', '%' ],
                 'selectors'             => [
-                    '{{WRAPPER}} .eael-gravity-form .gform_footer input[type="submit"]' => 'width: {{SIZE}}{{UNIT}}',
-                    '{{WRAPPER}} .eael-gravity-form .gform_body .gform_page_footer input[type="submit"]' => 'width: {{SIZE}}{{UNIT}}',
+                    'html body {{WRAPPER}} .eael-gravity-form .gform_footer input[type="submit"]' => 'width: {{SIZE}}{{UNIT}} !important',
+                    'html body {{WRAPPER}} .eael-gravity-form .gform_body .gform_page_footer input[type="submit"]' => 'width: {{SIZE}}{{UNIT}} !important;',
+                    'html body {{WRAPPER}} .eael-gravity-form .gform_body input[type="submit"].gform-button' => 'width: {{SIZE}}{{UNIT}} !important;'
                 ],
                 'condition'             => [
                     'button_width_type' => 'custom',
@@ -1798,8 +2264,9 @@ class GravityForms extends Widget_Base {
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
-                    '{{WRAPPER}} .eael-gravity-form .gform_footer input[type="submit"]' => 'background-color: {{VALUE}}',
-                    '{{WRAPPER}} .eael-gravity-form .gform_body .gform_page_footer input[type="submit"]' => 'background-color: {{VALUE}}',
+                    'html body {{WRAPPER}} .eael-gravity-form .gform_footer input[type="submit"]' => 'background-color: {{VALUE}} !important;',
+                    'html body {{WRAPPER}} .eael-gravity-form .gform_body .gform_page_footer input[type="submit"]' => 'background-color: {{VALUE}} !important;',
+                    'html body {{WRAPPER}} .eael-gravity-form .gform_body input[type="submit"].gform-button' => 'background-color: {{VALUE}} !important;',
                 ],
             ]
         );
@@ -1811,8 +2278,9 @@ class GravityForms extends Widget_Base {
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
-                    '{{WRAPPER}} .eael-gravity-form .gform_footer input[type="submit"]' => 'color: {{VALUE}}',
-                    '{{WRAPPER}} .eael-gravity-form .gform_body .gform_page_footer input[type="submit"]' => 'color: {{VALUE}}',
+                    'html body {{WRAPPER}} .eael-gravity-form .gform_footer input[type="submit"]' => 'color: {{VALUE}} !important;',
+                    'html body {{WRAPPER}} .eael-gravity-form .gform_body .gform_page_footer input[type="submit"]' => 'color: {{VALUE}} !important;',
+                    'html body {{WRAPPER}} .eael-gravity-form .gform_body input[type="submit"].gform-button' => 'color: {{VALUE} !important;}',
                 ],
             ]
         );
@@ -1824,7 +2292,7 @@ class GravityForms extends Widget_Base {
 				'label'                 => __( 'Border', 'essential-addons-for-elementor-lite'),
 				'placeholder'           => '1px',
 				'default'               => '1px',
-				'selector'              => '{{WRAPPER}} .eael-gravity-form .gform_footer input[type="submit"], {{WRAPPER}} .eael-gravity-form .gform_body .gform_page_footer input[type="submit"]',
+				'selector'              => 'html body {{WRAPPER}} .eael-gravity-form .gform_footer input[type="submit"], html body {{WRAPPER}} .eael-gravity-form .gform_body .gform_page_footer input[type="submit"], html body {{WRAPPER}} .eael-gravity-form .gform_body input[type="submit"].gform-button',
 			]
 		);
 
@@ -1835,44 +2303,12 @@ class GravityForms extends Widget_Base {
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', 'em', '%' ],
 				'selectors'             => [
-					'{{WRAPPER}} .eael-gravity-form .gform_footer input[type="submit"]' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                    '{{WRAPPER}} .eael-gravity-form .gform_body .gform_page_footer input[type="submit"]' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'html body {{WRAPPER}} .eael-gravity-form .gform_footer input[type="submit"]' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;;',
+                    'html body {{WRAPPER}} .eael-gravity-form .gform_body .gform_page_footer input[type="submit"]' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;;',
+                    'html body {{WRAPPER}} .eael-gravity-form .gform_body input[type="submit"].gform-button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;;',
                 ],
 			]
 		);
-
-		$this->add_responsive_control(
-			'button_padding',
-			[
-				'label'                 => __( 'Padding', 'essential-addons-for-elementor-lite'),
-				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', 'em', '%' ],
-				'selectors'             => [
-					'{{WRAPPER}} .eael-gravity-form .gform_footer input[type="submit"]' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                    '{{WRAPPER}} .eael-gravity-form .gform_body .gform_page_footer input[type="submit"]' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
-			]
-		);
-        
-        $this->add_responsive_control(
-            'button_margin',
-            [
-                'label'                 => __( 'Margin Top', 'essential-addons-for-elementor-lite'),
-                'type'                  => Controls_Manager::SLIDER,
-                'range'                 => [
-                    'px'        => [
-                        'min'   => 0,
-                        'max'   => 100,
-                        'step'  => 1,
-                    ],
-                ],
-                'size_units'            => [ 'px', 'em', '%' ],
-                'selectors'             => [
-                    '{{WRAPPER}} .eael-gravity-form .gform_footer input[type="submit"]' => 'margin-top: {{SIZE}}{{UNIT}}',
-                    '{{WRAPPER}} .eael-gravity-form .gform_body .gform_page_footer input[type="submit"]' => 'margin-top: {{SIZE}}{{UNIT}}',
-                ],
-            ]
-        );
         
         $this->end_controls_tab();
 
@@ -1890,8 +2326,9 @@ class GravityForms extends Widget_Base {
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
-                    '{{WRAPPER}} .eael-gravity-form .gform_footer input[type="submit"]:hover' => 'background-color: {{VALUE}}',
-                    '{{WRAPPER}} .eael-gravity-form .gform_body .gform_page_footer input[type="submit"]' => 'background-color: {{VALUE}}',
+                    'html body {{WRAPPER}} .eael-gravity-form .gform_footer input[type="submit"]:hover' => 'background-color: {{VALUE}} !important;',
+                    'html body {{WRAPPER}} .eael-gravity-form .gform_body .gform_page_footer input[type="submit"]:hover' => 'background-color: {{VALUE}} !important;',
+                    'html body {{WRAPPER}} .eael-gravity-form .gform_body input[type="submit"].gform-button:hover' => 'background-color: {{VALUE}} !important;'
                 ],
             ]
         );
@@ -1903,8 +2340,9 @@ class GravityForms extends Widget_Base {
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
-                    '{{WRAPPER}} .eael-gravity-form .gform_footer input[type="submit"]:hover' => 'color: {{VALUE}}',
-                    '{{WRAPPER}} .eael-gravity-form .gform_body .gform_page_footer input[type="submit"]:hover' => 'color: {{VALUE}}',
+                    'html body {{WRAPPER}} .eael-gravity-form .gform_footer input[type="submit"]:hover' => 'color: {{VALUE}} !important;',
+                    'html body {{WRAPPER}} .eael-gravity-form .gform_body .gform_page_footer input[type="submit"]:hover' => 'color: {{VALUE}} !important;',
+                    'html body {{WRAPPER}} .eael-gravity-form .gform_body input[type="submit"].gform-button:hover' => 'color: {{VALUE}} !important;'
                 ],
             ]
         );
@@ -1916,8 +2354,9 @@ class GravityForms extends Widget_Base {
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
-                    '{{WRAPPER}} .eael-gravity-form .gform_footer input[type="submit"]:hover' => 'border-color: {{VALUE}}',
-                    '{{WRAPPER}} .eael-gravity-form .gform_body .gform_page_footer input[type="submit"]:hover' => 'border-color: {{VALUE}}',
+                    'html body {{WRAPPER}} .eael-gravity-form .gform_footer input[type="submit"]:hover' => 'border-color: {{VALUE}}',
+                    'html body {{WRAPPER}} .eael-gravity-form .gform_body .gform_page_footer input[type="submit"]:hover' => 'border-color: {{VALUE}}',
+                    'html body {{WRAPPER}} .eael-gravity-form .gform_body input[type="submit"].gform-button:hover' => 'border-color: {{VALUE}}'
                 ],
             ]
         );
@@ -1925,14 +2364,52 @@ class GravityForms extends Widget_Base {
         $this->end_controls_tab();
         
         $this->end_controls_tabs();
-        
+
+        $this->add_responsive_control(
+            'button_padding',
+            [
+                'label'                 => __( 'Padding', 'essential-addons-for-elementor-lite'),
+                'type'                  => Controls_Manager::DIMENSIONS,
+                'size_units'            => [ 'px', 'em', '%' ],
+                'selectors'             => [
+                    'html body {{WRAPPER}} .eael-gravity-form .gform_footer input[type="submit"]' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    'html body {{WRAPPER}} .eael-gravity-form .gform_body .gform_page_footer input[type="submit"]' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    'html body {{WRAPPER}} .eael-gravity-form .gform_body input[type="submit"].gform-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                ],
+                'separator' => 'before'
+            ]
+        );
+
+        $this->add_responsive_control(
+            'button_margin',
+            [
+                'label'                 => __( 'Margin Top', 'essential-addons-for-elementor-lite'),
+                'type'                  => Controls_Manager::SLIDER,
+                'range'                 => [
+                    'px'        => [
+                        'min'   => 0,
+                        'max'   => 100,
+                        'step'  => 1,
+                    ],
+                ],
+                'size_units'            => [ 'px', 'em', '%' ],
+                'selectors'             => [
+                    'html body {{WRAPPER}} .eael-gravity-form .gform_footer input[type="submit"]' => 'margin-top: {{SIZE}}{{UNIT}}',
+                    'html body {{WRAPPER}} .eael-gravity-form .gform_body .gform_page_footer input[type="submit"]' => 'margin-top: {{SIZE}}{{UNIT}}',
+                    'html body {{WRAPPER}} .eael-gravity-form .gform_body input[type="submit"].gform-button' => 'margin-top: {{SIZE}}{{UNIT}}'
+                ],
+            ]
+        );
+
         $this->add_group_control(
             Group_Control_Typography::get_type(),
             [
                 'name'                  => 'button_typography',
                 'label'                 => __( 'Typography', 'essential-addons-for-elementor-lite'),
-                'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
-                'selector'              => '{{WRAPPER}} .eael-gravity-form .gform_footer input[type="submit"], {{WRAPPER}} .eael-gravity-form .gform_body .gform_page_footer input[type="submit"]',
+                'global' => [
+	                'default' => Global_Typography::TYPOGRAPHY_ACCENT
+                ],
+                'selector'              => 'html body {{WRAPPER}} .eael-gravity-form .gform_footer input[type="submit"], html body {{WRAPPER}} .eael-gravity-form .gform_body .gform_page_footer input[type="submit"], html body {{WRAPPER}} .eael-gravity-form .gform_body input[type="submit"].gform-button',
 				'separator'             => 'before',
             ]
         );
@@ -1941,7 +2418,7 @@ class GravityForms extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'                  => 'button_box_shadow',
-				'selector'              => '{{WRAPPER}} .eael-gravity-form .gform_footer input[type="submit"], {{WRAPPER}} .eael-gravity-form .gform_body .gform_page_footer input[type="submit"]',
+				'selector'              => 'html body {{WRAPPER}} .eael-gravity-form .gform_footer input[type="submit"], html body {{WRAPPER}} .eael-gravity-form .gform_body .gform_page_footer input[type="submit"], html body {{WRAPPER}} .eael-gravity-form .gform_body input[type="submit"].gform-button',
 				'separator'             => 'before',
 			]
 		);
@@ -1982,8 +2459,8 @@ class GravityForms extends Widget_Base {
 				],
 				'default'               => '',
 				'selectors'             => [
-					'{{WRAPPER}} .eael-gravity-form .gform_body .gform_page_footer'   => 'text-align: {{VALUE}};',
-                    '{{WRAPPER}} .eael-gravity-form .gform_body .gform_page_footer input[type="button"]' => 'display:inline-block;'
+					'html body {{WRAPPER}} .eael-gravity-form .gform_body .gform_page_footer'   => 'text-align: {{VALUE}};',
+                    'html body {{WRAPPER}} .eael-gravity-form .gform_body .gform_page_footer input[type="button"]' => 'display:inline-block;'
 				],
 			]
 		);
@@ -2006,7 +2483,7 @@ class GravityForms extends Widget_Base {
                 ],
                 'size_units'            => [ 'px', '%' ],
                 'selectors'             => [
-                    '{{WRAPPER}} .eael-gravity-form .gform_body .gform_page_footer input[type="button"]' => 'width: {{SIZE}}{{UNIT}}',
+                    'html body {{WRAPPER}} .eael-gravity-form .gform_body .gform_page_footer input[type="button"]' => 'width: {{SIZE}}{{UNIT}}',
                 ],
             ]
         );
@@ -2027,7 +2504,7 @@ class GravityForms extends Widget_Base {
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
-                    '{{WRAPPER}} .eael-gravity-form .gform_body .gform_page_footer input[type="button"]' => 'background-color: {{VALUE}}',
+                    'html body {{WRAPPER}} .eael-gravity-form .gform_body .gform_page_footer input[type="button"]' => 'background-color: {{VALUE}}',
                 ],
             ]
         );
@@ -2039,7 +2516,7 @@ class GravityForms extends Widget_Base {
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
-                    '{{WRAPPER}} .eael-gravity-form .gform_body .gform_page_footer input[type="button"]' => 'color: {{VALUE}}',
+                    'html body {{WRAPPER}} .eael-gravity-form .gform_body .gform_page_footer input[type="button"]' => 'color: {{VALUE}}',
                 ],
             ]
         );
@@ -2051,7 +2528,7 @@ class GravityForms extends Widget_Base {
 				'label'                 => __( 'Border', 'essential-addons-for-elementor-lite'),
 				'placeholder'           => '1px',
 				'default'               => '1px',
-				'selector'              => '{{WRAPPER}} .eael-gravity-form .gform_body .gform_page_footer input[type="button"]',
+				'selector'              => 'html body {{WRAPPER}} .eael-gravity-form .gform_body .gform_page_footer input[type="button"]',
 			]
 		);
 
@@ -2062,7 +2539,7 @@ class GravityForms extends Widget_Base {
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', 'em', '%' ],
 				'selectors'             => [
-					'{{WRAPPER}} .eael-gravity-form .gform_body .gform_page_footer input[type="button"]' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'html body {{WRAPPER}} .eael-gravity-form .gform_body .gform_page_footer input[type="button"]' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -2074,7 +2551,7 @@ class GravityForms extends Widget_Base {
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', 'em', '%' ],
 				'selectors'             => [
-					'{{WRAPPER}} .eael-gravity-form .gform_body .gform_page_footer input[type="button"]' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'html body {{WRAPPER}} .eael-gravity-form .gform_body .gform_page_footer input[type="button"]' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -2093,7 +2570,7 @@ class GravityForms extends Widget_Base {
                 ],
                 'size_units'            => [ 'px', 'em', '%' ],
                 'selectors'             => [
-                    '{{WRAPPER}} .eael-gravity-form .gform_body .gform_page_footer input[type="button"]' => 'margin-top: {{SIZE}}{{UNIT}}',
+                    'html body {{WRAPPER}} .eael-gravity-form .gform_body .gform_page_footer input[type="button"]' => 'margin-top: {{SIZE}}{{UNIT}}',
                 ],
             ]
         );
@@ -2114,7 +2591,7 @@ class GravityForms extends Widget_Base {
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
-                    '{{WRAPPER}} .eael-gravity-form .gform_body .gform_page_footer input[type="button"]:hover' => 'background-color: {{VALUE}}',
+                    'html body {{WRAPPER}} .eael-gravity-form .gform_body .gform_page_footer input[type="button"]:hover' => 'background-color: {{VALUE}}',
                 ],
             ]
         );
@@ -2126,7 +2603,7 @@ class GravityForms extends Widget_Base {
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
-                    '{{WRAPPER}} .eael-gravity-form .gform_body .gform_page_footer input[type="button"]:hover' => 'color: {{VALUE}}',
+                    'html body {{WRAPPER}} .eael-gravity-form .gform_body .gform_page_footer input[type="button"]:hover' => 'color: {{VALUE}}',
                 ],
             ]
         );
@@ -2138,7 +2615,7 @@ class GravityForms extends Widget_Base {
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
-                    '{{WRAPPER}} .eael-gravity-form .gform_body .gform_page_footer input[type="button"]:hover' => 'border-color: {{VALUE}}',
+                    'html body {{WRAPPER}} .eael-gravity-form .gform_body .gform_page_footer input[type="button"]:hover' => 'border-color: {{VALUE}}',
                 ],
             ]
         );
@@ -2152,8 +2629,10 @@ class GravityForms extends Widget_Base {
             [
                 'name'                  => 'eael_gravity_forms_next_button_typography',
                 'label'                 => __( 'Typography', 'essential-addons-for-elementor-lite'),
-                'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
-                'selector'              => '{{WRAPPER}} .eael-gravity-form .gform_body .gform_page_footer input[type="button"]',
+                'global' => [
+	                'default' => Global_Typography::TYPOGRAPHY_ACCENT
+                ],
+                'selector'              => 'html body {{WRAPPER}} .eael-gravity-form .gform_body .gform_page_footer input[type="button"]',
 				'separator'             => 'before',
             ]
         );
@@ -2162,7 +2641,7 @@ class GravityForms extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'                  => 'eael_gravity_forms_next_button_box_shadow',
-				'selector'              => '{{WRAPPER}} .eael-gravity-form .gform_body .gform_page_footer input[type="button"]',
+				'selector'              => 'html body {{WRAPPER}} .eael-gravity-form .gform_body .gform_page_footer input[type="button"]',
 				'separator'             => 'before',
 			]
 		);
@@ -2200,7 +2679,7 @@ class GravityForms extends Widget_Base {
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
-                    '{{WRAPPER}} .eael-gravity-form .gfield .validation_message' => 'color: {{VALUE}}',
+                    'html body {{WRAPPER}} .eael-gravity-form .gfield .validation_message' => 'color: {{VALUE}}',
                 ],
 				'condition'             => [
 					'error_messages' => 'show',
@@ -2227,7 +2706,7 @@ class GravityForms extends Widget_Base {
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
-                    '{{WRAPPER}} .eael-gravity-form .gform_wrapper .validation_error' => 'color: {{VALUE}}',
+                    'html body {{WRAPPER}} .eael-gravity-form .gform_wrapper .validation_error' => 'color: {{VALUE}}',
                 ],
 				'condition'             => [
 					'validation_errors' => 'show',
@@ -2242,8 +2721,8 @@ class GravityForms extends Widget_Base {
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
-                    '{{WRAPPER}} .eael-gravity-form .gform_wrapper .validation_error' => 'border-top-color: {{VALUE}}; border-bottom-color: {{VALUE}}',
-                    '{{WRAPPER}} .eael-gravity-form .gfield_error' => 'border-top-color: {{VALUE}}; border-bottom-color: {{VALUE}}',
+                    'html body {{WRAPPER}} .eael-gravity-form .gform_wrapper .validation_error' => 'border-top-color: {{VALUE}}; border-bottom-color: {{VALUE}}',
+                    'html body {{WRAPPER}} .eael-gravity-form .gfield_error' => 'border-top-color: {{VALUE}}; border-bottom-color: {{VALUE}}',
                 ],
 				'condition'             => [
 					'validation_errors' => 'show',
@@ -2258,7 +2737,7 @@ class GravityForms extends Widget_Base {
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
-                    '{{WRAPPER}} .eael-gravity-form .gfield_error' => 'background: {{VALUE}}',
+                    'html body {{WRAPPER}} .eael-gravity-form .gfield_error' => 'background: {{VALUE}}',
                 ],
 				'condition'             => [
 					'validation_errors' => 'show',
@@ -2273,7 +2752,7 @@ class GravityForms extends Widget_Base {
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
-                    '{{WRAPPER}} .eael-gravity-form .gfield_error .gfield_label' => 'color: {{VALUE}}',
+                    'html body {{WRAPPER}} .eael-gravity-form .gfield_error .gfield_label' => 'color: {{VALUE}}',
                 ],
 				'condition'             => [
 					'validation_errors' => 'show',
@@ -2288,7 +2767,7 @@ class GravityForms extends Widget_Base {
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
-                    '{{WRAPPER}} .eael-gravity-form .gform_wrapper li.gfield_error input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), {{WRAPPER}} .gform_wrapper li.gfield_error textarea' => 'border-color: {{VALUE}}',
+                    'html body {{WRAPPER}} .eael-gravity-form .gform_wrapper li.gfield_error input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), html body {{WRAPPER}} .gform_wrapper li.gfield_error textarea' => 'border-color: {{VALUE}}',
                 ],
 				'condition'             => [
 					'validation_errors' => 'show',
@@ -2306,7 +2785,7 @@ class GravityForms extends Widget_Base {
                 'max'                   => 10,
                 'step'                  => 1,
                 'selectors'             => [
-                    '{{WRAPPER}} .eael-gravity-form .gform_wrapper li.gfield_error input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), {{WRAPPER}} .gform_wrapper li.gfield_error textarea' => 'border-width: {{VALUE}}px',
+                    'html body {{WRAPPER}} .eael-gravity-form .gform_wrapper li.gfield_error input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), html body {{WRAPPER}} .gform_wrapper li.gfield_error textarea' => 'border-width: {{VALUE}}px',
                 ],
 				'condition'             => [
 					'validation_errors' => 'show',
@@ -2335,7 +2814,7 @@ class GravityForms extends Widget_Base {
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
-                    '{{WRAPPER}} .eael-gravity-form .gform_confirmation_wrapper .gform_confirmation_message' => 'color: {{VALUE}}!important',
+                    'html body {{WRAPPER}} .eael-gravity-form .gform_confirmation_wrapper .gform_confirmation_message' => 'color: {{VALUE}}!important',
                 ],
             ]
         );
@@ -2345,8 +2824,10 @@ class GravityForms extends Widget_Base {
             [
                 'name'                  => 'eaelgf_thankyou_message_typography',
                 'label'                 => __( 'Typography', 'essential-addons-for-elementor-lite'),
-                'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
-                'selector'              => '{{WRAPPER}} .eael-gravity-form .gform_confirmation_wrapper .gform_confirmation_message',
+                'global' => [
+	                'default' => Global_Typography::TYPOGRAPHY_ACCENT
+                ],
+                'selector'              => 'html body {{WRAPPER}} .eael-gravity-form .gform_confirmation_wrapper .gform_confirmation_message',
 				'separator'             => 'before',
             ]
         );
@@ -2432,6 +2913,6 @@ class GravityForms extends Widget_Base {
         }
     }
 
-    protected function _content_template() {}
+    protected function content_template() {}
 
 }

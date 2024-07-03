@@ -10,10 +10,10 @@ use \Elementor\Controls_Manager;
 use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Typography;
-use \Elementor\Scheme_Typography;
+use \Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use \Elementor\Widget_Base;
 use \Elementor\Group_Control_Background;
-use \Elementor\Scheme_Color;
+use \Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 
 use \Essential_Addons_Elementor\Classes\Helper;
 
@@ -27,7 +27,7 @@ class FluentForm extends Widget_Base
 
     public function get_title()
     {
-        return __('Fluent Form', 'essential-addons-for-elementor-lite');
+        return __('Fluent Forms', 'essential-addons-for-elementor-lite');
     }
 
     public function get_categories()
@@ -67,7 +67,35 @@ class FluentForm extends Widget_Base
         ];
 	}
 
-    protected function _register_controls()
+	/**
+	 * Get FluentForms List
+	 *
+	 * @return array
+	 */
+	public static function get_fluent_forms_list()
+	{
+
+		$options = array();
+
+		if (defined('FLUENTFORM')) {
+			global $wpdb;
+
+			$result = $wpdb->get_results("SELECT * FROM {$wpdb->prefix}fluentform_forms");
+			if ($result) {
+				$options[0] = esc_html__('Select a Fluent Form', 'essential-addons-for-elementor-lite');
+				foreach ($result as $form) {
+					$options[$form->id] = $form->title;
+				}
+			} else {
+				$options[0] = esc_html__('Create a Form First', 'essential-addons-for-elementor-lite');
+			}
+		}
+
+		return $options;
+
+	}
+
+    protected function register_controls()
     {
         /*-----------------------------------------------------------------------------------*/
         /*    Content Tab
@@ -110,7 +138,7 @@ class FluentForm extends Widget_Base
                     'label' => esc_html__('Fluent Form', 'essential-addons-for-elementor-lite'),
                     'type' => Controls_Manager::SELECT,
                     'label_block' => true,
-                    'options' => Helper::get_fluent_forms_list(),
+                    'options' => self::get_fluent_forms_list(),
                     'default' => '0',
                 ]
             );
@@ -138,6 +166,9 @@ class FluentForm extends Widget_Base
                     'default' => '',
                     'condition' => [
                         'custom_title_description' => 'yes',
+                    ],
+                    'ai' => [
+                        'active' => false,
                     ],
                 ]
             );
@@ -237,15 +268,15 @@ class FluentForm extends Widget_Base
                 'options' => [
                     'left' => [
                         'title' => __('Left', 'essential-addons-for-elementor-lite'),
-                        'icon' => 'fa fa-align-left',
+                        'icon' => 'eicon-text-align-left',
                     ],
                     'center' => [
                         'title' => __('Center', 'essential-addons-for-elementor-lite'),
-                        'icon' => 'fa fa-align-center',
+                        'icon' => 'eicon-text-align-center',
                     ],
                     'right' => [
                         'title' => __('Right', 'essential-addons-for-elementor-lite'),
-                        'icon' => 'fa fa-align-right',
+                        'icon' => 'eicon-text-align-right',
                     ],
                 ],
                 'default' => '',
@@ -352,7 +383,9 @@ class FluentForm extends Widget_Base
             [
                 'name' => 'form_description_typography',
                 'label' => __('Typography', 'essential-addons-for-elementor-lite'),
-                'scheme' => Scheme_Typography::TYPOGRAPHY_4,
+                'global' => [
+	                'default' => Global_Typography::TYPOGRAPHY_ACCENT
+                ],
                 'selector' => '{{WRAPPER}} .eael-fluentform-description',
                 'condition' => [
                     'custom_title_description' => 'yes',
@@ -578,20 +611,22 @@ class FluentForm extends Widget_Base
                 'options' => [
                     'left' => [
                         'title' => __('Left', 'essential-addons-for-elementor-lite'),
-                        'icon' => 'fa fa-align-left',
+                        'icon' => 'eicon-text-align-left',
                     ],
                     'center' => [
                         'title' => __('Center', 'essential-addons-for-elementor-lite'),
-                        'icon' => 'fa fa-align-center',
+                        'icon' => 'eicon-text-align-center',
                     ],
                     'right' => [
                         'title' => __('Right', 'essential-addons-for-elementor-lite'),
-                        'icon' => 'fa fa-align-right',
+                        'icon' => 'eicon-text-align-right',
                     ],
                 ],
                 'default' => '',
                 'selectors' => [
-                    '{{WRAPPER}} .eael-contact-form.eael-fluent-form-wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), {{WRAPPER}} .eael-contact-form.eael-fluent-form-wrapper .ff-el-group textarea, {{WRAPPER}} .eael-contact-form.eael-fluent-form-wrapper .ff-el-group select' => 'text-align: {{VALUE}};',
+                    '{{WRAPPER}} .eael-contact-form.eael-fluent-form-wrapper input:not([type=radio]):not([type=checkbox]):not([type=text]):not([type=email]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), {{WRAPPER}} .eael-contact-form.eael-fluent-form-wrapper .ff-el-group textarea, {{WRAPPER}} .eael-contact-form.eael-fluent-form-wrapper .ff-el-group select' => 'text-align: {{VALUE}};',
+                    '{{WRAPPER}} .eael-contact-form.eael-fluent-form-wrapper .ff-el-group input[type=email] ' => 'float: {{VALUE}};',
+                    '{{WRAPPER}} .eael-contact-form.eael-fluent-form-wrapper .ff-el-group input[type=text] ' => 'float: {{VALUE}};',
                 ],
             ]
         );
@@ -1502,6 +1537,7 @@ class FluentForm extends Widget_Base
                 'size_units' => ['px', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .eael-contact-form.eael-fluent-form-wrapper .ff-el-group .ff-btn-submit' => 'width: {{SIZE}}{{UNIT}}',
+                    '{{WRAPPER}} .eael-contact-form.eael-fluent-form-wrapper.eael-contact-form-align-default .ff-el-group .ff-btn-submit' => 'width: {{SIZE}}{{UNIT}};min-width: inherit;',
                 ],
                 'condition' => [
                     'button_width_type' => 'custom',
@@ -1595,6 +1631,27 @@ class FluentForm extends Widget_Base
                 ],
             ]
         );
+
+	    $this->add_responsive_control(
+		    'button_position',
+		    [
+			    'label' => __('Button Position', 'essential-addons-for-elementor-lite'),
+			    'type' => Controls_Manager::SLIDER,
+			    'range' => [
+				    'px' => [
+					    'min' => 0,
+					    'max' => 1000,
+					    'step' => 1,
+				    ],
+			    ],
+			    'size_units' => ['px', 'em', '%'],
+			    'selectors' => [
+				    '{{WRAPPER}} .eael-contact-form.eael-fluent-form-wrapper.eael-fluent-form-subscription .ff-el-group .ff-btn-submit' => 'right: {{SIZE}}{{UNIT}};position: relative;min-width: inherit;',
+			    ],
+		    ]
+	    );
+
+
 
         $this->add_group_control(
             Group_Control_Typography::get_type(),
@@ -1716,9 +1773,8 @@ class FluentForm extends Widget_Base
                     [
                         'label'     => __( 'Label Color', 'essential-addons-for-elementor-lite' ),
                         'type'      => Controls_Manager::COLOR,
-                        'scheme'    => [
-                            'type'  => Scheme_Color::get_type(),
-                            'value' => Scheme_Color::COLOR_1,
+                        'global' => [
+	                        'default' => Global_Colors::COLOR_PRIMARY
                         ],
                         'selectors' => [
                             '{{WRAPPER}} .ff-el-progress-status' => 'color: {{VALUE}}',
@@ -1734,7 +1790,9 @@ class FluentForm extends Widget_Base
                     [
                         'name' => 'label_typography',
                         'label' => __( 'Typography', 'essential-addons-for-elementor-lite' ),
-                        'scheme' => Scheme_Typography::TYPOGRAPHY_1,
+                        'global' => [
+	                        'default' => Global_Typography::TYPOGRAPHY_PRIMARY
+                        ],
                         'selector' => '{{WRAPPER}} .ff-el-progress-status',
                         'condition' => [
                             'show_label'    => 'yes'
@@ -1806,9 +1864,8 @@ class FluentForm extends Widget_Base
                     [
                         'label' => __( 'Title Color', 'essential-addons-for-elementor-lite' ),
                         'type'  =>   Controls_Manager::COLOR,
-                        'scheme' => [
-                            'type' =>   Scheme_Color::get_type(),
-                            'value' =>  Scheme_Color::COLOR_1,
+                        'global' => [
+	                        'default' => Global_Colors::COLOR_PRIMARY
                         ],
                         'selectors' => [
                             '{{WRAPPER}} .ff-el-progress-bar span' => 'color: {{VALUE}};',
@@ -1931,7 +1988,9 @@ class FluentForm extends Widget_Base
                     [
                         'name' => 'pagination_button_typography',
                         'label' => __( 'Typography', 'essential-addons-for-elementor-lite' ),
-                        'scheme' => Scheme_Typography::TYPOGRAPHY_1,
+                        'global' => [
+	                        'default' => Global_Typography::TYPOGRAPHY_PRIMARY
+                        ],
                         'selector' => '{{WRAPPER}} .step-nav button',
                     ]
                 );
@@ -2161,6 +2220,10 @@ class FluentForm extends Widget_Base
 
     }
 
+    public function get_form_attr($form_id){
+	    return  \FluentForm\App\Helpers\Helper::getFormMeta($form_id, 'template_name');
+    }
+
     protected function render()
     {
 
@@ -2169,6 +2232,7 @@ class FluentForm extends Widget_Base
 
         $settings = $this->get_settings_for_display();
 
+        $template_name = $this->get_form_attr($settings['form_list']);
         $this->add_render_attribute(
             'eael_fluentform_wrapper',
             [
@@ -2207,8 +2271,12 @@ class FluentForm extends Widget_Base
         else {
             $this->add_render_attribute( 'eael_fluentform_wrapper', 'class', 'eael-contact-form-align-default' );
         }
+
+	    if ( $template_name == 'inline_subscription' ) {
+		    $this->add_render_attribute( 'eael_fluentform_wrapper', 'class', 'eael-fluent-form-subscription' );
+	    }
         
-        $shortcode = '[fluentform id="'.$this->get_settings_for_display('form_list').'"]';
+        $shortcode = '[fluentform id="'.$settings['form_list'].'"]';
 
         ?>
         <div <?php echo $this->get_render_attribute_string('eael_fluentform_wrapper'); ?>>

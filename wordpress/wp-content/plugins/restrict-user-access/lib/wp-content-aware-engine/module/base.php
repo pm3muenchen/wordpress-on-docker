@@ -1,9 +1,9 @@
 <?php
 /**
- * @package WP Content Aware Engine
+ * @package wp-content-aware-engine
  * @author Joachim Jensen <joachim@dev.institute>
  * @license GPLv3
- * @copyright 2020 by Joachim Jensen
+ * @copyright 2023 by Joachim Jensen
  */
 
 defined('ABSPATH') || exit;
@@ -36,11 +36,14 @@ abstract class WPCAModule_Base
     protected $description;
 
     /**
-     * Placeholder label
-     *
      * @var string
      */
     protected $placeholder;
+
+    /**
+     * @var string
+     */
+    protected $icon;
 
     /**
      * Default condition value
@@ -79,8 +82,8 @@ abstract class WPCAModule_Base
     {
         if (is_admin()) {
             add_action(
-                'wp_ajax_wpca/module/'.$this->id,
-                array($this,'ajax_print_content')
+                'wp_ajax_wpca/module/' . $this->id,
+                [$this,'ajax_print_content']
             );
         }
     }
@@ -103,12 +106,13 @@ abstract class WPCAModule_Base
      */
     public function list_module($list)
     {
-        $list[] = array(
+        $list[] = [
             'id'            => $this->id,
             'text'          => $this->name,
+            'icon'          => $this->get_icon(),
             'placeholder'   => $this->placeholder,
             'default_value' => $this->default_value,
-        );
+        ];
         return $list;
     }
 
@@ -147,6 +151,14 @@ abstract class WPCAModule_Base
     final public function get_name()
     {
         return $this->name;
+    }
+
+    /**
+     * @return string
+     */
+    final public function get_icon()
+    {
+        return $this->icon;
     }
 
     /**
@@ -222,12 +234,13 @@ abstract class WPCAModule_Base
     {
         $data = get_post_custom_values($this->get_data_key(), $post_id);
         if ($data) {
-            $group_data[$this->id] = array(
+            $group_data[$this->id] = [
                 'label'         => $this->name,
+                'icon'          => $this->get_icon(),
                 'placeholder'   => $this->placeholder,
-                'data'          => $this->get_content(array('include' => $data)),
+                'data'          => $this->get_content(['include' => $data]),
                 'default_value' => $this->default_value
-            );
+            ];
         }
         return $group_data;
     }
@@ -239,7 +252,7 @@ abstract class WPCAModule_Base
      * @param   array     $args
      * @return  array
      */
-    abstract protected function _get_content($args = array());
+    abstract protected function _get_content($args = []);
 
     /**
      * Determine if current content is relevant
@@ -262,14 +275,17 @@ abstract class WPCAModule_Base
      * other contexts (meaning conditions arent met)
      *
      * @since  3.2
-     * @param  array  $posts
+     * @param array $posts
+     * @param boolean $in_context
      * @return array
      */
-    public function filter_excluded_context($posts)
+    public function filter_excluded_context($posts, $in_context = false)
     {
-        foreach ($posts as $id => $parent) {
-            if (get_post_custom_values($this->get_data_key(), $id) !== null) {
-                unset($posts[$id]);
+        if (!$in_context) {
+            foreach ($posts as $id => $group) {
+                if (get_post_custom_values($this->get_data_key(), $id) !== null) {
+                    unset($posts[$id]);
+                }
             }
         }
         return $posts;
@@ -292,12 +308,12 @@ abstract class WPCAModule_Base
      */
     protected function get_content($args)
     {
-        $args = array_merge(array(
-            'include' => array(),
+        $args = array_merge([
+            'include' => [],
             'paged'   => 1,
             'search'  => false,
             'limit'   => -1,
-        ), $args);
+        ], $args);
         return $this->_get_content($this->parse_query_args($args));
     }
 
@@ -309,32 +325,41 @@ abstract class WPCAModule_Base
      */
     final public function ajax_print_content()
     {
-        if (!isset($_POST['sidebar_id']) ||
-            !check_ajax_referer(WPCACore::PREFIX.$_POST['sidebar_id'], 'nonce', false)) {
+        if (!isset(
+            $_POST['current_id'],
+            $_POST['action'],
+            $_POST['paged'],
+            $_POST['post_type']
+        )) {
             wp_die();
         }
 
-        if (!isset($_POST['action'], $_POST['paged'])) {
+        if (!check_ajax_referer(WPCACore::PREFIX . $_POST['current_id'], 'nonce', false)) {
             wp_die();
         }
 
-        $response = $this->get_content(array(
+        $parent_type = get_post_type_object($_POST['post_type']);
+        if (!current_user_can($parent_type->cap->edit_post, $_POST['current_id'])) {
+            wp_die();
+        }
+
+        $response = $this->get_content([
             'paged'       => $_POST['paged'],
             'search'      => isset($_POST['search']) ? $_POST['search'] : false,
             'limit'       => isset($_POST['limit']) ? $_POST['limit'] : 20,
             'item_object' => $_POST['action']
-        ));
+        ]);
 
         //ECMAScript has no standard to guarantee
         //prop order in an object, send array instead
         //todo: fix in each module
-        $fix_response = array();
+        $fix_response = [];
         foreach ($response as $id => $title) {
             if (!is_array($title)) {
-                $fix_response[] = array(
+                $fix_response[] = [
                     'id'   => $id,
                     'text' => $title
-                );
+                ];
             } else {
                 $fix_response[] = $title;
             }
@@ -352,8 +377,8 @@ abstract class WPCAModule_Base
     {
         if (is_admin()) {
             remove_action(
-                'wp_ajax_wpca/module/'.$this->id,
-                array($this,'ajax_print_content')
+                'wp_ajax_wpca/module/' . $this->id,
+                [$this,'ajax_print_content']
             );
         }
     }

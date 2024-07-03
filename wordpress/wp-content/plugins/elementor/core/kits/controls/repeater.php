@@ -1,5 +1,4 @@
 <?php
-
 namespace Elementor\Core\Kits\Controls;
 
 use Elementor\Control_Repeater;
@@ -41,7 +40,6 @@ class Repeater extends Control_Repeater {
 		$settings = parent::get_default_settings();
 
 		$settings['item_actions']['duplicate'] = false;
-		$settings['item_actions']['sort'] = false;
 
 		return $settings;
 	}
@@ -61,8 +59,9 @@ class Repeater extends Control_Repeater {
 		<div class="elementor-repeater-fields-wrapper"></div>
 		<# if ( itemActions.add ) { #>
 			<div class="elementor-button-wrapper">
-				<button class="elementor-button elementor-button-default elementor-repeater-add" type="button">
-					<i class="eicon-plus" aria-hidden="true"></i><span class="elementor-repeater__add-button__text">{{{ addButtonText }}}</span>
+				<button class="elementor-button elementor-repeater-add" type="button">
+					<i class="eicon-plus" aria-hidden="true"></i>
+					<span class="elementor-repeater__add-button__text">{{{ addButtonText }}}</span>
 				</button>
 			</div>
 		<# } #>

@@ -18,7 +18,7 @@ class UserConsentModel
 	public $logtableName;
 
 	/* @var string */
-	public $version = '1.0.41';
+	public $version =  GDPR_FRAMEWORK_VERSION;
 
 	/* @var string */
 	public $primaryKey = 'id';
@@ -30,10 +30,6 @@ class UserConsentModel
 	{ 
 		$this->setTableName();
 		$this->setUserLogTableName();
-		$this->setClassiDocsCallback();
-		// todo: cleanup
-		// global $wpdb;
-		//$wpdb->query('TRUNCATE TABLE wp_gdpr_consent');
 	}
 
 	/**
@@ -53,15 +49,6 @@ class UserConsentModel
 		global $wpdb;
 		$this->logtableName = $wpdb->prefix . 'gdpr_userlogs';
 	}
-	
-	/**
-	 * Set the table name with wpdb-s prefix
-	 */
-	protected function setClassiDocsCallback()
-	{
-		global $wpdb;
-		$this->ClassiDocsCallback = $wpdb->prefix . 'gdpr_ClassiDocsCallback';
-	}
 
 	/**
 	 * Check if a user has given a consent
@@ -74,10 +61,11 @@ class UserConsentModel
 	{
 		global $wpdb;
 
+		// FRAM-140 fix invalid access: should be '$consent' not '$consent->consent'
 		return count( $wpdb->get_results( $wpdb->prepare(
 			"SELECT * FROM {$this->tableName} WHERE email = %s AND consent = %s AND status = 1;",
 			$email,
-			$consent->consent
+			$consent
 		) ) );
 		
 	}
@@ -141,7 +129,7 @@ class UserConsentModel
 	 */
 	public function withdraw($email, $consent)
 	{
-		$this->set($email, $consent, 0);
+		$this->set($email, $consent, 0, null);
 	}
 
 	/**
@@ -164,14 +152,11 @@ class UserConsentModel
 			$future_date = '9999-12-31 23:59:59';
 		}
 
-		
-
 		if ($this->exists($email, $consent)) {
 			return $wpdb->update(
 				$this->tableName,
 				[
 					'version'     => $version,
-					'consent'     => $consent,
 					'status'      => $status,
 					'updated_at'  => current_time( 'mysql' ),
 					'ip'          => $_SERVER['REMOTE_ADDR'],
@@ -255,20 +240,6 @@ class UserConsentModel
 				$email
 			))), true);
 		}
-		/**
-         * Workaround to an issue with array_column in PHP5.6 - thanks @paulnewson
-         */
-        // if (version_compare(PHP_VERSION, '7') >= 0) {
-        //     return array_column($wpdb->get_results($wpdb->prepare(
-        //         "SELECT * FROM {$this->tableName} WHERE email = %s and status = 1;",
-        //         $email
-        //     )), 'consent');
-        // } else {
-        //     return array_column(json_decode(json_encode($wpdb->get_results($wpdb->prepare(
-        //         "SELECT * FROM {$this->tableName} WHERE email = %s and status = 1;",
-        //         $email
-        //     ))), true), 'consent');
-        // }
 	}
 
 	
@@ -375,7 +346,6 @@ class UserConsentModel
 				$this->tableName,
 				[
 					'email'      => $anonymizedId,
-					'consent'    => $consent,
 					'status'     => 0,
 					'updated_at' => current_time( 'mysql' ),
 					'ip'         => $_SERVER['REMOTE_ADDR'],
@@ -459,22 +429,5 @@ class UserConsentModel
 			) CHARACTER SET utf8 COLLATE utf8_general_ci;";
 		dbDelta($sql);
 		update_option($this->logtableName . '_db_version', $this->version);
-	}
-
-	/**
-	 * create table for store request from classidocs
-	 */
-	public function createClassiDocsCallback()
-	{ 
-		require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
-		$sql = "CREATE TABLE " . $this->ClassiDocsCallback . " (
-			id bigint(20) NOT NULL AUTO_INCREMENT,
-			request_number int NOT NULL,
-			consent_id int NOT NULL,
-			updated_at TIMESTAMP NULL,
-			PRIMARY KEY  (id)
-			) CHARACTER SET utf8 COLLATE utf8_general_ci;";
-		dbDelta($sql);
-		update_option($this->ClassiDocsCallback . '_db_version', $this->version);
 	}
 }

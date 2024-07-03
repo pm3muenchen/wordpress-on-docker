@@ -121,8 +121,7 @@ if ( ! class_exists( 'Gutentor_T2' ) ) {
 
 			);
 			$term_partial_attr = array_merge_recursive( $term_attr, $this->get_module_common_attrs() );
-			$term_partial_attr = array_merge_recursive( $term_partial_attr, $this->get_term_common_attrs() );
-			return $term_partial_attr;
+			return array_merge_recursive( $term_partial_attr, $this->get_term_common_attrs() );
 		}
 
 
@@ -140,10 +139,9 @@ if ( ! class_exists( 'Gutentor_T2' ) ) {
 
 			$blockID = isset( $attributes['mID'] ) ? $attributes['mID'] : $attributes['gID'];
 			$gID     = isset( $attributes['gID'] ) ? $attributes['gID'] : '';
-            $output  = $default_class = '';
-            if ( isset( $attributes['className'] ) ) {
-                $default_class = esc_attr( $attributes['className'] );
-            }
+			$output  = '';
+
+			$default_class = gutentor_block_add_default_classes( 'gutentor-t2', $attributes );
 
 			$tag      = $attributes['mTag'] ? $attributes['mTag'] : 'section';
 			$template = $attributes['t2Temp'] ? $attributes['t2Temp'] : '';
@@ -173,7 +171,7 @@ if ( ! class_exists( 'Gutentor_T2' ) ) {
 				)
 			);
 			if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
-				$output .= '<' . $tag . ' id="' . esc_attr( $blockID ) . '" class="' . apply_filters( 'gutentor_term_module_main_wrap_class', gutentor_concat_space( 'section-' . $gID, 'gutentor-module', 'gtf-module', 'gutentor-term-module', 'gutentor-term-module-t2', $align, 'g-loop-' . $number, 'g-template-' . $template,$default_class ), $attributes ) . '" id="' . esc_attr( $blockID ) . '" ' . GutentorAnimationOptionsDataAttr( $blockComponentAnimation ) . '>' . "\n";
+				$output .= '<' . $tag . ' id="' . esc_attr( $blockID ) . '" class="' . apply_filters( 'gutentor_term_module_main_wrap_class', gutentor_concat_space( 'section-' . $gID, 'gutentor-module', 'gtf-module', 'gutentor-term-module', 'gutentor-term-module-t2', $align, 'g-loop-' . $number, 'g-template-' . $template, $default_class ), $attributes ) . '" id="' . esc_attr( $blockID ) . '" ' . GutentorAnimationOptionsDataAttr( $blockComponentAnimation ) . '>' . "\n";
 				$output .= apply_filters( 'gutentor_term_module_before_container', '', $attributes );
 				$output .= "<div class='" . apply_filters( 'gutentor_term_module_container_class', 'grid-container', $attributes ) . "'>";
 				$output .= "<div class='" . apply_filters( 'gutentor_term_module_grid_row_class', 'grid-row', $attributes ) . "'>";

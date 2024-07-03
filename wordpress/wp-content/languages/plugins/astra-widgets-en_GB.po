@@ -2,165 +2,181 @@
 # This file is distributed under the same license as the Plugins - Astra Widgets - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-18 12:59:46+0000\n"
+"PO-Revision-Date: 2022-04-01 11:20:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: GlotPress/3.0.0-alpha.2\n"
+"X-Generator: GlotPress/4.0.1\n"
 "Language: en_GB\n"
 "Project-Id-Version: Plugins - Astra Widgets - Stable (latest release)\n"
+
+#. translators:%s module name .
+#: classes/widgets/class-astra-widget-list-icons.php:349
+#: classes/widgets/class-astra-widget-social-profiles.php:479
+msgid "click here."
+msgstr "click here."
+
+#: classes/widgets/class-astra-widget-list-icons.php:278
+#: classes/widgets/class-astra-widget-social-profiles.php:414
+msgid "If repeater fields are not appearing then click on the Update button of the widgets page. For more information,"
+msgstr "If repeater fields are not appearing then click on the Update button of the widgets page. For more information,"
 
 #. translators: %s Product title
 #: admin/bsf-analytics/class-bsf-analytics.php:408
 msgid "Allow %s products to track non-sensitive usage tracking data."
 msgstr "Allow %s products to track non-sensitive usage tracking data."
 
-#: lib/notices/class-astra-notices.php:125
-msgid "WordPress Nonce not validated."
-msgstr "WordPress Nonce not validated."
+#: admin/bsf-analytics/class-bsf-analytics.php:416
+msgid "Learn More."
+msgstr "Learn More."
 
-#. translators: %s product name
-#: admin/bsf-analytics/class-bsf-analytics.php:216
-msgid "Want to help make <strong>%1s</strong> even more awesome? Allow us to collect non-sensitive diagnostic data and usage information. "
-msgstr "Want to help make <strong>%1s</strong> even more awesome? Allow us to collect non-sensitive diagnostic data and usage information. "
+#: admin/bsf-analytics/class-bsf-analytics.php:411
+msgid " This will be applicable for all sites from the network."
+msgstr " This will be applicable for all sites from the network."
 
-#: admin/bsf-analytics/class-bsf-analytics.php:219
-msgid "This will be applicable for all sites from the network."
-msgstr "This will be applicable for all sites from the network."
+#: admin/bsf-analytics/class-bsf-analytics.php:364
+msgid "Usage Tracking"
+msgstr "Usage Tracking"
+
+#: admin/bsf-analytics/class-bsf-analytics.php:260
+msgid "No Thanks"
+msgstr "No Thanks"
+
+#: admin/bsf-analytics/class-bsf-analytics.php:251
+msgid "Yes! Allow it"
+msgstr "Yes! Allow it"
 
 #. translators: %s usage doc link
 #: admin/bsf-analytics/class-bsf-analytics.php:243
 msgid " Know More."
 msgstr " Know More."
 
-#: admin/bsf-analytics/class-bsf-analytics.php:251
-msgid "Yes! Allow it"
-msgstr "Yes! Allow it"
+#: admin/bsf-analytics/class-bsf-analytics.php:219
+msgid "This will be applicable for all sites from the network."
+msgstr "This will be applicable for all sites from the network."
 
-#: admin/bsf-analytics/class-bsf-analytics.php:260
-msgid "No Thanks"
-msgstr "No Thanks"
+#. translators: %s product name
+#: admin/bsf-analytics/class-bsf-analytics.php:216
+msgid "Want to help make <strong>%1s</strong> even more awesome? Allow us to collect non-sensitive diagnostic data and usage information. "
+msgstr "Want to help make <strong>%1s</strong> even more awesome? Allow us to collect non-sensitive diagnostic data and usage information. "
 
-#: admin/bsf-analytics/class-bsf-analytics.php:364
-msgid "Usage Tracking"
-msgstr "Usage Tracking"
+#: lib/astra-notices/class-astra-notices.php:119
+msgid "WordPress Nonce not validated."
+msgstr "WordPress Nonce not validated."
 
-#: admin/bsf-analytics/class-bsf-analytics.php:411
-msgid " This will be applicable for all sites from the network."
-msgstr " This will be applicable for all sites from the network."
-
-#: admin/bsf-analytics/class-bsf-analytics.php:416
-msgid "Learn More."
-msgstr "Learn More."
-
-#: classes/widgets/class-astra-widget-social-profiles.php:533
+#: classes/widgets/class-astra-widget-social-profiles.php:549
 msgid "Background Hover Color"
 msgstr "Background hover colour"
 
-#: classes/widgets/class-astra-widget-social-profiles.php:527
+#: classes/widgets/class-astra-widget-social-profiles.php:543
 msgid "Icon Hover Color"
 msgstr "Icon hover colour"
 
-#: classes/widgets/class-astra-widget-list-icons.php:380
+#: classes/widgets/class-astra-widget-list-icons.php:409
 msgid "Color:"
 msgstr "Colour:"
 
-#: classes/widgets/class-astra-widget-list-icons.php:373
+#: classes/widgets/class-astra-widget-list-icons.php:402
 msgid " Weight:"
 msgstr " Weight:"
 
-#: classes/widgets/class-astra-widget-list-icons.php:361
+#: classes/widgets/class-astra-widget-list-icons.php:390
 msgid "Style:"
 msgstr "Style:"
 
-#: classes/widgets/class-astra-widget-list-icons.php:351
+#: classes/widgets/class-astra-widget-list-icons.php:380
 msgid "Show Divider:"
 msgstr "Show divider:"
 
-#: classes/widgets/class-astra-widget-address.php:301
+#. Description of the plugin
+#: astra-widgets.php
+msgid "The Fastest Way to Add More Widgets into Your WordPress Website."
+msgstr "The fastest way to add more widgets into your WordPress website."
+
+#: classes/widgets/class-astra-widget-address.php:308
 msgid "\tSpace Between Address Fields:"
 msgstr "\tSpace between address fields:"
 
-#: classes/widgets/class-astra-widget-list-icons.php:402
+#: classes/widgets/class-astra-widget-list-icons.php:431
 msgid "Image / Icon Size:"
 msgstr "Image / icon size:"
 
-#: classes/widgets/class-astra-widget-list-icons.php:385
+#: classes/widgets/class-astra-widget-list-icons.php:414
 msgid "Icon / Image Style"
 msgstr "Icon / image style"
 
-#: classes/widgets/class-astra-widget-list-icons.php:367
+#: classes/widgets/class-astra-widget-list-icons.php:396
 msgid "Dashed"
 msgstr "Dashed"
 
-#: classes/widgets/class-astra-widget-list-icons.php:366
+#: classes/widgets/class-astra-widget-list-icons.php:395
 msgid "Double"
 msgstr "Double"
 
-#: classes/widgets/class-astra-widget-list-icons.php:365
+#: classes/widgets/class-astra-widget-list-icons.php:394
 msgid "Dotted"
 msgstr "Dotted"
 
-#: classes/widgets/class-astra-widget-list-icons.php:364
+#: classes/widgets/class-astra-widget-list-icons.php:393
 msgid "Solid"
 msgstr "Solid"
 
-#: classes/widgets/class-astra-widget-list-icons.php:355
+#: classes/widgets/class-astra-widget-list-icons.php:384
 msgid "No"
 msgstr "No"
 
-#: classes/widgets/class-astra-widget-list-icons.php:354
+#: classes/widgets/class-astra-widget-list-icons.php:383
 msgid "Yes"
 msgstr "Yes"
 
-#: classes/widgets/class-astra-widget-list-icons.php:346
+#: classes/widgets/class-astra-widget-list-icons.php:375
 msgid "Divider"
 msgstr "Divider"
 
-#: classes/widgets/class-astra-widget-list-icons.php:333
+#: classes/widgets/class-astra-widget-list-icons.php:362
 msgid "\tSpace Between List Items:"
 msgstr "\tSpace between list items:"
 
-#: classes/widgets/class-astra-widget-list-icons.php:328
+#: classes/widgets/class-astra-widget-list-icons.php:357
 msgid "Spacing"
 msgstr "Spacing"
 
-#: classes/widgets/class-astra-widget-list-icons.php:272
+#: classes/widgets/class-astra-widget-list-icons.php:295
 msgid "List Item:"
 msgstr "List item:"
 
-#: classes/widgets/class-astra-widget-social-profiles.php:553
+#: classes/widgets/class-astra-widget-social-profiles.php:569
 msgid "\tSpace Between Social Profiles:"
 msgstr "\tSpace between social profiles:"
 
-#: classes/widgets/class-astra-widget-list-icons.php:340
-#: classes/widgets/class-astra-widget-address.php:294
-#: classes/widgets/class-astra-widget-social-profiles.php:546
+#: classes/widgets/class-astra-widget-address.php:301
+#: classes/widgets/class-astra-widget-list-icons.php:369
+#: classes/widgets/class-astra-widget-social-profiles.php:562
 msgid "Space Between Icon & Text:"
 msgstr "Space between icon & text:"
 
-#: classes/class-astra-widgets-helper.php:460
+#: classes/class-astra-widgets-helper.php:528
 msgid "Add Item"
 msgstr "Add item"
 
-#: classes/widgets/class-astra-widget-address.php:282
+#: classes/widgets/class-astra-widget-address.php:289
 msgid "Email:"
 msgstr "Email:"
 
-#: classes/widgets/class-astra-widget-address.php:276
+#: classes/widgets/class-astra-widget-address.php:283
 msgid "FAX:"
 msgstr "Fax:"
 
-#: classes/widgets/class-astra-widget-address.php:270
+#: classes/widgets/class-astra-widget-address.php:277
 msgid "Phone:"
 msgstr "Phone:"
 
-#: classes/widgets/class-astra-widget-address.php:264
+#: classes/widgets/class-astra-widget-address.php:271
 msgid "Address:"
 msgstr "Address:"
 
-#: classes/widgets/class-astra-widget-address.php:258
+#: classes/widgets/class-astra-widget-address.php:265
 msgid "Display Icons?"
 msgstr "Display icons?"
 
@@ -172,54 +188,90 @@ msgstr "Display address."
 msgid "Astra: Address"
 msgstr "Astra: Address"
 
-#: classes/widgets/class-astra-widget-social-profiles.php:509
+#: classes/widgets/class-astra-widget-social-profiles.php:555
+msgid "Icon Width:"
+msgstr "Icon width:"
+
+#: classes/widgets/class-astra-widget-list-icons.php:425
+#: classes/widgets/class-astra-widget-social-profiles.php:537
+msgid "Background Color"
+msgstr "Background colour"
+
+#: classes/widgets/class-astra-widget-address.php:295
+#: classes/widgets/class-astra-widget-list-icons.php:419
+#: classes/widgets/class-astra-widget-social-profiles.php:521
+#: classes/widgets/class-astra-widget-social-profiles.php:531
+msgid "Icon Color"
+msgstr "Icon colour"
+
+#: classes/widgets/class-astra-widget-social-profiles.php:525
 msgid "Custom"
 msgstr "Custom"
 
-#: classes/widgets/class-astra-widget-social-profiles.php:508
+#: classes/widgets/class-astra-widget-social-profiles.php:524
 msgid "Official Color"
 msgstr "Official colour"
 
-#: classes/widgets/class-astra-widget-social-profiles.php:497
+#: classes/widgets/class-astra-widget-social-profiles.php:515
+msgid "Square Outline"
+msgstr "Square outline"
+
+#: classes/widgets/class-astra-widget-social-profiles.php:514
+msgid "Circle Outline"
+msgstr "Circle outline"
+
+#: classes/widgets/class-astra-widget-social-profiles.php:513
 msgid "Square"
 msgstr "Square"
 
-#: classes/widgets/class-astra-widget-social-profiles.php:496
+#: classes/widgets/class-astra-widget-social-profiles.php:512
 msgid "Circle"
 msgstr "Circle"
 
-#: classes/widgets/class-astra-widget-social-profiles.php:495
+#: classes/widgets/class-astra-widget-social-profiles.php:511
 msgid "Simple"
 msgstr "Simple"
 
-#: classes/widgets/class-astra-widget-address.php:252
-#: classes/widgets/class-astra-widget-social-profiles.php:486
+#: classes/widgets/class-astra-widget-social-profiles.php:508
+msgid "Icon Style"
+msgstr "Icon style"
+
+#: classes/widgets/class-astra-widget-address.php:259
+#: classes/widgets/class-astra-widget-social-profiles.php:502
 msgid "Stack"
 msgstr "Stack"
 
-#: classes/widgets/class-astra-widget-address.php:251
-#: classes/widgets/class-astra-widget-social-profiles.php:485
+#: classes/widgets/class-astra-widget-address.php:258
+#: classes/widgets/class-astra-widget-social-profiles.php:501
 msgid "Inline"
 msgstr "Inline"
 
-#: classes/widgets/class-astra-widget-social-profiles.php:482
+#: classes/widgets/class-astra-widget-social-profiles.php:498
 msgid "Alignment"
 msgstr "Alignment"
 
-#: classes/widgets/class-astra-widget-social-profiles.php:476
+#: classes/widgets/class-astra-widget-social-profiles.php:492
 msgid "Display profile title?"
 msgstr "Display profile title?"
 
-#: classes/widgets/class-astra-widget-social-profiles.php:471
+#: classes/widgets/class-astra-widget-social-profiles.php:487
 msgid "Styling"
 msgstr "Styling"
 
-#: classes/widgets/class-astra-widget-social-profiles.php:434
+#: classes/widgets/class-astra-widget-social-profiles.php:444
 msgid "Link"
 msgstr "Link"
 
-#: classes/widgets/class-astra-widget-social-profiles.php:410
+#: classes/widgets/class-astra-widget-social-profiles.php:433
+msgid "Add Profile"
+msgstr "Add profile"
+
 #: classes/widgets/class-astra-widget-social-profiles.php:428
+msgid "Social Profiles"
+msgstr "Social profiles"
+
+#: classes/widgets/class-astra-widget-social-profiles.php:420
+#: classes/widgets/class-astra-widget-social-profiles.php:438
 msgid "Title"
 msgstr "Title"
 
@@ -227,31 +279,58 @@ msgstr "Title"
 msgid "Display social profiles."
 msgstr "Display social profiles."
 
-#: classes/widgets/class-astra-widget-list-icons.php:308
-#: classes/widgets/class-astra-widget-social-profiles.php:460
+#: classes/widgets/class-astra-widget-social-profiles.php:70
+msgid "Astra: Social Profiles"
+msgstr "Astra: Social profiles"
+
+#: classes/widgets/class-astra-widget-list-icons.php:331
+#: classes/widgets/class-astra-widget-social-profiles.php:470
 msgid "Icon"
 msgstr "Icon"
 
-#: classes/widgets/class-astra-widget-list-icons.php:307
+#: classes/widgets/class-astra-widget-list-icons.php:330
 msgid "Image"
 msgstr "Image"
 
-#: classes/widgets/class-astra-widget-list-icons.php:298
-#: classes/widgets/class-astra-widget-social-profiles.php:454
+#: classes/widgets/class-astra-widget-list-icons.php:327
+msgid "Image / Icon"
+msgstr "Image / icon"
+
+#: classes/widgets/class-astra-widget-list-icons.php:321
+#: classes/widgets/class-astra-widget-social-profiles.php:464
 msgid "Disable"
 msgstr "Disable"
 
-#: classes/widgets/class-astra-widget-list-icons.php:297
-#: classes/widgets/class-astra-widget-social-profiles.php:453
+#: classes/widgets/class-astra-widget-list-icons.php:320
+#: classes/widgets/class-astra-widget-social-profiles.php:463
 msgid "Enable"
 msgstr "Enable"
 
-#: classes/widgets/class-astra-widget-list-icons.php:278
+#: classes/widgets/class-astra-widget-list-icons.php:317
+#: classes/widgets/class-astra-widget-social-profiles.php:460
+msgid "No Follow"
+msgstr "No follow"
+
+#: classes/widgets/class-astra-widget-list-icons.php:311
+#: classes/widgets/class-astra-widget-social-profiles.php:454
+msgid "New Page"
+msgstr "New page"
+
+#: classes/widgets/class-astra-widget-list-icons.php:310
+#: classes/widgets/class-astra-widget-social-profiles.php:453
+msgid "Same Page"
+msgstr "Same page"
+
+#: classes/widgets/class-astra-widget-list-icons.php:301
 msgid "Link:"
 msgstr "Link:"
 
-#: classes/widgets/class-astra-widget-list-icons.php:261
-#: classes/widgets/class-astra-widget-address.php:242
+#: classes/widgets/class-astra-widget-list-icons.php:290
+msgid "Add Item:"
+msgstr "Add item:"
+
+#: classes/widgets/class-astra-widget-address.php:249
+#: classes/widgets/class-astra-widget-list-icons.php:284
 msgid "Title:"
 msgstr "Title:"
 
@@ -259,73 +338,30 @@ msgstr "Title:"
 msgid "Display list icons."
 msgstr "Display list icons."
 
-#: classes/widgets/class-astra-widget-social-profiles.php:539
-msgid "Icon Width:"
-msgstr "Icon width:"
-
-#: classes/widgets/class-astra-widget-list-icons.php:396
-#: classes/widgets/class-astra-widget-social-profiles.php:521
-msgid "Background Color"
-msgstr "Background colour"
-
-#: classes/widgets/class-astra-widget-list-icons.php:390
-#: classes/widgets/class-astra-widget-address.php:288
-#: classes/widgets/class-astra-widget-social-profiles.php:505
-#: classes/widgets/class-astra-widget-social-profiles.php:515
-msgid "Icon Color"
-msgstr "Icon colour"
-
-#: classes/widgets/class-astra-widget-social-profiles.php:499
-msgid "Square Outline"
-msgstr "Square outline"
-
-#: classes/widgets/class-astra-widget-social-profiles.php:498
-msgid "Circle Outline"
-msgstr "Circle outline"
-
-#: classes/widgets/class-astra-widget-social-profiles.php:492
-msgid "Icon Style"
-msgstr "Icon style"
-
-#: classes/widgets/class-astra-widget-social-profiles.php:423
-msgid "Add Profile"
-msgstr "Add profile"
-
-#: classes/widgets/class-astra-widget-social-profiles.php:418
-msgid "Social Profiles"
-msgstr "Social profiles"
-
-#: classes/widgets/class-astra-widget-social-profiles.php:70
-msgid "Astra: Social Profiles"
-msgstr "Astra: Social profiles"
-
-#: classes/widgets/class-astra-widget-list-icons.php:304
-msgid "Image / Icon"
-msgstr "Image / icon"
-
-#: classes/widgets/class-astra-widget-list-icons.php:294
-#: classes/widgets/class-astra-widget-social-profiles.php:450
-msgid "No Follow"
-msgstr "No follow"
-
-#: classes/widgets/class-astra-widget-list-icons.php:288
-#: classes/widgets/class-astra-widget-social-profiles.php:444
-msgid "New Page"
-msgstr "New page"
-
-#: classes/widgets/class-astra-widget-list-icons.php:287
-#: classes/widgets/class-astra-widget-social-profiles.php:443
-msgid "Same Page"
-msgstr "Same page"
-
-#: classes/widgets/class-astra-widget-list-icons.php:267
-msgid "Add Item:"
-msgstr "Add item:"
-
 #: classes/widgets/class-astra-widget-list-icons.php:70
 msgid "Astra: List Icons"
 msgstr "Astra: List icons"
 
-#: classes/class-astra-widgets-helper.php:413
+#: classes/class-astra-widgets-helper.php:481
 msgid "Choose Icon.."
 msgstr "Choose icon.."
+
+#. Author URI of the plugin
+#: astra-widgets.php
+msgid "https://www.brainstormforce.com"
+msgstr "https://www.brainstormforce.com"
+
+#. Author of the plugin
+#: astra-widgets.php
+msgid "Brainstorm Force"
+msgstr "Brainstorm Force"
+
+#. Plugin URI of the plugin
+#: astra-widgets.php
+msgid "https://wpastra.com/"
+msgstr "https://wpastra.com/"
+
+#. Plugin Name of the plugin
+#: astra-widgets.php
+msgid "Astra Widgets"
+msgstr "Astra Widgets"

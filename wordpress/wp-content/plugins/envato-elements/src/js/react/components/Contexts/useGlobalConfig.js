@@ -21,7 +21,7 @@ function useGlobalConfig () {
   }
   const removeDownloadedItem = ({ importedId }) => {
     const downloadedHumanmeIds = Object.keys(globalConfig.downloaded_items)
-    downloadedHumanmeIds.map(humaneId => {
+    downloadedHumanmeIds.forEach(humaneId => {
       if (globalConfig.downloaded_items[humaneId] === importedId) {
         delete (globalConfig.downloaded_items[humaneId])
       }

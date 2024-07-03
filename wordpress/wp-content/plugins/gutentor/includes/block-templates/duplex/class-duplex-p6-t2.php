@@ -13,7 +13,6 @@ if ( ! class_exists( 'Gutentor_Duplex_P6_T2' ) ) {
 	 */
 	class Gutentor_Duplex_P6_T2 extends Gutentor_Query_Elements {
 
-
 		/**
 		 * Gets an instance of this object.
 		 * Prevents duplicate instances which avoid artefacts and improves performance.
@@ -45,7 +44,7 @@ if ( ! class_exists( 'Gutentor_Duplex_P6_T2' ) ) {
 		 * @since 2.0.0
 		 */
 		public function run() {
-		    add_filter( 'gutentor_post_module_p6_query_data', array( $this, 'template_data' ), 999, 3 );
+			add_filter( 'gutentor_post_module_p6_query_data', array( $this, 'template_data' ), 999, 4 );
 		}
 
 
@@ -59,18 +58,23 @@ if ( ! class_exists( 'Gutentor_Duplex_P6_T2' ) ) {
 		 */
 		public function p6_template2_featured_single_article( $post, $attributes, $index ) {
 			$output                = '';
+			$enable_avatar         = isset( $attributes['pFPOnAvatar'] ) && $attributes['pFPOnAvatar'];
+			$avatar_pos            = isset( $attributes['pFPAvatarPos'] ) ? $attributes['pFPAvatarPos'] : false;
 			$query_sorting         = array_key_exists( 'blockFPSortableItems', $attributes ) ? $attributes['blockFPSortableItems'] : false;
-			$enable_featured_image = ( isset( $attributes['pOnFPFImg'] ) ) ? $attributes['pOnFPFImg'] : false;
-			$enable_post_format    = ( isset( $attributes['pOnFPPostFormatOpt'] ) ) ? $attributes['pOnFPPostFormatOpt'] : false;
-			$post_format_pos       = ( isset( $attributes['pFPPostFormatPos'] ) ) ? $attributes['pFPPostFormatPos'] : false;
+			$enable_featured_image = isset( $attributes['pOnFPFImg'] ) && $attributes['pOnFPFImg'];
+			$enable_post_format    = isset( $attributes['pOnFPPostFormatOpt'] ) && $attributes['pOnFPPostFormatOpt'];
+			$post_format_pos       = isset( $attributes['pFPPostFormatPos'] ) ? $attributes['pFPPostFormatPos'] : false;
 			$cat_pos               = ( isset( $attributes['pFPCatPos'] ) ) ? $attributes['pFPCatPos'] : false;
-			$enable_featured_cat   = ( isset( $attributes['pOnFPFeaturedCat'] ) ) ? $attributes['pOnFPFeaturedCat'] : false;
+			$enable_featured_cat   = isset( $attributes['pOnFPFeaturedCat'] ) && $attributes['pOnFPFeaturedCat'];
 			$thumb_class           = ( has_post_thumbnail() && $enable_featured_image ) ? '' : 'gutentor-post-no-thumb';
 			$output               .= "<article class='" . apply_filters( 'gutentor_post_module_article_class', gutentor_concat_space( 'gutentor-post', 'gutentor-post-featured', $thumb_class, 'gutentor-post-item-' . $index ), $attributes ) . "'>";
 			$output               .= '<div class="gutentor-post-featured-item">';
-			if ( $enable_featured_image && has_post_thumbnail( $post->ID ) ) {
-				$output .= '<div class="gutentor-post-image-box">';
-				$output .= $this->get_featured_post_featured_image( $post, $attributes );
+			if ( $enable_featured_image && gutentor_has_post_featured($post)) {
+                $output .= "<div class='" . apply_filters( 'gutentor_p6_fp_post_module_post_image_box', 'gutentor-post-image-box',$post, $attributes ) . "'>";
+                $output .= $this->get_featured_post_featured_image( $post, $attributes );
+				if ( $enable_avatar && $this->avatar_fp_on_image_condition( $avatar_pos ) ) {
+					$output .= $this->get_fp_avatar_data( $post, $attributes );
+				}
 				if ( $enable_post_format && $this->featured_post_format_on_image_condition( $post_format_pos ) ) {
 					$output .= $this->get_featured_post_format_data( $post, $attributes );
 				}
@@ -109,6 +113,9 @@ if ( ! class_exists( 'Gutentor_Duplex_P6_T2' ) ) {
 							break;
 						case 'secondary-entry-meta':
 							$output .= $this->get_featured_post_secondary_meta( $post, $attributes );
+							break;
+						case 'avatar':
+							$output .= $this->get_fp_avatar_data( $post, $attributes );
 							break;
 						case 'description':
 							if ( $cat_pos === 'gutentor-fp-cat-pos-before-ct-box' || $post_format_pos === 'gutentor-fp-pf-pos-before-ct-box' ) {
@@ -173,22 +180,26 @@ if ( ! class_exists( 'Gutentor_Duplex_P6_T2' ) ) {
 				return $output;
 			}
 
-			$product     = wc_get_product( $post->ID );
-			$rating      = $product->get_average_rating();
-			$count       = $product->get_rating_count();
-			$rating_html = wc_get_rating_html( $rating, $count );
-
+			$product               = wc_get_product( $post->ID );
+			$rating                = $product->get_average_rating();
+			$count                 = $product->get_rating_count();
+			$rating_html           = wc_get_rating_html( $rating, $count );
+			$enable_avatar         = isset( $attributes['pFPOnAvatar'] ) && $attributes['pFPOnAvatar'];
+			$avatar_pos            = ( isset( $attributes['pFPAvatarPos'] ) ) ? $attributes['pFPAvatarPos'] : false;
 			$query_sorting         = array_key_exists( 'blockFPSortableItems', $attributes ) ? $attributes['blockFPSortableItems'] : false;
-			$enable_featured_image = ( isset( $attributes['pOnFPFImg'] ) ) ? $attributes['pOnFPFImg'] : false;
-			$enable_post_format    = ( isset( $attributes['pOnFPPostFormatOpt'] ) ) ? $attributes['pOnFPPostFormatOpt'] : false;
+			$enable_featured_image = isset( $attributes['pOnFPFImg'] ) && $attributes['pOnFPFImg'];
+			$enable_post_format    = isset( $attributes['pOnFPPostFormatOpt'] ) && $attributes['pOnFPPostFormatOpt'];
 			$post_format_pos       = ( isset( $attributes['pFPPostFormatPos'] ) ) ? $attributes['pFPPostFormatPos'] : false;
 			$cat_pos               = ( isset( $attributes['pFPCatPos'] ) ) ? $attributes['pFPCatPos'] : false;
-			$enable_featured_cat   = ( isset( $attributes['pOnFPFeaturedCat'] ) ) ? $attributes['pOnFPFeaturedCat'] : false;
+			$enable_featured_cat   = isset( $attributes['pOnFPFeaturedCat'] ) && $attributes['pOnFPFeaturedCat'];
 			$output               .= "<article class='" . apply_filters( 'gutentor_post_module_article_class', gutentor_concat_space( 'gutentor-post', 'gutentor-post-featured', 'gutentor-post-item-' . $index ), $attributes ) . "'>";
 			$output               .= '<div class="gutentor-post-featured-item">';
 			if ( $enable_featured_image ) {
-				$output .= '<div class="gutentor-post-image-box">';
-				$output .= $this->p6_fp_get_woo_product_thumbnail( $post, $product, $attributes );
+                $output .= "<div class='" . apply_filters( 'gutentor_p6_fp_post_module_post_image_box', 'gutentor-post-image-box',$post, $attributes ) . "'>";
+                $output .= $this->p6_fp_get_woo_product_thumbnail( $post, $product, $attributes );
+				if ( $enable_avatar && $this->avatar_fp_on_image_condition( $avatar_pos ) ) {
+					$output .= $this->get_fp_avatar_data( $post, $attributes );
+				}
 				if ( $enable_post_format && $this->featured_post_format_on_image_condition( $post_format_pos ) ) {
 					$output .= $this->p6_fp_new_badge_product( $post, $product );
 				}
@@ -230,7 +241,7 @@ if ( ! class_exists( 'Gutentor_Duplex_P6_T2' ) ) {
 							$output .= $this->get_featured_post_secondary_meta( $post, $attributes );
 							break;
 						case 'price':
-                            $output .= $this->p6_featured_wc_price( $post, $product, $attributes );
+							$output .= $this->p6_featured_wc_price( $post, $product, $attributes );
 							break;
 						case 'rating':
 							if ( isset( $attributes['fpWooOnRating'] ) && $attributes['fpWooOnRating'] ) {
@@ -240,6 +251,9 @@ if ( ! class_exists( 'Gutentor_Duplex_P6_T2' ) ) {
 									$output .= '</div>';
 								}
 							}
+							break;
+						case 'avatar':
+							$output .= $this->get_fp_avatar_data( $post, $attributes );
 							break;
 						case 'description':
 							if ( $cat_pos === 'gutentor-fp-cat-pos-before-ct-box' || $post_format_pos === 'gutentor-fp-pf-pos-before-ct-box' ) {
@@ -273,20 +287,30 @@ if ( ! class_exists( 'Gutentor_Duplex_P6_T2' ) ) {
 
 								}
 								if ( isset( $attributes['pOnFPBtn'] ) && $attributes['pOnFPBtn'] ) {
-									$output .= '<div class="gutentor-woo-add-to-cart wc-block-grid__product-add-to-cart">';
-									ob_start();
-                                    woocommerce_template_loop_add_to_cart( array( 'gutentor-attributes' => $attributes,'gutentor-btn-type' => 'featured' ) );
-                                    $output .= ob_get_clean();
+                                    $output .= "<div class='" . apply_filters( 'gutentor_post_module_product_button_class', 'gutentor-woo-add-to-cart wc-block-grid__product-add-to-cart',$post, $attributes ) . "'>";
+                                    ob_start();
+									woocommerce_template_loop_add_to_cart(
+										array(
+											'gutentor-attributes' => $attributes,
+											'gutentor-btn-type' => 'featured',
+										)
+									);
+									$output .= ob_get_clean();
 									$output .= '</div>';
 								}
 								$output .= '</div>';
 							} else {
 
 								if ( isset( $attributes['pOnFPBtn'] ) && $attributes['pOnFPBtn'] ) {
-									$output .= '<div class="gutentor-woo-add-to-cart wc-block-grid__product-add-to-cart">';
-									ob_start();
-                                    woocommerce_template_loop_add_to_cart( array( 'gutentor-attributes' => $attributes,'gutentor-btn-type' => 'featured' ) );
-                                    $output .= ob_get_clean();
+                                    $output .= "<div class='" . apply_filters( 'gutentor_post_module_product_button_class', 'gutentor-woo-add-to-cart wc-block-grid__product-add-to-cart',$post, $attributes ) . "'>";
+                                    ob_start();
+									woocommerce_template_loop_add_to_cart(
+										array(
+											'gutentor-attributes' => $attributes,
+											'gutentor-btn-type' => 'featured',
+										)
+									);
+									$output .= ob_get_clean();
 									$output .= '</div>';
 								}
 							}
@@ -319,15 +343,20 @@ if ( ! class_exists( 'Gutentor_Duplex_P6_T2' ) ) {
 			$download = edd_get_download( $post->ID );
 
 			$output                = '';
+			$enable_avatar         = isset($attributes['pFPOnAvatar']) && $attributes['pFPOnAvatar'];
+			$avatar_pos            = ( isset( $attributes['pFPAvatarPos'] ) ) ? $attributes['pFPAvatarPos'] : false;
 			$query_sorting         = array_key_exists( 'blockFPSortableItems', $attributes ) ? $attributes['blockFPSortableItems'] : false;
-			$enable_featured_image = ( isset( $attributes['pOnFPFImg'] ) ) ? $attributes['pOnFPFImg'] : false;
-			$enable_post_format    = ( isset( $attributes['pOnFPPostFormatOpt'] ) ) ? $attributes['pOnFPPostFormatOpt'] : false;
+			$enable_featured_image = isset($attributes['pOnFPFImg']) && $attributes['pOnFPFImg'];
+			$enable_post_format    = isset($attributes['pOnFPPostFormatOpt']) && $attributes['pOnFPPostFormatOpt'];
 			$post_format_pos       = ( isset( $attributes['pFPPostFormatPos'] ) ) ? $attributes['pFPPostFormatPos'] : false;
 			$output               .= "<article class='" . apply_filters( 'gutentor_post_module_article_class', gutentor_concat_space( 'gutentor-post', 'gutentor-post-featured', 'gutentor-post-item-' . $index ), $attributes ) . "'>";
 			$output               .= '<div class="gutentor-post-featured-item">';
 			if ( $enable_featured_image ) {
-				$output .= '<div class="gutentor-post-image-box">';
-				$output .= $this->p6_fp_get_edd_thumbnail( $post, $attributes );
+                $output .= "<div class='" . apply_filters( 'gutentor_p6_fp_post_module_post_image_box', 'gutentor-post-image-box',$post, $attributes ) . "'>";
+                $output .= $this->p6_fp_get_edd_thumbnail( $post, $attributes );
+				if ( $enable_avatar && $this->avatar_fp_on_image_condition( $avatar_pos ) ) {
+					$output .= $this->get_fp_avatar_data( $post, $attributes );
+				}
 				if ( $enable_post_format && $this->featured_post_format_on_image_condition( $post_format_pos ) ) {
 					$output .= $this->p6_fp_edd_new_badge_product( $post, $download );
 
@@ -361,7 +390,7 @@ if ( ! class_exists( 'Gutentor_Duplex_P6_T2' ) ) {
 							$output .= $this->get_featured_post_secondary_meta( $post, $attributes );
 							break;
 						case 'price':
-                            $output .= $this->p6_featured_edd_price( $post, $attributes );
+							$output .= $this->p6_featured_edd_price( $post, $attributes );
 							break;
 						case 'rating':
 							if ( isset( $attributes['fpWooOnRating'] ) && $attributes['fpWooOnRating'] ) {
@@ -371,6 +400,9 @@ if ( ! class_exists( 'Gutentor_Duplex_P6_T2' ) ) {
 									$output .= '</div>';
 								}
 							}
+							break;
+						case 'avatar':
+							$output .= $this->get_fp_avatar_data( $post, $attributes );
 							break;
 						case 'description':
 							if ( $post_format_pos === 'gutentor-fp-pf-pos-before-ct-box' ) {
@@ -420,21 +452,24 @@ if ( ! class_exists( 'Gutentor_Duplex_P6_T2' ) ) {
 		 * @param {string} $data
 		 * @param {array}  $post
 		 * @param {array}  $attributes
+		 * @param {array}  $content
 		 * @return {mix}
 		 */
-		public function template_data( $output, $the_query, $attributes ) {
+		public function template_data( $output, $the_query, $attributes,$content ) {
 			$template    = $attributes['p6Temp'] ? $attributes['p6Temp'] : '';
 			$post_number = $attributes['postsToShow'] ? $attributes['postsToShow'] : '';
 			$post_type   = ( isset( $attributes['pPostType'] ) ) ? $attributes['pPostType'] : 'post';
 
-			if ( $template != 'gutentor_p6_template2' ) {
+			if ( $template !== 'gutentor_p6_template2' ) {
 				return $output;
 			}
 			$index = 0;
+            $post_categories = array();
 			while ( $the_query->have_posts() ) :
 				$the_query->the_post();
+                $post_categories = array_merge($post_categories,wp_get_post_categories(get_the_ID()));
 				if ( $index === 0 ) {
-					$output .= "<div class='" . apply_filters( 'gutentor_post_module_grid_column_class', 'grid-lg-6 grid-md-6 grid-12', $attributes ) . "'>";
+					$output .= "<div class='" . apply_filters( 'gutentor_post_module_p6_grid_column_class', 'grid-lg-6 grid-md-6 grid-12', $attributes ) . "'>";
 					if ( $post_type === 'product' ) {
 						$output .= $this->p6_template2_fp_woo_single_article( get_post(), $attributes, $index );
 					} elseif ( $post_type === 'download' ) {
@@ -462,6 +497,12 @@ if ( ! class_exists( 'Gutentor_Duplex_P6_T2' ) ) {
 				}
 				$index++;
 			endwhile;
+            if($post_categories && $content === 'ajax'){
+                $cat_style = gutentor_pm_post_dynamic_categories_color(array_unique($post_categories));
+                if($cat_style){
+                    $output .= '<style>'.$cat_style.'</style>';
+                }
+            }
 			return $output;
 		}
 	}

@@ -11,7 +11,7 @@ use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Text_Shadow;
 use Elementor\Group_Control_Typography;
-use Elementor\Scheme_Typography;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 
 defined( 'ABSPATH' ) || die();
 
@@ -54,7 +54,11 @@ class WeForm extends Base {
         return true;
     }
 
+	/**
+     * Register widget content controls
+     */
 	protected function register_content_controls() {
+
 		$this->start_controls_section(
 			'_section_weforms',
 			[
@@ -65,6 +69,7 @@ class WeForm extends Base {
 		);
 
         if ( ! ha_is_weforms_activated() ) {
+
             $this->add_control(
                 '_weforms_missing_notice',
                 [
@@ -85,24 +90,36 @@ class WeForm extends Base {
                     'raw' => '<a href="'.esc_url( admin_url( 'plugin-install.php?s=weForms&tab=search&type=term' ) ).'" target="_blank" rel="noopener">Click to install or activate weForms</a>',
                 ]
             );
-            $this->end_controls_section();
-            return;
-        }
 
-        $this->add_control(
-            'form_id',
-            [
-                'label' => __( 'Select Your Form', 'happy-elementor-addons' ),
-                'type' => Controls_Manager::SELECT,
-                'label_block' => true,
-				'options' => ['' => __( '', 'happy-elementor-addons' ) ] + \ha_get_we_forms(),
-            ]
-        );
+        } else{
+
+			$this->add_control(
+				'form_id',
+				[
+					'label' => __( 'Select Your Form', 'happy-elementor-addons' ),
+					'type' => Controls_Manager::SELECT,
+					'label_block' => true,
+					'options' => ['' => __( '', 'happy-elementor-addons' ) ] + \ha_get_we_forms(),
+				]
+			);
+
+		}
 
         $this->end_controls_section();
     }
 
+	/**
+     * Register widget style controls
+     */
     protected function register_style_controls() {
+		$this->__fields_style_controls();
+		$this->__label_style_controls();
+		$this->__submit_style_controls();
+		$this->__section_break_style_controls();
+	}
+
+    protected function __fields_style_controls() {
+
         $this->start_controls_section(
             '_section_fields_style',
             [
@@ -182,7 +199,9 @@ class WeForm extends Base {
                 'name' => 'field_typography',
                 'label' => __( 'Typography', 'happy-elementor-addons' ),
                 'selector' => '{{WRAPPER}} .wpuf-form-add.wpuf-style ul.wpuf-form .wpuf-fields input:not(.weforms_submit_btn), .wpuf-form-add.wpuf-style ul.wpuf-form .wpuf-fields textarea',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_3
+                'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_TEXT,
+				],
             ]
         );
 
@@ -289,7 +308,9 @@ class WeForm extends Base {
 		$this->end_controls_tabs();
 
 		$this->end_controls_section();
+	}
 
+    protected function __label_style_controls() {
 
         $this->start_controls_section(
             'we-form-label',
@@ -337,7 +358,9 @@ class WeForm extends Base {
                 'name' => 'label_typography',
                 'label' => __( 'Label Typography', 'happy-elementor-addons' ),
                 'selector' => '{{WRAPPER}} .wpuf-label label, {{WRAPPER}} .wpuf-form-sub-label',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_3
+                'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_TEXT,
+				],
             ]
         );
 
@@ -347,7 +370,9 @@ class WeForm extends Base {
                 'name' => 'desc_typography',
                 'label' => __( 'Help Text Typography', 'happy-elementor-addons' ),
                 'selector' => '{{WRAPPER}} .wpuf-fields .wpuf-help',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_3
+                'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_TEXT,
+				],
             ]
         );
 
@@ -385,6 +410,9 @@ class WeForm extends Base {
         );
 
         $this->end_controls_section();
+	}
+
+    protected function __submit_style_controls() {
 
         $this->start_controls_section(
             'submit',
@@ -495,7 +523,9 @@ class WeForm extends Base {
             [
                 'name' => 'submit_typography',
                 'selector' => '{{WRAPPER}} .wpuf-form-add.wpuf-style ul.wpuf-form .wpuf-submit input[type=submit]',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_4
+                'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
             ]
         );
 
@@ -621,6 +651,9 @@ class WeForm extends Base {
         $this->end_controls_tabs();
 
         $this->end_controls_section();
+	}
+
+    protected function __section_break_style_controls() {
 
 		$this->start_controls_section(
 			'section_break',
@@ -636,7 +669,9 @@ class WeForm extends Base {
 				'name' => 'break_title_typography',
 				'label' => __( 'Title Typography', 'happy-elementor-addons' ),
 				'selector' => '{{WRAPPER}} .section_break .wpuf-section-title',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_2
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
+				],
 			]
 		);
 
@@ -646,7 +681,9 @@ class WeForm extends Base {
 				'name' => 'break_description_typography',
 				'label' => __( 'Description Typography', 'happy-elementor-addons' ),
 				'selector' => '{{WRAPPER}} .section_break .wpuf-section-details',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_4
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 			]
 		);
 
@@ -694,11 +731,11 @@ class WeForm extends Base {
 		$this->end_controls_tabs();
 
 		$this->end_controls_section();
-
 	}
 
     protected function render() {
         if ( ! ha_is_weforms_activated() ) {
+			ha_show_plugin_missing_alert(__( 'Weforms', 'happy-elementor-addons' ) );
             return;
         }
 

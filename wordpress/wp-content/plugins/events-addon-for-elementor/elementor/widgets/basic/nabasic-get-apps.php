@@ -44,7 +44,7 @@ class Event_Elementor_Addon_GetApps extends Widget_Base{
 	 * Register Events Addon for Elementor Get Apps widget controls.
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	*/
-	protected function _register_controls(){
+	protected function register_controls(){
 
 		$this->start_controls_section(
 			'section_apps',
@@ -199,10 +199,11 @@ class Event_Elementor_Addon_GetApps extends Widget_Base{
 			'btn_icon',
 			[
 				'label' => esc_html__( 'Button Icon', 'events-addon-for-elementor' ),
-				'type' => Controls_Manager::ICON,
-				'options' => NAEEP_Controls_Helper_Output::get_include_icons(),
-				'frontend_available' => true,
-				'default' => 'fa fa-android',
+				'type' => Controls_Manager::ICONS,
+				'default' => [
+					'value' => 'fas fa-android',
+					'library' => 'fa-solid',
+				],
 				'condition' => [
 					'btn_style!' => array('two'),
 				],
@@ -376,7 +377,6 @@ class Event_Elementor_Addon_GetApps extends Widget_Base{
 				[
 					'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 					'name' => 'sasstp_title_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 					'selector' => '{{WRAPPER}} .naeep-get-apps h3',
 				]
 			);
@@ -385,10 +385,6 @@ class Event_Elementor_Addon_GetApps extends Widget_Base{
 				[
 					'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_1,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .naeep-get-apps h3' => 'color: {{VALUE}};',
 					],
@@ -420,7 +416,6 @@ class Event_Elementor_Addon_GetApps extends Widget_Base{
 				[
 					'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 					'name' => 'subtitle_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_2,
 					'selector' => '{{WRAPPER}} .naeep-get-apps h5',
 				]
 			);
@@ -429,10 +424,6 @@ class Event_Elementor_Addon_GetApps extends Widget_Base{
 				[
 					'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_2,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .naeep-get-apps h5' => 'color: {{VALUE}};',
 					],
@@ -464,7 +455,6 @@ class Event_Elementor_Addon_GetApps extends Widget_Base{
 				[
 					'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 					'name' => 'content_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_3,
 					'selector' => '{{WRAPPER}} .naeep-get-apps p',
 				]
 			);
@@ -473,10 +463,6 @@ class Event_Elementor_Addon_GetApps extends Widget_Base{
 				[
 					'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_3,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .naeep-get-apps p' => 'color: {{VALUE}};',
 					],
@@ -519,7 +505,6 @@ class Event_Elementor_Addon_GetApps extends Widget_Base{
 				[
 					'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 					'name' => 'btn_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_4,
 					'selector' => '{{WRAPPER}} .naeep-btn',
 				]
 			);
@@ -702,7 +687,6 @@ class Event_Elementor_Addon_GetApps extends Widget_Base{
 				[
 					'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 					'name' => 'link_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_4,
 					'selector' => '{{WRAPPER}} .naeep-link',
 				]
 			);
@@ -718,10 +702,6 @@ class Event_Elementor_Addon_GetApps extends Widget_Base{
 					[
 						'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'scheme' => [
-							'type' => Scheme_Color::get_type(),
-							'value' => Scheme_Color::COLOR_2,
-						],
 						'selectors' => [
 							'{{WRAPPER}} .naeep-link' => 'color: {{VALUE}};',
 						],
@@ -749,10 +729,6 @@ class Event_Elementor_Addon_GetApps extends Widget_Base{
 					[
 						'label' => esc_html__( 'Line Color', 'events-addon-for-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'scheme' => [
-							'type' => Scheme_Color::get_type(),
-							'value' => Scheme_Color::COLOR_2,
-						],
 						'selectors' => [
 							'{{WRAPPER}} .naeep-link:before' => 'background-color: {{VALUE}};',
 						],
@@ -795,7 +771,7 @@ class Event_Elementor_Addon_GetApps extends Widget_Base{
 									$chrome_image = !empty( $each_list['chrome_image']['url'] ) ? $each_list['chrome_image']['url'] : '';
 									$btn_image = !empty( $each_list['btn_image']['url'] ) ? $each_list['btn_image']['url'] : '';
 
-								  $btn_icon = !empty( $each_list['btn_icon'] ) ? $each_list['btn_icon'] : '';
+								  $btn_icon = !empty( $each_list['btn_icon'] ) ? $each_list['btn_icon']['value'] : '';
 								  $btn_text = !empty( $each_list['btn_text'] ) ? $each_list['btn_text'] : '';
 								  $btn_link = !empty( $each_list['btn_link'] ) ? $each_list['btn_link'] : '';
 

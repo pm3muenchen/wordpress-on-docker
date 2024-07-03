@@ -15,10 +15,12 @@ use \Elementor\Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Typography;
 use \Elementor\Widget_Base;
 use \Elementor\Icons_Manager;
+use Essential_Addons_Elementor\Traits\Helper;
 
 class Woo_Checkout extends Widget_Base {
 	
 	use \Essential_Addons_Elementor\Template\Woocommerce\Checkout\Woo_Checkout_Helper;
+	use Helper;
 
 	public function __construct( $data = [], $args = null ) {
 		parent::__construct( $data, $args );
@@ -38,7 +40,7 @@ class Woo_Checkout extends Widget_Base {
 			}
 
 			add_filter('body_class' , [$this, 'add_checkout_body_class']);
-      $this->eael_woocheckout_recurring();
+            $this->eael_woocheckout_recurring();
 		}
 	}
 
@@ -55,7 +57,7 @@ class Woo_Checkout extends Widget_Base {
 	}
 
 	public function get_categories() {
-		return [ 'essential-addons-elementor' ];
+		return [ 'essential-addons-elementor', 'woocommerce-elements' ];
 	}
 
 	/**
@@ -71,12 +73,23 @@ class Woo_Checkout extends Widget_Base {
 	public function get_keywords() {
 		return [ 'ea woo checkout', 'woocommerce', 'checkout', 'woocommerce checkout', 'woocommerce split checkout', 'split checkout', 'multi steps checkout', 'ea', 'essential addons' ];
 	}
+    
+    public function get_style_depends() {
+        return [
+            'font-awesome-5-all',
+            'font-awesome-4-shim',
+        ];
+    }
 
 	public function get_custom_help_url() {
 		return 'https://essential-addons.com/elementor/docs/woo-checkout/';
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
+		if ( is_admin() && ! empty( $_GET['elementor_updater'] ) ) {
+			return;
+		}
+
 	    if( !class_exists( 'woocommerce' ) ) {
 		    $this->start_controls_section(
 			    'eael_global_warning',
@@ -118,6 +131,8 @@ class Woo_Checkout extends Widget_Base {
 				'label_block' => false,
 				'options' => apply_filters('eael/woo-checkout/layout', [
 					'default' => esc_html__( 'Default', 'essential-addons-for-elementor-lite' ),
+					'multi-steps' => esc_html__( 'Multi Steps (Pro)', 'essential-addons-for-elementor-lite' ),
+					'split' => esc_html__( 'Split (Pro)', 'essential-addons-for-elementor-lite' ),
 				]),
 			]
 		);
@@ -126,8 +141,8 @@ class Woo_Checkout extends Widget_Base {
 			$this->add_control(
 				'eael_woo_checkout_pro_enable_warning',
 				[
-					'label' => esc_html__('Only Available in Pro Version!', 'essential-addons-for-elementor-lite'),
-					'type' => Controls_Manager::HEADING,
+					'label' => sprintf( '<a target="_blank" href="https://wpdeveloper.com/upgrade/ea-pro">%s</a>', esc_html__('Only Available in Pro Version!', 'essential-addons-for-elementor-lite')),
+					'type' => Controls_Manager::RAW_HTML,
 					'condition' => [
 						'ea_woo_checkout_layout' => ['multi-steps', 'split'],
 					],
@@ -158,6 +173,20 @@ class Woo_Checkout extends Widget_Base {
 				'dynamic' => [
 					'active' => true,
 				],
+				'ai' => [
+					'active' => false,
+				],
+			]
+		);
+
+		// Update Cart  Button
+		$this->add_control(
+			'ea_woo_checkout_cart_update_enable',
+			[
+				'label' => esc_html__( 'Enable Cart Update', 'essential-addons-for-elementor-lite' ),
+				'type' => Controls_Manager::SWITCHER,
+				'return_value' => 'yes',
+				'default' => '',
 			]
 		);
 
@@ -186,6 +215,9 @@ class Woo_Checkout extends Widget_Base {
 				'condition' => [
 					'ea_woo_checkout_table_header_text' => 'yes',
 				],
+				'ai' => [
+					'active' => false,
+				],
 			]
 		);
 		$this->add_control(
@@ -202,6 +234,9 @@ class Woo_Checkout extends Widget_Base {
 				],
 				'condition' => [
 					'ea_woo_checkout_table_header_text' => 'yes',
+				],
+				'ai' => [
+					'active' => false,
 				],
 			]
 		);
@@ -220,6 +255,9 @@ class Woo_Checkout extends Widget_Base {
 				'condition' => [
 					'ea_woo_checkout_table_header_text' => 'yes',
 				],
+				'ai' => [
+					'active' => false,
+				],
 			]
 		);
 		$this->add_control(
@@ -234,6 +272,9 @@ class Woo_Checkout extends Widget_Base {
                 'condition' => [
                     'ea_woo_checkout_table_header_text' => 'yes',
                 ],
+				'ai' => [
+					'active' => false,
+				],
 			]
 		);
 		$this->add_control(
@@ -248,6 +289,9 @@ class Woo_Checkout extends Widget_Base {
                 'condition' => [
                     'ea_woo_checkout_table_header_text' => 'yes',
                 ],
+				'ai' => [
+					'active' => false,
+				],
 			]
 		);
 		$this->add_control(
@@ -262,6 +306,9 @@ class Woo_Checkout extends Widget_Base {
                 'condition' => [
                     'ea_woo_checkout_table_header_text' => 'yes',
                 ],
+				'ai' => [
+					'active' => false,
+				],
 			]
 		);
 
@@ -290,6 +337,9 @@ class Woo_Checkout extends Widget_Base {
 				'condition' => [
 					'ea_woo_checkout_shop_link' => 'yes',
 				],
+				'ai' => [
+					'active' => false,
+				],
 			]
 		);
 
@@ -304,6 +354,14 @@ class Woo_Checkout extends Widget_Base {
 			'ea_section_woo_checkout_settings',
 			[
 				'label' => esc_html__( 'Coupon', 'essential-addons-for-elementor-lite' ),
+			]
+		);
+		$this->add_control(
+			'ea_woo_checkout_coupon_hide',
+			[
+				'label'        => esc_html__( 'Hide', 'essential-addons-for-elementor-lite' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'return_value' => 'yes',
 			]
 		);
 		$this->add_control(
@@ -326,6 +384,9 @@ class Woo_Checkout extends Widget_Base {
 				'dynamic' => [
 					'active' => true,
 				],
+				'ai' => [
+					'active' => false,
+				],
 			]
 		);
 		$this->add_control(
@@ -336,6 +397,9 @@ class Woo_Checkout extends Widget_Base {
 				'default' => __( 'Click here to enter your code', 'essential-addons-for-elementor-lite' ),
 				'dynamic' => [
 					'active' => true,
+				],
+				'ai' => [
+					'active' => false,
 				],
 			]
 		);
@@ -361,6 +425,9 @@ class Woo_Checkout extends Widget_Base {
 				'dynamic' => [
 					'active' => true,
 				],
+				'ai' => [
+					'active' => false,
+				],
 			]
 		);
 
@@ -372,6 +439,9 @@ class Woo_Checkout extends Widget_Base {
 				'default' => __( 'Apply Coupon', 'essential-addons-for-elementor-lite' ),
 				'dynamic' => [
 					'active' => true,
+				],
+				'ai' => [
+					'active' => false,
 				],
 			]
 		);
@@ -391,11 +461,11 @@ class Woo_Checkout extends Widget_Base {
 		$this->add_control(
 			'ea_section_woo_login_show',
 			[
-				'label' => __( 'Show Preview of Login', 'essential-addons-elementor' ),
+				'label' => __( 'Show Preview of Login', 'essential-addons-for-elementor-lite' ),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'no',
-				'label_on' => __( 'Show', 'essential-addons-elementor' ),
-				'label_off' => __( 'Hide', 'essential-addons-elementor' ),
+				'label_on' => __( 'Show', 'essential-addons-for-elementor-lite' ),
+				'label_off' => __( 'Hide', 'essential-addons-for-elementor-lite' ),
 				'return_value' => 'yes',
 				'description' => 'You can force show login in order to style them properly.',
 			]
@@ -436,6 +506,9 @@ class Woo_Checkout extends Widget_Base {
 				'dynamic' => [
 					'active' => true,
 				],
+				'ai' => [
+					'active' => false,
+				],
 			]
     );
     
@@ -459,6 +532,9 @@ class Woo_Checkout extends Widget_Base {
 				'default' => __( 'Click here to login', 'essential-addons-for-elementor-lite' ),
 				'dynamic' => [
 					'active' => true,
+				],
+				'ai' => [
+					'active' => false,
 				],
 			]
 		);
@@ -484,6 +560,9 @@ class Woo_Checkout extends Widget_Base {
 				'dynamic' => [
 					'active' => true,
 				],
+				'ai' => [
+					'active' => false,
+				],
 			]
 		);
 		$this->add_control(
@@ -494,6 +573,9 @@ class Woo_Checkout extends Widget_Base {
 				'default' => __( 'Ship to a different address?', 'essential-addons-for-elementor-lite' ),
 				'dynamic' => [
 					'active' => true,
+				],
+				'ai' => [
+					'active' => false,
 				],
 			]
 		);
@@ -506,8 +588,176 @@ class Woo_Checkout extends Widget_Base {
 				'dynamic' => [
 					'active' => true,
 				],
+				'ai' => [
+					'active' => false,
+				],
 			]
 		);
+		$this->end_controls_section();
+
+
+		/**
+		 * -------------------------------------------
+		 * Re ordering Shipping and billing fields
+		 * -------------------------------------------
+		 */
+		$this->start_controls_section(
+			'ea_section_woo_reordering_fields',
+			[
+				'label' => esc_html__( 'Billing/Shipping Fields', 'essential-addons-for-elementor-lite' ),
+			]
+		);
+
+		$this->add_control(
+			'eael_enable_checkout_fields_reorder',
+			[
+				'label' => esc_html__( 'Enable Reordering', 'essential-addons-for-elementor-lite' ),
+				'type' => \Elementor\Controls_Manager::SWITCHER,
+				'label_on' => esc_html__( 'Yes', 'essential-addons-for-elementor-lite' ),
+				'label_off' => esc_html__( 'No', 'essential-addons-for-elementor-lite' ),
+				'return_value' => 'yes',
+				'default' => 'yes',
+			]
+		);
+
+		$this->add_control(
+			'eael_new_field_appearing_position',
+			[
+				'label' => esc_html__( 'Unlisted Fields Appears ', 'essential-addons-for-elementor-lite' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => 'before',
+				'options' => [
+					'before' => esc_html__( 'Before', 'essential-addons-for-elementor-lite' ),
+					'after' => esc_html__( 'After', 'essential-addons-for-elementor-lite' ),
+				],
+				'description' => esc_html__( 'If there is some conditional fields. you can defined where the fields will appear.', 'essential-addons-for-elementor-lite' ),
+				'condition' => [
+					'eael_enable_checkout_fields_reorder' => 'yes'
+				]
+			]
+		);
+
+		$this->add_control(
+			'eael_new_checkout_fields_not_found',
+			[
+				'type' => Controls_Manager::RAW_HTML,
+				'raw' => __('If you didn\'t find your custom checkout fields. Please remove this widget and again add this. ' , 'essential-addons-for-elementor-lite'),
+				'content_classes' => 'eael-warning',
+				'condition' => [
+					'eael_enable_checkout_fields_reorder' => 'yes'
+				]
+			]
+		);
+
+		$this->start_controls_tabs( 'ea_woo_checkout_reorder_fields',
+			[
+				'condition' => [
+					'eael_enable_checkout_fields_reorder' => 'yes'
+				]
+			]
+		);
+		$this->start_controls_tab( 'ea_woo_checkout_reorder_billing_fields_tab',
+            [
+                    'label' => __( 'Billing', 'essential-addons-for-elementor-lite' )
+            ]
+        );
+
+		$this->add_control(
+			'ea_woo_checkout_reorder_billing_fields_tab_description', [
+				'type'            => Controls_Manager::RAW_HTML,
+				'raw'             => esc_html__( 'Here you can reorder the fields by drag and drop.', 'essential-addons-for-elementor-lite' ),
+				'content_classes' => 'elementor-control-field-description'
+			]
+		);
+
+		$repeater = new \Elementor\Repeater();
+
+		$repeater->add_control(
+			'field_label', [
+				'label' => esc_html__( 'Title', 'essential-addons-for-elementor-lite' ),
+				'type' => Controls_Manager::TEXT,
+				'default' => esc_html__( 'List Title' , 'essential-addons-for-elementor-lite' ),
+				'label_block' => true,
+				'ai' => [
+					'active' => false,
+				],
+			]
+		);
+
+		$repeater->add_control(
+			'field_key', [
+				'label' => esc_html__( 'Title', 'essential-addons-for-elementor-lite' ),
+				'type' => Controls_Manager::HIDDEN,
+				'default' => esc_html__( 'List Title' , 'essential-addons-for-elementor-lite' ),
+				'label_block' => true,
+			]
+		);
+
+		$repeater->add_control(
+			'field_class', [
+				'label' => esc_html__( 'Field Spacing', 'essential-addons-for-elementor-lite' ),
+				'type' => Controls_Manager::SELECT,
+                'options' => [
+                    'form-row-first' => __( 'First Half', 'essential-addons-for-elementor-lite' ),
+                    'form-row-last' => __( 'Last Half', 'essential-addons-for-elementor-lite' ),
+                    'form-row-wide' => __( 'Full Width', 'essential-addons-for-elementor-lite' )
+                ],
+				'label_block' => true,
+			]
+		);
+
+		$repeater->add_control(
+			'field_placeholder', [
+				'label'       => esc_html__( 'Placeholder', 'essential-addons-for-elementor-lite' ),
+				'type'        => Controls_Manager::TEXT,
+				'label_block' => true,
+				'ai'          => [
+					'active' => false,
+				],
+			]
+		);
+
+		$billing_fields = WC()->checkout()->get_checkout_fields('billing');
+
+		$this->add_control(
+			'ea_billing_fields_list',
+			[
+				'label' => '',
+				'type' => Controls_Manager::REPEATER,
+				'fields' => $repeater->get_controls(),
+				'default' => $this->get_default_checkout_fields( $billing_fields ),
+				'title_field' => '{{{ field_label }}}',
+			]
+		);
+		$this->end_controls_tab();
+		$this->start_controls_tab( 'ea_woo_checkout_reorder_shipping_fields_tab',
+		    [
+		        'label' => __( 'Shipping', 'essential-addons-for-elementor-lite' )
+            ]);
+
+		$this->add_control(
+			'ea_woo_checkout_reorder_shipping_fields_tab_description', [
+				'type'            => Controls_Manager::RAW_HTML,
+				'raw'             => esc_html__( 'Here you can reorder the fields by drag and drop.', 'essential-addons-for-elementor-lite' ),
+				'content_classes' => 'elementor-control-field-description'
+			]
+		);
+
+		$shipping_fields = WC()->checkout()->get_checkout_fields('shipping');
+
+		$this->add_control(
+			'ea_shipping_fields_list',
+			[
+				'label' => '',
+				'type' => Controls_Manager::REPEATER,
+				'fields' => $repeater->get_controls(),
+				'default' => $this->get_default_checkout_fields( $shipping_fields ),
+				'title_field' => '{{{ field_label }}}',
+			]
+		);
+		$this->end_controls_tab();
+		$this->end_controls_tabs();
+
 		$this->end_controls_section();
 
 		/**
@@ -530,6 +780,9 @@ class Woo_Checkout extends Widget_Base {
 				'dynamic' => [
 					'active' => true,
 				],
+				'ai' => [
+					'active' => false,
+				],
 			]
 		);
 		$this->add_control(
@@ -540,6 +793,9 @@ class Woo_Checkout extends Widget_Base {
 				'default' => __( 'Place Order', 'essential-addons-for-elementor-lite' ),
 				'dynamic' => [
 					'active' => true,
+				],
+				'ai' => [
+					'active' => false,
 				],
 			]
 		);
@@ -869,7 +1125,8 @@ class Woo_Checkout extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '#404040',
 				'selectors' => [
-					'{{WRAPPER}} .ea-woo-checkout-order-review .footer-content' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .ea-woo-checkout-order-review .footer-content' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .ea-woo-checkout-order-review .footer-content #shipping_method label' => 'color: {{VALUE}};',
 				],
 				'condition' => [
 					'ea_woo_checkout_layout' => 'default',
@@ -883,7 +1140,8 @@ class Woo_Checkout extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '#ffffff',
 				'selectors' => [
-					'{{WRAPPER}} .ea-woo-checkout-order-review .footer-content' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .ea-woo-checkout-order-review .footer-content' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .ea-woo-checkout-order-review .footer-content #shipping_method label' => 'color: {{VALUE}};',
 				],
 				'condition' => [
 					'ea_woo_checkout_layout!' => 'default',
@@ -1176,7 +1434,9 @@ class Woo_Checkout extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '#404040',
 				'selectors' => [
-					'{{WRAPPER}} .woo-checkout-login, {{WRAPPER}} .woo-checkout-login .woocommerce-form-login-toggle .woocommerce-info' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .woo-checkout-login' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .woo-checkout-login .woocommerce-form-login-toggle .woocommerce-info' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .woo-checkout-login .woocommerce-form-login-toggle .woocommerce-info .woocommerce-info-text' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -1192,6 +1452,26 @@ class Woo_Checkout extends Widget_Base {
 				],
 			]
 		);
+
+		$this->add_responsive_control(
+			'ea_woo_checkout_login_icon_position',
+			[
+				'label'              => esc_html__( 'Icon Position', 'essential-addons-for-elementor-lite' ),
+				'type'               => Controls_Manager::DIMENSIONS,
+				'size_units'         => [ 'px', 'em', '%' ],
+				'allowed_dimensions' => [ 'top', 'left' ],
+				'default' 			 => [
+					'top'      => 24,
+					'left'     => 35,
+					'unit'     => 'px',
+					'isLinked' =>  true,
+				],
+				'selectors'          => [
+					'{{WRAPPER}} .ea-woo-checkout .ea-login-icon' => 'top: {{TOP}}{{UNIT}}; left: {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
 		$this->add_control(
 			'ea_woo_checkout_login_links_color',
 			[
@@ -1230,7 +1510,6 @@ class Woo_Checkout extends Widget_Base {
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors' => [
 					'{{WRAPPER}} .woo-checkout-login' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-					'{{WRAPPER}} .ea-woo-checkout .ea-login-icon' => 'top: {{TOP}}{{UNIT}}; left: {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -1251,6 +1530,58 @@ class Woo_Checkout extends Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} .woo-checkout-login' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
+			]
+		);
+		$this->add_control(
+			'ea_woo_checkout_login_form',
+			[
+				'label' => __( 'Form', 'essential-addons-for-elementor-lite' ),
+				'type' => Controls_Manager::HEADING,
+				'separator' => 'before',
+			]
+		);
+		$this->add_responsive_control(
+			'ea_woo_checkout_login_form_padding',
+			[
+				'label' => esc_html__( 'Padding', 'essential-addons-for-elementor-lite' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '20',
+					'right' => '20',
+					'bottom' => '20',
+					'left' => '20',
+					'unit' => 'px',
+					'isLinked' => true,
+				],
+				'size_units' => [ 'px', 'em', '%' ],
+				'selectors' => [
+					'.eael-woo-checkout {{WRAPPER}} .woocommerce form.woocommerce-form-login' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+		$this->add_responsive_control(
+			'ea_woo_checkout_login_form_margin',
+			[
+				'label' => esc_html__( 'Margin', 'essential-addons-for-elementor-lite' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '20',
+					'right' => '20',
+					'bottom' => '20',
+					'left' => '20',
+					'unit' => 'px',
+					'isLinked' => true,
+				],
+				'size_units' => [ 'px', 'em', '%' ],
+				'selectors' => [
+					'.eael-woo-checkout {{WRAPPER}} .woocommerce form.woocommerce-form-login' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+		$this->add_group_control(
+			Group_Control_Border::get_type(), [
+				'name' => 'ea_woo_checkout_login_form_border_color',
+				'selector' => '.eael-woo-checkout {{WRAPPER}} .woocommerce form.woocommerce-form-login',
 			]
 		);
 		$this->add_control(
@@ -1313,7 +1644,7 @@ class Woo_Checkout extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '#7866ff',
 				'selectors' => [
-					'{{WRAPPER}} .ea-woo-checkout .woocommerce .woo-checkout-login .button' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .ea-woo-checkout .woocommerce .woo-checkout-login .button' => 'background-color: {{VALUE}};background: {{VALUE}};',
 				],
 			]
 		);
@@ -1462,7 +1793,9 @@ class Woo_Checkout extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '#404040',
 				'selectors' => [
-					'{{WRAPPER}} .ea-woo-checkout .woo-checkout-coupon, {{WRAPPER}} .ea-woo-checkout .woo-checkout-coupon .woocommerce-form-coupon-toggle .woocommerce-info' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .ea-woo-checkout .woo-checkout-coupon' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .ea-woo-checkout .woo-checkout-coupon .woocommerce-form-coupon-toggle .woocommerce-info' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .ea-woo-checkout .woo-checkout-coupon .woocommerce-form-coupon-toggle .woocommerce-info .woocommerce-info-text' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -1478,6 +1811,45 @@ class Woo_Checkout extends Widget_Base {
 				],
 			]
 		);
+        $this->add_control(
+            'ea_woo_checkout_coupon_icon_size',
+            [
+                'label'       => __( 'Icon Size', 'essential-addons-for-elementor-lite' ),
+                'type'        => Controls_Manager::SLIDER,
+                'default'     => ['size' => 16, 'unit'=>'px'],
+                'range'       => [
+                    'px' => [
+                        'min'  => 0,
+                        'max'  => 100,
+                        'step' => 1,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .ea-woo-checkout .ea-coupon-icon svg' => 'height: {{SIZE}}{{UNIT}};width: {{SIZE}}{{UNIT}};line-height: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .ea-woo-checkout .ea-coupon-icon i' => 'font-size: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+		$this->add_responsive_control(
+			'ea_woo_checkout_coupon_icon_position',
+			[
+				'label'              => esc_html__( 'Icon Position', 'essential-addons-for-elementor-lite' ),
+				'type'               => Controls_Manager::DIMENSIONS,
+				'size_units'         => [ 'px', 'em', '%' ],
+				'allowed_dimensions' => [ 'top', 'left' ],
+				'default' 			 => [
+					'top'      => 24,
+					'left'     => 35,
+					'unit'     => 'px',
+					'isLinked' =>  true,
+				],
+				'selectors'          => [
+					'{{WRAPPER}} .ea-woo-checkout .ea-coupon-icon' => 'top: {{TOP}}{{UNIT}}; left: {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+		
 		$this->add_control(
 			'ea_woo_checkout_coupon_links_color',
 			[
@@ -1553,7 +1925,6 @@ class Woo_Checkout extends Widget_Base {
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors' => [
 					'{{WRAPPER}} .woo-checkout-coupon' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-					'{{WRAPPER}} .ea-woo-checkout .ea-coupon-icon' => 'top: {{TOP}}{{UNIT}}; left: {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -1566,15 +1937,48 @@ class Woo_Checkout extends Widget_Base {
 				'separator' => 'before',
 			]
 		);
-		$this->add_control(
-			'ea_woo_checkout_coupon_form_border_color',
+		$this->add_responsive_control(
+			'ea_woo_checkout_coupon_form_padding',
 			[
-				'label' => __( 'Border Color', 'essential-addons-for-elementor-lite' ),
-				'type' => Controls_Manager::COLOR,
-				'default' => '#404040',
-				'selectors' => [
-					'.eael-woo-checkout {{WRAPPER}} .woocommerce form.checkout_coupon' => 'border: 1px solid {{VALUE}};',
+				'label' => esc_html__( 'Padding', 'essential-addons-for-elementor-lite' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '20',
+					'right' => '20',
+					'bottom' => '20',
+					'left' => '20',
+					'unit' => 'px',
+					'isLinked' => true,
 				],
+				'size_units' => [ 'px', 'em', '%' ],
+				'selectors' => [
+					'.eael-woo-checkout {{WRAPPER}} .woocommerce form.checkout_coupon' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+		$this->add_responsive_control(
+			'ea_woo_checkout_coupon_form_margin',
+			[
+				'label' => esc_html__( 'Margin', 'essential-addons-for-elementor-lite' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'default' => [
+					'top' => '20',
+					'right' => '20',
+					'bottom' => '20',
+					'left' => '20',
+					'unit' => 'px',
+					'isLinked' => true,
+				],
+				'size_units' => [ 'px', 'em', '%' ],
+				'selectors' => [
+					'.eael-woo-checkout {{WRAPPER}} .woocommerce form.checkout_coupon' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+		$this->add_group_control(
+			Group_Control_Border::get_type(), [
+				'name' => 'ea_woo_checkout_coupon_form_border_color',
+				'selector' => '.eael-woo-checkout {{WRAPPER}} .woocommerce form.checkout_coupon',
 			]
 		);
 
@@ -1611,7 +2015,7 @@ class Woo_Checkout extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '#7866ff',
 				'selectors' => [
-					'{{WRAPPER}} .ea-woo-checkout .woocommerce .woo-checkout-coupon .button' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .ea-woo-checkout .woocommerce .woo-checkout-coupon .button' => 'background: {{VALUE}};',
 				],
 			]
 		);
@@ -1651,7 +2055,7 @@ class Woo_Checkout extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '#7866ff',
 				'selectors' => [
-					'{{WRAPPER}} .ea-woo-checkout .woocommerce .woo-checkout-coupon .button:hover' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .ea-woo-checkout .woocommerce .woo-checkout-coupon .button:hover' => 'background: {{VALUE}};',
 				],
 			]
 		);
@@ -2136,6 +2540,92 @@ class Woo_Checkout extends Widget_Base {
 
 		$this->end_controls_section();
 
+		if( true ) {
+			$this->start_controls_section(
+				'ea_section_woo_checkout_pickup_point_style',
+				[
+					'label' => esc_html__( 'Pickup Point', 'essential-addons-for-elementor-lite' ),
+					'tab' => Controls_Manager::TAB_STYLE,
+				]
+			);
+
+			$this->add_control(
+				'ea_woo_checkout_pickup_point_title_color',
+				[
+					'label' => esc_html__( 'Title Color', 'essential-addons-for-elementor-lite' ),
+					'type' => Controls_Manager::COLOR,
+					'default' => '#ffffff',
+					'selectors' => [
+						'.eael-woo-checkout {{WRAPPER}} .woo-checkout-payment .carrier-agents-postcode-search #carrier-agent-heading' => 'color: {{VALUE}};',
+					],
+				]
+			);
+
+			$this->start_controls_tabs('ea_woo_checkout_pickup_point_tabs');
+			$this->start_controls_tab('ea_woo_checkout_pickup_point_tab_normal', ['label' => __('Normal', 'essential-addons-for-elementor')]);
+
+			$this->add_control('ea_woo_checkout_pickup_point_btn_bg_color', [
+				'label' => __('Background Color', 'essential-addons-for-elementor'),
+				'type' => Controls_Manager::COLOR,
+				'default' => '#7866ff',
+				'selectors' => [
+					'{{WRAPPER}} .woo-checkout-payment .carrier-agents-postcode-search .woo-carrier-agents-postcode-input-wrapper #woo-carrier-agents-search-button' => 'background-color: {{VALUE}};background: {{VALUE}};',
+				],
+			]);
+
+			$this->add_control('ea_woo_checkout_pickup_point_btn_color', [
+				'label' => __('Color', 'essential-addons-for-elementor'),
+				'type' => Controls_Manager::COLOR,
+				'default' => '#ffffff',
+				'selectors' => [
+					'{{WRAPPER}} .woo-checkout-payment .carrier-agents-postcode-search .woo-carrier-agents-postcode-input-wrapper #woo-carrier-agents-search-button' => 'color: {{VALUE}};',
+				],
+			]);
+
+			$this->add_group_control(Group_Control_Border::get_type(), [
+				'name' => 'ea_woo_checkout_pickup_point_btn_border',
+				'selector' => '{{WRAPPER}} .woo-checkout-payment .carrier-agents-postcode-search .woo-carrier-agents-postcode-input-wrapper #woo-carrier-agents-search-button',
+			]);
+
+			$this->end_controls_tab();
+
+			$this->start_controls_tab('ea_woo_checkout_pickup_point_tab_hover', ['label' => __('Hover', 'essential-addons-for-elementor')]);
+
+			$this->add_control('ea_woo_checkout_pickup_point_btn_bg_color_hover', [
+				'label' => __('Background Color', 'essential-addons-for-elementor'),
+				'type' => Controls_Manager::COLOR,
+				'default' => '#7866ff',
+				'selectors' => [
+					'{{WRAPPER}} .woo-checkout-payment .carrier-agents-postcode-search .woo-carrier-agents-postcode-input-wrapper #woo-carrier-agents-search-button:hover' => 'background-color: {{VALUE}};',
+				],
+			]);
+
+			$this->add_control('ea_woo_checkout_pickup_point_btn_color_hover', [
+				'label' => __('Color', 'essential-addons-for-elementor'),
+				'type' => Controls_Manager::COLOR,
+				'default' => '#ffffff',
+				'selectors' => [
+					'{{WRAPPER}} .woo-checkout-payment .carrier-agents-postcode-search .woo-carrier-agents-postcode-input-wrapper #woo-carrier-agents-search-button:hover' => 'color: {{VALUE}};',
+				],
+			]);
+
+			$this->add_control('ea_woo_checkout_pickup_point_btn_border_color_hover', [
+				'label' => __('Border Color', 'essential-addons-for-elementor'),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .woo-checkout-payment .carrier-agents-postcode-search .woo-carrier-agents-postcode-input-wrapper #woo-carrier-agents-search-button:hover' => 'border-color: {{VALUE}};',
+				],
+				'condition' => [
+					'ea_woo_checkout_pickup_point_btn_border_border!' => '',
+				],
+			]);
+
+			$this->end_controls_tab();
+			$this->end_controls_tabs();
+
+			$this->end_controls_section();
+		}
+
 		/**
 		 * -------------------------------------------
 		 * Tab Style Payment
@@ -2155,7 +2645,7 @@ class Woo_Checkout extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '#443e6d',
 				'selectors' => [
-					'.eael-woo-checkout {{WRAPPER}} .woo-checkout-payment, {{WRAPPER}} #payment' => 'background-color: {{VALUE}};',
+					'.eael-woo-checkout {{WRAPPER}} .woo-checkout-payment, {{WRAPPER}} #payment' => 'background-color: {{VALUE}};background: {{VALUE}};',
 				],
 			]
 		);
@@ -2393,9 +2883,9 @@ class Woo_Checkout extends Widget_Base {
 			[
 				'label' => __( 'Background Color', 'essential-addons-for-elementor-lite' ),
 				'type' => Controls_Manager::COLOR,
-				'default' => '#7866ff',
+				'default' => '#5842FF',
 				'selectors' => [
-					'{{WRAPPER}} #place_order' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} #place_order' => 'background-color: {{VALUE}};background: {{VALUE}};',
 				],
 			]
 		);
@@ -2435,7 +2925,7 @@ class Woo_Checkout extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '#7866ff',
 				'selectors' => [
-					'{{WRAPPER}} #place_order:hover' => 'background-color: {{VALUE}};',
+                    '{{WRAPPER}} #place_order:hover' => 'background-color: {{VALUE}};background: {{VALUE}};',
 				],
 			]
 		);
@@ -2558,42 +3048,192 @@ class Woo_Checkout extends Widget_Base {
 		return $classes;
 	}
 
+	public function get_default_checkout_fields( $fields ) {
+		$_fields = [];
+		$classes = [ 'form-row-first', 'form-row-last', 'form-row-wide' ];
+		foreach ( $fields as $key => $field_set ) {
+			$field_set_class = isset( $field_set['class'] ) && is_array( $field_set['class'] ) ? $field_set['class'] : [];
+			$_fields[]       = [
+				'field_label'       => $field_set['label'],
+				'field_key'         => $key,
+				'field_class'       => implode( '', array_intersect( $classes, $field_set_class ) ),
+				'field_placeholder' => $field_set['placeholder'] ?? ''
+			];
+		}
 
-  public function eael_woocheckout_recurring(){
-    if( class_exists('WC_Subscriptions_Cart') ) {
-      remove_action('woocommerce_review_order_after_order_total', array( 'WC_Subscriptions_Cart', 'display_recurring_totals' ), 10);
-      add_action('eael_display_recurring_total_total', array( 'WC_Subscriptions_Cart', 'display_recurring_totals'
-      ), 10);
-    }
-  }
+		return $_fields;
+	}
+
+	public function reorder_checkout_fields( $fields, $field_type ) {
+		$settings        = $this->get_settings_for_display();
+		$checkout_fields = $settings[ 'ea_' . $field_type . '_fields_list' ];
+		$classes         = [ 'form-row-first', 'form-row-last', 'form-row-wide' ];
+
+		if ( empty( $checkout_fields ) ) return $fields;
+
+		foreach ( $checkout_fields as $key => $field_set ) {
+			$field_key = $field_set['field_key'];
+			$this->checkout_field_keys[$field_type][] = $field_key;
+			if ( isset( $fields[ $field_key ] ) ) {
+				$field_set_class                  = is_array( $fields[ $field_key ]['class'] ) ? $fields[ $field_key ]['class'] : [];
+				$fields[ $field_key ]['label']    = $field_set['field_label'];
+				$fields[ $field_key ]['priority'] = ( $key + 1 ) * 10;
+				$fields[ $field_key ]['class']    = array_diff( $field_set_class, $classes ) + [ $field_set['field_class'] ];
+			}
+		}
+
+		return $fields;
+	}
+
+	public function ea_checkout_fields( $fields ){
+		$fields['billing'] = $this->reorder_checkout_fields( $fields['billing'], 'billing' );
+		$fields['shipping'] = $this->reorder_checkout_fields( $fields['shipping'], 'shipping' );
+		return $fields;
+	}
+
+	public function eael_woocheckout_recurring() {
+		if ( class_exists( 'WC_Subscriptions_Cart' ) ) {
+			add_action( 'eael_woo_checkout_before_render', [ $this, 'remove_woocommerce_display_recurring_totals' ] );
+			add_action( 'eael_display_recurring_total_total', array( 'WC_Subscriptions_Cart', 'display_recurring_totals' ), 10 );
+		}
+	}
 
 	protected function render() {
 	    if( !class_exists('woocommerce') ) {
 	        return;
         }
 
-        $settings = $this->get_settings_for_display();
+		$settings = $this->get_settings_for_display();
+		// Please don't print anything above this line otherwise session will not work properly.
+//		$deviceName = \Essential_Addons_Elementor\Classes\Helper::eael_get_current_device_by_screen();
+//		if ( ! \Elementor\Plugin::$instance->editor->is_edit_mode() && ! empty( $settings["hide_{$deviceName}"] ) ) {
+//			echo "<!-- This content is hidden on {$deviceName} devices -->";
+//			return;
+//		}
+
+		/**
+		 * Remove WC Coupon Action From  Neve Theme
+		 */
+		$this->eael_forcefully_remove_action( 'woocommerce_before_checkout_form', 'move_coupon', 10 );
+		$this->eael_forcefully_remove_action( 'woocommerce_before_checkout_billing_form', 'clear_coupon', 10 );
+
+		if ( class_exists( '\Woo_Carrier_Agents' ) ) {
+			$this->eael_forcefully_remove_action( 'woocommerce_checkout_order_review', 'add_carrier_agent_field_before_payment', 15 );
+			$wca = new \Woo_Carrier_Agents();
+			add_action( 'eael_wc_multistep_checkout_after_shipping', [ $wca, 'add_carrier_agent_field_before_payment' ], 10, 0 );
+		}
+
+        add_filter( 'woocommerce_checkout_fields', [ $this, 'ea_checkout_fields' ], 99999 );
+		do_action( 'eael_woo_checkout_before_render', $settings );
+
+		if ( in_array( $settings[ 'ea_woo_checkout_layout' ], [ 'multi-steps', 'split' ] ) ) {
+			if ( !apply_filters( 'eael/pro_enabled', false ) ) {
+				return;
+			}
+		}
 
         $this->add_render_attribute( 'container', 'class', [
 			'ea-woo-checkout',
-			'layout-'. $settings['ea_woo_checkout_layout']
+			'layout-'. $settings['ea_woo_checkout_layout'],
+			$settings['eael_enable_checkout_fields_reorder'] === 'yes' ? 'checkout-reorder-enabled' : ''
 		] );
 
+		$astra_pro = get_option( '_astra_ext_enabled_extensions' );
+
+		if ( !empty( $astra_pro ) && isset( $astra_pro['woocommerce'] ) && $astra_pro['woocommerce'] === 'woocommerce' ) {
+			$this->add_render_attribute( 'container', 'class', 'astra-pro-wc-module-activated' );
+		}
+
+		if ( $settings['eael_enable_checkout_fields_reorder'] === 'yes' ){
+			global $post;
+			$eael_checkout_fields = [];
+			if ( count( $settings['ea_billing_fields_list'] ) > 0 ) {
+				foreach ( $settings['ea_billing_fields_list'] as $item ) {
+					$checkout_field_keys['billing'][ $item['field_key'] ] = $item['field_class'];
+					$eael_checkout_fields['billing'][ $item['field_key'] ] = [
+						'label'       => $item['field_label'],
+						'placeholder' => $item['field_placeholder']
+					];
+				}
+			}
+
+			if ( count( $settings['ea_shipping_fields_list'] ) > 0 ) {
+				foreach ( $settings['ea_shipping_fields_list'] as $item ) {
+					$checkout_field_keys['shipping'][ $item['field_key'] ] = $item['field_class'];
+					$eael_checkout_fields['shipping'][ $item['field_key'] ] = [
+						'label'       => $item['field_label'],
+						'placeholder' => $item['field_placeholder']
+					];
+				}
+			}
+            update_post_meta( $post->ID, '_eael_checkout_fields_settings', $eael_checkout_fields );
+			$fields = WC()->checkout()->get_checkout_fields();
+
+			$extra_billing_fields = array_diff( array_keys($fields['billing']), array_keys($checkout_field_keys['billing']) );
+			if ( count($extra_billing_fields) > 0 ){
+				foreach ( $extra_billing_fields as $_field_key ){
+					if ( isset( $fields['billing'][$_field_key]['class'] ) ) {
+						if ( $settings['eael_new_field_appearing_position'] === 'before' ) {
+							$checkout_field_keys['billing'] = [$_field_key => implode(' ', $fields['billing'][$_field_key]['class'])] + $checkout_field_keys['billing'];
+						}
+						else if ( $settings['eael_new_field_appearing_position'] === 'after' ) {
+							$checkout_field_keys['billing'] += [$_field_key => implode(' ', $fields['billing'][$_field_key]['class'])];
+						}
+					}
+				}
+			}
+
+			$extra_shipping_fields = array_diff( array_keys($fields['shipping']), array_keys($checkout_field_keys['shipping']) );
+			if ( count($extra_shipping_fields) > 0 ){
+				foreach ( $extra_shipping_fields as $_field_key ){
+					if ( isset( $fields['shipping'][$_field_key]['class'] ) ) {
+						if ( $settings['eael_new_field_appearing_position'] === 'before' ) {
+							$checkout_field_keys['shipping'] = [ $_field_key => implode(' ', $fields['shipping'][$_field_key]['class'])] + $checkout_field_keys['shipping'];
+						}
+						else if ( $settings['eael_new_field_appearing_position'] === 'after' ) {
+							$checkout_field_keys['shipping'] += [$_field_key => implode(' ', $fields['shipping'][$_field_key]['class'])];
+						}
+					}
+				}
+			}
+
+			$this->add_render_attribute( 'container', 'data-checkout_ids', json_encode($checkout_field_keys) );
+		}
+        else{
+	        global $post;
+	        delete_post_meta( $post->ID, '_eael_checkout_fields_settings' );
+        }
+
+		$button_texts = [
+			'place_order' => $settings['ea_woo_checkout_place_order_text']
+		];
+
+		$this->add_render_attribute( 'container', 'data-button_texts', json_encode($button_texts) );
+
 		global $wp;
-        $order_review_change_data = [
-            'ea_woo_checkout_layout' => $settings['ea_woo_checkout_layout'],
-            'ea_woo_checkout_table_product_text' => $settings['ea_woo_checkout_table_product_text'],
-            'ea_woo_checkout_table_quantity_text' => $settings['ea_woo_checkout_table_quantity_text'],
-            'ea_woo_checkout_table_price_text' => $settings['ea_woo_checkout_table_price_text'],
-            'ea_woo_checkout_shop_link' => $settings['ea_woo_checkout_shop_link'],
-            'ea_woo_checkout_shop_link_text' => $settings['ea_woo_checkout_shop_link_text'],
-            'ea_woo_checkout_table_subtotal_text' => $settings['ea_woo_checkout_table_subtotal_text'],
-            'ea_woo_checkout_table_total_text' => $settings['ea_woo_checkout_table_total_text'],
-        ];
+		$order_review_change_data = [
+			'ea_woo_checkout_layout'              => $settings['ea_woo_checkout_layout'],
+			'ea_woo_checkout_table_header_text'   => $settings['ea_woo_checkout_table_header_text'],
+			'ea_woo_checkout_table_product_text'  => $settings['ea_woo_checkout_table_product_text'],
+			'ea_woo_checkout_table_quantity_text' => $settings['ea_woo_checkout_table_quantity_text'],
+			'ea_woo_checkout_table_price_text'    => $settings['ea_woo_checkout_table_price_text'],
+			'ea_woo_checkout_shop_link'           => $settings['ea_woo_checkout_shop_link'],
+			'ea_woo_checkout_shop_link_text'      => $settings['ea_woo_checkout_shop_link_text'],
+			'ea_woo_checkout_table_subtotal_text' => $settings['ea_woo_checkout_table_subtotal_text'],
+			'ea_woo_checkout_table_shipping_text' => $settings['ea_woo_checkout_table_shipping_text'],
+			'ea_woo_checkout_table_total_text'    => $settings['ea_woo_checkout_table_total_text'],
+			'ea_woo_checkout_cart_update_enable'  => $settings['ea_woo_checkout_cart_update_enable'],
+		];
         $this->ea_woo_checkout_add_actions($settings);
 
 		?>
         <div data-checkout="<?php echo htmlspecialchars(json_encode($order_review_change_data), ENT_QUOTES, 'UTF-8'); ?>" <?php echo $this->get_render_attribute_string( 'container' ); ?>>
+            <div type="text/template" id="eael-wc-billing-reordered-fields">
+                <div class="eael-woo-billing-fields"></div>
+            </div>
+            <div type="text/template" id="eael-wc-shipping-reordered-fields">
+                <div class="eael-woo-shipping-fields"></div>
+            </div>
             <div class="woocommerce">
                 <style>
                     .woocommerce .blockUI.blockOverlay:before {

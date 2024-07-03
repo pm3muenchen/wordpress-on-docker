@@ -20,6 +20,11 @@
 		display: block;
 		margin-bottom: 15px;
 	}
+	.ek-responsive-tabpanel{
+		button{
+			border: none !important;
+		}
+	}
 
 	.components-tab-panel__tabs {
 		align-items: center;
@@ -28,7 +33,7 @@
 		display: flex;
 		justify-content: flex-start;
 		position: sticky;
-		top: 56px;
+		top: 0;
 		z-index: 9;
 
 		.edit-post-sidebar__panel-tab {
@@ -44,7 +49,6 @@
 			border: 0;
 			cursor: pointer;
 			-webkit-appearance: none;
-			background: none;
 		}
 
 		.components-button,

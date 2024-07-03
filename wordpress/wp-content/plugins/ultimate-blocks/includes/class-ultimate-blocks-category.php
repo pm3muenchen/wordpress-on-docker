@@ -39,26 +39,32 @@ class UltimateBlocks_Block_Category {
 	 * The Constructor.
 	 */
 	private function __construct() {
-		add_filter( 'block_categories', array( $this, 'block_categories' ) );
+		if ( version_compare( $GLOBALS['wp_version'], '5.8.0', '<' ) ) {
+			add_filter( 'block_categories', array( $this, 'block_categories' ), 9999999 );
+		} else {
+			add_filter( 'block_categories_all', array( $this, 'block_categories' ), 9999999 );
+		}
 	}
 
 	/**
 	 * Register our custom block category.
 	 *
 	 * @access public
+	 *
 	 * @param array $categories All categories.
+	 *
 	 * @link https://wordpress.org/gutenberg/handbook/extensibility/extending-blocks/#managing-block-categories
 	 */
 	public function block_categories( $categories ) {
 
 		return array_merge(
-			$categories,
 			array(
 				array(
 					'slug'  => 'ultimateblocks',
 					'title' => __( 'Ultimate Blocks', 'ultimate-blocks' ),
 				),
-			)
+			),
+			$categories
 		);
 	}
 }

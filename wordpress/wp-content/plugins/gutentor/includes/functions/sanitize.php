@@ -115,7 +115,7 @@ endif;
 
 if ( ! function_exists( 'gutentor_sanitize_checkbox' ) ) :
 	/*
-	 Boolean check.
+	 * Boolean check.
 	 * @since 2.1.0
 	 */
 	function gutentor_sanitize_checkbox( $checked ) {
@@ -124,12 +124,11 @@ if ( ! function_exists( 'gutentor_sanitize_checkbox' ) ) :
 endif;
 
 if ( ! function_exists( 'gutentor_sanitize_array' ) ) :
-    /*
-     Array check.
-     * @since 2.1.0
-     */
-    function gutentor_sanitize_array( $checked ) {
-        return is_array($checked)?$checked:array();
-    }
+	/*
+	 * Array check.
+	 * @since 2.1.0
+	 */
+	function gutentor_sanitize_array( $checked ) {
+		return is_array( $checked ) ? $checked : array();
+	}
 endif;
-

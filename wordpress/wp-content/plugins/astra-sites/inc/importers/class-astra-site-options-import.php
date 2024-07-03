@@ -6,6 +6,9 @@
  * @package Astra Addon
  */
 
+use STImporter\Importer\ST_Importer_Helper;
+use STImporter\Importer\Helpers\ST_Image_Importer;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -40,19 +43,29 @@ class Astra_Site_Options_Import {
 	}
 
 	/**
-	 * Site Options
-	 *
-	 * @since 1.0.2
-	 *
-	 * @return array    List of defined array.
+	 * Constructor.
 	 */
-	private static function site_options() {
-		return array(
+	public function __construct() {
+		add_filter( 'st_importer_site_options', array( $this, 'classic_templates_options' ), 10, 1 );
+		add_action( 'st_importer_import_site_options', array( $this, 'import_classic_templates_options' ), 10, 2 );
+	}
+
+	/**
+	 * Classic templates options.
+	 *
+	 * @since 4.3.0
+	 * @param array<int, string> $default_options List of defined array.
+	 * @return array<int, string> List of defined array.
+	 */
+	public function classic_templates_options( $default_options ) {
+
+		$classic_templates_options = array(
 			'custom_logo',
 			'nav_menu_locations',
 			'show_on_front',
 			'page_on_front',
 			'page_for_posts',
+			'site_title',
 
 			// Plugin: Elementor.
 			'elementor_container_width',
@@ -72,6 +85,7 @@ class Astra_Site_Options_Import {
 			'elementor_stretched_section_container',
 			'elementor_load_fa4_shim',
 			'elementor_active_kit',
+			'elementor_experiment-container',
 
 			// Plugin: Beaver Builder.
 			'_fl_builder_enabled_icons',
@@ -101,6 +115,9 @@ class Astra_Site_Options_Import {
 			'woocommerce_enable_myaccount_registration',
 			'woocommerce_registration_generate_username',
 
+			// Plugin: Easy Digital Downloads - EDD.
+			'edd_settings',
+
 			// Plugin: WPForms.
 			'wpforms_settings',
 
@@ -111,79 +128,96 @@ class Astra_Site_Options_Import {
 			'learndash_settings_theme_ld30',
 			'learndash_settings_courses_themes',
 
+			// Astra Theme Global Color Palette and Typography Preset options.
+			'astra-color-palettes',
+			'astra-typography-presets',
 		);
+		$options = array_merge( $default_options, $classic_templates_options );
+		return $options; 
+		
 	}
 
 	/**
-	 * Import site options.
+	 * Import Classic Templates Options.
 	 *
-	 * @since  1.0.2    Updated option if exist in defined option array 'site_options()'.
-	 *
-	 * @since  1.0.0
-	 *
-	 * @param  (Array) $options Array of site options to be imported from the demo.
+	 * @since 4.3.0
+	 * 
+	 * @param array<string, mixed> $options List of default options.
+	 * @param array<int, string>   $site_options List of site options.
+	 * 
+	 * @return void
 	 */
-	public function import_options( $options = array() ) {
+	public function import_classic_templates_options( $options, $site_options ) {
 
 		if ( ! isset( $options ) ) {
 			return;
 		}
 
-		foreach ( $options as $option_name => $option_value ) {
-
-			// Is option exist in defined array site_options()?
-			if ( null !== $option_value ) {
+		try {
+			foreach ( $options as $option_name => $option_value ) {
 
 				// Is option exist in defined array site_options()?
-				if ( in_array( $option_name, self::site_options(), true ) ) {
+				if ( null !== $option_value ) {
 
-					switch ( $option_name ) {
+					// Is option exist in defined array site_options()?
+					if ( in_array( $option_name, $site_options, true ) ) {
 
-						// Set WooCommerce page ID by page Title.
-						case 'woocommerce_shop_page_title':
-						case 'woocommerce_cart_page_title':
-						case 'woocommerce_checkout_page_title':
-						case 'woocommerce_myaccount_page_title':
-						case 'woocommerce_edit_address_page_title':
-						case 'woocommerce_view_order_page_title':
-						case 'woocommerce_change_password_page_title':
-						case 'woocommerce_logout_page_title':
-								$this->update_woocommerce_page_id_by_option_value( $option_name, $option_value );
-							break;
+						switch ( $option_name ) {
 
-						case 'page_for_posts':
-						case 'page_on_front':
-								$this->update_page_id_by_option_value( $option_name, $option_value );
-							break;
+							// Set WooCommerce page ID by page Title.
+							case 'woocommerce_shop_page_title':
+							case 'woocommerce_cart_page_title':
+							case 'woocommerce_checkout_page_title':
+							case 'woocommerce_myaccount_page_title':
+							case 'woocommerce_edit_address_page_title':
+							case 'woocommerce_view_order_page_title':
+							case 'woocommerce_change_password_page_title':
+							case 'woocommerce_logout_page_title':
+									$this->update_woocommerce_page_id_by_option_value( $option_name, $option_value );
+								break;
 
-						// nav menu locations.
-						case 'nav_menu_locations':
-								$this->set_nav_menu_locations( $option_value );
-							break;
+							case 'page_for_posts':
+							case 'page_on_front':
+									$this->update_page_id_by_option_value( $option_name, $option_value );
+								break;
 
-						// import WooCommerce category images.
-						case 'woocommerce_product_cat':
-								$this->set_woocommerce_product_cat( $option_value );
-							break;
+							// nav menu locations.
+							case 'nav_menu_locations':
+									$this->set_nav_menu_locations( $option_value );
+								break;
 
-						// insert logo.
-						case 'custom_logo':
-								$this->insert_logo( $option_value );
-							break;
+							// import WooCommerce category images.
+							case 'woocommerce_product_cat':
+									$this->set_woocommerce_product_cat( $option_value );
+								break;
 
-						case 'elementor_active_kit':
-							if ( '' !== $option_value ) {
-								$this->set_elementor_kit();
-							}
-							break;
+							// insert logo.
+							case 'custom_logo':
+									$this->insert_logo( $option_value );
+								break;
 
-						default:
-							update_option( $option_name, $option_value );
-							break;
+							case 'elementor_active_kit':
+								if ( '' !== $option_value ) {
+									$this->set_elementor_kit();
+								}
+								break;
+
+							case 'site_title':
+								update_option( 'blogname', $option_value );
+								break;
+
+							default:
+								update_option( $option_name, $option_value );
+								break;
+						}
 					}
 				}
 			}
+		} catch ( Exception $e ) {
+			// Do nothing.
+			astra_sites_error_log( 'Error while importing site options: ' . $e->getMessage() );
 		}
+
 	}
 
 	/**
@@ -200,7 +234,7 @@ class Astra_Site_Options_Import {
 			'post_type'   => 'elementor_library',
 			'post_status' => 'publish',
 			'numberposts' => 1,
-			'meta_query'  => array(
+			'meta_query'  => array( //phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query -- Setting elementor kit. WP Query would have been expensive.
 				array(
 					'key'   => '_astra_sites_imported_post',
 					'value' => '1',
@@ -218,6 +252,37 @@ class Astra_Site_Options_Import {
 		}
 	}
 
+
+	/**
+	 * Get post from post title and post type.
+	 *
+	 * @since 4.0.6
+	 *
+	 * @param  mixed  $post_title  post title.
+	 * @param  string $post_type post type.
+	 * @return mixed
+	 */
+	public function get_page_by_title( $post_title, $post_type ) {
+		$page = array();
+		$query = new WP_Query(
+			array(
+				'post_type'              => $post_type,
+				'title'                  => $post_title,
+				'posts_per_page'         => 1,
+				'no_found_rows'          => true,
+				'ignore_sticky_posts'    => true,
+				'update_post_term_cache' => false,
+				'update_post_meta_cache' => false,
+				'orderby'                => 'ID',
+				'order'                  => 'DESC',
+			)
+		);
+		if ( $query->have_posts() ) {
+			$page = $query->posts[0];
+		}
+		return $page;
+	}
+
 	/**
 	 * Update post option
 	 *
@@ -228,7 +293,12 @@ class Astra_Site_Options_Import {
 	 * @return void
 	 */
 	private function update_page_id_by_option_value( $option_name, $option_value ) {
-		$page = get_page_by_title( $option_value );
+		if ( empty( $option_value ) ) {
+			return;
+		}
+
+		$page = $this->get_page_by_title( $option_value, 'page' );
+		
 		if ( is_object( $page ) ) {
 			update_option( $option_name, $page->ID );
 		}
@@ -285,25 +355,25 @@ class Astra_Site_Options_Import {
 	 */
 	private function set_woocommerce_product_cat( $cats = array() ) {
 
-		$menu_locations = array();
-
 		if ( isset( $cats ) ) {
 
 			foreach ( $cats as $key => $cat ) {
 
 				if ( ! empty( $cat['slug'] ) && ! empty( $cat['thumbnail_src'] ) ) {
 
-					$image = (object) Astra_Sites_Helper::sideload_image( $cat['thumbnail_src'] );
+					$downloaded_image = ST_Image_Importer::get_instance()->import(
+						array(
+							'url' => $cat['thumbnail_src'],
+							'id'  => 0,
+						)
+					);
 
-					if ( ! is_wp_error( $image ) ) {
+					if ( $downloaded_image['id'] ) {
 
-						if ( isset( $image->attachment_id ) && ! empty( $image->attachment_id ) ) {
+						$term = get_term_by( 'slug', $cat['slug'], 'product_cat' );
 
-							$term = get_term_by( 'slug', $cat['slug'], 'product_cat' );
-
-							if ( is_object( $term ) ) {
-								update_term_meta( $term->term_id, 'thumbnail_id', $image->attachment_id );
-							}
+						if ( is_object( $term ) ) {
+							update_term_meta( $term->term_id, 'thumbnail_id', $downloaded_image['id'] );
 						}
 					}
 				}
@@ -319,31 +389,24 @@ class Astra_Site_Options_Import {
 	 * @return void
 	 */
 	private function insert_logo( $image_url = '' ) {
-		$attachment_id = $this->download_image( $image_url );
-		if ( $attachment_id ) {
-			Astra_WXR_Importer::instance()->track_post( $attachment_id );
-			set_theme_mod( 'custom_logo', $attachment_id );
-		}
-	}
 
-	/**
-	 * Download image by URL
-	 *
-	 * @since 1.3.13
-	 *
-	 * @param  string $image_url Logo URL.
-	 * @return mixed false|Attachment ID
-	 */
-	private function download_image( $image_url = '' ) {
-		$data = (object) Astra_Sites_Helper::sideload_image( $image_url );
+		$downloaded_image = ST_Image_Importer::get_instance()->import(
+			array(
+				'url' => $image_url,
+				'id'  => 0,
+			)
+		);
 
-		if ( ! is_wp_error( $data ) ) {
-			if ( isset( $data->attachment_id ) && ! empty( $data->attachment_id ) ) {
-				return $data->attachment_id;
-			}
+		if ( $downloaded_image['id'] ) {
+			ST_Importer_Helper::track_post( $downloaded_image['id'] );
+			set_theme_mod( 'custom_logo', $downloaded_image['id'] );
 		}
 
-		return false;
 	}
 
 }
+
+/**
+ * Kicking this off by calling 'get_instance()' method
+ */
+Astra_Site_Options_Import::instance();

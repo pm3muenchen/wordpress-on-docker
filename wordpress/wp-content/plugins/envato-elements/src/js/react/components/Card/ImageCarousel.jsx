@@ -47,7 +47,7 @@ const ImageCarousel = ({ coverImage = null, imageUrls = [], galleryImages = [] }
   }
 
   if (galleryImages.length) {
-    galleryImages.map(image => {
+    galleryImages.forEach(image => {
       imageGallery.push(buildElementsImageUrl({ imageData: image, sizes: ['w632', 'w900'] }))
     })
   }

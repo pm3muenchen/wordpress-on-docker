@@ -1,0 +1,1766 @@
+# Translation of Plugins - Gutenberg Blocks &#8211; PublishPress Blocks Gutenberg Editor Plugin - Stable (latest release) in Swedish
+# This file is distributed under the same license as the Plugins - Gutenberg Blocks &#8211; PublishPress Blocks Gutenberg Editor Plugin - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2024-01-25 14:31:36+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/4.0.1\n"
+"Language: sv_SE\n"
+"Project-Id-Version: Plugins - Gutenberg Blocks &#8211; PublishPress Blocks Gutenberg Editor Plugin - Stable (latest release)\n"
+
+#: incl/advanced-gutenberg-main.php:1870 incl/pages/main.php:59
+msgid "Synced Patterns"
+msgstr "Synkroniserade mönster"
+
+#: incl/pages/block-controls/controls.php:50
+msgid "User roles"
+msgstr "Användarroller"
+
+#: incl/pages/block-controls/controls.php:42
+#: incl/pages/block-controls/controls.php:75
+#: incl/pages/block-controls/controls.php:106
+#: incl/pages/block-controls/controls.php:137
+msgid "Site Editor"
+msgstr "Webbplatsredigerare"
+
+#: incl/pages/block-controls/controls.php:40
+#: incl/pages/block-controls/controls.php:73
+#: incl/pages/block-controls/controls.php:104
+#: incl/pages/block-controls/controls.php:135
+msgid "Widgets"
+msgstr "Widgetar"
+
+#: incl/pages/block-controls/controls.php:17
+msgid "Schedule"
+msgstr "Schemalägg"
+
+#: incl/block-controls-main.php:977
+msgid "404"
+msgstr "404"
+
+#: incl/block-controls-main.php:969
+msgid "Archive"
+msgstr "Arkiv"
+
+#: incl/block-controls-main.php:965
+msgid "Blog"
+msgstr "Blogg"
+
+#: incl/pages/block-controls/controls.php:28
+msgid "Choose when to start showing and/or stop showing your blocks."
+msgstr "Välj när du vill börja visa och/eller sluta visa dina block."
+
+#: incl/pages/main.php:51
+msgid "This feature adds display controls for blocks. You can schedule when blocks are shown, and add user role restrictions."
+msgstr "Den här funktionen lägger till visningskontroller för block. Du kan schemalägga när blocken ska visas och lägga till begränsningar för användarroller."
+
+#: incl/pages/block-controls/controls.php:150
+msgid "Save Controls"
+msgstr "Spara kontroller"
+
+#: incl/pages/block-controls/controls.php:61
+msgid "Choose which users can see your blocks."
+msgstr "Välj vilka användare som kan se dina block."
+
+#: incl/pages/block-controls/blocks.php:46
+#: incl/pages/block-controls/blocks.php:71
+msgid "Save Blocks"
+msgstr "Spara block"
+
+#: incl/pages/block-controls/blocks.php:18
+msgid "Enable or disable controls for all blocks"
+msgstr "Aktivera eller inaktivera kontroller för alla block"
+
+#: incl/pages/block-controls.php:37
+msgid "Controls"
+msgstr "Kontroller"
+
+#: incl/pages/block-controls.php:16
+msgid "Blocks saved successfully!"
+msgstr "Blocken är sparade!"
+
+#: incl/pages/block-controls.php:14
+msgid "Controls saved successfully!"
+msgstr "Inställningarna är sparade!"
+
+#: incl/advanced-gutenberg-main.php:3682
+msgid "Page not found. Go to %sDashboard%s"
+msgstr "Sidan hittades inte. Gå till %skontrollpanelen%s"
+
+#: incl/pages/settings/recaptcha.php:151
+msgid "Save reCAPTCHA Settings"
+msgstr "Spara inställningar för reCAPTCHA"
+
+#: incl/pages/settings/recaptcha.php:110
+msgid "Theme"
+msgstr "Tema"
+
+#: incl/pages/settings/recaptcha.php:102
+msgid "Language codes list"
+msgstr "Förteckning över språkkoder"
+
+#: incl/pages/settings/recaptcha.php:85
+msgid "Language"
+msgstr "Språk"
+
+#: incl/pages/settings/recaptcha.php:66
+msgid "Secret key"
+msgstr "Hemlig nyckel"
+
+#: incl/pages/settings/recaptcha.php:47
+msgid "Site key"
+msgstr "Webbplatsnyckel"
+
+#: incl/pages/settings/maps.php:54
+msgid "Save Maps Settings"
+msgstr "Spara inställningar för kartor"
+
+#: incl/pages/settings/images.php:122
+msgid "Save Image Settings"
+msgstr "Spara bildinställningar"
+
+#: incl/pages/settings/images.php:106
+msgid "Set the default post thumbnail to use in Content Display blocks for posts without featured image."
+msgstr "Ange standard miniatyrbild för inlägget som ska användas i block för innehållsvisning för inlägg som inte har någon bild."
+
+#: incl/pages/settings/general.php:202
+msgid "Save General Settings"
+msgstr "Spara allmänna inställningar"
+
+#: incl/pages/settings/general.php:186
+msgid "Autop WordPress function is used to prevent unwanted paragraphs to be added"
+msgstr "WordPress-funktionen autop() används för att förhindra att oönskade textstycken läggs in"
+
+#: incl/pages/settings/general.php:164
+msgid "Visual guide for PublishPress Blocks Columns block"
+msgstr "Visuell guide för PublishPress Blocks Blocks kolumn block"
+
+#: incl/pages/settings/general.php:125
+msgid "Gutenberg editor width"
+msgstr "Gutenbergredigerarens bredd"
+
+#: incl/pages/settings/general.php:114
+msgid "Apply in admin to blocks from PublishPress Blocks plugin."
+msgstr "Tillämpa på adminsidorna för block från tillägget PublishPress Blocks."
+
+#: incl/pages/settings/general.php:68
+msgid "Vertical spacing between blocks"
+msgstr "Lodrätt avstånd mellan blocken"
+
+#: incl/pages/settings/forms.php:118
+msgid "Save Form Settings"
+msgstr "Spara formulärinställningar"
+
+#: incl/pages/settings/forms.php:34
+msgid "These email settings apply to messages sent through PublishPress Contact form block."
+msgstr "Dessa e-postinställningar gäller för meddelanden som skickas via PublishPress kontaktformulärblock."
+
+#: incl/pages/settings/data.php:64
+msgid "Data stored through Newsletter form blocks."
+msgstr "Data lagras genom formulärblock för nyhetsbrev."
+
+#: incl/pages/settings/data.php:24
+msgid "Data stored through Contact form blocks."
+msgstr "Data lagras genom kontaktformulärblock."
+
+#: incl/pages/settings.php:64
+msgid "License"
+msgstr "Licens"
+
+#: incl/pages/settings.php:54
+msgid "Data Export"
+msgstr "Dataexport"
+
+#: incl/pages/settings.php:50
+msgid "reCAPTCHA"
+msgstr "reCAPTCHA"
+
+#: incl/pages/settings.php:42
+msgid "Maps"
+msgstr "Kartor"
+
+#: incl/pages/settings.php:38
+msgid "Images"
+msgstr "Bilder"
+
+#: incl/pages/settings.php:29
+msgid "General"
+msgstr "Allmänt"
+
+#: incl/pages/main.php:118
+msgid "Remove PublishPress ads and branding"
+msgstr "Ta bort PublishPress-annonser och varumärke"
+
+#: incl/pages/main.php:117
+msgid "Feature List block"
+msgstr "Funktionslista block"
+
+#: incl/pages/main.php:116
+msgid "Pricing Table block"
+msgstr "Block för prislista"
+
+#: incl/pages/main.php:115
+msgid "Countdown block"
+msgstr "Block för nedräkning"
+
+#: incl/pages/main.php:114
+msgid "Google Fonts support"
+msgstr "Google Fonts support"
+
+#: incl/pages/main.php:113
+msgid "Pro features for Advanced Image block"
+msgstr "Pro-funktioner för avancerat bildblock"
+
+#: incl/pages/main.php:112
+msgid "Pro features for Testimonial block"
+msgstr "Pro-funktioner för blocket ”omdöme”"
+
+#: incl/pages/main.php:111
+msgid "Pro features for Count Up block"
+msgstr "Pro-funktioner för uppräkningsblock"
+
+#: incl/pages/main.php:110
+msgid "Pro features for List block"
+msgstr "Pro-funktioner för listblock"
+
+#: incl/pages/main.php:109
+msgid "Pro features for Button block"
+msgstr "Pro-funktioner för knappblock"
+
+#: incl/pages/main.php:108
+msgid "Pro features for Images Slider block"
+msgstr "Pro-funktioner för bildspelsblock"
+
+#: incl/pages/main.php:107
+msgid "Pro features for Content Display block"
+msgstr "Pro-funktioner för blocket innehållsvisning"
+
+#: incl/pages/main.php:106
+msgid "Pro features for Tabs block"
+msgstr "Pro-funktioner för flikblocket"
+
+#: incl/pages/main.php:105
+msgid "Pro features for Accordion block"
+msgstr "Pro-funktioner för dragspelsblocket"
+
+#: incl/pages/main.php:104
+msgid "Priority, personal support"
+msgstr "Prioriterad personlig support"
+
+#: incl/pages/main.php:83
+msgid "Add Google Fonts support to core blocks including paragraphs and headings."
+msgstr "Lägg till stöd för Google Fonts i centrala block, inklusive stycken och rubriker."
+
+#: incl/pages/main.php:82
+msgid "Core Blocks Features"
+msgstr "Funktioner i Core Blocks"
+
+#: incl/pages/main.php:73
+msgid "If some blocks are not listed in Block Permissions, try enabling this feature."
+msgstr "Om vissa block inte finns med i listan över blockbehörigheter kan du försöka aktivera den här funktionen."
+
+#: incl/pages/main.php:69
+msgid "Extend Supported Blocks %sBeta%s"
+msgstr "Utöka stödda block %sBeta%s"
+
+#: incl/pages/main.php:42
+msgid "You can add your own CSS styles for your blocks. Anyone editing posts can quickly add the styles to blocks."
+msgstr "Du kan lägga till egna CSS-stilar för dina block. Alla som redigerar inlägg kan snabbt lägga till stilar till block."
+
+#: incl/pages/main.php:33
+msgid "Enable extra blocks including content displays, sliders, buttons, icons, tabs, accordions, and more."
+msgstr "Aktivera extra block, inklusive innehållsdisplayer, skjutreglage, knappar, ikoner, flikar, dragspel med mera."
+
+#: incl/pages/main.php:24
+msgid "You can control who can use each block, including default WordPress blocks."
+msgstr "Du kan kontrollera vem som kan använda varje block, inklusive standardblock i WordPress."
+
+#: incl/pages/custom-styles.php:57
+msgid "Class name"
+msgstr "Klassnamn"
+
+#: incl/pages/custom-styles.php:38
+msgid "Add new style"
+msgstr "Lägg till ny stil"
+
+#: incl/pages/block-settings.php:71
+msgid "Woo Products - PublishPress"
+msgstr "Wooprodukter – PublishPress"
+
+#: incl/pages/block-settings.php:70
+msgid "Testimonial - PublishPress"
+msgstr "Omdöme – PublishPress"
+
+#: incl/pages/block-settings.php:69
+msgid "Table of Contents - PublishPress"
+msgstr "Innehållsförteckning – PublishPress"
+
+#: incl/pages/block-settings.php:68
+msgid "Social Links - PublishPress"
+msgstr "Sociala länkar – PublishPress"
+
+#: incl/pages/block-settings.php:67
+msgid "Newsletter - PublishPress"
+msgstr "Nyhetsbrev – PublishPress"
+
+#: incl/pages/block-settings.php:66
+msgid "Map - PublishPress"
+msgstr "Karta – PublishPress"
+
+#: incl/pages/block-settings.php:65
+msgid "Info Box - PublishPress"
+msgstr "Infoblock – PublishPress"
+
+#: incl/pages/block-settings.php:64
+msgid "Images Slider - PublishPress"
+msgstr "Bildspel – PublishPress"
+
+#: incl/pages/block-settings.php:63
+msgid "Count Up - PublishPress"
+msgstr "Uppräkning – PublishPress"
+
+#: incl/pages/block-settings.php:62
+msgid "Contact Form - PublishPress"
+msgstr "Kontaktformulär – PublishPress"
+
+#: incl/pages/block-settings.php:61
+msgid "Column - PublishPress"
+msgstr "Kolumn – PublishPress"
+
+#: incl/pages/block-settings.php:60
+msgid "Columns - PublishPress"
+msgstr "Kolumner – PublishPress"
+
+#: incl/pages/block-settings.php:59
+msgid "Video - PublishPress"
+msgstr "Video – PublishPress"
+
+#: incl/pages/block-settings.php:58
+msgid "Tabs - PublishPress"
+msgstr "Flikar – PublishPress"
+
+#: incl/pages/block-settings.php:57
+msgid "Table - PublishPress"
+msgstr "Tabell – PublishPress"
+
+#: incl/pages/block-settings.php:56
+msgid "List - PublishPress"
+msgstr "Lista – PublishPress"
+
+#: incl/pages/block-settings.php:55
+msgid "Image - PublishPress"
+msgstr "Bild – PublishPress"
+
+#: incl/pages/block-settings.php:54
+msgid "Icon - PublishPress"
+msgstr "Ikon – PublishPress"
+
+#: incl/pages/block-settings.php:53
+msgid "Button - PublishPress"
+msgstr "Knapp – PublishPress"
+
+#: incl/pages/block-settings.php:52
+msgid "Accordion - PublishPress"
+msgstr "Dragspel – PublishPress"
+
+#: incl/advanced-gutenberg-main.php:3259
+#: incl/pages/block-controls/blocks.php:56
+msgid "Loading..."
+msgstr "Laddar …"
+
+#: incl/advanced-gutenberg-main.php:2318
+msgid "Contact"
+msgstr "Kontakt"
+
+#: incl/advanced-gutenberg-main.php:2315
+msgid "Contact the PublishPress team"
+msgstr "Kontakta teamet på PublishPress"
+
+#: incl/advanced-gutenberg-main.php:2304 incl/advanced-gutenberg-main.php:2307
+msgid "Documentation"
+msgstr "Dokumentation"
+
+#: incl/advanced-gutenberg-main.php:2297
+msgid "About"
+msgstr "Om"
+
+#: incl/advanced-gutenberg-main.php:2294
+msgid "About PublishPress Blocks"
+msgstr "Om PublishPress Blocks"
+
+#: incl/advanced-gutenberg-main.php:2277
+msgid "If you like %sPublishPress Blocks%s please leave us a %s rating. Thank you!"
+msgstr "Om du gillar %sPublishPress Blocks%s får du gärna ge oss betyget %s. Tack!"
+
+#: incl/advanced-gutenberg-main.php:2093 incl/advanced-gutenberg-main.php:2138
+#: incl/advanced-gutenberg-main.php:2171 incl/advanced-gutenberg-main.php:2215
+msgid "This feature is disabled. In order to use, please enable back through %sDashboard%s."
+msgstr "Den här funktionen är inaktiverad. För att kunna använda den måste du aktivera den igen via %skontrollpanelen%s."
+
+#: incl/advanced-gutenberg-main.php:1856 incl/pages/custom-styles.php:19
+#: incl/pages/main.php:41
+msgid "Block Styles"
+msgstr "Blockstilar"
+
+#: incl/advanced-gutenberg-main.php:1842 incl/advanced-gutenberg-main.php:2118
+#: incl/pages/main.php:23
+msgid "Block Permissions"
+msgstr "Behörigheter för block"
+
+#: incl/advanced-gutenberg-main.php:1283
+msgid "Error: can't edit this feature"
+msgstr "Fel: kan inte redigera denna funktion"
+
+#: incl/advanced-gutenberg-main.php:1253
+msgid "Error: wrong data"
+msgstr "Fel: fel data"
+
+#: incl/advanced-gutenberg-main.php:3249 incl/advanced-gutenberg-main.php:3275
+msgid "Save %s"
+msgstr "Spara %s"
+
+#: incl/advanced-gutenberg-main.php:3159
+msgid "%s can't be saved. Please try again."
+msgstr "%s kan inte sparas. Försök igen."
+
+#: incl/advanced-gutenberg-main.php:3149
+msgid "%s saved successfully!"
+msgstr "%s sparades!"
+
+#: incl/advanced-gutenberg-main.php:1863 incl/pages/block-controls.php:30
+#: incl/pages/main.php:50
+msgid "Block Controls"
+msgstr "Blockkontroller"
+
+#: incl/advanced-gutenberg-main.php:3233 incl/advanced-gutenberg-main.php:3283
+#: incl/pages/block-controls/blocks.php:31
+#: incl/pages/block-controls/blocks.php:79
+msgid "To save this configuration, enable at least one block."
+msgstr "För att spara denna konfiguration, aktivera minst ett block."
+
+#: incl/advanced-gutenberg-main.php:3220
+msgid "Enable or disable all blocks"
+msgstr "Aktivera eller inaktivera alla block"
+
+#: incl/advanced-gutenberg-main.php:1172
+msgid "copy"
+msgstr "kopiera"
+
+#: incl/pages/settings/recaptcha.php:128
+msgid "Invisible"
+msgstr "Osynlig"
+
+#: incl/pages/settings/recaptcha.php:118
+msgid "Light"
+msgstr "Ljus"
+
+#: incl/pages/settings/general.php:48
+msgid "PublishPress logo and links in the footer of the admin pages"
+msgstr "PublishPress logotyp och länkar i sidfoten på administratörssidorna"
+
+#: incl/pages/settings/general.php:47
+msgid "Display PublishPress branding"
+msgstr "Visa PublishPress varumärke"
+
+#: incl/block-settings-main.php:960
+msgid "Table of Contents Alignment"
+msgstr "Justering av innehållsförteckning"
+
+#: incl/pages/block-controls.php:41
+msgid "Blocks"
+msgstr "Block"
+
+#: incl/pages/settings/images.php:65
+msgid "Overlay"
+msgstr "Överlägg"
+
+#: incl/pages/settings/images.php:55
+msgid "Disabled"
+msgstr "Inaktiverat"
+
+#: incl/pages/block-settings.php:133
+msgid "No blocks available. Please go to a post edit (without saving either modifying anything). Then come back to Block Settings to see the blocks list."
+msgstr "Inga block finns tillgängliga. Gå till en inläggsredigering (utan att spara eller ändra något). Gå sedan tillbaka till blockinställningar för att se listan över block."
+
+#: incl/advanced-gutenberg-main.php:916 incl/pages/main.php:121
+msgid "Upgrade to Pro"
+msgstr "Uppgradera till Pro"
+
+#. Description of the plugin
+#: advanced-gutenberg.php
+msgid "PublishPress Blocks has everything you need to build professional websites with the Gutenberg editor."
+msgstr "PublishPress Blocks har allt du behöver för att bygga professionella webbplatser med Gutenberg-redigeraren."
+
+#: assets/blocks/recent-posts/block.php:295
+#: assets/blocks/recent-posts/block.php:1089
+#: assets/blocks/recent-posts/block.php:1102
+msgid "Updated on"
+msgstr "Uppdaterad den"
+
+#: assets/blocks/recent-posts/block.php:293
+#: assets/blocks/recent-posts/block.php:1088
+#: assets/blocks/recent-posts/block.php:1101
+msgid "Posted on"
+msgstr "Publicerat den"
+
+#: incl/pages/block-controls/controls.php:114
+msgid "Pages"
+msgstr "Sidor"
+
+#: incl/pages/block-controls/controls.php:38
+#: incl/pages/block-controls/controls.php:71
+msgid "Post"
+msgstr "Inlägg"
+
+#: assets/blocks/recent-posts/block.php:302
+#: assets/blocks/recent-posts/block.php:1076
+msgid "Updated"
+msgstr "Uppdaterad"
+
+#: assets/blocks/recent-posts/block.php:300
+#: assets/blocks/recent-posts/block.php:302
+#: assets/blocks/recent-posts/block.php:1075
+#: assets/blocks/recent-posts/block.php:1076
+msgid "ago"
+msgstr "sedan"
+
+#: assets/blocks/recent-posts/block.php:300
+#: assets/blocks/recent-posts/block.php:1075
+msgid "Posted"
+msgstr "Publicerad"
+
+#: incl/advanced-gutenberg-main.php:3627
+msgid "Default configuration for this block is not available."
+msgstr "Standardkonfiguration för detta block är inte tillgängligt."
+
+#: incl/advanced-gutenberg-main.php:1877 incl/pages/settings.php:22
+msgid "Settings"
+msgstr "﻿Inställningar"
+
+#: incl/pages/custom-styles.php:121
+msgid "Following Paragraph."
+msgstr "Följande stycke."
+
+#: incl/pages/custom-styles.php:118
+msgid "Example text with this style"
+msgstr "Exempel på text med den här stilmallen"
+
+#: incl/pages/custom-styles.php:114
+msgid "Previous Paragraph."
+msgstr "Föregående stycke."
+
+#: incl/pages/main.php:102
+msgid "PublishPress Blocks Pro"
+msgstr "PublishPress Blocks Pro"
+
+#: incl/advanced-gutenberg-main.php:2344
+msgid "PublishPress Blocks logo"
+msgstr "PublishPress Blocks logo"
+
+#. Plugin URI of the plugin
+#: advanced-gutenberg.php
+msgid "https://publishpress.com/blocks/"
+msgstr "https://publishpress.com/blocks/"
+
+#. Plugin Name of the plugin
+#: advanced-gutenberg.php incl/advanced-gutenberg-main.php:256
+#: incl/advanced-gutenberg-main.php:1849 incl/pages/block-settings.php:90
+#: incl/pages/main.php:8 incl/pages/main.php:32
+msgid "PublishPress Blocks"
+msgstr "PublishPress Blocks"
+
+#. Author URI of the plugin
+#: advanced-gutenberg.php
+msgid "https://publishpress.com/"
+msgstr "https://publishpress.com/"
+
+#. Author of the plugin
+#: advanced-gutenberg.php
+msgid "PublishPress"
+msgstr "PublishPress"
+
+#: incl/block-settings-main.php:2002
+msgid "H6"
+msgstr "H6"
+
+#: incl/block-settings-main.php:1998
+msgid "H5"
+msgstr "H5"
+
+#: incl/block-settings-main.php:1994
+msgid "H4"
+msgstr "H4"
+
+#: incl/block-settings-main.php:1990
+msgid "H3"
+msgstr "H3"
+
+#: incl/block-settings-main.php:1986
+msgid "H2"
+msgstr "H2"
+
+#: incl/block-settings-main.php:1982
+msgid "H1"
+msgstr "H1"
+
+#: incl/block-settings-main.php:1977
+msgid "HTML Tag"
+msgstr "HTML-tagg"
+
+#: incl/block-settings-main.php:1970 incl/block-settings-main.php:2081
+msgid "Line Height (px)"
+msgstr "Radhöjd (px)"
+
+#: incl/block-settings-main.php:1963 incl/block-settings-main.php:2074
+msgid "Font Size (px)"
+msgstr "Textstorlek (px)"
+
+#: incl/block-settings-main.php:1955
+msgid "Title Settings"
+msgstr "Rubrikinställningar"
+
+#: incl/block-settings-main.php:1789
+msgid "Number of icons"
+msgstr "Antal ikoner"
+
+#: incl/block-settings-main.php:986
+msgid "Vertical"
+msgstr "Vertikalt"
+
+#: incl/block-settings-main.php:982
+msgid "Horizontal"
+msgstr "Horisontellt"
+
+#: incl/block-settings-main.php:977
+msgid "Tabs Style"
+msgstr "Flikstil"
+
+#: incl/block-settings-main.php:235 incl/block-settings-main.php:1939
+#: incl/block-settings-main.php:2050 incl/block-settings-main.php:2130
+msgid "Margin Left"
+msgstr "Marginal vänster"
+
+#: incl/block-settings-main.php:228 incl/block-settings-main.php:1932
+#: incl/block-settings-main.php:2043 incl/block-settings-main.php:2123
+msgid "Margin Bottom"
+msgstr "Marginal botten"
+
+#: incl/block-settings-main.php:221 incl/block-settings-main.php:1946
+#: incl/block-settings-main.php:2057 incl/block-settings-main.php:2137
+msgid "Margin Right"
+msgstr "Marginal höger"
+
+#: incl/block-settings-main.php:214 incl/block-settings-main.php:1925
+#: incl/block-settings-main.php:2036 incl/block-settings-main.php:2116
+msgid "Margin Top"
+msgstr "Marginal toppen"
+
+#: incl/block-settings-main.php:211
+msgid "Margin Settings"
+msgstr "Marginalinställningar"
+
+#: incl/advanced-gutenberg-main.php:1835
+msgid "Dashboard"
+msgstr "Adminpanel"
+
+#: incl/block-controls-main.php:961
+msgid "Home"
+msgstr "Hem"
+
+#: incl/advanced-gutenberg-main.php:4354
+msgid "Username or password is incorrect!"
+msgstr "Användarnamn eller lösenord är felaktigt!"
+
+#: incl/advanced-gutenberg-main.php:1537
+msgid "Captcha is empty"
+msgstr "Captcha är tomt"
+
+#: incl/advanced-gutenberg-main.php:1534
+msgid "Captcha validated"
+msgstr "Captcha validerat"
+
+#: incl/block-settings-main.php:1801
+msgid "Container Settings"
+msgstr "Behållarinställningar"
+
+#: incl/pages/settings/general.php:138
+msgid "Large"
+msgstr "Stor"
+
+#: incl/block-settings-main.php:1763
+msgid "Text alignment"
+msgstr "Textjustering"
+
+#: incl/block-settings-main.php:1760
+msgid "Column Settings"
+msgstr "Kolumninställningar"
+
+#: incl/block-settings-main.php:1702
+msgid "Content Min Height"
+msgstr "Innehållets minsta höjd"
+
+#: incl/block-settings-main.php:1695
+msgid "Content Max Width"
+msgstr "Innehållets maximala bredd"
+
+#: incl/block-settings-main.php:1689
+msgid "Footer"
+msgstr "Sidfot"
+
+#: incl/block-settings-main.php:1685
+msgid "Aside"
+msgstr "Notis"
+
+#: incl/block-settings-main.php:1681
+msgid "Article"
+msgstr "Artikel"
+
+#: incl/block-settings-main.php:1677
+msgid "Main"
+msgstr "Huvud"
+
+#: incl/block-settings-main.php:1673
+msgid "Section"
+msgstr "Sektion"
+
+#: incl/block-settings-main.php:1669
+msgid "Header"
+msgstr "Sidhuvud"
+
+#: incl/block-settings-main.php:1665
+msgid "Div"
+msgstr "Div"
+
+#: incl/block-settings-main.php:1660
+msgid "Wrapper Tag"
+msgstr "Wrapper Tag"
+
+#: incl/block-settings-main.php:1649
+msgid "Full Height"
+msgstr "Full höjd"
+
+#: incl/block-settings-main.php:1641
+msgid "Middle"
+msgstr "Mitten"
+
+#: incl/block-settings-main.php:1629
+msgid "Row Settings"
+msgstr "Radinställningar"
+
+#: incl/block-settings-main.php:1622
+msgid "Collapsed order RTL"
+msgstr "Sammanfälld ordning RTL"
+
+#: incl/block-settings-main.php:1577 incl/block-settings-main.php:1616
+msgid "90px"
+msgstr "90px"
+
+#: incl/block-settings-main.php:1573 incl/block-settings-main.php:1612
+msgid "70px"
+msgstr "70px"
+
+#: incl/block-settings-main.php:1569 incl/block-settings-main.php:1608
+msgid "50px"
+msgstr "50px"
+
+#: incl/block-settings-main.php:1565 incl/block-settings-main.php:1604
+msgid "40px"
+msgstr "40px"
+
+#: incl/block-settings-main.php:1561 incl/block-settings-main.php:1600
+msgid "30px"
+msgstr "30px"
+
+#: incl/block-settings-main.php:1557 incl/block-settings-main.php:1596
+msgid "20px"
+msgstr "20px"
+
+#: incl/block-settings-main.php:1553 incl/block-settings-main.php:1592
+msgid "10px"
+msgstr "10px"
+
+#: incl/block-settings-main.php:1544
+msgid "Space between column"
+msgstr "Utrymme mellan kolumnerna"
+
+#: incl/block-settings-main.php:1541
+msgid "Columns Settings"
+msgstr "Kolumninställningar"
+
+#: incl/block-settings-main.php:1450
+msgid "Auto Height"
+msgstr "Automatisk höjd"
+
+#: incl/block-settings-main.php:1427
+msgid "Images Settings"
+msgstr "Inställningar för bilder"
+
+#: incl/block-settings-main.php:1325
+msgid "Last Name placeholder"
+msgstr "Platshållare för efternamn"
+
+#: incl/block-settings-main.php:1320
+msgid "First Name placeholder"
+msgstr "Platshållare för förnamn"
+
+#: incl/block-settings-main.php:1308
+msgid "Form width"
+msgstr "Bredd på formuläret"
+
+#: incl/block-settings-main.php:1267
+msgid "Button Position"
+msgstr "Knapposition"
+
+#: incl/block-settings-main.php:1250 incl/block-settings-main.php:1406
+msgid "Border and Text Color"
+msgstr "Ram- och textfärg"
+
+#: incl/block-settings-main.php:1189 incl/block-settings-main.php:1345
+msgid "Error text"
+msgstr "Felmeddelande"
+
+#: incl/block-settings-main.php:1184 incl/block-settings-main.php:1340
+msgid "Success text"
+msgstr "Lyckades-text"
+
+#: incl/block-settings-main.php:1179 incl/block-settings-main.php:1335
+msgid "Submit label"
+msgstr "Skicka in etikett"
+
+#: incl/block-settings-main.php:1174
+msgid "Message placeholder"
+msgstr "Platshållare för meddelande"
+
+#: incl/block-settings-main.php:1169 incl/block-settings-main.php:1330
+msgid "Email placeholder"
+msgstr "Platshållare för e-post"
+
+#: incl/block-settings-main.php:1164
+msgid "Name placeholder"
+msgstr "Platshållare för namn"
+
+#: incl/pages/settings/general.php:153
+msgid "Enable columns visual guide"
+msgstr "Aktivera visuell vägledning för kolumner"
+
+#: incl/pages/settings/general.php:175
+msgid "Remove autop"
+msgstr "Ta bort autop"
+
+#: incl/block-settings-main.php:24
+msgid "Initial Collapsed"
+msgstr "Starta minimerat"
+
+#: incl/pages/settings/images.php:101
+msgid "Reset to default"
+msgstr "Återställ till standard"
+
+#: incl/pages/settings/images.php:82
+msgid "Default thumbnail"
+msgstr "Standardminiatyr"
+
+#: incl/block-settings-main.php:764
+msgid "Aubergine"
+msgstr "Aubergin"
+
+#: incl/block-settings-main.php:763
+msgid "Night"
+msgstr "Natt"
+
+#: incl/block-settings-main.php:762 incl/pages/settings/recaptcha.php:123
+msgid "Dark"
+msgstr "Mörk"
+
+#: incl/block-settings-main.php:761
+msgid "Retro"
+msgstr "Retro"
+
+#: incl/block-settings-main.php:760
+msgid "Silver"
+msgstr "Silver"
+
+#: incl/block-settings-main.php:756
+msgid "Map style"
+msgstr "Kartstil"
+
+#: incl/advanced-gutenberg-main.php:1383 incl/advanced-gutenberg-main.php:1474
+#: incl/advanced-gutenberg-main.php:1526
+msgid "Cannot validate captcha"
+msgstr "Kan inte validera captcha"
+
+#: incl/block-settings-main.php:356
+msgid "Open link in a new tab"
+msgstr "Öppna länk i en ny flik"
+
+#: incl/block-settings-main.php:346
+msgid "Open image in a lightbox"
+msgstr "Öppna bild i en lightbox"
+
+#: incl/block-settings-main.php:334
+msgid "Click action"
+msgstr "Klickåtgärd"
+
+#: incl/block-settings-main.php:1302
+msgid "Alternative"
+msgstr "Alternativ"
+
+#: incl/block-settings-main.php:1293
+msgid "Form style"
+msgstr "Formulärstil"
+
+#: incl/block-settings-main.php:765
+msgid "Custom"
+msgstr "Anpassad"
+
+#: incl/advanced-gutenberg-main.php:1375 incl/advanced-gutenberg-main.php:1466
+#: incl/advanced-gutenberg-main.php:1518
+msgid "Server error. Try again later!"
+msgstr "Serverfel. Försök igen senare!"
+
+#: incl/pages/settings/maps.php:38
+msgid "A Google API key is required to use the Map block without any warning."
+msgstr "Det behövs en Google API-nyckel för att kunna använda kartblocket utan varningar."
+
+#: incl/pages/settings/images.php:71
+msgid "Display caption text on images loaded as lightbox in galleries."
+msgstr "Visa bildtext på bilder som laddas som ljuslåda i gallerier."
+
+#: incl/pages/settings/data.php:58
+msgid "Download Newsletter Form data"
+msgstr "Ladda ner nyhetsbrevsformulärdata"
+
+#: incl/pages/settings/recaptcha.php:134
+msgid "We strongly recommend not using Invisible reCAPTCHA if you have more than 1 Newsletter or Contact forms block in a page."
+msgstr "Vi rekommenderar starkt att du inte använder Invisible reCAPTCHA om du har mer än ett block med nyhetsbrev eller kontaktformulär på en sida."
+
+#: incl/pages/settings/recaptcha.php:93
+msgid "Auto detect"
+msgstr "Auto-detektera"
+
+#: incl/pages/settings/recaptcha.php:49 incl/pages/settings/recaptcha.php:68
+msgid "required"
+msgstr "obligatorisk"
+
+#: incl/pages/settings/recaptcha.php:17
+msgid "Use the Google reCAPTCHA to avoid spam in PublishPress Blocks forms. Get credentials for your domain by registering %shere%s."
+msgstr "Använd Googles reCAPTCHA för att undvika skräppost i PublishPress Blocks formulär. Få autentiseringsuppgifter för din domän genom att registrera %shere%s."
+
+#: incl/pages/settings/recaptcha.php:30
+msgid "Enable reCAPTCHA"
+msgstr "Aktivera reCAPTCHA"
+
+#: incl/block-settings-main.php:1247 incl/block-settings-main.php:1403
+msgid "Submit Button Settings"
+msgstr "Inställningar för knappen Skicka"
+
+#: incl/block-settings-main.php:1196 incl/block-settings-main.php:1352
+msgid "Input Color"
+msgstr "Ange färg"
+
+#: incl/block-settings-main.php:1161 incl/block-settings-main.php:1317
+msgid "Text Label"
+msgstr "Textetikett"
+
+#: incl/block-settings-main.php:1290
+msgid "Form Settings"
+msgstr "Formulärinställningar"
+
+#: incl/advanced-gutenberg-main.php:1428
+msgid "Message"
+msgstr "Meddelande"
+
+#: incl/pages/settings/data.php:49 incl/pages/settings/data.php:89
+msgid "JSON"
+msgstr "JSON"
+
+#: incl/pages/settings/data.php:38 incl/pages/settings/data.php:78
+msgid "CSV"
+msgstr "CSV"
+
+#: incl/pages/settings/data.php:18
+msgid "Download Contacts Form data"
+msgstr "Ladda ned data från kontaktformulär"
+
+#: incl/pages/settings/forms.php:95
+msgid "Email receiver"
+msgstr "E-postmottagare"
+
+#: incl/pages/settings/forms.php:78
+msgid "Email title"
+msgstr "E-postrubrik"
+
+#: incl/pages/settings/forms.php:61
+msgid "Sender email"
+msgstr "Avsändarens e-postadress"
+
+#: incl/pages/settings/forms.php:44
+msgid "Sender name"
+msgstr "Avsändarnamn"
+
+#: incl/pages/settings.php:46
+msgid "Email & Forms"
+msgstr "E-post och formulär"
+
+#: incl/block-settings-main.php:1150
+msgid "Number of Products"
+msgstr "Antal produkter"
+
+#: incl/block-settings-main.php:1140
+msgid "Layout Settings"
+msgstr "Layoutinställningar"
+
+#: incl/block-settings-main.php:1479
+msgid "Hover Color"
+msgstr "Hovringsfärg"
+
+#: incl/block-settings-main.php:1469
+msgid "Always show overlay"
+msgstr "Visa alltid överlägg"
+
+#: incl/block-settings-main.php:1439
+msgid "Open custom link"
+msgstr "Öppna anpassad länk"
+
+#: incl/block-settings-main.php:1632
+msgid "Vertical Align"
+msgstr "Vertikal justering"
+
+#: incl/block-settings-main.php:429 incl/block-settings-main.php:1518
+msgid "Horizontal Alignment"
+msgstr "Horisontell justering"
+
+#: incl/block-settings-main.php:350
+msgid "Open custom URL"
+msgstr "Öppna anpassad URL"
+
+#: incl/block-settings-main.php:1435
+msgid "Open image in lightbox"
+msgstr "Öppna bilden i ljuslåda"
+
+#: incl/block-settings-main.php:337 incl/block-settings-main.php:1430
+msgid "Action on click"
+msgstr "Åtgärd vid klick"
+
+#: incl/block-settings-main.php:1716
+msgid "Border style"
+msgstr "Ramstil"
+
+#: incl/block-settings-main.php:17
+msgid "Bottom spacing"
+msgstr "Avstånd nedtill"
+
+#: incl/block-settings-main.php:14
+msgid "Accordion Settings"
+msgstr "Inställningar för dragspel"
+
+#: assets/blocks/recent-posts/block.php:413
+msgid "Read More"
+msgstr "Läs mer"
+
+#: install.php:24
+msgid "Install Gutenberg Now!"
+msgstr "Installera Gutenberg nu!"
+
+#: install.php:23
+msgid "Gutenberg is not detected! Activate it or"
+msgstr "Gutenberg upptäcks inte! Aktivera det eller"
+
+#: incl/pages/settings/general.php:99
+msgid "Blocks icon color"
+msgstr "Färg på blockets ikon"
+
+#: incl/advanced-gutenberg-main.php:1426
+msgid "Date"
+msgstr "Datum"
+
+#: incl/block-controls-main.php:973
+msgid "Search"
+msgstr "Sök"
+
+#: incl/advanced-gutenberg-main.php:3215
+#: incl/pages/block-controls/blocks.php:13 incl/pages/block-settings.php:97
+msgid "Search blocks"
+msgstr "Sök block"
+
+#: incl/pages/custom-styles.php:111
+msgid "Preview"
+msgstr "Förhandsgranska"
+
+#: incl/pages/block-settings.php:123 incl/pages/settings/images.php:99
+msgid "Edit"
+msgstr "Redigera"
+
+#: incl/pages/custom-styles.php:34
+msgid "Delete"
+msgstr "Ta bort"
+
+#: incl/pages/custom-styles.php:33
+msgid "Copy"
+msgstr "Kopiera"
+
+#: incl/pages/custom-styles.php:12
+msgid "Your styles have been saved!"
+msgstr "Dina stilmallar har sparats!"
+
+#: incl/pages/block-settings/block-config.php:18
+msgid "block"
+msgstr "block"
+
+#: incl/block-settings-main.php:1126
+msgid "Position Color"
+msgstr "Positionsfärg"
+
+#: incl/block-settings-main.php:1121
+msgid "Name Color"
+msgstr "Namnfärg"
+
+#: incl/block-settings-main.php:1109
+msgid "Avatar Size"
+msgstr "Profilbildsstorlek"
+
+#: incl/block-settings-main.php:1095
+msgid "Border Radius (%)"
+msgstr "Ramradie (%)"
+
+#: incl/block-settings-main.php:1082
+msgid "Avatar Settings"
+msgstr "Inställningar för profilbild"
+
+#: incl/block-settings-main.php:1073 incl/block-settings-main.php:1143
+msgid "Columns"
+msgstr "Kolumner"
+
+#: incl/block-settings-main.php:1004
+msgid "Active Tab Settings"
+msgstr "Inställningar för den aktiva fliken"
+
+#: incl/block-settings-main.php:974
+msgid "Tab Settings"
+msgstr "Flikinställningar"
+
+#: incl/block-settings-main.php:955
+msgid "Anchor color"
+msgstr "Ankarfärg"
+
+#: incl/block-settings-main.php:931
+msgid "Icon Space"
+msgstr "Ikonmellanrum"
+
+#: incl/block-settings-main.php:914
+msgid "Icon Alignment"
+msgstr "Ikonjustering"
+
+#: incl/block-settings-main.php:870
+msgid "Icon 3 Settings"
+msgstr "Inställningar för ikon 3"
+
+#: incl/block-settings-main.php:829
+msgid "Icon 2 Settings"
+msgstr "Inställningar för ikon 2"
+
+#: incl/block-settings-main.php:822 incl/block-settings-main.php:863
+#: incl/block-settings-main.php:904
+msgid "Icon Link"
+msgstr "Ikonlänk"
+
+#: incl/block-settings-main.php:817 incl/block-settings-main.php:858
+#: incl/block-settings-main.php:899 incl/block-settings-main.php:1861
+msgid "Icon Color"
+msgstr "Ikonfärg"
+
+#: incl/block-settings-main.php:813 incl/block-settings-main.php:854
+#: incl/block-settings-main.php:895
+msgid "Youtube"
+msgstr "YouTube"
+
+#: incl/block-settings-main.php:812 incl/block-settings-main.php:853
+#: incl/block-settings-main.php:894
+msgid "Vimeo"
+msgstr "Vimeo"
+
+#: incl/block-settings-main.php:811 incl/block-settings-main.php:852
+#: incl/block-settings-main.php:893
+msgid "Twitter"
+msgstr "Twitter"
+
+#: incl/block-settings-main.php:810 incl/block-settings-main.php:851
+#: incl/block-settings-main.php:892
+msgid "Tumblr"
+msgstr "Tumblr"
+
+#: incl/block-settings-main.php:807 incl/block-settings-main.php:848
+#: incl/block-settings-main.php:889
+msgid "Sound Cloud"
+msgstr "Sound Cloud"
+
+#: incl/block-settings-main.php:805 incl/block-settings-main.php:846
+#: incl/block-settings-main.php:887
+msgid "Skype"
+msgstr "Skype"
+
+#: incl/block-settings-main.php:804 incl/block-settings-main.php:845
+#: incl/block-settings-main.php:886
+msgid "Reddit"
+msgstr "Reddit"
+
+#: incl/block-settings-main.php:803 incl/block-settings-main.php:844
+#: incl/block-settings-main.php:885
+msgid "Pinterest"
+msgstr "Pinterest"
+
+#: incl/block-settings-main.php:802 incl/block-settings-main.php:843
+#: incl/block-settings-main.php:884
+msgid "Picasa"
+msgstr "Picasa"
+
+#: incl/block-settings-main.php:800 incl/block-settings-main.php:841
+#: incl/block-settings-main.php:882
+msgid "LinkedIn"
+msgstr "LinkedIn"
+
+#: incl/block-settings-main.php:799 incl/block-settings-main.php:840
+#: incl/block-settings-main.php:881
+msgid "Instagram"
+msgstr "Instagram"
+
+#: incl/block-settings-main.php:798 incl/block-settings-main.php:839
+#: incl/block-settings-main.php:880
+msgid "Google Plus"
+msgstr "Google Plus"
+
+#: incl/block-settings-main.php:797 incl/block-settings-main.php:838
+#: incl/block-settings-main.php:879
+msgid "Flickr"
+msgstr "Flickr"
+
+#: incl/block-settings-main.php:796 incl/block-settings-main.php:837
+#: incl/block-settings-main.php:878
+msgid "Facebook"
+msgstr "Facebook"
+
+#: incl/block-settings-main.php:795 incl/block-settings-main.php:836
+#: incl/block-settings-main.php:877
+msgid "Blogger"
+msgstr "Blogger"
+
+#: incl/advanced-gutenberg-main.php:4073 incl/pages/settings/general.php:133
+msgid "Default"
+msgstr "Standard"
+
+#: incl/block-settings-main.php:791 incl/block-settings-main.php:832
+#: incl/block-settings-main.php:873
+msgid "Icon"
+msgstr "Ikon"
+
+#: incl/block-settings-main.php:788
+msgid "Icon 1 Settings"
+msgstr "Inställningar för ikon 1"
+
+#: incl/block-settings-main.php:779
+msgid "Marker Description"
+msgstr "Beskrivning av märke"
+
+#: incl/block-settings-main.php:771
+msgid "Marker Settings"
+msgstr "Märkesinställningar"
+
+#: incl/block-settings-main.php:742
+msgid "Zoom Level"
+msgstr "Zoomnivå"
+
+#: incl/block-settings-main.php:739
+msgid "Map Settings"
+msgstr "Inställningar för karta"
+
+#: incl/block-settings-main.php:730
+msgid "Longitude"
+msgstr "Longitud"
+
+#: incl/block-settings-main.php:723
+msgid "Latitude"
+msgstr "Latitud"
+
+#: incl/block-settings-main.php:715
+msgid "Location Settings"
+msgstr "Platsinställningar"
+
+#: incl/block-settings-main.php:704
+msgid "Count Up Number Size"
+msgstr "Sifferstorlek på Räkna upp"
+
+#: incl/block-settings-main.php:701
+msgid "Count Up Settings"
+msgstr "Uppräkningsinställningar"
+
+#: incl/block-settings-main.php:694 incl/block-settings-main.php:1131
+msgid "Description Color"
+msgstr "Färg för beskrivning"
+
+#: incl/block-settings-main.php:689
+msgid "Count Up Color"
+msgstr "Uppräkningsfärg"
+
+#: incl/block-settings-main.php:684
+msgid "Header Color"
+msgstr "Färg på sidhuvud"
+
+#: incl/block-settings-main.php:681 incl/block-settings-main.php:1476
+msgid "Color Settings"
+msgstr "Färginställningar"
+
+#: incl/block-settings-main.php:672
+msgid "Number of columns"
+msgstr "Antal kolumner"
+
+#: incl/block-settings-main.php:669 incl/block-settings-main.php:911
+#: incl/block-settings-main.php:942 incl/block-settings-main.php:1070
+#: incl/block-settings-main.php:1786
+msgid "General Settings"
+msgstr "Allmänna inställningar"
+
+#: incl/block-settings-main.php:660
+msgid "Button Color"
+msgstr "Knappfärg"
+
+#: incl/block-settings-main.php:653
+msgid "Button Size"
+msgstr "Knappstorlek"
+
+#: incl/block-settings-main.php:647
+msgid "Star Sticker"
+msgstr "Stjärnmärke"
+
+#: incl/block-settings-main.php:639
+msgid "Video Camera"
+msgstr "Videokamera"
+
+#: incl/block-settings-main.php:627 incl/block-settings-main.php:1298
+msgid "Normal"
+msgstr "Normal"
+
+#: incl/block-settings-main.php:622
+msgid "Button Icon"
+msgstr "Knappikon"
+
+#: incl/block-settings-main.php:612
+msgid "Overlay color"
+msgstr "Överläggfärg"
+
+#: incl/block-settings-main.php:588
+msgid "Open video in lightbox"
+msgstr "Öppna video i lightbox"
+
+#: incl/block-settings-main.php:585
+msgid "Video Settings"
+msgstr "Inställningar för video"
+
+#: incl/block-settings-main.php:574
+msgid "Max width"
+msgstr "Maximal bredd"
+
+#: incl/block-settings-main.php:571
+msgid "Table Settings"
+msgstr "Tabellinställningar"
+
+#: incl/block-settings-main.php:560
+msgid "Padding"
+msgstr "Padding"
+
+#: incl/block-settings-main.php:553
+msgid "Margin"
+msgstr "Marginal"
+
+#: incl/block-settings-main.php:546
+msgid "Line Height"
+msgstr "Radhöjd"
+
+#: incl/block-settings-main.php:539 incl/block-settings-main.php:924
+#: incl/block-settings-main.php:1866
+msgid "Icon Size"
+msgstr "Ikonstorlek"
+
+#: incl/block-settings-main.php:534
+msgid "Icon color"
+msgstr "Ikonfärg"
+
+#: incl/block-settings-main.php:528
+msgid "Circle"
+msgstr "Cirkel"
+
+#: incl/block-settings-main.php:524
+msgid "Info"
+msgstr "Info"
+
+#: incl/block-settings-main.php:520
+msgid "Help"
+msgstr "Hjälp"
+
+#: incl/block-settings-main.php:516
+msgid "Warning"
+msgstr "Varning"
+
+#: incl/block-settings-main.php:512
+msgid "X Cross"
+msgstr "X kors"
+
+#: incl/block-settings-main.php:508
+msgid "Arrow Right"
+msgstr "Pil höger"
+
+#: incl/block-settings-main.php:504
+msgid "Play"
+msgstr "Spela upp"
+
+#: incl/block-settings-main.php:496
+msgid "Minus"
+msgstr "Minus"
+
+#: incl/block-settings-main.php:492
+msgid "Checkmark"
+msgstr "Kryssmarkering"
+
+#: incl/block-settings-main.php:488
+msgid "Star"
+msgstr "Stjärna"
+
+#: incl/block-settings-main.php:484
+msgid "Flag"
+msgstr "Flagga"
+
+#: incl/block-settings-main.php:476
+msgid "Pushpin"
+msgstr "Knappnål"
+
+#: incl/block-settings-main.php:342 incl/block-settings-main.php:472
+#: incl/block-settings-main.php:1549 incl/block-settings-main.php:1588
+#: incl/block-settings-main.php:1721
+msgid "None"
+msgstr "Ingen"
+
+#: incl/block-settings-main.php:467
+msgid "Icon style"
+msgstr "Ikonstil"
+
+#: incl/block-settings-main.php:464 incl/block-settings-main.php:1858
+msgid "Icon Settings"
+msgstr "Ikoninställningar"
+
+#: incl/block-settings-main.php:452 incl/block-settings-main.php:1118
+#: incl/block-settings-main.php:2066
+msgid "Text Settings"
+msgstr "Textinställningar"
+
+#: incl/block-settings-main.php:442 incl/block-settings-main.php:920
+#: incl/block-settings-main.php:966 incl/block-settings-main.php:1280
+#: incl/block-settings-main.php:1531 incl/block-settings-main.php:1776
+msgid "Right"
+msgstr "Höger"
+
+#: incl/block-settings-main.php:434 incl/block-settings-main.php:918
+#: incl/block-settings-main.php:964 incl/block-settings-main.php:1276
+#: incl/block-settings-main.php:1523 incl/block-settings-main.php:1768
+msgid "Left"
+msgstr "Vänster"
+
+#: incl/block-settings-main.php:423 incl/block-settings-main.php:1512
+#: incl/block-settings-main.php:1645 incl/pages/settings/images.php:60
+msgid "Bottom"
+msgstr "Botten"
+
+#: incl/block-settings-main.php:419 incl/block-settings-main.php:438
+#: incl/block-settings-main.php:919 incl/block-settings-main.php:965
+#: incl/block-settings-main.php:1272 incl/block-settings-main.php:1508
+#: incl/block-settings-main.php:1527 incl/block-settings-main.php:1772
+msgid "Center"
+msgstr "Centrerat"
+
+#: incl/block-settings-main.php:415 incl/block-settings-main.php:1504
+#: incl/block-settings-main.php:1637
+msgid "Top"
+msgstr "Toppen"
+
+#: incl/block-settings-main.php:410 incl/block-settings-main.php:1499
+msgid "Vertical Alignment"
+msgstr "Vertikal justering"
+
+#: incl/block-settings-main.php:407 incl/block-settings-main.php:1496
+msgid "Text Alignment"
+msgstr "Textjustering"
+
+#: incl/block-settings-main.php:400
+msgid "Overlay Color"
+msgstr "Överläggfärg"
+
+#: incl/block-settings-main.php:395
+msgid "Subtitle Color"
+msgstr "Underrubrikens färg"
+
+#: incl/block-settings-main.php:390 incl/block-settings-main.php:1484
+#: incl/block-settings-main.php:1958
+msgid "Title Color"
+msgstr "Rubrikfärg"
+
+#: incl/block-settings-main.php:387 incl/block-settings-main.php:2069
+msgid "Color"
+msgstr "Färg"
+
+#: incl/block-settings-main.php:378 incl/block-settings-main.php:1455
+msgid "Width"
+msgstr "Bredd"
+
+#: incl/block-settings-main.php:371 incl/block-settings-main.php:749
+#: incl/block-settings-main.php:1462
+msgid "Height"
+msgstr "Höjd"
+
+#: incl/block-settings-main.php:366 incl/block-settings-main.php:593
+#: incl/block-settings-main.php:1445 incl/pages/settings/general.php:143
+msgid "Full width"
+msgstr "Full bredd"
+
+#: incl/block-settings-main.php:363
+msgid "Image Size"
+msgstr "Bildstorlek"
+
+#: incl/block-settings-main.php:323
+msgid "Transition Speed"
+msgstr "Övergångshastighet"
+
+#: incl/block-settings-main.php:316
+msgid "Shadow Spread"
+msgstr "Skuggspridning"
+
+#: incl/block-settings-main.php:302
+msgid "Shadow V Offset"
+msgstr "Skugga förskjutning i Y-led"
+
+#: incl/block-settings-main.php:295
+msgid "Shadow H Offset"
+msgstr "Skugga förskjutning i X-led"
+
+#: incl/block-settings-main.php:290
+msgid "Shadow Color"
+msgstr "Skuggfärg"
+
+#: incl/block-settings-main.php:277
+msgid "Hover Settings"
+msgstr "Mus hover"
+
+#: incl/block-settings-main.php:268 incl/block-settings-main.php:1842
+#: incl/block-settings-main.php:1911 incl/block-settings-main.php:2022
+#: incl/block-settings-main.php:2102
+msgid "Padding Left"
+msgstr "Padding vänster"
+
+#: incl/block-settings-main.php:261 incl/block-settings-main.php:1835
+#: incl/block-settings-main.php:1904 incl/block-settings-main.php:2015
+#: incl/block-settings-main.php:2095
+msgid "Padding Bottom"
+msgstr "Padding botten"
+
+#: incl/block-settings-main.php:254 incl/block-settings-main.php:1849
+#: incl/block-settings-main.php:1918 incl/block-settings-main.php:2029
+#: incl/block-settings-main.php:2109
+msgid "Padding Right"
+msgstr "Padding höger"
+
+#: incl/block-settings-main.php:247 incl/block-settings-main.php:1828
+#: incl/block-settings-main.php:1897 incl/block-settings-main.php:2008
+#: incl/block-settings-main.php:2088
+msgid "Padding Top"
+msgstr "Padding top"
+
+#: incl/block-settings-main.php:149 incl/block-settings-main.php:455
+msgid "Text Size"
+msgstr "Textstorlek"
+
+#: incl/block-settings-main.php:146
+msgid "Text and Color"
+msgstr "Text och färg"
+
+#: incl/block-settings-main.php:135 incl/block-settings-main.php:202
+#: incl/block-settings-main.php:1059 incl/block-settings-main.php:1238
+#: incl/block-settings-main.php:1260 incl/block-settings-main.php:1394
+#: incl/block-settings-main.php:1416 incl/block-settings-main.php:1751
+#: incl/block-settings-main.php:1821 incl/block-settings-main.php:1890
+msgid "Border Radius"
+msgstr "Ramradie"
+
+#: incl/block-settings-main.php:128 incl/block-settings-main.php:195
+#: incl/block-settings-main.php:1052 incl/block-settings-main.php:1102
+#: incl/block-settings-main.php:1744 incl/block-settings-main.php:1814
+#: incl/block-settings-main.php:1883
+msgid "Border Width"
+msgstr "Rambredd"
+
+#: incl/block-settings-main.php:123 incl/block-settings-main.php:190
+#: incl/block-settings-main.php:1047 incl/block-settings-main.php:1090
+#: incl/block-settings-main.php:1214 incl/block-settings-main.php:1370
+#: incl/block-settings-main.php:1739 incl/block-settings-main.php:1809
+#: incl/block-settings-main.php:1878
+msgid "Border Color"
+msgstr "Ramfärg"
+
+#: incl/block-settings-main.php:117 incl/block-settings-main.php:184
+#: incl/block-settings-main.php:1043 incl/block-settings-main.php:1232
+#: incl/block-settings-main.php:1388 incl/block-settings-main.php:1729
+msgid "Dotted"
+msgstr "Prickad"
+
+#: incl/block-settings-main.php:113 incl/block-settings-main.php:180
+#: incl/block-settings-main.php:1042 incl/block-settings-main.php:1228
+#: incl/block-settings-main.php:1384 incl/block-settings-main.php:1733
+msgid "Dashed"
+msgstr "Streckad"
+
+#: incl/block-settings-main.php:109 incl/block-settings-main.php:176
+#: incl/block-settings-main.php:1041 incl/block-settings-main.php:1224
+#: incl/block-settings-main.php:1380 incl/block-settings-main.php:1725
+msgid "Solid"
+msgstr "Solid"
+
+#: incl/block-settings-main.php:104 incl/block-settings-main.php:171
+#: incl/block-settings-main.php:1037 incl/block-settings-main.php:1219
+#: incl/block-settings-main.php:1375
+msgid "Border Style"
+msgstr "Kantstil"
+
+#: incl/block-settings-main.php:101 incl/block-settings-main.php:168
+#: incl/block-settings-main.php:1034 incl/block-settings-main.php:1211
+#: incl/block-settings-main.php:1367 incl/block-settings-main.php:1713
+msgid "Border Settings"
+msgstr "Kantinställningar"
+
+#: incl/block-settings-main.php:73
+msgid "Arrow Down"
+msgstr "Pil ned"
+
+#: incl/block-settings-main.php:49 incl/block-settings-main.php:500
+msgid "Plus"
+msgstr "Plus"
+
+#: incl/block-settings-main.php:44
+msgid "Header Icon"
+msgstr "Sidhuvudsikon"
+
+#: incl/block-settings-main.php:39 incl/block-settings-main.php:94
+#: incl/block-settings-main.php:156 incl/block-settings-main.php:280
+#: incl/block-settings-main.php:997 incl/block-settings-main.php:1012
+#: incl/block-settings-main.php:1027 incl/block-settings-main.php:1204
+#: incl/block-settings-main.php:1360 incl/block-settings-main.php:1489
+msgid "Text Color"
+msgstr "Textfärg"
+
+#: incl/block-settings-main.php:34 incl/block-settings-main.php:89
+#: incl/block-settings-main.php:161 incl/block-settings-main.php:285
+#: incl/block-settings-main.php:992 incl/block-settings-main.php:1007
+#: incl/block-settings-main.php:1022 incl/block-settings-main.php:1085
+#: incl/block-settings-main.php:1199 incl/block-settings-main.php:1255
+#: incl/block-settings-main.php:1355 incl/block-settings-main.php:1411
+#: incl/block-settings-main.php:1804 incl/block-settings-main.php:1873
+msgid "Background Color"
+msgstr "Bakgrundsfärg"
+
+#: incl/block-settings-main.php:31
+msgid "Header Settings"
+msgstr "Inställningar för sidhuvud"
+
+#: incl/advanced-gutenberg-main.php:3570 incl/advanced-gutenberg-main.php:3571
+msgid "Block Config"
+msgstr "Block konfiguration"
+
+#: incl/advanced-gutenberg-main.php:1121 incl/advanced-gutenberg-main.php:1249
+#: incl/advanced-gutenberg-main.php:1303 incl/advanced-gutenberg-main.php:1362
+#: incl/advanced-gutenberg-main.php:1453
+msgid "Invalid nonce token!"
+msgstr "Ogiltig engångskod!"
+
+#: incl/advanced-gutenberg-main.php:1114 incl/advanced-gutenberg-main.php:1238
+#: incl/advanced-gutenberg-main.php:1297
+msgid "No permission!"
+msgstr "Ingen behörighet!"
+
+#: incl/pages/settings/general.php:57
+msgid "Enable blocks spacing"
+msgstr "Aktivera blockavstånd"
+
+#: incl/pages/settings/general.php:79
+msgid "Blocks spacing"
+msgstr "Avstånd mellan blocken"
+
+#: incl/pages/settings/maps.php:31
+msgid "How to create a Google API Key"
+msgstr "Så skapar du en Google API-nyckel"
+
+#: incl/pages/settings/maps.php:15
+msgid "Google API key"
+msgstr "Google API-nyckel"
+
+#: install.php:35
+msgid "Please update Gutenberg then comeback later!"
+msgstr "Uppdatera Gutenberg och kom tillbaka senare!"
+
+#: install.php:33
+msgid "We require at least Gutenberg version "
+msgstr "Kräver Gutenberg med lägst version "
+
+#: incl/pages/custom-styles.php:105
+msgid "Save styles"
+msgstr "Spara stilmallar"
+
+#: incl/pages/custom-styles.php:92
+msgid "Hint: Use \"Ctrl + Space\" for auto completion"
+msgstr "Tips: Använd ”CTRL + Space” för automatisk komplettering"
+
+#: incl/pages/custom-styles.php:86
+msgid "Custom CSS"
+msgstr "Anpassad CSS"
+
+#: incl/pages/custom-styles.php:72
+msgid "Identification color"
+msgstr "Identifikationsfarve"
+
+#: incl/pages/custom-styles.php:66
+msgid ""
+"This option help you identify specific custom styles in the list\n"
+"                                            (usually set this same as the custom style's background color)"
+msgstr ""
+"Det här alternativet hjälper dig att identifiera specifika anpassade stilar i listan.\n"
+"                                            (vanligtvis ställs detta in på samma sätt som den anpassade stilens bakgrundsfärg)."
+
+#: incl/pages/settings/images.php:47
+msgid "Image caption"
+msgstr "Bildtext"
+
+#: incl/pages/settings/images.php:25
+msgid "Open galleries in lightbox"
+msgstr "Öppna gallerier i en lightbox"
+
+#: incl/pages/settings/images.php:36
+msgid "Open gallery images as a lightbox style popup"
+msgstr "Öppna galleribilder som popup-fönster i form av ljuslådor"
+
+#: incl/block-settings-main.php:480
+msgid "Configuration"
+msgstr "Konfiguration"
+
+#: incl/pages/block-controls.php:18 incl/pages/settings.php:15
+msgid "Settings saved successfully!"
+msgstr "Inställningarna har sparats!"
+
+#: incl/pages/block-settings/block-config.php:14
+#: incl/pages/block-settings/block-config.php:30
+msgid "Save"
+msgstr "Spara"
+
+#: incl/advanced-gutenberg-main.php:1424 incl/block-settings-main.php:801
+#: incl/block-settings-main.php:842 incl/block-settings-main.php:883
+msgid "Email"
+msgstr "E-post"
+
+#: incl/advanced-gutenberg-main.php:1422
+msgid "Name"
+msgstr "Namn"

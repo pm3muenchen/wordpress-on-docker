@@ -10,7 +10,7 @@ use Elementor\Controls_Manager;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Typography;
-use Elementor\Scheme_Typography;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 
 defined( 'ABSPATH' ) || die();
 
@@ -44,7 +44,11 @@ class Fluent_Form extends Base {
         return [ 'fluent-form', 'form', 'contact', 'contact form' ];
     }
 
+	/**
+     * Register widget content controls
+     */
 	protected function register_content_controls() {
+
 		$this->start_controls_section(
 			'_section_fluent_form',
 			[
@@ -54,6 +58,7 @@ class Fluent_Form extends Base {
 		);
 
         if ( ! ha_is_fluent_form_activated() ) {
+
             $this->add_control(
                 '_fluent_form_missing_notice',
                 [
@@ -75,24 +80,36 @@ class Fluent_Form extends Base {
                     'raw' => '<a href="'.esc_url( admin_url( 'plugin-install.php?s=fluentform+7&tab=search&type=term' ) ).'" target="_blank" rel="noopener">Click to install or activate Fluent Form</a>',
                 ]
             );
-            $this->end_controls_section();
-            return;
-        }
 
-        $this->add_control(
-            'form_id',
-            [
-                'label' => __( 'Select Your Form', 'happy-elementor-addons' ),
-                'type' => Controls_Manager::SELECT,
-                'label_block' => true,
-                'options' => ['' => __( 'Select a Form', 'happy-elementor-addons' ) ] + \ha_get_fluent_forms(),
-            ]
-        );
+        }else{
+
+			$this->add_control(
+				'form_id',
+				[
+					'label' => __( 'Select Your Form', 'happy-elementor-addons' ),
+					'type' => Controls_Manager::SELECT,
+					'label_block' => true,
+					'options' => ['' => __( 'Select a Form', 'happy-elementor-addons' ) ] + \ha_get_fluent_forms(),
+				]
+			);
+
+		}
 
         $this->end_controls_section();
     }
 
+	/**
+     * Register widget style controls
+     */
     protected function register_style_controls() {
+		$this->__fields_style_controls();
+		$this->__fields_label_style_controls();
+		$this->__submit_btn_style_controls();
+		$this->__break_style_controls();
+	}
+
+    protected function __fields_style_controls() {
+
         $this->start_controls_section(
             '_section_fields_style',
             [
@@ -157,7 +174,9 @@ class Fluent_Form extends Base {
                 'name' => 'field_typography',
                 'label' => __( 'Typography', 'happy-elementor-addons' ),
                 'selector' => '{{WRAPPER}} .ff-el-form-control',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_3
+                'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_TEXT,
+				],
             ]
         );
 
@@ -264,7 +283,9 @@ class Fluent_Form extends Base {
 		$this->end_controls_tabs();
 
 		$this->end_controls_section();
+	}
 
+    protected function __fields_label_style_controls() {
 
         $this->start_controls_section(
             'form-label',
@@ -306,7 +327,9 @@ class Fluent_Form extends Base {
                 'name' => 'label_typography',
                 'label' => __( 'Typography', 'happy-elementor-addons' ),
                 'selector' => '{{WRAPPER}} .ff-el-input--label label',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_3
+                'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_TEXT,
+				],
             ]
         );
 
@@ -390,7 +413,9 @@ class Fluent_Form extends Base {
 				'name' => 'help_text_typography',
 				'label' => __( 'Typography', 'happy-elementor-addons' ),
 				'selector' => '{{WRAPPER}} .ff-el-tooltip:before',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_4,
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 			]
 		);
 
@@ -439,6 +464,9 @@ class Fluent_Form extends Base {
 		);
 
         $this->end_controls_section();
+	}
+
+    protected function __submit_btn_style_controls() {
 
         $this->start_controls_section(
             'submit',
@@ -477,7 +505,9 @@ class Fluent_Form extends Base {
             [
                 'name' => 'submit_typography',
                 'selector' => '{{WRAPPER}} .ff-btn-submit',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_4
+                'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
             ]
         );
 
@@ -595,6 +625,9 @@ class Fluent_Form extends Base {
         $this->end_controls_tabs();
 
         $this->end_controls_section();
+	}
+
+    protected function __break_style_controls() {
 
 		$this->start_controls_section(
 			'_break',
@@ -618,7 +651,9 @@ class Fluent_Form extends Base {
 				'name' => 'section_break_title_typography',
 				'label' => __( 'Title Typography', 'happy-elementor-addons' ),
 				'selector' => '{{WRAPPER}} .ff-el-section-break .ff-el-section-title',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_3
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_TEXT,
+				],
 			]
 		);
 
@@ -628,7 +663,9 @@ class Fluent_Form extends Base {
 				'name' => 'section_break_description_typography',
 				'label' => __( 'Description Typography', 'happy-elementor-addons' ),
 				'selector' => '{{WRAPPER}} .ff-el-section-break .ff-section_break_desk',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_4
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 			]
 		);
 
@@ -674,10 +711,13 @@ class Fluent_Form extends Base {
 
 		$this->end_controls_tab();
 		$this->end_controls_tabs();
+
+		$this->end_controls_section();
     }
 
     protected function render() {
         if ( ! ha_is_fluent_form_activated() ) {
+			ha_show_plugin_missing_alert(__( 'Fluent Form', 'happy-elementor-addons' ) );
             return;
         }
 

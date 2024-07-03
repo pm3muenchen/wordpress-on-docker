@@ -46,14 +46,15 @@ if ( ! function_exists( 'stackable_register_show_pro_notice_option' ) ) {
 			'stackable_show_pro_notices',
 			array(
 				'type' => 'string',
-				'description' => __( 'Hide "Go Premium" notices', 'block-options' ),
+				'description' => __( 'Hide "Go Premium" notices', STACKABLE_I18N ),
 				'sanitize_callback' => 'sanitize_text_field',
 				'show_in_rest' => true,
-				'default' => '',
+				'default' => '1',
 			)
 		);
 	}
-	add_action( 'init', 'stackable_register_show_pro_notice_option' );
+	add_action( 'admin_init', 'stackable_register_show_pro_notice_option' );
+	add_action( 'rest_api_init', 'stackable_register_show_pro_notice_option' );
 }
 
 if ( ! function_exists( 'stackable_should_show_pro_notices' ) ) {
@@ -64,7 +65,7 @@ if ( ! function_exists( 'stackable_should_show_pro_notices' ) ) {
 	 * @return Boolean
 	 */
 	function stackable_should_show_pro_notices() {
-		return STACKABLE_SHOW_PRO_NOTICES && stackable_show_pro_notices_option() && ! sugb_fs()->can_use_premium_code();
+		return STACKABLE_SHOW_PRO_NOTICES && stackable_show_pro_notices_option() && ( ! sugb_fs()->can_use_premium_code() || STACKABLE_BUILD === 'free' );
 	}
 }
 
@@ -97,7 +98,7 @@ if ( ! class_exists( 'Stackable_Go_Premium_Notification' ) ) {
          */
         public function check_pro_notice_date() {
             if ( get_option( 'stackable_pro_notice_start_date' ) === false ) {
-                update_option( 'stackable_pro_notice_start_date', time() );
+                update_option( 'stackable_pro_notice_start_date', time(), 'no' );
             }
 
             $activation_time = get_option( 'stackable_pro_notice_start_date' );
@@ -131,7 +132,7 @@ if ( ! class_exists( 'Stackable_Go_Premium_Notification' ) ) {
 		public function show_notification() {
 			stackable_add_welcome_notification( 'premium', sprintf( __( 'We hope you\'re enjoying Stackable. If you want more, you may want to check out %sStackable Premium%s. Ready to upgrade and do more? %sGo premium now%s', STACKABLE_I18N ),
 				'<a href="https://wpstackable.com/premium/?utm_source=wp-settings-notification&utm_campaign=gopremium&utm_medium=wp-dashboard" target="_blank">', '</a>',
-				'<a href="' . esc_url( sugb_fs()->get_upgrade_url() ) . '">', '</a>'
+				'<a href="https://wpstackable.com/premium/?utm_source=wp-settings-notification&utm_campaign=gopremium&utm_medium=wp-dashboard">', '</a>'
 			) );
 		}
     }

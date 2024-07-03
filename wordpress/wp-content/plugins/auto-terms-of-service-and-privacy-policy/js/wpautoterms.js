@@ -128,5 +128,19 @@ wpAutoTermsDomReady(function ($) {
         $(".wpautoterms-notice-close").off("click", handleClose).on("click", handleClose);
     }
 
+    function closeCookieNotice() {
+        if (typeof wpautoterms_js_cookies_notice === "undefined") {
+            return;
+        }
+        if (!wpautoterms_js_cookies_notice.disable && getCookie(wpautoterms_js_cookies_notice.cookie_name) != 1) {
+            var entries = document.querySelectorAll("." + wpautoterms_js_cookies_notice.class);
+            for (var k = 0; k < entries.length; ++k) {
+                var el = entries[k];
+                el.style.display = null;
+            }
+        }
+    }
+
     bindClose();
+    closeCookieNotice();
 });

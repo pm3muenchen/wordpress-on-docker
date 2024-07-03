@@ -39,11 +39,11 @@ We strongly advise you to read the terms and conditions and privacy policies of 
 <?php if($terminate_access == 'Yes') { ?>
 <h2>Termination</h2>
 
+<?php if($user_accounts != 'Yes') { ?>
 We may terminate or suspend access to our Service immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the Terms.
 
 All provisions of the Terms which by their nature should survive termination shall survive termination, including, without limitation, ownership provisions, warranty disclaimers, indemnity and limitations of liability.
-
-<?php if($user_accounts == 'Yes') { ?>
+<?php } elseif($user_accounts == 'Yes') { ?>
 We may terminate or suspend your account immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the Terms.
 
 Upon termination, your right to use the Service will immediately cease. If you wish to terminate your account, you may simply discontinue using the Service.

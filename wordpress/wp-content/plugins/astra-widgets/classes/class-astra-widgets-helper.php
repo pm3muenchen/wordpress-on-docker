@@ -55,6 +55,75 @@ if ( ! class_exists( 'Astra_Widgets_Helper' ) ) :
 		 */
 		public function __construct() {
 			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
+			add_filter( 'customize_save_response', array( $this, 'update_customize_save_response' ), 10, 2 );
+		}
+
+		/**
+		 * Called by the customize_save_after action to refresh
+		 * the cached CSS when Customizer settings are saved.
+		 *
+		 * @param array                $response Additional information passed back to the 'saved' event on `wp.customize`.
+		 * @param WP_Customize_Manager $instance WP_Customize_Manager instance.
+		 *
+		 * @since 1.2.12
+		 * @return array
+		 */
+		public function update_customize_save_response( $response, $instance ) {
+			if ( $this->is_widget_block_editor() && ! empty( $response['setting_validities'] ) ) {
+
+				$astra_widgets_data_keys = array_keys( $response['setting_validities'] );
+				$astra_widgets_data      = array(
+					'widget_astra-widget-social-profiles' => array(),
+					'widget_astra-widget-list-icons'      => array(),
+				);
+				foreach ( $astra_widgets_data_keys as $value ) {
+					if ( strpos( $value, 'widget_astra-widget-' ) !== false ) {
+						$key            = substr_replace( $value, '', -1 );
+						$separated_data = explode( '[', $key );
+
+						if ( 'widget_astra-widget-list-icons' === $separated_data[0] ) {
+							$astra_widgets_data['widget_astra-widget-list-icons'][] = absint( $separated_data[1] );
+						} elseif ( 'widget_astra-widget-social-profiles' === $separated_data[0] ) {
+							$astra_widgets_data['widget_astra-widget-social-profiles'][] = absint( $separated_data[1] );
+						}
+					}
+				}
+
+				$this->update_widget_id_data( $astra_widgets_data );
+			}
+
+			return $response;
+		}
+
+		/**
+		 * Fragment out customizer saved Astra widgets.
+		 *
+		 * @param array $astra_widgets_data Astra widgets saved customizer data.
+		 *
+		 * @since 1.2.12
+		 * @return void
+		 */
+		public function update_widget_id_data( $astra_widgets_data ) {
+
+			if ( ! empty( $astra_widgets_data['widget_astra-widget-social-profiles'] ) ) {
+				$social_profiles_db_data = get_option( 'widget_astra-widget-social-profiles' );
+
+				foreach ( $astra_widgets_data['widget_astra-widget-social-profiles'] as $key ) {
+					if ( $social_profiles_db_data[ $key ]['widget_unique_id'] !== $key ) {
+						$social_profiles_db_data[ $key ]['widget_unique_id'] = $key;
+						update_option( 'widget_astra-widget-social-profiles', $social_profiles_db_data );
+					}
+				}
+			}
+			if ( ! empty( $astra_widgets_data['widget_astra-widget-list-icons'] ) ) {
+				$list_icon_db_data = get_option( 'widget_astra-widget-list-icons' );
+				foreach ( $astra_widgets_data['widget_astra-widget-list-icons'] as $key ) {
+					if ( $list_icon_db_data[ $key ]['widget_unique_id'] !== $key ) {
+						$list_icon_db_data[ $key ]['widget_unique_id'] = $key;
+						update_option( 'widget_astra-widget-list-icons', $list_icon_db_data );
+					}
+				}
+			}
 		}
 
 		/**
@@ -364,9 +433,10 @@ if ( ! class_exists( 'Astra_Widgets_Helper' ) ) :
 		 * @param  object $self        Widget object.
 		 * @param  array  $fields      Fields array.
 		 * @param  string $repeater_id Repeater ID.
+		 * @param  array  $instance_data Widget saved data.
 		 * @return void
 		 */
-		public function generate( $self, $fields = array(), $repeater_id = '' ) {
+		public function generate( $self, $fields = array(), $repeater_id = '', $instance_data = array() ) {
 
 			$defaults = array(
 				'type'    => '',
@@ -402,7 +472,7 @@ if ( ! class_exists( 'Astra_Widgets_Helper' ) ) :
 										<?php } ?>
 
 										<div class="astra-widget-icon-selector-actions">
-											<div class="astra-select-icon button"> 
+											<div class="astra-select-icon button">
 													<div class="astra-selected-icon">
 													<?php if ( ! empty( $decoded_icon_data->viewbox ) && ! empty( $decoded_icon_data->path ) ) { ?>
 														<svg xmlns="http://www.w3.org/2000/svg" viewBox="<?php echo ( isset( $decoded_icon_data->viewbox ) ) ? esc_attr( $decoded_icon_data->viewbox ) : ''; ?>"><path d="<?php echo ( isset( $decoded_icon_data->path ) ) ? esc_attr( $decoded_icon_data->path ) : ''; ?>"></path></svg>
@@ -438,7 +508,7 @@ if ( ! class_exists( 'Astra_Widgets_Helper' ) ) :
 							?>
 									<div class="astra-widget-field astra-widget-field-checkbox">
 										<input class="checkbox" type="checkbox"
-											<?php checked( $value['default'] ); ?>	
+											<?php checked( $value['default'] ); ?>
 											name="<?php echo esc_attr( $self->get_field_name( $value['id'] ) ); ?>" />
 										<label for="<?php echo esc_attr( $self->get_field_id( $value['id'] ) ); ?>"><?php echo esc_html( $value['name'] ); ?></label>
 									</div>
@@ -450,7 +520,7 @@ if ( ! class_exists( 'Astra_Widgets_Helper' ) ) :
 									<div class="astra-repeater-container">
 										<div class="astra-repeater-sortable">
 											<?php
-											$this->generate_repeater_fields( $self, $fields, $value );
+											$this->generate_repeater_fields( $self, $fields, $value, $instance_data );
 											?>
 										</div>
 									</div>
@@ -481,7 +551,7 @@ if ( ! class_exists( 'Astra_Widgets_Helper' ) ) :
 											<label for="<?php echo esc_attr( $field_id ); ?>">
 												<?php echo esc_html( $value['name'] ); ?>
 											</label>
-											<input class="widefat" type="text"	
+											<input class="widefat" type="text"
 												name="<?php echo esc_attr( $field_name ); ?>"
 												value="<?php echo esc_attr( $value['default'] ); ?>"
 												data-field-id="<?php echo esc_attr( $value['id'] ); ?>"
@@ -524,7 +594,7 @@ if ( ! class_exists( 'Astra_Widgets_Helper' ) ) :
 													<?php } ?>
 												</div>
 												<input
-													class="astra-field-image-preview-id"	
+													class="astra-field-image-preview-id"
 													name="<?php echo esc_attr( $field_name ); ?>"
 													type="hidden"
 													value="<?php echo esc_attr( $value['default'] ); ?>"
@@ -577,14 +647,14 @@ if ( ! class_exists( 'Astra_Widgets_Helper' ) ) :
 							break;
 						case 'hidden':
 							?>
-										<input class="<?php echo esc_attr( $class ); ?> widefat" type="hidden"  name="<?php echo esc_attr( $self->get_field_name( $value['id'] ) ); ?>" value="<?php echo esc_attr( $value['default'] ); ?>"/>
-									<?php
+								<input class="widefat" type="hidden" name="<?php echo esc_attr( $self->get_field_name( $value['id'] ) ); ?>" value="<?php echo esc_attr( $value['default'] ); ?>"/>
+							<?php
 							break;
 						case 'color':
 							?>
 
 									<div class="astra-widget-field astra-widget-field-color astra-widget-field-<?php echo esc_attr( $value['id'] ); ?>">
-										<div class="astra-widget-field-<?php echo esc_attr( $value['id'] ); ?>">
+										<div class="astra-widget-color astra-widget-field-<?php echo esc_attr( $value['id'] ); ?>">
 											<label for="<?php echo esc_attr( $self->get_field_id( $value['id'] ) ); ?>"><?php echo esc_html( $value['name'] ); ?></label>
 											<input class="<?php echo esc_attr( $class ); ?> widefat" type="text" name="<?php echo esc_attr( $self->get_field_name( $value['id'] ) ); ?>" value="<?php echo esc_attr( $value['default'] ); ?>"/>
 										</div>
@@ -624,7 +694,7 @@ if ( ! class_exists( 'Astra_Widgets_Helper' ) ) :
 
 						case 'number':
 							?>
-										<div class="astra-widget-field astra-widget-field-number astra-widget-field-<?php echo esc_attr( $value['id'] ); ?> <?php echo esc_attr( $class ); ?> <?php echo isset( $value['unit'] ) ? 'astra-widgets-number-unit' : ''; ?> <?php echo( isset( $value['unit'] ) ) ? ' astra-widget-unit-field' : ''; ?>"> 
+										<div class="astra-widget-field astra-widget-field-number astra-widget-field-<?php echo esc_attr( $value['id'] ); ?> <?php echo esc_attr( $class ); ?> <?php echo isset( $value['unit'] ) ? 'astra-widgets-number-unit' : ''; ?> <?php echo( isset( $value['unit'] ) ) ? ' astra-widget-unit-field' : ''; ?>">
 											<label for="<?php echo esc_attr( $self->get_field_id( $value['id'] ) ); ?>"><?php echo esc_html( $value['name'] ); ?></label>
 											<input class="widefat" type="number" name="<?php echo esc_attr( $self->get_field_name( $value['id'] ) ); ?>" value="<?php echo esc_attr( $value['default'] ); ?>"/><span class="astra-widgets-unit"> <?php echo ( isset( $value['unit'] ) ) ? esc_html( $value['unit'] ) : ''; ?> </span>
 										</div>
@@ -636,9 +706,31 @@ if ( ! class_exists( 'Astra_Widgets_Helper' ) ) :
 								<hr />
 							<?php
 							break;
+						case 'notice':
+							if ( true === $value['show_if'] ) {
+								?>
+									<p class="astra-widget-field astra-widget-field-notice notice inline notice-warning notice-alt">
+										<?php echo wp_kses_post( $value['desc'] ); ?>
+									</p>
+								<?php
+							}
+							break;
 					}
 				}
 			}
+		}
+
+		/**
+		 * Check if block editor is active or not.
+		 *
+		 * @return boolean true|false
+		 * @since 1.2.10
+		 */
+		public function is_widget_block_editor() {
+			if ( current_theme_supports( 'widgets-block-editor' ) ) {
+				return true;
+			}
+			return false;
 		}
 
 		/**
@@ -647,14 +739,20 @@ if ( ! class_exists( 'Astra_Widgets_Helper' ) ) :
 		 * @param  object $self   Widget object.
 		 * @param  array  $fields  Fields array.
 		 * @param  array  $value   Default value.
+		 * @param  array  $instance_data   Widget data.
 		 * @return void
 		 */
-		public function generate_repeater_fields( $self, $fields, $value ) {
+		public function generate_repeater_fields( $self, $fields, $value, $instance_data ) {
 			$instances = $self->get_settings();
+			$widget_id = $self->number;
 
-			if ( array_key_exists( $self->number, $instances ) ) {
-				$instance = $instances[ $self->number ];
+			// Getting widget ID from their saved meta option and assigned it for further rendering.
+			if ( $this->is_widget_block_editor() && ( isset( $instance_data['widget_unique_id'] ) && 1 !== $instance_data['widget_unique_id'] ) ) {
+				$widget_id = $instance_data['widget_unique_id'];
+			}
 
+			if ( array_key_exists( $widget_id, $instances ) ) {
+				$instance = $instances[ $widget_id ];
 				if ( array_key_exists( $value['id'], $instance ) ) {
 					$stored           = $instance[ $value['id'] ];
 					$repeater_options = $value['options'];
@@ -691,7 +789,6 @@ if ( ! class_exists( 'Astra_Widgets_Helper' ) ) :
 				}
 			}
 		}
-
 	}
 
 	/**
@@ -713,11 +810,12 @@ if ( ! function_exists( 'astra_generate_widget_fields' ) ) :
 	 *
 	 * @param  object $self        Widget object.
 	 * @param  array  $fields      Fields array.
+	 * @param  array  $instance_data Widget saved data array.
 	 * @param  string $repeater_id Repeater ID.
 	 * @return void
 	 */
-	function astra_generate_widget_fields( $self, $fields = array(), $repeater_id = '' ) {
-		Astra_Widgets_Helper::get_instance()->generate( $self, $fields, $repeater_id );
+	function astra_generate_widget_fields( $self, $fields = array(), $instance_data = array(), $repeater_id = '' ) {
+		Astra_Widgets_Helper::get_instance()->generate( $self, $fields, $repeater_id, $instance_data );
 	}
 endif;
 

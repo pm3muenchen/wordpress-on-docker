@@ -2,6 +2,7 @@
 /**
  * Server-side rendering for the post grid block
  */
+require_once dirname(dirname(dirname(__DIR__))) . '/includes/ultimate-blocks-styles-css-generator.php';
 
 function ub_query_post( $attributes ){
 
@@ -13,8 +14,12 @@ function ub_query_post( $attributes ){
      */
     global $post;
 
-    $categories = isset($attributes['categories']) && $attributes['categories'] != '' ? $attributes['categories'] :
-                    (isset($attributes['categoryArray']) ? join(',',array_map(function($c){return $c['id'];}, $attributes['categoryArray'])) : '');
+    $includedCategories = isset($attributes['categories']) && $attributes['categories'] != '' ? $attributes['categories'] :
+                    (isset($attributes['categoryArray']) ?
+                        join(',',array_map(function($c){return $c['id'];}, $attributes['categoryArray'])) : '');
+
+    $excludedCategories = isset($attributes['excludedCategories']) ?
+                join(',',array_map(function($c){return $c['id'];}, $attributes['excludedCategories'])) : '';
 
     /* Setup the query */
     $post_query = new WP_Query(
@@ -23,11 +28,14 @@ function ub_query_post( $attributes ){
             'post_status' => 'publish',
             'order' => $attributes['order'],
             'orderby' => $attributes['orderBy'],
-            'cat' => $categories,
+            'cat' => $includedCategories,
+            'category__not_in' => $excludedCategories,
             'offset' => $attributes['offset'],
             'post_type' => 'post',
             'ignore_sticky_posts' => 1,
-            'post__not_in' => array($post->ID), // Exclude the current post from the grid.
+            'post__not_in' => array(absint($post->ID)), // Exclude the current post from the grid.
+            'tag__in' => $attributes['tagArray'],
+            'author__in' => $attributes['authorArray']
         )
     );
 
@@ -35,7 +43,7 @@ function ub_query_post( $attributes ){
 
 }
 
-function ub_render_post_grid_block( $attributes ){
+function ub_render_post_grid_block( $attributes, $content, $block ){
 
     /* get posts */
 
@@ -101,6 +109,10 @@ function ub_render_post_grid_block( $attributes ){
                 if ( isset( $attributes['postTitleTag'] ) ) {
                     $post_title_tag = $attributes['postTitleTag'];
                 } else {
+                    $post_title_tag = 'h2';
+                }
+
+                if (!in_array($post_title_tag, ['h2', 'h3', 'h4'])) {
                     $post_title_tag = 'h2';
                 }
 
@@ -171,7 +183,7 @@ function ub_render_post_grid_block( $attributes ){
             }
 
             if ( isset( $attributes['checkPostExcerpt'] ) && $attributes['checkPostExcerpt'] ) {
-                $post_grid .= wp_kses_post( $excerpt );
+                $post_grid .= sprintf('<div class="ub-block-post-grid-excerpt-text">%1$s</div>', wp_kses_post( $excerpt ));
             }
 
             /* Get the read more link */
@@ -202,10 +214,10 @@ function ub_render_post_grid_block( $attributes ){
         wp_reset_postdata();
 
         /* Build the block classes */
-        $class = "ub-block-post-grid align". $attributes['wrapAlignment'];
+        $class = "wp-block-ub-post-grid ub-block-post-grid align". esc_attr($attributes['wrapAlignment']) ;
 
         if ( isset( $attributes['className'] ) ) {
-            $class .= ' ' . $attributes['className'];
+            $class .= ' ' . esc_attr($attributes['className']) ;
         }
 
         /* Layout orientation class */
@@ -219,29 +231,31 @@ function ub_render_post_grid_block( $attributes ){
 
         /* Grid columns class */
         if ( isset( $attributes['columns'] ) && 'grid' === $attributes['postLayout'] ) {
-            $grid_class .= ' columns-' . $attributes['columns'];
+            $grid_class .= ' columns-' . esc_attr($attributes['columns']) ;
         }
 
         /* Post grid section tag */
 
         $section_tag = 'section';
+        $is_equal_height = isset($attributes['isEqualHeight']) && $attributes['isEqualHeight']  ? " is-equal-height " : "";
 
         /* Output the post markup */
         $block_content = sprintf(
-            '<%1$s class="%2$s"><div class="%3$s">%4$s</div></%1$s>',
+            '<%1$s class="%2$s%5$s"><div class="%3$s">%4$s</div></%1$s>',
             $section_tag,
             esc_attr( $class ),
             esc_attr( $grid_class ),
-            $post_grid
+            $post_grid,
+            esc_attr($is_equal_height)
         );
         return $block_content;
     }
 }
 
 function ub_register_post_grid_block() {
-    if( function_exists( 'register_block_type' ) ) {
+    if( function_exists( 'register_block_type_from_metadata' ) ) {
         require dirname( dirname(__DIR__) ) . '/defaults.php';
-        register_block_type( 'ub/post-grid', array(
+        register_block_type_from_metadata( dirname(dirname(dirname(__DIR__))) . '/dist/blocks/post-grid', array(
             'attributes' => $defaultValues['ub/post-grid']['attributes'],
             'render_callback' => 'ub_render_post_grid_block'));
     }

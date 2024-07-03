@@ -6,7 +6,7 @@
  */
 namespace Happy_Addons\Elementor\Widget;
 
-use Elementor\Scheme_Typography;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use Elementor\Utils;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Border;
@@ -57,7 +57,16 @@ class Review extends Base {
 		];
 	}
 
+	/**
+     * Register widget content controls
+     */
 	protected function register_content_controls() {
+		$this->__review_content_controls();
+		$this->__reviewer_content_controls();
+	}
+
+	protected function __review_content_controls() {
+
 		$this->start_controls_section(
 			'_section_review',
 			[
@@ -133,6 +142,9 @@ class Review extends Base {
 		);
 
 		$this->end_controls_section();
+	}
+
+	protected function __reviewer_content_controls() {
 
 		$this->start_controls_section(
 			'_section_reviewer',
@@ -291,7 +303,17 @@ class Review extends Base {
 		$this->end_controls_section();
 	}
 
+	/**
+     * Register widget style controls
+     */
 	protected function register_style_controls() {
+		$this->__ratting_style_controls();
+		$this->__review_reviewer_style_controls();
+		$this->__photo_style_controls();
+	}
+
+	protected function __ratting_style_controls() {
+
 		$this->start_controls_section(
 			'_section_ratting_style',
 			[
@@ -379,6 +401,9 @@ class Review extends Base {
 		);
 
 		$this->end_controls_section();
+	}
+
+	protected function __review_reviewer_style_controls() {
 
 		$this->start_controls_section(
 			'_section_review_style',
@@ -437,7 +462,9 @@ class Review extends Base {
 			[
 				'name' => 'name_typography',
 				'selector' => '{{WRAPPER}} .ha-review-reviewer',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_2,
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
+				],
 			]
 		);
 
@@ -478,7 +505,9 @@ class Review extends Base {
 			[
 				'name' => 'job_title_typography',
 				'selector' => '{{WRAPPER}} .ha-review-position',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_3,
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_TEXT,
+				],
 			]
 		);
 
@@ -519,11 +548,16 @@ class Review extends Base {
 			[
 				'name' => 'review_typography',
 				'selector' => '{{WRAPPER}} .ha-review-desc',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_3,
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_TEXT,
+				],
 			]
 		);
 
 		$this->end_controls_section();
+	}
+
+	protected function __photo_style_controls() {
 
 		$this->start_controls_section(
 			'_section_photo_style',
@@ -712,7 +746,7 @@ class Review extends Base {
 			<div class="ha-review-header">
 				<?php if ( $settings['title' ] ) :
 					printf( '<%1$s %2$s>%3$s</%1$s>',
-						tag_escape( $settings['title_tag'] ),
+						ha_escape_tags( $settings['title_tag'], 'h2' ),
 						$this->get_render_attribute_string( 'title' ),
 						ha_kses_basic( $settings['title' ] )
 						);
@@ -746,7 +780,7 @@ class Review extends Base {
 		<?php
 	}
 
-	public function _content_template() {
+	public function content_template() {
 		?>
 		<#
 		view.addInlineEditingAttributes( 'title', 'basic' );
@@ -784,7 +818,8 @@ class Review extends Base {
 			<# } #>
 			<div class="ha-review-header">
 				<# if (settings.title) { #>
-					<{{ settings.title_tag }} {{{ view.getRenderAttributeString( 'title' ) }}}>{{{ settings.title }}}</{{ settings.title_tag }}>
+					<# var title_tag = elementor.helpers.validateHTMLTag( settings.title_tag ); #>
+					<{{ title_tag }} {{{ view.getRenderAttributeString( 'title' ) }}}>{{{ settings.title }}}</{{ title_tag }}>
 				<# } #>
 				<# if (settings.job_title) { #>
 					<div {{{ view.getRenderAttributeString( 'job_title' ) }}}>{{{ settings.job_title }}}</div>

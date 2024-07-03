@@ -46,7 +46,7 @@ if ( is_plugin_active( 'the-events-calendar/the-events-calendar.php' ) ) {
 		 * Register Events Addon for Elementor TEC Event widget controls.
 		 * Adds different input fields to allow the user to change and customize the widget settings.
 		*/
-		protected function _register_controls(){
+		protected function register_controls(){
 
 			$args = array(
 	    'post_type' => 'tribe_events',
@@ -176,7 +176,7 @@ if ( is_plugin_active( 'the-events-calendar/the-events-calendar.php' ) ) {
 					'label' => esc_html__( 'Exact Date ', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::DATE_TIME,
 					'picker_options' => [
-						'dateFormat' => 'M d Y',
+						'dateFormat' => get_option( 'date_format' ),
 						'enableTime' => 'false',
 					],
 					'placeholder' => esc_html__( 'Aug 15 2019', 'events-addon-for-elementor' ),
@@ -387,7 +387,6 @@ if ( is_plugin_active( 'the-events-calendar/the-events-calendar.php' ) ) {
 					Group_Control_Typography::get_type(),
 					[
 						'name' => 'sttl_typography',
-						'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 						'selector' => '{{WRAPPER}} .naeep-event-item h2',
 					]
 				);
@@ -426,7 +425,6 @@ if ( is_plugin_active( 'the-events-calendar/the-events-calendar.php' ) ) {
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'name_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_2,
 					'selector' => '{{WRAPPER}} .naeep-event-item h3',
 				]
 			);
@@ -492,7 +490,6 @@ if ( is_plugin_active( 'the-events-calendar/the-events-calendar.php' ) ) {
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'date_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_2,
 					'selector' => '{{WRAPPER}} .naeep-event-item h5',
 				]
 			);
@@ -501,10 +498,6 @@ if ( is_plugin_active( 'the-events-calendar/the-events-calendar.php' ) ) {
 				[
 					'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_2,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .naeep-event-item h5' => 'color: {{VALUE}};',
 					],
@@ -535,7 +528,6 @@ if ( is_plugin_active( 'the-events-calendar/the-events-calendar.php' ) ) {
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'time_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_2,
 					'selector' => '{{WRAPPER}} .naeep-event-item span',
 				]
 			);
@@ -544,10 +536,6 @@ if ( is_plugin_active( 'the-events-calendar/the-events-calendar.php' ) ) {
 				[
 					'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_2,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .naeep-event-item span' => 'color: {{VALUE}};',
 					],
@@ -578,7 +566,6 @@ if ( is_plugin_active( 'the-events-calendar/the-events-calendar.php' ) ) {
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'content_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_3,
 					'selector' => '{{WRAPPER}} .naeep-event-item p',
 				]
 			);
@@ -587,10 +574,6 @@ if ( is_plugin_active( 'the-events-calendar/the-events-calendar.php' ) ) {
 				[
 					'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_3,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .naeep-event-item p' => 'color: {{VALUE}};',
 					],
@@ -646,7 +629,6 @@ if ( is_plugin_active( 'the-events-calendar/the-events-calendar.php' ) ) {
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'pagi_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 					'selector' => '{{WRAPPER}} .naeep-pagination ul li a, {{WRAPPER}} .naeep-pagination ul li span',
 				]
 			);
@@ -743,10 +725,6 @@ if ( is_plugin_active( 'the-events-calendar/the-events-calendar.php' ) ) {
 					[
 						'label' => esc_html__( 'Background Color', 'events-addon-for-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'scheme' => [
-							'type' => Scheme_Color::get_type(),
-							'value' => Scheme_Color::COLOR_2,
-						],
 						'selectors' => [
 							'{{WRAPPER}} .naeep-pagination ul li span.current' => 'background-color: {{VALUE}};',
 						],

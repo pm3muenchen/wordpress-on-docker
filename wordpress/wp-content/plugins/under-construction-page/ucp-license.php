@@ -2,7 +2,7 @@
 /*
  * UnderConstructionPage
  * PRO license related functions
- * (c) WebFactory Ltd, 2015 - 2021
+ * (c) WebFactory Ltd, 2015 - 2023
  */
 
 class UCP_license extends UCP {

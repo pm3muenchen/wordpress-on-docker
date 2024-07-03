@@ -13,7 +13,7 @@ jQuery(function($) {
 			console.warn("The dataTables library is not loaded. Cannot create a dataTable. Did you enable 'Do not enqueue dataTables'?");
 			
 			if(WPGMZA.settings.wpgmza_do_not_enqueue_datatables && WPGMZA.getCurrentPage() == WPGMZA.PAGE_MAP_EDIT)
-				alert("You have selected 'Do not enqueue DataTables' in WP Google Maps' settings. No 3rd party software is loading the DataTables library. Because of this, the marker table cannot load. Please uncheck this option to use the marker table.");
+				alert("You have selected 'Do not enqueue DataTables' in WP Go Maps' settings. No 3rd party software is loading the DataTables library. Because of this, the marker table cannot load. Please uncheck this option to use the marker table.");
 			
 			return;
 		}
@@ -147,12 +147,18 @@ jQuery(function($) {
 		options.deferLoading = true;
 		options.processing = true;
 		options.serverSide = true;
+		
 		options.ajax = function(data, callback, settings) { 
 			return WPGMZA.DataTable.prototype.onDataTableAjaxRequest.apply(self, arguments); 
 		}
 		
-		if(WPGMZA.AdvancedTableDataTable && this instanceof WPGMZA.AdvancedTableDataTable && WPGMZA.settings.wpgmza_default_items)
+		if(WPGMZA.AdvancedTableDataTable && this instanceof WPGMZA.AdvancedTableDataTable && WPGMZA.settings.wpgmza_default_items){
 			options.iDisplayLength = parseInt(WPGMZA.settings.wpgmza_default_items);
+		}
+
+		if(WPGMZA.settings && WPGMZA.settings.enable_datatables_enter_search){
+			options.search = { return : true };
+		}
 		
 		options.aLengthMenu = [[5, 10, 25, 50, 100, -1], ["5", "10", "25", "50", "100", WPGMZA.localized_strings.all]];
 		
@@ -461,8 +467,10 @@ jQuery(function($) {
 	}
 	
 	WPGMZA.DataTable.prototype.reload = function()
-	{
-		this.dataTable.ajax.reload(null, false); // null callback, false for resetPaging
+	{	
+		if(this.dataTable){
+			this.dataTable.ajax.reload(null, false); // null callback, false for resetPaging
+		}
 	}
 	
 });

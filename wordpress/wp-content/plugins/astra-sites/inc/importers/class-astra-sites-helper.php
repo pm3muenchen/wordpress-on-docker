@@ -156,83 +156,6 @@ if ( ! class_exists( 'Astra_Sites_Helper' ) ) :
 		}
 
 		/**
-		 * Download File Into Uploads Directory
-		 *
-		 * @since 2.1.0 Added $overrides argument to override the uploaded file actions.
-		 *
-		 * @param  string $file Download File URL.
-		 * @param  array  $overrides Upload file arguments.
-		 * @param  int    $timeout_seconds Timeout in downloading the XML file in seconds.
-		 * @return array        Downloaded file data.
-		 */
-		public static function download_file( $file = '', $overrides = array(), $timeout_seconds = 300 ) {
-
-			// Gives us access to the download_url() and wp_handle_sideload() functions.
-			require_once ABSPATH . 'wp-admin/includes/file.php';
-
-			// Download file to temp dir.
-			$temp_file = download_url( $file, $timeout_seconds );
-
-			// WP Error.
-			if ( is_wp_error( $temp_file ) ) {
-				return array(
-					'success' => false,
-					'data'    => $temp_file->get_error_message(),
-				);
-			}
-
-			// Array based on $_FILE as seen in PHP file uploads.
-			$file_args = array(
-				'name'     => basename( $file ),
-				'tmp_name' => $temp_file,
-				'error'    => 0,
-				'size'     => filesize( $temp_file ),
-			);
-
-			$defaults = array(
-
-				// Tells WordPress to not look for the POST form
-				// fields that would normally be present as
-				// we downloaded the file from a remote server, so there
-				// will be no form fields
-				// Default is true.
-				'test_form'   => false,
-
-				// Setting this to false lets WordPress allow empty files, not recommended.
-				// Default is true.
-				'test_size'   => true,
-
-				// A properly uploaded file will pass this test. There should be no reason to override this one.
-				'test_upload' => true,
-
-				'mimes'       => array(
-					'xml'  => 'text/xml',
-					'json' => 'text/plain',
-				),
-			);
-
-			$overrides = wp_parse_args( $overrides, $defaults );
-
-			// Move the temporary file into the uploads directory.
-			$results = wp_handle_sideload( $file_args, $overrides );
-
-			astra_sites_error_log( wp_json_encode( $results ) );
-
-			if ( isset( $results['error'] ) ) {
-				return array(
-					'success' => false,
-					'data'    => $results,
-				);
-			}
-
-			// Success.
-			return array(
-				'success' => true,
-				'data'    => $results,
-			);
-		}
-
-		/**
 		 * Downloads an image from the specified URL.
 		 *
 		 * Taken from the core media_sideload_image() function and
@@ -272,7 +195,7 @@ if ( ! class_exists( 'Astra_Sites_Helper' ) ) :
 
 				// If error storing permanently, unlink.
 				if ( is_wp_error( $id ) ) {
-					unlink( $file_array['tmp_name'] );
+					unlink( $file_array['tmp_name'] ); //phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.file_ops_unlink -- Deleting the file from temp location.
 					return $id;
 				}
 
@@ -289,22 +212,81 @@ if ( ! class_exists( 'Astra_Sites_Helper' ) ) :
 		}
 
 		/**
-		 * Checks to see whether a string is an image url or not.
+		 * Extract image URLs and other URLs from a given HTML content.
 		 *
-		 * @since 1.0.10
+		 * @since 2.6.10
 		 *
-		 * @param string $string The string to check.
-		 * @return bool Whether the string is an image url or not.
+		 * @param string $content HTML content string.
+		 * @return array Array of URLS.
 		 */
-		public static function is_image_url( $string = '' ) {
-			if ( is_string( $string ) ) {
+		public static function extract_segregated_urls( $content ) {
+			// Extract all links.
+			preg_match_all( '#\bhttps?://[^,\s()<>]+(?:\([\w\d]+\)|([^,[:punct:]\s]|/))#', $content, $match );
 
-				if ( preg_match( '/\.(jpg|jpeg|svg|png|gif)/i', $string ) ) {
-					return true;
+			$extracts = array(
+				'image' => array(),
+				'other' => array(),
+			);
+
+			$all_links = array_unique( $match[0] );
+
+			// Not have any link.
+			if ( empty( $all_links ) ) {
+				return array();
+			}
+
+			$image_links = array();
+			$other_links = array();
+
+			// Extract normal and image links.
+			foreach ( $all_links as $key => $link ) {
+				if ( preg_match( '/^((https?:\/\/)|(www\.))([a-z0-9-].?)+(:[0-9]+)?\/[\w\-]+\.(jpg|png|gif|jpeg)\/?$/i', $link ) ) {
+
+					// Get all image links.
+					// Avoid *-150x, *-300x and *-1024x images.
+					if (
+						false === strpos( $link, '-150x' ) &&
+						false === strpos( $link, '-300x' ) &&
+						false === strpos( $link, '-1024x' )
+					) {
+						$image_links[] = $link;
+					}
+				} else {
+
+					// Collect other links.
+					$other_links[] = $link;
 				}
 			}
 
-			return false;
+			$extracts['image'] = $image_links;
+			$extracts['other'] = $other_links;
+
+			return $extracts;
+		}
+
+		/**
+		 * Get the client IP address.
+		 *
+		 * @since 2.6.4
+		 */
+		public static function get_client_ip() {
+			$ipaddress = '';
+			if ( getenv( 'HTTP_CLIENT_IP' ) ) {
+				$ipaddress = getenv( 'HTTP_CLIENT_IP' );
+			} elseif ( getenv( 'HTTP_X_FORWARDED_FOR' ) ) {
+				$ipaddress = getenv( 'HTTP_X_FORWARDED_FOR' );
+			} elseif ( getenv( 'HTTP_X_FORWARDED' ) ) {
+				$ipaddress = getenv( 'HTTP_X_FORWARDED' );
+			} elseif ( getenv( 'HTTP_FORWARDED_FOR' ) ) {
+				$ipaddress = getenv( 'HTTP_FORWARDED_FOR' );
+			} elseif ( getenv( 'HTTP_FORWARDED' ) ) {
+				$ipaddress = getenv( 'HTTP_FORWARDED' );
+			} elseif ( getenv( 'REMOTE_ADDR' ) ) {
+				$ipaddress = getenv( 'REMOTE_ADDR' );
+			} else {
+				$ipaddress = 'UNKNOWN';
+			}
+			return $ipaddress;
 		}
 
 	}

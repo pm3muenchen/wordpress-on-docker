@@ -79,7 +79,6 @@ if ( ! class_exists( 'Gutentor_Featured_N4_T6' ) ) {
 					$output .= "<div class='" . apply_filters( 'gutentor_post_module_p2_grid_class', 'grid-lg-4 grid-md-4 grid-12', $attributes ) . "'>";
 					$output .= $this->featured_post_type_template( get_post(), $attributes, $index );
 					$output .= '</div>';
-
 				}
 				if ( $index === 2 ) {
 					$output .= '</div>';
@@ -119,7 +118,6 @@ if ( ! class_exists( 'Gutentor_Featured_N4_T6' ) ) {
 					$output .= "<div class='" . apply_filters( 'gutentor_term_module_t2_grid_class', 'grid-lg-4 grid-md-4 grid-12', $attributes ) . "'>";
 					$output .= $this->t2_single_article( $term, $attributes, $index );
 					$output .= '</div>';
-
 				}
 				if ( $index === 2 ) {
 					$output .= '</div>';

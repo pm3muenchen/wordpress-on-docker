@@ -44,7 +44,7 @@ class Event_Elementor_Addon_Unique_Pricing extends Widget_Base{
 	 * Register Events Addon for Elementor Unique Pricing widget controls.
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	*/
-	protected function _register_controls(){
+	protected function register_controls(){
 
 		$this->start_controls_section(
 			'section_pricing',
@@ -310,7 +310,6 @@ class Event_Elementor_Addon_Unique_Pricing extends Widget_Base{
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'saspri_title_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .naeep-price-item h4',
 			]
 		);
@@ -319,10 +318,6 @@ class Event_Elementor_Addon_Unique_Pricing extends Widget_Base{
 			[
 				'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
-				],
 				'selectors' => [
 					'{{WRAPPER}} .naeep-price-item h4' => 'color: {{VALUE}};',
 				],
@@ -342,7 +337,6 @@ class Event_Elementor_Addon_Unique_Pricing extends Widget_Base{
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'pricing_price_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_2,
 				'selector' => '{{WRAPPER}} .naeep-price-item h2',
 			]
 		);
@@ -351,10 +345,6 @@ class Event_Elementor_Addon_Unique_Pricing extends Widget_Base{
 			[
 				'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_2,
-				],
 				'selectors' => [
 					'{{WRAPPER}} .naeep-price-item h2' => 'color: {{VALUE}};',
 				],
@@ -374,7 +364,6 @@ class Event_Elementor_Addon_Unique_Pricing extends Widget_Base{
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'saspri_pro_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_2,
 				'selector' => '{{WRAPPER}} .naeep-progress-item h4',
 			]
 		);
@@ -437,7 +426,6 @@ class Event_Elementor_Addon_Unique_Pricing extends Widget_Base{
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'pricing_list_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_3,
 				'selector' => '{{WRAPPER}} .naeep-price-item ul li',
 			]
 		);
@@ -446,10 +434,6 @@ class Event_Elementor_Addon_Unique_Pricing extends Widget_Base{
 			[
 				'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_3,
-					],
 				'selectors' => [
 					'{{WRAPPER}} .naeep-price-item ul li' => 'color: {{VALUE}};',
 				],
@@ -479,7 +463,6 @@ class Event_Elementor_Addon_Unique_Pricing extends Widget_Base{
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'button_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .naeep-btn-wrap .naeep-btn',
 			]
 		);

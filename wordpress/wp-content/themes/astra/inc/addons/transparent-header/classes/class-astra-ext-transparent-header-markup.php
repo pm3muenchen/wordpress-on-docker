@@ -1,8 +1,8 @@
 <?php
 /**
- * Sticky Header Markup
+ * Transparent Header Markup
  *
- * @package Astra Addon
+ * @package Astra
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 
 	/**
-	 * Sticky Header Markup Initial Setup
+	 * Transparent Header Markup Initial Setup
 	 *
 	 * @since 1.0.0
 	 */
@@ -61,7 +61,7 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 		 * @return array
 		 */
 		public function add_body_class( $classes ) {
-
+			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$inherit_desk_logo              = astra_get_option( 'different-transparent-logo', false );
 			$transparent_header_logo        = astra_get_option( 'transparent-header-logo', true );
 			$transparent_header_logo_retina = astra_get_option( 'transparent-header-retina-logo', true );
@@ -98,7 +98,18 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 
 			if ( $enable_trans_header ) {
 
-				if ( ( is_archive() || is_search() || is_404() ) && '1' == astra_get_option( 'transparent-header-disable-archive' ) ) {
+				// Checking if the new 404 page setting option is enabled, if not then fetch the value from the old archive setting option to handle backward compatibility.
+				if ( is_404() && '1' == astra_get_option( 'transparent-header-disable-404-page', astra_get_option( 'transparent-header-disable-archive' ) ) ) {
+					$enable_trans_header = false;
+				}
+
+				// Checking if the new search page setting option is enabled, if not then fetch the value from the old archive setting option to handle backward compatibility.
+				if ( is_search() && '1' == astra_get_option( 'transparent-header-disable-search-page', astra_get_option( 'transparent-header-disable-archive' ) ) ) {
+					$enable_trans_header = false;
+				}
+
+				// Checking if the new archive pages setting option is enabled, if not then fetch the value from the old archive setting option to handle backward compatibility.
+				if ( is_archive() && '1' == astra_get_option( 'transparent-header-disable-archive-pages', astra_get_option( 'transparent-header-disable-archive' ) ) ) {
 					$enable_trans_header = false;
 				}
 
@@ -141,7 +152,7 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 		 * @since 1.0.0
 		 */
 		public function transparent_header_logo() {
-
+			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$inherit_desk_logo       = astra_get_option( 'different-transparent-logo', false );
 			$transparent_header_logo = astra_get_option( 'transparent-header-logo' );
 
@@ -180,7 +191,7 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 				}
 
 				$html = sprintf(
-					'<a href="%1$s" class="custom-logo-link transparent-custom-logo" rel="home" itemprop="url">%2$s</a>',
+					'<a href="%1$s" class="custom-logo-link transparent-custom-logo" rel="home" itemprop="url" aria-label="%3$s">%2$s</a>',
 					esc_url( home_url( '/' ) ),
 					wp_get_attachment_image(
 						$custom_logo_id,
@@ -189,7 +200,8 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 						array(
 							'class' => 'custom-logo',
 						)
-					)
+					),
+					get_bloginfo()
 				);
 
 				if ( 'mobile' === $transparent_header_devices ) {
@@ -298,7 +310,7 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 		public function add_options( $meta_option ) {
 
 			$meta_option['theme-transparent-header-meta'] = array(
-				'sanitize' => 'FILTER_DEFAULT',
+				'sanitize' => 'FILTER_SANITIZE_STRING',
 			);
 
 			return $meta_option;

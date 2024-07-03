@@ -44,7 +44,7 @@ class Event_Elementor_Addon_Blog extends Widget_Base{
 	 * Register Events Addon for Elementor Blog widget controls.
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	*/
-	protected function _register_controls(){
+	protected function register_controls(){
 
 		$posts = get_posts( 'post_type="post"&numberposts=-1' );
     $PostID = array();
@@ -386,7 +386,6 @@ class Event_Elementor_Addon_Blog extends Widget_Base{
 			[
 				'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 				'name' => 'sasstp_title_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .naeep-news-item h3',
 			]
 		);
@@ -402,10 +401,6 @@ class Event_Elementor_Addon_Blog extends Widget_Base{
 				[
 					'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_1,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .naeep-news-item h3, {{WRAPPER}} .naeep-news-item h3 a' => 'color: {{VALUE}};',
 					],
@@ -423,10 +418,6 @@ class Event_Elementor_Addon_Blog extends Widget_Base{
 				[
 					'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_2,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .naeep-news-item h3 a:hover' => 'color: {{VALUE}};',
 					],
@@ -449,7 +440,6 @@ class Event_Elementor_Addon_Blog extends Widget_Base{
 			[
 				'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 				'name' => 'sasstp_meta_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_2,
 				'selector' => '{{WRAPPER}} ul.news-meta li',
 			]
 		);
@@ -514,7 +504,6 @@ class Event_Elementor_Addon_Blog extends Widget_Base{
 				[
 					'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 					'name' => 'content_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_3,
 					'selector' => '{{WRAPPER}} .naeep-news-item p',
 				]
 			);
@@ -523,10 +512,6 @@ class Event_Elementor_Addon_Blog extends Widget_Base{
 				[
 					'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_3,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .naeep-news-item p' => 'color: {{VALUE}};',
 					],
@@ -558,7 +543,6 @@ class Event_Elementor_Addon_Blog extends Widget_Base{
 			[
 				'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 				'name' => 'btn_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .naeep-btn',
 			]
 		);
@@ -684,7 +668,6 @@ class Event_Elementor_Addon_Blog extends Widget_Base{
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'pagi_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_4,
 					'selector' => '{{WRAPPER}} .naeep-pagination ul li a, {{WRAPPER}} .naeep-pagination ul li span',
 				]
 			);
@@ -746,10 +729,6 @@ class Event_Elementor_Addon_Blog extends Widget_Base{
 					[
 						'label' => esc_html__( 'Background Color', 'events-addon-for-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'scheme' => [
-							'type' => Scheme_Color::get_type(),
-							'value' => Scheme_Color::COLOR_2,
-						],
 						'selectors' => [
 							'{{WRAPPER}} .naeep-pagination ul li a:hover' => 'background-color: {{VALUE}};',
 						],
@@ -785,10 +764,6 @@ class Event_Elementor_Addon_Blog extends Widget_Base{
 					[
 						'label' => esc_html__( 'Background Color', 'events-addon-for-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'scheme' => [
-							'type' => Scheme_Color::get_type(),
-							'value' => Scheme_Color::COLOR_2,
-						],
 						'selectors' => [
 							'{{WRAPPER}} .naeep-pagination ul li span.current' => 'background-color: {{VALUE}};',
 						],

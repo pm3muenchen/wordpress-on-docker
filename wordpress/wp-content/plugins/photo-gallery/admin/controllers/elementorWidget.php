@@ -33,7 +33,7 @@ class BWGElementor extends \Elementor\Widget_Base {
       }
     </style>
     <?php
-    return __('Gallery', BWG()->prefix);
+    return __('Photo Gallery', 'photo-gallery');
   }
 
   /**
@@ -42,7 +42,7 @@ class BWGElementor extends \Elementor\Widget_Base {
    * @return string Widget icon.
    */
   public function get_icon() {
-    return 'fa twbb-photo-gallery twbb-widget-icon';
+    return 'twbb-photo-gallery twbb-widget-icon';
   }
 
   /**
@@ -57,7 +57,7 @@ class BWGElementor extends \Elementor\Widget_Base {
   /**
    * Register widget controls.
    */
-  protected function _register_controls() {
+  protected function register_controls() {
 
     if($this->get_id() !== null){
       $settings = $this->get_settings();
@@ -65,7 +65,7 @@ class BWGElementor extends \Elementor\Widget_Base {
     $this->start_controls_section(
       'bwg_general',
       [
-        'label' => __('General', BWG()->prefix),
+        'label' => __('General', 'photo-gallery'),
       ]
     );
     $url = add_query_arg(array('action' => 'shortcode_bwg','elementor_callback' => 1, 'TB_iframe' => '1'), admin_url('admin-ajax.php'));
@@ -142,4 +142,4 @@ class BWGElementor extends \Elementor\Widget_Base {
   }
 }
 
-\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new BWGElementor() );
+\Elementor\Plugin::instance()->widgets_manager->register( new BWGElementor() );

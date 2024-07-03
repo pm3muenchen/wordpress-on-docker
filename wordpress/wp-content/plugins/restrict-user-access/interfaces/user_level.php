@@ -3,7 +3,7 @@
  * @package Restrict User Access
  * @author Joachim Jensen <joachim@dev.institute>
  * @license GPLv3
- * @copyright 2020 by Joachim Jensen
+ * @copyright 2024 by Joachim Jensen
  */
 
 interface RUA_User_Level_Interface
@@ -29,6 +29,8 @@ interface RUA_User_Level_Interface
     public function get_level_id();
 
     /**
+     * Get ids of all levels that extend level()
+     *
      * @since 2.1
      *
      * @return int[]
@@ -50,18 +52,43 @@ interface RUA_User_Level_Interface
     public function get_status();
 
     /**
-     * @since 2.1
-     *
-     * @return int - unixtime or 0
+     * @param $status
+     * @return self
      */
-    public function get_start();
+    public function update_status($status);
 
     /**
      * @since 2.1
      *
-     * @return int - unixtime or 0
+     * @return int unixtime or 0
+     */
+    public function get_start();
+
+    /**
+     * @param int $start unixtime
+     * @return self
+     */
+    public function update_start($start);
+
+    /**
+     * @since 2.1
+     *
+     * @return int unixtime or 0
      */
     public function get_expiry();
+
+    /**
+     * @param int $expiry unixtime
+     * @return self
+     */
+    public function update_expiry($expiry);
+
+    /**
+     * Reset expiry with level duration
+     *
+     * @return self
+     */
+    public function reset_expiry();
 
     /**
      * @since 2.1

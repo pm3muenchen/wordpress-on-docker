@@ -11,10 +11,10 @@ use \Elementor\Controls_Manager;
 use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Typography;
-use \Elementor\Scheme_Typography;
+use \Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use \Elementor\Widget_Base;
 use \Elementor\Group_Control_Background;
-use \Elementor\Scheme_Color;
+use \Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 
 class Formstack extends Widget_Base {
 
@@ -146,7 +146,7 @@ class Formstack extends Widget_Base {
         return $keys;
     }
 
-    protected function _register_controls () {
+    protected function register_controls () {
 
         if (!apply_filters('eael/is_plugin_active', 'formstack/plugin.php')) {
             $this->formstack_not_activated();
@@ -208,6 +208,9 @@ class Formstack extends Widget_Base {
                 'condition'   => [
                     'eael_formstack_custom_title_description' => 'yes',
                 ],
+                'ai' => [
+					'active' => false,
+				],
             ]
         );
 
@@ -447,15 +450,15 @@ class Formstack extends Widget_Base {
                 'options'   => [
                     'left'   => [
                         'title' => __('Left', 'essential-addons-for-elementor-lite'),
-                        'icon'  => 'fa fa-align-left',
+                        'icon'  => 'eicon-text-align-left',
                     ],
                     'center' => [
                         'title' => __('Center', 'essential-addons-for-elementor-lite'),
-                        'icon'  => 'fa fa-align-center',
+                        'icon'  => 'eicon-text-align-center',
                     ],
                     'right'  => [
                         'title' => __('Right', 'essential-addons-for-elementor-lite'),
-                        'icon'  => 'fa fa-align-right',
+                        'icon'  => 'eicon-text-align-right',
                     ],
                 ],
                 'default'   => '',
@@ -541,7 +544,9 @@ class Formstack extends Widget_Base {
             [
                 'name'     => 'eael_formstack_form_description_typography',
                 'label'    => __('Typography', 'essential-addons-for-elementor-lite'),
-                'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
+                'global' => [
+	                'default' => Global_Typography::TYPOGRAPHY_ACCENT
+                ],
                 'selector' => '{{WRAPPER}} .eael-formstack-description'
             ]
         );
@@ -1632,9 +1637,8 @@ class Formstack extends Widget_Base {
             [
                 'label'     => __('Title Color', 'essential-addons-for-elementor-lite'),
                 'type'      => Controls_Manager::COLOR,
-                'scheme'    => [
-                    'type'  => Scheme_Color::get_type(),
-                    'value' => Scheme_Color::COLOR_1,
+                'global' => [
+	                'default' => Global_Colors::COLOR_PRIMARY
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .eael-formstack .fsProgressBarContainer .fsProgressText' => 'color: {{VALUE}};',
@@ -1791,7 +1795,9 @@ class Formstack extends Widget_Base {
             [
                 'name'     => 'eael_formstack_pagination_button_typography',
                 'label'    => __('Typography', 'essential-addons-for-elementor-lite'),
-                'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
+                'global' => [
+	                'default' => Global_Typography::TYPOGRAPHY_PRIMARY
+                ],
                 'selector' => '{{WRAPPER}} .eael-formstack .fsPagination button .fsFull',
             ]
         );

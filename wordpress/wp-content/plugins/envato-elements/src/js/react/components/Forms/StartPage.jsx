@@ -86,10 +86,12 @@ const StartPage = ({ customActionHook = null, completedCallback = null }) => {
             setSaved(true)
           }}
           errorCallback={(data) => {
-            setError(data && data.error ? data.error : {
-              code: 'unknown_error',
-              message: 'Sorry something went wrong, please try again.'
-            })
+            setError(data && data.error
+              ? data.error
+              : {
+                  code: 'unknown_error',
+                  message: 'Sorry something went wrong, please try again.'
+                })
           }}
         />
       )}

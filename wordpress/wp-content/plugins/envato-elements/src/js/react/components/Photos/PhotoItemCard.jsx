@@ -43,17 +43,19 @@ const PhotoItemCard = ({ layout, item }) => {
             </div>
             <ButtonWrapper>
               <ImportPhotoButton photoId={item.humane_id} photoTitle={item.title} showLabel={false} />
-              {isActivationModelOpen ? (
-                <PhotoPreviewModal
-                  photoUrl={buildElementsImageUrl({ imageData: item.cover_image, sizes: ['w1200', 'w1000', 'w600'] })}
-                  photoTitle={item.title}
-                  photoId={item.humane_id}
-                  aspectRatioHeight={item.aspectRatioHeight}
-                  onCloseCallback={() => {
-                    setOpenActivationModal(false)
-                  }}
-                />
-              ) : null}
+              {isActivationModelOpen
+                ? (
+                  <PhotoPreviewModal
+                    photoUrl={buildElementsImageUrl({ imageData: item.cover_image, sizes: ['w1200', 'w1000', 'w600'] })}
+                    photoTitle={item.title}
+                    photoId={item.humane_id}
+                    aspectRatioHeight={item.aspectRatioHeight}
+                    onCloseCallback={() => {
+                      setOpenActivationModal(false)
+                    }}
+                  />
+                  )
+                : null}
               <Button
                 type='ghost'
                 icon='expand'

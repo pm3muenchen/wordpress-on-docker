@@ -2,7 +2,7 @@
 /*
  * UnderConstructionPage
  * Light Bulb theme
- * (c) WebFactory Ltd, 2015 - 2021
+ * (c) WebFactory Ltd, 2015 - 2023
  */
 
 
@@ -20,7 +20,7 @@ if (!defined('ABSPATH')) {
     <title>[title]</title>
     <meta name="description" content="[description]" />
     <meta name="generator" content="[generator]">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:400,900">
+    <link rel="stylesheet" href="https://fonts.bunny.net/css?family=Nunito:400,900">
     [head]
   </head>
 
@@ -53,7 +53,7 @@ if (!defined('ABSPATH')) {
 
     </div>
     [footer]
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="<?php echo includes_url('js/jquery/jquery.min.js'); ?>" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script type="text/javascript">
     jQuery(function($) {
       var std = $('.fadein').attr('src');

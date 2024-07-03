@@ -3,49 +3,34 @@
  * @package Restrict User Access
  * @author Joachim Jensen <joachim@dev.institute>
  * @license GPLv3
- * @copyright 2020 by Joachim Jensen
+ * @copyright 2024 by Joachim Jensen
  */
 
 class RUA_User_Level implements RUA_User_Level_Interface
 {
+    const ENTITY_TYPE = 'rua_member';
     const STATUS_ACTIVE = 'active';
     const STATUS_EXPIRED = 'expired';
 
-    const KEY_STATUS = 'level_status';
-    const KEY_START = 'level';
-    const KEY_EXPIRY = 'level_expiry';
-
-    /**
-     * @var RUA_User_Interface
-     */
+    /** @var RUA_User_Interface */
     private $user;
-
-    /**
-     * @var RUA_Level_Interface
-     */
+    /** @var RUA_Level_Interface  */
     private $level;
+    /** @var WP_Comment */
+    private $wp_entity;
 
     /**
-     * @var bool
+     * @param WP_Comment $wp_entity
      */
-    private $synced_role;
-
-    /**
-     * @since 2.1
-     * @param RUA_User_Interface $user
-     * @param RUA_Level_Interface $level
-     */
-    public function __construct(RUA_User_Interface $user, RUA_Level_Interface $level)
+    public function __construct(WP_Comment $wp_entity)
     {
-        $this->user = $user;
-        $this->level = $level;
-        $this->synced_role = !empty(get_post_meta($level->get_id(), RUA_App::META_PREFIX.'role', true));
+        $this->wp_entity = $wp_entity;
     }
 
     public function refresh()
     {
         if ($this->is_active() && $this->is_expired()) {
-            $this->update_meta(self::KEY_STATUS, self::STATUS_EXPIRED);
+            $this->update_status(self::STATUS_EXPIRED);
         }
     }
 
@@ -54,7 +39,7 @@ class RUA_User_Level implements RUA_User_Level_Interface
      */
     public function get_user_id()
     {
-        return $this->user()->get_id();
+        return (int)$this->wp_entity->user_id;
     }
 
     /**
@@ -62,6 +47,9 @@ class RUA_User_Level implements RUA_User_Level_Interface
      */
     public function user()
     {
+        if (!($this->user instanceof RUA_User_Interface)) {
+            $this->user = rua_get_user($this->get_user_id());
+        }
         return $this->user;
     }
 
@@ -70,7 +58,7 @@ class RUA_User_Level implements RUA_User_Level_Interface
      */
     public function get_level_id()
     {
-        return $this->level()->get_id();
+        return (int)$this->wp_entity->comment_post_ID;
     }
 
     /**
@@ -86,6 +74,9 @@ class RUA_User_Level implements RUA_User_Level_Interface
      */
     public function level()
     {
+        if (!($this->level instanceof RUA_Level_Interface)) {
+            $this->level = rua_get_level($this->get_level_id());
+        }
         return $this->level;
     }
 
@@ -94,19 +85,30 @@ class RUA_User_Level implements RUA_User_Level_Interface
      */
     public function get_status()
     {
-        if ($this->synced_role) {
-            return self::STATUS_ACTIVE;
+        return $this->wp_entity->comment_approved;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function update_status($status)
+    {
+        if ($this->get_status() === $status) {
+            return $this;
         }
 
-        $status = $this->get_meta(self::KEY_STATUS);
+        global $wpdb;
 
-        //fallback to calc
-        if (is_null($status)) {
-            $status = $this->is_expired() ? self::STATUS_EXPIRED : self::STATUS_ACTIVE;
-            $this->update_meta(self::KEY_STATUS, $status);
+        $updated = $wpdb->update($wpdb->comments, ['comment_approved' => $status], ['comment_ID' => $this->wp_entity->comment_ID]);
+        if (!$updated) {
+            return $this;
         }
 
-        return $status;
+        clean_comment_cache($this->wp_entity->comment_ID);
+        wp_update_comment_count($this->get_level_id());
+        $this->wp_entity->comment_approved = $status;
+
+        return $this;
     }
 
     /**
@@ -114,7 +116,28 @@ class RUA_User_Level implements RUA_User_Level_Interface
       */
     public function get_start()
     {
-        return (int)$this->get_meta(self::KEY_START, 0);
+        return strtotime($this->wp_entity->comment_date_gmt);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function update_start($start)
+    {
+        if ($this->get_start() === $start) {
+            return $this;
+        }
+
+        $date = date_i18n('Y-m-d H:i:s', $start);
+        $updated = wp_update_comment([
+            'comment_ID'   => $this->wp_entity->comment_ID,
+            'comment_date' => $date
+        ]);
+        if ($updated) {
+            $this->wp_entity->comment_date = $date;
+            $this->wp_entity->comment_date_gmt = get_gmt_from_date($date);
+        }
+        return $this;
     }
 
     /**
@@ -122,25 +145,43 @@ class RUA_User_Level implements RUA_User_Level_Interface
      */
     public function get_expiry()
     {
-        if ($this->synced_role) {
-            return 0;
-        }
-
-        $expiry = $this->get_meta(self::KEY_EXPIRY);
-        if ($expiry) {
-            return (int) $expiry;
+        $unixtime = get_comment_meta($this->wp_entity->comment_ID, '_ca_member_expiry', true);
+        if (!empty($unixtime)) {
+            return (int) $unixtime;
         }
 
         //fallback to calc
         $time = $this->get_start();
-        $duration = RUA_App::instance()->level_manager->metadata()->get('duration')->get_data($this->level()->get_id());
+        $duration = RUA_App::instance()->level_manager->metadata()->get('duration')->get_data($this->get_level_id());
         if (isset($duration['count'],$duration['unit']) && $time && $duration['count']) {
-            $time = strtotime('+'.$duration['count'].' '.$duration['unit']. ' 23:59', $time);
-            $this->update_meta(self::KEY_EXPIRY, $time);
+            $time = strtotime('+' . $duration['count'] . ' ' . $duration['unit'] . ' 23:59', $time);
+            $this->update_expiry($time);
             return $time;
         }
 
         return 0;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function update_expiry($expiry)
+    {
+        update_comment_meta($this->wp_entity->comment_ID, '_ca_member_expiry', $expiry);
+        return $this;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function reset_expiry()
+    {
+        $duration = RUA_App::instance()->level_manager->metadata()->get('duration')->get_data($this->get_level_id());
+        if (isset($duration['count'],$duration['unit']) && $duration['count']) {
+            $time = get_gmt_from_date('+' . $duration['count'] . ' ' . $duration['unit'] . ' 23:59', 'U');
+            $this->update_expiry($time);
+        }
+        return $this;
     }
 
     /**
@@ -152,11 +193,22 @@ class RUA_User_Level implements RUA_User_Level_Interface
     }
 
     /**
+     * @deprecated
      * @return bool
      */
     public function can_add()
     {
-        return $this->get_user_id() && !$this->synced_role;
+        return true;
+    }
+
+    /**
+     * @return bool
+     */
+    public function delete()
+    {
+        $deleted = wp_delete_comment($this->wp_entity, true);
+        wp_update_comment_count($this->wp_entity->comment_post_ID);
+        return $deleted;
     }
 
     /**
@@ -166,37 +218,5 @@ class RUA_User_Level implements RUA_User_Level_Interface
     {
         $time_expire = $this->get_expiry();
         return $time_expire && time() > $time_expire;
-    }
-
-    /**
-     * @since 1.0
-     * @param string $key
-     * @param mixed|null $default_value
-     *
-     * @return mixed|null
-     */
-    private function get_meta($key, $default_value = null)
-    {
-        if (!$this->can_add()) {
-            return $default_value;
-        }
-        $user_id = $this->get_user_id();
-        return $this->user()->get_attribute(RUA_App::META_PREFIX.$key.'_'.$this->get_level_id(), $default_value);
-    }
-
-    /**
-     * @param string $key
-     * @param mixed $value
-     *
-     * @return bool
-     */
-    private function update_meta($key, $value)
-    {
-        if (!$this->can_add()) {
-            return false;
-        }
-
-        $user_id = $this->get_user_id();
-        return (bool)update_user_meta($user_id, RUA_App::META_PREFIX.$key.'_'.$this->get_level_id(), $value);
     }
 }

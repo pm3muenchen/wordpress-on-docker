@@ -44,7 +44,7 @@ class Event_Elementor_Addon_Unique_Venues extends Widget_Base{
 	 * Register Events Addon for Elementor Unique Venues widget controls.
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	*/
-	protected function _register_controls(){
+	protected function register_controls(){
 
 		$this->start_controls_section(
 			'section_schedule_settings',
@@ -132,7 +132,7 @@ class Event_Elementor_Addon_Unique_Venues extends Widget_Base{
 				'label' => esc_html__( 'Venues Date ', 'events-addon-for-elementor' ),
 				'type' => Controls_Manager::DATE_TIME,
 				'picker_options' => [
-					'dateFormat' => 'M d, Y',
+					'dateFormat' => get_option( 'date_format' ),
 					'enableTime' => 'false',
 				],
 				'placeholder' => esc_html__( 'Aug 15, 2019', 'events-addon-for-elementor' ),
@@ -152,9 +152,7 @@ class Event_Elementor_Addon_Unique_Venues extends Widget_Base{
 			'more_icon',
 			[
 				'label' => esc_html__( 'More Icon', 'events-addon-for-elementor' ),
-				'type' => Controls_Manager::ICON,
-				'options' => NAEEP_Controls_Helper_Output::get_include_icons(),
-				'frontend_available' => true,
+				'type' => Controls_Manager::ICONS,
 			]
 		);
 		$repeaterOne->add_control(
@@ -217,6 +215,17 @@ class Event_Elementor_Addon_Unique_Venues extends Widget_Base{
 				'selectors' => [
 					'{{WRAPPER}} .naeep-grid-info' => 'text-align: {{VALUE}};',
 				],
+			]
+		);
+		$this->add_control(
+			'toggle_popup',
+			[
+				'label' => esc_html__( 'Enable popup?', 'events-addon-for-elementor' ),
+				'type' => Controls_Manager::SWITCHER,
+				'label_on' => esc_html__( 'Yes', 'events-addon-for-elementor' ),
+				'label_off' => esc_html__( 'No', 'events-addon-for-elementor' ),
+				'return_value' => 'true',
+				'default' => 'true'
 			]
 		);
 		$this->end_controls_section();// end: Section
@@ -344,7 +353,6 @@ class Event_Elementor_Addon_Unique_Venues extends Widget_Base{
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'meta_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_3,
 					'selector' => '{{WRAPPER}} ul.schedule-meta li',
 				]
 			);
@@ -353,10 +361,6 @@ class Event_Elementor_Addon_Unique_Venues extends Widget_Base{
 				[
 					'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_3,
-					],
 					'selectors' => [
 						'{{WRAPPER}} ul.schedule-meta li' => 'color: {{VALUE}};',
 					],
@@ -387,7 +391,6 @@ class Event_Elementor_Addon_Unique_Venues extends Widget_Base{
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'name_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 					'selector' => '{{WRAPPER}} .naeep-schedule-info h3, {{WRAPPER}} .naeep-grid-info h3',
 				]
 			);
@@ -403,10 +406,6 @@ class Event_Elementor_Addon_Unique_Venues extends Widget_Base{
 					[
 						'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'scheme' => [
-							'type' => Scheme_Color::get_type(),
-							'value' => Scheme_Color::COLOR_1,
-						],
 						'selectors' => [
 							'{{WRAPPER}} .naeep-schedule-info h3, {{WRAPPER}} .naeep-schedule-info h3 a, {{WRAPPER}} .naeep-grid-info h3, {{WRAPPER}} .naeep-grid-info h3 a' => 'color: {{VALUE}};',
 						],
@@ -425,10 +424,6 @@ class Event_Elementor_Addon_Unique_Venues extends Widget_Base{
 					[
 						'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'scheme' => [
-							'type' => Scheme_Color::get_type(),
-							'value' => Scheme_Color::COLOR_2,
-						],
 						'selectors' => [
 							'{{WRAPPER}} .naeep-schedule-info h3 a:hover, {{WRAPPER}} .naeep-grid-info h3 a:hover' => 'color: {{VALUE}};',
 						],
@@ -461,7 +456,6 @@ class Event_Elementor_Addon_Unique_Venues extends Widget_Base{
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'cat_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_2,
 					'selector' => '{{WRAPPER}} .naeep-image .events-cat a',
 				]
 			);
@@ -547,7 +541,6 @@ class Event_Elementor_Addon_Unique_Venues extends Widget_Base{
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'content_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_3,
 					'selector' => '{{WRAPPER}} .naeep-grid-info p',
 				]
 			);
@@ -556,10 +549,6 @@ class Event_Elementor_Addon_Unique_Venues extends Widget_Base{
 				[
 					'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_3,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .naeep-grid-info p' => 'color: {{VALUE}};',
 					],
@@ -591,7 +580,6 @@ class Event_Elementor_Addon_Unique_Venues extends Widget_Base{
 				[
 					'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 					'name' => 'sasorganizer_more_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_4,
 					'selector' => '{{WRAPPER}} a.naeep-link',
 				]
 			);
@@ -607,10 +595,6 @@ class Event_Elementor_Addon_Unique_Venues extends Widget_Base{
 					[
 						'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'scheme' => [
-							'type' => Scheme_Color::get_type(),
-							'value' => Scheme_Color::COLOR_4,
-						],
 						'selectors' => [
 							'{{WRAPPER}} a.naeep-link' => 'color: {{VALUE}};',
 						],
@@ -629,10 +613,6 @@ class Event_Elementor_Addon_Unique_Venues extends Widget_Base{
 					[
 						'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'scheme' => [
-							'type' => Scheme_Color::get_type(),
-							'value' => Scheme_Color::COLOR_2,
-						],
 						'selectors' => [
 							'{{WRAPPER}} a.naeep-link:hover' => 'color: {{VALUE}};',
 						],
@@ -643,10 +623,6 @@ class Event_Elementor_Addon_Unique_Venues extends Widget_Base{
 					[
 						'label' => esc_html__( 'Border Color', 'events-addon-for-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'scheme' => [
-							'type' => Scheme_Color::get_type(),
-							'value' => Scheme_Color::COLOR_2,
-						],
 						'selectors' => [
 							'{{WRAPPER}} a.naeep-link:hover:before' => 'background-color: {{VALUE}};',
 						],
@@ -690,13 +666,13 @@ class Event_Elementor_Addon_Unique_Venues extends Widget_Base{
 						$schedule_image = !empty( $each_grid['schedule_image']['id'] ) ? $each_grid['schedule_image']['id'] : '';
 
 						$schedule_category = !empty( $each_grid['schedule_category'] ) ? $each_grid['schedule_category'] : '';
-				  	$category_link = !empty( $each_grid['category_link']['url'] ) ? $each_grid['category_link']['url'] : '';
+				  		$category_link = !empty( $each_grid['category_link']['url'] ) ? $each_grid['category_link']['url'] : '';
 						$category_link_external = !empty( $each_grid['category_link']['is_external'] ) ? 'target="_blank"' : '';
 						$category_link_nofollow = !empty( $each_grid['category_link']['nofollow'] ) ? 'rel="nofollow"' : '';
 						$category_link_attr = !empty( $category_link ) ?  $category_link_external.' '.$category_link_nofollow : '';
 
 						$schedule_title = !empty( $each_grid['schedule_title'] ) ? $each_grid['schedule_title'] : '';
-				  	$title_link = !empty( $each_grid['title_link']['url'] ) ? $each_grid['title_link']['url'] : '';
+				  		$title_link = !empty( $each_grid['title_link']['url'] ) ? $each_grid['title_link']['url'] : '';
 						$title_link_external = !empty( $each_grid['title_link']['is_external'] ) ? 'target="_blank"' : '';
 						$title_link_nofollow = !empty( $each_grid['title_link']['nofollow'] ) ? 'rel="nofollow"' : '';
 						$title_link_attr = !empty( $title_link ) ?  $title_link_external.' '.$title_link_nofollow : '';
@@ -704,15 +680,16 @@ class Event_Elementor_Addon_Unique_Venues extends Widget_Base{
 						$schedule_date = !empty( $each_grid['schedule_date'] ) ? $each_grid['schedule_date'] : '';
 						$schedule_content = !empty( $each_grid['schedule_content'] ) ? $each_grid['schedule_content'] : '';
 
-						$more_icon = !empty( $each_grid['more_icon'] ) ? $each_grid['more_icon'] : '';
+						$more_icon = !empty( $each_grid['more_icon'] ) ? $each_grid['more_icon']['value'] : '';
 						$schedule_more = !empty( $each_grid['schedule_more'] ) ? $each_grid['schedule_more'] : '';
-				  	$more_link = !empty( $each_grid['more_link']['url'] ) ? $each_grid['more_link']['url'] : '';
+				  		$more_link = !empty( $each_grid['more_link']['url'] ) ? $each_grid['more_link']['url'] : '';
 						$more_link_external = !empty( $each_grid['more_link']['is_external'] ) ? 'target="_blank"' : '';
 						$more_link_nofollow = !empty( $each_grid['more_link']['nofollow'] ) ? 'rel="nofollow"' : '';
 						$more_link_attr = !empty( $more_link ) ?  $more_link_external.' '.$more_link_nofollow : '';
 
 						$image_url = wp_get_attachment_url( $schedule_image );
-						$image = $image_url ? '<a href="'. esc_url($image_url) .'"><img src="'.esc_url($image_url).'" alt="'.$schedule_title.'"></a>' : '';
+						$image_link_to = $settings['toggle_popup'] ? $image_url : $more_link;
+						$image = $image_url ? '<a href="'. esc_url($image_link_to) .'"><img src="'.esc_url($image_url).'" alt="'.$schedule_title.'"></a>' : '';
 
 						$link_title = $title_link ? '<a href="'.esc_url($title_link).'" '.$title_link_attr.'>'.esc_html($schedule_title).'</a>' : esc_html($schedule_title);
 						$title = $schedule_title ? '<h3 class="schedule-title">'.$link_title.'</h3>' : '';
@@ -720,9 +697,9 @@ class Event_Elementor_Addon_Unique_Venues extends Widget_Base{
 						$link_category = $category_link ? '<a href="'.esc_url($category_link).'" '.$category_link_attr.'>'.esc_html($schedule_category).'</a>' : '';
 						$content = $schedule_content ? '<p>'.esc_html($schedule_content).'</p>' : '';
 						$more_ico = $more_icon ? '<i class="'.esc_attr($more_icon).'" aria-hidden="true"></i> ' : '';
-			  		$button = !empty($more_link) ? '<div class="naeep-link-wrap"><a href="'.esc_url($more_link).'" '.$more_link_attr.' class="naeep-link">'.$more_ico.esc_html($schedule_more).'</a></div>' : '';
+			  			$button = !empty($more_link) ? '<div class="naeep-link-wrap"><a href="'.esc_url($more_link).'" '.$more_link_attr.' class="naeep-link">'.$more_ico.esc_html($schedule_more).'</a></div>' : '';
 
-			  		if ($image_url) {
+			  			if ($image_url) {
 						  $img_class = '';
 						} else {
 						  $img_class = ' no-img';
@@ -731,7 +708,7 @@ class Event_Elementor_Addon_Unique_Venues extends Widget_Base{
 						<div class="<?php echo esc_attr($col_class); ?>">
 							<div class="naeep-schedule-grid naeep-venue-grid naeep-item<?php echo esc_attr($img_class); ?>">
 								<?php if ($image_url) { ?>
-						    <div class="naeep-image naeep-popup">
+						    <div class="naeep-image <?php if($settings['toggle_popup']) { ?>naeep-popup<?php } ?>">
 						      <?php echo $image; ?>
 					      	<div class="events-cat">
 					      		<?php echo $link_category; ?>

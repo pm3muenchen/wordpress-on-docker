@@ -44,7 +44,7 @@ class Event_Elementor_Addon_Unique_Ticket extends Widget_Base{
 	 * Register Events Addon for Elementor Unique Ticket widget controls.
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	*/
-	protected function _register_controls(){
+	protected function register_controls(){
 
 		$this->start_controls_section(
 			'section_ticket',
@@ -318,7 +318,6 @@ class Event_Elementor_Addon_Unique_Ticket extends Widget_Base{
 			[
 				'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 				'name' => 'sasstp_subtitle_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_2,
 				'selector' => '{{WRAPPER}} .naeep-ticket-item h5',
 			]
 		);
@@ -327,10 +326,6 @@ class Event_Elementor_Addon_Unique_Ticket extends Widget_Base{
 			[
 				'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_2,
-				],
 				'selectors' => [
 					'{{WRAPPER}} .naeep-ticket-item h5' => 'color: {{VALUE}};',
 				],
@@ -362,7 +357,6 @@ class Event_Elementor_Addon_Unique_Ticket extends Widget_Base{
 			[
 				'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 				'name' => 'sasstp_title_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .naeep-ticket-item h3',
 			]
 		);
@@ -371,10 +365,6 @@ class Event_Elementor_Addon_Unique_Ticket extends Widget_Base{
 			[
 				'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
-				],
 				'selectors' => [
 					'{{WRAPPER}} .naeep-ticket-item h3' => 'color: {{VALUE}};',
 				],
@@ -406,7 +396,6 @@ class Event_Elementor_Addon_Unique_Ticket extends Widget_Base{
 			[
 				'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 				'name' => 'content_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_3,
 				'selector' => '{{WRAPPER}} .naeep-ticket-item p',
 			]
 		);
@@ -415,10 +404,6 @@ class Event_Elementor_Addon_Unique_Ticket extends Widget_Base{
 			[
 				'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_3,
-				],
 				'selectors' => [
 					'{{WRAPPER}} .naeep-ticket-item p' => 'color: {{VALUE}};',
 				],
@@ -483,7 +468,6 @@ class Event_Elementor_Addon_Unique_Ticket extends Widget_Base{
 			[
 				'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 				'name' => 'btn_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .naeep-btn',
 			]
 		);

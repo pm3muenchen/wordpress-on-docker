@@ -11,7 +11,7 @@ class wpgmza_widget extends WP_Widget {
     function __construct() {
         parent::__construct(
             'wpgmza_map_widget', 
-            __('WP Google Maps', 'wp-google-maps'), 
+            __('WP Go Maps', 'wp-google-maps'), 
             array(
                 'description' => __( 'Add your map as a widget', 'wp-google-maps' ),
                 'classname' => 'wpgmza_widget'
@@ -32,25 +32,22 @@ class wpgmza_widget extends WP_Widget {
 		if(!isset($instance['title']))
 			$instance['title'] = '';
 		
+        /* Developer Hook (Filter) - Alter the widget title */
         $title = apply_filters( 'widget_title', $instance['title'] );
         
-        echo $args['before_widget'];
-        if ( ! empty( $title ) )
-        echo $args['before_title'] . $title . $args['after_title'];
+        echo wp_kses_post($args['before_widget']);
+        if (!empty($title)){
+            echo wp_kses_post($args['before_title'] . esc_html($title) . $args['after_title']);
+        }
         
-		if(!isset($instance['selection']))
-		{
+		if(!isset($instance['selection'])){
 			global $wpdb;
 			$instance['selection'] = $wpdb->get_var("SELECT id FROM {$wpdb->prefix}wpgmza_maps ORDER BY id DESC LIMIT 1");
 		}
 
-        echo do_shortcode("[wpgmza id='".$instance['selection']."']");
+        echo do_shortcode("[wpgmza id='".intval($instance['selection'])."']");
         
-    
-        
-        
-        
-        echo $args['after_widget'];
+        echo wp_kses_post($args['after_widget']);
     }
 
     /**
@@ -70,13 +67,13 @@ class wpgmza_widget extends WP_Widget {
         }
         
         echo "<p>";
-        echo "<label for=\"".$this->get_field_id('title')."\">".__('Title', 'wp-google-maps')."</label>";
-        echo "<input class=\"widefat\" id=\"".$this->get_field_id('title')."\" name=\"".$this->get_field_name('title')."\" type=\"text\" value=\"".$title."\" />";
+        echo "<label for=\"" . esc_attr($this->get_field_id('title')) . "\">".__('Title', 'wp-google-maps')."</label>";
+        echo "<input class=\"widefat\" id=\"" . esc_attr($this->get_field_id('title')) . "\" name=\"" . esc_attr($this->get_field_name('title')) . "\" type=\"text\" value=\"" . esc_attr($title) . "\" />";
         echo "</p>";
         
 
-        echo "<p><label for=\"".$this->get_field_id('selection')."\">".__('Select your map:', 'wp-google-maps')."</label>";
-        echo "<select class='widefat' name='".$this->get_field_name('selection')."'>";
+        echo "<p><label for=\"" . esc_attr($this->get_field_id('selection')) . "\">".__('Select your map:', 'wp-google-maps')."</label>";
+        echo "<select class='widefat' name='" . esc_attr($this->get_field_name('selection')) . "'>";
         wpgmza_get_widget_select_field($selection);
         echo "</select></p>";
    
@@ -124,7 +121,7 @@ function wpgmza_get_widget_select_field($selection) {
     foreach ( $results as $result ) {
         $sel = ( intval($selection) == $result->id ) ? "selected" : '';
         
-        echo "<option ".$sel." value=\"".$result->id."\">[ID: ".$result->id."] ".stripslashes($result->map_title)."</option>";
+        echo "<option ".$sel." value=\"" . esc_attr($result->id) . "\">[ID: " . intval($result->id) . "] " . esc_html($result->map_title) . "</option>";
     }
 
 

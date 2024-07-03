@@ -1,9 +1,9 @@
 <?php
 /**
- * @package WP Content Aware Engine
+ * @package wp-content-aware-engine
  * @author Joachim Jensen <joachim@dev.institute>
  * @license GPLv3
- * @copyright 2020 by Joachim Jensen
+ * @copyright 2023 by Joachim Jensen
  */
 
 defined('ABSPATH') || exit;
@@ -19,32 +19,22 @@ defined('ABSPATH') || exit;
  */
 class WPCAModule_bp_member extends WPCAModule_Base
 {
-
     /**
      * @var string
      */
     protected $category = 'plugins';
 
-    /**
-     * Cached search string
-     * @var string
-     */
-    protected $search_string;
-
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         parent::__construct('bp_member', __('BuddyPress Profiles', WPCA_DOMAIN));
         $this->default_value = 0;
         $this->placeholder = __('All Sections', WPCA_DOMAIN);
-
+        $this->icon = 'dashicons-buddicons-buddypress-logo:#d84800';
         $this->query_name = 'cbp';
     }
 
     /**
-     * @return bool
+     * @inheritDoc
      */
     public function can_enable()
     {
@@ -52,106 +42,104 @@ class WPCAModule_bp_member extends WPCAModule_Base
     }
 
     /**
-     * Initiate module
-     *
-     * @since  2.0
-     * @return void
+     * @inheritDoc
      */
     public function initiate()
     {
         parent::initiate();
         add_filter(
             'wpca/module/static/in-context',
-            array($this,'static_is_content')
+            [$this,'static_is_content']
         );
     }
 
     /**
-     * Get content for sidebar editor
-     *
-     * @global  object    $bp
-     * @since   1.0
-     * @param   array     $args
-     * @return  array
+     * @inheritDoc
      */
-    protected function _get_content($args = array())
+    protected function _get_content($args = [])
     {
-        global $bp;
-
         if (isset($args['paged']) && $args['paged'] > 1) {
-            return array();
+            return [];
         }
 
-        $content = array();
+        $bp = buddypress();
+        $content = [];
         $is_search = isset($args['search']) && $args['search'];
+        $is_include = !empty($args['include']);
 
-        if (isset($bp->members->nav)) {
-            foreach ($bp->members->nav->get_item_nav() as $item) {
-                $content[$item->slug] = array(
+        //BP <12.0 and Classic BP
+        if (isset($bp->members->nav) && $bp->members->nav->get_item_nav() !== false) {
+            foreach ((array) $bp->members->nav->get_item_nav() as $item) {
+                $content[$item->slug] = [
                     'id'   => $item->slug,
                     'text' => strip_tags($item->name)
-                );
+                ];
                 if ($item->children) {
                     $level = $is_search ? 0 : 1;
                     foreach ($item->children as $child_item) {
-                        $content[$item->slug.'-'.$child_item->slug] = array(
+                        $content[$item->slug . '-' . $child_item->slug] = [
                             'text'  => strip_tags($child_item->name),
-                            'id'    => $item->slug.'-'.$child_item->slug,
+                            'id'    => $item->slug . '-' . $child_item->slug,
                             'level' => $level
-                        );
+                        ];
+                    }
+                }
+            }
+        } elseif (function_exists('bp_get_component_navigations')) {
+            foreach (bp_get_component_navigations() as $navs) {
+                if (!isset($navs['main_nav']['rewrite_id']) || !$navs['main_nav']['rewrite_id']) {
+                    continue;
+                }
+                $content[$navs['main_nav']['slug']] = [
+                    'id'   => $navs['main_nav']['slug'],
+                    'text' => strip_tags($navs['main_nav']['name'])
+                ];
+                if (isset($navs['sub_nav'])) {
+                    $level = $is_search ? 0 : 1;
+                    foreach ($navs['sub_nav'] as $sub_nav) {
+                        $content[$sub_nav['parent_slug'] . '-' . $sub_nav['slug']] = [
+                            'text' => $is_search || $is_include
+                                ? strip_tags($navs['main_nav']['name'] . ': ' . $sub_nav['name'])
+                                : strip_tags($sub_nav['name']),
+                            'id'    => $sub_nav['parent_slug'] . '-' . $sub_nav['slug'],
+                            'level' => $level
+                        ];
                     }
                 }
             }
         }
 
-        if (!empty($args['include'])) {
+        if ($is_include) {
             $content = array_intersect_key($content, array_flip($args['include']));
         } elseif ($is_search) {
-            $this->search_string = $args['search'];
-            $content = array_filter($content, array($this,'_filter_search'));
+            $content = array_filter($content, function ($value) use ($args) {
+                return mb_stripos($value['text'], $args['search']) !== false;
+            });
         }
 
         return $content;
     }
 
     /**
-     * Filter content based on search
-     *
-     * @since  2.0
-     * @param  string  $value
-     * @return boolean
-     */
-    protected function _filter_search($value)
-    {
-        return mb_stripos($value['text'], $this->search_string) !== false;
-    }
-
-    /**
-     * @global object  $bp
-     * @since  1.0
-     * @return boolean
+     * @inheritDoc
      */
     public function in_context()
     {
-        global $bp;
+        $bp = buddypress();
         return isset($bp->displayed_user->domain) && $bp->displayed_user->domain;
     }
 
     /**
-     * Get data from context
-     *
-     * @global object $bp
-     * @since  1.0
-     * @return array
+     * @inheritDoc
      */
     public function get_context_data()
     {
-        global $bp;
-        $data = array($this->default_value);
+        $bp = buddypress();
+        $data = [$this->default_value];
         if (isset($bp->current_component)) {
             $data[] = $bp->current_component;
             if (isset($bp->current_action)) {
-                $data[] = $bp->current_component.'-'.$bp->current_action;
+                $data[] = $bp->current_component . '-' . $bp->current_action;
             }
         }
         return $data;

@@ -1,4 +1,6 @@
 jQuery(document).ready(function ($) {
+    var { __ } = wp.i18n;
+
     $('.advgb-newsletter input.advgb-form-input').on('keydown', function (e) {
         if(e.which === 13) {
             e.preventDefault();
@@ -18,7 +20,7 @@ jQuery(document).ready(function ($) {
         var lastName = $(this).find('.advgb-form-input-lname').val();
         var email = $(this).find('.advgb-form-input-email').val();
         var date = new Date();
-        var submitDate = (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear() + ' - ' + (date.getHours() < 10 ? '0' : '') + date.getHours() + ':' + (date.getMinutes() < 10 ? '0' : '') + date.getMinutes();
+        var submitDate = (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear() + ' - ' + ( date.getHours() < 10 ? '0' : '' ) + date.getHours() + ':' + ( date.getMinutes() < 10 ? '0' : '' ) + date.getMinutes();
         var g_id = parseInt($thisForm.find('.advgb-grecaptcha').data('gid'));
         var emailValid = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
@@ -28,17 +30,19 @@ jQuery(document).ready(function ($) {
 
         if (firstName === '' || lastName === '' || email === '') {
             var alertText = $thisForm.find('.advgb-form-submit').data('alert');
-            alertText = alertText ? alertText : 'You need to fill all fields!';
+            alertText = alertText ? alertText : __('You need to fill all fields!', 'advanced-gutenberg');
             alert(alertText);
             return false;
         }
 
         if(emailValid.test(email)) {
-            console.log('Email is valid.');
+            console.log(__('Email is valid.', 'advanced-gutenberg'));
         } else {
-            alert('Use a valid email address!');
+            alert(__('Use a valid email address!', 'advanced-gutenberg'));
             return false;
         }
+
+        var nonce_val = $('[name="advgb_blockform_nonce_field"]').val();
 
         $.ajax( {
             url: advgbNewsletter.ajax_url,
@@ -49,7 +53,8 @@ jQuery(document).ready(function ($) {
                 l_name: lastName,
                 email: email,
                 submit_date: submitDate,
-                captcha: typeof grecaptcha !== "undefined" ? grecaptcha.getResponse(g_id) : undefined
+                captcha: typeof grecaptcha !== "undefined" ? grecaptcha.getResponse(g_id) : undefined,
+                nonce: nonce_val
             },
             beforeSend: function () {
                 $thisForm.find('.advgb-form-submit-wrapper').append('<div class="advgb-form-sending" />');
@@ -58,7 +63,7 @@ jQuery(document).ready(function ($) {
             success: function () {
                 $thisForm.find('.advgb-form-sending').remove();
                 var successText = $thisForm.find('.advgb-form-submit').data('success');
-                successText = successText ? successText : 'Submitted with success!';
+                successText = successText ? successText : __('Submitted with success!', 'advanced-gutenberg');
                 $thisForm.append('<div class="advgb-form-submit-success">'+ successText +'</div>');
             },
             error: function ( jqxhr, textStatus, error ) {

@@ -11,7 +11,7 @@ use \Elementor\Controls_Manager;
 use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Typography;
-use \Elementor\Scheme_Typography;
+use \Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use \Elementor\Widget_Base;
 
 use \Essential_Addons_Elementor\Classes\Helper;
@@ -59,7 +59,7 @@ class WpForms extends Widget_Base {
         return 'https://essential-addons.com/elementor/docs/wpforms/';
     }
 
-    protected function _register_controls()
+    protected function register_controls()
     {
 
         if (!class_exists('\WPForms\WPForms')) {
@@ -152,6 +152,9 @@ class WpForms extends Widget_Base {
                     'default'               => '',
                     'condition'             => [
                         'custom_title_description'   => 'yes',
+                    ],
+                    'ai' => [
+                        'active' => false,
                     ],
                 ]
             );
@@ -301,7 +304,7 @@ class WpForms extends Widget_Base {
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .eael-contact-form' => 'max-width: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .eael-contact-form' => 'max-width: {{SIZE}}{{UNIT}};width: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -386,15 +389,15 @@ class WpForms extends Widget_Base {
                 'options'               => [
                     'left'      => [
                         'title' => __('Left', 'essential-addons-for-elementor-lite'),
-                        'icon'  => 'fa fa-align-left',
+                        'icon'  => 'eicon-text-align-left',
                     ],
                     'center'    => [
                         'title' => __('Center', 'essential-addons-for-elementor-lite'),
-                        'icon'  => 'fa fa-align-center',
+                        'icon'  => 'eicon-text-align-center',
                     ],
                     'right'     => [
                         'title' => __('Right', 'essential-addons-for-elementor-lite'),
-                        'icon'  => 'fa fa-align-right',
+                        'icon'  => 'eicon-text-align-right',
                     ],
                 ],
                 'default'               => '',
@@ -479,7 +482,9 @@ class WpForms extends Widget_Base {
             [
                 'name'                  => 'form_description_typography',
                 'label'                 => __('Typography', 'essential-addons-for-elementor-lite'),
-                'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
+                'global' => [
+	                'default' => Global_Typography::TYPOGRAPHY_ACCENT
+                ],
                 'selector'              => '{{WRAPPER}} .eael-contact-form-description, {{WRAPPER}} .wpforms-description',
             ]
         );
@@ -523,7 +528,7 @@ class WpForms extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors' => [
-                    '{{WRAPPER}} .eael-wpforms .wpforms-field label' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .eael-wpforms .wpforms-field label, {{WRAPPER}} .eael-wpforms .wpforms-field legend' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -533,7 +538,7 @@ class WpForms extends Widget_Base {
                 'label'             => __('Text Color', 'essential-addons-for-elementor-lite'),
                 'type'              => Controls_Manager::COLOR,
                 'selectors'         => [
-                    '{{WRAPPER}} .eael-wpforms .wpforms-field label' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .eael-wpforms .wpforms-field label, {{WRAPPER}} .eael-wpforms .wpforms-field legend' => 'color: {{VALUE}}',
                 ],
             ]
         );
@@ -543,8 +548,10 @@ class WpForms extends Widget_Base {
             [
                 'name'              => 'typography_label',
                 'label'             => __('Typography', 'essential-addons-for-elementor-lite'),
-                'scheme'            => Scheme_Typography::TYPOGRAPHY_4,
-                'selector'          => '{{WRAPPER}} .eael-wpforms .wpforms-field label',
+                'global' => [
+	                'default' => Global_Typography::TYPOGRAPHY_ACCENT
+                ],
+                'selector'          => '{{WRAPPER}} .eael-wpforms .wpforms-field label, {{WRAPPER}} .eael-wpforms .wpforms-field legend',
             ]
         );
 
@@ -570,15 +577,15 @@ class WpForms extends Widget_Base {
                 'options'               => [
                     'left'      => [
                         'title' => __('Left', 'essential-addons-for-elementor-lite'),
-                        'icon'  => 'fa fa-align-left',
+                        'icon'  => 'eicon-text-align-left',
                     ],
                     'center'    => [
                         'title' => __('Center', 'essential-addons-for-elementor-lite'),
-                        'icon'  => 'fa fa-align-center',
+                        'icon'  => 'eicon-text-align-center',
                     ],
                     'right'     => [
                         'title' => __('Right', 'essential-addons-for-elementor-lite'),
-                        'icon'  => 'fa fa-align-right',
+                        'icon'  => 'eicon-text-align-right',
                     ],
                 ],
                 'default'               => '',
@@ -783,7 +790,9 @@ class WpForms extends Widget_Base {
             [
                 'name'              => 'field_typography',
                 'label'             => __('Typography', 'essential-addons-for-elementor-lite'),
-                'scheme'            => Scheme_Typography::TYPOGRAPHY_4,
+                'global' => [
+	                'default' => Global_Typography::TYPOGRAPHY_ACCENT
+                ],
                 'selector'          => '{{WRAPPER}} .eael-wpforms .wpforms-field input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), {{WRAPPER}} .eael-wpforms .wpforms-field textarea, {{WRAPPER}} .eael-wpforms .wpforms-field select',
                 'separator'         => 'before',
             ]
@@ -1285,7 +1294,9 @@ class WpForms extends Widget_Base {
             [
                 'name'              => 'button_typography',
                 'label'             => __('Typography', 'essential-addons-for-elementor-lite'),
-                'scheme'            => Scheme_Typography::TYPOGRAPHY_4,
+                'global' => [
+	                'default' => Global_Typography::TYPOGRAPHY_ACCENT
+                ],
                 'selector'          => '{{WRAPPER}} .eael-wpforms .wpforms-submit-container .wpforms-submit',
                 'separator'         => 'before',
             ]
@@ -1441,15 +1452,10 @@ class WpForms extends Widget_Base {
         if ($settings['custom_radio_checkbox'] == 'yes') {
             $this->add_render_attribute('contact-form', 'class', 'eael-custom-radio-checkbox');
         }
-        if ($settings['eael_contact_form_alignment'] == 'left') {
-            $this->add_render_attribute('contact-form', 'class', 'eael-contact-form-align-left');
-        } elseif ($settings['eael_contact_form_alignment'] == 'center') {
-            $this->add_render_attribute('contact-form', 'class', 'eael-contact-form-align-center');
-        } elseif ($settings['eael_contact_form_alignment'] == 'right') {
-            $this->add_render_attribute('contact-form', 'class', 'eael-contact-form-align-right');
-        } else {
-            $this->add_render_attribute('contact-form', 'class', 'eael-contact-form-align-default');
-        }
+
+        $alignment = '' !== $settings['eael_contact_form_alignment'] ? $settings['eael_contact_form_alignment'] : 'default';
+
+        $this->add_render_attribute('contact-form', 'class', 'eael-contact-form-align-' . $alignment );
 
         if (!empty($settings['contact_form_list'])) { ?>
             <div <?php echo $this->get_render_attribute_string('contact-form'); ?>>

@@ -156,7 +156,7 @@ if ( ! class_exists( 'Gutentor_Extend_Api' ) ) {
 			$output         .= '</div>';
 			return $output;
 		}
-		
+
 		/**
 		 * Add product data on gutentor rest data
 		 *
@@ -183,8 +183,8 @@ if ( ! class_exists( 'Gutentor_Extend_Api' ) ) {
 			}
 			$data['product_regular_price']   = $product->get_regular_price();
 			$data['product_sale_price']      = wc_format_sale_price( wc_get_price_to_display( $product, array( 'price' => $product->get_regular_price() ) ), wc_get_price_to_display( $product ) ) . $product->get_price_suffix();
-            $data['product_price']           = ($product->get_price()) ?  $product->get_price_html() : 'price-empty';
-            $data['product_price_empty']     = ($product->get_price()) ? 'price-not-empty' : wc_price('0.00');
+			$data['product_price']           = ( $product->get_price() ) ? $product->get_price_html() : 'price-empty';
+			$data['product_price_empty']     = ( $product->get_price() ) ? 'price-not-empty' : wc_price( '0.00' );
 			$data['product_cart_label']      = $product->add_to_cart_text();
 			$data['product_rating_html']     = wc_get_rating_html( $rating, $count );
 			$data['product_new_badge']       = $this->new_badge_product( $product_new_badge, $post, $product );
@@ -238,70 +238,68 @@ if ( ! class_exists( 'Gutentor_Extend_Api' ) ) {
 				$output_favourite    .= edd_wl_wish_list_link( $download_args );
 				$output_fp_favourite .= edd_wl_wish_list_link( $fp_download_args );
 			}
-			if(edd_has_variable_prices( $post->ID )){
-                ob_start();
-                $get_variable_pricing = edd_purchase_variable_pricing($post->ID).ob_get_clean();
-            }
-			$data['download_variable_price_html']       = $get_variable_pricing;
-			$data['download_has_variable_price']        = edd_has_variable_prices( $post->ID ) ? 'variable-price-true' : '' ;
-			$data['download_cart_label']                = edd_get_option( 'add_to_cart_text', esc_html__( 'Purchase', 'gutentor' ) );
-			$data['download_price']                     = edd_has_variable_prices( $post->ID ) ? edd_price_range( $post->ID ) : edd_price( $post->ID, false );
-			$data['download_price_is_empty']            = gutentor_is_edd_has_price($post->ID);
-			$data['download_rating_html']               = $this->gutentor_edd_review( $post->ID );
-			$data['download_wish_list']                 = $output_favourite;
-			$data['download_fp_wish_list']              = $output_fp_favourite;
-			$data['download_new_badge']                 = $this->new_badge_download( $download_new_badge, $post, $download );
-			$data['download_fp_new_badge']              = $this->new_badge_download( $download_fp_new_badge, $post, $download );
-			$data['download_author_name']               = get_the_author_meta( 'display_name', $author_id );
-			$data['download_author_url']                = get_the_author_meta( 'user_url', $author_id );
-			$data['download_comment']                   = $comments_count->total_comments;
-			$data['download_placeholder_url']           = GUTENTOR_URL . 'assets/img/default-image.jpg';
+			if ( edd_has_variable_prices( $post->ID ) ) {
+				ob_start();
+				$get_variable_pricing = edd_purchase_variable_pricing( $post->ID ) . ob_get_clean();
+			}
+			$data['download_variable_price_html'] = $get_variable_pricing;
+			$data['download_has_variable_price']  = edd_has_variable_prices( $post->ID ) ? 'variable-price-true' : '';
+			$data['download_cart_label']          = edd_get_option( 'add_to_cart_text', esc_html__( 'Purchase', 'gutentor' ) );
+			$data['download_price']               = edd_has_variable_prices( $post->ID ) ? edd_price_range( $post->ID ) : edd_price( $post->ID, false );
+			$data['download_price_is_empty']      = gutentor_is_edd_has_price( $post->ID );
+			$data['download_rating_html']         = $this->gutentor_edd_review( $post->ID );
+			$data['download_wish_list']           = $output_favourite;
+			$data['download_fp_wish_list']        = $output_fp_favourite;
+			$data['download_new_badge']           = $this->new_badge_download( $download_new_badge, $post, $download );
+			$data['download_fp_new_badge']        = $this->new_badge_download( $download_fp_new_badge, $post, $download );
+			$data['download_author_name']         = get_the_author_meta( 'display_name', $author_id );
+			$data['download_author_url']          = get_the_author_meta( 'user_url', $author_id );
+			$data['download_comment']             = $comments_count->total_comments;
+			$data['download_placeholder_url']     = GUTENTOR_URL . 'assets/img/default-image.jpg';
 
 			return $data;
 
 		}
 
-        /**
-         * Modify cart html if gutentor-attributes set
-         *
-         * @static
-         * @access public
-         * @since 2.1.9
-         * @return string
-         */
-        public function alter_cart_link( $output, $product, $args ) {
-            $attributes = isset( $args['gutentor-attributes'] ) ? $args['gutentor-attributes'] : false;
-            $buttonType = isset( $args['gutentor-btn-type'] ) ? $args['gutentor-btn-type'] : false;
-            if ( ! $attributes ) {
-                return $output;
-            }
-            $icon = $default_class = $btnClass = $icon_position_class = '';
-            if($buttonType === 'featured') {
-                $btnClass            = isset( $attributes['pFPBtnCName'] ) ? $attributes['pFPBtnCName'] : '';
-                $default_class = gutentor_concat_space( 'gutentor-button', 'gutentor-post-featured-button',$btnClass );
-                $icon_options  = ( isset( $attributes['pFPBtnIconOpt'] ) ) ? $attributes['pFPBtnIconOpt'] : '';
-                $icon_position_class = GutentorButtonOptionsClasses( $icon_options );
-                if ( $icon_position_class == 'gutentor-icon-before' || $icon_position_class == 'gutentor-icon-after' ) {
-                    $icon          = ( isset( $attributes['pFPBtnIcon'] ) && $attributes['pFPBtnIcon']['value'] ) ? '<i class="gutentor-button-icon ' . $attributes['pFPBtnIcon']['value'] . '" ></i>' : '';
-                }
-            }
-            else{
-                $btnClass          = isset( $attributes['pBtnCName'] ) ? $attributes['pBtnCName'] : '';
-                $default_class     = gutentor_concat_space( 'gutentor-button', 'gutentor-post-button', $btnClass );
-                $icon_options      = ( isset( $attributes['pBtnIconOpt'] ) ) ? $attributes['pBtnIconOpt'] : '';
-                $icon_position_class = GutentorButtonOptionsClasses( $icon_options );
-                if ( $icon_position_class == 'gutentor-icon-before' || $icon_position_class == 'gutentor-icon-after' ) {
-                    $icon          = ( isset( $attributes['pBtnIcon'] ) && $attributes['pBtnIcon']['value'] ) ? '<i class="gutentor-button-icon ' . $attributes['pBtnIcon']['value'] . '" ></i>' : '';
-                }
-
-            }
-            $woo_class         = esc_attr( isset( $args['class'] ) ? $args['class'] : 'button' );
-            $output = '<a href="' . esc_url( $product->add_to_cart_url() ) . '" data-quantity="' . esc_attr( isset( $args['quantity'] ) ? $args['quantity'] : 1 ) . '" 
+		/**
+		 * Modify cart html if gutentor-attributes set
+		 *
+		 * @static
+		 * @access public
+		 * @since 2.1.9
+		 * @return string
+		 */
+		public function alter_cart_link( $output, $product, $args ) {
+			$attributes = isset( $args['gutentor-attributes'] ) ? $args['gutentor-attributes'] : false;
+			$buttonType = isset( $args['gutentor-btn-type'] ) ? $args['gutentor-btn-type'] : false;
+			if ( ! $attributes ) {
+				return $output;
+			}
+			$icon = '';
+			if ( $buttonType === 'featured' ) {
+				$btnClass            = isset( $attributes['pFPBtnCName'] ) ? $attributes['pFPBtnCName'] : '';
+				$default_class       = gutentor_concat_space( 'gutentor-button', 'gutentor-post-featured-button', $btnClass );
+				$icon_options        = ( isset( $attributes['pFPBtnIconOpt'] ) ) ? $attributes['pFPBtnIconOpt'] : '';
+				$icon_position_class = GutentorButtonOptionsClasses( $icon_options );
+				if ( $icon_position_class == 'gutentor-icon-before' || $icon_position_class == 'gutentor-icon-after' ) {
+					$icon = ( isset( $attributes['pFPBtnIcon'] ) && $attributes['pFPBtnIcon']['value'] ) ? '<i class="gutentor-button-icon ' . $attributes['pFPBtnIcon']['value'] . '" ></i>' : '';
+				}
+			} else {
+				$btnClass            = isset( $attributes['pBtnCName'] ) ? $attributes['pBtnCName'] : '';
+				$default_class       = gutentor_concat_space( 'gutentor-button', 'gutentor-post-button', $btnClass );
+				$icon_options        = ( isset( $attributes['pBtnIconOpt'] ) ) ? $attributes['pBtnIconOpt'] : '';
+				$icon_position_class = GutentorButtonOptionsClasses( $icon_options );
+				if ( $icon_position_class == 'gutentor-icon-before' || $icon_position_class == 'gutentor-icon-after' ) {
+					$icon = ( isset( $attributes['pBtnIcon'] ) && $attributes['pBtnIcon']['value'] ) ? '<i class="gutentor-button-icon ' . $attributes['pBtnIcon']['value'] . '" ></i>' : '';
+				}
+			}
+			$woo_class = esc_attr( isset( $args['class'] ) ? $args['class'] : 'button' );
+			$output    = '<a href="' . esc_url( $product->add_to_cart_url() ) . '" data-quantity="' . esc_attr( isset( $args['quantity'] ) ? $args['quantity'] : 1 ) . '" 
 			class="' . gutentor_concat_space( $default_class, $woo_class, GutentorButtonOptionsClasses( $icon_options ) ) . '" ' . ( isset( $args['attributes'] ) ? wc_implode_html_attributes( $args['attributes'] ) : '' ) . '>
 			' . $icon . '<span>' . esc_html( $product->add_to_cart_text() ) . '</span></a>';
-            return $output;
+			return $output;
 
-        }
+		}
 
 
 	}

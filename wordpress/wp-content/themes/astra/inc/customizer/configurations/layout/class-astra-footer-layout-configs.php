@@ -45,7 +45,6 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'section'           => 'section-footer-small',
 					'priority'          => 5,
 					'title'             => __( 'Layout', 'astra' ),
-					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
 					'choices'           => array(
 						'disabled'            => array(
 							'label' => __( 'Disabled', 'astra' ),
@@ -85,6 +84,7 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 					'section'    => 'section-footer-small',
 					'priority'   => 15,
 					'title'      => __( 'Section 1', 'astra' ),
+					'divider'    => array( 'ast_class' => 'ast-top-divider' ),
 					'choices'    => array(
 						''       => __( 'None', 'astra' ),
 						'custom' => __( 'Text', 'astra' ),
@@ -463,7 +463,7 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 						'section'  => 'section-footer-adv',
 						'priority' => 999,
 						'label'    => '',
-						'help'     => '<p>' . __( 'More Options Available in Astra Pro!', 'astra' ) . '</p><a href="' . astra_get_pro_url( 'https://wpastra.com/pro/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-secondary"  target="_blank" rel="noopener">' . __( 'Learn More', 'astra' ) . '</a>',
+						'help'     => '<p>' . __( 'More Options Available in Astra Pro!', 'astra' ) . '</p><a href="' . ASTRA_PRO_CUSTOMIZER_UPGRADE_URL . '" class="button button-secondary"  target="_blank" rel="noopener">' . __( 'Learn More', 'astra' ) . '</a>',
 						'settings' => array(),
 					),
 

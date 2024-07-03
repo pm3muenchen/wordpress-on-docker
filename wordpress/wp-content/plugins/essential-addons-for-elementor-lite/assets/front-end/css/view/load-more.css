@@ -24,6 +24,10 @@
   display: -ms-flexbox;
   display: flex;
 }
+.eael-button-wrap.eael-force-hide,
+.eael-load-more-button-wrap.eael-force-hide {
+  display: none !important;
+}
 .eael-button,
 .eael-load-more-button {
   display: -webkit-box !important;
@@ -40,12 +44,17 @@
   font-size: 16px;
   overflow: hidden;
 }
-.eael-button > span,
-.eael-load-more-button > span {
-  margin-left: -20px;
+.eael-button.hide,
+.eael-load-more-button.hide {
+  display: none !important;
+}
+.eael-button.button--loading .eael-btn-loader,
+.eael-load-more-button.button--loading .eael-btn-loader {
+  display: block;
 }
 .eael-button .eael-btn-loader,
 .eael-load-more-button .eael-btn-loader {
+  display: none;
   border-radius: 50%;
   width: 20px;
   height: 20px;
@@ -63,7 +72,6 @@
           animation: loaderSpin 1.1s infinite linear;
   margin-right: 5px;
   -webkit-transition: all 0.2s;
-  -o-transition: all 0.2s;
   transition: all 0.2s;
 }
 .eael-button .eael-btn-loader:after,

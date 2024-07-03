@@ -3,14 +3,14 @@
  * Plugin Name: EditorsKit
  * Plugin URI: https://editorskit.com/
  * Description: EditorsKit is a suite of <strong>page building block options</strong> for the Gutenberg block editor.
- * Version: 1.29.3
- * Author: Jeffrey Carandang
- * Author URI: https://jeffreycarandang.com/
+ * Version: 1.40.6
+ * Author: Munir Kamal
+ * Author URI: https://www.munirkamal.com/
  * Text Domain: block-options
  * Domain Path: languages
  *
  * @category Gutenberg
- * @author Jeffrey Carandang
+ * @author Munir Kamal
  * @version 1.0
  * @package EditorsKit
  */
@@ -27,6 +27,8 @@ if ( ! class_exists( 'EditorsKit' ) ) :
 	 * @since  1.0
 	 */
 	final class EditorsKit {
+
+
 		/**
 		 * The plugin's instance
 		 *
@@ -92,11 +94,11 @@ if ( ! class_exists( 'EditorsKit' ) ) :
 		 * @return void
 		 */
 		private function setup_constants() {
-
 			$this->define( 'EDITORSKIT_DEBUG', true );
-			$this->define( 'EDITORSKIT_VERSION', '1.29.3' );
+			$this->define( 'EDITORSKIT_VERSION', '1.40.6' );
 			$this->define( 'EDITORSKIT_HAS_PRO', false );
 			$this->define( 'EDITORSKIT_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
+			$this->define( 'EDITORSKIT_PLUGIN_ADDON_PATH', plugin_dir_path( __FILE__ ) . 'includes/addons/' );
 			$this->define( 'EDITORSKIT_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 			$this->define( 'EDITORSKIT_PLUGIN_FILE', __FILE__ );
 			$this->define( 'EDITORSKIT_PLUGIN_BASE', plugin_basename( __FILE__ ) );
@@ -124,7 +126,6 @@ if ( ! class_exists( 'EditorsKit' ) ) :
 		 * @return void
 		 */
 		private function includes() {
-
 			require_once EDITORSKIT_PLUGIN_DIR . 'includes/class-editorskit-block-assets.php';
 			require_once EDITORSKIT_PLUGIN_DIR . 'includes/class-editorskit-render-block.php';
 			require_once EDITORSKIT_PLUGIN_DIR . 'includes/class-editorskit-acf-support.php';
@@ -134,12 +135,16 @@ if ( ! class_exists( 'EditorsKit' ) ) :
 			require_once EDITORSKIT_PLUGIN_DIR . 'includes/class-editorskit-custom-css-classes.php';
 			require_once EDITORSKIT_PLUGIN_DIR . 'includes/helper.php';
 			require_once EDITORSKIT_PLUGIN_DIR . 'includes/class-editorskit-shortcodes.php';
+			require_once EDITORSKIT_PLUGIN_DIR . 'includes/class-editorskit-block-locking.php';
+			require_once EDITORSKIT_PLUGIN_DIR . 'includes/notices/class-editorskit-support-notice.php';
+			require_once EDITORSKIT_PLUGIN_DIR . 'includes/class-editorskit-plugin-shortcuts.php';
+
+			require_once EDITORSKIT_PLUGIN_DIR . 'includes/class-editorskit-addon-manager.php';
 
 			if ( is_admin() || ( defined( 'WP_CLI' ) && WP_CLI ) ) {
 				require_once EDITORSKIT_PLUGIN_DIR . 'includes/class-editorskit-welcome.php';
 				require_once EDITORSKIT_PLUGIN_DIR . 'includes/class-editorskit-page-template-support.php';
 				require_once EDITORSKIT_PLUGIN_DIR . 'includes/class-editorskit-user-feedback.php';
-
 			}
 		}
 
@@ -151,6 +156,14 @@ if ( ! class_exists( 'EditorsKit' ) ) :
 		private function init() {
 			add_action( 'plugins_loaded', array( $this, 'load_textdomain' ), 99 );
 			add_action( 'enqueue_block_editor_assets', array( $this, 'block_localization' ) );
+			add_action( 'after_setup_theme', array( $this, 'set_eval' ) );
+		}
+
+		/**
+		 * Set eval feature through filter.
+		 */
+		public function set_eval() {
+			$this->define( 'EDITORSKIT_ALLOW_EVAL', (bool) apply_filters( 'editorskit_allow_unsafe_eval', false ) );
 		}
 
 		/**
@@ -206,7 +219,6 @@ if ( ! class_exists( 'EditorsKit' ) ) :
 				wp_set_script_translations( 'editorskit-editor', 'editorskit' );
 			}
 		}
-
 	}
 
 endif; // End if class_exists check.

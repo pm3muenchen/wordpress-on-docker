@@ -11,8 +11,7 @@ use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Text_Shadow;
 use Elementor\Group_Control_Typography;
-use Elementor\Scheme_Typography;
-use Happy_Addons\Elementor\Icons_Manager;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 
 defined( 'ABSPATH' ) || die();
 
@@ -50,12 +49,29 @@ class Icon_Box extends Base {
 		return [ 'info', 'box', 'icon' ];
 	}
 
+	/**
+     * Register widget content controls
+     */
 	protected function register_content_controls() {
+
 		$this->start_controls_section(
 			'_section_icon',
 			[
 				'label' => __( 'Content', 'happy-elementor-addons' ),
 				'tab' => Controls_Manager::TAB_CONTENT,
+			]
+		);
+
+		$this->add_control(
+			'icon_type',
+			[
+				'label' => esc_html__( 'Icon Type', 'happy-elementor-addons' ),
+				'type' => Controls_Manager::SELECT,
+				'default' => 'default',
+				'options' => [
+					'default'  => esc_html__( 'Elementor Default', 'happy-elementor-addons' ),
+					'lordicon' => esc_html__( 'LordIcon', 'happy-elementor-addons' ),
+				],
 			]
 		);
 
@@ -68,6 +84,9 @@ class Icon_Box extends Base {
 					'label_block' => true,
 					'options' => ha_get_happy_icons(),
 					'default' => 'fa fa-smile-o',
+					'condition' => [
+						'icon_type' => 'default'
+					],
 				]
 			);
 		} else {
@@ -81,10 +100,64 @@ class Icon_Box extends Base {
 					'default' => [
 						'value' => 'fas fa-smile-wink',
 						'library' => 'fa-solid',
-					]
+					],
+					'condition' => [
+						'icon_type' => 'default'
+					],
 				]
 			);
 		}
+
+		$this->add_control(
+            'icon_method',
+            [
+                'type'        => Controls_Manager::SELECT,
+                'label'       => __('Icon Method', 'happy-elementor-addons'),
+                'description' => sprintf('<a target="_blank" href="%1$s">Learn how to use the Lordicon widget</a>', esc_url('https://happyaddons.com/docs/happy-addons-for-elementor/widgets/lord-icon')),
+                'options'     => [
+                    'cdn'  => esc_html__('Paste LordIcon URL', 'happy-elementor-addons'),
+                    'file' => esc_html__('Upload LordIcon file', 'happy-elementor-addons'),
+                ],
+                'default'     => 'cdn',
+                'label_block' => true,
+				'condition' => [
+					'icon_type' => 'lordicon'
+				],
+            ]
+        );
+        $this->add_control(
+            'icon_cdn',
+            [
+                'type'        => Controls_Manager::TEXT,
+                'label'       => __('Paste CDN', 'happy-elementor-addons'),
+                'label_block' => true,
+                'description' => sprintf(
+                    'Paste icon code from <a target="_blank" href="%1$s">lordicon.com</a> <br /><br /> <a target="_blank" href="%2$s">Learn how to get Lordicon CDN</a><br><br>
+                Example: https://cdn.lordicon.com/lupuorrc.json', esc_url('https://lordicon.com/'), esc_url('https://happyaddons.com/docs/happy-addons-for-elementor/widgets/lord-icon')
+                ),
+                'default'     => 'https://cdn.lordicon.com/lupuorrc.json',
+                'condition'   => [
+					'icon_method' => 'cdn',
+					'icon_type' => 'lordicon',
+                ],
+            ]
+        );
+        $this->add_control(
+            'icon_json',
+            [
+                'type'        => Controls_Manager::MEDIA,
+                'label'       => __('JSON File', 'happy-elementor-addons'),
+                'media_type'  => 'application/json',
+                'description' => sprintf('Download Json file from <a href="%1$s" target="_blank">lordicon.com</a>', esc_url('https://lordicon.com/')),
+                'default'     => [
+                    'url' => HAPPY_ADDONS_ASSETS . 'vendor/lord-icon/placeholder.json',
+                ],
+                'condition'   => [
+                    'icon_method' => 'file',
+					'icon_type' => 'lordicon',
+                ],
+            ]
+        );
 
 		$this->add_control(
 			'title',
@@ -195,9 +268,234 @@ class Icon_Box extends Base {
 		);
 
 		$this->end_controls_section();
+		$this->lordicon_settings();
 	}
 
+	protected function lordicon_settings(){
+		$this->start_controls_section(
+			'_section_lordicon_settings',
+			[
+				'label' => __( 'Lord Icon Settings', 'happy-elementor-addons' ),
+				'tab'   => Controls_Manager::TAB_CONTENT,
+				'condition' =>[
+					'icon_type' => 'lordicon'
+				]
+			]
+		);
+
+		$this->add_control(
+            'animation_trigger',
+            [
+                'type'    => Controls_Manager::SELECT,
+                'label'   => __('Animation Trigger', 'happy-elementor-addons'),
+                'options' => [
+                    'loop'          => esc_html__('Loop (infinite)', 'happy-elementor-addons'),
+                    'click'         => esc_html__('Click', 'happy-elementor-addons'),
+                    'hover'         => esc_html__('Hover', 'happy-elementor-addons'),
+                    'loop-on-hover' => esc_html__('Loop on Hover', 'happy-elementor-addons'),
+                    'morph'         => esc_html__('Morph', 'happy-elementor-addons'),
+                    'morph-two-way' => esc_html__('Morph two way', 'happy-elementor-addons'),
+                ],
+                'default' => 'loop',
+            ]
+        );
+
+        $this->add_control(
+            'target',
+            [
+                'type'    => Controls_Manager::SELECT,
+                'label'   => __('Target', 'happy-elementor-addons'),
+                'options' => [
+                    'widget'  => __('On Widget', 'happy-elementor-addons'),
+                    // 'icon' => __('On Icon', 'happy-elementor-addons' ),
+                    'column'  => __('On Column', 'happy-elementor-addons'),
+                    'section' => __('On Section', 'happy-elementor-addons'),
+                    'custom'  => __('Custom', 'happy-elementor-addons'),
+                ],
+                'default' => 'widget',
+            ]
+        );
+
+        $this->add_control(
+            'custom_target',
+            [
+                'type'        => Controls_Manager::TEXT,
+                'label'       => __('Custom Target', 'happy-elementor-addons'),
+                'placeholder' => __('.example', 'happy-elementor-addons'),
+                'default'     => __('.example', 'happy-elementor-addons'),
+                'condition'   => [
+                    'target' => 'custom',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'pulse_effect',
+            [
+                'label'        => esc_html__('Pulse Effect', 'happy-elementor-addons'),
+                'type'         => Controls_Manager::SWITCHER,
+                'description'  => __('This will override your box shadow', 'happy-elementor-addons'),
+                'return_value' => 'yes',
+                'default'      => '',
+            ]
+        );
+
+        $this->add_control(
+            'pulse_color',
+            [
+                'label'     => __('Pulse Color', 'happy-elementor-addons'),
+                'type'      => Controls_Manager::COLOR,
+                'default'   => '#B6B6B6',
+                'condition' => [
+                    'pulse_effect' => 'yes',
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .pulse_effect' => '--icon-pulse-color:{{VALUE}}',
+                ],
+            ]
+        );
+
+		$this->end_controls_section();
+	}
+
+	/**
+     * Register widget style controls
+     */
 	protected function register_style_controls() {
+		$this->lord_icon_style_controls();
+		$this->__icon_style_controls();
+		$this->__title_style_controls();
+		$this->__badge_style_controls();
+	}
+
+	protected function lord_icon_style_controls(){
+        $this->start_controls_section(
+            '_section_style_lord_icon',
+            [
+                'label' => __('Lord Icon', 'happy-elementor-addons'),
+                'tab'   => Controls_Manager::TAB_STYLE,
+				'condition' =>[
+					'icon_type' => 'lordicon'
+				]
+            ]
+        );
+
+        $this->add_responsive_control(
+            'lord_icon_size',
+            [
+                'label'   => __('Size', 'happy-elementor-addons'),
+                'type'    => Controls_Manager::SLIDER,
+                // 'size_units' => [ 'px' ],
+                'range'   => [
+                    'px' => [
+                        'min' => 1,
+                        'max' => 1000,
+                    ],
+                ],
+                'default' => [
+                    'size' => 150,
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'primary_color',
+            [
+                'label'   => __('Primary Color', 'happy-elementor-addons'),
+                'type'    => Controls_Manager::COLOR,
+                'default' => '#121331',
+            ]
+        );
+
+        $this->add_control(
+            'secondary_color',
+            [
+                'label'   => __('Secondary Color', 'happy-elementor-addons'),
+                'type'    => Controls_Manager::COLOR,
+                'default' => '#08a88a',
+            ]
+        );
+
+		$this->add_control(
+            'tertiary_color',
+            [
+                'label'   => __('Tertiary Color', 'happy-elementor-addons'),
+                'type'    => Controls_Manager::COLOR,
+                'default' => '#0816A8',
+            ]
+        );
+
+        $this->add_control(
+            'quaternary_color',
+            [
+                'label'   => __('Quaternary Color', 'happy-elementor-addons'),
+                'type'    => Controls_Manager::COLOR,
+                'default' => '#2CA808',
+            ]
+        );
+
+        $this->add_control(
+            'lord_icon_stroke',
+            [
+                'label'   => __('Stroke', 'happy-elementor-addons'),
+                'type'    => Controls_Manager::SLIDER,
+                'range'   => [
+                    'min' => 1,
+                    'max' => 500,
+                ],
+                'default' => [
+                    'size' => '20',
+                ],
+            ]
+        );
+
+        // $this->add_control(
+        //     'lord_icon_bg_color',
+        //     [
+        //         'label'     => __('Background Color', 'happy-elementor-addons'),
+        //         'type'      => Controls_Manager::COLOR,
+        //         'selectors' => [
+        //             '{{WRAPPER}} .ha-icon-box-icon lord-icon' => 'background: {{VALUE}};',
+        //         ],
+        //     ]
+        // );
+
+        // $this->add_group_control(
+        //     Group_Control_Border::get_type(),
+        //     [
+        //         'name'     => 'lord_icon_border',
+        //         'selector' => '{{WRAPPER}} .ha-icon-box-icon lord-icon',
+        //     ]
+        // );
+
+        // $this->add_responsive_control(
+        //     'lord_icon_border_radius',
+        //     [
+        //         'label'      => __('Border Radius', 'happy-elementor-addons'),
+        //         'type'       => Controls_Manager::DIMENSIONS,
+        //         'size_units' => ['px', '%'],
+        //         'selectors'  => [
+        //             '{{WRAPPER}} .ha-icon-box-icon lord-icon' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+        //         ],
+        //     ]
+        // );
+
+        // $this->add_group_control(
+        //     Group_Control_Box_Shadow::get_type(),
+        //     [
+        //         'name'     => 'lord_icon_shadow',
+        //         'exclude'  => [
+        //             'box_shadow_position',
+        //         ],
+        //         'selector' => '{{WRAPPER}} .ha-icon-box-icon lord-icon',
+        //     ]
+        // );
+
+        $this->end_controls_section();
+    }
+
+	protected function __icon_style_controls() {
+
 		$this->start_controls_section(
 			'_section_style_icon',
 			[
@@ -414,6 +712,9 @@ class Icon_Box extends Base {
 		$this->end_controls_tabs();
 
 		$this->end_controls_section();
+	}
+
+	protected function __title_style_controls() {
 
 		$this->start_controls_section(
 			'_section_style_title',
@@ -428,7 +729,9 @@ class Icon_Box extends Base {
 			[
 				'name' => 'title',
 				'selector' => '{{WRAPPER}} .ha-icon-box-title',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_2
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
+				],
 			]
 		);
 
@@ -484,6 +787,9 @@ class Icon_Box extends Base {
 		$this->end_controls_tabs();
 
 		$this->end_controls_section();
+	}
+
+	protected function __badge_style_controls() {
 
 		$this->start_controls_section(
 			'_section_style_badge',
@@ -633,7 +939,9 @@ class Icon_Box extends Base {
 					'font_size' => ['']
 				],
 				'selector' => '{{WRAPPER}} .ha-badge',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_3,
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_TEXT,
+				],
 			]
 		);
 
@@ -717,75 +1025,128 @@ class Icon_Box extends Base {
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 
+		//for manage loard icon global colors only
+		$primary_color = $settings['primary_color'];
+		if( isset($settings['__globals__']) && !empty($settings['__globals__']['primary_color']) ) { 
+			$color_id = explode('=', $settings['__globals__']['primary_color']);
+			$get_id = end($color_id);
+			$primary_color = $this->get_golobal_color($get_id);
+		} 
+		
+		$secondary_color = $settings['secondary_color'];
+		if( isset($settings['__globals__']) && !empty($settings['__globals__']['secondary_color']) ) { 
+			$color_id = explode('=', $settings['__globals__']['secondary_color']);
+			$get_id = end($color_id);
+			$secondary_color = $this->get_golobal_color($get_id);
+		} 
+		
+		$tertiary_color = $settings['tertiary_color'];
+		if( isset($settings['__globals__']) && !empty($settings['__globals__']['tertiary_color']) ) { 
+			$color_id = explode('=', $settings['__globals__']['tertiary_color']);
+			$get_id = end($color_id);
+			$tertiary_color = $this->get_golobal_color($get_id);
+		} 
+		
+		$quaternary_color = $settings['quaternary_color'];
+		if( isset($settings['__globals__']) && !empty($settings['__globals__']['quaternary_color']) ) { 
+			$color_id = explode('=', $settings['__globals__']['quaternary_color']);
+			$get_id = end($color_id);
+			$quaternary_color = $this->get_golobal_color($get_id);
+		} 
+
+
 		$this->add_inline_editing_attributes( 'title', 'basic' );
 		$this->add_render_attribute( 'title', 'class', 'ha-icon-box-title' );
 
 		$this->add_inline_editing_attributes( 'badge_text', 'none' );
 		$this->add_render_attribute( 'badge_text', 'class', 'ha-badge ha-badge--top-right' );
+		$json_url    = '';
+        $method      = $settings['icon_method'];
+        $target      = $settings['target'];
+        $icon_size   = $settings['lord_icon_size'];
+        $icon_stroke = $settings['lord_icon_stroke'];
+
+		if( 'lordicon' == $settings[ 'icon_type' ] ){
+			if ( 'file' == $method ) {
+				$json_url = $settings['icon_json']['url'];
+			} else {
+				$json_url = $settings['icon_cdn'];
+			}
+		}
+        $target_class = '';
+
+        if ('custom' == $target ) {
+            $target_class = $settings['custom_target'];
+        } elseif ('column' == $target ) {
+            $target_class = '.elementor-column';
+        } elseif ('section' == $target ) {
+            $target_class = '.elementor-section';
+        } else {
+            $target_class = '.ha-icon-box-icon';
+        }
+        $pulse_effect = ( 'yes' == $settings['pulse_effect'] ) ? ' pulse_effect' : '';
+
 		?>
 
 		<?php if ( $settings['badge_text'] ) : ?>
 			<span <?php $this->print_render_attribute_string( 'badge_text' ); ?>><?php echo esc_html( $settings['badge_text'] ); ?></span>
 		<?php endif; ?>
 
-		<?php if ( ! empty( $settings['icon'] ) || ! empty( $settings['selected_icon']['value'] ) ) : ?>
-			<span class="ha-icon-box-icon">
-				<?php ha_render_icon( $settings, 'icon', 'selected_icon' ); ?>
+		<?php if ( 'lordicon' == $settings[ 'icon_type' ] ) :
+		if ( ! empty( $json_url ) ) : ?>
+			<span class="ha-icon-box-icon<?php echo esc_attr( $pulse_effect ); ?>">
+				<lord-icon
+					src="<?php echo esc_url( $json_url ); ?>"
+					trigger="<?php echo esc_attr($settings['animation_trigger']); ?>"
+					stroke="<?php echo esc_attr($icon_stroke['size']); ?>"
+					target="<?php echo esc_attr($target_class); ?>"
+					colors="primary:<?php echo esc_attr($primary_color); ?>,secondary:<?php echo esc_attr($secondary_color); ?>,tertiary:<?php echo esc_attr($tertiary_color); ?>,quaternary:<?php echo esc_attr($quaternary_color); ?>"
+					style="width:<?php echo esc_attr($icon_size['size']); ?>px;height:<?php echo esc_attr($icon_size['size']); ?>px">
+				</lord-icon>
 			</span>
 		<?php endif;
+		else :
+			if ( ! empty( $settings['icon'] ) || ! empty( $settings['selected_icon']['value'] ) ) : ?>
+				<span class="ha-icon-box-icon">
+					<?php ha_render_icon( $settings, 'icon', 'selected_icon' ); ?>
+				</span>
+		<?php endif;
+		endif;
 
 		if ( $settings['title' ] ) :
 			printf( '<%1$s %2$s>%3$s</%1$s>',
-				tag_escape( $settings['title_tag'] ),
+				ha_escape_tags( $settings['title_tag'], 'h2' ),
 				$this->get_render_attribute_string( 'title' ),
 				ha_kses_basic( $settings['title' ] )
 				);
 		endif;
 	}
 
-	public function _content_template() {
-		?>
-		<#
-		var iconHTML = migrated = '';
+	private function get_golobal_color($id) {
+		$global_color = '';
 
-		if ( haHasIconLibrary() ) {
-			iconHTML = elementor.helpers.renderIcon( view, settings.selected_icon, { 'aria-hidden': true }, 'i' , 'object' ),
-			migrated = elementor.helpers.isIconMigrated( settings, 'selected_icon' );
+		if( ! $id ) {
+			return $global_color;
+		}
+		
+		$el_page_settings 	= [];
+
+		$ekit_id = get_option('elementor_active_kit', true);
+
+		if ( $ekit_id ) {
+			$el_page_settings = get_post_meta($ekit_id, '_elementor_page_settings', true);
+
+			if( !empty( $el_page_settings ) && isset($el_page_settings['system_colors']) ) {
+				foreach( $el_page_settings['system_colors'] as $key => $val ) {
+					if( $val['_id'] == $id ) {
+						$global_color = $val['color'];
+					}
+				}
+			}
+
 		}
 
-		view.addInlineEditingAttributes( 'title', 'basic' );
-		view.addRenderAttribute( 'title', 'class', 'ha-icon-box-title' );
-
-		view.addInlineEditingAttributes( 'badge_text', 'none' );
-		view.addRenderAttribute( 'badge_text', 'class', 'ha-badge ha-badge--top-right' );
-
-		if (settings.link.url) {
-			view.addRenderAttribute( 'link', 'class', 'ha-icon-box-link' );
-			view.addRenderAttribute( 'link', 'href', settings.link.url );
-			print( '<a ' + view.getRenderAttributeString( 'link' ) + '>' );
-		} #>
-
-		<# if (settings.badge_text) { #>
-			<span {{{ view.getRenderAttributeString( 'badge_text' ) }}}>{{ settings.badge_text }}</span>
-		<# } #>
-
-		<# if ( settings.icon || settings.selected_icon.value ) { #>
-			<span class="ha-icon-box-icon">
-				<# if ( haHasIconLibrary() && iconHTML && iconHTML.rendered && ( ! settings.icon || migrated ) ) { #>
-					{{{ iconHTML.value }}}
-				<# } else { #>
-					<i class="{{ settings.icon }}" aria-hidden="true"></i>
-				<# } #>
-			</span>
-		<# } #>
-
-		<# if (settings.title) { #>
-			<{{ settings.title_tag }} {{{ view.getRenderAttributeString( 'title' ) }}}>{{ settings.title }}</{{ settings.title_tag }}>
-		<# } #>
-
-		<# if (settings.link.url) {
-			print( '</a>' );
-		} #>
-		<?php
+		return $global_color;
 	}
+
 }

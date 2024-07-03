@@ -30,13 +30,13 @@ class Gutentor_Deactivator {
 	public static function deactivate() {
 		update_option( '__gutentor_do_redirect', false );
 
-        global $current_user;
-        $user_id                  = $current_user->ID;
-        $ignored_notice_partially = get_user_meta( $user_id, 'gutentor_templateberg_notice_calendar', true );
+		global $current_user;
+		$user_id                  = $current_user->ID;
+		$ignored_notice_partially = get_user_meta( $user_id, 'gutentor_templateberg_notice_calendar', true );
 
-        // Delete partial notice remove data.
-        if ( $ignored_notice_partially ) {
-            delete_user_meta( $user_id, 'gutentor_templateberg_notice_calendar' );
-        }
+		// Delete partial notice remove data.
+		if ( $ignored_notice_partially ) {
+			delete_user_meta( $user_id, 'gutentor_templateberg_notice_calendar' );
+		}
 	}
 }

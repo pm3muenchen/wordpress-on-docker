@@ -122,10 +122,64 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	el.dispatchEvent(event);
 };
 
+/**
+ * Scroll to ID/Top with smooth scroll behavior.
+ *
+ * @since x.x.x
+ *
+ * @param {Event} e Event which is been fired.
+ * @param {String} top offset from top.
+ */
+ astraSmoothScroll = function astraSmoothScroll( e, top ) {
+	e.preventDefault();
+	window.scrollTo({
+		top: top,
+		left: 0,
+		behavior: 'smooth'
+	});
+};
+
+/**
+ * Scroll to Top trigger visibility adjustments.
+ *
+ * @since x.x.x
+ *
+ * @param {Node} masthead Page header.
+ * @param {Node} astScrollTop Scroll to Top selector.
+ */
+astScrollToTopHandler = function ( masthead, astScrollTop ) {
+
+	var content = getComputedStyle(astScrollTop).content,
+		device  = astScrollTop.dataset.onDevices;
+	content = content.replace( /[^0-9]/g, '' );
+
+	if( 'both' == device || ( 'desktop' == device && '769' == content ) || ( 'mobile' == device && '' == content ) ) {
+		// Get current window / document scroll.
+		var  scrollTop = window.pageYOffset || document.body.scrollTop;
+		// If masthead found.
+		if( masthead && masthead.length ) {
+			if (scrollTop > masthead.offsetHeight + 100) {
+				astScrollTop.style.display = "block";
+			} else {
+				astScrollTop.style.display = "none";
+			}
+		} else {
+			// If there is no masthead set default start scroll
+			if ( window.pageYOffset > 300 ) {
+				astScrollTop.style.display = "block";
+			} else {
+				astScrollTop.style.display = "none";
+			}
+		}
+	} else {
+		astScrollTop.style.display = "none";
+	}
+};
+
 ( function() {
 
 	var menu_toggle_all 	 = document.querySelectorAll( '.main-header-menu-toggle' );
-	var menu_click_listeners = {};
+	var menu_click_listeners_nav = {};
 
 	/* Add break point Class and related trigger */
 	var updateHeaderBreakPoint = function () {
@@ -234,8 +288,8 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 				menu_toggle_all[i].setAttribute('data-index', i);
 
-				if ( ! menu_click_listeners[i] ) {
-					menu_click_listeners[i] = menu_toggle_all[i];
+				if ( ! menu_click_listeners_nav[i] ) {
+					menu_click_listeners_nav[i] = menu_toggle_all[i];
 					menu_toggle_all[i].addEventListener('click', astraNavMenuToggle, false);
 				}
 
@@ -396,6 +450,18 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
             }
         }
 	}
+	var SearchInputs = document.querySelectorAll( '.search-field' );
+	SearchInputs.forEach(input => {
+		input.addEventListener('focus', function (e) {
+			var sibling = this.parentNode.parentNode.parentNode.querySelector( '.ast-search-menu-icon' );
+			astraToggleClass( sibling, 'ast-dropdown-active' );
+		});
+		input.addEventListener('blur', function (e) {
+			var sibling = this.parentNode.parentNode.parentNode.querySelector( '.ast-search-menu-icon' );
+			sibling.classList.remove( 'ast-dropdown-active' );
+			astraToggleClass( sibling, 'ast-dropdown-active' );
+		});
+	});
 
 	/* Hide Dropdown on body click*/
 	document.body.onclick = function( event ) {
@@ -533,24 +599,29 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
    	}
 
 	/**
+	 * Sets or removes .focus class on an element and its ancestors until a specific class is found.
+	 * @param {Element} element - The element to apply the .focus class and traverse its ancestors.
+	 * @param {string} targetClass - The class name to search for in the ancestors.
+	 */
+	function toggleFocusAndAncestors(element, targetClass) {
+		while (-1 === element.className.indexOf(targetClass)) {
+		if ('li' === element.tagName.toLowerCase()) {
+			if (element.classList.contains('focus')) {
+			element.classList.remove('focus');
+			} else {
+			element.classList.add('focus');
+			}
+		}
+		element = element.parentElement;
+		}
+	}
+
+	/**
 	 * Sets or removes .focus class on an element on focus.
 	 */
 	function toggleFocus() {
 		var self = this;
-		// Move up through the ancestors of the current link until we hit .nav-menu.
-		while ( -1 === self.className.indexOf( 'nav-menu' ) ) {
-
-			// On li elements toggle the class .focus.
-			if ( 'li' === self.tagName.toLowerCase() ) {
-				if ( -1 !== self.className.indexOf( 'focus' ) ) {
-					self.className = self.className.replace( ' focus', '' );
-				} else {
-					self.className += ' focus';
-				}
-			}
-
-			self = self.parentElement;
-		}
+		toggleFocusAndAncestors(self, 'nav-menu');
 	}
 
 	/**
@@ -558,25 +629,12 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	 */
 	function toggleBlurFocus() {
 		var self = this || '',
-            hash = '#';
-		var	link = new String( self );
-        if( link.indexOf( hash ) !== -1 && document.body.classList.contains('ast-mouse-clicked') ) {
-        	return;
-        }
-		// Move up through the ancestors of the current link until we hit .nav-menu.
-		while ( -1 === self.className.indexOf( 'nav-menu' ) ) {
-
-			// On li elements toggle the class .focus.
-			if ( 'li' === self.tagName.toLowerCase() ) {
-				if ( -1 !== self.className.indexOf( 'focus' ) ) {
-					self.className = self.className.replace( ' focus', '' );
-				} else {
-					self.className += ' focus';
-				}
-			}
-
-			self = self.parentElement;
+		hash = '#';
+		var link = String(self);
+		if (link.includes(hash) && document.body.classList.contains('ast-mouse-clicked')) {
+		return;
 		}
+		toggleFocusAndAncestors(self, 'nav-menu');
 	}
 
 	/* Add class if mouse clicked and remove if tab pressed */
@@ -590,6 +648,102 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		body.addEventListener( 'keydown', function() {
 			body.classList.remove( 'ast-mouse-clicked' );
 		} );
+	}
+
+	/**
+	 * Scroll to specific hash link.
+	 *
+	 * @since x.x.x
+	 */
+	if ( astra.is_scroll_to_id ) {
+		let hashLinks = [];
+		const links = document.querySelectorAll('a[href*="#"]:not([href="#"]):not([href="#0"]):not([href*="uagb-tab"]):not(.uagb-toc-link__trigger):not(.skip-link):not(.nav-links a):not([href*="tab-"])');
+		if (links) {
+
+			for (const link of links) {
+
+				if (link.href.split('#')[0] !== location.href.split('#')[0]) {
+					// Store the hash
+					hashLinks.push({hash: link.hash, url: link.href.split('#')[0]});
+				} else if (link.hash !== "") {
+					link.addEventListener("click", scrollToIDHandler);
+				}
+			}
+		}
+
+		function scrollToIDHandler(e) {
+
+			let offset = 0;
+			const siteHeader = document.querySelector('.site-header');
+
+			if (siteHeader) {
+
+				//Check and add offset to scroll top if header is sticky.
+				const headerHeight = siteHeader.querySelectorAll('div[data-stick-support]');
+
+				if (headerHeight) {
+					headerHeight.forEach(single => {
+						offset += single.clientHeight;
+					});
+				}
+
+				const href = this.hash;
+				if (href) {
+					const scrollId = document.querySelector(href);
+					if (scrollId) {
+						const scrollOffsetTop = scrollId.offsetTop - offset;
+						if( scrollOffsetTop ) {
+							astraSmoothScroll( e, scrollOffsetTop );
+						}
+					}
+				}
+			}
+		}
+
+		window.addEventListener('DOMContentLoaded', (event) => {
+			for (let link of hashLinks) {
+				if (window.location.href.split('#')[0] === link.url) {
+					const siteHeader = document.querySelector('.site-header');
+					let offset = 0;
+	
+					// Check and add offset to scroll top if header is sticky.
+					const headerHeight = siteHeader.querySelectorAll('div[data-stick-support]');
+					if (headerHeight) {
+						headerHeight.forEach(single => {
+							offset += single.clientHeight;
+						});
+					}
+					
+					const scrollId = document.querySelector(link.hash);
+					if (scrollId) {
+						const scrollOffsetTop = scrollId.offsetTop - offset;
+						if (scrollOffsetTop) {
+							astraSmoothScroll(event, scrollOffsetTop);
+						}
+					}
+				}
+			}
+		});
+	}
+
+	/**
+	 * Scroll to top.
+	 *
+	 * @since x.x.x
+	 */
+	if ( astra.is_scroll_to_top ) {
+		var masthead     = document.querySelector( '#page header' );
+		var astScrollTop = document.getElementById( 'ast-scroll-top' );
+
+		astScrollToTopHandler(masthead, astScrollTop);
+
+		window.addEventListener('scroll', function () {
+			astScrollToTopHandler(masthead, astScrollTop);
+		});
+
+		astScrollTop.onclick = function(e){
+			astraSmoothScroll( e, 0 );
+		};
 	}
 
 } )();

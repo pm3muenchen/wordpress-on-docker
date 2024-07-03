@@ -19,6 +19,11 @@ jQuery(function($) {
 		$(this.element).on("click", ".ol-info-window-close", function(event) {
 			self.close();
 		});
+
+		this.on("infowindowcontentshift", function(event) {
+			self.autoResize();
+			self.panIntoView();
+		});
 	}
 	
 	if(WPGMZA.isProVersion())
@@ -47,9 +52,14 @@ jQuery(function($) {
 	{
 		var self = this;
 		var latLng = feature.getPosition();
-		
-		if(!Parent.prototype.open.call(this, map, feature))
+
+		if(!latLng){
 			return false;
+		}
+		
+		if(!Parent.prototype.open.call(this, map, feature)){
+			return false;
+		}
 		
 		// Set parent for events to bubble up
 		this.parent = map;
@@ -81,6 +91,9 @@ jQuery(function($) {
 				
 			});
 		}
+
+		/* Apply scroll fix for OpenLayers */
+		this.autoResize();
 		
 		this.trigger("infowindowopen");
 		this.trigger("domready");
@@ -88,12 +101,13 @@ jQuery(function($) {
 	
 	WPGMZA.OLInfoWindow.prototype.close = function(event)
 	{
-		// TODO: Why? This shouldn't have to be here. Removing the overlay should hide the element (it doesn't)
-		$(this.element).hide();
 		
 		if(!this.overlay)
 			return;
 		
+		// TODO: Why? This shouldn't have to be here. Removing the overlay should hide the element (it doesn't)
+		$(this.element).hide();
+			
 		WPGMZA.InfoWindow.prototype.close.call(this);
 		
 		this.trigger("infowindowclose");
@@ -113,8 +127,7 @@ jQuery(function($) {
 	
 	WPGMZA.OLInfoWindow.prototype.setOptions = function(options)
 	{
-		if(options.maxWidth)
-		{
+		if(options.maxWidth){
 			$(this.element).css({"max-width": options.maxWidth + "px"});
 		}
 	}
@@ -127,8 +140,18 @@ jQuery(function($) {
 		var numImagesLoaded = 0;
 		
 		WPGMZA.InfoWindow.prototype.onOpen.apply(this, arguments);
-		
-		if(this.isPanIntoViewAllowed)
+
+		let canAutoPan = true;
+
+		/* Handle one shot auto pan disabler */
+		if(typeof this.feature._osDisableAutoPan !== 'undefined'){
+			if(this.feature._osDisableAutoPan){
+				canAutoPan = false;
+				this.feature._osDisableAutoPan = false;
+			}
+		}
+
+		if(this.isPanIntoViewAllowed && canAutoPan)
 		{
 			function inside(el, viewport)
 			{
@@ -141,24 +164,56 @@ jQuery(function($) {
 						a.bottom <= b.bottom && a.bottom >= b.top;
 			}
 			
-			function panIntoView()
-			{
-				var height	= $(self.element).height();
-				var offset	= -height * 0.45;
-				
-				self.feature.map.animateNudge(0, offset, self.feature.getPosition());
-			}
-			
 			imgs.each(function(index, el) {
 				el.onload = function() {
 					if(++numImagesLoaded == numImages && !inside(self.element, self.feature.map.element))
-						panIntoView();
+						self.panIntoView();
 				}
 			});
 			
 			if(numImages == 0 && !inside(self.element, self.feature.map.element))
-				panIntoView();
+				self.panIntoView();
 		}
+	}
+
+	WPGMZA.OLInfoWindow.prototype.panIntoView = function(){
+		let canAutoPan = true;
+
+		/* Handle one shot auto pan disabler */
+		if(typeof this.feature._osDisableAutoPan !== 'undefined'){
+			if(this.feature._osDisableAutoPan){
+				canAutoPan = false;
+				this.feature._osDisableAutoPan = false;
+			}
+		}
+
+		if(this.isPanIntoViewAllowed && canAutoPan){
+			var height	= $(this.element).height();
+			var offset	= -(height + 180) * 0.45;
+			
+			this.feature.map.animateNudge(0, offset, this.feature.getPosition());
+		}
+	}
+
+	WPGMZA.OLInfoWindow.prototype.autoResize = function(){
+		/* Applies size maxes based on content and container, similar to scroll fix for Google Maps */
+		$(this.element).css("max-height", 'none');
+
+		if($(this.feature.map.element).length){
+			const mapHeight = $(this.feature.map.element).height();
+			const mapWidth = $(this.feature.map.element).width();
+
+			const maxHeight = mapHeight - 180;
+			if($(this.element).height() > maxHeight){
+				$(this.element).css("max-height", maxHeight + "px");	
+			}
+
+			const maxWidth = mapWidth > 648 ? 648 : (mapWidth - 120);
+			if($(this.element).width() > maxWidth){
+				$(this.element).css("max-width", maxWidth + "px");	
+			}
+		}
+
 	}
 	
 });

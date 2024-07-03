@@ -12,9 +12,9 @@ use Elementor\Controls_Manager;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Typography;
-use Elementor\Scheme_Typography;
 use Elementor\Utils;
 use Elementor\Icons_Manager;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 
 defined( 'ABSPATH' ) || die();
 
@@ -29,7 +29,7 @@ class Carousel extends Base {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return __( 'Carousel', 'happy-elementor-addons' );
+		return __( 'Image Carousel', 'happy-elementor-addons' );
 	}
 
 	public function get_custom_help_url() {
@@ -52,7 +52,18 @@ class Carousel extends Base {
 		return [ 'slider', 'image', 'gallery', 'carousel' ];
 	}
 
+	/**
+	 * Register Content Control
+	 *
+	 * @return void
+	 */
 	protected function register_content_controls() {
+		$this->slider_content_controls();
+		$this->slider_settings_content_controls();
+	}
+
+	protected function slider_content_controls() {
+
 		$this->start_controls_section(
 			'_section_slides',
 			[
@@ -60,6 +71,35 @@ class Carousel extends Base {
 				'tab' => Controls_Manager::TAB_CONTENT,
 			]
 		);
+
+		if( ha_has_pro() ){
+			$this->add_control(
+				'ha_image_carousel_layout_type',
+				[
+					'label' => __( 'Layout', 'happy-elementor-addons' ),
+					'label_block' => true,
+					'type' => Controls_Manager::SELECT,
+					'default' => 'carousel',
+					'options' => [
+						'carousel' => __('Carousel', 'happy-elementor-addons'),
+						'remote_carousel' => __('Remote Carousel', 'happy-elementor-addons'),
+					],
+					'description' => __('Select layout type', 'happy-elementor-addons')
+				]
+			);
+			$this->add_control(
+				'ha_image_carousel_rcc_unique_id',
+				[
+					'label' => __( 'Unique ID', 'happy-elementor-addons' ),
+					'label_block' => true,
+					'type' => Controls_Manager::TEXT,
+					'default' => '',
+					'placeholder' => __( 'Enter remote carousel unique id', 'happy-elementor-addons' ),
+					'description' => __('Input carousel ID that you want to remotely connect', 'happy-elementor-addons'),
+					'condition' => [ 'ha_image_carousel_layout_type' => 'remote_carousel' ]
+				]
+			);
+		}
 
 		$repeater = new Repeater();
 
@@ -145,7 +185,31 @@ class Carousel extends Base {
 			]
 		);
 
+		$this->add_control(
+			'title_tag',
+			[
+				'label' => __( 'Title HTML Tag', 'happy-elementor-addons' ),
+				'type' => Controls_Manager::SELECT,
+				// 'separator' => 'before',
+				'options' => [
+					'h1' => 'H1',
+					'h2' => 'H2',
+					'h3' => 'H3',
+					'h4' => 'H4',
+					'h5' => 'H5',
+					'h6' => 'H6',
+					'div' => 'div',
+					'span' => 'span',
+					'p' => 'p',
+				],
+				'default' => 'h2',
+			]
+		);
+
 		$this->end_controls_section();
+	}
+
+	protected function slider_settings_content_controls() {
 
 		$this->start_controls_section(
 			'_section_settings',
@@ -160,7 +224,7 @@ class Carousel extends Base {
 			[
 				'label' => __( 'Animation Speed', 'happy-elementor-addons' ),
 				'type' => Controls_Manager::NUMBER,
-				'min' => 100,
+				'min' => 0,
 				'step' => 10,
 				'max' => 10000,
 				'default' => 300,
@@ -278,6 +342,23 @@ class Carousel extends Base {
 		);
 
 		$this->add_control(
+			'slides_to_scroll',
+			[
+				'label' => __( 'Scroll As Shown Slides', 'happy-elementor-addons' ),
+				'type' => Controls_Manager::SWITCHER,
+				'description' => __( 'Scroll slide number will be same as Slides To Show.', 'happy-elementor-addons' ),
+				'label_on' => __( 'Yes', 'happy-elementor-addons' ),
+				'label_off' => __( 'No', 'happy-elementor-addons' ),
+				'return_value' => 'yes',
+				'frontend_available' => true,
+				'render_type' => 'ui',
+				'condition' => [
+					'slides_to_show!' => '1'
+				],
+			]
+		);
+
+		$this->add_control(
 			'arrow_prev_icon',
 			[
 				'label' => __( 'Previous Icon', 'happy-elementor-addons' ),
@@ -314,7 +395,20 @@ class Carousel extends Base {
 		$this->end_controls_section();
 	}
 
+	/**
+	 * Register Style Control
+	 *
+	 * @return void
+	 */
 	protected function register_style_controls() {
+		$this->carousel_item_style_controls();
+		$this->slide_content_style_controls();
+		$this->carousel_arrow_style_controls();
+		$this->carousel_dot_style_controls();
+	}
+
+	protected function carousel_item_style_controls() {
+
 		$this->start_controls_section(
 			'_section_style_item',
 			[
@@ -349,6 +443,9 @@ class Carousel extends Base {
 		);
 
 		$this->end_controls_section();
+	}
+
+	protected function slide_content_style_controls() {
 
 		$this->start_controls_section(
 			'_section_style_content',
@@ -419,7 +516,9 @@ class Carousel extends Base {
 				'name' => 'title',
 				'label' => __( 'Typography', 'happy-elementor-addons' ),
 				'selector' => '{{WRAPPER}} .ha-slick-title',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_2,
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
+				],
 			]
 		);
 
@@ -461,11 +560,16 @@ class Carousel extends Base {
 				'name' => 'subtitle',
 				'label' => __( 'Typography', 'happy-elementor-addons' ),
 				'selector' => '{{WRAPPER}} .ha-slick-subtitle',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_3,
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_TEXT,
+				],
 			]
 		);
 
 		$this->end_controls_section();
+	}
+
+	protected function carousel_arrow_style_controls() {
 
 		$this->start_controls_section(
 			'_section_style_arrow',
@@ -654,6 +758,9 @@ class Carousel extends Base {
 		$this->end_controls_tabs();
 
 		$this->end_controls_section();
+	}
+
+	protected function carousel_dot_style_controls() {
 
 		$this->start_controls_section(
 			'_section_style_dots',
@@ -815,9 +922,11 @@ class Carousel extends Base {
 		if ( empty( $settings['slides'] ) ) {
 			return;
 		}
+
+		$harcc_uid = !empty($settings['ha_image_carousel_rcc_unique_id']) && $settings['ha_image_carousel_layout_type'] == 'remote_carousel' ? 'harccuid_' . $settings['ha_image_carousel_rcc_unique_id'] : '';
 		?>
 
-		<div class="hajs-slick ha-slick ha-slick--carousel">
+		<div data-ha_rcc_uid="<?php echo esc_attr( $harcc_uid ); ?>" class="hajs-slick ha-slick ha-slick--carousel">
 
 			<?php foreach ( $settings['slides'] as $slide ) :
 				$image = wp_get_attachment_image_url( $slide['image']['id'], $settings['thumbnail_size'] );
@@ -837,7 +946,7 @@ class Carousel extends Base {
 				}
 				?>
 
-				<div class="ha-slick-slide">
+				<div class="ha-slick-slide slick-slide">
 					<<?php echo $item_tag; ?> <?php $this->print_render_attribute_string( $id ); ?>>
 						<?php if ( $image ) : ?>
 							<img class="ha-slick-img" src="<?php echo esc_url( $image ); ?>" alt="<?php echo esc_attr( $slide['title'] ); ?>">
@@ -845,9 +954,14 @@ class Carousel extends Base {
 
 						<?php if ( $slide['title'] || $slide['subtitle'] ) : ?>
 							<div class="ha-slick-content">
-								<?php if ( $slide['title'] ) : ?>
-									<h2 class="ha-slick-title"><?php echo ha_kses_basic( $slide['title'] ); ?></h2>
-								<?php endif; ?>
+								<?php
+									if ( $slide['title'] ) {
+										printf( '<%1$s class="ha-slick-title">%2$s</%1$s>',
+											ha_escape_tags( $settings['title_tag'], 'h2' ),
+											ha_kses_basic( $slide['title'] )
+										);
+									}
+								?>
 								<?php if ( $slide['subtitle'] ) : ?>
 									<p class="ha-slick-subtitle"><?php echo ha_kses_basic( $slide['subtitle'] ); ?></p>
 								<?php endif; ?>

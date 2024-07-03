@@ -78,9 +78,11 @@ const ImportElementorTemplateImages = ({ templateData, progressCallback, complet
       {imagesToImport.map((image, index) => {
         return (
           <React.Fragment key={`importImage${index}`}>
-            {importImageIndex === index || importImageIndex > index ? (
-              <ImportImageInBackground key={`importImageBackground${index}`} image={image} templateKitName={templateData.template_kit_name} completeCallback={importNextImage} />
-            ) : null}
+            {importImageIndex === index || importImageIndex > index
+              ? (
+                <ImportImageInBackground key={`importImageBackground${index}`} image={image} templateKitName={templateData.template_kit_name} completeCallback={importNextImage} />
+                )
+              : null}
           </React.Fragment>
         )
       })}

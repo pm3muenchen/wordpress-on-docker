@@ -8,7 +8,7 @@
 namespace Happy_Addons\Elementor\Widget;
 
 use Elementor\Controls_Manager;
-use Elementor\Core\Schemes;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
@@ -71,7 +71,16 @@ class Taxonomy_List extends Base {
 		return $list;
 	}
 
+	/**
+     * Register widget content controls
+     */
 	protected function register_content_controls() {
+		$this->__list_content_controls();
+		$this->__settings_content_controls();
+	}
+
+	protected function __list_content_controls() {
+
 		$this->start_controls_section(
 			'_section_taxonomy_list',
 			[
@@ -114,14 +123,15 @@ class Taxonomy_List extends Base {
 				[
 					'label' => __( 'Icon', 'happy-elementor-addons' ),
 					'type' => Controls_Manager::CHOOSE,
+					'description' => __( 'If you want to use individual icon disable common icon.', 'happy-elementor-addons' ),
 					'options' => [
 						'icon' => [
 							'title' => __( 'Icon', 'happy-elementor-addons' ),
-							'icon' => 'fas fa-star',
+							'icon' => 'eicon-star',
 						],
 						'image' => [
 							'title' => __( 'Image', 'happy-elementor-addons' ),
-							'icon' => 'fas fa-image',
+							'icon' => 'eicon-image',
 						],
 					],
 					'toggle' => true,
@@ -193,8 +203,10 @@ class Taxonomy_List extends Base {
 		}
 
 		$this->end_controls_section();
+	}
 
-		//Settings
+	protected function __settings_content_controls() {
+
 		$this->start_controls_section(
 			'_section_settings',
 			[
@@ -225,10 +237,31 @@ class Taxonomy_List extends Base {
 		);
 
 		$this->add_control(
+			'title_tag',
+			[
+				'label' => __( 'Title HTML Tag', 'happy-elementor-addons' ),
+				'type' => Controls_Manager::SELECT,
+				// 'separator' => 'before',
+				'options' => [
+					'h1' => 'H1',
+					'h2' => 'H2',
+					'h3' => 'H3',
+					'h4' => 'H4',
+					'h5' => 'H5',
+					'h6' => 'H6',
+					'div' => 'div',
+					'span' => 'span',
+					'p' => 'p',
+				],
+				'default' => 'h2',
+			]
+		);
+
+		$this->add_control(
 			'common_icon_enable',
 			[
 				'label' => __( 'Common icon enable?', 'happy-elementor-addons' ),
-				'description' => __( 'If you want to use individual icon disable common icon.', 'happy-elementor-addons' ),
+				'description' => __( 'Common icon will overwrite all individual icon.', 'happy-elementor-addons' ),
 				'type' => Controls_Manager::SWITCHER,
 				'return_value' => 'yes',
 				'default' => 'yes',
@@ -243,11 +276,11 @@ class Taxonomy_List extends Base {
 				'options' => [
 					'icon' => [
 						'title' => __( 'Icon', 'happy-elementor-addons' ),
-						'icon' => 'fas fa-star',
+						'icon' => 'eicon-star',
 					],
 					'image' => [
 						'title' => __( 'Image', 'happy-elementor-addons' ),
-						'icon' => 'fas fa-image',
+						'icon' => 'eicon-image',
 					],
 				],
 				'condition' => [
@@ -304,15 +337,15 @@ class Taxonomy_List extends Base {
 				'options' => [
 					'left' => [
 						'title' => __( 'Left', 'happy-elementor-addons' ),
-						'icon' => 'fa fa-align-left',
+						'icon' => 'eicon-text-align-left',
 					],
 					'center' => [
 						'title' => __( 'Center', 'happy-elementor-addons' ),
-						'icon' => 'fa fa-align-center',
+						'icon' => 'eicon-text-align-center',
 					],
 					'right' => [
 						'title' => __( 'Right', 'happy-elementor-addons' ),
-						'icon' => 'fa fa-align-right',
+						'icon' => 'eicon-text-align-right',
 					],
 				],
 				'toggle' => true,
@@ -322,18 +355,28 @@ class Taxonomy_List extends Base {
 					'right' => 'justify-content: flex-end',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .ha-taxonomy-list .ha-taxonomy-list-item a' => '{{VALUE}};'
+					'{{WRAPPER}} .ha-taxonomy-list .ha-taxonomy-list-item a' => '{{VALUE}};',
+					'{{WRAPPER}} .ha-taxonomy-list.ha-taxonomy-list-inline' => '{{VALUE}};'
 				],
-				'condition' => [
-					'view' => 'list',
-				]
+				// 'condition' => [
+				// 	'view' => 'list',
+				// ]
 			]
 		);
 
 		$this->end_controls_section();
 	}
 
+	/**
+     * Register widget style controls
+     */
 	protected function register_style_controls() {
+		$this->__list_style_controls();
+		$this->__title_style_controls();
+		$this->__icon_image_style_controls();
+	}
+
+	protected function __list_style_controls() {
 
 		$this->start_controls_section(
 			'_section_taxonomy_list_style',
@@ -506,7 +549,10 @@ class Taxonomy_List extends Base {
 		);
 
 		$this->end_controls_section();
-		//Title Style
+	}
+
+	protected function __title_style_controls() {
+
 		$this->start_controls_section(
 			'_section_taxonomy_list_title_style',
 			[
@@ -520,7 +566,9 @@ class Taxonomy_List extends Base {
 			[
 				'name' => 'title_typography',
 				'label' => __( 'Typography', 'happy-elementor-addons' ),
-				'scheme' => Schemes\Typography::TYPOGRAPHY_2,
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
+				],
 				'selector' => '{{WRAPPER}} .ha-taxonomy-list-title',
 			]
 		);
@@ -538,6 +586,7 @@ class Taxonomy_List extends Base {
 			[
 				'label' => __( 'Color', 'happy-elementor-addons' ),
 				'type' => Controls_Manager::COLOR,
+				'default' => '#000000',
 				'selectors' => [
 					'{{WRAPPER}} .ha-taxonomy-list-title' => 'color: {{VALUE}}',
 				],
@@ -566,7 +615,10 @@ class Taxonomy_List extends Base {
 		$this->end_controls_tabs();
 
 		$this->end_controls_section();
-		//List Icon Style
+	}
+
+	protected function __icon_image_style_controls() {
+
 		$this->start_controls_section(
 			'_section_icon_style',
 			[
@@ -580,9 +632,10 @@ class Taxonomy_List extends Base {
 			[
 				'label' => __( 'Icon Color', 'happy-elementor-addons' ),
 				'type' => Controls_Manager::COLOR,
-				'default' => '',
+				'default' => '#000000',
 				'selectors' => [
 					'{{WRAPPER}} span.ha-taxonomy-list-icon' => 'color: {{VALUE}};',
+					'{{WRAPPER}} span.ha-taxonomy-list-icon svg' => 'fill: {{VALUE}};',
 				],
 			]
 		);
@@ -680,8 +733,16 @@ class Taxonomy_List extends Base {
 		$lists = $settings['selected_list_' . $settings['taxonomy_type']];
 		if ( !empty( $lists ) ) {
 			foreach ( $lists as $index => $value ) {
-				$ids[] = $value['tax_id'];
-				if ( $value['title'] ) $customize_title[$value['tax_id']] = $value['title'];
+				//trim function to remove extra space before taxonomy ID
+				if( is_array($value['tax_id']) ){
+					$tax_id = ! empty($value['tax_id'][0]) ? trim($value['tax_id'][0]) : '';
+				}else{
+					$tax_id = ! empty($value['tax_id']) ? trim($value['tax_id']) : '';
+				}
+				$ids[] = $tax_id;
+				if ( $value['title'] ){
+					$customize_title[$tax_id] = $value['title'];
+				}
 			}
 		}
 		$terms = [];
@@ -712,15 +773,15 @@ class Taxonomy_List extends Base {
 							<?php
 							$icon_settings = 'yes' === $settings['common_icon_enable'] && !empty( $settings['common_icon'] ) ? $settings['common_icon'] : $value['individual_icon'];
 
-							$icon = 'yes' === $settings['common_icon_enable'] && !empty( $settings['icon'] ) ? $settings['icon'] : $value['icon'];
+							$icon = 'yes' === $settings['common_icon_enable'] && !empty( $settings['icon'] ) ? $settings['icon'] : (isset($value['icon'])? $value['icon']: '');
 
-							$image_url = 'yes' === $settings['common_icon_enable'] && !empty( $settings['image']['url'] ) ? $settings['image']['url'] : $value['image']['url'];
+							$image_url = 'yes' === $settings['common_icon_enable'] && !empty( $settings['image']['url'] ) ? $settings['image']['url'] : (isset($value['image']['url'])? $value['image']['url']: '') ;
 							?>
 							<?php if ( $icon_settings ) :
 								echo '<span class="ha-taxonomy-list-' . esc_attr( $icon_settings ) . '">';
 								if ( 'icon' === $icon_settings && !empty( $icon ) ) :
 									Icons_Manager::render_icon( $icon, [ 'aria-hidden' => 'true' ] );
-											elseif ( 'image' === $icon_settings && !empty( $image_url ) ) :
+								elseif ( 'image' === $icon_settings && !empty( $image_url ) ) :
 									echo '<img src="' . esc_url( $image_url ) . '">';
 								endif;
 								echo '</span>';
@@ -733,7 +794,7 @@ class Taxonomy_List extends Base {
 							}
 							if ( $title ) {
 								printf( '<%1$s %2$s>%3$s</%1$s>',
-									'h4',
+									ha_escape_tags( $settings['title_tag'], 'h2' ),
 									'class="ha-taxonomy-list-title"',
 									esc_html( $title )
 								);

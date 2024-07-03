@@ -13,33 +13,40 @@ if ( ! class_exists( 'Gutentor_Admin' ) ) {
 
 		protected static $page_slug = 'gutentor';
 
+		public $tax_in_color = array();
+		public $tax_in_image = array();
+		public $taxonomies   = array();
+
 		public function __construct() {
 
 			add_action( 'admin_menu', array( __CLASS__, 'admin_pages' ) );
 			add_action( 'admin_init', array( __CLASS__, 'redirect' ) );
 
 			add_action( 'admin_enqueue_scripts', array( $this, 'admin_scripts' ) );
+			add_action( 'admin_enqueue_scripts', array( $this, 'admin_scripts_js' ) );
 			add_action( 'enqueue_block_editor_assets', array( $this, 'admin_editor_scripts' ), '99' );
 
-            /*Category/Taxonomy Term Meta*/
-			$taxonomies = apply_filters(
-				'gutentor_taxonomies_meta_image',
-				array(
-					'category',
-					'post_tag',
-					'product_cat',
-					'product_tag',
-					'download_category',
-					'download_tag',
-				)
-			);
+			/*Category/Taxonomy Term Meta*/
+			$this->tax_in_color = gutentor_get_options( 'tax-in-color' );
+			$this->tax_in_image = gutentor_get_options( 'tax-in-image' );
 
-			foreach ( $taxonomies as $tax ) {
-				add_action( $tax . '_add_form_fields', array( $this, 'taxonomy_edit_meta_field' ) );
-				add_action( $tax . '_edit_form_fields', array( $this, 'taxonomy_edit_meta_field' ) );
-				add_action( 'edited_' . $tax, array( $this, 'save_taxonomy_custom_meta' ) );
-				add_action( 'create_' . $tax, array( $this, 'save_taxonomy_custom_meta' ) );
+			if ( is_array( $this->tax_in_color ) ) {
+				$this->taxonomies = $this->tax_in_color;
 			}
+			if ( is_array( $this->tax_in_image ) ) {
+				$this->taxonomies = array_unique( array_merge( $this->taxonomies, $this->tax_in_image ) );
+			}
+			if ( ! empty( $this->taxonomies ) ) {
+				foreach ( $this->taxonomies as $tax ) {
+					add_action( $tax . '_add_form_fields', array( $this, 'taxonomy_edit_meta_field' ) );
+					add_action( $tax . '_edit_form_fields', array( $this, 'taxonomy_edit_meta_field' ) );
+					add_action( 'edited_' . $tax, array( $this, 'save_taxonomy_custom_meta' ) );
+					add_action( 'create_' . $tax, array( $this, 'save_taxonomy_custom_meta' ) );
+
+					add_filter( 'register_taxonomy_args', array( $this, 'add_taxonomy_args' ), 10, 2 );
+				}
+			}
+
 			self::initialize_ajax();
 		}
 
@@ -63,10 +70,6 @@ if ( ! class_exists( 'Gutentor_Admin' ) ) {
 		 * @since 1.0.0
 		 */
 		public static function admin_pages() {
-
-			if ( ! current_user_can( 'manage_options' ) ) {
-				return;
-			}
 
 			add_menu_page(
 				'gutentor',
@@ -132,35 +135,106 @@ if ( ! class_exists( 'Gutentor_Admin' ) ) {
 		 * @since Gutentor 1.0.0
 		 */
 		public static function admin_scripts() {
-            $screen              = get_current_screen();
-            $admin_scripts_bases = array( 'toplevel_page_gutentor', 'gutentor_page_gutentor-blocks', 'gutentor_page_gutentor-settings', 'term', 'edit-tags' );
-            if ( ! ( isset( $screen->base ) && in_array( $screen->base, $admin_scripts_bases ) ) ) {
-                return;
-            }
+			$screen              = get_current_screen();
+			$admin_scripts_bases = array( 'toplevel_page_gutentor', 'gutentor_page_gutentor-blocks', 'gutentor_page_gutentor-settings', 'term', 'edit-tags' );
+			if ( ! ( isset( $screen->base ) &&
+				in_array( $screen->base, $admin_scripts_bases ) )
+			) {
+				return;
+			}
 			/*
 			---------------------------------------------*
 			* Register Style for Admin Page               *
 			*---------------------------------------------*/
 			$scripts = array(
-                array(
-                    'handler'  => 'magnific-popup',
-                    'absolute' => true,
-                    'style'    => GUTENTOR_URL . 'assets/library/magnific-popup/magnific-popup' . '.min' . '.css',
-                ),
-                array(
-                    'handler'  => 'jquery-ui',
-                    'absolute' => true,
-                    'style'    => GUTENTOR_URL . 'assets/library/jquery-ui/jquery-ui' . '.min' . '.css',
-                ),
-                array(
-                    'handler'  => 'gutentor-admin',
-                    'absolute' => true,
-                    'style'    => GUTENTOR_URL . 'dist/blocks.admin.build.css',
-                ),
+				array(
+					'handler'  => 'jquery-ui',
+					'absolute' => true,
+					'style'    => GUTENTOR_URL . 'assets/library/jquery-ui/jquery-ui' . '.min' . '.css',
+				),
+				array(
+					'handler'    => 'gutentor-admin-build',
+					'absolute'   => true,
+					'script'     => GUTENTOR_URL . 'dist/admin.build.js',
+					'dependency' => array( 'jquery', 'lodash', 'wp-api', 'wp-i18n', 'wp-blocks', 'wp-components', 'wp-compose', 'wp-data', 'wp-editor', 'wp-edit-post', 'wp-element', 'wp-keycodes', 'wp-plugins', 'wp-rich-text', 'wp-viewport' ), // Dependencies, defined above,
+				),
+			);
+
+			/*FontAwesome CSS*/
+			if ( 4 == gutentor_get_options( 'fa-version' ) ) {
+				wp_enqueue_style(
+					'fontawesome', // Handle.
+					GUTENTOR_URL . 'assets/library/font-awesome-4.7.0/css/font-awesome.min.css',
+					array(),
+					'4'
+				);
+			} else {
+				wp_enqueue_style(
+					'fontawesome', // Handle.
+					GUTENTOR_URL . 'assets/library/fontawesome/css/all.min.css',
+					array(),
+					'5.12.0'
+				);
+			}
+
+			wp_enqueue_style( 'wp-color-picker' );
+			wp_enqueue_media();
+
+			self::enqueue( $scripts );
+
+			$localize = array(
+				'edd'                => array(
+					'active'   => gutentor_is_edd_active(),
+					'review'   => gutentor_is_edd_review_active(),
+					'wishlist' => gutentor_is_edd_wishlist_active(),
+				),
+				'fontAwesomeVersion' => gutentor_get_options( 'fa-version' ),
+				'postFormats'        => gutentor_get_post_formats(),
+				'gutentorPro'        => array(
+					'active' => gutentor_pro_active(),
+				),
+			);
+			wp_localize_script( 'gutentor-admin-build', 'gutentor', $localize );
+
+		}
+
+
+		/**
+		 * Enqueue styles & scripts for frontend & backend
+		 *
+		 * @access public
+		 * @uses wp_enqueue_style
+		 * @return void
+		 * @since Gutentor 1.0.0
+		 */
+		public static function admin_scripts_js() {
+			$screen              = get_current_screen();
+			$admin_scripts_bases = array( 'toplevel_page_gutentor', 'gutentor_page_gutentor-blocks', 'gutentor_page_gutentor-settings', 'gutentor_page_gutentor-pro-license', 'term', 'edit-tags' );
+			$admin_scripts_bases = apply_filters( 'gutentor_admin_scripts_current_screen', $admin_scripts_bases );
+			if ( ! ( isset( $screen->base ) &&
+				(
+						( in_array( $screen->base, $admin_scripts_bases ) ) ||
+						( in_array( get_post_type(), array( 'gutentor-fonts', 'gutentor-icons' ) ) )
+				)
+			)
+			) {
+				return;
+			}
+			/*
+			---------------------------------------------*
+			* Register Style for Admin Page               *
+			*---------------------------------------------*/
+			$scripts = array(
 				array(
 					'handler'  => 'magnific-popup',
 					'absolute' => true,
-					'script'   => GUTENTOR_URL . 'assets/library/magnific-popup/jquery.magnific-popup' . '.min' . '.js',
+					'style'    => GUTENTOR_URL . 'assets/library/magnific-popup/magnific-popup' . '.min' . '.css',
+				),
+				array(
+					'handler'    => 'gutentor-admin',
+					'absolute'   => true,
+					'style'      => GUTENTOR_URL . 'dist/blocks.admin.build.css',
+					'dependency' => array( 'wp-edit-blocks' ),
 				),
 				array(
 					'handler'    => 'gutentor-admin',
@@ -168,7 +242,13 @@ if ( ! class_exists( 'Gutentor_Admin' ) ) {
 					'script'     => GUTENTOR_URL . 'assets/js/admin-script' . GUTENTOR_SCRIPT_PREFIX . '.js',
 					'dependency' => array( 'wp-color-picker' ),
 				),
+				array(
+					'handler'  => 'magnific-popup',
+					'absolute' => true,
+					'script'   => GUTENTOR_URL . 'assets/library/magnific-popup/jquery.magnific-popup' . '.min' . '.js',
+				),
 			);
+
 			wp_enqueue_style( 'wp-color-picker' );
 			wp_enqueue_media();
 
@@ -231,29 +311,21 @@ if ( ! class_exists( 'Gutentor_Admin' ) ) {
 		}
 
 		/**
-		 * Render Settings Template
-		 *
-		 * @since 1.0.0
-		 */
-		public static function gutentor_settings_template() {
-			require_once GUTENTOR_PATH . 'includes/admin/templates/settings.php';
-		}
-
-		/**
 		 * Initialize Ajax
 		 */
 		public static function initialize_ajax() {
 			// Ajax requests.
-			add_action( 'wp_ajax_activate_block', array( __CLASS__, 'activate_block' ) );
-			add_action( 'wp_ajax_deactivate_block', array( __CLASS__, 'deactivate_block' ) );
+			add_action( 'wp_ajax_gutentor_activate_block', array( __CLASS__, 'activate_block' ) );
+			add_action( 'wp_ajax_gutentor_deactivate_block', array( __CLASS__, 'deactivate_block' ) );
 
-			add_action( 'wp_ajax_bulk_activate_blocks', array( __CLASS__, 'bulk_activate_blocks' ) );
-			add_action( 'wp_ajax_bulk_deactivate_blocks', array( __CLASS__, 'bulk_deactivate_blocks' ) );
+			add_action( 'wp_ajax_gutentor_bulk_activate_blocks', array( __CLASS__, 'bulk_activate_blocks' ) );
+			add_action( 'wp_ajax_gutentor_bulk_deactivate_blocks', array( __CLASS__, 'bulk_deactivate_blocks' ) );
 		}
 
 		public static function block_action( $action = 'get', $blocks = array() ) {
 
-			$key = '_GUTENTOR_BLOCKS';
+			$key = 'off-blocks';
+
 			switch ( $action ) {
 				case 'get':
 					return self::get_option( $key, array() );
@@ -275,9 +347,11 @@ if ( ! class_exists( 'Gutentor_Admin' ) ) {
 
 		public static function is_all_block_active() {
 			$blocks = self::block_action();
-			foreach ( $blocks as $b ) {
-				if ( $b == 'disabled' ) {
-					return false;
+			if ( is_array( $blocks ) && ! empty( $blocks ) ) {
+				foreach ( $blocks as $b ) {
+					if ( $b == 'disabled' ) {
+						return false;
+					}
 				}
 			}
 
@@ -291,15 +365,15 @@ if ( ! class_exists( 'Gutentor_Admin' ) ) {
 
 			check_ajax_referer( 'gutentor-block-nonce', 'nonce' );
 
-			$block_id            = sanitize_text_field( $_POST['block_id'] );
-			$blocks              = self::block_action();
+			$block_id = sanitize_text_field( $_POST['block_id'] );
+			$blocks   = self::block_action();
+			if ( ! is_array( $blocks ) ) {
+				$blocks = array();
+			}
 			$blocks[ $block_id ] = $block_id;
 			$blocks              = array_map( 'esc_attr', $blocks );
-
-			// Update blocks.
-			self::update_option( '_GUTENTOR_BLOCKS', $blocks );
-
-			echo $block_id;
+			/*Update blocks.*/
+			self::update_option( 'off-blocks', $blocks );
 
 			die();
 		}
@@ -311,10 +385,14 @@ if ( ! class_exists( 'Gutentor_Admin' ) ) {
 
 			check_ajax_referer( 'gutentor-block-nonce', 'nonce' );
 
-			$block_id            = sanitize_text_field( $_POST['block_id'] );
-			$blocks              = self::block_action();
+			$block_id = sanitize_text_field( $_POST['block_id'] );
+			$blocks   = self::block_action();
+			if ( ! is_array( $blocks ) ) {
+				$blocks = array();
+			}
 			$blocks[ $block_id ] = 'disabled';
-			$blocks              = array_map( 'esc_attr', $blocks );
+
+			$blocks = array_map( 'esc_attr', $blocks );
 
 			// Update blocks.
 			self::block_action( 'update', $blocks );
@@ -373,8 +451,8 @@ if ( ! class_exists( 'Gutentor_Admin' ) ) {
 			$new_blocks = array_map( 'esc_attr', $new_blocks );
 
 			// Update new_extensions.
-			self::update_option( '_GUTENTOR_BLOCKS', $new_blocks );
 
+			self::update_option( 'off-blocks', $new_blocks );
 			echo 'success';
 
 			die();
@@ -486,6 +564,10 @@ if ( ! class_exists( 'Gutentor_Admin' ) ) {
 					'title'       => esc_html__( 'Icon Group ', 'gutentor' ),
 					'description' => esc_html__( 'Insert multiple icons in the Icon Group and create beautiful social profile links and icon designs.', 'gutentor' ),
 				),
+				'm12' => array(
+					'title'       => esc_html__( 'Quote', 'gutentor' ),
+					'description' => esc_html__( 'Quote is the collection of element blocks which create a adorable quote design.', 'gutentor' ),
+				),
 				'm5'  => array(
 					'title'       => esc_html__( 'Slider ', 'gutentor' ),
 					'description' => esc_html__( 'Insert slider container and add elements within the container.', 'gutentor' ),
@@ -494,8 +576,28 @@ if ( ! class_exists( 'Gutentor_Admin' ) ) {
 					'title'       => esc_html__( 'Tabs ', 'gutentor' ),
 					'description' => esc_html__( 'Add tab items with tab title and content, allowed to add any gutentor element inside it.', 'gutentor' ),
 				),
+				'm13' => array(
+					'title'       => esc_html__( 'Table of Contents ', 'gutentor' ),
+					'description' => esc_html__( 'Table of Contents facilitates to access large contents of post/page through the heading of the contents.', 'gutentor' ),
+				),
 
 			);
+
+			if ( gutentor_pro_active() ) {
+				$gutentor_modules['m14'] = array(
+					'title'       => esc_html__( 'Advance Show More', 'gutentor' ),
+					'description' => esc_html__( 'Advance Show More is extended version of show more widget with innerblocks.', 'gutentor' ),
+				);
+				$gutentor_modules['m15'] = array(
+					'title'       => esc_html__( 'PopOver', 'gutentor' ),
+					'description' => esc_html__( 'PopOver is extended version of show more widget with innerblocks.', 'gutentor' ),
+				);
+				$gutentor_modules['m16'] = array(
+					'title'       => esc_html__( 'Wrapper', 'gutentor' ),
+					'description' => esc_html__( 'Use it as wrapper block for gutentor elements, and other blocks, control width and design beautiful block section.', 'gutentor' ),
+				);
+
+			}
 
 			return apply_filters( 'gutentor_modules_in_admin_page', $gutentor_modules );
 		}
@@ -505,28 +607,28 @@ if ( ! class_exists( 'Gutentor_Admin' ) ) {
 			$gutentor_posts = array(
 
 				'p4' => array(
-					'title'       => esc_html__( 'Advanced Post Module', 'gutentor' ),
+					'title'       => esc_html__( 'Advanced Post (Type)', 'gutentor' ),
 					'description' => esc_html__( 'Combination of multiple blocks like Post Module, Post Header, Post Footer.', 'gutentor' ),
 				),
 				'p6' => array(
-					'title'       => esc_html__( 'Duplex Post Module', 'gutentor' ),
+					'title'       => esc_html__( 'Duplex Post (Type)', 'gutentor' ),
 					'description' => esc_html__( 'Design post in two different ways – Feature Post and Normal Post, post design will be more beautiful.', 'gutentor' ),
 				),
-				'p5' => array(
-					'title'       => esc_html__( 'News Ticker', 'gutentor' ),
-					'description' => esc_html__( 'Display Marquee, Vertical, Horizontal or Typewriter News Ticker from post or post type.', 'gutentor' ),
+				'p1' => array(
+					'title'       => esc_html__( 'Post (Type)', 'gutentor' ),
+					'description' => esc_html__( 'Display Blog post with list and grid view from post module.', 'gutentor' ),
 				),
 				'p3' => array(
-					'title'       => esc_html__( 'Post Carousel', 'gutentor' ),
+					'title'       => esc_html__( 'Post (Type) Carousel', 'gutentor' ),
 					'description' => esc_html__( 'Display post or post type in carousel mode.', 'gutentor' ),
 				),
 				'p2' => array(
-					'title'       => esc_html__( 'Post Feature Module', 'gutentor' ),
+					'title'       => esc_html__( 'Post (Type) Feature', 'gutentor' ),
 					'description' => esc_html__( 'Display post with news and magazine style.', 'gutentor' ),
 				),
-				'p1' => array(
-					'title'       => esc_html__( 'Post Module', 'gutentor' ),
-					'description' => esc_html__( 'Display Blog post with list and grid view from post module.', 'gutentor' ),
+				'p5' => array(
+					'title'       => esc_html__( 'Post (Type) News Ticker', 'gutentor' ),
+					'description' => esc_html__( 'Display Marquee, Vertical, Horizontal or Typewriter News Ticker from post or post type.', 'gutentor' ),
 				),
 			);
 			return apply_filters( 'gutentor_posts_in_admin_page', $gutentor_posts );
@@ -535,7 +637,6 @@ if ( ! class_exists( 'Gutentor_Admin' ) ) {
 		public static function terms() {
 
 			$gutentor_terms = array(
-
 				't1' => array(
 					'title'       => esc_html__( 'Term (Category)', 'gutentor' ),
 					'description' => esc_html__( 'Similar like Post (Type) block but in Term (Category) you can customize any term with beautiful design.', 'gutentor' ),
@@ -555,105 +656,113 @@ if ( ! class_exists( 'Gutentor_Admin' ) ) {
 		public static function content() {
 
 			$gutentor_block_collection = array(
-				'about-block'        => array(
-					'title'       => esc_html__( 'About Block', 'gutentor' ),
-					'description' => esc_html__( 'The About block gives short description related to product, person or any items with a large section of a photo, title, description, and button with customise setting and different templates.', 'gutentor' ),
+				'about-block'     => array(
+					'title'       => esc_html__( 'About Widget', 'gutentor' ),
+					'description' => esc_html__( 'The About Widget gives short description related to product, person or any items with a large section of a photo, title, description, and button with customise setting and different templates.', 'gutentor' ),
 				),
-				'accordion'          => array(
-					'title'       => esc_html__( 'Accordion', 'gutentor' ),
-					'description' => esc_html__( 'The Accordion block helps you to display information in collapsible rows with title ,description and button. Generally this block can be helpful for display FAQ and other informative message. ', 'gutentor' ),
+				'accordion'       => array(
+					'title'       => esc_html__( 'Accordion Widget', 'gutentor' ),
+					'description' => esc_html__( 'The Accordion Widget helps you to display information in collapsible rows with title ,description and button. Generally this block can be helpful for display FAQ and other informative message. ', 'gutentor' ),
 				),
-				'advanced-columns'   => array(
-					'title'       => esc_html__( 'Advanced Columns', 'gutentor' ),
-					'description' => esc_html__( 'The Advanced block has a number of advanced features of a column where it facilitates user to choose layout of row in term of column.e.g 1 column, 2 column layout and many more.', 'gutentor' ),
+				'list'            => array(
+					'title'       => esc_html__( 'Advanced List Widget', 'gutentor' ),
+					'description' => esc_html__( 'Not just a regular list but create an awesome list by adding image and icon on the advanced list widget.', 'gutentor' ),
 				),
-				'author-profile'     => array(
-					'title'       => esc_html__( 'Author Profile', 'gutentor' ),
-					'description' => esc_html__( 'The Author Profile block allows user to display information related to author with title, description and button', 'gutentor' ),
+				'author-profile'  => array(
+					'title'       => esc_html__( 'Author Widget', 'gutentor' ),
+					'description' => esc_html__( 'The Author Widget allows user to display information related to author with title, description and button', 'gutentor' ),
 				),
-				'blog-post'          => array(
-					'title'       => esc_html__( 'Blog Post', 'gutentor' ),
-					'description' => esc_html__( 'The Blog Post block display collection of posts with different setting related to post items and many more templates.', 'gutentor' ),
+				'blog-post'       => array(
+					'title'       => esc_html__( 'Post Widget', 'gutentor' ),
+					'description' => esc_html__( 'The Post Widget block display collection of posts with different setting related to post items and many more templates.', 'gutentor' ),
 				),
-				'callback-to-action' => array(
-					'title'       => esc_html__( 'Callback To Action', 'gutentor' ),
-					'description' => esc_html__( 'The Call to Action block helps user to trigger certain action with collection of button.It is usable to link learn more, download, buy etc.', 'gutentor' ),
+				'call-to-action'  => array(
+					'title'       => esc_html__( 'Call to Action Widget', 'gutentor' ),
+					'description' => esc_html__( 'The Call to Action Widget helps user to trigger certain action with collection of button.It is usable to link learn more, download, buy etc.', 'gutentor' ),
 				),
-				'content-box'        => array(
-					'title'       => esc_html__( 'Content Box', 'gutentor' ),
-					'description' => esc_html__( 'Content Box block is useful to preset plain title, content and button without image and icon.', 'gutentor' ),
+				'content-box'     => array(
+					'title'       => esc_html__( 'Content Widget', 'gutentor' ),
+					'description' => esc_html__( 'Content Widget block is useful to preset plain title, content and button without image and icon.', 'gutentor' ),
 				),
-				'count-down'         => array(
-					'title'       => esc_html__( 'Countdown', 'gutentor' ),
-					'description' => esc_html__( 'This block is useful for setting a countdown feature on your website. It is extremely helpful for any event show related website.', 'gutentor' ),
+				'count-down'      => array(
+					'title'       => esc_html__( 'Countdown Widget', 'gutentor' ),
+					'description' => esc_html__( 'This Widget is useful for setting a countdown feature on your website. It is extremely helpful for any event show related website.', 'gutentor' ),
 				),
-				'counter-box'        => array(
-					'title'       => esc_html__( 'Counter', 'gutentor' ),
-					'description' => esc_html__( 'Counter Block represents the facts and figure related to any product, item or any product with cool animation , features and many more fascinated templates.', 'gutentor' ),
+				'counter-box'     => array(
+					'title'       => esc_html__( 'Counter Widget', 'gutentor' ),
+					'description' => esc_html__( 'Counter Widget represents the facts and figure related to any product, item or any product with cool animation , features and many more fascinated templates.', 'gutentor' ),
 				),
-				'featured-block'     => array(
-					'title'       => esc_html__( 'Featured Block', 'gutentor' ),
-					'description' => esc_html__( 'The Featured block displays large section with a photo, title, description, and button with awesome template. Generally, it is useful to header part of the site.', 'gutentor' ),
+				'featured-block'  => array(
+					'title'       => esc_html__( 'Featured Widget', 'gutentor' ),
+					'description' => esc_html__( 'The Featured Widget displays large section with a photo, title, description, and button with awesome template. Generally, it is useful to header part of the site.', 'gutentor' ),
 				),
-				'gallery'            => array(
-					'title'       => esc_html__( 'Gallery', 'gutentor' ),
-					'description' => esc_html__( 'The Gallery Block allows user to create mesmerizing gallery of image with caption which is perfect showcase of image of portfolio, services or product.', 'gutentor' ),
+				'gallery'         => array(
+					'title'       => esc_html__( 'Gallery Widget', 'gutentor' ),
+					'description' => esc_html__( 'The Gallery Widget allows user to create mesmerizing gallery of image with caption which is perfect showcase of image of portfolio, services or product.', 'gutentor' ),
 				),
-				'google-map'         => array(
-					'title'       => esc_html__( 'Google Map', 'gutentor' ),
-					'description' => esc_html__( 'Google Map block facilitates user to display the location of organization, company or any place with advanced features of google map. ', 'gutentor' ),
+				'google-map'      => array(
+					'title'       => esc_html__( 'Google Map Widget', 'gutentor' ),
+					'description' => esc_html__( 'Google Map Widget facilitates user to display the location of organization, company or any place with advanced features of google map. ', 'gutentor' ),
 				),
-				'icon-box'           => array(
-					'title'       => esc_html__( 'Icon Box', 'gutentor' ),
-					'description' => esc_html__( 'Icon Box block facilitates to show off a short brief about the users services with Font Awesome icons with cool templates and features.', 'gutentor' ),
+				'icon-box'        => array(
+					'title'       => esc_html__( 'Icon Widget', 'gutentor' ),
+					'description' => esc_html__( 'Icon Widget facilitates to show off a short brief about the users services with Font Awesome icons with cool templates and features.', 'gutentor' ),
 				),
-				'image-box'          => array(
-					'title'       => esc_html__( 'Image Box', 'gutentor' ),
-					'description' => esc_html__( 'The Image Box display information with image, title, description and button which modify by available features and cool templates.', 'gutentor' ),
+				'image-box'       => array(
+					'title'       => esc_html__( 'Image Widget', 'gutentor' ),
+					'description' => esc_html__( 'The Image Widget display information with image, title, description and button which modify by available features and cool templates.', 'gutentor' ),
 				),
-				'image-slider'       => array(
-					'title'       => esc_html__( 'Image Slider', 'gutentor' ),
-					'description' => esc_html__( 'The Image Slider Block display adorable slider with image, title, description and button which modify by available features and cool templates.', 'gutentor' ),
+				'image-slider'    => array(
+					'title'       => esc_html__( 'Image Slider Widget', 'gutentor' ),
+					'description' => esc_html__( 'The Image Slider Widget display adorable slider with image, title, description and button which modify by available features and cool templates.', 'gutentor' ),
 				),
-				'opening-hours'      => array(
-					'title'       => esc_html__( 'Opening Hours', 'gutentor' ),
-					'description' => esc_html__( 'The Opening Hours Block depicts the information related to opening schedule of any organization or any place with cool templates.', 'gutentor' ),
+				'notification'    => array(
+					'title'       => esc_html__( 'Notification Widget', 'gutentor' ),
+					'description' => esc_html__( 'The Notification Widget facilitates to show different type of information(Warning,Error,Success).', 'gutentor' ),
 				),
-				'pricing'            => array(
-					'title'       => esc_html__( 'Pricing Box', 'gutentor' ),
-					'description' => esc_html__( 'The Pricing Box block represents the pricing details of any commodity with number of customize features and cool templates .', 'gutentor' ),
+				'opening-hours'   => array(
+					'title'       => esc_html__( 'Opening Hours Widget', 'gutentor' ),
+					'description' => esc_html__( 'The Opening Hours Widget depicts the information related to opening schedule of any organization.', 'gutentor' ),
 				),
-				'progress-bar'       => array(
-					'title'       => esc_html__( 'Progress Bar', 'gutentor' ),
-					'description' => esc_html__( 'The progress bar block facilitates user create a customizable bar and/or circle progress counter to represent percentage values.', 'gutentor' ),
+				'pricing'         => array(
+					'title'       => esc_html__( 'Pricing Widget', 'gutentor' ),
+					'description' => esc_html__( 'The Pricing Widget represents the pricing details of any commodity with number of customize features.', 'gutentor' ),
 				),
-				'restaurant-menu'    => array(
-					'title'       => esc_html__( 'Restaurant Menu', 'gutentor' ),
-					'description' => esc_html__( 'The Restaurant Menu block represents the information items and recipes available in restaurant with different features and cool templates.', 'gutentor' ),
+				'progress-bar'    => array(
+					'title'       => esc_html__( 'Progress Bar Widget', 'gutentor' ),
+					'description' => esc_html__( 'The progress bar Widget facilitates user create a customizable bar and/or circle progress counter to represent percentage values.', 'gutentor' ),
 				),
-				'social'             => array(
-					'title'       => esc_html__( 'Social', 'gutentor' ),
-					'description' => esc_html__( 'The Social block displays the social networks page on website with different templates and a number of features.', 'gutentor' ),
+				'restaurant-menu' => array(
+					'title'       => esc_html__( 'Restaurant Menu Widget', 'gutentor' ),
+					'description' => esc_html__( 'The Restaurant Menu Widget represents the information items and recipes available in restaurant with different features and cool templates.', 'gutentor' ),
 				),
-				'tabs'               => array(
-					'title'       => esc_html__( 'Tabs', 'gutentor' ),
-					'description' => esc_html__( 'The Tab block facilitates user to display content in a fully tabbed UX which contains title, description and buttons with number of templates.', 'gutentor' ),
+				'show-more'       => array(
+					'title'       => esc_html__( 'Show More Widget', 'gutentor' ),
+					'description' => esc_html__( 'Add small text to show details text with show more button.', 'gutentor' ),
 				),
-				'team'               => array(
-					'title'       => esc_html__( 'Team', 'gutentor' ),
-					'description' => esc_html__( 'With the team block users can create an attractive and sophisticated team section where they can represent the team members of their company in a professional way.', 'gutentor' ),
+				'social'          => array(
+					'title'       => esc_html__( 'Social links Widget', 'gutentor' ),
+					'description' => esc_html__( 'The Social links Widget displays the social networks page on website with different templates and a number of features.', 'gutentor' ),
 				),
-				'testimonial'        => array(
-					'title'       => esc_html__( 'Testimonial', 'gutentor' ),
-					'description' => esc_html__( 'The Testimonial block display the feedback or quotation given by your user which helps site visitor to trust on your product, services.', 'gutentor' ),
+				'tabs'            => array(
+					'title'       => esc_html__( 'Tabs Widget', 'gutentor' ),
+					'description' => esc_html__( 'The Tab Widget facilitates user to display content in a fully tabbed UX which contains title, description and buttons with number of templates.', 'gutentor' ),
 				),
-				'timeline'           => array(
-					'title'       => esc_html__( 'Timeline', 'gutentor' ),
-					'description' => esc_html__( 'The Timeline block has ability to represents the user information or events in chronological order with different styles.  ', 'gutentor' ),
+				'team'            => array(
+					'title'       => esc_html__( 'Team Widget', 'gutentor' ),
+					'description' => esc_html__( 'With the team Widget users can create an attractive and sophisticated team section where they can represent the team members of their company in a professional way.', 'gutentor' ),
 				),
-				'video-popup'        => array(
-					'title'       => esc_html__( 'Video Popup', 'gutentor' ),
-					'description' => esc_html__( 'The Video Popup block display video from youtube link or custom uploaded video in popup mode with number of styles ,video control.', 'gutentor' ),
+				'testimonial'     => array(
+					'title'       => esc_html__( 'Testimonial Widget', 'gutentor' ),
+					'description' => esc_html__( 'The Testimonial Widget display the feedback or quotation given by your user which helps site visitor to trust on your product, services.', 'gutentor' ),
+				),
+				'timeline'        => array(
+					'title'       => esc_html__( 'Timeline Widget', 'gutentor' ),
+					'description' => esc_html__( 'The Timeline Widget has ability to represents the user information or events in chronological order with different styles.  ', 'gutentor' ),
+				),
+				'video-popup'     => array(
+					'title'       => esc_html__( 'Video Popup Widget', 'gutentor' ),
+					'description' => esc_html__( 'The Video Popup Widget display video from youtube link or custom uploaded video in popup mode with number of styles ,video control.', 'gutentor' ),
 				),
 			);
 
@@ -662,8 +771,6 @@ if ( ! class_exists( 'Gutentor_Admin' ) ) {
 
 		/*Taxonomy Fields*/
 		public function taxonomy_edit_meta_field( $term ) {
-            $enabled_term_color = gutentor_get_options( 'gutentor_tax_term_color' );
-            $enabled_term_image = gutentor_get_options( 'gutentor_tax_term_image' );
 
 			// Retrieve the existing value(s) for this meta field.
 			$gutentor_meta    = $term && ! empty( $term->term_id ) ? get_term_meta( $term->term_id, 'gutentor_meta', true ) : false;
@@ -691,12 +798,23 @@ if ( ! class_exists( 'Gutentor_Admin' ) ) {
 				}
 			}
 
-			if ( $enabled_term_color ) {
+			if (
+				(
+					$term &&
+					! empty( $term->term_id ) &&
+					is_array( $this->tax_in_color ) && in_array( $term->taxonomy, $this->tax_in_color )
+				)
+				||
+				(
+					isset( $_GET['taxonomy'] ) &&
+					is_array( $this->tax_in_color ) && in_array( $_GET['taxonomy'], $this->tax_in_color )
+				)
+			) {
 				?>
-				<tr>
-					<td><h4><?php _e( 'Background Color', 'gutentor' ); ?></h4></td>
+				<tr class="gutentor-fields">
+					<td><h4><?php esc_html_e( 'Background Color', 'gutentor' ); ?></h4></td>
 					<td class="form-field gutentor-fields">
-						<label for="gutentor_meta[bg-color]"><?php _e( 'Normal', 'gutentor' ); ?></label>
+						<label for="gutentor_meta[bg-color]"><?php esc_html_e( 'Normal', 'gutentor' ); ?></label>
 						<input type="text" value="<?php echo esc_attr( $bg ); ?>" id="gutentor_meta[bg-color]" name="gutentor_meta[bg-color]" class="gutentor-color-picker" data-rgba="1"/>
 
 					</td>
@@ -704,14 +822,14 @@ if ( ! class_exists( 'Gutentor_Admin' ) ) {
 				<tr class="form-field gutentor-fields">
 					<td></td>
 					<td>
-						<label for="gutentor_meta[bg-hover-color]"><?php _e( 'Hover', 'gutentor' ); ?></label>
+						<label for="gutentor_meta[bg-hover-color]"><?php esc_html_e( 'Hover', 'gutentor' ); ?></label>
 						<input type="text" value="<?php echo esc_attr( $hover_bg ); ?>" id="gutentor_meta[bg-hover-color]" name="gutentor_meta[bg-hover-color]" class="gutentor-color-picker" data-rgba="1" />
 					</td>
 				</tr>
 				<tr>
-					<td><h4><?php _e( 'Text Color', 'gutentor' ); ?></h4></td>
+					<td><h4><?php esc_html_e( 'Text Color', 'gutentor' ); ?></h4></td>
 					<td class="form-field gutentor-fields">
-						<label for="gutentor_meta[text-color]"><?php _e( 'Normal', 'gutentor' ); ?></label>
+						<label for="gutentor_meta[text-color]"><?php esc_html_e( 'Normal', 'gutentor' ); ?></label>
 						<input type="text" value="<?php echo esc_attr( $text_color ); ?>" id="gutentor_meta[text-color]" name="gutentor_meta[text-color]" class="gutentor-color-picker" data-rgba="1"/>
 
 					</td>
@@ -719,18 +837,36 @@ if ( ! class_exists( 'Gutentor_Admin' ) ) {
 				<tr class="form-field gutentor-fields">
 					<td></td>
 					<td>
-						<label for="gutentor_meta[text-hover-color]"><?php _e( 'Hover', 'gutentor' ); ?></label>
+						<label for="gutentor_meta[text-hover-color]"><?php esc_html_e( 'Hover', 'gutentor' ); ?></label>
 						<input type="text" value="<?php echo esc_attr( $hover_text_color ); ?>" id="gutentor_meta[text-hover-color]" name="gutentor_meta[text-hover-color]" class="gutentor-color-picker" data-rgba="1" />
 					</td>
 				</tr>
 				<?php
 			}
 
-            if ( $enabled_term_image && $term && !empty( $term->term_id ) && $term->taxonomy !== 'product_cat') {
+			if (
+				(
+					$term &&
+					(
+							! empty( $term->term_id ) &&
+							(
+									$term->taxonomy !== 'product_cat' &&
+									(
+											is_array( $this->tax_in_image ) && in_array( $term->taxonomy, $this->tax_in_image )
+									)
+						)
+					)
+				)
+				||
+				(
+					isset( $_GET['taxonomy'] ) &&
+					is_array( $this->tax_in_image ) && in_array( $_GET['taxonomy'], $this->tax_in_image )
+				)
+			) {
 				?>
 				<tr>
 					<td>
-						<label for="gutentor_meta[featured-image]"><h4><?php _e( 'Featured Image', 'gutentor' ); ?></h4></label>
+						<label for="gutentor_meta[featured-image]"><h4><?php esc_html_e( 'Featured Image', 'gutentor' ); ?></h4></label>
 					</td>
 					<td>
 						<div class="form-field gutentor-fields">
@@ -759,11 +895,14 @@ if ( ! class_exists( 'Gutentor_Admin' ) ) {
 			<?php wp_nonce_field( 'gutentor_update_term_meta', 'gutentor_term_meta_nonce' ); ?>
 			<?php
 		}
+
 		public function save_taxonomy_custom_meta( $term_id ) {
 
 			if (
-				isset( $_POST['gutentor_meta'] ) && is_array( $_POST['gutentor_meta'] ) &&
-				! empty( $_POST['gutentor_term_meta_nonce'] ) && wp_verify_nonce( $_POST['gutentor_term_meta_nonce'], 'gutentor_update_term_meta' )
+				isset( $_POST['gutentor_meta'] ) &&
+				is_array( $_POST['gutentor_meta'] ) &&
+				! empty( $_POST['gutentor_term_meta_nonce'] ) &&
+				wp_verify_nonce( $_POST['gutentor_term_meta_nonce'], 'gutentor_update_term_meta' )
 			) {
 
 				$m_value = array();
@@ -791,6 +930,17 @@ if ( ! class_exists( 'Gutentor_Admin' ) ) {
 					delete_option( 'gutentor-cat-' . $term_id );
 				}
 			}
+		}
+
+
+		public function add_taxonomy_args( $args, $taxonomy_name ) {
+
+			if ( is_array( $this->taxonomies ) &&
+				in_array( $taxonomy_name, $this->taxonomies )
+			) {
+				$args['show_in_rest'] = true;
+			}
+			return $args;
 		}
 	}
 }

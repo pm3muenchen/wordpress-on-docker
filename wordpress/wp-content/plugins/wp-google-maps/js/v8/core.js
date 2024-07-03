@@ -11,11 +11,16 @@ jQuery(function($) {
 		PAGE_MAP_LIST: 			"map-list",
 		PAGE_MAP_EDIT:			"map-edit",
 		PAGE_SETTINGS:			"map-settings",
+		PAGE_STYLING:			"map-styling",
 		PAGE_SUPPORT:			"map-support",
+
+		PAGE_INSTALLER: 			"installer",
 		
 		PAGE_CATEGORIES:		"categories",
 		PAGE_ADVANCED:			"advanced",
 		PAGE_CUSTOM_FIELDS:		"custom-fields",
+
+		MOBILE_RESOLUTION_THRESHOLD : 1000,
 		
 		/**
 		 * Indexed array of map instances
@@ -65,6 +70,9 @@ jQuery(function($) {
 				case "wp-google-maps-menu":
 					if(window.location.href.match(/action=edit/) && window.location.href.match(/map_id=\d+/))
 						return WPGMZA.PAGE_MAP_EDIT;
+
+					if(window.location.href.match(/action=installer/))
+						return WPGMZA.PAGE_INSTALLER;
 				
 					return WPGMZA.PAGE_MAP_LIST;
 					break;
@@ -72,7 +80,11 @@ jQuery(function($) {
 				case 'wp-google-maps-menu-settings':
 					return WPGMZA.PAGE_SETTINGS;
 					break;
-					
+				
+				case 'wp-google-maps-menu-styling':
+					return WPGMZA.PAGE_STYLING;
+					break;
+
 				case 'wp-google-maps-menu-support':
 					return WPGMZA.PAGE_SUPPORT;
 					break;
@@ -103,7 +115,7 @@ jQuery(function($) {
 		 * @return {number} The scroll offset
 		 */
 		getScrollAnimationOffset: function() {
-			return (WPGMZA.settings.scroll_animation_offset || 0) + $("#wpadminbar").height();
+			return (WPGMZA.settings.scroll_animation_offset || 0) + ($("#wpadminbar").height() || 0);
 		},
 		
 		getScrollAnimationDuration: function() {
@@ -367,37 +379,32 @@ jQuery(function($) {
 		 * @static
 		 * @return {void}
 		 */
-		openMediaDialog: function(callback) {
-			// Media upload
+		openMediaDialog: function(callback, config) {
 			var file_frame;
 			
-			// If the media frame already exists, reopen it.
 			if ( file_frame ) {
-				// Set the post ID to what we want
 				file_frame.uploader.uploader.param( 'post_id', set_to_post_id );
-				// Open frame
 				file_frame.open();
 				return;
 			}
 			
-			// Create the media frame.
-			file_frame = wp.media.frames.file_frame = wp.media({
-				title: 'Select a image to upload',
-				button: {
-					text: 'Use this image',
-				},
-				multiple: false	// Set to true to allow multiple files to be selected
-			});
-			
-			// When an image is selected, run a callback.
+			if(config){
+				file_frame = wp.media.frames.file_frame = wp.media(config);
+			} else {
+				file_frame = wp.media.frames.file_frame = wp.media({
+					title: 'Select a image to upload',
+					button: {
+						text: 'Use this image',
+					},
+					multiple: false	
+				});
+			}
+
 			file_frame.on( 'select', function() {
-				// We set multiple to false so only get one image from the uploader
 				attachment = file_frame.state().get('selection').first().toJSON();
-				
-				callback(attachment.id, attachment.url);
+				callback(attachment.id, attachment.url, attachment);
 			});
-			
-			// Finally, open the modal
+
 			file_frame.open();
 		},
 		
@@ -682,7 +689,10 @@ jQuery(function($) {
 		 * @return {boolean} True if modern or legacy style is selected, or no UI style is selected
 		 */
 		isModernComponentStyleAllowed: function() {
-			
+			if(!WPGMZA.InternalEngine.isLegacy()){
+				/* Atlas Novus doesn't allow this */
+				return false;	
+			}
 			return (!WPGMZA.settings.user_interface_style || WPGMZA.settings.user_interface_style == "legacy" || WPGMZA.settings.user_interface_style == "modern");
 			
 		},
@@ -711,6 +721,10 @@ jQuery(function($) {
 			
 			return wpgmzaisFullScreen;
 			
+		},
+
+		isNumeric: function(num) {
+			return !isNaN(parseFloat(num)) && isFinite(num);
 		},
 		
 		getQueryParamValue: function(name) {
@@ -744,8 +758,76 @@ jQuery(function($) {
 				jQuery('body').find('.wpgmza-popup-notification').remove();
 			}, time);
 			
+		},
+
+		initMaps: function(){
+			$(document.body).find(".wpgmza_map:not(.wpgmza-initialized)").each(function(index, el) {
+				if(el.wpgmzaMap) {
+					console.warn("Element missing class wpgmza-initialized but does have wpgmzaMap property. No new instance will be created");
+					return;
+				}
+				try{
+					el.wpgmzaMap = WPGMZA.Map.createInstance(el);
+				} catch (ex){
+					console.warn('Map initalization: ' + ex);
+				}
+			});
+			
+			WPGMZA.Map.nextInitTimeoutID = setTimeout(WPGMZA.initMaps, 3000);
+		},
+
+		initCapsules: function(){
+			WPGMZA.capsuleModules = WPGMZA.CapsuleModules.createInstance(); 
+		},
+
+		onScroll: function(){
+			$(".wpgmza_map").each(function(index, el) {
+				var isInView = WPGMZA.isElementInView(el);
+				if(!el.wpgmzaScrollIntoViewTriggerFlag){
+					if(isInView){
+						$(el).trigger("mapscrolledintoview.wpgmza");
+						el.wpgmzaScrollIntoViewTriggerFlag = true;
+					}
+				} else if(!isInView){
+					el.wpgmzaScrollIntoViewTriggerFlag = false;
+				}
+				
+			});
+		},
+
+		initInstallerRedirect : function(url){
+			$('.wpgmza-wrap').hide();
+			
+			window.location.href = url;
+		},
+
+		delayedReloader(){
+			/* This script attempts to load the core, but waits for all modules using a try catch block
+			 * 
+			 * As of 9.0.18 (2023-03-14) this is an experimental reloader, it should work well enough, as it is triggered only by missing modules 
+			 * and should not run in 'normal runs', but we've only confirmed this with a handful of delaying script systems
+			*/ 
+			setTimeout(() => {
+				try {
+					WPGMZA.restAPI	= WPGMZA.RestAPI.createInstance();
+					if(WPGMZA.CloudAPI){
+						WPGMZA.cloudAPI	= WPGMZA.CloudAPI.createInstance();
+					}
+
+					$(document.body).trigger('preinit.wpgmza');
+					
+					WPGMZA.initMaps();
+					WPGMZA.onScroll();
+
+					WPGMZA.initCapsules();
+
+					$(document.body).trigger('postinit.wpgmza');
+				} catch (ex) {
+					/* The initial loading failed, this likely happened because the API cores were not loaded yet */
+					WPGMZA.delayedReloader();
+				}	
+			}, 1000);
 		}
-		
 	};
 	
 	var wpgmzaisFullScreen = false;
@@ -775,8 +857,97 @@ jQuery(function($) {
 	}
 
 	
-	for(var key in WPGMZA_localized_data)
+	for(var key in WPGMZA_localized_data){
+		var value = WPGMZA_localized_data[key];
+		WPGMZA[key] = value;
+	}
+
+	/*
+	 * De-Obscure Google API keys 
+	 * 
+	 * Google has started sending out emails about exposed keys, this is specifically due to our plugin localizing 
+	 * the API keys in settings object, for use in autocomplete requests 
+	 * 
+	 * We will just reverse the original obscurity we added to sort this out
+	 * 
+	 * As of 9.0.18 (23-03-13) 
+	 */
+	var apiKeyIndexes = ['googleMapsApiKey', 'wpgmza_google_maps_api_key', 'google_maps_api_key'];
+	for(let apiKeyIndex of apiKeyIndexes){
+		if(WPGMZA.settings[apiKeyIndex]){
+			/* We have an obscured key, this is to prevent false emails from being sent to site owner about 'exposed' keys */
+			WPGMZA.settings[apiKeyIndex] = atob(WPGMZA.settings[apiKeyIndex]);
+		}
+	}
+	
+	// delete window.WPGMZA_localized_data;
+	
+	var wpgmzaisFullScreen = false;
+
+
+	// NB: Warn the user if the built in Array prototype has been extended. This will save debugging headaches where for ... in loops do bizarre things.
+	for(var key in [])
 	{
+		console.warn("It appears that the built in JavaScript Array has been extended, this can create issues with for ... in loops, which may cause failure.");
+		break;
+	}
+	
+	if(window.WPGMZA)
+		window.WPGMZA = $.extend(window.WPGMZA, core);
+	else
+		window.WPGMZA = core;
+
+	/* Usercentrics base level integration */
+	if(window.uc && window.uc.reloadOnOptIn){
+		window.uc.reloadOnOptIn(
+		    'S1pcEj_jZX'
+		); 	
+
+		window.uc.reloadOnOptOut(
+			'S1pcEj_jZX'
+		);
+	}
+
+	/* Check if experimental google font option is enabled, and run it here to allow it to run early */
+	try {
+		if(WPGMZA && WPGMZA.settings && WPGMZA.settings.disable_google_fonts){
+			/**
+			 * WP Google Maps makes use of the Google Maps API for map serving. 
+			 * 
+			 * All credit to "coma" from this thread: https://stackoverflow.com/questions/25523806/google-maps-v3-prevent-api-from-loading-roboto-font
+			 * - This was the initial inspiration for the solution implemented here 
+			 * 
+			 * Highly experiment option - This whole block should be moved to a dedicated module
+			*/
+			const _wpgmzaGoogleFontDisabler = {
+				head : document.getElementsByTagName('head')[0]
+			};
+
+			if(_wpgmzaGoogleFontDisabler.head){
+				/* Save the original function to recall it later */
+				_wpgmzaGoogleFontDisabler.insertBefore = _wpgmzaGoogleFontDisabler.head.insertBefore;
+
+				_wpgmzaGoogleFontDisabler.head.insertBefore = (nElem, rElem) => {
+					if(nElem.href && nElem.href.indexOf('//fonts.googleapis.com/css') !== -1){
+						const exclList = ['Roboto', 'Google'];
+						for(let excl of exclList){
+							if(nElem.href.indexOf('?family=' + excl) !== -1){
+								/* Matched - Block the font */
+								return;
+							}
+						}
+					}
+
+					_wpgmzaGoogleFontDisabler.insertBefore.call(_wpgmzaGoogleFontDisabler.head, nElem, rElem);
+				};
+			}
+		}
+	} catch (_wpgmzaDisableFontException){
+		/* Silence */
+	}
+
+	
+	for(var key in WPGMZA_localized_data){
 		var value = WPGMZA_localized_data[key];
 		WPGMZA[key] = value;
 	}
@@ -785,134 +956,27 @@ jQuery(function($) {
 	
 	WPGMZA.settings.useLegacyGlobals = true;
 	
-	jQuery(function($) {
-		
-		$(window).trigger("ready.wpgmza");
-		
-		// Combined script warning
-		if($("script[src*='wp-google-maps.combined.js'], script[src*='wp-google-maps-pro.combined.js']").length)
-			console.warn("Minified script is out of date, using combined script instead.");
-		
-		// Check for multiple jQuery versions
-		var elements = $("script[src]").filter(function() {
-			return this.src.match(/(^|\/)jquery\.(min\.)?js(\?|$)/i);
-		});
+	$(document).on("fullscreenchange mozfullscreenchange webkitfullscreenchange", function() {
+		wpgmzaisFullScreen = document.fullscreenElement ? true : false;
 
-		if(elements.length > 1)
-			console.warn("Multiple jQuery versions detected: ", elements);
-		
-		// Rest API
-		WPGMZA.restAPI	= WPGMZA.RestAPI.createInstance();
-		
-		if(WPGMZA.CloudAPI)
-			WPGMZA.cloudAPI	= WPGMZA.CloudAPI.createInstance();
-		
-	
-		$(document).on("fullscreenchange", function() {
-			
-			wpgmzaisFullScreen = document.fullscreenElement ? true : false;
-			
-		});
+		/* Dispatch a global event */
+		$(document.body).trigger("fullscreenchange.wpgmza");
+	});
 
-		$('body').on('click',"#wpgmzaCloseChat", function(e) {
-			e.preventDefault();
-			$.ajax(WPGMZA.ajaxurl, {
-	    		method: 'POST',
-	    		data: {
-	    			action: 'wpgmza_hide_chat',
-	    			nonce: WPGMZA_localized_data.ajaxnonce
-	    		}	    		
-	    	});
-       		$('.wpgmza-chat-help').remove();
-
-			
-
-		});
-		
+	$('body').on('click',"#wpgmzaCloseChat", function(e) {
+		e.preventDefault();
+		$.ajax(WPGMZA.ajaxurl, {
+    		method: 'POST',
+    		data: {
+    			action: 'wpgmza_hide_chat',
+    			nonce: WPGMZA_localized_data.ajaxnonce
+    		}	    		
+    	});
+   		$('.wpgmza-chat-help').remove();
 	});
 	
-	$(document).ready(function(event) {
-		
-		// Array incorrectly extended warning
-		var test = [];
-		for(var key in test) {
-			console.warn("The Array object has been extended incorrectly by your theme or another plugin. This can cause issues with functionality.");
-			break;
-		}
-		
-		// Geolocation warnings
-		if(window.location.protocol != 'https:')
-		{
-			var warning = '<div class="notice notice-warning"><p>' + WPGMZA.localized_strings.unsecure_geolocation + "</p></div>";
-			
-			$(".wpgmza-geolocation-setting").first().after( $(warning) );
-		}
-		
-	});
 	
-	function onScroll(event)
-	{
-		
-		// Test if map is scrolled into view
-		$(".wpgmza_map").each(function(index, el) {
-			
-			var isInView = WPGMZA.isElementInView(el);
-			
-			if(!el.wpgmzaScrollIntoViewTriggerFlag)
-			{
-				if(isInView)
-				{
-					$(el).trigger("mapscrolledintoview.wpgmza");
-					el.wpgmzaScrollIntoViewTriggerFlag = true;
-				}
-			}
-			else if(!isInView)
-				el.wpgmzaScrollIntoViewTriggerFlag = false;
-			
-		});
-		
-	}
-	
-	$(window).on("scroll", onScroll);
-	$(document).ready(onScroll);
-	
-	$(function() {
-		
-		function initMaps()
-		{
-			$(document.body).find(".wpgmza_map:not(.wpgmza-initialized)").each(function(index, el) {
-				if(el.wpgmzaMap)
-				{
-					console.warn("Element missing class wpgmza-initialized but does have wpgmzaMap property. No new instance will be created");
-					return;
-				}
-				
-				el.wpgmzaMap = WPGMZA.Map.createInstance(el);
-			});
-			
-			WPGMZA.Map.nextInitTimeoutID = setTimeout(initMaps, 3000);
-		}
-		
-
-		if(WPGMZA.googleAPIStatus && WPGMZA.googleAPIStatus.code == "USER_CONSENT_NOT_GIVEN") {
-			if(jQuery('.wpgmza-gdpr-compliance').length <= 0){
-				$("#wpgmza_map, .wpgmza_map").each(function(index, el) {
-					$(el).append($(WPGMZA.api_consent_html));
-					$(el).css({height: "auto"});
-				});
-				
-				$("button.wpgmza-api-consent").on("click", function(event) {
-					Cookies.set("wpgmza-api-consent-given", true);
-					window.location.reload();
-				});
-			}
-			
-			return;
-		}
-
-		initMaps();
-		
-	});
+	$(window).on("scroll", WPGMZA.onScroll);
 	
 	$(document.body).on("click", "button.wpgmza-api-consent", function(event) {
 		Cookies.set("wpgmza-api-consent-given", true);
@@ -928,5 +992,97 @@ jQuery(function($) {
 		if(!event.altKey)
 			WPGMZA.altKeyDown = false;
 	});
+
+	$(document.body).on('preinit.wpgmza', function(){
+		$(window).trigger("ready.wpgmza");
+		$(document.body).trigger('ready.body.wpgmza');
+		
+		// Combined script warning
+		if($("script[src*='wp-google-maps.combined.js'], script[src*='wp-google-maps-pro.combined.js']").length){
+			console.warn("Minified script is out of date, using combined script instead.");
+		}
+		
+		// Check for multiple jQuery versions
+		var elements = $("script[src]").filter(function() {
+			return this.src.match(/(^|\/)jquery\.(min\.)?js(\?|$)/i);
+		});
+
+		if(elements.length > 1){
+			console.warn("Multiple jQuery versions detected: ", elements);
+		}
+
+		// Array incorrectly extended warning
+		var test = [];
+		for(var key in test) {
+			console.warn("The Array object has been extended incorrectly by your theme or another plugin. This can cause issues with functionality.");
+			break;
+		}
+		
+		// Geolocation warnings
+		if(window.location.protocol != 'https:'){
+			var warning = '<div class="' + (WPGMZA.InternalEngine.isLegacy() ? '' : 'wpgmza-shadow wpgmza-card wpgmza-pos-relative ') + 'notice notice-warning"><p>' + WPGMZA.localized_strings.unsecure_geolocation + "</p></div>";
+			
+			$(".wpgmza-geolocation-setting").first().after( $(warning) );
+		}
+
+		if(WPGMZA.googleAPIStatus && WPGMZA.googleAPIStatus.code == "USER_CONSENT_NOT_GIVEN") {
+			if(jQuery('.wpgmza-gdpr-compliance').length <= 0){
+				/*$("#wpgmza_map, .wpgmza_map").each(function(index, el) {
+					$(el).append($(WPGMZA.api_consent_html));
+					$(el).css({height: "auto"});
+				});*/
+
+				$('.wpgmza-inner-stack').hide();
+				
+				$("button.wpgmza-api-consent").on("click", function(event) {
+					Cookies.set("wpgmza-api-consent-given", true);
+					window.location.reload();
+				});
+			}
+			
+			return;
+		}
+	});
+
+	/**
+	 * We use to use the win-the-race approach with set timeouts
+	 * 
+	 * This caused immense issues with older versions of WP
+	 * 
+	 * Instead, we call an anon-func, which queues on the ready call, this controls the queue without the need for timeouts
+	 * 
+	 * While also maintaining the stack order, and the ability for consent plugins to stop ready calls early
+	 * 
+	 * --
+	 * 
+	 * In some cases, delayed script loading will fail in this loop, this happens because the core modules are not prepared/loaded yet
+	 * we really should overcome this limitation, to allow more versatile loading approaches
+	 * 
+	 * This is a little tricky due to the way that we call this function (anon) -> But we believe we have a better approach to this 
+	*/
+	(function($){
+		$(function(){
+			try {
+				WPGMZA.restAPI	= WPGMZA.RestAPI.createInstance();
+				if(WPGMZA.CloudAPI){
+					WPGMZA.cloudAPI	= WPGMZA.CloudAPI.createInstance();
+				}
+
+				$(document.body).trigger('preinit.wpgmza');
+				
+				WPGMZA.initMaps();
+				WPGMZA.onScroll();
+
+				WPGMZA.initCapsules();
+
+				$(document.body).trigger('postinit.wpgmza');
+			} catch (ex) {
+				/* The initial loading failed, this likely happened because the API cores were not loaded yet */
+				if(WPGMZA && typeof WPGMZA.delayedReloader === 'function'){
+					WPGMZA.delayedReloader();
+				}
+			}	
+		});
+	})($);
 	
 });

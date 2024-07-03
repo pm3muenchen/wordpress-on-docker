@@ -79,23 +79,14 @@ class AdminTabPrivacySafe extends AdminTab {
 
 	}
 
-	public function renderWhmcsLicensing() {
-		// $value = gdpr('options')->get('classidocs_url') ? esc_attr(gdpr('options')->get('classidocs_url')) : '';
-		// $placeholder = _x('ClassiDocs URL', '(Admin)', 'gdpr-framework');
-		$licensingCheck = gdpr()->make( WHMCS::class );
-		$licencekey     = get_option( 'gdpr_whmcs_license' );
-		echo $licensingCheck->CheckLicensing( $licencekey );
-		echo "<input type='text' name='gdpr_whmcs_license' placeholder='' value='" . get_option( 'gdpr_whmcs_license' ) . "'>";
-	}
-
 	public function renderAboutHeader() {
-		echo '<img src="' . esc_url( plugins_url( 'PrivacySafe/Privacy-Safe-Brand.png', dirname(__FILE__) ) ) . '" style="float:right;margin:15px;"/><p>Strengthen your reputation. The privacy safe seal assures your customers that your business is in compliance with privacy laws and regulations. The privacy safe seal will verify that the GDPR Framework plugin is installed.</p>';
+		echo '<img src="' . esc_url( plugins_url( 'PrivacySafe/Privacy-Safe-Brand.png', dirname(__FILE__) ) ) . '" style="float:right;margin:15px;"/><p>'. esc_html_x('Strengthen your reputation. The privacy safe seal assures your customers that your business is in compliance with privacy laws and regulations. The privacy safe seal will verify that the GDPR Framework plugin is installed.', '(Admin)', 'gdpr-framework') . '</p>';
 	}
 	public function renderLinkHeader() {
-		echo '<p>Register now to activate your Privacy Safe seal. Visit the link below, complete the complete the checkout process. Once approved you will recieve notice to get your seal code and image code. Enter those here and save. You can then place the seal where you would like on your site.</p><p><a href="https://orders.data443.com/cart.php?a=add&pid=31&carttpl=standard_cart" target="_blank" class="button button-primary">Register Here</a></p>';
+		echo '<p>'. esc_html_x('Register now to activate your Privacy Safe seal. Visit the link below, complete the complete the checkout process. Once approved you will recieve notice to get your seal code and image code. Enter those here and save. You can then place the seal where you would like on your site.', '(Admin)', 'gdpr-framework') . '</p><p><a href="https://orders.data443.com/cart.php?a=add&pid=31&carttpl=standard_cart" target="_blank" class="button button-primary">' . esc_html_x('Register Here', '(Admin)', 'gdpr-framework') . '</a></p>';
 	}
 	public function renderGuideHeader() {
-		echo '<p>Embed the shortcode provided to display your privacy safe seal.</p>';
+		echo '<p>' . esc_html_x('Embed the shortcode provided to display your privacy safe seal.', '(Admin)', 'gdpr-framework') . '</p>';
 	}
 	public function params() {
 		echo "<input type='text' name='gdpr_privacy_safe_params' placeholder='' value='" . get_option( 'gdpr_privacy_safe_params' ) . "'>";
@@ -104,10 +95,10 @@ class AdminTabPrivacySafe extends AdminTab {
 		echo "<input type='text' name='gdpr_privacy_safe_imagecode' placeholder='' value='" . get_option( 'gdpr_privacy_safe_imagecode' ) . "'>";
 	}
 	public function shortcode() {
-		echo "<code>[gdpr_privacy_safe]</code>";
+		echo "<code>[data443_privacy_safe]</code>";
 	}
 	public function shortcodephp() {
-		echo "<code>echo do_shortcode('[gdpr_privacy_safe]');</code>";
+		echo "<code>echo do_shortcode('[data443_privacy_safe]');</code>";
 	}
 	public function backlinkphp() {
 
@@ -120,6 +111,6 @@ class AdminTabPrivacySafe extends AdminTab {
 	}
 
 	public function renderSubmitButton() {
-		submit_button( _x( 'Save', '(Admin)', 'gdpr-framework' ) );
+		submit_button( esc_html_x( 'Save', '(Admin)', 'gdpr-framework' ) );
 	}
 }

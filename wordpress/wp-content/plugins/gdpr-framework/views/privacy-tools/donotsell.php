@@ -18,12 +18,12 @@
 <div class="form_row" style="display:block" > 
                 <div class="col_6">
                     <div class="form-group">
-                        <input type="text" class="form-control"  placeholder="First Name" id="donotsell_first_name" name="donotsell_first_name" value="<?= ($first_name !='') ? esc_html($first_name):''; ?>" required/>
+                        <input type="text" class="form-control"  placeholder=<?=__("First Name","gdpr-framework")?> id="donotsell_first_name" name="donotsell_first_name" value="<?= ($first_name !='') ? esc_html($first_name):''; ?>" required/>
                     </div>
                 </div>
                 <div class="col_6">
                     <div class="form-group">
-                        <input type="text" class="form-control"  placeholder="Last Name" id="donotsell_last_name" name="donotsell_last_name" value="<?= ($last_name !='') ? esc_html($last_name):''; ?>" required/>
+                        <input type="text" class="form-control"  placeholder=<?=__("Last Name","gdpr-framework")?> id="donotsell_last_name" name="donotsell_last_name" value="<?= ($last_name !='') ? esc_html($last_name):''; ?>" required/>
                         
                     </div>
                 </div>
@@ -48,7 +48,7 @@
                 <div class="form-group">
                     <label for="donotsell_consent" class="form_p">
                         <input type="checkbox" name="donotsell_consent" id="donotsell_consent" class="js-gdpr-conditional form_check" data-show=".gdpr-terms-page" value="yes" required>
-                        <?= __('I agree to receive other communications from GDPR', 'gdpr-framework') ?>
+                        <?= esc_html__('I agree to receive other communications from ', 'gdpr-framework') . get_bloginfo('name') ?>
                     </label>
                 </div>
                 <div class="form-group"><p class="form_p"></p></div>
@@ -58,7 +58,7 @@
                         id="do-not-sell-submit"
                         data-is-updated="false"
                         data-is-update-text="UPDATE"
-                        >Send Request
+                        ><?= esc_html_x('Send Request', '(Admin)', 'gdpr-framework') ?>
                 </button>
         </fieldset>
     </form>

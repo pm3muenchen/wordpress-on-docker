@@ -44,7 +44,7 @@ class Event_Elementor_Addon_Apps_Button extends Widget_Base{
 	 * Register Events Addon for Elementor Apps Button widget controls.
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	*/
-	protected function _register_controls(){
+	protected function register_controls(){
 
 		$this->start_controls_section(
 			'section_apps',
@@ -57,10 +57,11 @@ class Event_Elementor_Addon_Apps_Button extends Widget_Base{
 			'btn_icon',
 			[
 				'label' => esc_html__( 'Button Icon', 'events-addon-for-elementor' ),
-				'type' => Controls_Manager::ICON,
-				'options' => NAEEP_Controls_Helper_Output::get_include_icons(),
-				'frontend_available' => true,
-				'default' => 'fa fa-android',
+				'type' => Controls_Manager::ICONS,
+				'default' => [
+					'value' => 'fas fa-android',
+					'library' => 'fa-solid',
+				],
 			]
 		);
 		$this->add_control(
@@ -169,7 +170,6 @@ class Event_Elementor_Addon_Apps_Button extends Widget_Base{
 				[
 					'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 					'name' => 'btn_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_4,
 					'selector' => '{{WRAPPER}} .naeep-btn-store .naeep-texts span:first-child',
 				]
 			);
@@ -178,7 +178,6 @@ class Event_Elementor_Addon_Apps_Button extends Widget_Base{
 				[
 					'label' => esc_html__( 'Title Typography', 'events-addon-for-elementor' ),
 					'name' => 'btn_title_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_4,
 					'selector' => '{{WRAPPER}} .naeep-btn-store .naeep-texts span:last-child',
 					'btn_style' => array('four'),
 				]
@@ -319,7 +318,7 @@ class Event_Elementor_Addon_Apps_Button extends Widget_Base{
 	*/
 	protected function render() {
 		$settings = $this->get_settings_for_display();
-	  $btn_icon = !empty( $settings['btn_icon'] ) ? $settings['btn_icon'] : '';
+	  $btn_icon = !empty( $settings['btn_icon'] ) ? $settings['btn_icon']['value'] : '';
 	  $btn_text = !empty( $settings['btn_text'] ) ? $settings['btn_text'] : '';
 	  $btn_title = !empty( $settings['btn_title'] ) ? $settings['btn_title'] : '';
 	  $btn_link = !empty( $settings['btn_link'] ) ? $settings['btn_link'] : '';

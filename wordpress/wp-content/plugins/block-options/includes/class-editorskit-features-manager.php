@@ -21,6 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class EditorsKit_Features_Manager {
 
 
+
 	/**
 	 * This plugin's instance.
 	 *
@@ -67,7 +68,11 @@ class EditorsKit_Features_Manager {
 		$this->slug    = 'editorskit';
 		$this->url     = untrailingslashit( plugins_url( '/', dirname( __FILE__ ) ) );
 
-		add_filter( 'block_editor_settings', array( $this, 'block_editor_settings' ), 10, 2 );
+		if ( function_exists( 'get_block_editor_settings' ) ) {
+			add_filter( 'block_editor_settings_all', array( $this, 'block_editor_settings' ), 10, 2 );
+		} else {
+			add_filter( 'block_editor_settings', array( $this, 'block_editor_settings' ), 10, 2 );
+		}
 	}
 
 	/**
@@ -79,34 +84,39 @@ class EditorsKit_Features_Manager {
 	 * @return array Returns updated editors settings.
 	 */
 	public function block_editor_settings( $editor_settings, $post ) {
+
 		if ( ! isset( $editor_settings['editorskit'] ) ) {
+			$items = array(
+				'acf'       => array(
+					'name'  => 'acf',
+					'label' => __( 'ACF Support', 'block-options' ),
+					'value' => true,
+				),
+				'devices'   => array(
+					'name'  => 'devices',
+					'label' => __( 'Devices', 'block-options' ),
+					'value' => true,
+				),
+				'userState' => array(
+					'name'  => 'userState',
+					'label' => __( 'User Login State', 'block-options' ),
+					'value' => true,
+				),
+			);
+
+			if ( defined( 'EDITORSKIT_ALLOW_EVAL' ) && true === EDITORSKIT_ALLOW_EVAL ) {
+				$items['logic'] = array(
+					'name'  => 'logic',
+					'label' => __( 'Display Logic', 'block-options' ),
+					'value' => true,
+				);
+			}
 
 			$editor_settings['editorskit'] = array(
 				'visibility' => array(
 					'name'  => 'visibility',
 					'label' => __( 'Visibility', 'block-options' ),
-					'items' => array(
-						'acf'       => array(
-							'name'  => 'acf',
-							'label' => __( 'ACF Support', 'block-options' ),
-							'value' => true,
-						),
-						'devices'   => array(
-							'name'  => 'devices',
-							'label' => __( 'Devices', 'block-options' ),
-							'value' => true,
-						),
-						'logic'     => array(
-							'name'  => 'logic',
-							'label' => __( 'Display Logic', 'block-options' ),
-							'value' => true,
-						),
-						'userState' => array(
-							'name'  => 'userState',
-							'label' => __( 'User Login State', 'block-options' ),
-							'value' => true,
-						),
-					),
+					'items' => $items,
 				),
 				'formats'    => array(
 					'name'  => 'formats',
@@ -214,11 +224,6 @@ class EditorsKit_Features_Manager {
 							'label' => __( 'Columns Block Background Color', 'block-options' ),
 							'value' => true,
 						),
-						'copy'               => array(
-							'name'  => 'copy',
-							'label' => __( 'Copy Selected Block(s)', 'block-options' ),
-							'value' => true,
-						),
 						'navigator'          => array(
 							'name'  => 'navigator',
 							'label' => __( 'Block Navigator', 'block-options' ),
@@ -290,11 +295,6 @@ class EditorsKit_Features_Manager {
 							'label' => __( 'Gradient Controls', 'block-options' ),
 							'value' => true,
 						),
-						'autosave'            => array(
-							'name'  => 'autosave',
-							'label' => __( 'Toggle Auto Save', 'block-options' ),
-							'value' => true,
-						),
 						'help'                => array(
 							'name'  => 'help',
 							'label' => __( 'Help, tips and tricks', 'block-options' ),
@@ -308,6 +308,11 @@ class EditorsKit_Features_Manager {
 						'scrollDown'          => array(
 							'name'  => 'scrollDown',
 							'label' => __( 'View Custom Fields', 'block-options' ),
+							'value' => true,
+						),
+						'moveableSidebar'     => array(
+							'name'  => 'moveableSidebar',
+							'label' => __( 'Use Sidebar as Moveable Modal' ),
 							'value' => true,
 						),
 					),
@@ -328,7 +333,6 @@ class EditorsKit_Features_Manager {
 
 		return $editor_settings;
 	}
-
 }
 
 EditorsKit_Features_Manager::register();

@@ -1,10 +1,10 @@
 /*
  * UnderConstructionPage
  * Main backend CSS
- * (c) Web factory Ltd, 2015 - 2021
+ * (c) Web factory Ltd, 2015 - 2023
  */
 
-@import url("//fonts.googleapis.com/css?family=Roboto:900");
+@import url('//fonts.bunny.net/css?family=Roboto:400,500,600,900');
 
 .settings_page_ucp .button-primary,
 .settings_page_ucp .button.button-primary {
@@ -180,7 +180,7 @@ div.ucp-thumb .ribbon::before,
 div.ucp-thumb .ribbon::after {
   position: absolute;
   z-index: -1;
-  content: "";
+  content: '';
   display: block;
 }
 div.ucp-thumb .ribbon i {
@@ -260,9 +260,9 @@ div.ucp-thumb img,
   line-height: 150%;
 }
 
-input[type="url"]:invalid,
-input[type="email"]:invalid,
-input[type="tel"]:invalid {
+input[type='url']:invalid,
+input[type='email']:invalid,
+input[type='tel']:invalid {
   border-color: #ea1919;
   -webkit-box-shadow: 0 0 2px rgba(234, 25, 25, 1);
   box-shadow: 0 0 2px rgba(234, 25, 25, 1);
@@ -313,10 +313,7 @@ input.datepicker {
   background-color: #ffffff;
 }
 
-.select2-container--default
-  .select2-selection--multiple
-  .select2-selection__rendered
-  li {
+.select2-container--default .select2-selection--multiple .select2-selection__rendered li {
   margin-top: 6px;
   margin-bottom: 0px;
 }
@@ -325,7 +322,7 @@ span.select2-container .select2-search--inline .select2-search__field {
   margin-top: 0px;
 }
 
-.select2-container .select2-search__field:not([placeholder=""]) {
+.select2-container .select2-search__field:not([placeholder='']) {
   width: 100% !important;
   margin-right: 100000px;
 }
@@ -439,7 +436,7 @@ span.select2-container .select2-search--inline .select2-search__field {
 }
 
 @media screen and (max-width: 782px) {
-  .settings_page_ucp input[type="text"].datepicker {
+  .settings_page_ucp input[type='text'].datepicker {
     max-width: 80%;
     display: inline-block;
   }
@@ -456,7 +453,8 @@ span.select2-container .select2-search--inline .select2-search__field {
 /* tabs */
 
 .settings_page_ucp .ui-tabs {
-  max-width: 100%;
+  max-width: 1000px;
+  width: 100%;
   position: relative;
   padding: 0px;
   zoom: 1;
@@ -493,11 +491,7 @@ span.select2-container .select2-search--inline .select2-search__field {
   cursor: text;
 }
 .settings_page_ucp .ui-tabs .ui-tabs-nav li a,
-.settings_page_ucp
-  .ui-tabs.ui-tabs-collapsible
-  .ui-tabs-nav
-  li.ui-tabs-selected
-  a {
+.settings_page_ucp .ui-tabs.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-selected a {
   cursor: pointer;
 } /* first selector in group seems obsolete, but required to overcome bug in Opera applying cursor: text overall if defined elsewhere... */
 .settings_page_ucp .ui-tabs .ui-tabs-panel {
@@ -525,7 +519,7 @@ span.select2-container .select2-search--inline .select2-search__field {
 }
 
 .settings_page_ucp .ui-tabs-nav:after {
-  content: "";
+  content: '';
   clear: both;
   display: block;
 }
@@ -636,7 +630,7 @@ span.select2-container .select2-search--inline .select2-search__field {
 
 s.settings_page_ucp .ucp-tabs-2nd-level li.ui-state-active a:before {
   display: inline-block;
-  content: " ";
+  content: ' ';
   position: absolute;
   width: 100%;
   height: 2px;
@@ -759,7 +753,7 @@ Any+Time is a trademark of Andrew M. Andrews III */
   width: 20em;
 }
 .AnyTime-pkr .AnyTime-mons:after {
-  content: "";
+  content: '';
   display: table;
   clear: both;
 }
@@ -937,12 +931,12 @@ Any+Time is a trademark of Andrew M. Andrews III */
   transition: all 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
 }
 .toggle-wrapper .toggle:before {
-  content: "OFF";
+  content: 'OFF';
   left: 18px;
   color: #ffffff;
 }
 .toggle-wrapper .toggle:after {
-  content: "ON";
+  content: 'ON';
   right: 20px;
   color: #23282d;
 }
@@ -1261,4 +1255,105 @@ option.weglot-promo {
 .settings_page_ucp .premio-notice,
 .settings_page_ucp div.fs-notice {
   display: none !important;
+}
+
+#wpfssl-ad {
+  border: 3px solid #42982e;
+  min-width: 300px;
+  max-width: 400px;
+  padding: 10px 20px;
+  background: white;
+  position: absolute;
+}
+
+#ucp-ad {
+  border: 3px solid #ff9900;
+  min-width: 300px;
+  max-width: 400px;
+  padding: 10px 20px;
+  background: white;
+  margin-bottom: 30px;
+}
+
+#ucp-sidebar-ads {
+  position: fixed;
+  display: none;
+}
+
+.settings_page_ucp .plain-list {
+  margin-top: 10px;
+  list-style-type: circle;
+  list-style-position: inside;
+}
+
+.settings_page_ucp .plain-list li {
+  text-indent: -20px;
+  padding-left: 23px;
+  line-height: 23px;
+  margin: 0;
+}
+
+@media screen and (max-width: 1300px) {
+  #ucp-sidebar-ads {
+      display: none !important;
+  }
+}
+
+#wpfssl-ad a.button {
+  padding: 11px 20px;
+  color: white;
+  background: #42982e;
+  font-weight: 600;
+  border: none;
+  line-height: 1.5;
+  height: auto;
+  margin-bottom: 10px;
+  white-space: normal;
+  max-width: 90%;
+}
+
+#wpfssl-ad a.button:hover,
+#wpfssl-ad a.button:active,
+#wpfssl-ad a.button:focus {
+  box-shadow: 0px 0px 10px 0px rgb(50 138 210 / 52%);
+  background: #42982e;
+  color: white;
+  border: none;
+}
+
+.textcenter {
+  text-align: center;
+}
+
+div.ui-dialog {
+  position: fixed;
+}
+
+#ucp_rate_notice,
+#ucp_update_pro{
+    max-width: 970px;
+}
+
+@media screen and (max-width: 1520px) {
+    #ucp_tabs{
+        max-width:700px;
+    }
+    #ucp_rate_notice,
+    #ucp_update_pro{
+        max-width:670px;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    #ucp-sidebar-ads {
+        display: none !important;
+    }
+
+    #ucp_tabs{
+        max-width:1000px;
+    }
+    #ucp_rate_notice,
+    #ucp_update_pro{
+        max-width:970px;
+    }
 }

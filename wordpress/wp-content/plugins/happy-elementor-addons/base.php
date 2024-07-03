@@ -71,6 +71,7 @@ class Base {
 
 		// Active insights
 		$this->appsero->insights()
+			->add_plugin_data()
 			->add_extra([
 				'pro_installed' => ha_has_pro() ? 'Yes' : 'No',
 				'pro_version' => ha_has_pro() ? HAPPY_ADDONS_PRO_VERSION : '',
@@ -81,6 +82,8 @@ class Base {
 	public function include_files() {
 		include_once( HAPPY_ADDONS_DIR_PATH . 'inc/functions-forms.php' );
 
+		include_once( HAPPY_ADDONS_DIR_PATH . 'classes/ajax-handler.php' );
+
 		include_once( HAPPY_ADDONS_DIR_PATH . 'classes/icons-manager.php' );
 		include_once( HAPPY_ADDONS_DIR_PATH . 'classes/widgets-manager.php' );
 		include_once( HAPPY_ADDONS_DIR_PATH . 'classes/assets-manager.php' );
@@ -89,23 +92,38 @@ class Base {
 		include_once( HAPPY_ADDONS_DIR_PATH . 'classes/widgets-cache.php' );
 		include_once( HAPPY_ADDONS_DIR_PATH . 'classes/assets-cache.php' );
 		include_once( HAPPY_ADDONS_DIR_PATH . 'classes/wpml-manager.php' );
-
+		
 		if ( is_admin() ) {
 			include_once( HAPPY_ADDONS_DIR_PATH . 'classes/updater.php' );
 			include_once( HAPPY_ADDONS_DIR_PATH . 'classes/dashboard.php' );
 			include_once( HAPPY_ADDONS_DIR_PATH . 'classes/attention-seeker.php' );
 			include_once( HAPPY_ADDONS_DIR_PATH . 'classes/select2-handler.php' );
+			include_once( HAPPY_ADDONS_DIR_PATH . 'classes/dashboard-widgets.php' );
 		}
-
+		
 		if ( is_user_logged_in() ) {
 			include_once( HAPPY_ADDONS_DIR_PATH . 'classes/library-manager.php' );
 			include_once( HAPPY_ADDONS_DIR_PATH . 'classes/library-source.php' );
 		}
+		include_once( HAPPY_ADDONS_DIR_PATH . 'classes/api-handler.php' );
+		include_once( HAPPY_ADDONS_DIR_PATH . 'classes/conditions-cache.php' );
+		include_once( HAPPY_ADDONS_DIR_PATH . 'classes/theme-builder.php' );
+		include_once( HAPPY_ADDONS_DIR_PATH . 'classes/condition-manager.php' );
+
+		include_once( HAPPY_ADDONS_DIR_PATH . 'classes/builder-compatibility/astra.php');
+		include_once( HAPPY_ADDONS_DIR_PATH . 'classes/builder-compatibility/bbtheme.php');
+		include_once( HAPPY_ADDONS_DIR_PATH . 'classes/builder-compatibility/generatepress.php');
+		include_once( HAPPY_ADDONS_DIR_PATH . 'classes/builder-compatibility/genesis.php');
+		include_once( HAPPY_ADDONS_DIR_PATH . 'classes/builder-compatibility/my-listing.php');
+		include_once( HAPPY_ADDONS_DIR_PATH . 'classes/builder-compatibility/oceanwp.php');
+		include_once( HAPPY_ADDONS_DIR_PATH . 'classes/builder-compatibility/twenty-nineteen.php');
+		include_once( HAPPY_ADDONS_DIR_PATH . 'classes/builder-compatibility/theme-support.php');
 	}
 
 	public function include_on_init() {
 		include_once( HAPPY_ADDONS_DIR_PATH . 'inc/functions-extensions.php' );
 		include_once( HAPPY_ADDONS_DIR_PATH . 'classes/extensions-manager.php' );
+		include_once( HAPPY_ADDONS_DIR_PATH . 'classes/credentials-manager.php' );
 	}
 
 	/**
@@ -138,10 +156,10 @@ class Base {
 		$controls_Manager->add_group_control( $Foreground::get_type(), new $Foreground() );
 
 		$Select2 = __NAMESPACE__ . '\Controls\Select2';
-		ha_elementor()->controls_manager->register_control( $Select2::TYPE, new $Select2() );
-
 		$Widget_List = __NAMESPACE__ . '\Controls\Widget_List';
-		ha_elementor()->controls_manager->register_control( $Widget_List::TYPE, new $Widget_List() );
+		
+		ha_elementor()->controls_manager->register( new $Select2() );
+		ha_elementor()->controls_manager->register( new $Widget_List() );
 
 		$Text_Stroke = __NAMESPACE__ . '\Controls\Group_Control_Text_Stroke';
 		$controls_Manager->add_group_control( $Text_Stroke::get_type(), new $Text_Stroke() );

@@ -37,6 +37,7 @@ jQuery(document).ready(function($) {
       navText : ["<div class='slider-no-current'><span class='current-no'></span><span class='total-no'></span></div><span class='current-monials'></span>", "<div class='slider-no-next'></div><span class='next-monials'></span>"],
       autoplay : ($carousel.data('autoplay') !== undefined) ? $carousel.data('autoplay') : false,
       autoplayTimeout : ($carousel.data('autoplay-timeout') !== undefined) ? $carousel.data('autoplay-timeout') : 5000,
+      autoplaySpeed : ($carousel.data('autoplay-speed') !== undefined) ? $carousel.data('autoplay-speed') : false,
       animateIn : ($carousel.data('animatein') !== undefined) ? $carousel.data('animatein') : false,
       animateOut : ($carousel.data('animateout') !== undefined) ? $carousel.data('animateout') : false,
       mouseDrag : ($carousel.data('mouse-drag') !== undefined) ? $carousel.data('mouse-drag') : true,
@@ -47,6 +48,7 @@ jQuery(document).ready(function($) {
       dotsEachNumber: true,
       smartSpeed: 600,
       autoplayHoverPause: true,
+      slideTransition: 'linear',
       responsive : {
         0 : {
           items : $items_mobile_portrait,
@@ -175,75 +177,6 @@ jQuery(document).ready(function($) {
   $('.naeep-process-item').hover(function() {
     $(this).prevAll('.naeep-process-item').toggleClass('process-done');
     $(this).toggleClass('process-done');
-  });
-
-  //Naeep Countdown Script
-  $('.naeep-countdown.static, .naeep-countdown.dynamic').each( function() {
-    var $countdown = $(this);
-    var date = $countdown.data("date");
-    var format = $countdown.data("format");
-    var count_format = format ? format : 'dHMS';
-    // Plural Labels
-    var years = $countdown.data("years");
-    var months = $countdown.data("months");
-    var weeks = $countdown.data("weeks");
-    var days = $countdown.data("days");
-    var hours = $countdown.data("hours");
-    var minutes = $countdown.data("minutes");
-    var seconds = $countdown.data("seconds");
-    // Singular Labels
-    var year = $countdown.data("year");
-    var month = $countdown.data("month");
-    var week = $countdown.data("week");
-    var day = $countdown.data("day");
-    var hour = $countdown.data("hour");
-    var minute = $countdown.data("minute");
-    var second = $countdown.data("second");
-
-    var austDay = new Date();
-    austDay = new Date(date);
-
-    $countdown.countdown({
-      until: austDay,
-      labels: [years,months,weeks,days,hours,minutes,seconds],
-      labels1: [year,month,week,day,hour,minute,second],
-      format: count_format,
-    });
-  });
-
-  // Naeep Fake COuntdown Script
-  $('.naeep-countdown.fake').each( function() {
-    var $countdown = $(this);
-    var date = $countdown.data("date");
-    var today = new Date();
-    var newdate = new Date();
-    newdate.setDate(today.getDate() + date);
-    var mm = today.getMonth() + 1; //January is 0!
-    var yyyy = today.getFullYear();
-    today =  new Date(newdate);
-
-    // Plural Labels
-    var years = $countdown.data("years");
-    var months = $countdown.data("months");
-    var weeks = $countdown.data("weeks");
-    var days = $countdown.data("days");
-    var hours = $countdown.data("hours");
-    var minutes = $countdown.data("minutes");
-    var seconds = $countdown.data("seconds");
-    // Singular Labels
-    var year = $countdown.data("year");
-    var month = $countdown.data("month");
-    var week = $countdown.data("week");
-    var day = $countdown.data("day");
-    var hour = $countdown.data("hour");
-    var minute = $countdown.data("minute");
-    var second = $countdown.data("second");
-
-    $('.naeep-countdown.fake').countdown({
-      until: today,
-      labels: [years,months,weeks,days,hours,minutes,seconds],
-      labels1: [year,month,week,day,hour,minute,second],
-    });
   });
 
   $('.naeep-tab-links a').on('click', function(e) {

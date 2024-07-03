@@ -1,0 +1,367 @@
+# Translation of Plugins - Astra Widgets - Stable (latest release) in Czech
+# This file is distributed under the same license as the Plugins - Astra Widgets - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2022-05-12 07:03:35+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n == 1) ? 0 : ((n >= 2 && n <= 4) ? 1 : 2);\n"
+"X-Generator: GlotPress/4.0.1\n"
+"Language: cs_CZ\n"
+"Project-Id-Version: Plugins - Astra Widgets - Stable (latest release)\n"
+
+#. translators:%s module name .
+#: classes/widgets/class-astra-widget-list-icons.php:349
+#: classes/widgets/class-astra-widget-social-profiles.php:479
+msgid "click here."
+msgstr "Klikněte zde"
+
+#: classes/widgets/class-astra-widget-list-icons.php:278
+#: classes/widgets/class-astra-widget-social-profiles.php:414
+msgid "If repeater fields are not appearing then click on the Update button of the widgets page. For more information,"
+msgstr "Pokud se pole opakovače neobjevují, pak klikněte na tlačítko Aktualizovat na stránce widgetů. Pro více informací,"
+
+#. translators: %s Product title
+#: admin/bsf-analytics/class-bsf-analytics.php:408
+msgid "Allow %s products to track non-sensitive usage tracking data."
+msgstr "Umožnit %s produktům odesílat necitlivá data o používání."
+
+#: admin/bsf-analytics/class-bsf-analytics.php:416
+msgid "Learn More."
+msgstr "Naučit se více."
+
+#: admin/bsf-analytics/class-bsf-analytics.php:411
+msgid " This will be applicable for all sites from the network."
+msgstr "Toto bude použitelné pro všechny weby na síti."
+
+#: admin/bsf-analytics/class-bsf-analytics.php:364
+msgid "Usage Tracking"
+msgstr "Sledování využití"
+
+#: admin/bsf-analytics/class-bsf-analytics.php:260
+msgid "No Thanks"
+msgstr "Ne, díky"
+
+#: admin/bsf-analytics/class-bsf-analytics.php:251
+msgid "Yes! Allow it"
+msgstr "Ano! Povolit to"
+
+#. translators: %s usage doc link
+#: admin/bsf-analytics/class-bsf-analytics.php:243
+msgid " Know More."
+msgstr "Dozvědět se víc"
+
+#: admin/bsf-analytics/class-bsf-analytics.php:219
+msgid "This will be applicable for all sites from the network."
+msgstr "Toto bude použitelné pro všechny weby na síti."
+
+#. translators: %s product name
+#: admin/bsf-analytics/class-bsf-analytics.php:216
+msgid "Want to help make <strong>%1s</strong> even more awesome? Allow us to collect non-sensitive diagnostic data and usage information. "
+msgstr "Chcete pomoci udělat <strong>%1s</strong> ještě lepší? Dovolte nám sbírat necitlivé diagnostické údaje a informace o používání. "
+
+#: lib/astra-notices/class-astra-notices.php:119
+msgid "WordPress Nonce not validated."
+msgstr "WordPress kód nebyl ověřen."
+
+#: classes/widgets/class-astra-widget-social-profiles.php:549
+msgid "Background Hover Color"
+msgstr "Barva pozadí po najetí"
+
+#: classes/widgets/class-astra-widget-social-profiles.php:543
+msgid "Icon Hover Color"
+msgstr "Barva ikony při přejetí"
+
+#: classes/widgets/class-astra-widget-list-icons.php:409
+msgid "Color:"
+msgstr "Barva:"
+
+#: classes/widgets/class-astra-widget-list-icons.php:402
+msgid " Weight:"
+msgstr "Váha:"
+
+#: classes/widgets/class-astra-widget-list-icons.php:390
+msgid "Style:"
+msgstr "Styl:"
+
+#: classes/widgets/class-astra-widget-list-icons.php:380
+msgid "Show Divider:"
+msgstr "Ukázat oddělovač"
+
+#. Description of the plugin
+#: astra-widgets.php
+msgid "The Fastest Way to Add More Widgets into Your WordPress Website."
+msgstr "Nejrychlejší způsob, jak přidat více widgetů na své WordPress stránky."
+
+#: classes/widgets/class-astra-widget-address.php:308
+msgid "\tSpace Between Address Fields:"
+msgstr "\tMezera mezi poli adresy:"
+
+#: classes/widgets/class-astra-widget-list-icons.php:431
+msgid "Image / Icon Size:"
+msgstr "Velikost ikony / obrázku:"
+
+#: classes/widgets/class-astra-widget-list-icons.php:414
+msgid "Icon / Image Style"
+msgstr "Styl ikony / obrázku"
+
+#: classes/widgets/class-astra-widget-list-icons.php:396
+msgid "Dashed"
+msgstr "Přerušovaná"
+
+#: classes/widgets/class-astra-widget-list-icons.php:395
+msgid "Double"
+msgstr "Dvojitá"
+
+#: classes/widgets/class-astra-widget-list-icons.php:394
+msgid "Dotted"
+msgstr "Tečkovaná"
+
+#: classes/widgets/class-astra-widget-list-icons.php:393
+msgid "Solid"
+msgstr "Plná"
+
+#: classes/widgets/class-astra-widget-list-icons.php:384
+msgid "No"
+msgstr "Ne"
+
+#: classes/widgets/class-astra-widget-list-icons.php:383
+msgid "Yes"
+msgstr "Ano"
+
+#: classes/widgets/class-astra-widget-list-icons.php:375
+msgid "Divider"
+msgstr "Oddělovač"
+
+#: classes/widgets/class-astra-widget-list-icons.php:362
+msgid "\tSpace Between List Items:"
+msgstr "\tMezera mezi prvky seznamu:"
+
+#: classes/widgets/class-astra-widget-list-icons.php:357
+msgid "Spacing"
+msgstr "Rozestupy"
+
+#: classes/widgets/class-astra-widget-list-icons.php:295
+msgid "List Item:"
+msgstr "Položka seznamu"
+
+#: classes/widgets/class-astra-widget-social-profiles.php:569
+msgid "\tSpace Between Social Profiles:"
+msgstr "\tMezery mezi sociálními profily:"
+
+#: classes/widgets/class-astra-widget-address.php:301
+#: classes/widgets/class-astra-widget-list-icons.php:369
+#: classes/widgets/class-astra-widget-social-profiles.php:562
+msgid "Space Between Icon & Text:"
+msgstr "Mezera mezi ikonou a textem:"
+
+#: classes/class-astra-widgets-helper.php:528
+msgid "Add Item"
+msgstr "Přidat položku"
+
+#: classes/widgets/class-astra-widget-address.php:289
+msgid "Email:"
+msgstr "E-mail:"
+
+#: classes/widgets/class-astra-widget-address.php:283
+msgid "FAX:"
+msgstr "FAX:"
+
+#: classes/widgets/class-astra-widget-address.php:277
+msgid "Phone:"
+msgstr "Telefon:"
+
+#: classes/widgets/class-astra-widget-address.php:271
+msgid "Address:"
+msgstr "Adresa:"
+
+#: classes/widgets/class-astra-widget-address.php:265
+msgid "Display Icons?"
+msgstr "Zobrazit ikony?"
+
+#: classes/widgets/class-astra-widget-address.php:63
+msgid "Display Address."
+msgstr "Zobrazit adresu."
+
+#: classes/widgets/class-astra-widget-address.php:60
+msgid "Astra: Address"
+msgstr "Astra: adresa"
+
+#: classes/widgets/class-astra-widget-social-profiles.php:555
+msgid "Icon Width:"
+msgstr "Šířka ikony:"
+
+#: classes/widgets/class-astra-widget-list-icons.php:425
+#: classes/widgets/class-astra-widget-social-profiles.php:537
+msgid "Background Color"
+msgstr "Barva pozadí"
+
+#: classes/widgets/class-astra-widget-address.php:295
+#: classes/widgets/class-astra-widget-list-icons.php:419
+#: classes/widgets/class-astra-widget-social-profiles.php:521
+#: classes/widgets/class-astra-widget-social-profiles.php:531
+msgid "Icon Color"
+msgstr "Barva ikony"
+
+#: classes/widgets/class-astra-widget-social-profiles.php:525
+msgid "Custom"
+msgstr "Vlastní"
+
+#: classes/widgets/class-astra-widget-social-profiles.php:524
+msgid "Official Color"
+msgstr "Oficiální barva"
+
+#: classes/widgets/class-astra-widget-social-profiles.php:515
+msgid "Square Outline"
+msgstr "Čtvercový obrys"
+
+#: classes/widgets/class-astra-widget-social-profiles.php:514
+msgid "Circle Outline"
+msgstr "Kruhový obrys"
+
+#: classes/widgets/class-astra-widget-social-profiles.php:513
+msgid "Square"
+msgstr "Čtverec"
+
+#: classes/widgets/class-astra-widget-social-profiles.php:512
+msgid "Circle"
+msgstr "Kruh"
+
+#: classes/widgets/class-astra-widget-social-profiles.php:511
+msgid "Simple"
+msgstr "Jednoduchý"
+
+#: classes/widgets/class-astra-widget-social-profiles.php:508
+msgid "Icon Style"
+msgstr "Styl ikony"
+
+#: classes/widgets/class-astra-widget-address.php:259
+#: classes/widgets/class-astra-widget-social-profiles.php:502
+msgid "Stack"
+msgstr "Zásobník"
+
+#: classes/widgets/class-astra-widget-address.php:258
+#: classes/widgets/class-astra-widget-social-profiles.php:501
+msgid "Inline"
+msgstr "Na řádku"
+
+#: classes/widgets/class-astra-widget-social-profiles.php:498
+msgid "Alignment"
+msgstr "Zarovnání"
+
+#: classes/widgets/class-astra-widget-social-profiles.php:492
+msgid "Display profile title?"
+msgstr "Zobrazit název profilu?"
+
+#: classes/widgets/class-astra-widget-social-profiles.php:487
+msgid "Styling"
+msgstr "Styly"
+
+#: classes/widgets/class-astra-widget-social-profiles.php:444
+msgid "Link"
+msgstr "Odkaz"
+
+#: classes/widgets/class-astra-widget-social-profiles.php:433
+msgid "Add Profile"
+msgstr "Přidat profil"
+
+#: classes/widgets/class-astra-widget-social-profiles.php:428
+msgid "Social Profiles"
+msgstr "Sociální profily"
+
+#: classes/widgets/class-astra-widget-social-profiles.php:420
+#: classes/widgets/class-astra-widget-social-profiles.php:438
+msgid "Title"
+msgstr "Název"
+
+#: classes/widgets/class-astra-widget-social-profiles.php:73
+msgid "Display social profiles."
+msgstr "Zobrazit sociální profily."
+
+#: classes/widgets/class-astra-widget-social-profiles.php:70
+msgid "Astra: Social Profiles"
+msgstr "Astra: sociální profily"
+
+#: classes/widgets/class-astra-widget-list-icons.php:331
+#: classes/widgets/class-astra-widget-social-profiles.php:470
+msgid "Icon"
+msgstr "Ikona"
+
+#: classes/widgets/class-astra-widget-list-icons.php:330
+msgid "Image"
+msgstr "Obrázek"
+
+#: classes/widgets/class-astra-widget-list-icons.php:327
+msgid "Image / Icon"
+msgstr "Obrázek / ikona"
+
+#: classes/widgets/class-astra-widget-list-icons.php:321
+#: classes/widgets/class-astra-widget-social-profiles.php:464
+msgid "Disable"
+msgstr "Vypnout"
+
+#: classes/widgets/class-astra-widget-list-icons.php:320
+#: classes/widgets/class-astra-widget-social-profiles.php:463
+msgid "Enable"
+msgstr "Zapnout"
+
+#: classes/widgets/class-astra-widget-list-icons.php:317
+#: classes/widgets/class-astra-widget-social-profiles.php:460
+msgid "No Follow"
+msgstr "Nenásledovat"
+
+#: classes/widgets/class-astra-widget-list-icons.php:311
+#: classes/widgets/class-astra-widget-social-profiles.php:454
+msgid "New Page"
+msgstr "Nová stránka"
+
+#: classes/widgets/class-astra-widget-list-icons.php:310
+#: classes/widgets/class-astra-widget-social-profiles.php:453
+msgid "Same Page"
+msgstr "Stejná stránka"
+
+#: classes/widgets/class-astra-widget-list-icons.php:301
+msgid "Link:"
+msgstr "Odkaz:"
+
+#: classes/widgets/class-astra-widget-list-icons.php:290
+msgid "Add Item:"
+msgstr "Přidat položku:"
+
+#: classes/widgets/class-astra-widget-address.php:249
+#: classes/widgets/class-astra-widget-list-icons.php:284
+msgid "Title:"
+msgstr "Název:"
+
+#: classes/widgets/class-astra-widget-list-icons.php:73
+msgid "Display list icons."
+msgstr "Zobrazit seznam ikon."
+
+#: classes/widgets/class-astra-widget-list-icons.php:70
+msgid "Astra: List Icons"
+msgstr "Astra: seznam ikon"
+
+#: classes/class-astra-widgets-helper.php:481
+msgid "Choose Icon.."
+msgstr "Vybrat ikonu.."
+
+#. Author URI of the plugin
+#: astra-widgets.php
+msgid "https://www.brainstormforce.com"
+msgstr "https://www.brainstormforce.com"
+
+#. Author of the plugin
+#: astra-widgets.php
+msgid "Brainstorm Force"
+msgstr "Brainstorm Force"
+
+#. Plugin URI of the plugin
+#: astra-widgets.php
+msgid "https://wpastra.com/"
+msgstr "https://wpastra.com/"
+
+#. Plugin Name of the plugin
+#: astra-widgets.php
+msgid "Astra Widgets"
+msgstr "Astra widgety"

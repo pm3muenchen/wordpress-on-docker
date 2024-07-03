@@ -2,67 +2,60 @@
 # This file is distributed under the same license as the Plugins - Photo Gallery by 10Web &#8211; Mobile-Friendly Image Gallery - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-01-26 22:14:00+0000\n"
+"PO-Revision-Date: 2022-05-10 13:11:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n == 1) ? 0 : ((n >= 2 && n <= 4) ? 1 : 2);\n"
-"X-Generator: GlotPress/3.0.0-alpha.2\n"
+"X-Generator: GlotPress/4.0.1\n"
 "Language: cs_CZ\n"
 "Project-Id-Version: Plugins - Photo Gallery by 10Web &#8211; Mobile-Friendly Image Gallery - Stable (latest release)\n"
 
-#: photo-gallery.php:625 photo-gallery.php:682
+#: framework/WDWLibrary.php:274
+msgid "Connect successfully deleted."
+msgstr "Připojení úspěšně odstraněno."
+
+#: admin/views/Options.php:1959
+msgid "Set the number of items that will be displayed in the filmstrip. This will also construct the width of the filmstrip."
+msgstr "Nastavte počet položek, které se budou na filmovém pásu zobrazovat. Tím se také vytvoří šířka filmového pásu."
+
+#: admin/views/Options.php:1955
+msgid "Slideshow thumbnails count"
+msgstr "Počet miniatur prezentace"
+
+#: photo-gallery.php:645 photo-gallery.php:699
 msgid " view is<br>available in Premium Version"
 msgstr "pohled je<br>k dispozici v Prémiové verzi"
 
-#: framework/WDWLibrary.php:2917
-msgid "Upgrade Now"
-msgstr "Vylepšit nyní"
-
-#: framework/WDWLibrary.php:2916
-msgid "of the Premium Plugin"
-msgstr "Prémiový Plugin"
-
-#: framework/WDWLibrary.php:2915
-msgid "Unleash the full benefits and features"
-msgstr "Uvolněte všechny výhody a funkce"
-
-#: admin/views/Galleries.php:426 photo-gallery.php:127
-msgid "This option is available in Premium version"
-msgstr "Tato možnost je k dispozici v Prémiové verzi"
-
-#: admin/views/Shortcode.php:256 admin/views/Options.php:548
-#: admin/views/Options.php:646
+#: admin/views/Options.php:540 admin/views/Shortcode.php:240
 msgid "view demo"
 msgstr "Ukázkový web"
 
-#: admin/views/Shortcode.php:255 admin/views/Options.php:547
-#: admin/views/Options.php:645
+#: admin/views/Options.php:539 admin/views/Shortcode.php:239
 msgid "UPGRADE to Premium"
 msgstr "Upgrade na Premium verzi"
 
-#: admin/views/Shortcode.php:253 admin/views/Options.php:545
-#: admin/views/Options.php:643
+#: admin/views/Options.php:537 admin/views/Shortcode.php:237
 msgid "Visit demo page for this view"
 msgstr "Navštivte demo stránku pro toto zobrazení"
 
-#: admin/views/Options.php:95
+#: admin/views/Options.php:92
 msgid "Group of gallery views"
 msgstr "Skupina zobrazení galerie"
 
-#: admin/views/Options.php:47
+#: admin/views/Options.php:45
 msgid "Save options"
 msgstr "Uložit volby"
 
-#: admin/controllers/Options.php:48 photo-gallery.php:489
+#: admin/controllers/Options.php:52 photo-gallery.php:497
 msgid "Global Settings"
 msgstr "Globální nastavení"
 
-#: admin/views/Options.php:89
+#: admin/views/Options.php:86
 msgid "Gallery views"
 msgstr "Zobrazení galerie"
 
-#: framework/WDWLibrary.php:241
+#: framework/WDWLibrary.php:264
 msgid "All items are successfully duplicated."
 msgstr "Všechny položky jsou úspěšně duplikovány."
 
@@ -74,63 +67,63 @@ msgstr "Propojte a zobrazte svá alba z Google Photos na jedno kliknutí."
 msgid "Photo Gallery Google Photos Integration"
 msgstr "Integrace Google Photos do Photo Gallery"
 
-#: photo-gallery.php:1654
+#: photo-gallery.php:1641
 msgid "Generating Shortcode"
 msgstr "Generování Shortcode"
 
-#: photo-gallery.php:1644
+#: photo-gallery.php:1631
 msgid "Page Navigation"
 msgstr "Navigace na stránce"
 
-#: photo-gallery.php:1632
+#: photo-gallery.php:1619
 msgid "Extended Album"
 msgstr "Rozšířené album"
 
-#: photo-gallery.php:1628
+#: photo-gallery.php:1615
 msgid "Masonry Album"
 msgstr "Masonry Album"
 
-#: photo-gallery.php:1624
+#: photo-gallery.php:1611
 msgid "Compact Album"
 msgstr "Kompaktní album"
 
-#: photo-gallery.php:1600
+#: photo-gallery.php:1587
 msgid "Creating/Editing Themes"
 msgstr "Vytváření / úpravy motivů"
 
-#: photo-gallery.php:1594
+#: photo-gallery.php:1581
 msgid "Carousel Options"
 msgstr "Možnosti karuselu"
 
-#: photo-gallery.php:1590
+#: photo-gallery.php:1577
 msgid "Social Options"
 msgstr "Sociální možnosti"
 
-#: photo-gallery.php:1586
+#: photo-gallery.php:1573
 msgid "Image Options"
 msgstr "Možnosti obrázku"
 
-#: photo-gallery.php:1582
+#: photo-gallery.php:1569
 msgid "Thumbnail Options"
 msgstr "Možnosti miniatury"
 
-#: photo-gallery.php:1574
+#: photo-gallery.php:1561
 msgid "Album Options"
 msgstr "Možnosti alba"
 
-#: photo-gallery.php:1558
+#: photo-gallery.php:1545
 msgid "Global Options"
 msgstr "Globální možnosti"
 
-#: photo-gallery.php:1554
+#: photo-gallery.php:1541
 msgid "Editing Options"
 msgstr "Možnosti úprav"
 
-#: photo-gallery.php:1549
+#: photo-gallery.php:1536
 msgid "Creating/Editing Albums"
 msgstr "Vytváření / úpravy alb"
 
-#: photo-gallery.php:1544
+#: photo-gallery.php:1531
 msgid "Creating/Editing Tags"
 msgstr "Vytváření / úpravy tagů"
 
@@ -142,15 +135,15 @@ msgstr "Tmavý"
 msgid "Light"
 msgstr "Světlý"
 
-#: photo-gallery.php:1925
+#: photo-gallery.php:1882
 msgid "Rate"
 msgstr "Hodnocení"
 
-#: photo-gallery.php:1882
+#: photo-gallery.php:1838
 msgid "Please update the %s add-ons to start using."
 msgstr "Prosím aktualizujte %s doplňků a začněte používat."
 
-#: photo-gallery.php:1881
+#: photo-gallery.php:1837
 msgid "Please update the %s add-on to start using."
 msgstr "Prosím aktualizujte %s doplněk a začněte používat."
 
@@ -182,188 +175,190 @@ msgstr "Tento addon integruje NextGen do Photo Gallery a umůžňuje import obr�
 msgid "Attention:"
 msgstr "Pozor:"
 
-#: frontend/views/view.php:791
+#: frontend/views/view.php:821
 msgid " item(s)"
 msgstr "položka(ek)"
 
-#: frontend/views/view.php:796 admin/views/Widget.php:159
+#: admin/views/Widget.php:155 frontend/views/view.php:826
 msgid "First"
 msgstr "První"
 
-#: frontend/views/view.php:797
+#: frontend/views/view.php:827
 msgid "Previous"
 msgstr "Předchozí"
 
-#: frontend/views/view.php:798
+#: frontend/views/view.php:828
 msgid "Next"
 msgstr "Další"
 
-#: frontend/views/view.php:799 admin/views/Widget.php:160
+#: admin/views/Widget.php:156 frontend/views/view.php:829
 msgid "Last"
 msgstr "Trvat"
 
-#: frontend/views/view.php:818
+#: frontend/views/view.php:852
 msgid "Go to the first page"
 msgstr "Přejít na první stránku"
 
-#: frontend/views/view.php:819
+#: frontend/views/view.php:853
 msgid "Go to the previous page"
 msgstr "Přejít na předchozí stránku"
 
-#: frontend/views/view.php:823 admin/views/AdminView.php:288
-#: framework/WDWLibrary.php:478 framework/WDWLibrary.php:625
+#: admin/views/AdminView.php:288 framework/WDWLibrary.php:516
+#: framework/WDWLibrary.php:663 frontend/views/view.php:857
 msgid "of"
 msgstr "z"
 
-#: frontend/views/view.php:829
+#: frontend/views/view.php:863
 msgid "Go to the next page"
 msgstr "Přejděte na další stránku"
 
-#: frontend/views/view.php:830
+#: frontend/views/view.php:864
 msgid "Go to the last page"
 msgstr "Přejít na poslední stránku"
 
-#: frontend/views/view.php:436 admin/views/Themes.php:352
-#: admin/views/Options.php:53 admin/views/Galleries.php:748
-#: framework/WDWLibrary.php:373 framework/WDWLibrary.php:525
-#: framework/WDWLibrary.php:2581
+#: admin/views/Galleries.php:754 admin/views/Options.php:51
+#: admin/views/Themes.php:226 framework/WDWLibrary.php:411
+#: framework/WDWLibrary.php:563 framework/WDWLibrary.php:2726
+#: frontend/views/view.php:470
 msgid "Reset"
 msgstr "Obnovit"
 
-#: admin/views/AdminView.php:218 framework/WDWLibrary.php:372
-#: framework/WDWLibrary.php:524 photo-gallery.php:1429
+#: admin/views/AdminView.php:218 framework/WDWLibrary.php:410
+#: framework/WDWLibrary.php:562 photo-gallery.php:1416
 msgid "Search"
 msgstr "Hledat"
 
-#: admin/views/Themes.php:200 admin/views/Themes.php:231
-#: admin/views/Themes.php:298 admin/views/Shortcode.php:429
-#: admin/views/Options.php:945 admin/views/Options.php:1327
-#: admin/views/Options.php:1553 admin/views/Options.php:1787
-#: admin/views/Options.php:1982 admin/views/Options.php:2220
-#: admin/views/Options.php:2377 admin/views/Options.php:2552
-#: admin/views/Options.php:2761 admin/views/Options.php:2778
-#: admin/views/Options.php:3059 admin/views/Options.php:3076
-#: admin/views/Options.php:3297 admin/views/Options.php:3314
+#: admin/views/Options.php:862 admin/views/Options.php:1250
+#: admin/views/Options.php:1461 admin/views/Options.php:1690
+#: admin/views/Options.php:1883 admin/views/Options.php:2128
+#: admin/views/Options.php:2281 admin/views/Options.php:2480
+#: admin/views/Options.php:2699 admin/views/Options.php:2717
+#: admin/views/Options.php:2990 admin/views/Options.php:3008
+#: admin/views/Options.php:3228 admin/views/Options.php:3246
+#: admin/views/Shortcode.php:416 admin/views/Themes.php:71
+#: admin/views/Themes.php:102 admin/views/Themes.php:173
 msgid "Default"
 msgstr "standardní"
 
-#: frontend/views/view.php:489 admin/views/Options.php:1330
-#: admin/views/Options.php:1556 admin/views/Options.php:1790
-#: admin/views/Options.php:1985 admin/views/Options.php:2223
-#: admin/views/Options.php:2380 admin/views/Options.php:2555
-#: admin/views/Options.php:2781 admin/views/Options.php:3079
-#: admin/views/Options.php:3317 admin/views/Galleries.php:651
-#: admin/views/Galleries.php:719
+#: admin/views/Galleries.php:625 admin/views/Galleries.php:694
+#: admin/views/Options.php:1253 admin/views/Options.php:1464
+#: admin/views/Options.php:1693 admin/views/Options.php:1886
+#: admin/views/Options.php:2131 admin/views/Options.php:2284
+#: admin/views/Options.php:2489 admin/views/Options.php:2720
+#: admin/views/Options.php:3011 admin/views/Options.php:3249
+#: frontend/views/view.php:523
 msgid "Filename"
 msgstr "Název souboru"
 
-#: filemanager/view.php:154 frontend/views/view.php:492
-#: admin/views/Options.php:1331 admin/views/Options.php:1557
-#: admin/views/Options.php:1791 admin/views/Options.php:1986
-#: admin/views/Options.php:2224 admin/views/Options.php:2381
-#: admin/views/Options.php:2556 admin/views/Options.php:2782
-#: admin/views/Options.php:3080 admin/views/Options.php:3318
-#: admin/views/Galleries.php:732
+#: admin/views/Galleries.php:737 admin/views/Options.php:1254
+#: admin/views/Options.php:1465 admin/views/Options.php:1694
+#: admin/views/Options.php:1887 admin/views/Options.php:2132
+#: admin/views/Options.php:2285 admin/views/Options.php:2492
+#: admin/views/Options.php:2721 admin/views/Options.php:3012
+#: admin/views/Options.php:3250 filemanager/view.php:154
+#: frontend/views/view.php:526
 msgid "Size"
 msgstr "velikost"
 
-#: frontend/views/view.php:495 admin/controllers/WidgetSlideshow.php:59
-#: admin/views/Widget.php:158 admin/views/Options.php:1258
-#: admin/views/Options.php:1332 admin/views/Options.php:1558
-#: admin/views/Options.php:1792 admin/views/Options.php:1987
-#: admin/views/Options.php:2225 admin/views/Options.php:2382
-#: admin/views/Options.php:2557 admin/views/Options.php:2763
-#: admin/views/Options.php:2783 admin/views/Options.php:3061
-#: admin/views/Options.php:3081 admin/views/Options.php:3299
-#: admin/views/Options.php:3319
+#: admin/controllers/WidgetSlideshow.php:59 admin/views/Options.php:1181
+#: admin/views/Options.php:1255 admin/views/Options.php:1466
+#: admin/views/Options.php:1695 admin/views/Options.php:1888
+#: admin/views/Options.php:2133 admin/views/Options.php:2286
+#: admin/views/Options.php:2495 admin/views/Options.php:2702
+#: admin/views/Options.php:2722 admin/views/Options.php:2993
+#: admin/views/Options.php:3013 admin/views/Options.php:3231
+#: admin/views/Options.php:3251 admin/views/Widget.php:154
+#: frontend/views/view.php:529
 msgid "Random"
 msgstr "náhodný"
 
-#: filemanager/view.php:231 frontend/views/view.php:302
+#: filemanager/view.php:231 frontend/views/view.php:334
 msgid "Back"
 msgstr "Zpět"
 
-#: photo-gallery.php:1426
+#: photo-gallery.php:1413
 msgid "There are no images matching your search."
 msgstr "Nejsou žádné snímky, které odpovídají zadaným."
 
-#: frontend/views/BWGViewGalleryBox.php:784
-#: frontend/views/BWGViewThumbnails.php:41 photo-gallery.php:1442
-#: photo-gallery.php:1445
+#: frontend/views/BWGViewGalleryBox.php:785
+#: frontend/views/BWGViewThumbnails.php:42
+#: frontend/views/BWGViewThumbnails_masonry.php:51
+#: frontend/views/BWGViewThumbnails_mosaic.php:87 photo-gallery.php:1429
+#: photo-gallery.php:1432
 msgid "Play"
 msgstr "Přehrát"
 
-#: frontend/views/BWGViewAlbum_extended_preview.php:160
-#: frontend/views/BWGViewAlbum_extended_preview.php:163
+#: frontend/views/BWGViewAlbum_extended_preview.php:172
+#: frontend/views/BWGViewAlbum_extended_preview.php:175
 msgid "More"
 msgstr "Více"
 
-#: frontend/views/BWGViewAlbum_extended_preview.php:161
+#: frontend/views/BWGViewAlbum_extended_preview.php:173
 msgid "Hide"
 msgstr "Skrýt"
 
-#: frontend/views/BWGViewGalleryBox.php:645
+#: frontend/views/BWGViewGalleryBox.php:635
 msgid "The image has been deleted."
 msgstr "Obraz byl smazán"
 
-#: frontend/views/BWGViewGalleryBox.php:788 photo-gallery.php:1435
+#: frontend/views/BWGViewGalleryBox.php:789 photo-gallery.php:1422
 msgid "Maximize"
 msgstr "Maximalizovat"
 
-#: frontend/views/BWGViewGalleryBox.php:792 photo-gallery.php:1436
+#: frontend/views/BWGViewGalleryBox.php:793 photo-gallery.php:1423
 msgid "Fullscreen"
 msgstr "Celá obrazovka"
 
-#: frontend/views/BWGViewGalleryBox.php:794 photo-gallery.php:1448
+#: frontend/views/BWGViewGalleryBox.php:795 photo-gallery.php:1435
 msgid "Show info"
 msgstr "Zobrazit informace"
 
-#: frontend/views/BWGViewGalleryBox.php:835
+#: frontend/views/BWGViewGalleryBox.php:839
 msgid "Open image in original size."
 msgstr "Otevřít obrázek v původní velikosti."
 
-#: frontend/views/BWGViewGalleryBox.php:850
+#: frontend/views/BWGViewGalleryBox.php:854
 msgid "Download original image"
 msgstr "Stáhnout původní obrázek. "
 
-#: photo-gallery.php:1432
+#: photo-gallery.php:1419
 msgid "Show Comments"
 msgstr "Zobrazit komentáře"
 
-#: frontend/views/BWGViewGalleryBox.php:1006 photo-gallery.php:1433
+#: frontend/views/BWGViewGalleryBox.php:1032 photo-gallery.php:1420
 msgid "Hide Comments"
 msgstr "Skrýt komentáře"
 
-#: photo-gallery.php:1447
+#: photo-gallery.php:1434
 msgid "Hide info"
 msgstr "Skrýt"
 
-#: photo-gallery.php:1434
+#: photo-gallery.php:1421
 msgid "Restore"
 msgstr "Obnovit"
 
-#: photo-gallery.php:1437
+#: photo-gallery.php:1424
 msgid "Exit Fullscreen"
 msgstr "Ukončete celá obrazovka"
 
-#: photo-gallery.php:1443 photo-gallery.php:1446
+#: photo-gallery.php:1430 photo-gallery.php:1433
 msgid "Pause"
 msgstr "Pauza"
 
-#: frontend/controllers/controller.php:281
-#: frontend/controllers/controller.php:315
+#: frontend/controllers/controller.php:286
+#: frontend/controllers/controller.php:325
 msgid "There is no gallery selected or the gallery was deleted."
 msgstr "Není vybrán žádný galerie nebo galerie byla smazána"
 
-#: photo-gallery.php:631 photo-gallery.php:1424
+#: photo-gallery.php:652 photo-gallery.php:1411
 msgid "field is required."
 msgstr "je povinné pole."
 
-#: photo-gallery.php:1425
+#: photo-gallery.php:1412
 msgid "This is not a valid email address."
 msgstr "Toto není platná e-mailová adresa."
 
-#: frontend/views/view.php:843
+#: frontend/views/view.php:877
 msgid "Load More..."
 msgstr "Načíst více..."
 
@@ -372,7 +367,8 @@ msgid "Never show again"
 msgstr "Už nikdy neukázat"
 
 #. Plugin Name of the plugin
-#: admin/views/Widget.php:97 photo-gallery.php:111
+#: photo-gallery.php admin/controllers/elementorWidget.php:36
+#: admin/views/Widget.php:96 photo-gallery.php:114
 msgid "Photo Gallery"
 msgstr "Photo Gallery"
 
@@ -393,6 +389,7 @@ msgid "We hope you've enjoyed using WordPress %s! Would you consider leaving us 
 msgstr "Věříme, že jste si užívání WordPress %s užili! Pokud budete chtít, můžete nám zanechat recenzi na WordPress.org"
 
 #. Description of the plugin
+#: photo-gallery.php
 msgid "This plugin is a fully responsive gallery plugin with advanced functionality.  It allows having different image galleries for your posts and pages. You can create unlimited number of galleries, combine them into albums, and provide descriptions and tags."
 msgstr "Tento plugin je plně responzivní galerie s pokročilou funkcionalitou. To umožňuje mít na webu různé obrázkové galerie pro vaše stránky a příspěvky. Můžete vytvářet neomezené množství galerií, spojovat je do alb a zobrazovat popisky s štítky."
 
@@ -400,7 +397,7 @@ msgstr "Tento plugin je plně responzivní galerie s pokročilou funkcionalitou.
 msgid "Order by:"
 msgstr "Seřadit podle:"
 
-#: frontend/controllers/controller.php:92
+#: frontend/controllers/controller.php:100
 msgid "There is no album selected or the gallery was deleted."
 msgstr "Neexistuje žádný vybrané album nebo alba byl smazán."
 

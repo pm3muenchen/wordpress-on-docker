@@ -1,7 +1,7 @@
 /*
  * UnderConstructionPage
  * Main backend JS
- * (c) WebFactory Ltd, 2015 - 2021
+ * (c) WebFactory Ltd, 2015 - 2023
  */
 
 
@@ -357,7 +357,7 @@ jQuery(document).ready(function($) {
       ad_name = '';
     }
 
-    $('.promo-button').each(function(ind, el) {
+    $('.promo-button, .promo-link').each(function(ind, el) {
       tmp = $(el).data('href-org');
       tmp = tmp.replace('pricing-table', ad_name);
       $(el).attr('href', tmp);
@@ -462,6 +462,31 @@ jQuery(document).ready(function($) {
   if (ucp.promo_countdown) {
     ucp_countdown_interval = setInterval(ucp_update_timer, 1000);
   }
+
+  function ucp_position_wpfssl_ad() {
+    pos_left = Math.round($('#ucp_tabs').width()) + 220;
+    pos_top = Math.round($('.ucp-logo').offset().top) + 10;
+
+    $('#ucp-sidebar-ads').css('top', pos_top + 'px').css('left', pos_left + 'px');
+    $('#ucp-sidebar-ads').show();
+  } // ucp_position_wpfssl_ad
+
+  ucp_position_wpfssl_ad();
+  $(window).on('resize', function() {
+    ucp_position_wpfssl_ad();
+  })
+
+  $('.install-wpfssl').on('click',function(e){
+    if (!confirm('The free WP Force SSL plugin will be installed & activated from the official WordPress repository.')) {
+      return;
+    }
+
+    jQuery('body').append('<div style="width:550px;height:450px; position:fixed;top:10%;left:50%;margin-left:-275px; color:#444; background-color: #fbfbfb;border:1px solid #DDD; border-radius:4px;box-shadow: 0px 0px 0px 4000px rgba(0, 0, 0, 0.85);z-index: 9999999;"><iframe src="' + ucp.wpfssl_install_url + '" style="width:100%;height:100%;border:none;" /></div>');
+    jQuery('#wpwrap').css('pointer-events', 'none');
+
+    e.preventDefault();
+    return false;
+  });
 }); // on ready
 
 

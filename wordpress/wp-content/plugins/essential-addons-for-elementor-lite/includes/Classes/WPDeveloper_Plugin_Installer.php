@@ -147,12 +147,16 @@ class WPDeveloper_Plugin_Installer
     {
         check_ajax_referer('essential-addons-elementor', 'security');
 
-        $slug = isset($_POST['slug']) ? $_POST['slug'] : '';
-        $result = $this->install_plugin($slug);
-
-        if (is_wp_error($result)) {
-            wp_send_json_error($result->get_error_message());
+        if(!current_user_can( 'install_plugins' )) {
+            wp_send_json_error(__('you are not allowed to do this action', 'essential-addons-for-elementor-lite'));
         }
+
+	    $slug   = isset( $_POST['slug'] ) ? sanitize_text_field( $_POST['slug'] ) : '';
+	    $result = $this->install_plugin( $slug );
+
+	    if ( is_wp_error( $result ) ) {
+		    wp_send_json_error( $result->get_error_message() );
+	    }
 
         wp_send_json_success(__('Plugin is installed successfully!', 'essential-addons-for-elementor-lite'));
     }
@@ -160,9 +164,13 @@ class WPDeveloper_Plugin_Installer
     public function ajax_upgrade_plugin()
     {
         check_ajax_referer('essential-addons-elementor', 'security');
+        //check user capabilities
+        if(!current_user_can( 'update_plugins' )) {
+            wp_send_json_error(__('you are not allowed to do this action', 'essential-addons-for-elementor-lite'));
+        }
 
-        $basename = isset($_POST['basename']) ? $_POST['basename'] : '';
-        $result = $this->upgrade_plugin($basename);
+	    $basename = isset( $_POST['basename'] ) ? sanitize_text_field( $_POST['basename'] ) : '';
+	    $result   = $this->upgrade_plugin( $basename );
 
         if (is_wp_error($result)) {
             wp_send_json_error($result->get_error_message());
@@ -175,17 +183,21 @@ class WPDeveloper_Plugin_Installer
     {
         check_ajax_referer('essential-addons-elementor', 'security');
 
-        $basename = isset($_POST['basename']) ? $_POST['basename'] : '';
-        $result = activate_plugin($basename, '', false, true);
-
-        if (is_wp_error($result)) {
-            wp_send_json_error($result->get_error_message());
+        //check user capabilities
+        if(!current_user_can( 'activate_plugins' )) {
+            wp_send_json_error(__('you are not allowed to do this action', 'essential-addons-for-elementor-lite'));
         }
+
+	    $basename = isset( $_POST['basename'] ) ? sanitize_text_field( $_POST['basename'] ) : '';
+	    $result   = activate_plugin( $basename, '', false, true );
+
+	    if ( is_wp_error( $result ) ) {
+		    wp_send_json_error( $result->get_error_message() );
+	    }
 
         if ($result === false) {
             wp_send_json_error(__('Plugin couldn\'t be activated.', 'essential-addons-for-elementor-lite'));
         }
-
         wp_send_json_success(__('Plugin is activated successfully!', 'essential-addons-for-elementor-lite'));
     }
 }

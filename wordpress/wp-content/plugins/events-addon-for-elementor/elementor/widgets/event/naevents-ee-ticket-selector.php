@@ -45,7 +45,7 @@ if ( function_exists('espresso_version') ) {
 		 * Register Events Addon for Elementor Event Espresso Ticket Selector widget controls.
 		 * Adds different input fields to allow the user to change and customize the widget settings.
 		*/
-		protected function _register_controls(){
+		protected function register_controls(){
 
 			$events = get_posts( 'post_type="espresso_events"&numberposts=-1' );
 	    $EventID = array();
@@ -200,7 +200,6 @@ if ( function_exists('espresso_version') ) {
 				[
 					'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 					'name' => 'sastable_head_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 					'selector' => '{{WRAPPER}} .naeep-ee-ticket table thead tr td',
 				]
 			);
@@ -209,10 +208,6 @@ if ( function_exists('espresso_version') ) {
 				[
 					'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_1,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .naeep-ee-ticket table thead tr td' => 'color: {{VALUE}};',
 					],
@@ -244,7 +239,6 @@ if ( function_exists('espresso_version') ) {
 				[
 					'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 					'name' => 'content_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_3,
 					'selector' => '{{WRAPPER}} .naeep-ee-ticket table td, {{WRAPPER}} .naeep-form form label',
 				]
 			);
@@ -253,10 +247,6 @@ if ( function_exists('espresso_version') ) {
 				[
 					'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_3,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .naeep-ee-ticket table td, {{WRAPPER}} .naeep-form form label' => 'color: {{VALUE}};',
 					],
@@ -325,7 +315,6 @@ if ( function_exists('espresso_version') ) {
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'form_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 					'selector' => '{{WRAPPER}} .naeep-ee-ticket table input[type="text"],
 					{{WRAPPER}} .naeep-ee-ticket table input[type="email"],
 					{{WRAPPER}} .naeep-ee-ticket table input[type="date"],
@@ -386,7 +375,6 @@ if ( function_exists('espresso_version') ) {
 				[
 					'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 					'name' => 'link_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_4,
 					'selector' => '{{WRAPPER}} .naeep-ee-ticket table td a',
 				]
 			);
@@ -440,7 +428,6 @@ if ( function_exists('espresso_version') ) {
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'button_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_4,
 					'selector' => '{{WRAPPER}} .naeep-ee-ticket input[type="submit"]',
 				]
 			);

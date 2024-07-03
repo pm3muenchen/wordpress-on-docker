@@ -36,12 +36,30 @@ class Kit extends PageBase {
 		return $properties;
 	}
 
-	public function get_name() {
+	public static function get_type() {
 		return 'kit';
 	}
 
 	public static function get_title() {
-		return __( 'Kit', 'elementor' );
+		return esc_html__( 'Kit', 'elementor' );
+	}
+
+	/**
+	 * @return Tabs\Tab_Base[]
+	 */
+	public function get_tabs() {
+		return $this->tabs;
+	}
+
+	/**
+	 * Retrieve a tab by ID.
+	 *
+	 * @param $id
+	 *
+	 * @return Tabs\Tab_Base
+	 */
+	public function get_tab( $id ) {
+		return self::get_items( $this->get_tabs(), $id );
 	}
 
 	protected function get_have_a_look_url() {
@@ -52,7 +70,7 @@ class Kit extends PageBase {
 		$config = parent::get_editor_panel_config();
 		$config['default_route'] = 'panel/global/menu';
 
-		$config['needHelpUrl'] = 'https://go.elementor.com/global-settings';
+		$config['needHelpUrl'] = 'https://go.elementor.com/global-settings/';
 
 		return $config;
 	}
@@ -62,6 +80,10 @@ class Kit extends PageBase {
 	}
 
 	public function save( $data ) {
+		foreach ( $this->tabs as $tab ) {
+			$data = $tab->before_save( $data );
+		}
+
 		$saved = parent::save( $data );
 
 		if ( ! $saved ) {
@@ -104,6 +126,7 @@ class Kit extends PageBase {
 
 		foreach ( $this->tabs as $id => $tab ) {
 			$config['tabs'][ $id ] = [
+				'id' => $id,
 				'title' => $tab->get_title(),
 				'icon' => $tab->get_icon(),
 				'group' => $tab->get_group(),
@@ -129,8 +152,8 @@ class Kit extends PageBase {
 
 	protected function get_post_statuses() {
 		return [
-			'draft' => sprintf( '%s (%s)', __( 'Disabled', 'elementor' ), __( 'Draft', 'elementor' ) ),
-			'publish' => __( 'Published', 'elementor' ),
+			'draft' => sprintf( '%s (%s)', esc_html__( 'Disabled', 'elementor' ), esc_html__( 'Draft', 'elementor' ) ),
+			'publish' => esc_html__( 'Published', 'elementor' ),
 		];
 	}
 
@@ -186,6 +209,7 @@ class Kit extends PageBase {
 			'settings-background' => Tabs\Settings_Background::class,
 			'settings-layout' => Tabs\Settings_Layout::class,
 			'settings-lightbox' => Tabs\Settings_Lightbox::class,
+			'settings-page-transitions' => Tabs\Settings_Page_Transitions::class,
 			'settings-custom-css' => Tabs\Settings_Custom_CSS::class,
 		];
 

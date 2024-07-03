@@ -43,7 +43,7 @@ class Widget_Tabs extends Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return __( 'Tabs', 'elementor' );
+		return esc_html__( 'Tabs', 'elementor' );
 	}
 
 	/**
@@ -74,6 +74,14 @@ class Widget_Tabs extends Widget_Base {
 		return [ 'tabs', 'accordion', 'toggle' ];
 	}
 
+	protected function is_dynamic_content(): bool {
+		return false;
+	}
+
+	public function show_in_panel(): bool {
+		return ! Plugin::$instance->experiments->is_feature_active( 'nested-elements' );
+	}
+
 	/**
 	 * Register tabs widget controls.
 	 *
@@ -83,10 +91,13 @@ class Widget_Tabs extends Widget_Base {
 	 * @access protected
 	 */
 	protected function register_controls() {
+		$start = is_rtl() ? 'end' : 'start';
+		$end = is_rtl() ? 'start' : 'end';
+
 		$this->start_controls_section(
 			'section_tabs',
 			[
-				'label' => __( 'Tabs', 'elementor' ),
+				'label' => esc_html__( 'Tabs', 'elementor' ),
 			]
 		);
 
@@ -95,10 +106,10 @@ class Widget_Tabs extends Widget_Base {
 		$repeater->add_control(
 			'tab_title',
 			[
-				'label' => __( 'Title & Description', 'elementor' ),
+				'label' => esc_html__( 'Title', 'elementor' ),
 				'type' => Controls_Manager::TEXT,
-				'default' => __( 'Tab Title', 'elementor' ),
-				'placeholder' => __( 'Tab Title', 'elementor' ),
+				'default' => esc_html__( 'Tab Title', 'elementor' ),
+				'placeholder' => esc_html__( 'Tab Title', 'elementor' ),
 				'label_block' => true,
 				'dynamic' => [
 					'active' => true,
@@ -109,28 +120,40 @@ class Widget_Tabs extends Widget_Base {
 		$repeater->add_control(
 			'tab_content',
 			[
-				'label' => __( 'Content', 'elementor' ),
-				'default' => __( 'Tab Content', 'elementor' ),
-				'placeholder' => __( 'Tab Content', 'elementor' ),
+				'label' => esc_html__( 'Content', 'elementor' ),
+				'default' => esc_html__( 'Tab Content', 'elementor' ),
+				'placeholder' => esc_html__( 'Tab Content', 'elementor' ),
 				'type' => Controls_Manager::WYSIWYG,
-				'show_label' => false,
 			]
 		);
+
+		$is_nested_tabs_active = Plugin::$instance->widgets_manager->get_widget_types( 'nested-tabs' );
+
+		if ( $is_nested_tabs_active ) {
+			$this->add_deprecation_message(
+				'3.8.0',
+				esc_html__(
+					'You are currently editing a Tabs Widget in its old version. Any new tabs widget dragged into the canvas will be the new Tab widget, with the improved Nested capabilities.',
+					'elementor'
+				),
+				'nested-tabs'
+			);
+		}
 
 		$this->add_control(
 			'tabs',
 			[
-				'label' => __( 'Tabs Items', 'elementor' ),
+				'label' => esc_html__( 'Tabs Items', 'elementor' ),
 				'type' => Controls_Manager::REPEATER,
 				'fields' => $repeater->get_controls(),
 				'default' => [
 					[
-						'tab_title' => __( 'Tab #1', 'elementor' ),
-						'tab_content' => __( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'elementor' ),
+						'tab_title' => esc_html__( 'Tab #1', 'elementor' ),
+						'tab_content' => esc_html__( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'elementor' ),
 					],
 					[
-						'tab_title' => __( 'Tab #2', 'elementor' ),
-						'tab_content' => __( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'elementor' ),
+						'tab_title' => esc_html__( 'Tab #2', 'elementor' ),
+						'tab_content' => esc_html__( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'elementor' ),
 					],
 				],
 				'title_field' => '{{{ tab_title }}}',
@@ -138,23 +161,20 @@ class Widget_Tabs extends Widget_Base {
 		);
 
 		$this->add_control(
-			'view',
-			[
-				'label' => __( 'View', 'elementor' ),
-				'type' => Controls_Manager::HIDDEN,
-				'default' => 'traditional',
-			]
-		);
-
-		$this->add_control(
 			'type',
 			[
-				'label' => __( 'Position', 'elementor' ),
-				'type' => Controls_Manager::SELECT,
+				'label' => esc_html__( 'Position', 'elementor' ),
+				'type' => Controls_Manager::CHOOSE,
 				'default' => 'horizontal',
 				'options' => [
-					'horizontal' => __( 'Horizontal', 'elementor' ),
-					'vertical' => __( 'Vertical', 'elementor' ),
+					'vertical' => [
+						'title' => esc_html__( 'Vertical', 'elementor' ),
+						'icon' => 'eicon-h-align-' . ( is_rtl() ? 'right' : 'left' ),
+					],
+					'horizontal' => [
+						'title' => esc_html__( 'Horizontal', 'elementor' ),
+						'icon' => 'eicon-v-align-top',
+					],
 				],
 				'prefix_class' => 'elementor-tabs-view-',
 				'separator' => 'before',
@@ -164,24 +184,24 @@ class Widget_Tabs extends Widget_Base {
 		$this->add_control(
 			'tabs_align_horizontal',
 			[
-				'label' => __( 'Alignment', 'elementor' ),
+				'label' => esc_html__( 'Alignment', 'elementor' ),
 				'type' => Controls_Manager::CHOOSE,
 				'options' => [
 					'' => [
-						'title' => __( 'Start', 'elementor' ),
-						'icon' => 'eicon-h-align-left',
+						'title' => esc_html__( 'Start', 'elementor' ),
+						'icon' => "eicon-align-$start-h",
 					],
 					'center' => [
-						'title' => __( 'Center', 'elementor' ),
-						'icon' => 'eicon-h-align-center',
+						'title' => esc_html__( 'Center', 'elementor' ),
+						'icon' => 'eicon-align-center-h',
 					],
 					'end' => [
-						'title' => __( 'End', 'elementor' ),
-						'icon' => 'eicon-h-align-right',
+						'title' => esc_html__( 'End', 'elementor' ),
+						'icon' => "eicon-align-$end-h",
 					],
 					'stretch' => [
-						'title' => __( 'Justified', 'elementor' ),
-						'icon' => 'eicon-h-align-stretch',
+						'title' => esc_html__( 'Stretch', 'elementor' ),
+						'icon' => 'eicon-align-stretch-h',
 					],
 				],
 				'prefix_class' => 'elementor-tabs-alignment-',
@@ -194,24 +214,24 @@ class Widget_Tabs extends Widget_Base {
 		$this->add_control(
 			'tabs_align_vertical',
 			[
-				'label' => __( 'Alignment', 'elementor' ),
+				'label' => esc_html__( 'Alignment', 'elementor' ),
 				'type' => Controls_Manager::CHOOSE,
 				'options' => [
 					'' => [
-						'title' => __( 'Start', 'elementor' ),
-						'icon' => 'eicon-v-align-top',
+						'title' => esc_html__( 'Start', 'elementor' ),
+						'icon' => 'eicon-align-start-v',
 					],
 					'center' => [
-						'title' => __( 'Center', 'elementor' ),
-						'icon' => 'eicon-v-align-middle',
+						'title' => esc_html__( 'Center', 'elementor' ),
+						'icon' => 'eicon-align-center-v',
 					],
 					'end' => [
-						'title' => __( 'End', 'elementor' ),
-						'icon' => 'eicon-v-align-bottom',
+						'title' => esc_html__( 'End', 'elementor' ),
+						'icon' => 'eicon-align-end-v',
 					],
 					'stretch' => [
-						'title' => __( 'Justified', 'elementor' ),
-						'icon' => 'eicon-v-align-stretch',
+						'title' => esc_html__( 'Stretch', 'elementor' ),
+						'icon' => 'eicon-align-stretch-v',
 					],
 				],
 				'prefix_class' => 'elementor-tabs-alignment-',
@@ -226,7 +246,7 @@ class Widget_Tabs extends Widget_Base {
 		$this->start_controls_section(
 			'section_tabs_style',
 			[
-				'label' => __( 'Tabs', 'elementor' ),
+				'label' => esc_html__( 'Tabs', 'elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -234,14 +254,27 @@ class Widget_Tabs extends Widget_Base {
 		$this->add_control(
 			'navigation_width',
 			[
-				'label' => __( 'Navigation Width', 'elementor' ),
+				'label' => esc_html__( 'Navigation Width', 'elementor' ),
 				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'default' => [
 					'unit' => '%',
 				],
 				'range' => [
+					'px' => [
+						'min' => 10,
+						'max' => 500,
+					],
 					'%' => [
 						'min' => 10,
+						'max' => 50,
+					],
+					'em' => [
+						'min' => 1,
+						'max' => 50,
+					],
+					'rem' => [
+						'min' => 1,
 						'max' => 50,
 					],
 				],
@@ -257,15 +290,18 @@ class Widget_Tabs extends Widget_Base {
 		$this->add_control(
 			'border_width',
 			[
-				'label' => __( 'Border Width', 'elementor' ),
+				'label' => esc_html__( 'Border Width', 'elementor' ),
 				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'default' => [
 					'size' => 1,
 				],
 				'range' => [
 					'px' => [
-						'min' => 0,
-						'max' => 10,
+						'max' => 20,
+					],
+					'em' => [
+						'max' => 2,
 					],
 				],
 				'selectors' => [
@@ -277,7 +313,7 @@ class Widget_Tabs extends Widget_Base {
 		$this->add_control(
 			'border_color',
 			[
-				'label' => __( 'Border Color', 'elementor' ),
+				'label' => esc_html__( 'Border Color', 'elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .elementor-tab-mobile-title, {{WRAPPER}} .elementor-tab-desktop-title.elementor-active, {{WRAPPER}} .elementor-tab-title:before, {{WRAPPER}} .elementor-tab-title:after, {{WRAPPER}} .elementor-tab-content, {{WRAPPER}} .elementor-tabs-content-wrapper' => 'border-color: {{VALUE}};',
@@ -288,7 +324,7 @@ class Widget_Tabs extends Widget_Base {
 		$this->add_control(
 			'background_color',
 			[
-				'label' => __( 'Background Color', 'elementor' ),
+				'label' => esc_html__( 'Background Color', 'elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .elementor-tab-desktop-title.elementor-active' => 'background-color: {{VALUE}};',
@@ -300,7 +336,7 @@ class Widget_Tabs extends Widget_Base {
 		$this->add_control(
 			'heading_title',
 			[
-				'label' => __( 'Title', 'elementor' ),
+				'label' => esc_html__( 'Title', 'elementor' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -309,7 +345,7 @@ class Widget_Tabs extends Widget_Base {
 		$this->add_control(
 			'tab_color',
 			[
-				'label' => __( 'Color', 'elementor' ),
+				'label' => esc_html__( 'Color', 'elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .elementor-tab-title, {{WRAPPER}} .elementor-tab-title a' => 'color: {{VALUE}}',
@@ -323,7 +359,7 @@ class Widget_Tabs extends Widget_Base {
 		$this->add_control(
 			'tab_active_color',
 			[
-				'label' => __( 'Active Color', 'elementor' ),
+				'label' => esc_html__( 'Active Color', 'elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .elementor-tab-title.elementor-active,
@@ -346,22 +382,38 @@ class Widget_Tabs extends Widget_Base {
 			]
 		);
 
+		$this->add_group_control(
+			Group_Control_Text_Stroke::get_type(),
+			[
+				'name' => 'text_stroke',
+				'selector' => '{{WRAPPER}} .elementor-tab-title',
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Text_Shadow::get_type(),
+			[
+				'name' => 'title_shadow',
+				'selector' => '{{WRAPPER}} .elementor-tab-title',
+			]
+		);
+
 		$this->add_control(
 			'title_align',
 			[
-				'label' => __( 'Alignment', 'elementor' ),
+				'label' => esc_html__( 'Alignment', 'elementor' ),
 				'type' => Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
-						'title' => __( 'Left', 'elementor' ),
+						'title' => esc_html__( 'Left', 'elementor' ),
 						'icon' => 'eicon-text-align-left',
 					],
 					'center' => [
-						'title' => __( 'Center', 'elementor' ),
+						'title' => esc_html__( 'Center', 'elementor' ),
 						'icon' => 'eicon-text-align-center',
 					],
 					'right' => [
-						'title' => __( 'Right', 'elementor' ),
+						'title' => esc_html__( 'Right', 'elementor' ),
 						'icon' => 'eicon-text-align-right',
 					],
 				],
@@ -377,7 +429,7 @@ class Widget_Tabs extends Widget_Base {
 		$this->add_control(
 			'heading_content',
 			[
-				'label' => __( 'Content', 'elementor' ),
+				'label' => esc_html__( 'Content', 'elementor' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -386,7 +438,7 @@ class Widget_Tabs extends Widget_Base {
 		$this->add_control(
 			'content_color',
 			[
-				'label' => __( 'Color', 'elementor' ),
+				'label' => esc_html__( 'Color', 'elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .elementor-tab-content' => 'color: {{VALUE}};',
@@ -408,6 +460,14 @@ class Widget_Tabs extends Widget_Base {
 			]
 		);
 
+		$this->add_group_control(
+			Group_Control_Text_Shadow::get_type(),
+			[
+				'name' => 'content_shadow',
+				'selector' => '{{WRAPPER}} .elementor-tab-content',
+			]
+		);
+
 		$this->end_controls_section();
 	}
 
@@ -424,18 +484,15 @@ class Widget_Tabs extends Widget_Base {
 
 		$id_int = substr( $this->get_id_int(), 0, 3 );
 
-		$a11y_improvements_experiment = Plugin::$instance->experiments->is_feature_active( 'a11y_improvements' );
-
 		$this->add_render_attribute( 'elementor-tabs', 'class', 'elementor-tabs' );
 
 		?>
-		<div <?php echo $this->get_render_attribute_string( 'elementor-tabs' ); ?>>
+		<div <?php $this->print_render_attribute_string( 'elementor-tabs' ); ?>>
 			<div class="elementor-tabs-wrapper" role="tablist" >
 				<?php
 				foreach ( $tabs as $index => $item ) :
 					$tab_count = $index + 1;
 					$tab_title_setting_key = $this->get_repeater_setting_key( 'tab_title', 'tabs', $index );
-					$tab_title = $a11y_improvements_experiment ? $item['tab_title'] : '<a href="">' . $item['tab_title'] . '</a>';
 
 					$this->add_render_attribute( $tab_title_setting_key, [
 						'id' => 'elementor-tab-title-' . $id_int . $tab_count,
@@ -448,7 +505,10 @@ class Widget_Tabs extends Widget_Base {
 						'aria-expanded' => 'false',
 					] );
 					?>
-					<div <?php echo $this->get_render_attribute_string( $tab_title_setting_key ); ?>><?php echo $tab_title; ?></div>
+					<div <?php $this->print_render_attribute_string( $tab_title_setting_key ); ?>><?php
+						// PHPCS - the main text of a widget should not be escaped.
+						echo $item['tab_title']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+					?></div>
 				<?php endforeach; ?>
 			</div>
 			<div class="elementor-tabs-content-wrapper" role="tablist" aria-orientation="vertical">
@@ -482,8 +542,12 @@ class Widget_Tabs extends Widget_Base {
 
 					$this->add_inline_editing_attributes( $tab_content_setting_key, 'advanced' );
 					?>
-					<div <?php echo $this->get_render_attribute_string( $tab_title_mobile_setting_key ); ?>><?php echo $item['tab_title']; ?></div>
-					<div <?php echo $this->get_render_attribute_string( $tab_content_setting_key ); ?>><?php echo $this->parse_text_editor( $item['tab_content'] ); ?></div>
+					<div <?php $this->print_render_attribute_string( $tab_title_mobile_setting_key ); ?>><?php
+						$this->print_unescaped_setting( 'tab_title', 'tabs', $index );
+					?></div>
+					<div <?php $this->print_render_attribute_string( $tab_content_setting_key ); ?>><?php
+						$this->print_text_editor( $item['tab_content'] );
+					?></div>
 				<?php endforeach; ?>
 			</div>
 		</div>

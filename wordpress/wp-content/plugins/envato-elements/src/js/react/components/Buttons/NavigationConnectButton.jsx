@@ -18,12 +18,14 @@ const NavigationConnectButton = () => {
 
   return (
     <>
-      {isActivationModelOpen ? (
-        <TokenProjectSignup onCloseCallback={() => {
-          setOpenActivationModal(false)
-        }}
-        />
-      ) : null}
+      {isActivationModelOpen
+        ? (
+          <TokenProjectSignup onCloseCallback={() => {
+            setOpenActivationModal(false)
+          }}
+          />
+          )
+        : null}
       <ExternalLinkButton
         type='ghost'
         label='Connect Elements Account'

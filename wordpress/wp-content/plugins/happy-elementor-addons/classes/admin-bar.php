@@ -21,8 +21,8 @@ class Admin_Bar {
 			wp_send_json_error();
 		}
 
-		$type = isset( $_POST['type'] ) ? $_POST['type'] : '';
-		$post_id = isset( $_POST['post_id'] ) ? $_POST['post_id'] : 0;
+		$type = isset( $_POST['type'] ) ? sanitize_text_field($_POST['type']) : '';
+		$post_id = isset( $_POST['post_id'] ) ? absint($_POST['post_id']) : 0;
 		$assets_cache = new Assets_Cache( $post_id );
 		if ( $type === 'page' ) {
 			$assets_cache->delete();
@@ -51,7 +51,43 @@ class Admin_Bar {
 			HAPPY_ADDONS_VERSION,
 			true
 		);
+		// wp_enqueue_style('select2');
 
+		// wp_enqueue_script( 'select2' );
+
+		wp_enqueue_script(
+			'micromodal',
+			'//unpkg.com/micromodal/dist/micromodal.min.js',
+			[],
+			HAPPY_ADDONS_VERSION,
+			true
+		);
+
+		wp_enqueue_style(
+			'select2',
+			'//cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css',
+			null,
+			HAPPY_ADDONS_VERSION
+		);
+
+		wp_enqueue_script(
+			'select2',
+			'//cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js',
+			['jquery'],
+			HAPPY_ADDONS_VERSION,
+			true
+		);
+
+		wp_enqueue_script( 'wp-api' );
+		
+		wp_enqueue_script(
+			'alpine',
+			'//unpkg.com/alpinejs',
+			[],
+			HAPPY_ADDONS_VERSION,
+			true
+		);
+		
 		wp_localize_script(
 			'happy-elementor-addons-admin',
 			'HappyAdmin',

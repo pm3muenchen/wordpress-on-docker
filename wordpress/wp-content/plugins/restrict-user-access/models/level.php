@@ -3,7 +3,7 @@
  * @package Restrict User Access
  * @author Joachim Jensen <joachim@dev.institute>
  * @license GPLv3
- * @copyright 2020 by Joachim Jensen
+ * @copyright 2024 by Joachim Jensen
  */
 
 class RUA_Level implements RUA_Level_Interface
@@ -20,7 +20,7 @@ class RUA_Level implements RUA_Level_Interface
     public function __construct(WP_Post $post = null)
     {
         if (is_null($post)) {
-            $post = new WP_Post();
+            $post = new WP_Post((object)[]);
         }
         $this->wp_post = $post;
     }
@@ -46,6 +46,6 @@ class RUA_Level implements RUA_Level_Interface
      */
     public function exists()
     {
-        return $this->wp_post->ID;
+        return (bool) $this->wp_post->ID;
     }
 }

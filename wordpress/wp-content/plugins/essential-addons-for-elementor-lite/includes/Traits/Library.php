@@ -2,17 +2,21 @@
 
 namespace Essential_Addons_Elementor\Traits;
 
+use Elementor\Plugin;
+
 if (!defined('ABSPATH')) {
     exit;
 } // Exit if accessed directly
 
 trait Library
 {
+	public $a;
     /**
      *  Return array of registered elements.
      *
      * @todo filter output
      */
+
     public function get_registered_elements()
     {
         return array_keys($this->registered_elements);
@@ -37,7 +41,7 @@ trait Library
      * @param $key
      * @return string
      */
-    public function get_extension_settings($page_settings = [], $global_settings = [], $extension, $key)
+    public function get_extension_settings($page_settings = [], $global_settings = [], $extension = '', $key = '')
     {
         if (isset($page_settings) && $page_settings->get_settings($extension) == 'yes') {
             return $page_settings->get_settings($key);
@@ -105,21 +109,20 @@ trait Library
         return true;
     }
 
-    /**
-     * Remove files
-     *
-     * @since 3.0.0
-     */
-    public function remove_files($uid = null, $ext = ['css', 'js'])
-    {
-        foreach ($ext as $e) {
-            $path = EAEL_ASSET_PATH . DIRECTORY_SEPARATOR . ($uid ? $uid : 'eael') . '.min.' . $e;
-
-            if (file_exists($path)) {
-                unlink($path);
-            }
-        }
-    }
+	/**
+	 * Remove files
+	 *
+	 * @since 3.0.0
+	 */
+	public function remove_files( $post_id = null, $ext = [ 'css', 'js' ] ) {
+		foreach ( $ext as $e ) {
+			$path = EAEL_ASSET_PATH . DIRECTORY_SEPARATOR . 'eael' . ( $post_id ? '-' . $post_id : '' ) . '.' . $e;
+			if ( file_exists( $path ) ) {
+				unlink( $path );
+			}
+		}
+		do_action( 'eael_remove_assets', $post_id, $ext );
+	}
 
     /**
      * Remove files in dir
@@ -146,23 +149,7 @@ trait Library
      *
      * @since 3.0.0
      */
-    public function clear_cache_files()
-    {
-        check_ajax_referer('essential-addons-elementor', 'security');
 
-        if (isset($_REQUEST['posts'])) {
-            if (!empty($_POST['posts'])) {
-                foreach (json_decode($_POST['posts']) as $post) {
-                    $this->remove_files('post-' . $post);
-                }
-            }
-        } else {
-            // clear cache files
-            $this->empty_dir(EAEL_ASSET_PATH);
-        }
-
-        wp_send_json(true);
-    }
 
     /**
      * Check if wp running in background
@@ -179,7 +166,7 @@ trait Library
             return true;
         }
         
-        if (isset($_REQUEST['action'])) {
+        if (!empty($_REQUEST['action']) && !$this->check_background_action( sanitize_text_field( $_REQUEST['action'] ) )) {
             return true;
         }
 
@@ -211,9 +198,10 @@ trait Library
             return false;
         }
 
-        if (isset($_REQUEST['action'])) {
+        if (!empty($_REQUEST['action']) && !$this->check_background_action( sanitize_text_field( $_REQUEST['action'] ) )) {
             return false;
         }
+
 
         return true;
     }
@@ -280,4 +268,56 @@ trait Library
 
         return "$scheme$user$pass$host$port$path$query$fragment";
     }
+
+    /**
+     * Allow to load asset for some pre defined action query param in elementor preview
+     * @return bool
+     */
+    public function check_background_action($action_name){
+        $allow_action = [
+        	'subscriptions',
+	        'mepr_unauthorized',
+	        'home',
+	        'subscriptions',
+	        'payments',
+	        'newpassword',
+	        'manage_sub_accounts',
+	        'ppw_postpass',
+        ];
+
+		$allow_action = apply_filters( 'eael/asset-builder/allowed_actions', $allow_action );
+
+        if (in_array($action_name, $allow_action)){
+            return true;
+        }
+        return false;
+    }
+
+	/*
+	 * Check some other cookie for solve asset loading issue
+	 */
+	public function check_third_party_cookie_status($id='') {
+		global $Password_Protected;
+		if ( is_object( $Password_Protected ) && method_exists( $Password_Protected, 'cookie_name' ) && isset( $_COOKIE[ $Password_Protected->cookie_name() ] ) ) {
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * check_protected_content_status
+	 *
+	 * check EaeL Protected content cookie set or not
+	 *
+	 * @return bool
+	 */
+	public function check_protected_content_status(){
+		if(!empty($_POST['eael_protected_content_id'])){
+			if(!empty($_POST['protection_password_'.$_POST['eael_protected_content_id']])){
+				return true;
+			}
+		}
+		return false;
+	}
+
 }

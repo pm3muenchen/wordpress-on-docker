@@ -44,7 +44,7 @@ class Event_Elementor_Addon_Table extends Widget_Base{
 	 * Register Events Addon for Elementor Table widget controls.
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	*/
-	protected function _register_controls(){
+	protected function register_controls(){
 
 		$this->start_controls_section(
 			'section_table',
@@ -127,9 +127,9 @@ class Event_Elementor_Addon_Table extends Widget_Base{
 					'label' => esc_html__( 'Text Style', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::SELECT,
 					'options' => [
-						'text'          => esc_html__('Text', 'events-addon-for-elementor'),
-	          'icon'          => esc_html__('Icon', 'events-addon-for-elementor'),
-	          'button'          => esc_html__('Button', 'events-addon-for-elementor'),
+						'text' => esc_html__('Text', 'events-addon-for-elementor'),
+	          			'icon' => esc_html__('Icon', 'events-addon-for-elementor'),
+	          			'button' => esc_html__('Button', 'events-addon-for-elementor'),
 					],
 					'default' => 'text',
 				]
@@ -138,10 +138,11 @@ class Event_Elementor_Addon_Table extends Widget_Base{
 				'icon1',
 				[
 					'label' => esc_html__( 'Select Icon', 'events-addon-for-elementor' ),
-					'type' => Controls_Manager::ICON,
-					'options' => NAEEP_Controls_Helper_Output::get_include_icons(),
-					'frontend_available' => true,
-					'default' => 'fa fa-check',
+					'type' => Controls_Manager::ICONS,
+					'default' => [
+						'value' => 'fas fa-check',
+						'library' => 'fa-solid',
+					],
 					'condition' => [
 						'text_style1' => 'icon',
 					],
@@ -197,10 +198,11 @@ class Event_Elementor_Addon_Table extends Widget_Base{
 				'icon2',
 				[
 					'label' => esc_html__( 'Select Icon', 'events-addon-for-elementor' ),
-					'type' => Controls_Manager::ICON,
-					'options' => NAEEP_Controls_Helper_Output::get_include_icons(),
-					'frontend_available' => true,
-					'default' => 'fa fa-check',
+					'type' => Controls_Manager::ICONS,
+					'default' => [
+						'value' => 'fas fa-check',
+						'library' => 'fa-solid',
+					],
 					'condition' => [
 						'text_style2' => 'icon',
 					],
@@ -256,10 +258,11 @@ class Event_Elementor_Addon_Table extends Widget_Base{
 				'icon3',
 				[
 					'label' => esc_html__( 'Select Icon', 'events-addon-for-elementor' ),
-					'type' => Controls_Manager::ICON,
-					'options' => NAEEP_Controls_Helper_Output::get_include_icons(),
-					'frontend_available' => true,
-					'default' => 'fa fa-check',
+					'type' => Controls_Manager::ICONS,
+					'default' => [
+						'value' => 'fas fa-check',
+						'library' => 'fa-solid',
+					],
 					'condition' => [
 						'text_style3' => 'icon',
 					],
@@ -315,10 +318,11 @@ class Event_Elementor_Addon_Table extends Widget_Base{
 				'icon4',
 				[
 					'label' => esc_html__( 'Select Icon', 'events-addon-for-elementor' ),
-					'type' => Controls_Manager::ICON,
-					'options' => NAEEP_Controls_Helper_Output::get_include_icons(),
-					'frontend_available' => true,
-					'default' => 'fa fa-check',
+					'type' => Controls_Manager::ICONS,
+					'default' => [
+						'value' => 'fas fa-check',
+						'library' => 'fa-solid',
+					],
 					'condition' => [
 						'text_style4' => 'icon',
 					],
@@ -374,10 +378,11 @@ class Event_Elementor_Addon_Table extends Widget_Base{
 				'icon5',
 				[
 					'label' => esc_html__( 'Select Icon', 'events-addon-for-elementor' ),
-					'type' => Controls_Manager::ICON,
-					'options' => NAEEP_Controls_Helper_Output::get_include_icons(),
-					'frontend_available' => true,
-					'default' => 'fa fa-check',
+					'type' => Controls_Manager::ICONS,
+					'default' => [
+						'value' => 'fas fa-check',
+						'library' => 'fa-solid',
+					],
 					'condition' => [
 						'text_style5' => 'icon',
 					],
@@ -422,7 +427,7 @@ class Event_Elementor_Addon_Table extends Widget_Base{
 					],
 
 				],
-				'fields' => $repeater->get_controls(),
+				'fields' => $repeaterOne->get_controls(),
 				'title_field' => '{{{ row_text1 }}}',
 			]
 		);
@@ -553,7 +558,6 @@ class Event_Elementor_Addon_Table extends Widget_Base{
 			[
 				'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 				'name' => 'sastable_head_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .naeep-table thead th',
 			]
 		);
@@ -562,10 +566,6 @@ class Event_Elementor_Addon_Table extends Widget_Base{
 			[
 				'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
-				],
 				'selectors' => [
 					'{{WRAPPER}} .naeep-table thead th' => 'color: {{VALUE}};',
 				],
@@ -586,7 +586,6 @@ class Event_Elementor_Addon_Table extends Widget_Base{
 				[
 					'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 					'name' => 'text_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_3,
 					'selector' => '{{WRAPPER}} .naeep-table td',
 				]
 			);
@@ -595,10 +594,6 @@ class Event_Elementor_Addon_Table extends Widget_Base{
 				[
 					'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_3,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .naeep-table td' => 'color: {{VALUE}};',
 					],
@@ -625,10 +620,6 @@ class Event_Elementor_Addon_Table extends Widget_Base{
 				[
 					'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_4,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .naeep-table td a' => 'color: {{VALUE}};',
 					],
@@ -750,7 +741,6 @@ class Event_Elementor_Addon_Table extends Widget_Base{
 			[
 				'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 				'name' => 'btn_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .naeep-btn',
 			]
 		);
@@ -850,34 +840,34 @@ class Event_Elementor_Addon_Table extends Widget_Base{
 											  $output .= '<th>'.$table_title.'</th>';
 										  }
 										}
-       	$output .= '</tr>
+						$output .= '</tr>
 						      </thead>
 						      <tbody>';
 						      	// Group Param Output
 										if ( is_array( $tableItems_row ) && !empty( $tableItems_row ) ){
 										  foreach ( $tableItems_row as $each_row ) {
-											$text_style1 = $each_row['text_style1'] ? $each_row['text_style1'] : '';
-											$text_style2 = $each_row['text_style2'] ? $each_row['text_style2'] : '';
-											$text_style3 = $each_row['text_style3'] ? $each_row['text_style3'] : '';
-											$text_style4 = $each_row['text_style4'] ? $each_row['text_style4'] : '';
-											$text_style5 = $each_row['text_style5'] ? $each_row['text_style5'] : '';
+											$text_style1 = isset($each_row['text_style1']) ? $each_row['text_style1'] : '';
+											$text_style2 = isset($each_row['text_style2']) ? $each_row['text_style2'] : '';
+											$text_style3 = isset($each_row['text_style3']) ? $each_row['text_style3'] : '';
+											$text_style4 = isset($each_row['text_style4']) ? $each_row['text_style4'] : '';
+											$text_style5 = isset($each_row['text_style5']) ? $each_row['text_style5'] : '';
 
-											$icon1 = $each_row['icon1'] ? $each_row['icon1'] : '';
+											$icon1 = isset($each_row['icon1']) ? $each_row['icon1']['value'] : '';
 											$icon1 = $icon1 ? '<i class="'.esc_attr($icon1) .'" aria-hidden="true"></i>' : '';
-											$icon2 = $each_row['icon2'] ? $each_row['icon2'] : '';
+											$icon2 = isset($each_row['icon2']) ? $each_row['icon2']['value'] : '';
 											$icon2 = $icon2 ? '<i class="'.esc_attr($icon2) .'" aria-hidden="true"></i>' : '';
-											$icon3 = $each_row['icon3'] ? $each_row['icon3'] : '';
+											$icon3 = isset($each_row['icon3']) ? $each_row['icon3']['value'] : '';
 											$icon3 = $icon3 ? '<i class="'.esc_attr($icon3) .'" aria-hidden="true"></i>' : '';
-											$icon4 = $each_row['icon4'] ? $each_row['icon4'] : '';
+											$icon4 = isset($each_row['icon4']) ? $each_row['icon4']['value'] : '';
 											$icon4 = $icon4 ? '<i class="'.esc_attr($icon4) .'" aria-hidden="true"></i>' : '';
-											$icon5 = $each_row['icon5'] ? $each_row['icon5'] : '';
+											$icon5 = isset($each_row['icon5']) ? $each_row['icon5']['value'] : '';
 											$icon5 = $icon5 ? '<i class="'.esc_attr($icon5) .'" aria-hidden="true"></i>' : '';
 
-											$row_text1 = $each_row['row_text1'] ? $each_row['row_text1'] : '';
-											$row_text2 = $each_row['row_text2'] ? $each_row['row_text2'] : '';
-											$row_text3 = $each_row['row_text3'] ? $each_row['row_text3'] : '';
-											$row_text4 = $each_row['row_text4'] ? $each_row['row_text4'] : '';
-											$row_text5 = $each_row['row_text5'] ? $each_row['row_text5'] : '';
+											$row_text1 = isset($each_row['row_text1']) ? $each_row['row_text1'] : '';
+											$row_text2 = isset($each_row['row_text2']) ? $each_row['row_text2'] : '';
+											$row_text3 = isset($each_row['row_text3']) ? $each_row['row_text3'] : '';
+											$row_text4 = isset($each_row['row_text4']) ? $each_row['row_text4'] : '';
+											$row_text5 = isset($each_row['row_text5']) ? $each_row['row_text5'] : '';
 
 											$text_link1 = !empty( $each_row['text_link1']['url'] ) ? $each_row['text_link1']['url'] : '';
 											$text_link1_external = !empty( $each_row['text_link1']['is_external'] ) ? 'target="_blank"' : '';

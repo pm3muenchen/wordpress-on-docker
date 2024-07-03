@@ -1,0 +1,1007 @@
+# Translation of Plugins - Restrict User Access &#8211; Ultimate Membership &amp; Content Protection - Stable (latest release) in Dutch
+# This file is distributed under the same license as the Plugins - Restrict User Access &#8211; Ultimate Membership &amp; Content Protection - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2024-03-12 07:54:46+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/4.0.1\n"
+"Language: nl\n"
+"Project-Id-Version: Plugins - Restrict User Access &#8211; Ultimate Membership &amp; Content Protection - Stable (latest release)\n"
+
+#. Author of the plugin
+#: restrict-user-access.php
+msgid "DEV Institute"
+msgstr "DEV Institute"
+
+#: admin/level-edit.php:135
+msgid "Select a valid date and time"
+msgstr "Selecteer een geldige datum en tijd"
+
+#: admin/level-edit.php:145
+msgid "Membership not found"
+msgstr "Lidmaatschap niet gevonden"
+
+#: automators/edd_product.php:58 automators/givewp_donation.php:61
+#: automators/woo_product.php:57
+msgid "Restrict User Access membership created (Level ID: %s)"
+msgstr "Beperk toegang tot gebruikerslidmaatschap aangemaakt (Niveau ID: %s)h"
+
+#: automators/givewp_donation.php:16
+msgid "GiveWP Donation"
+msgstr "GiveWP Donation"
+
+#: automators/givewp_donation.php:24
+msgid "Add membership when user donates to"
+msgstr "Voeg lidmaatschap toe wanneer gebruiker doneert aan"
+
+#: list-members.php:133
+msgid "Permanently remove membership?"
+msgstr "Lidmaatschap permanent verwijderen?"
+
+#: view/meta_box_members.php:17
+msgid "Search Members"
+msgstr "Zoek leden"
+
+#: view/meta_box_members.php:27
+msgid "Select Date"
+msgstr "Selecteer datum"
+
+#: list-members.php:138
+msgid "Extend Level Membership"
+msgstr "Verleng lidmaatschapsniveau"
+
+#: list-members.php:138
+msgid "Extend"
+msgstr "Verlengen"
+
+#: admin/admin_bar.php:144
+msgid "Boost Speed Now"
+msgstr "Verhoog snelheid nu"
+
+#: freemius.php:46
+msgid "Thank you for installing %s!"
+msgstr "Bedankt voor het installeren van %s!"
+
+#: freemius.php:71
+msgid "Please help us improve the plugin by securely sharing some basic WordPress environment info. If you skip this, that's okay! %2$s will still work just fine."
+msgstr "Help ons de plugin te verbeteren door veilig wat basisinformatie over je WordPress omgeving te delen. Als je dit overslaat, is dat prima! %2$s werkt nog steeds prima."
+
+#: level.php:385
+msgid "Deny Access to Unprotected Content"
+msgstr "Weiger toegang tot onbeschermde inhoud"
+
+#: level.php:394
+msgid "Deny Access to Admin Area"
+msgstr "Weiger toegang tot het adminpaneel"
+
+#: admin/level-list-table.php:525
+msgid "%s user"
+msgid_plural "%s users"
+msgstr[0] "%s gebruiker"
+msgstr[1] "%s gebruikers"
+
+#: app.php:351
+msgid "Access Control"
+msgstr "Toegangscontrole"
+
+#: app.php:355
+msgid "Level Memberships"
+msgstr "Niveau lidmaatschappen"
+
+#: app.php:362
+msgid "Access Levels provided by %s will not be listed here."
+msgstr "Toegangsniveaus van %s worden hier niet vermeld."
+
+#: automators/bp_member_type.php:24
+msgid "Include user for as long as they have Member Type"
+msgstr "Neem gebruiker op zolang ze lid type hebben"
+
+#: automators/bp_member_type.php:16
+msgid "BuddyPress Member Type"
+msgstr "BuddyPress lidtype"
+
+#: automators/edd_product.php:16
+msgid "Easy Digital Downloads Purchase"
+msgstr "Aankoop Easy Digital Downloads"
+
+#: list-capabilities.php:48
+msgid "Grant"
+msgstr "Toestemming geven"
+
+#: view/top_bar.php:29
+msgid "Bundle & Save"
+msgstr "Samenvatten & besparen"
+
+#: list-members.php:271
+msgid "Bulk actions"
+msgstr "Bulkacties"
+
+#: list-members.php:292
+msgid "Apply"
+msgstr "Toepassen"
+
+#: admin/admin_bar.php:129
+msgid "Condition Types"
+msgstr "Voorwaardetypes"
+
+#: admin/admin_bar.php:136
+msgid "Cache Active"
+msgstr "Cache actief"
+
+#: list-members.php:269
+msgid "Select bulk action"
+msgstr "Bulkactie selecteren"
+
+#: level.php:129
+msgid "Sorry, you are not allowed to access this page."
+msgstr "Je hebt geen toestemming om deze pagina te bekijken."
+
+#: admin/admin_bar.php:109 admin/admin_bar.php:183
+msgid "This page is not restricted"
+msgstr "Deze pagina is niet beveiligd"
+
+#: level.php:403
+msgid "Member Automation"
+msgstr "Lid automatisatie"
+
+#: view/meta_box_member_triggers.php:17
+msgid "Triggers"
+msgstr "Triggers"
+
+#: app.php:347 view/meta_box_member_triggers.php:18
+msgid "Visitor Traits"
+msgstr "Bezoeker eigenschappen"
+
+#: admin/level-edit.php:182
+msgid "Automations"
+msgstr "Automatisaties"
+
+#: automators/edd_product.php:24 automators/woo_product.php:24
+msgid "Add membership when user purchases"
+msgstr "Voeg lidmaatschap toe wanneer de gebruiker aankoopt"
+
+#: automators/woo_product.php:16
+msgid "WooCommerce Purchase"
+msgstr "WooCommerce aankoop"
+
+#: automators/user_role.php:24
+msgid "Add membership when user gets role"
+msgstr "Voeg lidmaatschap toe wanneer gebruiker een rol krijgt"
+
+#: automators/user_role.php:16
+msgid "User Role"
+msgstr "Gebruikersrol"
+
+#: automators/login.php:24 automators/user_role_sync.php:19
+msgid "Include user for as long as they are"
+msgstr "Inclusief gebruiker zolang ze zijn"
+
+#: automators/login.php:16
+msgid "Login State"
+msgstr "Login status"
+
+#: admin/level-list-table.php:545
+msgid "Not Set"
+msgstr "Niet ingesteld"
+
+#: admin/level-list-table.php:620
+msgid "%d year"
+msgid_plural "%d years"
+msgstr[0] "%d jaar"
+msgstr[1] "%d jaren"
+
+#: level.php:359
+msgid "Day(s)"
+msgstr "Dag(en)"
+
+#: level.php:361
+msgid "Month(s)"
+msgstr "Maand(en)"
+
+#: admin/level-list-table.php:617
+msgid "%d day"
+msgid_plural "%d days"
+msgstr[0] "%d dag"
+msgstr[1] "%d dagen"
+
+#: admin/level-list-table.php:618
+msgid "%d week"
+msgid_plural "%d weeks"
+msgstr[0] "%d week"
+msgstr[1] "%d weken"
+
+#: admin/level-list-table.php:619
+msgid "%d month"
+msgid_plural "%d months"
+msgstr[0] "%d maand"
+msgstr[1] "%d maanden"
+
+#: admin/level-overview.php:42 admin/level-overview.php:43
+msgid "User Access"
+msgstr "Gebruikersrechten"
+
+#: admin/settings.php:202
+msgid "No"
+msgstr "Zonder"
+
+#: admin/settings.php:202
+msgid "Yes"
+msgstr "Ja"
+
+#: admin/settings.php:168
+msgid "-- None --"
+msgstr "-- Geen --"
+
+#: admin/settings.php:187
+msgid "New User Default Role"
+msgstr "Standaard rol voor nieuwe gebruikers"
+
+#: admin/settings.php:155 lib/wp-content-aware-engine/core.php:921
+msgid "General"
+msgstr "Standaard"
+
+#: app.php:311
+msgid "Log In"
+msgstr "Aanmelden"
+
+#: app.php:310
+msgid "Remember Me"
+msgstr "Onthoud me"
+
+#: list-capabilities.php:49
+msgid "Deny"
+msgstr "Weigeren"
+
+#: admin/level-edit.php:194 admin/level-edit.php:714
+#: admin/level-list-table.php:361 level.php:368
+msgid "Capabilities"
+msgstr "Rechten"
+
+#: lib/wp-content-aware-engine/module/post_type.php:396
+msgid "Draft"
+msgstr "Concept"
+
+#: lib/wp-content-aware-engine/module/author.php:24
+msgid "Authors"
+msgstr "Auteurs"
+
+#: level.php:347
+msgid "Page"
+msgstr "Pagina"
+
+#. translators: Publish box date format, see http://php.net/date
+#: admin/level-edit.php:653
+msgid "M j, Y @ G:i"
+msgstr "j M Y @ H:i"
+
+#: admin/level-edit.php:449 view/meta_box_members.php:42
+msgid "Save"
+msgstr "Opslaan"
+
+#: list-members.php:56
+msgid "Status"
+msgstr "Status"
+
+#: app.php:308 list-members.php:54
+msgid "Username"
+msgstr "Gebruikersnaam"
+
+#: lib/wp-content-aware-engine/module/polylang.php:32
+#: lib/wp-content-aware-engine/module/qtranslate.php:29
+#: lib/wp-content-aware-engine/module/translatepress.php:28
+#: lib/wp-content-aware-engine/module/transposh.php:29
+#: lib/wp-content-aware-engine/module/weglot.php:28
+#: lib/wp-content-aware-engine/module/wpml.php:29
+msgid "Languages"
+msgstr "Vertalingen"
+
+#: admin/level-list-table.php:714
+msgid "Name"
+msgstr "Naam"
+
+#: list-members.php:157
+msgid "Active"
+msgstr "Actief"
+
+#: lib/wp-content-aware-engine/module/static.php:42
+msgid "Front Page"
+msgstr "Voorpagina"
+
+#: list-members.php:139 list-members.php:234
+msgid "Remove"
+msgstr "Verwijderen"
+
+#: list-capabilities.php:47
+msgid "Capability"
+msgstr "Rechten"
+
+#: lib/wp-content-aware-engine/module/bp_member.php:31
+msgid "All Sections"
+msgstr "Alle secties"
+
+#: list-members.php:189 list-members.php:216
+msgid "%s ago"
+msgstr "%s geleden"
+
+#: admin/level-list-table.php:480
+msgid "%s is currently editing"
+msgstr "%s is momenteel aan het bewerken"
+
+#: admin/level-overview.php:265
+msgid "%s access level restored from the Trash."
+msgid_plural "%s levels restored from the Trash."
+msgstr[0] "%s toegangsniveau hersteld vanuit de prullenbak."
+msgstr[1] "%s toegangsniveaus hersteld vanuit de prullenbak."
+
+#: admin/level-overview.php:263
+msgid "%s access level permanently deleted."
+msgid_plural "%s levels permanently deleted."
+msgstr[0] "%s toegangsniveau permanent verwijderd."
+msgstr[1] "%s toegangsniveaus permanent verwijderd."
+
+#: admin/level-overview.php:264
+msgid "%s access level moved to the Trash."
+msgid_plural "%s levels moved to the Trash."
+msgstr[0] "%s toegangsniveau verplaatst naar de prullenbak."
+msgstr[1] "%s toegangsniveaus verplaatst naar de prullenbak."
+
+#. translators: %s: post title
+#: admin/level-list-table.php:461
+msgid "&#8220;%s&#8221; (Edit)"
+msgstr "&#8220;%s&#8221; (Bewerk)"
+
+#: admin/level-edit.php:107
+#: lib/wp-content-aware-engine/module/post_type.php:409
+msgid "(no title)"
+msgstr "(geen titel)"
+
+#: admin/level-list-table.php:252
+msgid "Active <span class=\"count\">(%s)</span>"
+msgid_plural "Active <span class=\"count\">(%s)</span>"
+msgstr[0] "Actief <span class=\"count\">(%s)</span>"
+msgstr[1] "Actief <span class=\"count\">(%s)</span>"
+
+#: lib/wp-content-aware-engine/core.php:275
+msgctxt "condition status"
+msgid "Negated"
+msgstr "Afgewezen"
+
+#: admin/level-list-table.php:238
+msgctxt "levels"
+msgid "All <span class=\"count\">(%s)</span>"
+msgid_plural "All <span class=\"count\">(%s)</span>"
+msgstr[0] "Alle <span class=\"count\">(%s)</span>"
+msgstr[1] "Alle <span class=\"count\">(%s)</span>"
+
+#: lib/wp-content-aware-engine/view/condition_options.php:31
+msgid "Auto-select new children of selected items"
+msgstr "Auto-selecteer nieuwe subs van de geselecteerde artikelen"
+
+#: lib/wp-content-aware-engine/module/bbpress.php:33
+msgid "All Profiles"
+msgstr "Alle profielen"
+
+#: lib/wp-content-aware-engine/module/page_template.php:31
+msgid "All Templates"
+msgstr "Alle templates"
+
+#: lib/wp-content-aware-engine/view/condition_options.php:17
+msgid "All"
+msgstr "Alles"
+
+#: lib/wp-content-aware-engine/view/condition_options.php:15
+msgid "Archive Pages"
+msgstr "Archief pagina's"
+
+#: lib/wp-content-aware-engine/module/bbpress.php:31
+msgid "bbPress User Profiles"
+msgstr "bbPress gebruiker profielen"
+
+#: lib/wp-content-aware-engine/view/meta_box.php:18
+msgid "Posts in Category"
+msgstr "Berichten in categorie"
+
+#: lib/wp-content-aware-engine/module/post_type.php:384
+msgid "Password protected"
+msgstr "Beschermd met wachtwoord"
+
+#. translators: %s: level title
+#: admin/level-list-table.php:679
+msgid "Edit &#8220;%s&#8221;"
+msgstr "Bewerk &#8220;%s&#8221;"
+
+#: lib/wp-content-aware-engine/module/post_type.php:227
+#: lib/wp-content-aware-engine/module/post_type.php:348
+msgid "Blog Page"
+msgstr "Blog pagina"
+
+#: lib/wp-content-aware-engine/module/bp_member.php:29
+msgid "BuddyPress Profiles"
+msgstr "BuddyPress profielen"
+
+#: lib/wp-content-aware-engine/core.php:681
+msgid "Conditional Logic"
+msgstr "Conditionele logica"
+
+#: admin/level-edit.php:255
+msgid "days"
+msgstr "dagen"
+
+#: lib/wp-content-aware-engine/module/date.php:27
+msgid "Date Archives"
+msgstr "Datum archieven"
+
+#: lib/wp-content-aware-engine/module/date.php:25
+msgid "Dates"
+msgstr "Datums"
+
+#: admin/level-edit.php:395 admin/level-edit.php:515
+msgid "The level no longer exists."
+msgstr "Dit niveau bestaat niet meer."
+
+#: app.php:591
+msgid "Documentation & FAQ"
+msgstr "Documentatie & FAQ"
+
+#: admin/level-list-table.php:360 level.php:355
+msgid "Duration"
+msgstr "Duur"
+
+#: lib/wp-content-aware-engine/view/condition_template.php:10
+msgid "And"
+msgstr "En"
+
+#: lib/wp-content-aware-engine/view/condition_options.php:13
+msgid "Single Pages"
+msgstr "Enkele pagina's"
+
+#: lib/wp-content-aware-engine/core.php:1003
+msgid "Meet ALL of these conditions"
+msgstr "Er moet voldaan worden aan al deze voorwaarden"
+
+#: admin/level-edit.php:599 admin/level-overview.php:216
+msgid "Error in deleting."
+msgstr "Fout bij verwijderen."
+
+#: admin/settings.php:62
+msgid "User Access Settings"
+msgstr "Gebruiker toegangsinstellingen"
+
+#: list-members.php:41
+msgid "No members found."
+msgstr "Geen leden gevonden."
+
+#: lib/wp-content-aware-engine/core.php:999
+msgid "No results found."
+msgstr "Geen resultaten gevonden."
+
+#: level.php:507
+msgid "No Access Levels found"
+msgstr "Geen toegangsniveaus gevonden"
+
+#: level.php:508
+msgid "No Access Levels found in Trash"
+msgstr "Geen toegangsniveaus gevonden in de prullenbak"
+
+#: automators/user_role_sync.php:19
+msgid "Synchronized Role"
+msgstr "Gesynchroniseerde rol"
+
+#. translators: %s: level title
+#: admin/level-list-table.php:690
+msgid "Restore &#8220;%s&#8221; from the Trash"
+msgstr "Herstel &#8220;%s&#8221; vanuit de prullenbak"
+
+#. Author URI of the plugin
+#: restrict-user-access.php
+msgid "https://dev.institute"
+msgstr "https://dev.institute"
+
+#. Plugin URI of the plugin
+#: restrict-user-access.php
+msgid "https://dev.institute/wordpress-memberships/"
+msgstr "https://dev.institute/wordpress-memberships/"
+
+#: admin/level-list-table.php:253
+msgid "Inactive <span class=\"count\">(%s)</span>"
+msgid_plural "Inactive <span class=\"count\">(%s)</span>"
+msgstr[0] "Inactief <span class=\"count\">(%s)</span>"
+msgstr[1] "Inactief <span class=\"count\">(%s)</span>"
+
+#: automators/login.php:79
+msgid "Logged-in"
+msgstr "Ingelogd"
+
+#: lib/wp-content-aware-engine/module/post_type.php:403
+msgid "Scheduled"
+msgstr "Ingepland"
+
+#: admin/settings.php:340
+msgid "Setting can be changed in %s"
+msgstr "Instelling kan aangepast worden in %s"
+
+#: admin/level-edit.php:188 admin/level-edit.php:713
+#: admin/level-list-table.php:359
+msgid "Members"
+msgstr "Leden"
+
+#: admin/level-list-table.php:569 list-members.php:208
+#: view/meta_box_members.php:34
+msgid "Lifetime"
+msgstr "Levenslang"
+
+#: list-members.php:57
+msgid "Member Since"
+msgstr "Lid sinds"
+
+#: lib/wp-content-aware-engine/core.php:1000
+msgid "Loading more results"
+msgstr "Meer resultaten laden"
+
+#: view/meta_box_options.php:88
+msgid "Level Name"
+msgstr "Naam niveau"
+
+#: lib/wp-content-aware-engine/core.php:1009
+msgid "Not"
+msgstr "Niet"
+
+#: automators/login.php:80
+msgid "Not logged-in"
+msgstr "Niet ingelogd"
+
+#: level.php:503
+msgid "New Access Level"
+msgstr "Nieuw toegangsniveau"
+
+#: lib/wp-content-aware-engine/core.php:1002
+msgid "New condition group"
+msgstr "Nieuwe groepsvoorwaarde"
+
+#: level.php:500
+msgctxt "level"
+msgid "Add New"
+msgstr "Nieuwe toevoegen"
+
+#: level.php:509 view/meta_box_options.php:33
+msgid "Extend Level"
+msgstr "Niveau uitbreiden"
+
+#: lib/wp-content-aware-engine/core.php:1010
+#: lib/wp-content-aware-engine/view/meta_box.php:36
+msgid "Or"
+msgstr "Of"
+
+#: admin/level-overview.php:286
+msgid "Undo"
+msgstr "Ongedaan maken"
+
+#: admin/level-edit.php:176 admin/level-edit.php:715
+msgid "Options"
+msgstr "Opties"
+
+#: lib/wp-content-aware-engine/module/page_template.php:30
+msgid "Page Templates"
+msgstr "Pagina templates"
+
+#: lib/wp-content-aware-engine/view/condition_options.php:10
+msgid "Page Types"
+msgstr "Paginatypes"
+
+#: admin/level-list-table.php:307 admin/level-list-table.php:708
+msgid "Delete Permanently"
+msgstr "Permanent verwijderen"
+
+#: lib/wp-content-aware-engine/core.php:933
+msgid "Plugins"
+msgstr "Plugins"
+
+#: lib/wp-content-aware-engine/module/post_type.php:393
+msgid "Private"
+msgstr "Privé"
+
+#: admin/level-list-table.php:328
+msgid "Empty Trash"
+msgstr "Prullenbak leegmaken"
+
+#: admin/level-list-table.php:418
+msgid "Select %s"
+msgstr "Selecteer %s"
+
+#: list-capabilities.php:265
+msgid "Select All"
+msgstr "Selecteer alles"
+
+#: admin/settings.php:176
+msgid "New User Default Level"
+msgstr "Standaard niveau voor nieuwe gebruiker"
+
+#: lib/wp-content-aware-engine/module/post_type.php:388
+msgid "Sticky"
+msgstr "Sticky"
+
+#: admin/level-list-table.php:358
+msgctxt "column name"
+msgid "Title"
+msgstr "Titel"
+
+#: level.php:499
+msgid "Access Level"
+msgstr "Toegangsniveau"
+
+#: admin/level-edit.php:648
+msgid "Access level updated."
+msgstr "Toegangsniveau bijgewerkt."
+
+#: admin/level-edit.php:655
+msgid "Access level draft updated."
+msgstr "Toegangsniveau concept bijgewerkt."
+
+#: admin/level-edit.php:651
+msgid "Access level scheduled for: <strong>%1$s</strong>."
+msgstr "Toegangsniveau ingepland voor: <strong>%1$s</strong>."
+
+#: admin/nav-menu.php:193 app.php:259 app.php:420 level.php:498 level.php:504
+#: view/top_bar.php:16
+msgid "Access Levels"
+msgstr "Toegangsniveaus"
+
+#: admin/admin.php:91
+msgid "You do not have access to this screen."
+msgstr "Je hebt geen toegang tot dit scherm."
+
+#: list-members.php:160
+msgid "Expired"
+msgstr "Verlopen"
+
+#. translators: %s: post title
+#: admin/level-list-table.php:698
+msgid "Move &#8220;%s&#8221; to the Trash"
+msgstr "Verplaats &#8220;%s&#8221; naar de prullenbak"
+
+#: list-members.php:58
+msgid "Expiration"
+msgstr "Vervalduur"
+
+#. translators: %s: post title
+#: admin/level-list-table.php:707
+msgid "Delete &#8220;%s&#8221; permanently"
+msgstr "Verwijder &#8220;%s&#8221; permanent"
+
+#: admin/level-edit.php:117 admin/level-edit.php:122
+#: lib/wp-content-aware-engine/core.php:758
+#: lib/wp-content-aware-engine/core.php:765
+msgid "Unauthorized request"
+msgstr "Verzoek niet geautoriseerd"
+
+#: admin/level-edit.php:254
+msgid "Unlock Time for new members"
+msgstr "Vrijgave tijd voor nieuwe leden"
+
+#: lib/wp-content-aware-engine/module/post_type.php:230
+#: lib/wp-content-aware-engine/module/post_type.php:352
+msgid "Shop Page"
+msgstr "Winkelpagina"
+
+#: level.php:364
+msgid "Set to 0 for unlimited."
+msgstr "Zet op 0 voor onbeperkt."
+
+#: list-members.php:55
+msgid "E-mail"
+msgstr "E-mail"
+
+#: admin/level-list-table.php:309
+msgid "Move to Trash"
+msgstr "Verplaats naar prullenbak"
+
+#: admin/level-list-table.php:301 admin/level-list-table.php:691
+msgid "Restore"
+msgstr "Herstellen"
+
+#: admin/settings.php:191 admin/settings.php:203
+msgid "General Settings"
+msgstr "Algemene instellingen"
+
+#: admin/level-edit.php:595
+msgid "You are not allowed to delete this level."
+msgstr "Je hebt geen toestemming om dit niveau te verwijderen."
+
+#: admin/level-edit.php:582
+msgid "You are not allowed to restore this level from the Trash."
+msgstr "Je hebt geen toestemming om dit niveau te herstellen vanuit de prullenbak."
+
+#: admin/level-overview.php:197
+msgid "You are not allowed to restore this item from the Trash."
+msgstr "Je hebt geen toestemming om om dit artikel terug te zetten vanuit de prullenbak."
+
+#: lib/wp-content-aware-engine/core.php:929
+#: lib/wp-content-aware-engine/module/taxonomy.php:56
+msgid "Taxonomies"
+msgstr "Taxonomieën"
+
+#. Description of the plugin
+#: restrict-user-access.php
+msgid "Easily restrict content and contexts to provide exclusive access for specific Access Levels."
+msgstr "Beperk eenvoudig inhoud en context om een premium toegang voor specifieke gebruikersniveaus aan te bieden."
+
+#: level.php:343
+msgid "Redirect to another page or show teaser."
+msgstr "Omleiden naar een andere pagina om de teaser te tonen."
+
+#: admin/level-overview.php:212
+msgid "You are not allowed to delete this item."
+msgstr "Je hebt geen toestemming om dit item te verwijderen."
+
+#: admin/level-edit.php:649
+msgid "Access level activated."
+msgstr "Toegangsniveau geactiveerd."
+
+#: lib/wp-content-aware-engine/module/pods.php:30
+msgid "All Pods Pages"
+msgstr "Alle pods pagina's"
+
+#: admin/level-list-table.php:699
+msgctxt "verb"
+msgid "Trash"
+msgstr "Verwijderen"
+
+#. Plugin Name of the plugin
+#: restrict-user-access.php admin/admin_bar.php:119 view/top_bar.php:80
+msgid "Restrict User Access"
+msgstr "Restrict User Access"
+
+#: level.php:340
+msgid "Redirect"
+msgstr "Omleiden"
+
+#: lib/wp-content-aware-engine/core.php:998
+msgid "Searching"
+msgstr "Aan het zoeken"
+
+#: lib/wp-content-aware-engine/core.php:925
+#: lib/wp-content-aware-engine/module/post_type.php:42
+msgid "Post Types"
+msgstr "Berichttypes"
+
+#: lib/wp-content-aware-engine/module/static.php:43
+msgid "Search Results"
+msgstr "Zoekresultaten"
+
+#: list-capabilities.php:35
+msgid "No capabilities found."
+msgstr "Geen rechten gevonden."
+
+#: app.php:309
+msgid "Password"
+msgstr "Wachtwoord"
+
+#: lib/wp-content-aware-engine/view/group_template.php:22
+msgid "Save Changes"
+msgstr "Wijzigingen opslaan"
+
+#: admin/nav-menu.php:200
+msgid "Restrict menu item to users with these levels or higher."
+msgstr "Beperk menu-item tot gebruikers met deze niveaus of hoger."
+
+#: lib/wp-content-aware-engine/module/author.php:25
+msgid "All Authors"
+msgstr "Alle auteurs"
+
+#. translators: %s: search keywords
+#: admin/level-overview.php:109 view/meta_box_members.php:14
+msgid "Search results for &#8220;%s&#8221;"
+msgstr "Zoekresultaten voor &#8220;%s&#8221;"
+
+#: admin/level-edit.php:445
+msgid "Create"
+msgstr "Aanmaken"
+
+#: level.php:377
+msgid "Hide Admin Toolbar"
+msgstr "Beheerder toolbar verbergen"
+
+#: lib/wp-content-aware-engine/module/post_type.php:347
+#: lib/wp-content-aware-engine/view/meta_box.php:10
+msgid "Blog"
+msgstr "Blog"
+
+#: lib/wp-content-aware-engine/module/post_type.php:351
+#: lib/wp-content-aware-engine/view/meta_box.php:25
+msgid "Shop"
+msgstr "Winkel"
+
+#: lib/wp-content-aware-engine/module/static.php:31
+msgid "Special Pages"
+msgstr "Speciale pagina's"
+
+#: lib/wp-content-aware-engine/view/meta_box.php:14
+msgid "Posts by Author"
+msgstr "Berichten van auteur"
+
+#: list-members.php:214
+msgid "%s from now"
+msgstr "%s vanaf nu"
+
+#: list-capabilities.php:50
+msgid "Unset"
+msgstr "Niet instellen"
+
+#: admin/level-list-table.php:362
+msgid "Non-Member Action"
+msgstr "Niet-lid actie"
+
+#: level.php:336
+msgctxt "option"
+msgid "Non-Member Action"
+msgstr "Niet-lid actie"
+
+#: lib/wp-content-aware-engine/core.php:253
+msgid "Condition Groups"
+msgstr "Voorwaarde groepen"
+
+#: view/top_bar.php:25
+msgid "Add-ons"
+msgstr "Add-ons"
+
+#: level.php:505
+msgid "View Access Level"
+msgstr "Toegangsniveau bekijken"
+
+#: level.php:502
+msgid "Edit Access Level"
+msgstr "Toegangsniveau bewerken"
+
+#: admin/level-edit.php:564 admin/level-overview.php:185
+msgid "Error in moving to Trash."
+msgstr "Fout tijdens verplaatsen naar de prullenbak."
+
+#: admin/level-edit.php:586 admin/level-overview.php:201
+msgid "Error in restoring from Trash."
+msgstr "Fout tijdens herstellen vanuit de prullenbak."
+
+#: level.php:362
+msgid "Year(s)"
+msgstr "Ja(a)r(en)"
+
+#. translators: post state
+#: lib/wp-content-aware-engine/module/post_type.php:400
+msgctxt "post state"
+msgid "Pending"
+msgstr "In afwachting"
+
+#: admin/settings.php:199
+msgid "Enable Registration"
+msgstr "Registratie inschakelen"
+
+#: admin/level-overview.php:262
+msgid "%s access level not updated, somebody is editing it."
+msgid_plural "%s levels not updated, somebody is editing them."
+msgstr[0] "%s toegangsniveau niet geüpdatet, iemand is deze aan het bewerken."
+msgstr[1] "%s toegangsniveaus niet geüpdatet, iemand is deze aan het bewerken."
+
+#: admin/level-overview.php:261
+msgid "%s access level updated."
+msgid_plural "%s levels updated."
+msgstr[0] "%s toegangsniveau geüpdatet."
+msgstr[1] "%s toegangsniveaus geüpdatet."
+
+#: admin/level-edit.php:237
+msgid "Like this plugin? %1$sPlease help make it better with a %2$s rating%3$s. Thank you."
+msgstr "Vind je deze plugin goed? %1$sHelp ons om het beter te maken door het geven van een %2$s beoordeling%3$s. Dank je wel."
+
+#: level.php:360
+msgid "Week(s)"
+msgstr "We(e)k(en)"
+
+#: app.php:630
+msgid "Search for Levels"
+msgstr "Naar niveaus zoeken"
+
+#: level.php:506
+msgid "Search Access Levels"
+msgstr "Toegangsniveaus zoeken"
+
+#: level.php:501
+msgid "Add New Access Level"
+msgstr "Nieuw toegangsniveau toevoegen"
+
+#: level.php:351
+msgid "Page to redirect to or display content from under teaser."
+msgstr "Pagina om te leiden of inhoud te tonen van onder teaser."
+
+#: lib/wp-content-aware-engine/module/pods.php:29
+msgid "Pods Pages"
+msgstr "Pods pagina's"
+
+#: level.php:341
+msgid "Tease & Include"
+msgstr "Tease & inclusief"
+
+#: admin/level-overview.php:176
+msgid "You are not allowed to move this item to the Trash."
+msgstr "Je hebt geen toestemming om dit item naar de prullenbak te verplaatsen."
+
+#: admin/level-edit.php:555
+msgid "You are not allowed to move this level to the Trash."
+msgstr "Je hebt geen toestemming om dit niveau naar de prullenbak te verplaatsen."
+
+#: admin/level-edit.php:398 admin/level-edit.php:780 admin/level-edit.php:785
+msgid "You are not allowed to edit this level."
+msgstr "Je hebt geen toestemming om dit niveau te bewerken."
+
+#: admin/level-edit.php:423 admin/level-edit.php:782
+msgid "You are not allowed to create levels."
+msgstr "Je hebt geen toestemming om niveaus te creëren."
+
+#: admin/level-edit.php:401
+msgid "You cannot edit this level because it is in the Trash. Please restore it and try again."
+msgstr "Je kan dit niveau niet bewerken want het zit in de prullenbak. Herstel dit en probeer het opnieuw."
+
+#: admin/level-edit.php:560
+msgid "You cannot move this level to the Trash. %s is currently editing."
+msgstr "Je kan dit niveau niet verplaatsen naar de prullenbak. %s is momenteel aan het bewerken."
+
+#: admin/settings.php:63 lib/wp-content-aware-engine/view/group_template.php:24
+#: view/top_bar.php:20
+msgid "Settings"
+msgstr "Instellingen"
+
+#: lib/wp-content-aware-engine/module/static.php:44
+msgid "404 Page"
+msgstr "404 pagina"
+
+#: lib/wp-content-aware-engine/module/post_type.php:234
+#: lib/wp-content-aware-engine/module/post_type.php:356
+#: lib/wp-content-aware-engine/module/taxonomy.php:388
+msgid "%s Archives"
+msgstr "%s archieven"
+
+#: admin/level-list-table.php:680
+msgid "Edit"
+msgstr "Bewerken"
+
+#: lib/wp-content-aware-engine/core.php:1001
+msgid "Conditions have unsaved changes. Do you want to continue and discard these changes?"
+msgstr "Voorwaarden bevat niet opgeslagen wijzigingen. Wil je doorgaan en deze wijzigingen negeren?"
+
+#: lib/wp-content-aware-engine/core.php:776
+msgid "Could not delete conditions"
+msgstr "Kon voorwaarden niet verwijderen"
+
+#: lib/wp-content-aware-engine/core.php:254
+msgid "Condition Group"
+msgstr "Voorwaarde groep"
+
+#: lib/wp-content-aware-engine/core.php:769
+msgid "Conditions updated"
+msgstr "Voorwaarden geüpdatet"
+
+#: admin/level-edit.php:712
+msgid "Access Conditions"
+msgstr "Toegangsvoorwaarden"
+
+#: lib/wp-content-aware-engine/core.php:1011
+msgid "Except"
+msgstr "Behalve"
+
+#: lib/wp-content-aware-engine/core.php:289
+msgctxt "condition status"
+msgid "Or"
+msgstr "Of"
+
+#: lib/wp-content-aware-engine/core.php:282
+msgctxt "condition status"
+msgid "Exception"
+msgstr "Uitzondering"
+
+#: lib/wp-content-aware-engine/view/condition_options.php:25
+msgid "Exception"
+msgstr "Uitzondering"
+
+#: view/meta_box_options.php:16
+msgid "Do not extend"
+msgstr "Niet verlengen"

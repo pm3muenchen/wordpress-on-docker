@@ -2,14 +2,18 @@
 # This file is distributed under the same license as the Plugins - Envato Elements &#8211; Photos &amp; Elementor Templates - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-05-21 16:38:25+0000\n"
+"PO-Revision-Date: 2021-08-07 12:37:18+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: GlotPress/3.0.0-alpha\n"
+"X-Generator: GlotPress/4.0.0\n"
 "Language: en_GB\n"
 "Project-Id-Version: Plugins - Envato Elements &#8211; Photos &amp; Elementor Templates - Stable (latest release)\n"
+
+#: inc/api/class-template-kit-import.php:83
+msgid "Single: Landing Page"
+msgstr "Single: Landing Page"
 
 #: inc/backend/class-welcome.php:71 inc/backend/class-welcome.php:72
 msgid "Free Blocks"
@@ -27,99 +31,99 @@ msgstr "Free Kits"
 msgid "Welcome"
 msgstr "Welcome"
 
-#: inc/api/class-template-kit-import.php:107
+#: inc/api/class-template-kit-import.php:108
 msgid "Clients"
 msgstr "Clients"
 
-#: inc/api/class-template-kit-import.php:106
+#: inc/api/class-template-kit-import.php:107
 msgid "Logo Grid"
 msgstr "Logo Grid"
 
-#: inc/api/class-template-kit-import.php:105
+#: inc/api/class-template-kit-import.php:106
 msgid "Gallery"
 msgstr "Gallery"
 
-#: inc/api/class-template-kit-import.php:104
+#: inc/api/class-template-kit-import.php:105
 msgid "Portfolio"
 msgstr "Portfolio"
 
-#: inc/api/class-template-kit-import.php:103
+#: inc/api/class-template-kit-import.php:104
 msgid "Countdown"
 msgstr "Countdown"
 
-#: inc/api/class-template-kit-import.php:102
+#: inc/api/class-template-kit-import.php:103
 msgid "Stats"
 msgstr "Stats"
 
-#: inc/api/class-template-kit-import.php:101
+#: inc/api/class-template-kit-import.php:102
 msgid "Services"
 msgstr "Services"
 
-#: inc/api/class-template-kit-import.php:100
+#: inc/api/class-template-kit-import.php:101
 msgid "Product"
 msgstr "Product"
 
-#: inc/api/class-template-kit-import.php:99
+#: inc/api/class-template-kit-import.php:100
 msgid "Testimonial"
 msgstr "Testimonial"
 
-#: inc/api/class-template-kit-import.php:98
+#: inc/api/class-template-kit-import.php:99
 msgid "Pricing"
 msgstr "Pricing"
 
-#: inc/api/class-template-kit-import.php:97
+#: inc/api/class-template-kit-import.php:98
 msgid "Features"
 msgstr "Features"
 
-#: inc/api/class-template-kit-import.php:96
+#: inc/api/class-template-kit-import.php:97
 msgid "Map"
 msgstr "Map"
 
-#: inc/api/class-template-kit-import.php:95
+#: inc/api/class-template-kit-import.php:96
 msgid "Team"
 msgstr "Team"
 
-#: inc/api/class-template-kit-import.php:94
+#: inc/api/class-template-kit-import.php:95
 msgid "Call to Action"
 msgstr "Call to Action"
 
-#: inc/api/class-template-kit-import.php:93
+#: inc/api/class-template-kit-import.php:94
 msgid "Contact"
 msgstr "Contact"
 
-#: inc/api/class-template-kit-import.php:92
+#: inc/api/class-template-kit-import.php:93
 msgid "FAQ"
 msgstr "FAQ"
 
-#: inc/api/class-template-kit-import.php:90
+#: inc/api/class-template-kit-import.php:91
 msgid "Hero"
 msgstr "Hero"
 
-#: inc/api/class-template-kit-import.php:89
+#: inc/api/class-template-kit-import.php:90
 msgid "Popup"
 msgstr "Popup"
 
-#: inc/api/class-template-kit-import.php:88
+#: inc/api/class-template-kit-import.php:89
 msgid "Footer"
 msgstr "Footer"
 
-#: inc/api/class-template-kit-import.php:87
+#: inc/api/class-template-kit-import.php:88
 msgid "Header"
 msgstr "Header"
 
-#: inc/api/class-template-kit-import.php:86
+#: inc/api/class-template-kit-import.php:87
 msgid "Archive: Category"
 msgstr "Archive: Category"
 
-#: inc/api/class-template-kit-import.php:85
+#: inc/api/class-template-kit-import.php:86
 msgid "Archive: Search"
 msgstr "Archive: Search"
 
-#: inc/api/class-template-kit-import.php:84
+#: inc/api/class-template-kit-import.php:85
 msgid "Archive: Product"
 msgstr "Archive: Product"
 
-#: inc/api/class-template-kit-import.php:83
+#: inc/api/class-template-kit-import.php:84
 msgid "Archive: Blog"
 msgstr "Archive: Blog"
 
@@ -152,14 +156,16 @@ msgid "Unable to connect to the filesystem. Please confirm your credentials."
 msgstr "Unable to connect to the filesystem. Please confirm your credentials."
 
 #. Description of the plugin
+#: envato-elements.php
 msgid "Access beautifully designed Template Kits + Photos from Envato Elements."
 msgstr "Access beautifully designed Template Kits + Photos from Envato Elements."
 
-#: inc/api/class-template-kit-import.php:91
+#: inc/api/class-template-kit-import.php:92
 msgid "About"
 msgstr "About"
 
 #. Author URI of the plugin
+#: envato-elements.php
 msgid "https://elements.envato.com/extensions/wordpress/?utm_source=extensions&utm_medium=referral&utm_campaign=elements_extensions_wpplugins"
 msgstr "https://elements.envato.com/extensions/wordpress/?utm_source=extensions&utm_medium=referral&utm_campaign=elements_extensions_wpplugins"
 
@@ -171,7 +177,7 @@ msgstr "Photos"
 msgid "Settings"
 msgstr "Settings"
 
-#: inc/api/class-template-kit-import.php:108
+#: inc/api/class-template-kit-import.php:109
 msgid "Other"
 msgstr "Other"
 
@@ -183,21 +189,23 @@ msgstr "Template kits"
 msgid "Elements"
 msgstr "Elements"
 
-#: envato-elements.php:81
+#: envato-elements.php:83
 msgid "7.2 or above"
 msgstr "7.2 or above"
 
 #. translators: %s: PHP version
-#: envato-elements.php:76
+#: envato-elements.php:78
 msgid "Envato Elements requires PHP version %s+, plugin is currently NOT ACTIVE. Please contact the hosting provider. WordPress recommends version %s."
 msgstr "Envato Elements requires PHP version %s+, plugin is currently NOT ACTIVE. Please contact the hosting provider. WordPress recommends version %s."
 
 #. Author of the plugin
+#: envato-elements.php
 msgid "Envato"
 msgstr "Envato"
 
 #. Plugin Name of the plugin
-#: inc/backend/class-welcome.php:32 inc/backend/class-welcome.php:44
+#: envato-elements.php inc/backend/class-welcome.php:32
+#: inc/backend/class-welcome.php:44
 msgid "Envato Elements"
 msgstr "Envato Elements"
 
@@ -214,6 +222,6 @@ msgid "HTTP Error"
 msgstr "HTTP Error"
 
 #. translators: %s: WordPress version
-#: envato-elements.php:100
+#: envato-elements.php:102
 msgid "Envato Elements requires WordPress version %s+. Because you are using an earlier version, the plugin is currently NOT ACTIVE."
 msgstr "Envato Elements requires WordPress version %s+. Because you are using an earlier version, the plugin is currently NOT ACTIVE."

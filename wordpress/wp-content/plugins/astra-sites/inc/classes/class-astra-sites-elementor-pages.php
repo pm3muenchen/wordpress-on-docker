@@ -35,7 +35,6 @@ use Elementor\Utils;
  * @since 2.0.0 Added compatibility for Elemetnor v2.5.0
  */
 class Astra_Sites_Elementor_Pages extends Source_Local {
-
 	/**
 	 * Update post meta.
 	 *
@@ -48,7 +47,7 @@ class Astra_Sites_Elementor_Pages extends Source_Local {
 
 		if ( ! empty( $post_id ) && ! empty( $data ) ) {
 
-			$data = wp_json_encode( $data, true );
+			$data = wp_json_encode( $data );
 
 			// Update WP form IDs.
 			$ids_mapping = get_option( 'astra_sites_wpforms_ids_mapping', array() );
@@ -65,26 +64,20 @@ class Astra_Sites_Elementor_Pages extends Source_Local {
 			$data = $this->process_export_import_content( $data, 'on_import' );
 
 			// Replace the site urls.
-			$demo_data = get_option( 'astra_sites_import_data', array() );
+			$demo_data = \Astra_Sites_File_System::get_instance()->get_demo_content();
 			if ( isset( $demo_data['astra-site-url'] ) ) {
 				$site_url      = get_site_url();
 				$site_url      = str_replace( '/', '\/', $site_url );
 				$demo_site_url = 'https:' . $demo_data['astra-site-url'];
 				$demo_site_url = str_replace( '/', '\/', $demo_site_url );
-				$data          = str_replace( $demo_site_url, $site_url, $data );
-			}
-
-			// Replace the site urls.
-			$demo_data = get_option( 'astra_sites_import_data', array() );
-			if ( isset( $demo_data['astra-site-url'] ) ) {
-				$data = wp_json_encode( $data, true );
-				if ( ! empty( $data ) ) {
-					$site_url      = get_site_url();
-					$site_url      = str_replace( '/', '\/', $site_url );
-					$demo_site_url = 'https:' . $demo_data['astra-site-url'];
-					$demo_site_url = str_replace( '/', '\/', $demo_site_url );
-					$data          = str_replace( $demo_site_url, $site_url, $data );
-					$data          = json_decode( $data, true );
+				if ( ! is_array( $data ) ) {
+					$data = str_replace( $demo_site_url, $site_url, $data );
+				} else {
+					$data = wp_json_encode( $data );
+					if ( ! empty( $data ) ) {
+						$data          = str_replace( $demo_site_url, $site_url, $data );
+						$data          = json_decode( $data, true );
+					}
 				}
 			}
 

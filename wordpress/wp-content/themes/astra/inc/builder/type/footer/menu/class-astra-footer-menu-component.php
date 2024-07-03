@@ -32,7 +32,7 @@ class Astra_Footer_Menu_Component {
 		require_once ASTRA_BUILDER_FOOTER_MENU_DIR . '/class-astra-footer-menu-component-loader.php';
 
 		// Include front end files.
-		if ( ! is_admin() ) {
+		if ( ! is_admin() || Astra_Builder_Customizer::astra_collect_customizer_builder_data() ) {
 			require_once ASTRA_BUILDER_FOOTER_MENU_DIR . '/dynamic-css/dynamic.css.php';
 		}
 		// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
@@ -75,13 +75,14 @@ class Astra_Footer_Menu_Component {
 		 */
 		$menu_classes = apply_filters( 'astra_menu_classes', array( 'ast-nav-menu', 'ast-flex', $desktop_menu_layout_class, $tablet_menu_layout_class, $mobile_menu_layout_class ) );
 
+		$menu_name   = wp_get_nav_menu_name( 'footer_menu' );
 		$items_wrap  = '<nav ';
 		$items_wrap .= astra_attr(
 			'site-navigation',
 			array(
-				'id'         => 'site-navigation',
-				'class'      => 'ast-flex-grow-1 navigation-accessibility footer-navigation',
-				'aria-label' => esc_attr__( 'Site Navigation', 'astra' ),
+				'id'         => 'footer-site-navigation',
+				'class'      => 'site-navigation ast-flex-grow-1 navigation-accessibility footer-navigation',
+				'aria-label' => esc_attr__( 'Site Navigation: ', 'astra' ) . $menu_name,
 			)
 		);
 		$items_wrap .= '>';

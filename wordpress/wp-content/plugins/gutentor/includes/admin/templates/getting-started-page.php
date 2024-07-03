@@ -23,7 +23,7 @@
 		<section>
 			<div class="container">
 				<div class="col col-image">
-					<img src="<?php echo GUTENTOR_URL . 'assets/img/admin/add-new-page-post-editor-page.png'; ?>">
+					<img src="<?php echo GUTENTOR_URL . 'assets/img/admin/page-post.png'; ?>">
 				</div>
 				<div class="col">
 					<div class="gutentor-get-started-content">
@@ -44,11 +44,10 @@
 			</div>
 		</section>
 
-
 		<section>
 			<div class="container">
 				<div class="col col-image">
-					<img src="<?php echo GUTENTOR_URL . 'assets/img/admin/import-template-library.png'; ?>">
+					<img src="<?php echo GUTENTOR_URL . 'assets/img/admin/template-library.png'; ?>">
 				</div>
 				<div class="col">
 					<div class="gutentor-get-started-content">
@@ -84,6 +83,25 @@
 				<div class="col">
 					<div class="gutentor-get-started-content">
 						<h3><?php esc_html_e( '3. Start Designing', 'gutentor' ); ?></h3>
+						<p><?php echo sprintf( esc_html__( 'Gutentor blocks are divided into element,module,post,term and widget. Visit %1$s Dashboard: Gutentor=>Blocks %2$s indepth understanding of gutentor blocks classification.', 'gutentor' ), '<strong>', '</strong>' ); ?></p>
+						<p><?php esc_html_e( 'After Adding a Block (element/module/post/term) in the editor, It is ready to Design', 'gutentor' ); ?></p>
+						<ul>
+							<li><strong><?php esc_html_e( 'General: ', 'gutentor' ); ?></strong><?php esc_html_e( 'It consists set of options to design blocks. e.g color, typography, margin, padding and so on.', 'gutentor' ); ?></li>
+							<li><strong><?php esc_html_e( 'Advanced: ', 'gutentor' ); ?></strong><?php esc_html_e( 'It consists of set of Advanced Setting which effect whole Block Section.', 'gutentor' ); ?></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section>
+			<div class="container">
+				<div class="col col-image">
+					<img src="<?php echo GUTENTOR_URL . 'assets/img/admin/widget-designing.png'; ?>">
+				</div>
+				<div class="col">
+					<div class="gutentor-get-started-content">
+						<h3><?php esc_html_e( '4. Designing Widget', 'gutentor' ); ?></h3>
 						<p><?php esc_html_e( 'After Adding a Block in the editor, It is ready to Design', 'gutentor' ); ?></p>
 						<p><?php echo sprintf( esc_html__( 'At right sidebar of Edit screen, there are Document and Block Tabs, under %1$s Block Tab %2$s, you will find setting to respective block.', 'gutentor' ), '<strong>', '</strong>' ); ?></p>
 						<ul>
@@ -109,10 +127,17 @@
 	</article>
 
 	<footer class="gutentor-get-started-footer">
-		<a href="https://www.gutentor.com/documentation/" target="_blank" class="btn btn-primary">  <span class="dashicons dashicons-media-document"></span><?php esc_html_e( 'Documentation', 'gutentor' ); ?>
+		<a href="https://www.gutentor.com/documentation/" target="_blank" class="btn btn-primary">
+			<span class="dashicons dashicons-media-document"></span>
+			<?php esc_html_e( 'Documentation', 'gutentor' ); ?>
 		</a>
 		<a href="https://www.demo.gutentor.com" target="_blank" class="btn btn-primary">
-			<span class="dashicons dashicons-visibility"></span><?php esc_html_e( 'Gutentor Demo', 'gutentor' ); ?>
+			<span class="dashicons dashicons-visibility"></span>
+			<?php esc_html_e( 'Gutentor Demo', 'gutentor' ); ?>
+		</a>
+		<a href="https://templateberg.com/gutenberg-templates/" target="_blank" class="btn btn-primary">
+			<span class="dashicons dashicons-screenoptions"></span>
+			<?php esc_html_e( 'Gutenberg Templates', 'gutentor' ); ?>
 		</a>
 	</footer>
 </main>

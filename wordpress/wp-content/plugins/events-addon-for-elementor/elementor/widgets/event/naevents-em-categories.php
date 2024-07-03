@@ -45,7 +45,7 @@ if ( is_plugin_active( 'events-manager/events-manager.php' ) ) {
 		 * Register Events Addon for Elementor Events Manager Categories widget controls.
 		 * Adds different input fields to allow the user to change and customize the widget settings.
 		*/
-		protected function _register_controls(){
+		protected function register_controls(){
 
 			$this->start_controls_section(
 				'section_event',
@@ -124,7 +124,6 @@ if ( is_plugin_active( 'events-manager/events-manager.php' ) ) {
 				[
 					'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 					'name' => 'list_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_3,
 					'selector' => '{{WRAPPER}} .naeep-em-category ul.em-categories-list li',
 				]
 			);
@@ -140,10 +139,6 @@ if ( is_plugin_active( 'events-manager/events-manager.php' ) ) {
 					[
 						'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'scheme' => [
-							'type' => Scheme_Color::get_type(),
-							'value' => Scheme_Color::COLOR_3,
-						],
 						'selectors' => [
 							'{{WRAPPER}} .naeep-em-category ul.em-categories-list li, {{WRAPPER}} .naeep-em-category ul.em-categories-list li a' => 'color: {{VALUE}};',
 						],
@@ -213,7 +208,6 @@ if ( is_plugin_active( 'events-manager/events-manager.php' ) ) {
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'pagi_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 					'selector' => '{{WRAPPER}} .em-pagination a, {{WRAPPER}} .em-pagination span',
 				]
 			);
@@ -310,10 +304,6 @@ if ( is_plugin_active( 'events-manager/events-manager.php' ) ) {
 					[
 						'label' => esc_html__( 'Background Color', 'events-addon-for-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'scheme' => [
-							'type' => Scheme_Color::get_type(),
-							'value' => Scheme_Color::COLOR_2,
-						],
 						'selectors' => [
 							'{{WRAPPER}} .em-pagination span.current' => 'background-color: {{VALUE}};',
 						],

@@ -44,7 +44,7 @@ class Event_Elementor_Addon_History extends Widget_Base{
 	 * Register Events Addon for Elementor History widget controls.
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	*/
-	protected function _register_controls(){
+	protected function register_controls(){
 
 		$this->start_controls_section(
 			'section_history',
@@ -112,10 +112,11 @@ class Event_Elementor_Addon_History extends Widget_Base{
 				'popup_icon',
 				[
 					'label' => esc_html__( 'Popup Icon', 'events-addon-for-elementor' ),
-					'type' => Controls_Manager::ICON,
-					'options' => NAEEP_Controls_Helper_Output::get_include_icons(),
-					'frontend_available' => true,
-					'default' => 'fa fa-search',
+					'type' => Controls_Manager::ICONS,
+					'default' => [
+						'value' => 'fas fa-search',
+						'library' => 'fa-solid',
+					],
 					'condition' => [
 						'need_popup' => 'true',
 					],
@@ -155,10 +156,11 @@ class Event_Elementor_Addon_History extends Widget_Base{
 				'time_icon',
 				[
 					'label' => esc_html__( 'Time Icon', 'events-addon-for-elementor' ),
-					'type' => Controls_Manager::ICON,
-					'options' => NAEEP_Controls_Helper_Output::get_include_icons(),
-					'frontend_available' => true,
-					'default' => 'fa fa-clock-o',
+					'type' => Controls_Manager::ICONS,
+					'default' => [
+						'value' => 'fas fa-clock',
+						'library' => 'fa-solid',
+					],
 				]
 			);
 			$repeater->add_control(
@@ -480,10 +482,6 @@ class Event_Elementor_Addon_History extends Widget_Base{
 				[
 					'label' => esc_html__( 'Icon Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_2,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .history-image .naeep-image.naeep-popup a' => 'color: {{VALUE}};',
 					],
@@ -610,7 +608,6 @@ class Event_Elementor_Addon_History extends Widget_Base{
 			[
 				'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 				'name' => 'sastool_title_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .history-info h3',
 			]
 		);
@@ -626,10 +623,6 @@ class Event_Elementor_Addon_History extends Widget_Base{
 				[
 					'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_1,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .history-info h3, {{WRAPPER}} .history-info h3 a' => 'color: {{VALUE}};',
 					],
@@ -647,10 +640,6 @@ class Event_Elementor_Addon_History extends Widget_Base{
 				[
 					'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_2,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .history-info h3 a:hover' => 'color: {{VALUE}};',
 					],
@@ -673,10 +662,6 @@ class Event_Elementor_Addon_History extends Widget_Base{
 			[
 				'label' => esc_html__( 'Background Color', 'events-addon-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_2,
-				],
 				'selectors' => [
 					'{{WRAPPER}} .history-info h5' => 'background-color: {{VALUE}};',
 				],
@@ -698,7 +683,6 @@ class Event_Elementor_Addon_History extends Widget_Base{
 			[
 				'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 				'name' => 'sastool_year_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_2,
 				'selector' => '{{WRAPPER}} .history-info h5, {{WRAPPER}} .history-vertical .history-image h5',
 			]
 		);
@@ -738,7 +722,6 @@ class Event_Elementor_Addon_History extends Widget_Base{
 			[
 				'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 				'name' => 'sastool_content_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_3,
 				'selector' => '{{WRAPPER}} .history-info p',
 			]
 		);
@@ -747,10 +730,6 @@ class Event_Elementor_Addon_History extends Widget_Base{
 			[
 				'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_3,
-				],
 				'selectors' => [
 					'{{WRAPPER}} .history-info p' => 'color: {{VALUE}};',
 				],
@@ -785,7 +764,6 @@ class Event_Elementor_Addon_History extends Widget_Base{
 			[
 				'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 				'name' => 'sastool_imgtitle_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_3,
 				'selector' => '{{WRAPPER}} h3.image-title',
 			]
 		);
@@ -825,7 +803,6 @@ class Event_Elementor_Addon_History extends Widget_Base{
 			[
 				'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 				'name' => 'btn_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .naeep-link',
 			]
 		);
@@ -841,10 +818,6 @@ class Event_Elementor_Addon_History extends Widget_Base{
 				[
 					'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_2,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .naeep-link' => 'color: {{VALUE}};',
 					],
@@ -872,10 +845,6 @@ class Event_Elementor_Addon_History extends Widget_Base{
 				[
 					'label' => esc_html__( 'Line Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_2,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .naeep-link:before' => 'background-color: {{VALUE}};',
 					],
@@ -921,7 +890,7 @@ class Event_Elementor_Addon_History extends Widget_Base{
 			foreach ( $historyItem as $each_logo ) {
 				$history_image = !empty( $each_logo['history_image']['id'] ) ? $each_logo['history_image']['id'] : '';
 				$image_title = !empty( $each_logo['image_title'] ) ? $each_logo['image_title'] : '';
-				$time_icon = !empty( $each_logo['time_icon'] ) ? $each_logo['time_icon'] : '';
+				$time_icon = !empty( $each_logo['time_icon'] ) ? $each_logo['time_icon']['value'] : '';
 				$history_year = !empty( $each_logo['history_year'] ) ? $each_logo['history_year'] : '';
 				$history_title = !empty( $each_logo['history_title'] ) ? $each_logo['history_title'] : '';
 				$title_link = !empty( $each_logo['title_link']['url'] ) ? $each_logo['title_link']['url'] : '';
@@ -932,7 +901,7 @@ class Event_Elementor_Addon_History extends Widget_Base{
 
 				$need_hover = !empty( $each_logo['need_hover'] ) ? $each_logo['need_hover'] : '';
 				$need_popup = !empty( $each_logo['need_popup'] ) ? $each_logo['need_popup'] : '';
-				$popup_icon = !empty( $each_logo['popup_icon'] ) ? $each_logo['popup_icon'] : '';
+				$popup_icon = !empty( $each_logo['popup_icon'] ) ? $each_logo['popup_icon']['value'] : '';
 				$pop_icon_style = !empty( $each_logo['pop_icon_style'] ) ? $each_logo['pop_icon_style'] : '';
 				$icon_link = !empty( $each_logo['icon_link']['url'] ) ? $each_logo['icon_link']['url'] : '';
 				$icon_link_external = !empty( $each_logo['icon_link']['is_external'] ) ? 'target="_blank"' : '';
@@ -947,11 +916,11 @@ class Event_Elementor_Addon_History extends Widget_Base{
 				$more_link_attr = !empty( $history_more_link['url'] ) ?  $more_link_external.' '.$more_link_nofollow : '';
 
 				$link = $title_link ? '<a href="'.esc_url($title_link).'" '.$title_link_attr.'>'.esc_html($history_title).'</a>' : esc_html($history_title);
-		  	$title = !empty( $history_title ) ? '<h3 class="history-title">'.$link.'</h3>' : '';
+		  		$title = !empty( $history_title ) ? '<h3 class="history-title">'.$link.'</h3>' : '';
 				$time_ico = $time_icon ? '<i class="'.esc_attr($time_icon).'" aria-hidden="true"></i> ' : '';
-		  	$year = !empty( $history_year ) ? '<h5>'.$time_ico.esc_html($history_year).'</h5>' : '';
+		  		$year = !empty( $history_year ) ? '<h5>'.$time_ico.esc_html($history_year).'</h5>' : '';
 				$content = $history_content ? '<p>'.esc_html($history_content).'</p>' : '';
-	  		$button = !empty($more_link_url) ? '<div class="naeep-link-wrap"><a href="'.esc_url($more_link_url).'" '.$more_link_attr.' class="naeep-link">'.esc_html($history_more).'</a></div>' : '';
+	  			$button = !empty($more_link_url) ? '<div class="naeep-link-wrap"><a href="'.esc_url($more_link_url).'" '.$more_link_attr.' class="naeep-link">'.esc_html($history_more).'</a></div>' : '';
 
 				if ($need_hover) {
 					$hover_class = ' hover-image';
@@ -976,7 +945,7 @@ class Event_Elementor_Addon_History extends Widget_Base{
 					$icon_popup = $image_pop;
 				}
 				$history_image = $image_url ? '<div class="naeep-image'.esc_attr($popup_class.$hover_class).'"><img src="'.esc_url($image_url).'" alt="'.esc_attr($history_title).'">'.$icon_popup.'</div>' : '';
-		  	$image_title = !empty( $image_title ) ? '<h3 class="image-title">'.$image_title.'</h3>' : '';
+		  		$image_title = !empty( $image_title ) ? '<h3 class="image-title">'.$image_title.'</h3>' : '';
 
 				if ($history_style === 'vertical') {
 					$output .= '<div class="naeep-history-item"><div class="history-info'.esc_attr($height_class).'"><span></span>'.$title.$content.'</div><div class="history-image">'.$year.'</div></div>';

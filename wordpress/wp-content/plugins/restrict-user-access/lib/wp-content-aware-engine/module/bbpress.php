@@ -1,9 +1,9 @@
 <?php
 /**
- * @package WP Content Aware Engine
+ * @package wp-content-aware-engine
  * @author Joachim Jensen <joachim@dev.institute>
  * @license GPLv3
- * @copyright 2020 by Joachim Jensen
+ * @copyright 2023 by Joachim Jensen
  */
 
 defined('ABSPATH') || exit;
@@ -19,43 +19,36 @@ defined('ABSPATH') || exit;
  */
 class WPCAModule_bbpress extends WPCAModule_author
 {
-
     /**
      * @var string
      */
     protected $category = 'plugins';
 
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         parent::__construct();
         $this->id = 'bb_profile';
         $this->name = __('bbPress User Profiles', WPCA_DOMAIN);
+        $this->icon = 'dashicons-buddicons-bbpress-logo';
         $this->placeholder = __('All Profiles', WPCA_DOMAIN);
         $this->default_value = $this->id;
-
         $this->query_name = 'cbb';
     }
 
     /**
-     * Initiate module
-     *
-     * @since  2.0
-     * @return void
+     * @inheritDoc
      */
     public function initiate()
     {
         parent::initiate();
         add_filter(
             'wpca/module/post_type/db-where',
-            array($this,'add_forum_dependency')
+            [$this,'add_forum_dependency']
         );
     }
 
     /**
-     * @return bool
+     * @inheritDoc
      */
     public function can_enable()
     {
@@ -66,8 +59,7 @@ class WPCAModule_bbpress extends WPCAModule_author
     }
 
     /**
-     * @since  1.0
-     * @return boolean
+     * @inheritDoc
      */
     public function in_context()
     {
@@ -75,14 +67,11 @@ class WPCAModule_bbpress extends WPCAModule_author
     }
 
     /**
-     * Get data from context
-     *
-     * @since  1.0
-     * @return array
+     * @inheritDoc
      */
     public function get_context_data()
     {
-        $data = array($this->id);
+        $data = [$this->id];
         $data[] = bbp_get_displayed_user_id();
         return $data;
     }
@@ -97,14 +86,14 @@ class WPCAModule_bbpress extends WPCAModule_author
      */
     public function add_forum_dependency($where)
     {
-        if (is_singular(array('topic','reply'))) {
-            $data = array(
+        if (is_singular(['topic','reply'])) {
+            $data = [
                 get_post_type(),
                 get_the_ID(),
                 'forum'
-            );
+            ];
             $data[] = bbp_get_forum_id();
-            $where = "(cp.meta_value IS NULL OR cp.meta_value IN('".implode("','", $data)."'))";
+            $where = '(cp.meta_value IS NULL OR cp.meta_value IN(' . WPCACore::sql_prepare_in($data) . '))';
         }
         return $where;
     }

@@ -44,7 +44,7 @@ class Event_Elementor_Addon_Unique_Accommodation extends Widget_Base{
 	 * Register Events Addon for Elementor Accommodation widget controls.
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	*/
-	protected function _register_controls(){
+	protected function register_controls(){
 
 		$this->start_controls_section(
 			'section_venue',
@@ -386,7 +386,6 @@ class Event_Elementor_Addon_Unique_Accommodation extends Widget_Base{
 				[
 					'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 					'name' => 'sasstp_title_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 					'selector' => '{{WRAPPER}} .venue-info-wrap h3',
 				]
 			);
@@ -402,10 +401,6 @@ class Event_Elementor_Addon_Unique_Accommodation extends Widget_Base{
 					[
 						'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'scheme' => [
-							'type' => Scheme_Color::get_type(),
-							'value' => Scheme_Color::COLOR_1,
-						],
 						'selectors' => [
 							'{{WRAPPER}} .venue-info-wrap h3, {{WRAPPER}} .venue-info-wrap h3 a' => 'color: {{VALUE}};',
 						],
@@ -423,10 +418,6 @@ class Event_Elementor_Addon_Unique_Accommodation extends Widget_Base{
 					[
 						'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'scheme' => [
-							'type' => Scheme_Color::get_type(),
-							'value' => Scheme_Color::COLOR_2,
-						],
 						'selectors' => [
 							'{{WRAPPER}} .venue-info-wrap h3 a:hover' => 'color: {{VALUE}};',
 						],
@@ -460,7 +451,6 @@ class Event_Elementor_Addon_Unique_Accommodation extends Widget_Base{
 				[
 					'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 					'name' => 'price_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_2,
 					'selector' => '{{WRAPPER}} .venue-info-wrap h5, {{WRAPPER}} .naeep-venue-item.style-two h5',
 				]
 			);
@@ -479,10 +469,6 @@ class Event_Elementor_Addon_Unique_Accommodation extends Widget_Base{
 				[
 					'label' => esc_html__( 'Background Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_2,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .naeep-venue-item.style-two h5' => 'background-color: {{VALUE}};',
 					],
@@ -537,7 +523,6 @@ class Event_Elementor_Addon_Unique_Accommodation extends Widget_Base{
 				[
 					'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 					'name' => 'pricedur_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_3,
 					'selector' => '{{WRAPPER}} .venue-info-wrap h5 span',
 				]
 			);
@@ -546,10 +531,6 @@ class Event_Elementor_Addon_Unique_Accommodation extends Widget_Base{
 				[
 					'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_3,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .venue-info-wrap h5 span' => 'color: {{VALUE}};',
 					],
@@ -581,7 +562,6 @@ class Event_Elementor_Addon_Unique_Accommodation extends Widget_Base{
 				[
 					'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 					'name' => 'sasstp_rating_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_4,
 					'selector' => '{{WRAPPER}} .naeep-rating',
 				]
 			);
@@ -597,10 +577,6 @@ class Event_Elementor_Addon_Unique_Accommodation extends Widget_Base{
 					[
 						'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'scheme' => [
-							'type' => Scheme_Color::get_type(),
-							'value' => Scheme_Color::COLOR_2,
-						],
 						'selectors' => [
 							'{{WRAPPER}} .naeep-rating' => 'color: {{VALUE}};',
 						],
@@ -654,8 +630,7 @@ class Event_Elementor_Addon_Unique_Accommodation extends Widget_Base{
 				[
 					'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 					'name' => 'content_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_3,
-					'selector' => '{{WRAPPER}} .venue-info-wrap p',
+					'selector' => '{{WRAPPER}} .venue-info-wrap, {{WRAPPER}} .venue-info-wrap p',
 				]
 			);
 			$this->add_control(
@@ -663,12 +638,8 @@ class Event_Elementor_Addon_Unique_Accommodation extends Widget_Base{
 				[
 					'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_3,
-					],
 					'selectors' => [
-						'{{WRAPPER}} .venue-info-wrap p' => 'color: {{VALUE}};',
+						'{{WRAPPER}} .venue-info-wrap, {{WRAPPER}} .venue-info-wrap p' => 'color: {{VALUE}};',
 					],
 				]
 			);
@@ -701,7 +672,6 @@ class Event_Elementor_Addon_Unique_Accommodation extends Widget_Base{
 				[
 					'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 					'name' => 'sasorganizer_more_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_4,
 					'selector' => '{{WRAPPER}} a.naeep-link',
 				]
 			);
@@ -717,10 +687,6 @@ class Event_Elementor_Addon_Unique_Accommodation extends Widget_Base{
 					[
 						'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'scheme' => [
-							'type' => Scheme_Color::get_type(),
-							'value' => Scheme_Color::COLOR_4,
-						],
 						'selectors' => [
 							'{{WRAPPER}} a.naeep-link' => 'color: {{VALUE}};',
 						],
@@ -738,10 +704,6 @@ class Event_Elementor_Addon_Unique_Accommodation extends Widget_Base{
 					[
 						'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'scheme' => [
-							'type' => Scheme_Color::get_type(),
-							'value' => Scheme_Color::COLOR_2,
-						],
 						'selectors' => [
 							'{{WRAPPER}} a.naeep-link:hover' => 'color: {{VALUE}};',
 						],
@@ -752,10 +714,6 @@ class Event_Elementor_Addon_Unique_Accommodation extends Widget_Base{
 					[
 						'label' => esc_html__( 'Border Color', 'events-addon-for-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'scheme' => [
-							'type' => Scheme_Color::get_type(),
-							'value' => Scheme_Color::COLOR_2,
-						],
 						'selectors' => [
 							'{{WRAPPER}} a.naeep-link:hover:before' => 'background-color: {{VALUE}};',
 						],
@@ -811,7 +769,7 @@ class Event_Elementor_Addon_Unique_Accommodation extends Widget_Base{
 		$duration = $venue_price_duration ? '<span>'.esc_html($venue_price_duration).'</span>' : '';
 		$price = $venue_price ? '<h5>'.esc_html($venue_price).$duration.'</h5>' : '';
 		$pricetwo = $venue_price ? '<h5><span class="top"></span>'.esc_html($venue_price).$duration.'<span class="bottom"></span></h5>' : '';
-		$location = $venue_location ? '<h4><i class="fa fa-map-marker" aria-hidden="true"></i> '.esc_html($venue_location).'</h4>' : '';
+		$location = $venue_location ? '<h4><i class="fas fa-map-marker-alt" aria-hidden="true"></i> '.esc_html($venue_location).'</h4>' : '';
 		$content = $venue_content ? $venue_content : '';
 		$venue_btn = $venue_btn_link ? '<div class="naeep-link-wrap"><a href="'.esc_url($venue_btn_link).'" class="naeep-link" '.$venue_btn_link_attr.'>'.esc_html($venue_btn_text).'</a></div>' : '';
 

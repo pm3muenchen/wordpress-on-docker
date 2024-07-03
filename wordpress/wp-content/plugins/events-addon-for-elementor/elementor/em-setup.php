@@ -34,7 +34,11 @@ if ( !class_exists('Event_Elementor_Addon_Core_Elementor_init') ){
 
 			// Js Enqueue
 			add_action( 'elementor/frontend/after_enqueue_scripts', function() {
-				wp_enqueue_script( 'naevents-elementor', plugins_url( '/', __FILE__ ) . '/js/naevents-elementor.js', [ 'jquery' ], false, true );
+				wp_enqueue_script( 'naevents-elementor', plugins_url( '/', __FILE__ ) . 'js/naevents-elementor.js', [ 'jquery' ], rand(), true );
+			} );
+
+			add_action( 'elementor/editor/before_enqueue_scripts', function() {
+				wp_enqueue_style( 'naevents-elementor', plugins_url( '/', __FILE__ ) . '/css/narestaurant-elementor.css' );
 			} );
 
 		}

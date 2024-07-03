@@ -135,6 +135,10 @@ if ( ! class_exists( 'Astra_Sites_Batch_Processing_Brizy' ) ) :
 			$post->set_plugin_version( BRIZY_VERSION );
 			$post->saveStorage();
 			$post->savePost();
+
+			// Clean the post excerpt.
+			astra_sites_empty_post_excerpt( $post_id );
+
 		}
 
 	}

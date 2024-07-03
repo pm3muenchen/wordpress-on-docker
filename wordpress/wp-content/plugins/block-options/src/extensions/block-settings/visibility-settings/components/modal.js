@@ -45,6 +45,7 @@ class BlockSettings extends Component {
 			isDisabledUserState,
 			isDisabledLogic,
 			isDisabledACF,
+			hasPermission,
 		} = this.props;
 
 		let selectedBlock = this.props.selectedBlock;
@@ -108,14 +109,15 @@ class BlockSettings extends Component {
 									switch ( tab.name ) {
 										case 'advanced':
 											return [
-												! isDisabledLogic && LogicOptions( selectedBlock ),
+												<small>{ __( 'Manage advanced block settings and visibility.', 'block-options' ) }</small>, /* eslint-disable-line react/jsx-key */
+												! isDisabledUserState && UserStateOptions( selectedBlock ),
+												! isDisabledLogic && hasPermission && LogicOptions( selectedBlock ),
 												! isDisabledACF && <ACFOptions selectedBlock={ selectedBlock } />,
 											];
 										default:
 											return [
 												<small>{ __( 'Attention: The display settings (show/hide for mobile, tablet, desktop or users) will only take effect once you are on the live page, and not while you\'re editing in Gutenberg.', 'block-options' ) }</small>, /* eslint-disable-line react/jsx-key */
 												! isDisabledDevices && DevicesOptions( selectedBlock ),
-												! isDisabledUserState && UserStateOptions( selectedBlock ),
 											];
 									}
 								}
@@ -143,6 +145,7 @@ export default compose(
 			isDisabledUserState: select( 'core/edit-post' ).isFeatureActive( 'disableEditorsKitUserStateVisibility' ),
 			isDisabledLogic: select( 'core/edit-post' ).isFeatureActive( 'disableEditorsKitLogicVisibility' ),
 			isDisabledACF: select( 'core/edit-post' ).isFeatureActive( 'disableEditorsKitAcfVisibility' ),
+			hasPermission: select( 'core' ).canUser( 'update', 'settings' ),
 		};
 	} ),
 	withSpokenMessages,

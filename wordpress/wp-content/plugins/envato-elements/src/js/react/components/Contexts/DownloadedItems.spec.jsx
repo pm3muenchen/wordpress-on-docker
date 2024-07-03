@@ -17,16 +17,18 @@ const ItemTest = ({ humaneId }) => {
         Item: {humaneId}
       </h2>
       <div>
-        {getDownloadedItemId(humaneId) ? (
-          <span data-testid={`item-has-been-downloaded-${humaneId}`}>Download complete!</span>
-        ) : (
-          <button
-            data-testid={`download-item-${humaneId}`} onClick={() => {
-              addDownloadedItem({ humaneId: humaneId, importedId: 543 })
-            }}
-          >Download Item
-          </button>
-        )}
+        {getDownloadedItemId(humaneId)
+          ? (
+            <span data-testid={`item-has-been-downloaded-${humaneId}`}>Download complete!</span>
+            )
+          : (
+            <button
+              data-testid={`download-item-${humaneId}`} onClick={() => {
+                addDownloadedItem({ humaneId, importedId: 543 })
+              }}
+            >Download Item
+            </button>
+            )}
       </div>
     </div>
   )

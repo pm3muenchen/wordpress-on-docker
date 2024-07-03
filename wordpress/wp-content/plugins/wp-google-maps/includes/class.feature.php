@@ -35,9 +35,14 @@ class Feature extends Crud
 		if(Feature::$cachedSubclasses)
 			return Feature::$cachedSubclasses;
 		
-		foreach(glob(__DIR__ . '/*.php') as $file)
+		foreach(glob(__DIR__ . '/*.php') as $file){
+			if(basename($file) === 'class.dom-element.php'){
+				continue;
+			}
 			require_once($file);
+		}
 		
+	    /* Developer Hook (Action) - Load required feature classes */     
 		do_action('wpgmza_require_feature_classes');
 		
 		foreach(get_declared_classes() as $class)
@@ -155,6 +160,8 @@ class Feature extends Crud
 	
 	public function jsonSerialize()
 	{
+		global $wpgmza;
+
 		$json		= Crud::jsonSerialize();
 		$columns	= $this->get_columns_by_name();
 		
@@ -178,7 +185,12 @@ class Feature extends Crud
 					}
 
 					break;
-				
+
+				case 'description':
+					if(!$this->useRawData && empty($wpgmza->processingContext)){
+						$json[$key]	= do_shortcode($value);
+					}
+					break;
 				default:
 					
 					if(isset($columns[$key]) && $this->isTypeSpatial($columns[$key]->Type))

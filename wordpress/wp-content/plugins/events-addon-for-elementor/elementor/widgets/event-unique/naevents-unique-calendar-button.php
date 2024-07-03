@@ -44,7 +44,7 @@ class Event_Elementor_Addon_Unique_CalendarButton extends Widget_Base{
 	 * Register Events Addon for Elementor Unique Calendar Button widget controls.
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	*/
-	protected function _register_controls(){
+	protected function register_controls(){
 
 		$this->start_controls_section(
 			'calendar_button_date',
@@ -56,10 +56,11 @@ class Event_Elementor_Addon_Unique_CalendarButton extends Widget_Base{
 			'btn_icon',
 			[
 				'label' => esc_html__( 'Button Icon', 'events-addon-for-elementor' ),
-				'type' => Controls_Manager::ICON,
-				'options' => NAEEP_Controls_Helper_Output::get_include_icons(),
-				'frontend_available' => true,
-				'default' => 'fa fa-plus',
+				'type' => Controls_Manager::ICONS,
+				'default' => [
+					'value' => 'fas fa-plus',
+					'library' => 'fa-solid',
+				],
 			]
 		);
 		$this->add_control(
@@ -189,7 +190,6 @@ class Event_Elementor_Addon_Unique_CalendarButton extends Widget_Base{
 			[
 				'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 				'name' => 'btn_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .naeep-btn',
 			]
 		);
@@ -275,9 +275,9 @@ class Event_Elementor_Addon_Unique_CalendarButton extends Widget_Base{
 	*/
 	protected function render() {
 		$settings = $this->get_settings_for_display();
-		$btn_icon = !empty( $settings['btn_icon'] ) ? $settings['btn_icon'] : '';
-	  $btn_text = !empty( $settings['btn_text'] ) ? $settings['btn_text'] : '';
-	  $btn_link = !empty( $settings['btn_link'] ) ? $settings['btn_link'] : '';
+		$btn_icon = !empty( $settings['btn_icon'] ) ? $settings['btn_icon']['value'] : '';
+	  	$btn_text = !empty( $settings['btn_text'] ) ? $settings['btn_text'] : '';
+	  	$btn_link = !empty( $settings['btn_link'] ) ? $settings['btn_link'] : '';
 		$link_url = !empty( $btn_link['url'] ) ? esc_url($btn_link['url']) : '';
 		$link_external = !empty( $btn_link['is_external'] ) ? 'target="_blank"' : '';
 		$link_nofollow = !empty( $btn_link['nofollow'] ) ? 'rel="nofollow"' : '';

@@ -38,7 +38,7 @@ class Gutentor_Hooks {
 	private $version;
 
 	/**
-	 * library loaded
+	 * Library loaded
 	 * Check it Library Loaded
 	 *
 	 * @since    2.1.2
@@ -75,49 +75,6 @@ class Gutentor_Hooks {
 
 		// Always return the instance.
 		return $instance;
-	}
-
-	/**
-	 * Callback functions for customize_register,
-	 * Add Panel Section control
-	 *
-	 * @since    1.0.0
-	 * @access   public
-	 *
-	 * @param object $wp_customize
-	 * @return void
-	 */
-	function customize_register( $wp_customize ) {
-		require_once GUTENTOR_PATH . 'includes/customizer/class-gutentor-custom-control-message.php';
-		/*adding sections for Category Color*/
-		$wp_customize->add_section(
-			'gutentor-general-theme-options-panel',
-			array(
-				'priority'   => 100,
-				'capability' => 'edit_theme_options',
-				'title'      => esc_html__( 'Gutentor Options', 'gutentor' ),
-			)
-		);
-
-		/*Grid Elements*/
-		$wp_customize->add_setting(
-			'gutentor-global-setting-msg',
-			array(
-				'sanitize_callback' => 'wp_kses_post',
-			)
-		);
-		$description = sprintf( esc_html__( 'The options is moved on Editor of the Page/Post %1$s', 'gutentor' ), "<a href='" . esc_url( GUTENTOR_URL . 'assets/img/gutentor-settings.png' ) . "' target='_blank'><img src='" . esc_url( GUTENTOR_URL . 'assets/img/gutentor-settings.png' ) . "' alt='" . esc_html__( 'Gutentor Settings', 'gutentor' ) . "' /></a>" );
-
-		$wp_customize->add_control(
-			new Gutentor_Custom_Control_Message(
-				$wp_customize,
-				'gutentor-global-setting-msg',
-				array(
-					'description' => $description,
-					'section'     => 'gutentor-general-theme-options-panel',
-				)
-			)
-		);
 	}
 
 	/**
@@ -220,7 +177,7 @@ class Gutentor_Hooks {
 	 * @return void
 	 */
 	public function add_color_palette() {
-		$global_colors = gutentor_get_options( 'gutentor_color_palatte' );
+		$global_colors = gutentor_get_options( 'color-palettes' );
 		if ( ! empty( $global_colors ) ) {
 
 			// Get the current set of colors.
@@ -376,7 +333,7 @@ class Gutentor_Hooks {
 		);
 
 		/*FontAwesome CSS*/
-		if ( 4 == gutentor_get_options( 'gutentor_font_awesome_version' ) ) {
+		if ( 4 == gutentor_get_options( 'fa-version' ) ) {
 			wp_register_style(
 				'fontawesome', // Handle.
 				GUTENTOR_URL . 'assets/library/font-awesome-4.7.0/css/font-awesome.min.css',
@@ -417,6 +374,8 @@ class Gutentor_Hooks {
 			array(),
 			'1.8.0'
 		);
+		wp_style_add_data( 'magnific-popup', 'rtl', 'replace' );
+
 		/*Magnific Popup JS*/
 		wp_register_script(
 			'magnific-popup', // Handle.
@@ -501,6 +460,39 @@ class Gutentor_Hooks {
 			GUTENTOR_VERSION // Version: File modification time.
 		);
 
+		/*
+			Google Map JS
+			Load Frontend only
+			Used By:
+			gutentor/google-map
+			gutentor/e4
+			*/
+		// Get the API key
+		if ( gutentor_get_options( 'map-api' ) ) {
+			$apikey = gutentor_get_options( 'map-api' );
+		} else {
+			$apikey = false;
+		}
+
+		// Don't output anything if there is no API key.
+		if ( ! ( null === $apikey || empty( $apikey ) ) ) {
+			wp_register_script(
+				'gutentor-google-maps',
+				GUTENTOR_URL . 'assets/js/google-map-loader' . GUTENTOR_SCRIPT_PREFIX . '.js',
+				array( 'jquery' ), // Dependencies, defined above.
+				'1.0.0',
+				true
+			);
+
+			wp_register_script(
+				'google-maps',
+				'https://maps.googleapis.com/maps/api/js?key=' . $apikey . '&libraries=places&callback=initMapScript',
+				array( 'gutentor-google-maps' ),
+				'1.0.0',
+				true
+			);
+		}
+
 		wp_register_script(
 			'gutentor-block', // Handle.
 			GUTENTOR_URL . 'assets/js/gutentor' . GUTENTOR_SCRIPT_PREFIX . '.js',
@@ -509,7 +501,7 @@ class Gutentor_Hooks {
 			true // Enqueue the script in the footer.
 		);
 		/*CSS for default/popular themes*/
-		$templates        = array( 'twentynineteen', 'twentytwenty', 'generatepress' );
+		$templates        = array( 'twentynineteen', 'twentytwenty', 'generatepress', 'astra' );
 		$current_template = get_template();
 		if ( in_array( $current_template, $templates ) ) {
 			wp_register_style(
@@ -532,15 +524,22 @@ class Gutentor_Hooks {
 	 * @return void
 	 */
 	function load_lib_assets() {
-		/*
-		fontawesome CSS
-		load front end and backend
-		Reason: Common for many blocks
-		*/
-		wp_enqueue_style( 'fontawesome' );
-		wp_style_add_data( 'fontawesome', 'rtl', 'replace' );
 
 		if ( ! is_admin() ) {
+
+			/*
+			fontawesome CSS
+			load front end and backend
+			Reason: Common for many blocks
+			*/
+			wp_enqueue_style( 'fontawesome' );
+			wp_style_add_data( 'fontawesome', 'rtl', 'replace' );
+
+			/*
+			wpness grid Needed for Admin and Frontend.
+			Reason: Common for many blocks*/
+			wp_enqueue_style( 'wpness-grid' );
+			wp_style_add_data( 'wpness-grid', 'rtl', 'replace' );
 
 			/*
 			Animate CSS
@@ -550,166 +549,24 @@ class Gutentor_Hooks {
 			wp_enqueue_style( 'animate' );
 			wp_style_add_data( 'animate', 'rtl', 'replace' );
 
-			/*Wow is needed for Animate CSS*/
+			/*
+			Wow is needed for Animate CSS
+			Reason: needed on all blocks since animate option is everywhere*/
 			wp_enqueue_script( 'wow' );
 
+		} else {
 			/*
-			For CountUP JS
-			Load Frontend only
-			Used By: gutentor/counter-box and gutentor/e3
+			fontawesome CSS
+			load front end and backend
+			Reason: Common for many blocks
 			*/
-			if ( gutentor_has_block( 'gutentor/counter-box' )
-				|| gutentor_has_block( 'gutentor/e3' ) ) {
-				wp_enqueue_script( 'countUp' );
-			}
+			wp_enqueue_style( 'fontawesome' );
+			wp_style_add_data( 'fontawesome', 'rtl', 'replace' );
 
-			/*
-			For isotope JS
-			Load Frontend only
-			Used by: gutentor/filter
-			*/
-			if ( gutentor_has_block( 'gutentor/filter' )
-				|| gutentor_has_block( 'gutentor/m10' ) ) {
-				/*isotope JS*/
-				wp_enqueue_script( 'isotope' );
-			}
-
-			/*
-			jquery-easypiechart
-			Load Frontend only
-			Used By: gutentor/progress-bar and gutentor/e9
-			*/
-			if ( gutentor_has_block( 'gutentor/progress-bar' )
-				|| gutentor_has_block( 'gutentor/e9' ) ) {
-				/*Easy Pie Chart Js*/
-				wp_enqueue_script( 'jquery-easypiechart' );
-			}
-
-			/*
-			Maginific popup
-			Load Frontend only
-			Used By:
-			gutentor/video-popup,
-			gutentor/e11,
-			gutentor/e2,
-			gutentor/gallery and
-			gutentor/filter
-			*/
-			if ( gutentor_has_block( 'gutentor/video-popup' )
-				|| gutentor_has_block( 'gutentor/e11' )
-				|| gutentor_has_block( 'gutentor/e2' )
-				|| gutentor_has_block( 'gutentor/gallery' )
-				|| gutentor_has_block( 'gutentor/filter' )
-				|| gutentor_has_block( 'gutentor/m10' )
-			) {
-				/*Maginific popup*/
-				wp_enqueue_style( 'magnific-popup' );
-				wp_style_add_data( 'magnific-popup', 'rtl', 'replace' );
-				// magnify popup  Js
-				wp_enqueue_script( 'magnific-popup' );
-			}
-
-			/*
-			Slick Slider
-			Load Frontend only
-			Used By:
-			gutentor/image-slider
-			gutentor/m5
-			gutentor/m0
-			gutentor/m7
-			gutentor/p3
-			if pro installed
-			*/
-			if ( gutentor_has_block( 'gutentor/image-slider' )
-				|| gutentor_has_block( 'gutentor/m5' )
-				|| gutentor_has_block( 'gutentor/m0' )
-				|| gutentor_has_block( 'gutentor/p3' )
-				|| gutentor_has_block( 'gutentor/t3' )
-				|| function_exists( 'gutentor_pro' )
-			) {
-				/*Slick*/
-				wp_enqueue_style( 'slick' );
-				wp_enqueue_script( 'slick' );
-			}
-
-			/*
-			masonry js
-			Load Frontend only
-			Used By:
-			gutentor/gallery
-			*/
-			if ( gutentor_has_block( 'gutentor/gallery' )
-				|| gutentor_has_block( 'gutentor/m10' ) ) {
-				wp_enqueue_script( 'masonry' );
-			}
-
-			/*
-			flexMenu js
-			Load Frontend only
-			Used By:
-			gutentor/p4
-			*/
-			if ( gutentor_has_block( 'gutentor/p4' ) ) {
-				wp_enqueue_script( 'flexMenu' );
-			}
-
-			/*
-			webticker js
-			Load Frontend only
-			/**/
-			if ( gutentor_has_block( 'gutentor/p5' ) ) {
-				wp_enqueue_script( 'acmeticker' );
-			}
-
-			/*
-			theia-sticky-sidebar' js
-			Load Frontend only
-			*/
-			if ( gutentor_has_block( 'gutentor/m4' ) ) {
-				wp_enqueue_script( 'theia-sticky-sidebar' );
-			}
-
-			/*
-			Google Map JS
-			Load Frontend only
-			Used By:
-			gutentor/google-map
-			gutentor/e4
-			*/
-			if ( gutentor_has_block( 'gutentor/google-map' )
-				|| gutentor_has_block( 'gutentor/e4' ) ) {
-
-				// Get the API key
-				if ( gutentor_get_options( 'gutentor_map_api' ) ) {
-					$apikey = gutentor_get_options( 'gutentor_map_api' );
-				} else {
-					$apikey = false;
-				}
-
-				// Don't output anything if there is no API key
-				if ( ! ( null === $apikey || empty( $apikey ) ) ) {
-					wp_enqueue_script(
-						'gutentor-google-maps',
-						GUTENTOR_URL . 'assets/js/google-map-loader' . GUTENTOR_SCRIPT_PREFIX . '.js',
-						array( 'jquery' ), // Dependencies, defined above.
-						'1.0.0',
-						true
-					);
-
-					wp_enqueue_script(
-						'google-maps',
-						'https://maps.googleapis.com/maps/api/js?key=' . $apikey . '&libraries=places&callback=initMapScript',
-						array( 'gutentor-google-maps' ),
-						'1.0.0',
-						true
-					);
-				}
-			}
+			/*wpness grid Needed for Admin and Frontend*/
+			wp_enqueue_style( 'wpness-grid' );
+			wp_style_add_data( 'wpness-grid', 'rtl', 'replace' );
 		}
-
-		/*wpness grid Needed for Admin and Frontend*/
-		wp_enqueue_style( 'wpness-grid' );
-		wp_style_add_data( 'wpness-grid', 'rtl', 'replace' );
 
 		$this->library_loaded = true;
 		if ( gutentor_is_edit_page() ) {
@@ -729,36 +586,7 @@ class Gutentor_Hooks {
 	 */
 	function block_assets() { // phpcs:ignore
 
-		if ( ! ( is_singular() || gutentor_is_edit_page() || apply_filters( 'gutentor_force_load_block_assets', false ) ) ) {
-			return;
-		}
 		$this->load_lib_assets();
-	}
-
-	/**
-	 * check if load optimizes css
-	 *
-	 * @since    3.0.3
-	 * @access   public
-	 *
-	 * @param null
-	 * @return boolean
-	 */
-	function is_load_optimized_css() {
-		if ( ! is_singular() ) {
-			return false;
-		}
-		$css_info = get_post_meta( get_the_ID(), 'gutentor_css_info', true );
-		if ( $css_info && isset( $css_info['load_optimized_css'] ) && $css_info['load_optimized_css'] ) {
-			return true;
-		}
-		if ( ! $css_info || ! isset( $css_info['version'] ) ||
-			! gutentor_get_options( 'gutentor_load_optimized_css' ) ||
-			! isset( $css_info['load_optimized_css'] ) || ! $css_info['load_optimized_css']
-		) {
-			return false;
-		}
-		return true;
 	}
 
 	/**
@@ -772,15 +600,13 @@ class Gutentor_Hooks {
 	 * @return void|boolean
 	 */
 	function load_last_scripts() {
-		if ( ! $this->library_loaded ) {
+		if ( ! $this->library_loaded && ! function_exists( 'gutentor_template' ) ) {
 			return false;
 		}
 
-		/*Dont load on new version*/
-		if ( ! $this->is_load_optimized_css() ) {
-			wp_enqueue_style( 'gutentor' );
-			wp_style_add_data( 'gutentor', 'rtl', 'replace' );
-		}
+        /* Check this TODO */
+		wp_enqueue_style( 'gutentor' );
+        wp_style_add_data( 'gutentor', 'rtl', 'replace' );
 
 		/*For WooCommerce*/
 		if ( gutentor_is_woocommerce_active() ) {
@@ -794,24 +620,45 @@ class Gutentor_Hooks {
 			wp_style_add_data( 'gutentor-edd', 'rtl', 'replace' );
 		}
 
-		wp_enqueue_script( 'gutentor-block' );
-		wp_localize_script(
-			'gutentor-block',
-			'gutentorLS',
-			array(
-				'fontAwesomeVersion' => gutentor_get_options( 'gutentor_font_awesome_version' ),
-				'restNonce'          => wp_create_nonce( 'wp_rest' ),
-				'restUrl'            => esc_url_raw( rest_url() ),
-			)
-		);
-
 		/*CSS for default/popular themes*/
-		$templates        = array( 'twentynineteen', 'twentytwenty', 'generatepress' );
+		$templates        = array( 'twentynineteen', 'twentytwenty', 'generatepress', 'astra' );
 		$current_template = get_template();
 		if ( in_array( $current_template, $templates ) ) {
 			wp_enqueue_style( 'gutentor-theme-' . esc_attr( $current_template ) );
 			wp_style_add_data( 'gutentor-theme-' . esc_attr( $current_template ), 'rtl', 'replace' );
 		}
+
+		/*Reusable block fixed*/
+		$reusable_blocks = gutentor_get_reusable_block_ids();
+		if ( ! isset( $GLOBALS['GUTENTOR_GLOBAL']['reusable_block'] ) ) {
+			$GLOBALS['GUTENTOR_GLOBAL']['reusable_block'] = $reusable_blocks;
+		} else {
+			$reusable_blocks                              = array_merge( $GLOBALS['GUTENTOR_GLOBAL']['reusable_block'], $reusable_blocks );
+			$GLOBALS['GUTENTOR_GLOBAL']['reusable_block'] = $reusable_blocks;
+		}
+		if ( $reusable_blocks ) {
+			$upload_dir = wp_upload_dir();
+			foreach ( $reusable_blocks as $reusable_block ) {
+				if ( file_exists( $upload_dir['basedir'] . '/gutentor/p-' . $reusable_block . '.css' ) ) {
+					$css_info = get_post_meta( $reusable_block, 'gutentor_css_info', true );
+					wp_enqueue_style( 'gutentor-dynamic-' . $reusable_block, trailingslashit( $upload_dir['baseurl'] ) . 'gutentor/p-' . $reusable_block . '.css', false, isset( $css_info['saved_version'] ) ? $css_info['saved_version'] : '' );
+				}
+			}
+		}
+
+		wp_enqueue_script( 'gutentor-block' );
+		wp_localize_script(
+			'gutentor-block',
+			'gutentorLS',
+			apply_filters(
+				'gutentor_block_frontend_localize_data',
+				array(
+					'fontAwesomeVersion' => gutentor_get_options( 'fa-version' ),
+					'restNonce'          => wp_create_nonce( 'wp_rest' ),
+					'restUrl'            => esc_url_raw( rest_url() ),
+				)
+			)
+		);
 	}
 
 	/**
@@ -821,7 +668,6 @@ class Gutentor_Hooks {
 	 * @since    1.0.0
 	 * @access   public
 	 *
-	 * @param null
 	 * @return void
 	 */
 	public function block_editor_assets() { // phpcs:ignore
@@ -830,27 +676,34 @@ class Gutentor_Hooks {
 		if ( function_exists( 'edd_wl_print_scripts' ) ) {
 			edd_wl_print_scripts();
 		}
+		global $pagenow;
 
-		// Scripts.
+		$dependencies = array( 'jquery', 'lodash', 'wp-api', 'wp-i18n', 'wp-blocks', 'wp-components', 'wp-compose', 'wp-data', 'wp-element', 'wp-keycodes', 'wp-plugins', 'wp-rich-text', 'wp-viewport' );
+		if ( gutentor_is_edit_page() ) {
+			array_push( $dependencies, 'wp-editor', 'wp-edit-post' );
+		} elseif ( $pagenow === 'widgets.php' ) {
+			array_push( $dependencies, 'wp-edit-widgets' );
+		}
+
+			// Scripts.
 		wp_enqueue_script(
 			'gutentor', // Handle.
 			GUTENTOR_URL . 'dist/blocks.build.js', // Block.build.js: We register the block here. Built with Webpack.
-			array( 'jquery', 'lodash', 'wp-api', 'wp-i18n', 'wp-blocks', 'wp-components', 'wp-compose', 'wp-data', 'wp-editor', 'wp-edit-post', 'wp-element', 'wp-keycodes', 'wp-plugins', 'wp-rich-text', 'wp-viewport' ), // Dependencies, defined above.
+			$dependencies, // Dependencies, defined above.
 			GUTENTOR_VERSION, // Version: File modification time.
 			true // Enqueue the script in the footer.
 		);
 
 		wp_set_script_translations( 'gutentor', 'gutentor' );
-
-		wp_localize_script(
-			'gutentor',
-			'gutentor',
+		$localize__data = apply_filters(
+			'gutentor_block_editor_localize_data',
 			array(
 				'currentTheme'                    => get_template(),
+				'currentScreen'                   => get_current_screen(),
 				'postModuleGlobalCategoriesColor' => gutentor_pm_post_categories_color( true ),
 				'thumbnailAllSizes'               => self::get_thumbnail_all_sizes(),
 				'updatedThumbnailAllSizes'        => self::get_updated_thumbnail_all_sizes(),
-				'mapsAPI'                         => gutentor_get_options( 'gutentor_map_api' ),
+				'mapsAPI'                         => gutentor_get_options( 'map-api' ),
 				'dirUrl'                          => GUTENTOR_URL,
 				'gutentorLogo'                    => GUTENTOR_URL . 'assets/img/gutentor-logo.png',
 				'iconSvg'                         => GUTENTOR_URL . 'assets/img/block-icons/icon.svg',
@@ -870,6 +723,7 @@ class Gutentor_Hooks {
 				'buttonSvg'                       => GUTENTOR_URL . 'assets/img/block-icons/button.svg',
 				'buttonGroupSvg'                  => GUTENTOR_URL . 'assets/img/block-icons/button-group.svg',
 				'dynamicColSvg'                   => GUTENTOR_URL . 'assets/img/block-icons/dynamic-col.svg',
+				'advancedColSvg'                  => GUTENTOR_URL . 'assets/img/block-icons/advanced-col.svg',
 				'AdvPostSvg'                      => GUTENTOR_URL . 'assets/img/block-icons/advanced-post-module.svg',
 				'newsTickerSvg'                   => GUTENTOR_URL . 'assets/img/block-icons/news-ticker.svg',
 				'postFeaturedModuleSvg'           => GUTENTOR_URL . 'assets/img/block-icons/post-feature-module.svg',
@@ -895,23 +749,27 @@ class Gutentor_Hooks {
 				'timelineSvgW'                    => GUTENTOR_URL . 'assets/img/block-icons/timeline.svg',
 				'videoSvgW'                       => GUTENTOR_URL . 'assets/img/block-icons/video.svg',
 				'defaultImage'                    => GUTENTOR_URL . 'assets/img/default-image.jpg',
+				'previewOnFrontendImg'            => GUTENTOR_URL . 'assets/img/preview-on-frontend.jpg',
 				'gutentorSvg'                     => GUTENTOR_URL . 'assets/img/gutentor.svg',
 				'gutentorWhiteSvg'                => GUTENTOR_URL . 'assets/img/gutentor-white-logo.svg',
 				'gutentorBlackSvg'                => GUTENTOR_URL . 'assets/img/gutentor-black-logo.svg',
 				'm6Svg'                           => GUTENTOR_URL . 'assets/img/block-icons/accordion-module.svg',
 				'm9Svg'                           => GUTENTOR_URL . 'assets/img/block-icons/shortcode.svg',
 				'templateLibrarySvg'              => GUTENTOR_URL . 'assets/img/block-icons/template-library.svg',
-                'm12Svg'                          => GUTENTOR_URL . 'assets/img/block-icons/quote.svg',
-				'fontAwesomeVersion'              => gutentor_get_options( 'gutentor_font_awesome_version' ),
+				'm12Svg'                          => GUTENTOR_URL . 'assets/img/block-icons/quote.svg',
+				'm13Svg'                          => GUTENTOR_URL . 'assets/img/block-icons/toc.svg',
+				'fontAwesomeVersion'              => gutentor_get_options( 'fa-version' ),
 				'checkPostFormatSupport'          => gutentor_check_post_format_support_enable(),
 				'postFormats'                     => gutentor_get_post_formats(),
 				'postFormatsIcons'                => gutentor_get_all_post_format_icons(),
-				'postFormatsColors'               => gutentor_post_format_colors(),
+				'postFormatsColors'               => gutentor_post_format_colors( true ),
 				'postFeaturedFormatsColors'       => gutentor_post_featured_format_colors(),
-				'postTypeList'                    => gutentor_get_post_types(),
 				'is_woocommerce_active'           => gutentor_is_woocommerce_active(),
-				'enableEditorTemplateLibrary'     => gutentor_setting_enable_template_library() === '1' ? 'enabled' : 'disabled',
-				'enableExportButton'              => gutentor_setting_enable_export_template_button() === '1' ? 'enabled' : 'disabled',
+				'enableEditorTemplateLibrary'     => gutentor_setting_enable_template_library(),
+				'enableExportButton'              => gutentor_setting_enable_export_template_button(),
+				'gutentorPro'                     => array(
+					'active' => gutentor_pro_active(),
+				),
 				'edd'                             => array(
 					'active'   => gutentor_is_edd_active(),
 					'review'   => gutentor_is_edd_review_active(),
@@ -930,18 +788,25 @@ class Gutentor_Hooks {
 						'Gutentor' => false,
 					)
 				),
-
 				'globalTypography'                => gutentor_get_global_typography(),
 				'globalColor'                     => gutentor_get_global_color(),
 				'globalContainerWidth'            => gutentor_get_global_container_width(),
-				'gutentor_gt_apply_options'       => gutentor_get_options( 'gutentor_gt_apply_options' ),
+				'blockNameShortFullForm'          => gutentor_block_name_short_full_form(),
+				'typo-apply-options'              => gutentor_get_options( 'typo-apply-options' ),
+				'color-palettes'                  => gutentor_get_options( 'color-palettes' ),
+				'isEditPage'                      => gutentor_is_edit_page(),
 				'nonce'                           => wp_create_nonce( 'gutentorNonce' ),
 			)
+		);
+		wp_localize_script(
+			'gutentor',
+			'gutentor',
+			$localize__data
 		);
 
 		// Scripts.
 		wp_enqueue_script(
-			'gutentor-editor-block', // Handle.
+			'gutentor-editor', // Handle.
 			GUTENTOR_URL . 'assets/js/block-editor' . GUTENTOR_SCRIPT_PREFIX . '.js',
 			array( 'jquery' ), // Dependencies, defined above.
 			GUTENTOR_VERSION, // Version: File modification time.
@@ -964,17 +829,28 @@ class Gutentor_Hooks {
 	}
 
 	/**
+	 * Callback functions for customize_preview_init,
+	 *
+	 * @since    3.2.3
+	 * @access   public
+	 *
+	 * @return void
+	 */
+	public function customize_preview_init() {
+		wp_enqueue_script( 'gutentor-customizer', GUTENTOR_URL . '/assets/js/customizer.js', array( 'customize-preview', 'customize-selective-refresh', 'wp-data' ), GUTENTOR_VERSION, true );
+	}
+
+	/**
 	 * Callback functions for body_class,
 	 * Adding Body Class.
 	 *
 	 * @since    1.0.0
 	 * @access   public
 	 *
-	 * @param array $classes
+	 * @param array $classes array of classes.
 	 * @return array
 	 */
 	function add_body_class( $classes ) {
-
 		$classes[] = 'gutentor-active';
 		return $classes;
 	}
@@ -986,15 +862,15 @@ class Gutentor_Hooks {
 	 * @since    1.0.0
 	 * @access   public
 	 *
-	 * @param string $classes
+	 * @param array $classes array of classes.
 	 * @return string
 	 */
 	function add_admin_body_class( $classes ) {
 		// Wrong: No space in the beginning/end.
-		$classes .= ' gutentor-active ';
-        $disable_full_with_editor = gutentor_get_options( 'gutentor_disable_wide_width_editor' );
-		if ( current_theme_supports( 'align-wide' ) && !$disable_full_with_editor ) {
-			$classes  = gutentor_concat_space($classes,' gutentor-wide-width ');
+		$classes                 .= ' gutentor-active ';
+		$disable_full_with_editor = gutentor_get_options( 'wide-width-editor' );
+		if ( current_theme_supports( 'align-wide' ) && ! $disable_full_with_editor ) {
+			$classes = gutentor_concat_space( $classes, ' gutentor-wide-width ' );
 		}
 		return $classes;
 	}
@@ -1019,8 +895,11 @@ class Gutentor_Hooks {
 	 */
 	function gutentor_redirect_page_template( $template ) {
 		$post          = get_post();
-		$page_template = get_post_meta( $post->ID, '_wp_page_template', true );
-		$g_template    = false;
+		$page_template = '';
+		if ( $post->ID ) {
+			$page_template = get_post_meta( $post->ID, '_wp_page_template', true );
+		}
+		$g_template = false;
 		if ( 'template-gutentor-full-width.php' == basename( $page_template ) ) {
 			$g_template = true;
 			$template   = GUTENTOR_PATH . '/page-templates/template-gutentor-full-width.php';
@@ -1030,7 +909,6 @@ class Gutentor_Hooks {
 		}
 		if ( $g_template ) {
 			remove_action( 'template_include', array( 'WC_Template_Loader', 'template_loader' ) );
-
 		}
 		return $template;
 	}
@@ -1064,16 +942,8 @@ class Gutentor_Hooks {
 			return $defaults;
 		}
 
-		$defaults['gutentor_font_awesome_version'] = 4; /*default is fontawesome 5, we change here 4*/
+		$defaults['fa-version'] = 4; /*default is fontawesome 5, we change here 4*/
 		return $defaults;
-	}
-
-	/**
-	 * Force Load Gutentor Assets on All Pages
-	 * By default Gutentor Assets Only load on single page and post. By checking this box Gutentor Assets will load on all pages.
-	 */
-	function force_load_block_assets() {
-		return gutentor_get_options( 'gutentor_force_load_block_assets' );
 	}
 
 	/**

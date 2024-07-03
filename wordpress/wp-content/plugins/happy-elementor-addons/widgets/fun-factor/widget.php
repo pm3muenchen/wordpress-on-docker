@@ -9,13 +9,13 @@ namespace Happy_Addons\Elementor\Widget;
 
 use Elementor\Group_Control_Text_Shadow;
 use Elementor\Icons_Manager;
-use Elementor\Scheme_Typography;
 use Elementor\Utils;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Typography;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 
 defined('ABSPATH') || die();
 
@@ -49,7 +49,16 @@ class Fun_Factor extends Base {
 		return ['fun', 'factor', 'animation', 'info', 'box', 'number', 'animated'];
 	}
 
+	/**
+     * Register widget content controls
+     */
 	protected function register_content_controls() {
+		$this->__content_controls();
+		$this->__option_content_controls();
+	}
+
+	protected function __content_controls() {
+
 		$this->start_controls_section(
 			'_section_contents',
 			[
@@ -67,11 +76,11 @@ class Fun_Factor extends Base {
 				'options'        => [
 					'icon'  => [
 						'title' => __('Icon', 'happy-elementor-addons'),
-						'icon'  => 'fa fa-smile-o',
+						'icon'  => 'eicon-star',
 					],
 					'image' => [
 						'title' => __('Image', 'happy-elementor-addons'),
-						'icon'  => 'fa fa-image',
+						'icon'  => 'eicon-image',
 					],
 				],
 				'default'        => 'icon',
@@ -179,6 +188,30 @@ class Fun_Factor extends Base {
 		);
 
 		$this->add_control(
+			'fun_factor_number_prefix',
+			[
+				'label'     => __('Number Prefix', 'happy-elementor-addons'),
+				'type'      => Controls_Manager::TEXT,
+				'placeholder'   => '1',
+				'dynamic'   => [
+					'active' => true,
+				],
+			]
+		);
+
+		$this->add_control(
+			'fun_factor_number_suffix',
+			[
+				'label'     => __('Number Suffix', 'happy-elementor-addons'),
+				'type'      => Controls_Manager::TEXT,
+				'placeholder'   => '+',
+				'dynamic'   => [
+					'active' => true,
+				],
+			]
+		);
+
+		$this->add_control(
 			'fun_factor_title',
 			[
 				'label'   => __('Title', 'happy-elementor-addons'),
@@ -223,6 +256,9 @@ class Fun_Factor extends Base {
 		);
 
 		$this->end_controls_section();
+	}
+
+	protected function __option_content_controls() {
 
 		// options section in contents tab
 
@@ -264,17 +300,33 @@ class Fun_Factor extends Base {
 						'title' => __('Right', 'happy-elementor-addons'),
 						'icon'  => 'eicon-text-align-right',
 					],
-					'justify'  => [
-						'title' => __('Justify', 'happy-elementor-addons'),
-						'icon'  => 'eicon-text-align-justify',
-					],
+					// 'justify'  => [
+					// 	'title' => __('Justify', 'happy-elementor-addons'),
+					// 	'icon'  => 'eicon-text-align-justify',
+					// ],
 				],
-				'toggle'      => true,
+				'toggle'      => false,
+				// 'selectors_dictionary' => [
+                //     'left' => 'text-align: left; justify-content: flex-start;',
+                //     'center' => 'text-align: center; justify-content: center;',
+                //     'right' => 'text-align: right; justify-content: flex-end;',
+                // ],
+				'selectors_dictionary' => [
+                    'left' => '--ha-ff-align: left; --ha-ff-number-align: flex-start;',
+                    'center' => '--ha-ff-align: center; --ha-ff-number-align: center;',
+                    'right' => '--ha-ff-align: right; --ha-ff-number-align: flex-end;',
+                ],
 				'selectors'   => [
-					'{{WRAPPER}} .ha-fun-factor__wrap, {{WRAPPER}} .ha-fun-factor__media--image' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}}.ha-fun-factor ' => '{{VALUE}};',
+					'{{WRAPPER}} .ha-fun-factor__wrap, {{WRAPPER}} .ha-fun-factor__media--image, {{WRAPPER}} .ha-fun-factor__content, {{WRAPPER}} .ha-fun-factor__content' => 'text-align:var(--ha-ff-align);',
+					'{{WRAPPER}} .ha-fun-factor__content-number-wrap' => 'justify-content:var(--ha-ff-number-align);',
 				],
+				// 'selectors'   => [
+				// 	'{{WRAPPER}} .ha-fun-factor__wrap, {{WRAPPER}} .ha-fun-factor__media--image, {{WRAPPER}} .ha-fun-factor__content, {{WRAPPER}} .ha-fun-factor__content-number-wrap' => '{{VALUE}};',
+				// ],
 				'default'     => 'center',
-				'render_type' => 'template',
+				// 'render_type' => 'template',
+				// 'prefix_class' => 'ha-fun-factor-align-',
 			]
 		);
 
@@ -317,7 +369,17 @@ class Fun_Factor extends Base {
 		$this->end_controls_section();
 	}
 
+	/**
+     * Register widget style controls
+     */
 	protected function register_style_controls() {
+		$this->__icon_image_style_controls();
+		$this->__number_title_style_controls();
+		$this->__divider_style_controls();
+	}
+
+	protected function __icon_image_style_controls() {
+
 		$this->start_controls_section(
 			'_section_style_icon_image',
 			[
@@ -553,10 +615,9 @@ class Fun_Factor extends Base {
 		$this->end_popover();
 
 		$this->end_controls_section();
+	}
 
-		/*
-		 * Number section styling
-		 */
+	protected function __number_title_style_controls() {
 
 		$this->start_controls_section(
 			'_section_style_number_title',
@@ -592,7 +653,37 @@ class Fun_Factor extends Base {
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => ['px', '%', 'em'],
 				'selectors'  => [
-					'{{WRAPPER}} .ha-fun-factor__content-number' => 'margin-bottom: {{SIZE}}{{UNIT}};'
+					'{{WRAPPER}} .ha-fun-factor__content-number-wrap' => 'margin-bottom: {{SIZE}}{{UNIT}};'
+				]
+			]
+		);
+
+		$this->add_control(
+			'fun_factor_number_prefix_spacing',
+			[
+				'label'      => __('Prefix Spacing', 'happy-elementor-addons'),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => ['px', '%', 'em'],
+				'condition'  => [
+					'fun_factor_number_prefix!' => ''
+				],
+				'selectors'  => [
+					'{{WRAPPER}} .ha-fun-factor__content-number-prefix' => 'margin-right: {{SIZE}}{{UNIT}};'
+				]
+			]
+		);
+
+		$this->add_control(
+			'fun_factor_number_suffix_spacing',
+			[
+				'label'      => __('Suffix Spacing', 'happy-elementor-addons'),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => ['px', '%', 'em'],
+				'condition'  => [
+					'fun_factor_number_suffix!' => ''
+				],
+				'selectors'  => [
+					'{{WRAPPER}} .ha-fun-factor__content-number-suffix' => 'margin-left: {{SIZE}}{{UNIT}};'
 				]
 			]
 		);
@@ -603,7 +694,9 @@ class Fun_Factor extends Base {
 				'label'     => __('Color', 'happy-elementor-addons'),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
+					'{{WRAPPER}} .ha-fun-factor__content-number-prefix' => 'color: {{VALUE}} !important;',
 					'{{WRAPPER}} .ha-fun-factor__content-number' => 'color: {{VALUE}} !important;',
+					'{{WRAPPER}} .ha-fun-factor__content-number-suffix' => 'color: {{VALUE}} !important;',
 				],
 			]
 		);
@@ -613,8 +706,10 @@ class Fun_Factor extends Base {
 			[
 				'name'     => 'number_typography',
 				'label'    => __('Typography', 'happy-elementor-addons'),
-				'scheme'   => Scheme_Typography::TYPOGRAPHY_3,
-				'selector' => '{{WRAPPER}} .ha-fun-factor__content-number',
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_TEXT,
+				],
+				'selector' => '{{WRAPPER}} .ha-fun-factor__content-number-prefix, {{WRAPPER}} .ha-fun-factor__content-number, {{WRAPPER}} .ha-fun-factor__content-number-suffix',
 			]
 		);
 
@@ -623,7 +718,7 @@ class Fun_Factor extends Base {
 			[
 				'name'     => 'fun_factor_number_shadow',
 				'label'    => __('Text Shadow', 'happy-elementor-addons'),
-				'selector' => '{{WRAPPER}} .ha-fun-factor__content-number',
+				'selector' => '{{WRAPPER}} .ha-fun-factor__content-number-prefix, {{WRAPPER}} .ha-fun-factor__content-number, {{WRAPPER}} .ha-fun-factor__content-number-suffix',
 			]
 		);
 
@@ -668,7 +763,9 @@ class Fun_Factor extends Base {
 			[
 				'name'     => 'content_typography',
 				'label'    => __('Typography', 'happy-elementor-addons'),
-				'scheme'   => Scheme_Typography::TYPOGRAPHY_3,
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_TEXT,
+				],
 				'selector' => '{{WRAPPER}} .ha-fun-factor__content-text',
 			]
 		);
@@ -683,10 +780,10 @@ class Fun_Factor extends Base {
 		);
 
 		$this->end_controls_section();
+	}
 
-		/*
-		 * Divider style section
-		 */
+	protected function __divider_style_controls() {
+
 		$this->start_controls_section(
 			'_section_divider',
 			[
@@ -793,19 +890,27 @@ class Fun_Factor extends Base {
                 <div class="ha-fun-factor__media ha-fun-factor__media--icon">
                     <?php Icons_Manager::render_icon( $settings['icons'], ['aria-hidden' => 'true'] ); ?>
                 </div>
-            <?php elseif ( $settings['image']['url'] || $settings['image']['id'] ) : ?>
+            <?php elseif ( isset($settings['image']) && isset($settings['image']['url']) && isset($settings['image']['id']) ) : ?>
                 <div class="ha-fun-factor__media ha-fun-factor__media--image">
                     <?php echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'thumbnail', 'image' ); ?>
                 </div>
             <?php endif; ?>
 
             <div class="ha-fun-factor__content">
-                <p <?php $this->print_render_attribute_string( 'fun_factor_number' ); ?> ><?php echo esc_html( $number ); ?></p>
+				<div class="ha-fun-factor__content-number-wrap">
+					<?php if ( $settings['fun_factor_number_prefix'] ) : ?>
+						<span class="ha-fun-factor__content-number-prefix"><?php esc_html_e( $settings['fun_factor_number_prefix'] ); ?></span>
+					<?php endif; ?>
+	                <span <?php $this->print_render_attribute_string( 'fun_factor_number' ); ?> ><?php echo esc_html( $number ); ?></span>
+					<?php if ( $settings['fun_factor_number_suffix'] ) : ?>
+						<span class="ha-fun-factor__content-number-suffix"><?php esc_html_e( $settings['fun_factor_number_suffix'] ); ?></span>
+					<?php endif; ?>
+				</div>
                 <?php if ( 'yes' === $settings['divider_show_hide'] ) : ?>
                     <span class="ha-fun-factor__divider ha-fun-factor__divider-align-<?php echo esc_attr( $settings['text_align'] ); ?>"></span>
                 <?php endif; ?>
                 <?php printf( '<%1$s class="ha-fun-factor__content-text">%2$s</%1$s>',
-                    tag_escape( $settings['title_tag'] ),
+                    ha_escape_tags( $settings['title_tag'], 'h2' ),
                     ha_kses_basic( $fun_factor_title )
                 ); ?>
             </div>

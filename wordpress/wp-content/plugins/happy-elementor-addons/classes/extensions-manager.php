@@ -10,8 +10,12 @@ class Extensions_Manager {
 	 * Initialize
 	 */
 	public static function init() {
-		include_once HAPPY_ADDONS_DIR_PATH . 'extensions/column-extended.php';
+		// include_once HAPPY_ADDONS_DIR_PATH . 'extensions/column-extended.php';
 		include_once HAPPY_ADDONS_DIR_PATH . 'extensions/widgets-extended.php';
+
+		if ( is_user_logged_in() ) {
+			include_once HAPPY_ADDONS_DIR_PATH . 'classes/review.php';
+		}
 
 		if ( is_user_logged_in() && ha_is_adminbar_menu_enabled() ) {
 			include_once HAPPY_ADDONS_DIR_PATH . 'classes/admin-bar.php';
@@ -63,18 +67,33 @@ class Extensions_Manager {
 			'display-conditions' => [
 				'title' => __( 'Display Condition', 'happy-elementor-addons' ),
 				'icon' => 'hm hm-display-condition',
+				'demo' => 'https://happyaddons.com/display-condition/',
 				'is_pro' => true,
 			],
 			'image-masking' => [
 				'title' => __( 'Image Masking', 'happy-elementor-addons' ),
 				'icon' => 'hm hm-image-masking',
+				'demo' => 'https://happyaddons.com/image-masking-demo/',
 				'is_pro' => true,
 			],
 			'happy-particle-effects' => [
 				'title' => __( 'Happy Particle Effects', 'happy-elementor-addons' ),
 				'icon' => 'hm hm-spark',
+				'demo' => 'https://happyaddons.com/happy-particle-effect/',
 				'is_pro' => true,
-			]
+			],
+			'happy-preset' => [
+				'title' => __( 'Preset', 'happy-elementor-addons' ),
+				'icon' => 'hm hm-color-card',
+				'demo' => 'https://happyaddons.com/presets-demo/',
+				'is_pro' => true,
+			],
+			'global-badge' => [
+				'title' => __( 'Global Badge', 'happy-elementor-addons' ),
+				'icon' => 'hm hm-global-badge',
+				'demo' => 'https://happyaddons.com/global-badge/',
+				'is_pro' => true,
+			],
 		];
 	}
 
@@ -124,15 +143,39 @@ class Extensions_Manager {
 			'equal-height' => [
 				'title' => __( 'Equal Height Column', 'happy-elementor-addons' ),
 				'icon' => 'hm hm-grid-layout',
-				'demo' => '#',
+				'demo' => 'https://happyaddons.com/equal-height-feature/',
 				'is_pro' => false,
 			],
 			'shape-divider' => [
 				'title' => __( 'Shape Divider', 'happy-elementor-addons' ),
-				'icon' => 'hm hm-minus-large',
-				'demo' => '#',
+				'icon' => 'hm hm-map',
+				'demo' => 'https://happyaddons.com/happy-shape-divider/',
 				'is_pro' => false,
-			]
+			],
+			'column-extended' => [
+				'title' => __( 'Column Order & Extension', 'happy-elementor-addons' ),
+				'icon' => 'hm hm-flip-card2',
+				'demo' => 'https://happyaddons.com/happy-column-control/',
+				'is_pro' => false,
+			],
+			'advanced-tooltip' => [
+				'title' => __( 'Happy Tooltip', 'happy-elementor-addons' ),
+				'icon' => 'hm hm-comment-square',
+				'demo' => 'https://happyaddons.com/happy-tooltip/',
+				'is_pro' => false,
+			],
+			'text-stroke' => [
+				'title' => __( 'Text Stroke', 'happy-elementor-addons' ),
+				'icon' => 'hm hm-text-outline',
+				'demo' => 'https://happyaddons.com/text-stroke/',
+				'is_pro' => false,
+			],
+			'scroll-to-top' => [
+				'title' => __( 'Scroll To Top', 'happy-elementor-addons' ),
+				'icon' => 'hm hm-scroll-top',
+				// 'demo' => 'https://happyaddons.com/text-stroke/',
+				'is_pro' => false,
+			],
 		];
 	}
 
@@ -157,6 +200,14 @@ class Extensions_Manager {
 			case 'happy-particle-effects':
 				add_filter( 'happyaddons/extensions/happy_particle_effects', '__return_false' );
 				break;
+
+			case 'global-badge':
+				add_filter( 'happyaddons/extensions/happy_global_badge', '__return_false' );
+				break;
+
+			// case 'happy-preset':
+			// 	add_filter( 'happyaddons/extensions/happy_preset', '__return_false' );
+			// 	break;
 		}
 	}
 }

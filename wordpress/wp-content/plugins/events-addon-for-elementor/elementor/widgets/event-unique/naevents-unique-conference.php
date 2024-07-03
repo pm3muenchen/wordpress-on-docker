@@ -44,7 +44,7 @@ class Event_Elementor_Addon_Unique_Conference extends Widget_Base{
 	 * Register Events Addon for Elementor Unique Conference widget controls.
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	*/
-	protected function _register_controls(){
+	protected function register_controls(){
 
 		$this->start_controls_section(
 			'event_option',
@@ -166,6 +166,16 @@ class Event_Elementor_Addon_Unique_Conference extends Widget_Base{
 				'label_block' => true,
 				'default' => esc_html__( 'dHMS', 'events-addon-for-elementor' ),
 				'description' => __( '<b>For Conference Format Reference : <a href="http://keith-wood.name/countdown.html" target="_blank">Click Here</a></b>.', 'events-addon-for-elementor' ),
+			]
+		);
+		$this->add_control(
+			'timezone',
+			[
+				'label' => esc_html__( 'Timezone', 'events-addon-for-elementor' ),
+				'type' => Controls_Manager::TEXT,
+				'label_block' => true,
+				'placeholder' => esc_html__( '+6', 'events-addon-for-elementor' ),
+				'description' => __( 'Leave empty if you want to track user timezone automatically. Reference : <a href="http://keith-wood.name/countdown.html#zones" target="_blank">Click Here</a>', 'events-addon-for-elementor' )
 			]
 		);
 		$this->add_control(
@@ -399,7 +409,6 @@ class Event_Elementor_Addon_Unique_Conference extends Widget_Base{
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'subtitle_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_2,
 				'selector' => '{{WRAPPER}} .naeep-conference-item h5',
 			]
 		);
@@ -408,10 +417,6 @@ class Event_Elementor_Addon_Unique_Conference extends Widget_Base{
 			[
 				'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_2,
-				],
 				'selectors' => [
 					'{{WRAPPER}} .naeep-conference-item h5' => 'color: {{VALUE}};',
 				],
@@ -442,7 +447,6 @@ class Event_Elementor_Addon_Unique_Conference extends Widget_Base{
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'name_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .naeep-conference-item h3',
 			]
 		);
@@ -458,10 +462,6 @@ class Event_Elementor_Addon_Unique_Conference extends Widget_Base{
 				[
 					'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_1,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .naeep-conference-item h3, {{WRAPPER}} .naeep-conference-item h3 a' => 'color: {{VALUE}};',
 					],
@@ -480,10 +480,6 @@ class Event_Elementor_Addon_Unique_Conference extends Widget_Base{
 				[
 					'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_2,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .naeep-conference-item h3 a:hover' => 'color: {{VALUE}};',
 					],
@@ -516,7 +512,6 @@ class Event_Elementor_Addon_Unique_Conference extends Widget_Base{
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'content_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_3,
 				'selector' => '{{WRAPPER}} .naeep-conference-item p',
 			]
 		);
@@ -525,10 +520,6 @@ class Event_Elementor_Addon_Unique_Conference extends Widget_Base{
 			[
 				'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_3,
-				],
 				'selectors' => [
 					'{{WRAPPER}} .naeep-conference-item p' => 'color: {{VALUE}};',
 				],
@@ -548,7 +539,6 @@ class Event_Elementor_Addon_Unique_Conference extends Widget_Base{
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'value_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .naeep-countdown-wrap .countdown_section .countdown_amount',
 			]
 		);
@@ -557,10 +547,6 @@ class Event_Elementor_Addon_Unique_Conference extends Widget_Base{
 			[
 				'label' => esc_html__( 'Value Color', 'events-addon-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
-				],
 				'selectors' => [
 					'{{WRAPPER}} .naeep-countdown-wrap .countdown_section .countdown_amount' => 'color: {{VALUE}};',
 				],
@@ -617,7 +603,6 @@ class Event_Elementor_Addon_Unique_Conference extends Widget_Base{
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'value_sep_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .countdown_section:after',
 			]
 		);
@@ -626,10 +611,6 @@ class Event_Elementor_Addon_Unique_Conference extends Widget_Base{
 			[
 				'label' => esc_html__( 'Separator Color', 'events-addon-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
-				],
 				'selectors' => [
 					'{{WRAPPER}} .countdown_section:after' => 'color: {{VALUE}};',
 				],
@@ -649,7 +630,6 @@ class Event_Elementor_Addon_Unique_Conference extends Widget_Base{
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'title_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_2,
 				'selector' => '{{WRAPPER}} .naeep-countdown-wrap .countdown_section',
 			]
 		);
@@ -658,10 +638,6 @@ class Event_Elementor_Addon_Unique_Conference extends Widget_Base{
 			[
 				'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_2,
-				],
 				'selectors' => [
 					'{{WRAPPER}} .naeep-countdown-wrap .countdown_section' => 'color: {{VALUE}};',
 				],
@@ -692,7 +668,6 @@ class Event_Elementor_Addon_Unique_Conference extends Widget_Base{
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'metas_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_3,
 				'selector' => '{{WRAPPER}} .naeep-conference-item ul li',
 			]
 		);
@@ -701,10 +676,6 @@ class Event_Elementor_Addon_Unique_Conference extends Widget_Base{
 			[
 				'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_3,
-				],
 				'selectors' => [
 					'{{WRAPPER}} .naeep-conference-item ul li' => 'color: {{VALUE}};',
 				],
@@ -747,6 +718,7 @@ class Event_Elementor_Addon_Unique_Conference extends Widget_Base{
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 		$conference_type = !empty( $settings['conference_type'] ) ? $settings['conference_type'] : '';
+		$timezone = !empty( $settings['timezone'] ) ? $settings['timezone'] : '';
 		$conference_title = !empty( $settings['conference_title'] ) ? $settings['conference_title'] : '';
 		$event_image = !empty( $settings['event_image']['id'] ) ? $settings['event_image']['id'] : '';
 		$event_title = !empty( $settings['event_title'] ) ? $settings['event_title'] : '';
@@ -829,7 +801,7 @@ class Event_Elementor_Addon_Unique_Conference extends Widget_Base{
 						$link = $title_link ? '<a href="'.esc_url($title_link).'" '.$title_link_attr.'>'.esc_html($event_title).'</a>' : esc_html($event_title);
 				  	$title = !empty( $event_title ) ? '<h3 class="event-title">'.$link.'</h3>' : '';
 						$content = $event_content ? '<p>'.esc_html($event_content).'</p>' : '';
-						$location = $event_location ? '<li><i class="fa fa-map-marker" aria-hidden="true"></i> '.esc_html($event_location).'</li>' : '';
+						$location = $event_location ? '<li><i class="fas fa-map-marker-alt" aria-hidden="true"></i> '.esc_html($event_location).'</li>' : '';
 						$organizer = $event_organizer ? '<li><i class="fa fa-user" aria-hidden="true"></i> '.esc_html($event_organizer).'</li>' : '';
 					?>
 					<div class="col-na-6<?php echo esc_attr( $s_class ); ?>"><?php echo $image; ?></div>
@@ -839,7 +811,7 @@ class Event_Elementor_Addon_Unique_Conference extends Widget_Base{
 					    <div class="naeep-conference-info"><?php echo $content; ?></div>
 					    <?php if ($count_date_actual) { ?>
 							<div class="naeep-countdown-wrap need-separator">
-			          <div class="naeep-countdown <?php echo esc_attr( $count_type ); ?>" data-date="<?php echo esc_attr($count_date_actual); ?>" data-years="<?php echo esc_attr($label_years); ?>" data-months="<?php echo esc_attr($label_months); ?>" data-weeks="<?php echo esc_attr($label_weeks); ?>" data-days="<?php echo esc_attr($label_days); ?>" data-hours="<?php echo esc_attr($label_hours); ?>" data-minutes="<?php echo esc_attr($label_minutes); ?>" data-seconds="<?php echo esc_attr($label_seconds); ?>" data-year="<?php echo esc_attr($label_year); ?>" data-month="<?php echo esc_attr($label_month); ?>" data-week="<?php echo esc_attr($label_week); ?>" data-day="<?php echo esc_attr($label_day); ?>" data-hour="<?php echo esc_attr($label_hour); ?>" data-minute="<?php echo esc_attr($label_minute); ?>" data-second="<?php echo esc_attr($label_second); ?>" data-format="<?php echo esc_attr($countdown_format); ?>"><div class="clearfix"></div>
+			          <div class="naeep-countdown <?php echo esc_attr( $count_type ); ?>" data-date="<?php echo esc_attr($count_date_actual); ?>" data-years="<?php echo esc_attr($label_years); ?>" data-months="<?php echo esc_attr($label_months); ?>" data-weeks="<?php echo esc_attr($label_weeks); ?>" data-days="<?php echo esc_attr($label_days); ?>" data-hours="<?php echo esc_attr($label_hours); ?>" data-minutes="<?php echo esc_attr($label_minutes); ?>" data-seconds="<?php echo esc_attr($label_seconds); ?>" data-year="<?php echo esc_attr($label_year); ?>" data-month="<?php echo esc_attr($label_month); ?>" data-week="<?php echo esc_attr($label_week); ?>" data-day="<?php echo esc_attr($label_day); ?>" data-hour="<?php echo esc_attr($label_hour); ?>" data-minute="<?php echo esc_attr($label_minute); ?>" data-second="<?php echo esc_attr($label_second); ?>" data-format="<?php echo esc_attr($countdown_format); ?>" data-timezone="<?php echo esc_attr($timezone); ?>"><div class="clearfix"></div>
 			          </div>
 			        </div>
 					    <?php } ?>

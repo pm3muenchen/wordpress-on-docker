@@ -34,9 +34,11 @@ const UploadTemplateKitButton = () => {
           }}
         />
       </ButtonElement>
-      {chosenFile ? (
-        <DoTheFileUpload chosenFile={chosenFile} />
-      ) : null}
+      {chosenFile
+        ? (
+          <DoTheFileUpload chosenFile={chosenFile} />
+          )
+        : null}
     </>
   )
 }

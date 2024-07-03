@@ -105,6 +105,7 @@ class GlobalSettings extends Settings
 		else
 			$filter_args = array_merge(array($filter), $args);
 		
+		/* Developer Hook (Filter) - Call global class overrie, which can be used to replace the PHP class, similarly to inheritence. We recommend using Factory for most classes */
 		$override = call_user_func_array('apply_filters', $filter_args);
 		
 		if($override)
@@ -118,12 +119,14 @@ class GlobalSettings extends Settings
 	
 	public function getDefaults()
 	{
+		/* Developer Hook (Filter) - Add or alter default plugin installation settings */
 		$settings = apply_filters('wpgmza_plugin_get_default_settings', array(
 			'engine' 				=> 'google-maps',
+			'internal_engine'		=> InternalEngine::getRandomEngine(),
 			'google_maps_api_key'	=> get_option('wpgmza_google_maps_api_key'),
 			'default_marker_icon'	=> Marker::DEFAULT_ICON,
 			'developer_mode'		=> false,
-			'user_interface_style'	=> "default"
+			'user_interface_style'	=> "default",
 		));
 		
 		return $settings;
@@ -150,11 +153,50 @@ class GlobalSettings extends Settings
 		$file = str_replace('{uploads_dir}', $upload_dir, $file);
 		$file = trim($file);
 		
-		if (empty($file))
-			$file = $upload_dir."/wp-google-maps/";
+
+		/* Moving away from realpath implementation, it's unreliable in some environments and thats a deal breaker for us */
+		$file = str_replace(array('/', '\\'), DIRECTORY_SEPARATOR, $file);
 		
-		if (substr($file, -1) != "/") { $file = $file."/"; }
+		$pathParts = explode(DIRECTORY_SEPARATOR, $file);
+		$invalidParts = array('.', '..', '~');
+		foreach($pathParts as $key => $part){
+			$part = trim($part);
+			if(in_array($part, $invalidParts)){
+				unset($pathParts[$key]);
+			}
+		}
+
+		/* Rejoin the path, but we will have dropped traversal method */
+		if(!empty($pathParts)){
+			$file = implode(DIRECTORY_SEPARATOR, $pathParts);
+		} else {
+			$file = false;
+		}
 		
+		/* Now confirm that path contains either: content, uploads, or plugin directory for storage */
+		if(!empty($file)){
+			$validRoots = array($content_dir, $upload_dir, $plugin_dir);
+			$vRoot = false;
+			foreach($validRoots as $root){
+				$root = str_replace(array('/', '\\'), DIRECTORY_SEPARATOR, $root);
+				$sample = substr($file, 0, strlen($root));
+
+				if($root === $sample){
+					$vRoot = true;
+				}
+			}
+			
+			if(empty($vRoot)){
+				$file = false;
+			}
+		}
+		
+		if (empty($file)) {
+			$file = str_replace(array('/', '\\'), DIRECTORY_SEPARATOR, $upload_dir) . DIRECTORY_SEPARATOR . "wp-google-maps" . DIRECTORY_SEPARATOR;
+		}
+
+		if (substr($file, -1) != DIRECTORY_SEPARATOR) { $file = $file . DIRECTORY_SEPARATOR; }
+
 		return $file;
 	}
 	
@@ -235,6 +277,40 @@ class GlobalSettings extends Settings
 		
 		if(isset($data->ugmEmailAddress))
 			unset($data->ugmEmailAddress);
+
+		if(isset($data->vgm_google_recaptcha_project)){
+			unset($data->vgm_google_recaptcha_project);
+		}
+
+		if(isset($data->vgm_google_recaptcha_apikey)){
+			unset($data->vgm_google_recaptcha_apikey);
+		}
+
+		if(isset($data->wpgmza_marker_xml_location)){
+			unset($data->wpgmza_marker_xml_location);
+		}
+
+		if(isset($data->markerXmlLocation)){
+			unset($data->markerXmlLocation);
+		}
+
+		/*
+		 * Obscure Google API keys 
+		 * 
+		 * Google has started sending out emails about exposed keys, this is specifically due to our plugin localizing 
+		 * the API keys in settings object, for use in autocomplete requests 
+		 * 
+		 * This is a false positive, but it does cause confusion with users. We will obscure it, so that, hopefully 
+		 * Google no longer flags that in source code. Keys should still be restricted, this is purely a visual thing for source calls 
+		 * 
+		 * As of 9.0.18 (23-03-13) 
+		 */
+		$apikeyIndexes = array('googleMapsApiKey', 'wpgmza_google_maps_api_key', 'google_maps_api_key');
+		foreach($apikeyIndexes as $key){
+			if(!empty($data->{$key})){
+				$data->{$key} = base64_encode($data->{$key});
+			}
+		}
 		
 		return $data;
 	}
@@ -249,6 +325,17 @@ class GlobalSettings extends Settings
 		
 		if(isset($data['ugmEmailAddress']))
 			unset($data['ugmEmailAddress']);
+
+		if(isset($data['vgm_google_recaptcha_project'])){
+			unset($data['vgm_google_recaptcha_project']);
+		}
+
+		if(isset($data['vgm_google_recaptcha_apikey'])){
+			unset($data['vgm_google_recaptcha_apikey']);
+		}
+
+
+		
 		
 		return $data;
 	}

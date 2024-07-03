@@ -40,10 +40,15 @@ class EditorsKit_Shortcodes {
 		if ( ! isset( $atts['display'] ) ) {
 			return $content;
 		}
-		$tag = 'div';
+
+		$tag          = 'div';
+		$allowed_tags = apply_filters( 'editorskit_allowed_shortcode_tags', array( 'div', 'span' ) );
 
 		if ( isset( $atts['tag'] ) ) {
-			$tag = $atts['tag'];
+			$requested_tag = sanitize_text_field( $atts['tag'] );
+			$is_allowed    = in_array( $requested_tag, $allowed_tags, true );
+
+			$tag = $is_allowed ? $atts['tag'] : 'div';
 		}
 
 		$content = '<' . $tag . ' class="editorskit-shortcode">';
@@ -85,53 +90,51 @@ class EditorsKit_Shortcodes {
 		}
 
 		$returned_content = '';
-		$reading_time     = get_post_meta( $post->ID, '_editorskit_reading_time', true );
 
-		if ( ! $reading_time && isset( $atts['fallback'] ) && 'true' === $atts['fallback'] ) {
-			$blocks = '';
-			if ( function_exists( 'has_blocks' ) && has_blocks( $post->post_content ) ) {
-				$blocks = parse_blocks( $post->post_content );
-			}
-			$text      = trim( wp_strip_all_tags( $post->post_content ) );
-			$text      = strip_shortcodes( $text );
-			$wordcount = str_word_count( $text );
+		$blocks = '';
 
-			$word_per_seconds = ( $wordcount / 275 ) * 60;
-			$media_blocks     = array( 'core/image', 'core/gallery', 'core/cover' );
+		if ( function_exists( 'has_blocks' ) && has_blocks( $post->post_content ) ) {
+			$blocks = parse_blocks( $post->post_content );
+		}
+		$text      = trim( wp_strip_all_tags( $post->post_content ) );
+		$text      = strip_shortcodes( $text );
+		$wordcount = str_word_count( $text );
 
-			if ( ! empty( $blocks ) ) {
-				$i = 12;
-				foreach ( $blocks as $key => $block ) {
-					if ( in_array( $block['blockName'], $media_blocks ) ) { // phpcs:ignore
-						$word_per_seconds = $word_per_seconds + $i;
-						if ( $i > 3 ) {
-							$i--;
-						}
+		$word_per_seconds = ( $wordcount / 275 ) * 60;
+		$media_blocks     = array( 'core/image', 'core/gallery', 'core/cover' );
+
+		if ( ! empty( $blocks ) ) {
+			$i = 12;
+			foreach ( $blocks as $key => $block ) {
+				if ( in_array( $block['blockName'], $media_blocks ) ) { // phpcs:ignore
+					$word_per_seconds = $word_per_seconds + $i;
+					if ( $i > 3 ) {
+						$i--;
 					}
 				}
 			}
-
-			$word_per_minute = $word_per_seconds / 60;
-
-			if ( $word_per_minute < 1 ) {
-				$word_per_minute = 1;
-			}
-
-			$reading_time = round( $word_per_minute );
 		}
+
+		$word_per_minute = $word_per_seconds / 60;
+
+		if ( $word_per_minute < 1 ) {
+			$word_per_minute = 1;
+		}
+
+		$reading_time = round( $word_per_minute );
 
 		if ( ! $reading_time ) {
 			return false;
 		}
 
 		if ( isset( $atts['before'] ) ) {
-			$returned_content .= $atts['before'];
+			$returned_content .= esc_html( $atts['before'] );
 		}
 
 		$returned_content .= $reading_time;
 
 		if ( isset( $atts['after'] ) ) {
-			$returned_content .= $atts['after'];
+			$returned_content .= esc_html( $atts['after'] );
 		}
 
 		return $returned_content;

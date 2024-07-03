@@ -1,17 +1,16 @@
 === Gutenberg Block Editor Toolkit – EditorsKit ===
 Author URI: https://editorskit.com
 Plugin URI: https://editorskit.com
-Contributors: phpbits
+Contributors: munirkamal
 Tags: Gutenberg blocks, WordPress blocks, gutenberg, blocks, Gutenberg editor
 Requires at least: 5.0
-Tested up to: 5.5
+Tested up to: 6.5
 Requires PHP: 5.6
-Stable tag: 1.29
+Stable tag: 1.40.6
 License: GPL-3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FMKC2SLPTULP8
 
-EditorsKit provides set of page building tools to supercharge the new WordPress Gutenberg block editor.
+EditorsKit provides a set of page building tools to supercharge the WordPress Gutenberg block editor.
 
 == Description ==
 
@@ -21,6 +20,12 @@ You can now have better control, text formats, styling and workflow by simply ut
 
 = See for yourself =
 https://www.youtube.com/watch?v=QWgO4lAJAlE
+
+## New: Block Styles Manager
+
+https://www.youtube.com/watch?v=SGEhm4_sXT4
+
+You can now easily create and manage all of your block styles with the new styles manager.
 
 ## Rich Text Formats
 [EditorsKit](https://editorskit.com?utm_medium=wp.org&utm_source=wordpressorg&utm_campaign=readme&utm_content=editorskit) also adds the missing text formats for better content creation. The following rich text format are available upon plugin activation:
@@ -66,14 +71,19 @@ Powered by shortcode you can display the Estimated Reading Time on your content 
 
 * `before` : Text or element you want to display before reading time.
 * `after` : Text or element you want to display after reading time.
-* `tag` : default `div` : Html tag container 
+* `tag` : default `div` : Html tag container
 * `fallback` : set value to 'true' to display PHP based wordcount on old posts that are not edited or created through Gutenberg
 
 ## Block Guide Lines
 [EditorsKit](https://editorskit.com?utm_medium=wp.org&utm_source=wordpressorg&utm_campaign=readme&utm_content=editorskit) features other tool aside from visibility management. With the new Block Guide Lines, you can easily toggle visible guide lines on title and each editor blocks in order to check the element boundaries. This feature will also help your workflow on handling nested blocks.
 
 ## Copy and Paste Selected Blocks
-Easily copy single or multiple selected blocks then paste across the website or separate website using `CMD + V`, `CTRL + V` or paste right click option.
+
+**Note:** This feature is no longer available in the latest versions of EditorsKit because this has been added to Gutenberg.
+
+## Editorskit Typography
+
+**Note:** This feature is deprecated and no longer available in the latest version. If you want to continue using Editorskit typography, You can download and install the [editorskit deprecated typography addon](https://github.com/CakeWP/deprecated-editorskit-typography-addon/releases) manually from github.
 
 ## Image and Cover Block Styles
 Comes with selection of styles on Cover and Image Block for custom shapes and layouts such as diagonal, circular and rounder corners; and even add drop shadows.
@@ -94,9 +104,6 @@ Easily change text alignment per devices. This will help you provide different a
 
 ## Full Height Screen Option
 Easily display selected blocks as full screen layout by toggling "Full Screen Height" option under the advanced panel. You'll instantly have beautiful hero section by just using core blocks.
-
-## Enable or Disable Auto Save
-Easily toggle Auto Saving to fix several lagging issues or prevent your website from being blacklisted on your webhost provider.
 
 ## Toggle Title Visibility
 Easily hide post, page or any post type's title on your website in just a click. This will enable you to create full Gutenberg editor's driven posts and pages without getting "(No Title)" on your admin dashboard.
@@ -138,7 +145,7 @@ EditorsKit adds the missing keyboard shortcuts from Classic Editor. When activat
 * `CMD + SHIFT + .` : Select Parent Block
 
 ## Block Navigator
-Display "Block Navigator" on block that can contain multiple child blocks. Available on Columns Block and Group Block. 
+Display "Block Navigator" on block that can contain multiple child blocks. Available on Columns Block and Group Block.
 
 ## UI and User Experience Improvements
 Improve interface and provide better writing experience.
@@ -159,11 +166,11 @@ Add help, tips and tricks button on the bottom right side of the editor to help 
 Insert your downloads from [shareablock.com](https://shareablock.com/) easily using this block. Browse through your block patterns and templates then add them to your content in just a click.
 
 ## Helping you with the new Gutenberg Editor
-EditorsKit is created to help you navigate through the new editor. Each new features will make your page building more convenient and easier. You can help achieving this goal through the community: 
+EditorsKit is created to help you navigate through the new editor. Each new features will make your page building more convenient and easier. You can help achieving this goal through the community:
 
 * [Join Facebook Community](https://www.facebook.com/groups/1306393256173179/)
 * [Follow Us on Twitter](https://twitter.com/editorskit/)
-* [Contribute on Github](https://github.com/phpbits/block-options)
+* [Contribute on Github](https://github.com/CakeWP/block-options)
 
 == Installation ==
 
@@ -188,8 +195,169 @@ e.g.
 9. Drag and Drop Featured Image Upload
 10. Link rel attributes nofollow and sponsored option
 
-
 == Changelog ==
+
+= 1.40.6
+* Fix: Consecutive 3 paragraph space issue.
+
+= 1.40.5
+* Fix: Add allowed tags restriction in editorskit shortcode.
+
+= 1.40.4
+* Fix: Added a check for file type in styles importer to improve security.
+
+= 1.40.3
+* Fix: Styles manager conflicting with other post types.
+
+= 1.40.2 =
+* Improve: Added instruction video for styles manager.
+* Improve: Added redirection to the admin page in the editor.
+* Improve: Fix Bundling.
+* Fix: Conflicts with page templates.
+
+= 1.40.1 =
+* New: Styles Manager for blocks
+
+= 1.40.0 =
+* New: Gutenberghub Template Library
+* Fix: Bugs
+
+= 1.34.9 =
+* Fix: Query loop issue with the archive pages
+
+= 1.34.8 =
+* Fix: Issue with the site search
+
+= 1.34.7 =
+* Fix: Critical bug that prevents the page from updating.
+
+= 1.34.6 =
+* Fix: Show Support link on other plugins.
+* Fix: PHP Errors on older WP versions.
+
+= 1.34.5 =
+* Fix: Settings page breaking issue.
+
+= 1.34.4 =
+* Fix: Hide title extension conflict with themes.
+
+= 1.34.3 =
+* Fix: Highlighting jump issue.
+* Fix: Warnings in console.
+* Fix: Conflict with other plugins.
+* Fix: Hide title metadata not updating.
+* Fix: Bugs.
+
+= 1.34.2 =
+* Fix: Bugs and Warnings
+* Remove: Editorskit Deprecated typography addon warning. 
+
+= 1.34.1 =
+* Deprecate: Remove Extendify Templates Library
+
+= 1.34.0 =
+* Fix: Image block breaking issue when inserted.
+
+= 1.33.9 =
+* Fix: Trailing comma fatal error on earlier PHP versions.
+
+= 1.33.8 =
+* Deprecate: Editorskit Typography Addon.
+
+= 1.33.7 =
+* Fix: Dynamic blocks breaking in gutenberg editor.
+* Fix: Toolbar locking issues.
+
+= 1.33.6 =
+* New: Extended WordPress 6.0 block locking functionality to include options to disable block settings and toolbar. 
+
+= 1.33.5 =
+* Deprecate: Live Preview with Responsive Controls feature.
+
+= 1.33.4 =
+* Updated: Template library update
+
+= 1.33.3 =
+* Fix: Conflict with gutenberg plugin
+
+= 1.33.2 =
+* Fix: Bug in the last release
+
+= 1.33.1 =
+* Improve: Handling of Typography add-on and disabled typography addon by default
+
+= 1.33.0 =
+* New: You can now make settings sidebar work as a moveable modal.
+* Fixes: Character encoding issues
+
+= 1.32.2 =
+* New: Moveable block options feature
+* Fixes: Character encoding issues
+
+= 1.32.1 =
+* Fixes: Bug in the last release
+
+= 1.32.0 =
+* New: Added Live Preview with Responsive Toggles
+* Deprecate: Old Responsive Previewer
+* Updated: Template library SDK
+
+= 1.31.9 =
+* Fixes: Bugs.
+* Tweaks: Sidebar Options menu item
+* Tweaks: Template library utility CSS.
+* Deprecate: Copy Selected Block(s) extension as it has been added to the core.
+
+= 1.31.8 =
+* Fixes: Bugs
+* Tweaks: Template library improvements
+
+= 1.31.7 =
+* Fixes: Removes conflict with Gutenberg plugin causing errors on the settings page.
+* Fixes: Removes empty rel attribute.
+* Fixes: Updates alignment class.
+* Fixes: Adds fix where incorrect classes were being added to blocks.
+* Fixes: Fixes gapless setting for core columns block.
+* Tweaks: Updated template library
+
+= 1.31.6 =
+* Remove: Auto save toggle feature was removed due to a conflict with Gutenberg
+* Security: Fixes an issue where authenticated users with medium level privledges could add arbitrary PHP code.
+* Fixes: Updates deprecated WP filters
+* Fixes: Fixes a bug in the Gutenberg plugin.
+
+= 1.31.5 =
+* Fixes: Prevent editor error when using Page Break block 🐛
+
+= 1.31.4 =
+* Fixes: WordPress 5.8 compatibility fixes 🐛
+* Fixes: Solve potential security vulnerabilities 🔒
+
+= 1.31.3 =
+* Tweaks: Add option to easily enable or disable Typography features
+* Fixes: Fix custom post type compatibility issue with Rank Math plugin  🐛
+
+= 1.31.2 =
+* Fixes: Fix custom typography meta issue on custom post types  🐛
+* Fixes: Fix PHP debug log for versions 7.4.0 above  🐛
+* Fixes: Add missing shortcode display  🐛
+
+= 1.31.1 =
+* Fixes: Use the correct defined constant to prevent PHP log 🐛
+
+= 1.31 =
+* New: Add Typography and Google Fonts add-on 🎊
+* New: Toggle to enable/disable Extendify library 🎉
+* Tweaks: Updates to the pattern and template library
+* Fixes: Display Responsive Alignment feature properly
+* Fixes: Make sure Indention format adds proper spacing
+* Fixes: Fix "H4" display
+
+= 1.30 =
+* New: Add access to the Extendify pattern and template library
+
+= 1.29.4 =
+* Update readme
 
 = 1.29.3 =
 * Compatibility fixes for WordPress 5.5
@@ -298,7 +466,7 @@ e.g.
 * New: Create [keyboard shortcut to easily select parent block](https://github.com/phpbits/block-options/issues/151) 🎉
 * New : Add [nonbreaking space format](https://github.com/phpbits/block-options/pull/160) with `CTRL/CMD + SHIFT + SPACE` keyboard shortcut
 * New: Add "[About](https://github.com/phpbits/block-options/pull/154)" button to check the running Gutenberg block editor version
-* Tweaks: Move [Hide Title Toggle](https://github.com/phpbits/block-options/pull/158) on Status and Post Visibility Panel 
+* Tweaks: Move [Hide Title Toggle](https://github.com/phpbits/block-options/pull/158) on Status and Post Visibility Panel
 * Tweaks: Remove [unwanted block supports](https://github.com/phpbits/block-options/pull/149) on Import Block
 * Tweaks: Set [Highlights Color](https://github.com/phpbits/block-options/issues/137) to Default Theme Colors
 * Fixes: Fix [issue with old links](https://github.com/phpbits/block-options/pull/148) added before EditorsKit
@@ -421,7 +589,7 @@ e.g.
 * Fix issue with Classic Block Conversion to Blocks
 
 = 1.4.2 =
-* Fix button CSS issue on modal popup for older Gutenberg version 
+* Fix button CSS issue on modal popup for older Gutenberg version
 
 = 1.4.1 =
 * Block Guide Lines Compatibility for old version
@@ -471,4 +639,4 @@ e.g.
 
 == Contact and Credits ==
 
-EditorsKit is maintained and developed by <a href="https://jeffreycarandang.com/">Jeffrey Carandang</a>.
+EditorsKit is maintained and developed by <a href="https://twitter.com/m_munirkamal">Munir Kamal</a>.

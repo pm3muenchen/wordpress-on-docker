@@ -41,7 +41,7 @@ class Widget_Image_Gallery extends Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return __( 'Basic Gallery', 'elementor' );
+		return esc_html__( 'Basic Gallery', 'elementor' );
 	}
 
 	/**
@@ -72,6 +72,31 @@ class Widget_Image_Gallery extends Widget_Base {
 		return [ 'image', 'photo', 'visual', 'gallery' ];
 	}
 
+	protected function is_dynamic_content(): bool {
+		return false;
+	}
+
+	/**
+	 * Get widget upsale data.
+	 *
+	 * Retrieve the widget promotion data.
+	 *
+	 * @since 3.18.0
+	 * @access protected
+	 *
+	 * @return array Widget promotion data.
+	 */
+	protected function get_upsale_data() {
+		return [
+			'condition' => ! Utils::has_pro(),
+			'image' => esc_url( ELEMENTOR_ASSETS_URL . 'images/go-pro.svg' ),
+			'image_alt' => esc_attr__( 'Upgrade', 'elementor' ),
+			'description' => esc_html__( 'Use interesting masonry layouts and other overlay features with Elementor\'s Pro Gallery widget.', 'elementor' ),
+			'upgrade_url' => esc_url( 'https://go.elementor.com/go-pro-basic-gallery-widget/' ),
+			'upgrade_text' => esc_html__( 'Upgrade Now', 'elementor' ),
+		];
+	}
+
 	/**
 	 * Register image gallery widget controls.
 	 *
@@ -84,14 +109,14 @@ class Widget_Image_Gallery extends Widget_Base {
 		$this->start_controls_section(
 			'section_gallery',
 			[
-				'label' => __( 'Image Gallery', 'elementor' ),
+				'label' => esc_html__( 'Basic Gallery', 'elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'wp_gallery',
 			[
-				'label' => __( 'Add Images', 'elementor' ),
+				'label' => esc_html__( 'Add Images', 'elementor' ),
 				'type' => Controls_Manager::GALLERY,
 				'show_label' => false,
 				'dynamic' => [
@@ -105,7 +130,6 @@ class Widget_Image_Gallery extends Widget_Base {
 			[
 				'name' => 'thumbnail', // Usage: `{name}_size` and `{name}_custom_dimension`, in this case `thumbnail_size` and `thumbnail_custom_dimension`.
 				'exclude' => [ 'custom' ],
-				'separator' => 'none',
 			]
 		);
 
@@ -115,7 +139,7 @@ class Widget_Image_Gallery extends Widget_Base {
 		$this->add_control(
 			'gallery_columns',
 			[
-				'label' => __( 'Columns', 'elementor' ),
+				'label' => esc_html__( 'Columns', 'elementor' ),
 				'type' => Controls_Manager::SELECT,
 				'default' => 4,
 				'options' => $gallery_columns,
@@ -123,15 +147,31 @@ class Widget_Image_Gallery extends Widget_Base {
 		);
 
 		$this->add_control(
+			'gallery_display_caption',
+			[
+				'label' => esc_html__( 'Caption', 'elementor' ),
+				'type' => Controls_Manager::SELECT,
+				'default' => '',
+				'options' => [
+					'none' => esc_html__( 'None', 'elementor' ),
+					'' => esc_html__( 'Attachment Caption', 'elementor' ),
+				],
+				'selectors' => [
+					'{{WRAPPER}} .gallery-item .gallery-caption' => 'display: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_control(
 			'gallery_link',
 			[
-				'label' => __( 'Link', 'elementor' ),
+				'label' => esc_html__( 'Link', 'elementor' ),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'file',
 				'options' => [
-					'file' => __( 'Media File', 'elementor' ),
-					'attachment' => __( 'Attachment Page', 'elementor' ),
-					'none' => __( 'None', 'elementor' ),
+					'file' => esc_html__( 'Media File', 'elementor' ),
+					'attachment' => esc_html__( 'Attachment Page', 'elementor' ),
+					'none' => esc_html__( 'None', 'elementor' ),
 				],
 			]
 		);
@@ -139,13 +179,19 @@ class Widget_Image_Gallery extends Widget_Base {
 		$this->add_control(
 			'open_lightbox',
 			[
-				'label' => __( 'Lightbox', 'elementor' ),
+				'label' => esc_html__( 'Lightbox', 'elementor' ),
 				'type' => Controls_Manager::SELECT,
+				'description' => sprintf(
+					/* translators: 1: Link open tag, 2: Link close tag. */
+					esc_html__( 'Manage your site’s lightbox settings in the %1$sLightbox panel%2$s.', 'elementor' ),
+					'<a href="javascript: $e.run( \'panel/global/open\' ).then( () => $e.route( \'panel/global/settings-lightbox\' ) )">',
+					'</a>'
+				),
 				'default' => 'default',
 				'options' => [
-					'default' => __( 'Default', 'elementor' ),
-					'yes' => __( 'Yes', 'elementor' ),
-					'no' => __( 'No', 'elementor' ),
+					'default' => esc_html__( 'Default', 'elementor' ),
+					'yes' => esc_html__( 'Yes', 'elementor' ),
+					'no' => esc_html__( 'No', 'elementor' ),
 				],
 				'condition' => [
 					'gallery_link' => 'file',
@@ -156,22 +202,13 @@ class Widget_Image_Gallery extends Widget_Base {
 		$this->add_control(
 			'gallery_rand',
 			[
-				'label' => __( 'Order By', 'elementor' ),
+				'label' => esc_html__( 'Order By', 'elementor' ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'' => __( 'Default', 'elementor' ),
-					'rand' => __( 'Random', 'elementor' ),
+					'' => esc_html__( 'Default', 'elementor' ),
+					'rand' => esc_html__( 'Random', 'elementor' ),
 				],
 				'default' => '',
-			]
-		);
-
-		$this->add_control(
-			'view',
-			[
-				'label' => __( 'View', 'elementor' ),
-				'type' => Controls_Manager::HIDDEN,
-				'default' => 'traditional',
 			]
 		);
 
@@ -180,7 +217,7 @@ class Widget_Image_Gallery extends Widget_Base {
 		$this->start_controls_section(
 			'section_gallery_images',
 			[
-				'label' => __( 'Images', 'elementor' ),
+				'label' => esc_html__( 'Images', 'elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -188,11 +225,11 @@ class Widget_Image_Gallery extends Widget_Base {
 		$this->add_control(
 			'image_spacing',
 			[
-				'label' => __( 'Spacing', 'elementor' ),
+				'label' => esc_html__( 'Spacing', 'elementor' ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'' => __( 'Default', 'elementor' ),
-					'custom' => __( 'Custom', 'elementor' ),
+					'' => esc_html__( 'Default', 'elementor' ),
+					'custom' => esc_html__( 'Custom', 'elementor' ),
 				],
 				'prefix_class' => 'gallery-spacing-',
 				'default' => '',
@@ -205,12 +242,18 @@ class Widget_Image_Gallery extends Widget_Base {
 		$this->add_control(
 			'image_spacing_custom',
 			[
-				'label' => __( 'Image Spacing', 'elementor' ),
+				'label' => esc_html__( 'Custom Spacing', 'elementor' ),
 				'type' => Controls_Manager::SLIDER,
-				'show_label' => false,
+				'size_units' => [ 'px', 'em', 'rem', 'custom' ],
 				'range' => [
 					'px' => [
 						'max' => 100,
+					],
+					'em' => [
+						'max' => 10,
+					],
+					'rem' => [
+						'max' => 10,
 					],
 				],
 				'default' => [
@@ -235,12 +278,12 @@ class Widget_Image_Gallery extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'image_border_radius',
 			[
-				'label' => __( 'Border Radius', 'elementor' ),
+				'label' => esc_html__( 'Border Radius', 'elementor' ),
 				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%' ],
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors' => [
 					'{{WRAPPER}} .gallery-item img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -252,47 +295,34 @@ class Widget_Image_Gallery extends Widget_Base {
 		$this->start_controls_section(
 			'section_caption',
 			[
-				'label' => __( 'Caption', 'elementor' ),
+				'label' => esc_html__( 'Caption', 'elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
-			]
-		);
-
-		$this->add_control(
-			'gallery_display_caption',
-			[
-				'label' => __( 'Display', 'elementor' ),
-				'type' => Controls_Manager::SELECT,
-				'default' => '',
-				'options' => [
-					'' => __( 'Show', 'elementor' ),
-					'none' => __( 'Hide', 'elementor' ),
-				],
-				'selectors' => [
-					'{{WRAPPER}} .gallery-item .gallery-caption' => 'display: {{VALUE}};',
+				'condition' => [
+					'gallery_display_caption' => '',
 				],
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'align',
 			[
-				'label' => __( 'Alignment', 'elementor' ),
+				'label' => esc_html__( 'Alignment', 'elementor' ),
 				'type' => Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
-						'title' => __( 'Left', 'elementor' ),
+						'title' => esc_html__( 'Left', 'elementor' ),
 						'icon' => 'eicon-text-align-left',
 					],
 					'center' => [
-						'title' => __( 'Center', 'elementor' ),
+						'title' => esc_html__( 'Center', 'elementor' ),
 						'icon' => 'eicon-text-align-center',
 					],
 					'right' => [
-						'title' => __( 'Right', 'elementor' ),
+						'title' => esc_html__( 'Right', 'elementor' ),
 						'icon' => 'eicon-text-align-right',
 					],
 					'justify' => [
-						'title' => __( 'Justified', 'elementor' ),
+						'title' => esc_html__( 'Justified', 'elementor' ),
 						'icon' => 'eicon-text-align-justify',
 					],
 				],
@@ -309,7 +339,7 @@ class Widget_Image_Gallery extends Widget_Base {
 		$this->add_control(
 			'text_color',
 			[
-				'label' => __( 'Text Color', 'elementor' ),
+				'label' => esc_html__( 'Text Color', 'elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
@@ -329,6 +359,32 @@ class Widget_Image_Gallery extends Widget_Base {
 					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
 				],
 				'selector' => '{{WRAPPER}} .gallery-item .gallery-caption',
+				'condition' => [
+					'gallery_display_caption' => '',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Text_Shadow::get_type(),
+			[
+				'name' => 'caption_shadow',
+				'selector' => '{{WRAPPER}} .gallery-item .gallery-caption',
+				'condition' => [
+					'gallery_display_caption' => '',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'caption_space',
+			[
+				'label' => esc_html__( 'Spacing', 'elementor' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'selectors' => [
+					'{{WRAPPER}} .gallery-item .gallery-caption' => 'margin-block-start: {{SIZE}}{{UNIT}};',
+				],
 				'condition' => [
 					'gallery_display_caption' => '',
 				],

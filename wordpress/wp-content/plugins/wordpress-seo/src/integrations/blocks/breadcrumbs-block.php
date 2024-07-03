@@ -12,7 +12,7 @@ use Yoast\WP\SEO\Surfaces\Helpers_Surface;
 /**
  * Siblings block class
  */
-class Breadcrumbs_Block extends Dynamic_Block {
+class Breadcrumbs_Block extends Dynamic_Block_V3 {
 
 	/**
 	 * The name of the block.
@@ -84,12 +84,14 @@ class Breadcrumbs_Block extends Dynamic_Block {
 		$this->helpers              = $helpers;
 		$this->indexable_repository = $indexable_repository;
 		$this->request_helper       = $request_helper;
+
+		$this->base_path = \WPSEO_PATH . 'blocks/dynamic-blocks/';
 	}
 
 	/**
 	 * Presents the breadcrumbs output for the current page or the available post_id.
 	 *
-	 * @param array $attributes The block attributes.
+	 * @param array<string, bool|string|int|array> $attributes The block attributes.
 	 *
 	 * @return string The block output.
 	 */
@@ -101,7 +103,19 @@ class Breadcrumbs_Block extends Dynamic_Block {
 			$post_id = \get_the_ID();
 			if ( $post_id ) {
 				$indexable = $this->indexable_repository->find_by_id_and_type( $post_id, 'post' );
-				$context   = $this->context_memoizer->get( $indexable, 'Post_Type' );
+
+				if ( ! $indexable ) {
+					$post      = \get_post( $post_id );
+					$indexable = $this->indexable_repository->query()->create(
+						[
+							'object_id'        => $post_id,
+							'object_type'      => 'post',
+							'object_sub_type'  => $post->post_type,
+						]
+					);
+				}
+
+				$context = $this->context_memoizer->get( $indexable, 'Post_Type' );
 			}
 		}
 		if ( ! isset( $context ) ) {

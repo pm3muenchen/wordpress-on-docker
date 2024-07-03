@@ -4,15 +4,15 @@ Plugin Name: Maps Widget for Google Maps
 Plugin URI: https://www.gmapswidget.com/
 Description: Display a single image super-fast loading Google Map in a widget. A larger, full featured map is available in a lightbox. Includes a user-friendly interface and numerous appearance options.
 Author: WebFactory Ltd
-Version: 4.21
+Version: 4.25
 Author URI: https://www.gmapswidget.com/
 Text Domain: google-maps-widget
 Domain Path: lang
 Requires at least: 4.0
 Requires PHP: 5.2
-Tested up to: 5.7
+Tested up to: 6.5
 
-  Copyright 2012 - 2021  WebFactory Ltd  (email : gmw@webfactoryltd.com)
+  Copyright 2012 - 2024  WebFactory Ltd  (email : gmw@webfactoryltd.com)
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License, version 2, as
@@ -439,7 +439,7 @@ class GMW {
        $out .= "</div>\n";
      } // foreach $widgets
 
-     echo $out;
+     self::wp_kses_wf($out);
   } // dialogs_markup
 
 
@@ -452,6 +452,8 @@ class GMW {
 
   // handle dismiss button for notices
   static function dismiss_notice() {
+    check_ajax_referer('gmw_dismiss_notice');
+
     if (empty($_GET['notice'])) {
       wp_safe_redirect(admin_url());
       exit;
@@ -486,6 +488,12 @@ class GMW {
   static function add_notices() {
     $options = GMW::get_options();
     $notice = false;
+    global $wp_version;
+    
+    if (false == is_plugin_active('classic-widgets/classic-widgets.php') && version_compare($wp_version, '5.8', '>=') == true) {
+      $notice = true;
+      add_action('admin_notices', array('GMW', 'notice_classic_widgets'));
+    }
 
     // upgrade notice is shown after install
     if (!$notice && empty($options['dismiss_notice_upgrade2']) &&
@@ -518,13 +526,22 @@ class GMW {
   } // add_notices
 
 
+  // display error notice if classic widgets are not available
+  static function notice_classic_widgets() {
+    echo '<div class="error notice" style="max-width: 700px;"><p><b>🔥 IMPORTANT 🔥</b><br><br>Google Maps Widget is NOT compatible with the new widgets edit screen (powered by Gutenberg).
+    <br>Install the official <a href="' . admin_url('plugin-install.php?s=classic%20widgets&tab=search&type=term') . '">Classic Widgets</a> plugin if you want to continue using Google Maps Widget.<br>
+    Or install the <a href="' . admin_url('plugin-install.php?s=map%20block&tab=search&type=tag') . '">free Map Block plugin</a> as the fastest way to add a great map to any post or sidebar.</p></div>';
+  } // notice_classic_widgets
+
+
   // display message to get pro features for GMW
   static function notice_upgrade() {
     $promo_delta = HOUR_IN_SECONDS - 2;
     $options = GMW::get_options();
     $activate_url = admin_url('options-general.php?page=gmw_options&gmw_open_promo_dialog');
     $dismiss_url = add_query_arg(array('action' => 'gmw_dismiss_notice', 'notice' => 'upgrade', 'redirect' => urlencode($_SERVER['REQUEST_URI'])), admin_url('admin.php'));
-
+    $dismiss_url = wp_nonce_url($dismiss_url, 'gmw_dismiss_notice');
+    
     echo '<div id="gmw_activate_notice" class="updated notice"><p>' . __('<b>Maps Widget for Google Maps <span style="color: #d54e21;">PRO</span></b> has more than 50 extra features &amp; options. Our support is super fast &amp; friendly and with the unlimited license you can install GMW on as many sites as you need.</p>', 'google-maps-widget');
 
     if (current_time('timestamp') - $options['first_install'] < $promo_delta) {
@@ -536,7 +553,7 @@ class GMW {
         $h = '';
       }
       $min = $delta / 60 % 60;
-      echo '<p>We\'ve prepared a special <b>20% welcoming discount</b> available only for another <b class="gmw-countdown" data-endtime="' . ($options['first_install_gmt'] + $promo_delta) . '" style="font-weight: bold;">' . $h . ' ' . $min . 'min</b>.</p>';
+      echo '<p>We\'ve prepared a special <b>20% welcoming discount</b> available only for another <b class="gmw-countdown" data-endtime="' . esc_attr(($options['first_install_gmt'] + $promo_delta)) . '" style="font-weight: bold;">' . esc_attr($h) . ' ' . esc_attr($min) . 'min</b>.</p>';
       echo '<p><a href="' . esc_url($activate_url) . '" style="vertical-align: baseline; margin-top: 15px;" class="button-primary"><b>Get a lifetime PRO license now for only $39 - LIMITED OFFER!</b></a>';
     } else {
       echo '<p><a href="' . esc_url($activate_url) . '" style="vertical-align: baseline; margin-top: 15px;" class="button-primary">' . __('See what PRO has to offer', 'google-maps-widget') . '</a>';
@@ -552,11 +569,12 @@ class GMW {
     $options = GMW::get_options();
     $activate_url = admin_url('options-general.php?page=gmw_options&gmw_open_promo_dialog');
     $dismiss_url = add_query_arg(array('action' => 'gmw_dismiss_notice', 'notice' => 'olduser', 'redirect' => urlencode($_SERVER['REQUEST_URI'])), admin_url('admin.php'));
+    $dismiss_url = wp_nonce_url($dismiss_url, 'gmw_dismiss_notice');
 
     echo '<div class="updated notice">';
-    echo '<p style="font-size: 14px;">We have a <a class="open_promo_dialog" href="' . $activate_url . '">special offer</a> only for users like <b>you</b> who\'ve been using Maps Widget for Google Maps for a while: a <b>one time payment</b>, lifetime license for <b>only $39</b>! No nonsense!<br><a class="open_promo_dialog" href="' . $activate_url . '">Upgrade now</a> to <span class="gmw-pro-red">PRO</span> &amp; get more than 50 extra options &amp; features.</p><br>';
+    echo '<p style="font-size: 14px;">We have a <a class="open_promo_dialog" href="' . esc_url($activate_url) . '">special offer</a> only for users like <b>you</b> who\'ve been using Maps Widget for Google Maps for a while: a <b>one time payment</b>, lifetime license for <b>only $39</b>! No nonsense!<br><a class="open_promo_dialog" href="' . esc_url($activate_url) . '">Upgrade now</a> to <span class="gmw-pro-red">PRO</span> &amp; get more than 50 extra options &amp; features.</p><br>';
 
-    echo '<a class="open_promo_dialog button button-primary" href="' . $activate_url . '"><b>Grab the limited offer!</b></a>&nbsp;&nbsp;<a href="' . esc_url($dismiss_url) . '" style="margin: 3px 0 0 5px; display: inline-block;">' . __('I\'m not interested (remove notice)', 'google-maps-widget') . '</a>';
+    echo '<a class="open_promo_dialog button button-primary" href="' . esc_url($activate_url) . '"><b>Grab the limited offer!</b></a>&nbsp;&nbsp;<a href="' . esc_url($dismiss_url) . '" style="margin: 3px 0 0 5px; display: inline-block;">' . __('I\'m not interested (remove notice)', 'google-maps-widget') . '</a>';
     echo '</p></div>';
   } // notice_olduser
 
@@ -565,6 +583,7 @@ class GMW {
   static function notice_rate_plugin() {
     $rate_url = 'https://wordpress.org/support/view/plugin-reviews/google-maps-widget?rate=5#postform';
     $dismiss_url = add_query_arg(array('action' => 'gmw_dismiss_notice', 'notice' => 'rate', 'redirect' => urlencode($_SERVER['REQUEST_URI'])), admin_url('admin.php'));
+    $dismiss_url = wp_nonce_url($dismiss_url, 'gmw_dismiss_notice');
 
     echo '<div id="gmw_rate_notice" class="updated notice"><p>' . __('Hi! We saw you\'ve been using <b>Maps Widget for Google Maps</b> for a week and wanted to ask for your help to make the plugin better.<br>We just need a minute of your time to rate the plugin. Thank you!', 'google-maps-widget');
 
@@ -947,7 +966,7 @@ class GMW {
       $out .= '</div>'; // dialog
     } // address picker and pins dialog if activated
 
-    echo $out;
+    self::wp_kses_wf($out);
   } // admin_dialogs_markup
 
 
@@ -960,7 +979,7 @@ class GMW {
     $options = GMW::get_options();
 
     echo '<div class="wrap gmw-options">';
-    echo '<h1><img alt="' . __('Maps Widget for Google Maps', 'google-maps-widget') . '" title="' . __('Maps Widget for Google Maps', 'google-maps-widget') . '" height="55" src="' . GMW_PLUGIN_URL . 'images/gmw-logo.png"> Maps Widget for Google Maps</h1>';
+    echo '<h1><img alt="' . __('Maps Widget for Google Maps', 'google-maps-widget') . '" title="' . __('Maps Widget for Google Maps', 'google-maps-widget') . '" height="55" src="' . esc_url(GMW_PLUGIN_URL) . 'images/gmw-logo.png"> Maps Widget for Google Maps</h1>';
 
     echo '<form method="post" action="options.php">';
     settings_fields(GMW::$options);
@@ -980,13 +999,13 @@ class GMW {
     echo '<table class="form-table disabled">';
     echo '<tr>
           <th scope="row"><label for="widget_id">' . __('Maps Widget for Google Maps', 'google-maps-widget') . '</label></th>
-          <td><select disabled="disabled" name="' . GMW::$options . '[widget_id]" id="widget_id">';
+          <td><select disabled="disabled" name="' . esc_attr(GMW::$options) . '[widget_id]" id="widget_id">';
     echo '<option value="">- select the widget to import pins to -</option>';
     echo '</select><br><span class="description">Choose a widget you want to import pins to. Any existing pins will be overwritten with the new pins. Other widget options will not be altered in any way.</span></td></tr>';
 
     echo '<tr>
           <th scope="row"><label for="pins_txt">' . __('Pins, copy/paste', 'google-maps-widget') . '</label></th>';
-    echo '<td><textarea disabled="disabled" style="width: 500px;" rows="3" name="' . GMW::$options . '[pins_txt]" id="pins_txt">';
+    echo '<td><textarea disabled="disabled" style="width: 500px;" rows="3" name="' . esc_attr(GMW::$options) . '[pins_txt]" id="pins_txt">';
     echo '</textarea><br><span class="description">Data has to be formatted in a CSV fashion. One pin per line, individual fields double quoted and separated by a comma. All fields have to be included.<br>
     Please refer to the <a href="https://www.gmapswidget.com/documentation/importing-pins/" target="_blank">detailed documentation article</a> or grab the <a href="https://www.gmapswidget.com/wp-content/uploads/2018/02/sample-pins-import.csv" target="_blank">sample import file and modify it.</span></td></tr>';
 
@@ -1006,13 +1025,13 @@ class GMW {
     echo '<table class="form-table">';
     echo '<tr>
           <th scope="row"><label for="api_key">' . __('Google Maps API Key', 'google-maps-widget') . '</label></th>
-          <td><input name="' . GMW::$options . '[api_key]" type="text" id="api_key" value="' . esc_attr($options['api_key']) . '" class="regular-text" placeholder="Google Maps API key" oninput="setCustomValidity(\'\')" oninvalid="this.setCustomValidity(\'Please use Google Developers Console to generate an API key and enter it here. It is completely free.\')">
+          <td><input name="' . esc_attr(GMW::$options) . '[api_key]" type="text" id="api_key" value="' . esc_attr($options['api_key']) . '" class="regular-text" placeholder="Google Maps API key" oninput="setCustomValidity(\'\')" oninvalid="this.setCustomValidity(\'Please use Google Developers Console to generate an API key and enter it here. It is completely free.\')">
           <p class="description">New Google Maps usage policy dictates that everyone using the maps should register for a free API key.<br>
           Detailed instruction on how to generate a key in under a minute are available in the <a href="http://www.gmapswidget.com/documentation/generate-google-maps-api-key/" target="_blank">documentation</a>.<br>If you already have a key make sure the following APIs are enabled: Google Maps JavaScript API, Google Static Maps API, Google Maps Embed API &amp; Google Maps Geocoding API.</p></td>
 
           </tr>';
     echo '</table>';
-    echo get_submit_button(__('Save Settings', 'google-maps-widget'));
+    self::wp_kses_wf(get_submit_button(__('Save Settings', 'google-maps-widget')));
 
     if (!GMW::is_activated()) {
       echo '<p>Not sure if you should upgrade to <span class="gmw-pro-red">PRO</span>? It offers more than 50 extra features like shortcodes, Google Analytics tracking, multiple pins support &amp; much more; <a href="#" class="open_promo_dialog button" data-target-screen="gmw_dialog_pro_features">compare features now</a>.</p>';
@@ -1022,36 +1041,36 @@ class GMW {
     echo '<table class="form-table disabled">';
     echo '<tr>
           <th scope="row"><label for="sc_map">' . __('Map Shortcode', 'google-maps-widget') . '</label></th>
-          <td><input class="regular-text" name="' . GMW::$options . '[sc_map]" type="text" id="sc_map" value="' . esc_attr($options['sc_map']) . '" disabled="disabled" placeholder="Map shortcode" required="required" oninvalid="this.setCustomValidity(\'Please enter the shortcode you want to use for Maps Widget for Google Maps maps.\')" oninput="setCustomValidity(\'\')">
+          <td><input class="regular-text" name="' . esc_attr(GMW::$options) . '[sc_map]" type="text" id="sc_map" value="' . esc_attr($options['sc_map']) . '" disabled="disabled" placeholder="Map shortcode" required="required" oninvalid="this.setCustomValidity(\'Please enter the shortcode you want to use for Maps Widget for Google Maps maps.\')" oninput="setCustomValidity(\'\')">
           <p class="description">If the default shortcode "gmw" is taken by another plugin change it to something else, eg: "gmaps".</p></td>
           </tr>';
     echo '<tr>
           <th scope="row"><label for="track_ga">' . __('Track with Google Analytics', 'google-maps-widget') . '</label></th>
-          <td><input name="' . GMW::$options . '[track_ga]" disabled="disabled" type="checkbox" id="track_ga" value="1"' . checked('1', $options['track_ga'], false) . '>
+          <td><input name="' . esc_attr(GMW::$options) . '[track_ga]" disabled="disabled" type="checkbox" id="track_ga" value="1"' . checked('1', $options['track_ga'], false) . '>
           <span class="description">Each time the interactive map is opened either in lightbox or as a thumbnail replacement a Google Analytics Event will be tracked.<br>You need to have GA already configured on the site. It is fully compatible with all GA plugins and all GA tracking code versions. Default: unchecked.</span></td></tr>';
     echo '<tr>
           <th scope="row"><label for="include_jquery">' . __('Include jQuery', 'google-maps-widget') . '</label></th>
-          <td><input name="' . GMW::$options . '[include_jquery]" disabled="disabled" type="checkbox" id="include_jquery" value="1"' . checked('1', $options['include_jquery'], false) . '>
+          <td><input name="' . esc_attr(GMW::$options) . '[include_jquery]" disabled="disabled" type="checkbox" id="include_jquery" value="1"' . checked('1', $options['include_jquery'], false) . '>
           <span class="description">If you\'re experiencing problems with double jQuery include disable this option. Default: checked.</span></td></tr>';
     echo '<tr>
           <th scope="row"><label for="include_gmaps_api">' . __('Include Google Maps API JS', 'google-maps-widget') . '</label></th>
-          <td><input disabled="disabled" name="' . GMW::$options . '[include_gmaps_api]" type="checkbox" id="include_gmaps_api" value="1"' . checked('1', $options['include_gmaps_api'], false) . '>
+          <td><input disabled="disabled" name="' . esc_attr(GMW::$options) . '[include_gmaps_api]" type="checkbox" id="include_gmaps_api" value="1"' . checked('1', $options['include_gmaps_api'], false) . '>
           <span class="description">If your theme or other plugins already include Google Maps API JS disable this option. Default: checked.</span></td></tr>';
     echo '<tr>
           <th scope="row"><label for="include_lightbox_css">' . __('Include Colorbox &amp; Thumbnail CSS', 'google-maps-widget') . '</label></th>
-          <td><input name="' . GMW::$options . '[include_lightbox_css]" disabled="disabled" type="checkbox" id="include_lightbox_css" value="1"' . checked('1', $options['include_lightbox_css'], false) . '>
+          <td><input name="' . esc_attr(GMW::$options) . '[include_lightbox_css]" disabled="disabled" type="checkbox" id="include_lightbox_css" value="1"' . checked('1', $options['include_lightbox_css'], false) . '>
           <span class="description">If your theme or other plugins already include Colorbox CSS disable this option.<br>Please note that widget (thumbnail map) related CSS will also be removed which will cause minor differences in the way it\'s displayed. Default: checked.</span></td></tr>';
     echo '<tr>
           <th scope="row"><label for="include_lightbox_js">' . __('Include Colorbox JS', 'google-maps-widget') . '</label></th>
-          <td><input name="' . GMW::$options . '[include_lightbox_js]" disabled="disabled" type="checkbox" id="include_lightbox_js" value="1"' . checked('1', $options['include_lightbox_js'], false) . '>
+          <td><input name="' . esc_attr(GMW::$options) . '[include_lightbox_js]" disabled="disabled" type="checkbox" id="include_lightbox_js" value="1"' . checked('1', $options['include_lightbox_js'], false) . '>
           <span class="description">If your theme or other plugins already include Colorbox JS file disable this option. Default: checked.</span></td></tr>';
     echo '<tr>
           <th scope="row"><label for="disable_tooltips">' . __('Disable Admin Tooltips', 'google-maps-widget') . '</label></th>
-          <td><input name="' . GMW::$options . '[disable_tooltips]" type="checkbox" disabled="disabled" id="disable_tooltips" value="1"' . checked('1', $options['disable_tooltips'], false) . '>
+          <td><input name="' . esc_attr(GMW::$options) . '[disable_tooltips]" type="checkbox" disabled="disabled" id="disable_tooltips" value="1"' . checked('1', $options['disable_tooltips'], false) . '>
           <span class="description">All settings in widget edit GUI have tooltips. This setting completely disables them. Default: unchecked.</span></td></tr>';
     echo '<tr>
           <th scope="row"><label for="disable_sidebar">' . __('Disable Hidden Sidebar', 'google-maps-widget') . '</label></th>
-          <td><input name="' . GMW::$options . '[disable_sidebar]" disabled="disabled" type="checkbox" id="disable_sidebar" value="1"' . checked('1', $options['disable_sidebar'], false) . '>
+          <td><input name="' . esc_attr(GMW::$options) . '[disable_sidebar]" disabled="disabled" type="checkbox" id="disable_sidebar" value="1"' . checked('1', $options['disable_sidebar'], false) . '>
           <span class="description">Hidden sidebar helps you to build maps that are displayed with shortcodes. If it bothers you in the admin, disable it. Default: unchecked.</span></td></tr>';
     echo '</table>';
 
@@ -1145,11 +1164,313 @@ class GMW {
     } // foreach
 
     if ($output) {
-      echo $out;
+      self::wp_kses_wf($out);
     } else {
       return $out;
     }
   } // create_select_options
+
+  static function wp_kses_wf($html)
+  {
+      add_filter('safe_style_css', function ($styles) {
+            $styles_wf = array(
+                'text-align',
+                'margin',
+                'color',
+                'float',
+                'border',
+                'background',
+                'background-color',
+                'border-bottom',
+                'border-bottom-color',
+                'border-bottom-style',
+                'border-bottom-width',
+                'border-collapse',
+                'border-color',
+                'border-left',
+                'border-left-color',
+                'border-left-style',
+                'border-left-width',
+                'border-right',
+                'border-right-color',
+                'border-right-style',
+                'border-right-width',
+                'border-spacing',
+                'border-style',
+                'border-top',
+                'border-top-color',
+                'border-top-style',
+                'border-top-width',
+                'border-width',
+                'caption-side',
+                'clear',
+                'cursor',
+                'direction',
+                'font',
+                'font-family',
+                'font-size',
+                'font-style',
+                'font-variant',
+                'font-weight',
+                'height',
+                'letter-spacing',
+                'line-height',
+                'margin-bottom',
+                'margin-left',
+                'margin-right',
+                'margin-top',
+                'overflow',
+                'padding',
+                'padding-bottom',
+                'padding-left',
+                'padding-right',
+                'padding-top',
+                'text-decoration',
+                'text-indent',
+                'vertical-align',
+                'width',
+                'display',
+            );
+
+            foreach ($styles_wf as $style_wf) {
+                $styles[] = $style_wf;
+            }
+            return $styles;
+        });
+
+        $allowed_tags = wp_kses_allowed_html('post');
+        $allowed_tags['input'] = array(
+            'type' => true,
+            'style' => true,
+            'class' => true,
+            'id' => true,
+            'checked' => true,
+            'disabled' => true,
+            'name' => true,
+            'size' => true,
+            'placeholder' => true,
+            'value' => true,
+            'data-*' => true,
+            'size' => true,
+            'disabled' => true
+        );
+
+        $allowed_tags['textarea'] = array(
+            'type' => true,
+            'style' => true,
+            'class' => true,
+            'id' => true,
+            'checked' => true,
+            'disabled' => true,
+            'name' => true,
+            'size' => true,
+            'placeholder' => true,
+            'value' => true,
+            'data-*' => true,
+            'cols' => true,
+            'rows' => true,
+            'disabled' => true,
+            'autocomplete' => true
+        );
+
+        $allowed_tags['select'] = array(
+            'type' => true,
+            'style' => true,
+            'class' => true,
+            'id' => true,
+            'checked' => true,
+            'disabled' => true,
+            'name' => true,
+            'size' => true,
+            'placeholder' => true,
+            'value' => true,
+            'data-*' => true,
+            'multiple' => true,
+            'disabled' => true
+        );
+
+        $allowed_tags['option'] = array(
+            'type' => true,
+            'style' => true,
+            'class' => true,
+            'id' => true,
+            'checked' => true,
+            'disabled' => true,
+            'name' => true,
+            'size' => true,
+            'placeholder' => true,
+            'value' => true,
+            'selected' => true,
+            'data-*' => true
+        );
+        $allowed_tags['optgroup'] = array(
+            'type' => true,
+            'style' => true,
+            'class' => true,
+            'id' => true,
+            'checked' => true,
+            'disabled' => true,
+            'name' => true,
+            'size' => true,
+            'placeholder' => true,
+            'value' => true,
+            'selected' => true,
+            'data-*' => true,
+            'label' => true
+        );
+
+        $allowed_tags['a'] = array(
+            'href' => true,
+            'data-*' => true,
+            'class' => true,
+            'style' => true,
+            'id' => true,
+            'target' => true,
+            'data-*' => true,
+            'role' => true,
+            'aria-controls' => true,
+            'aria-selected' => true,
+            'disabled' => true
+        );
+
+        $allowed_tags['div'] = array(
+            'style' => true,
+            'class' => true,
+            'id' => true,
+            'data-*' => true,
+            'role' => true,
+            'aria-labelledby' => true,
+            'value' => true,
+            'aria-modal' => true,
+            'tabindex' => true
+        );
+
+        $allowed_tags['li'] = array(
+            'style' => true,
+            'class' => true,
+            'id' => true,
+            'data-*' => true,
+            'role' => true,
+            'aria-labelledby' => true,
+            'value' => true,
+            'aria-modal' => true,
+            'tabindex' => true
+        );
+
+        $allowed_tags['span'] = array(
+            'style' => true,
+            'class' => true,
+            'id' => true,
+            'data-*' => true,
+            'aria-hidden' => true
+        );
+
+        $allowed_tags['style'] = array(
+            'class' => true,
+            'id' => true,
+            'type' => true
+        );
+
+        $allowed_tags['fieldset'] = array(
+            'class' => true,
+            'id' => true,
+            'type' => true
+        );
+
+        $allowed_tags['link'] = array(
+            'class' => true,
+            'id' => true,
+            'type' => true,
+            'rel' => true,
+            'href' => true,
+            'media' => true
+        );
+
+        $allowed_tags['form'] = array(
+            'style' => true,
+            'class' => true,
+            'id' => true,
+            'method' => true,
+            'action' => true,
+            'data-*' => true
+        );
+
+        $allowed_tags['script'] = array(
+            'class' => true,
+            'id' => true,
+            'type' => true,
+            'src' => true
+        );
+
+        echo wp_kses($html, $allowed_tags);
+
+        add_filter('safe_style_css', function ($styles) {
+            $styles_wf = array(
+                'text-align',
+                'margin',
+                'color',
+                'float',
+                'border',
+                'background',
+                'background-color',
+                'border-bottom',
+                'border-bottom-color',
+                'border-bottom-style',
+                'border-bottom-width',
+                'border-collapse',
+                'border-color',
+                'border-left',
+                'border-left-color',
+                'border-left-style',
+                'border-left-width',
+                'border-right',
+                'border-right-color',
+                'border-right-style',
+                'border-right-width',
+                'border-spacing',
+                'border-style',
+                'border-top',
+                'border-top-color',
+                'border-top-style',
+                'border-top-width',
+                'border-width',
+                'caption-side',
+                'clear',
+                'cursor',
+                'direction',
+                'font',
+                'font-family',
+                'font-size',
+                'font-style',
+                'font-variant',
+                'font-weight',
+                'height',
+                'letter-spacing',
+                'line-height',
+                'margin-bottom',
+                'margin-left',
+                'margin-right',
+                'margin-top',
+                'overflow',
+                'padding',
+                'padding-bottom',
+                'padding-left',
+                'padding-right',
+                'padding-top',
+                'text-decoration',
+                'text-indent',
+                'vertical-align',
+                'width'
+            );
+
+            foreach ($styles_wf as $style_wf) {
+                if (($key = array_search($style_wf, $styles)) !== false) {
+                    unset($styles[$key]);
+                }
+            }
+            return $styles;
+      });
+  }
 
 
   // sanitizes color code string, leaves # intact

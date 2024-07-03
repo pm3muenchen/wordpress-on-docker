@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Load assets for our blocks.
  *
@@ -84,7 +85,7 @@ class EditorsKit_Block_Assets {
 			$this->slug . '-frontend',
 			$this->url . '/build/style.build.css',
 			array(),
-			$this->version
+			'new'
 		);
 	}
 
@@ -96,7 +97,7 @@ class EditorsKit_Block_Assets {
 	public function editor_assets() {
 
 		global $wp;
-		$wp->add_query_var( 'editorskitPreview' );
+		$wp->add_query_var( 'editorskitsandbox' );
 
 		if ( ! is_admin() ) {
 
@@ -122,7 +123,7 @@ class EditorsKit_Block_Assets {
 		wp_enqueue_script(
 			$this->slug . '-editor',
 			$this->url . '/build/index.js',
-			array( 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-plugins', 'wp-components', 'wp-edit-post', 'wp-api', 'wp-editor', 'wp-hooks', 'lodash' ),
+			array( 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-data', 'wp-plugins', 'wp-components', 'wp-edit-post', 'wp-api', 'wp-editor', 'wp-hooks', 'lodash' ),
 			time(),
 			false
 		);
@@ -167,6 +168,8 @@ class EditorsKit_Block_Assets {
 		$global = array(
 			'plugin'   => array(
 				'version' => $this->version,
+				'url'     => $this->url,
+				'dir'     => EDITORSKIT_PLUGIN_DIR,
 			),
 			'core'     => array(
 				'version' => $wp_version,
@@ -177,6 +180,10 @@ class EditorsKit_Block_Assets {
 			),
 			'supports' => array(
 				'color_palette' => get_theme_support( 'editorskit-color-palette-classnames' ),
+			),
+			'addons'   => array(
+				'template_library' => Editorskit_Addon_Manager::is_addon_active( 'editorskit-addon-template-library' ),
+				'styles_manager'   => Editorskit_Addon_Manager::is_addon_active( 'editorskit-addon-styles-manager' ),
 			),
 		);
 
@@ -212,7 +219,7 @@ class EditorsKit_Block_Assets {
 	 */
 	function is_edit_or_new_admin_page() { // phpcs:ignore
 		global $pagenow;
-		return ( is_admin() && ( $pagenow === 'post.php' || $pagenow === 'post-new.php' ) ); // phpcs:ignore
+		return (is_admin() && ($pagenow === 'post.php' || $pagenow === 'post-new.php')); // phpcs:ignore
 	}
 
 	/**
@@ -221,13 +228,12 @@ class EditorsKit_Block_Assets {
 	 * @return bool true or false
 	 */
 	function hide_admin_bar( $bool ) {
-		if ( get_query_var( 'editorskitPreview' ) ) {
+		if ( get_query_var( 'editorskitsandbox' ) ) {
 			return false;
 		}
 
 		return $bool;
 	}
-
 }
 
 EditorsKit_Block_Assets::register();

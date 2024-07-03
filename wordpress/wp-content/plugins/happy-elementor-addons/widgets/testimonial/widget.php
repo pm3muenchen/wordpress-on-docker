@@ -11,8 +11,7 @@ use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Typography;
-use Elementor\Control_Media;
-use Elementor\Scheme_Typography;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use Elementor\Utils;
 
 defined( 'ABSPATH' ) || die();
@@ -51,7 +50,16 @@ class Testimonial extends Base {
 		return [ 'testimonial', 'review', 'feedback' ];
 	}
 
+	/**
+     * Register widget content controls
+     */
 	protected function register_content_controls() {
+		$this->__testimonial_content_controls();
+		$this->__reviewer_content_controls();
+	}
+
+	protected function __testimonial_content_controls() {
+
 		$this->start_controls_section(
 			'_section_testimonial',
 			[
@@ -120,6 +128,9 @@ class Testimonial extends Base {
 		);
 
 		$this->end_controls_section();
+	}
+
+	protected function __reviewer_content_controls() {
 
 		$this->start_controls_section(
 			'_section_reviewer',
@@ -184,7 +195,18 @@ class Testimonial extends Base {
 		$this->end_controls_section();
 	}
 
+
+	/**
+     * Register widget style controls
+     */
 	protected function register_style_controls() {
+		$this->__testimonial_style_controls();
+		$this->__image_style_controls();
+		$this->__reviewer_style_controls();
+	}
+
+	protected function __testimonial_style_controls() {
+
 		$this->start_controls_section(
 			'_section_style_testimonial',
 			[
@@ -246,7 +268,9 @@ class Testimonial extends Base {
 				'name' => 'testimonial_typography',
 				'label' => __( 'Typography', 'happy-elementor-addons' ),
 				'selector' => '{{WRAPPER}} .ha-testimonial__content',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_3,
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_TEXT,
+				],
 			]
 		);
 
@@ -271,6 +295,9 @@ class Testimonial extends Base {
 		);
 
 		$this->end_controls_section();
+	}
+
+	protected function __image_style_controls() {
 
 		$this->start_controls_section(
 			'_section_style_image',
@@ -367,6 +394,9 @@ class Testimonial extends Base {
 		);
 
 		$this->end_controls_section();
+	}
+
+	protected function __reviewer_style_controls() {
 
 		$this->start_controls_section(
 			'_section_style_reviewer',
@@ -401,7 +431,9 @@ class Testimonial extends Base {
 				'name' => 'name_typography',
 				'label' => __( 'Typography', 'happy-elementor-addons' ),
 				'selector' => '{{WRAPPER}} .ha-testimonial__reviewer-name',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_2,
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
+				],
 			]
 		);
 
@@ -443,7 +475,9 @@ class Testimonial extends Base {
 				'name' => 'title_typography',
 				'label' => __( 'Typography', 'happy-elementor-addons' ),
 				'selector' => '{{WRAPPER}} .ha-testimonial__reviewer-title',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_3,
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_TEXT,
+				],
 			]
 		);
 

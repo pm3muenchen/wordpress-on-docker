@@ -11,7 +11,7 @@ use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Typography;
 use \Elementor\Plugin;
-use \Elementor\Scheme_Typography;
+use \Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use \Elementor\Widget_Base;
 
 use \Essential_Addons_Elementor\Classes\Helper;
@@ -52,10 +52,10 @@ class Countdown extends Widget_Base {
     }
 
     public function get_custom_help_url() {
-        return 'https://essential-addons.com/elementor/docs/countdown/';
+        return 'https://essential-addons.com/elementor/docs/creative-elements/ea-countdown/';
     }
 
-    protected function _register_controls() {
+    protected function register_controls() {
 
         $this->start_controls_section(
             'eael_section_countdown_settings_general',
@@ -64,6 +64,87 @@ class Countdown extends Widget_Base {
             ]
         );
 
+	    $this->add_control(
+		    'eael_countdown_type',
+		    [
+			    'label' => esc_html__( 'Type', 'essential-addons-for-elementor-lite' ),
+			    'type' => Controls_Manager::SELECT,
+			    'options' => [
+				    'due_date' => esc_html__( 'Default', 'essential-addons-for-elementor-lite' ),
+				    'evergreen' => esc_html__( 'Evergreen Timer', 'essential-addons-for-elementor-lite' ),
+			    ],
+			    'default' => 'due_date',
+		    ]
+	    );
+
+	    $this->add_control(
+		    'eael_evergreen_counter_hours',
+		    [
+			    'label' => esc_html__( 'Hours', 'essential-addons-for-elementor-lite' ),
+			    'type' => Controls_Manager::NUMBER,
+			    'default' => 11,
+			    'placeholder' => esc_html__( 'Hours', 'essential-addons-for-elementor-lite' ),
+			    'condition' => [
+				    'eael_countdown_type' => 'evergreen',
+			    ],
+		    ]
+	    );
+
+	    $this->add_control(
+		    'eael_evergreen_counter_minutes',
+		    [
+			    'label' => esc_html__( 'Minutes', 'essential-addons-for-elementor-lite' ),
+			    'type' => Controls_Manager::NUMBER,
+			    'default' => 59,
+			    'placeholder' => esc_html__( 'Minutes', 'essential-addons-for-elementor-lite' ),
+			    'condition' => [
+				    'eael_countdown_type' => 'evergreen',
+			    ],
+		    ]
+	    );
+
+	    $this->add_control(
+		    'eael_evergreen_counter_recurring',
+		    [
+			    'label'        => esc_html__( 'Recurring Countdown', 'essential-addons-for-elementor-lite' ),
+			    'type'         => Controls_Manager::SWITCHER,
+			    'return_value' => 'yes',
+			    'default'      => '',
+			    'condition'    => [
+				    'eael_countdown_type' => 'evergreen',
+			    ],
+		    ]
+	    );
+
+	    $this->add_control(
+		    'eael_evergreen_counter_recurring_restart_after',
+		    [
+			    'label'       => esc_html__( 'Restart After (In Hours)', 'essential-addons-for-elementor-lite' ),
+			    'type'        => Controls_Manager::NUMBER,
+			    'default'     => 0,
+			    'description' => esc_html__( 'Specify how much time it will take to restart the countdown. If you set 0, the countdown will restart immediately.', 'essential-addons-for-elementor-lite' ),
+			    'placeholder' => esc_html__( 'Hours', 'essential-addons-for-elementor-lite' ),
+			    'condition'   => [
+				    'eael_countdown_type'              => 'evergreen',
+				    'eael_evergreen_counter_recurring' => 'yes',
+			    ],
+		    ]
+	    );
+
+	    $this->add_control(
+		    'eael_evergreen_counter_recurring_stop_time',
+		    [
+			    'label'       => esc_html__( 'Recurring Countdown End Date', 'essential-addons-for-elementor-lite' ),
+			    'type'        => Controls_Manager::DATE_TIME,
+			    'default'     => date( "Y-m-d", strtotime( "+ 7 day" ) ),
+			    'description' => esc_html__( 'Set the countdown end time', 'essential-addons-for-elementor-lite' ),
+			    'condition'   => [
+				    'eael_countdown_type'              => 'evergreen',
+				    'eael_evergreen_counter_recurring' => 'yes',
+			    ],
+		    ]
+	    );
+
         $this->add_control(
             'eael_countdown_due_time',
             [
@@ -71,6 +152,9 @@ class Countdown extends Widget_Base {
                 'type'        => Controls_Manager::DATE_TIME,
                 'default'     => date( "Y-m-d", strtotime( "+ 1 day" ) ),
                 'description' => esc_html__( 'Set the due date and time', 'essential-addons-for-elementor-lite' ),
+                'condition' => [
+	                'eael_countdown_type' => 'due_date',
+                ],
             ]
         );
 
@@ -116,15 +200,15 @@ class Countdown extends Widget_Base {
                 'options'   => [
                     'left'   => [
                         'title' => __( 'Left', 'essential-addons-for-elementor-lite' ),
-                        'icon'  => 'fa fa-align-left',
+                        'icon'  => 'eicon-text-align-left',
                     ],
                     'center' => [
                         'title' => __( 'Center', 'essential-addons-for-elementor-lite' ),
-                        'icon'  => 'fa fa-align-center',
+                        'icon'  => 'eicon-text-align-center',
                     ],
                     'right'  => [
                         'title' => __( 'Right', 'essential-addons-for-elementor-lite' ),
-                        'icon'  => 'fa fa-align-right',
+                        'icon'  => 'eicon-text-align-right',
                     ],
                 ],
                 'default'   => 'center',
@@ -187,6 +271,9 @@ class Countdown extends Widget_Base {
                 'condition'   => [
                     'eael_countdown_days' => 'yes',
                 ],
+                'ai' => [
+					'active' => false,
+				],
             ]
         );
 
@@ -213,6 +300,9 @@ class Countdown extends Widget_Base {
                 'condition'   => [
                     'eael_countdown_hours' => 'yes',
                 ],
+                'ai' => [
+					'active' => false,
+				],
             ]
         );
 
@@ -239,6 +329,9 @@ class Countdown extends Widget_Base {
                 'condition'   => [
                     'eael_countdown_minutes' => 'yes',
                 ],
+                'ai' => [
+					'active' => false,
+				],
             ]
         );
 
@@ -265,6 +358,9 @@ class Countdown extends Widget_Base {
                 'condition'   => [
                     'eael_countdown_seconds' => 'yes',
                 ],
+                'ai' => [
+					'active' => false,
+				],
             ]
         );
 
@@ -374,7 +470,9 @@ class Countdown extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'      => 'eael_countdown_separator_typography',
-                'scheme'    => Scheme_Typography::TYPOGRAPHY_2,
+                'global' => [
+	                'default' => Global_Typography::TYPOGRAPHY_SECONDARY
+                ],
                 'selector'  => '{{WRAPPER}} .eael-countdown-digits::after',
                 'condition' => [
                     'eael_countdown_separator' => 'eael-countdown-show-separator',
@@ -443,6 +541,9 @@ class Countdown extends Widget_Base {
                     'countdown_expire_type' => 'url',
                 ],
                 'default'   => '#',
+                'ai' => [
+					'active' => false,
+				],
             ]
         );
 
@@ -480,7 +581,7 @@ class Countdown extends Widget_Base {
                         ],
                     ],
                     'default'     => '1',
-                    'description' => '<span class="pro-feature"> Get the  <a href="https://wpdeveloper.net/in/upgrade-essential-addons-elementor" target="_blank">Pro version</a> for more stunning elements and customization options.</span>',
+                    'description' => '<span class="pro-feature"> Get the  <a href="https://wpdeveloper.com/upgrade/ea-pro" target="_blank">Pro version</a> for more stunning elements and customization options.</span>',
                 ]
             );
 
@@ -674,7 +775,9 @@ class Countdown extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'     => 'eael_countdown_digit_typography',
-                'scheme'   => Scheme_Typography::TYPOGRAPHY_2,
+                'global' => [
+	                'default' => Global_Typography::TYPOGRAPHY_SECONDARY
+                ],
                 'selector' => '{{WRAPPER}} .eael-countdown-digits',
             ]
         );
@@ -703,7 +806,9 @@ class Countdown extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'     => 'eael_countdown_label_typography',
-                'scheme'   => Scheme_Typography::TYPOGRAPHY_2,
+                'global' => [
+	                'default' => Global_Typography::TYPOGRAPHY_SECONDARY
+                ],
                 'selector' => '{{WRAPPER}} .eael-countdown-label',
             ]
         );
@@ -1028,15 +1133,15 @@ class Countdown extends Widget_Base {
                 'options'     => [
                     'left'   => [
                         'title' => esc_html__( 'Left', 'essential-addons-for-elementor-lite' ),
-                        'icon'  => 'fa fa-align-left',
+                        'icon'  => 'eicon-text-align-left',
                     ],
                     'center' => [
                         'title' => esc_html__( 'Center', 'essential-addons-for-elementor-lite' ),
-                        'icon'  => 'fa fa-align-center',
+                        'icon'  => 'eicon-text-align-center',
                     ],
                     'right'  => [
                         'title' => esc_html__( 'Right', 'essential-addons-for-elementor-lite' ),
-                        'icon'  => 'fa fa-align-right',
+                        'icon'  => 'eicon-text-align-right',
                     ],
                 ],
                 'default'     => 'left',
@@ -1074,7 +1179,9 @@ class Countdown extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'      => 'eael_countdown_expire_title_typography',
-                'scheme'    => Scheme_Typography::TYPOGRAPHY_2,
+                'global' => [
+	                'default' => Global_Typography::TYPOGRAPHY_SECONDARY
+                ],
                 'selector'  => '{{WRAPPER}} .eael-countdown-finish-message .expiry-title',
                 'condition' => [
                     'countdown_expire_type' => 'text',
@@ -1122,7 +1229,9 @@ class Countdown extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'      => 'eael_countdown_expire_message_typography',
-                'scheme'    => Scheme_Typography::TYPOGRAPHY_2,
+                'global' => [
+	                'default' => Global_Typography::TYPOGRAPHY_SECONDARY
+                ],
                 'selector'  => '.eael-countdown-finish-text',
                 'condition' => [
                     'countdown_expire_type' => 'text',
@@ -1156,16 +1265,23 @@ class Countdown extends Widget_Base {
 
         $get_due_date = esc_attr( $settings['eael_countdown_due_time'] );
         $due_date = date( "M d Y G:i:s", strtotime( $get_due_date ) );
-
-        if ( 'template' == $settings['countdown_expire_type'] ) {
-            if ( !empty( $settings['countdown_expiry_templates'] ) ) {
-                echo Plugin::$instance->frontend->get_builder_content( $settings['countdown_expiry_templates'], true );
-            }
-        }
+	    $gmt_offset = str_replace( array( '.25', '.5', '.75' ), array( ':15', ':30', ':45' ), ( get_option( 'gmt_offset' ) < 0 ? '' : '+' ) . get_option( 'gmt_offset' ) );
 
         $this->add_render_attribute( 'eael-countdown', 'class', 'eael-countdown-wrapper' );
         $this->add_render_attribute( 'eael-countdown', 'data-countdown-id', esc_attr( $this->get_id() ) );
         $this->add_render_attribute( 'eael-countdown', 'data-expire-type', $settings['countdown_expire_type'] );
+        $this->add_render_attribute( 'eael-countdown', 'data-countdown-type', $settings['eael_countdown_type'] );
+
+	    if ( $settings['eael_countdown_type'] === 'evergreen' ) {
+		    $hour   = absint( $settings['eael_evergreen_counter_hours'] ) * HOUR_IN_SECONDS;
+		    $minute = absint( $settings['eael_evergreen_counter_minutes'] ) * MINUTE_IN_SECONDS;
+		    $this->add_render_attribute( 'eael-countdown', 'data-evergreen-time', absint( $hour + $minute ) );
+
+		    if ( $settings['eael_evergreen_counter_recurring'] === 'yes' ) {
+			    $this->add_render_attribute( 'eael-countdown', 'data-evergreen-recurring', $settings['eael_evergreen_counter_recurring_restart_after'] ? $settings['eael_evergreen_counter_recurring_restart_after'] : 0 );
+			    $this->add_render_attribute( 'eael-countdown', 'data-evergreen-recurring-stop', date( "M d Y G:i:s", strtotime( $settings['eael_evergreen_counter_recurring_stop_time'] ) ) . " {$gmt_offset}" );
+		    }
+	    }
 
         if ( $settings['countdown_expire_type'] == 'text' ) {
             if ( !empty( $settings['countdown_expiry_text'] ) ) {
@@ -1178,7 +1294,7 @@ class Countdown extends Widget_Base {
         } elseif ( $settings['countdown_expire_type'] == 'url' ) {
             $this->add_render_attribute( 'eael-countdown', 'data-redirect-url', $settings['countdown_expiry_redirection'] );
         } elseif ( $settings['countdown_expire_type'] == 'template' ) {
-            $this->add_render_attribute( 'eael-countdown', 'data-template', esc_attr( $template ) );
+            //$this->add_render_attribute( 'eael-countdown', 'data-template', esc_attr( $template ) );
         } else {
             //do nothing
         }
@@ -1189,25 +1305,38 @@ class Countdown extends Widget_Base {
         }
 
         // label view
-        $this->add_render_attribute( 'eael-countdown-container', [
-            'class' => [
-                'eael-countdown-container',
-                $settings['eael_countdown_label_view'],
-                $settings['eael_countdown_label_view_tablet'] . '-tablet',
-                $settings['eael_countdown_label_view_mobile'] . '-mobile',
-                $separator,
-            ],
-        ] );
+	    $this->add_render_attribute( 'eael-countdown-container', [
+		    'class' => [
+			    'eael-countdown-container',
+			    $settings['eael_countdown_label_view'],
+			    empty( $settings['eael_countdown_label_view_tablet'] ) ? '' : $settings['eael_countdown_label_view_tablet'] . '-tablet',
+			    empty( $settings['eael_countdown_label_view_mobile'] ) ? '' : $settings['eael_countdown_label_view_mobile'] . '-mobile',
+			    $separator,
+		    ],
+	    ] );
         ?>
 
 		<div <?php echo $this->get_render_attribute_string( 'eael-countdown' ); ?>>
 			<div <?php echo $this->get_render_attribute_string( 'eael-countdown-container' ); ?>>
-				<ul id="eael-countdown-<?php echo esc_attr( $this->get_id() ); ?>" class="eael-countdown-items" data-date="<?php echo esc_attr( $due_date ); ?>">
+				<ul id="eael-countdown-<?php echo esc_attr( $this->get_id() ); ?>" class="eael-countdown-items" data-date="<?php echo esc_attr( "{$due_date} {$gmt_offset}" ); ?>">
 					<?php if ( !empty( $settings['eael_countdown_days'] ) ): ?><li class="eael-countdown-item"><div class="eael-countdown-days"><span data-days class="eael-countdown-digits">00</span><?php if ( !empty( $settings['eael_countdown_days_label'] ) ): ?><span class="eael-countdown-label"><?php echo esc_attr( $settings['eael_countdown_days_label'] ); ?></span><?php endif;?></div></li><?php endif;?>
 					<?php if ( !empty( $settings['eael_countdown_hours'] ) ): ?><li class="eael-countdown-item"><div class="eael-countdown-hours"><span data-hours class="eael-countdown-digits">00</span><?php if ( !empty( $settings['eael_countdown_hours_label'] ) ): ?><span class="eael-countdown-label"><?php echo esc_attr( $settings['eael_countdown_hours_label'] ); ?></span><?php endif;?></div></li><?php endif;?>
 				<?php if ( !empty( $settings['eael_countdown_minutes'] ) ): ?><li class="eael-countdown-item"><div class="eael-countdown-minutes"><span data-minutes class="eael-countdown-digits">00</span><?php if ( !empty( $settings['eael_countdown_minutes_label'] ) ): ?><span class="eael-countdown-label"><?php echo esc_attr( $settings['eael_countdown_minutes_label'] ); ?></span><?php endif;?></div></li><?php endif;?>
 				<?php if ( !empty( $settings['eael_countdown_seconds'] ) ): ?><li class="eael-countdown-item"><div class="eael-countdown-seconds"><span data-seconds class="eael-countdown-digits">00</span><?php if ( !empty( $settings['eael_countdown_seconds_label'] ) ): ?><span class="eael-countdown-label"><?php echo esc_attr( $settings['eael_countdown_seconds_label'] ); ?></span><?php endif;?></div></li><?php endif;?>
 				</ul>
+                <div class="eael-countdown-expiry-template" style="display: none;">
+					<?php
+					if ( 'template' == $settings['countdown_expire_type'] ) {
+						if ( ! empty( $settings['countdown_expiry_templates'] ) ) {
+							// WPML Compatibility
+							if ( ! is_array( $settings['countdown_expiry_templates'] ) ) {
+								$settings['countdown_expiry_templates'] = apply_filters( 'wpml_object_id', $settings['countdown_expiry_templates'], 'wp_template', true );
+							}
+							echo Plugin::$instance->frontend->get_builder_content( $settings['countdown_expiry_templates'], true );
+						}
+					}
+					?>
+                </div>
 				<div class="clearfix"></div>
 			</div>
 		</div>

@@ -19,10 +19,10 @@ abstract class Base_Notice {
 	protected $_element;
 
 	public function __construct( $id, $container_class, $element_class ) {
-		$this->_id = $id;
-		$this->_tag = str_replace( '_', '-', $this->_id );
+		$this->_id        = $id;
+		$this->_tag       = str_replace( '_', '-', $this->_id );
 		$this->_container = $container_class;
-		$this->_element = $element_class;
+		$this->_element   = $element_class;
 	}
 
 	public static function is_amp() {
@@ -37,9 +37,9 @@ abstract class Base_Notice {
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 		add_action( WPAUTOTERMS_SLUG . '_container', array( $this, 'container' ), 10, 2 );
 
-		$this->_type = get_option( WPAUTOTERMS_OPTION_PREFIX . $this->_id . '_bar_type' );
-		$this->_where = get_option( WPAUTOTERMS_OPTION_PREFIX . $this->_id . '_bar_position' );
-		$this->_message = get_option( WPAUTOTERMS_OPTION_PREFIX . $this->_id . '_message' );
+		$this->_type          = get_option( WPAUTOTERMS_OPTION_PREFIX . $this->_id . '_bar_type' );
+		$this->_where         = get_option( WPAUTOTERMS_OPTION_PREFIX . $this->_id . '_bar_position' );
+		$this->_message       = get_option( WPAUTOTERMS_OPTION_PREFIX . $this->_id . '_message' );
 		$this->_close_message = get_option( WPAUTOTERMS_OPTION_PREFIX . $this->_id . '_close_message',
 			__( 'Close', WPAUTOTERMS_SLUG ) );
 	}
@@ -56,9 +56,10 @@ abstract class Base_Notice {
 		if ( static::is_amp() ) {
 			return;
 		}
-		wp_enqueue_script( WPAUTOTERMS_SLUG . '_js', WPAUTOTERMS_PLUGIN_URL . 'js/wpautoterms.js',
+		wp_enqueue_script( WPAUTOTERMS_SLUG . '_js_' . $this->id(), WPAUTOTERMS_PLUGIN_URL . 'js/wpautoterms.js',
 			array( 'jquery', 'wp-util', WPAUTOTERMS_JS_BASE ), WPAUTOTERMS_VERSION, true );
-		wp_localize_script( WPAUTOTERMS_SLUG . '_js', 'wpautoterms_js_' . $this->id(), $this->_localize_args() );
+		wp_localize_script( WPAUTOTERMS_SLUG . '_js_' . $this->id(), 'wpautoterms_js_' . $this->id(),
+			$this->_localize_args() );
 	}
 
 	protected function _localize_args() {

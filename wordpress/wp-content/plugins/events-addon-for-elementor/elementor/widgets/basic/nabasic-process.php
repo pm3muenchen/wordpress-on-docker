@@ -44,7 +44,7 @@ class Event_Elementor_Addon_Process extends Widget_Base{
 	 * Register Events Addon for Elementor Process widget controls.
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	*/
-	protected function _register_controls(){
+	protected function register_controls(){
 
 		$this->start_controls_section(
 			'section_process',
@@ -165,10 +165,11 @@ class Event_Elementor_Addon_Process extends Widget_Base{
 			'process_icon',
 			[
 				'label' => esc_html__( 'Select Icon', 'events-addon-for-elementor' ),
-				'type' => Controls_Manager::ICON,
-				'options' => NAEEP_Controls_Helper_Output::get_include_icons(),
-				'frontend_available' => true,
-				'default' => 'fa fa-cog',
+				'type' => Controls_Manager::ICONS,
+				'default' => [
+					'value' => 'fas fa-cog',
+					'library' => 'fa-solid',
+				],
 				'condition' => [
 					'upload_type' => 'icon',
 				],
@@ -566,7 +567,6 @@ class Event_Elementor_Addon_Process extends Widget_Base{
 			[
 				'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 				'name' => 'number_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .count:before',
 			]
 		);
@@ -575,10 +575,6 @@ class Event_Elementor_Addon_Process extends Widget_Base{
 			[
 				'label' => esc_html__( 'Number Background Color', 'events-addon-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_2,
-				],
 				'selectors' => [
 					'{{WRAPPER}} .count:before' => 'background-color: {{VALUE}};',
 				],
@@ -685,10 +681,6 @@ class Event_Elementor_Addon_Process extends Widget_Base{
 				[
 					'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_2,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .naeep-process-item .naeep-icon' => 'color: {{VALUE}};',
 					],
@@ -815,7 +807,6 @@ class Event_Elementor_Addon_Process extends Widget_Base{
 			[
 				'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 				'name' => 'sastool_title_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .naeep-process-item h3, {{WRAPPER}} .process-number-item h3, {{WRAPPER}} .vertical-info h3',
 			]
 		);
@@ -824,10 +815,6 @@ class Event_Elementor_Addon_Process extends Widget_Base{
 			[
 				'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
-				],
 				'selectors' => [
 					'{{WRAPPER}} .naeep-process-item h3, {{WRAPPER}} .process-number-item h3, {{WRAPPER}} .vertical-info h3' => 'color: {{VALUE}};',
 				],
@@ -862,7 +849,6 @@ class Event_Elementor_Addon_Process extends Widget_Base{
 			[
 				'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 				'name' => 'sastool_subtitle_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_2,
 				'selector' => '{{WRAPPER}} .process-number-item h5, {{WRAPPER}} .vertical-info h5',
 			]
 		);
@@ -871,10 +857,6 @@ class Event_Elementor_Addon_Process extends Widget_Base{
 			[
 				'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_2,
-				],
 				'selectors' => [
 					'{{WRAPPER}} .process-number-item h5, {{WRAPPER}} .vertical-info h5' => 'color: {{VALUE}};',
 				],
@@ -906,7 +888,6 @@ class Event_Elementor_Addon_Process extends Widget_Base{
 			[
 				'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 				'name' => 'sastool_content_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_3,
 				'selector' => '{{WRAPPER}} .naeep-process-item p, {{WRAPPER}} .process-number-item p, {{WRAPPER}} .vertical-info p',
 			]
 		);
@@ -915,10 +896,6 @@ class Event_Elementor_Addon_Process extends Widget_Base{
 			[
 				'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_3,
-				],
 				'selectors' => [
 					'{{WRAPPER}} .naeep-process-item p, {{WRAPPER}} .process-number-item p, {{WRAPPER}} .vertical-info p' => 'color: {{VALUE}};',
 				],
@@ -1024,7 +1001,7 @@ class Event_Elementor_Addon_Process extends Widget_Base{
 					$upload_type = !empty( $each_logo['upload_type'] ) ? $each_logo['upload_type'] : '';
 					$process_title = !empty( $each_logo['process_title'] ) ? $each_logo['process_title'] : '';
 					$process_image = !empty( $each_logo['process_image']['id'] ) ? $each_logo['process_image']['id'] : '';
-					$process_icon = !empty( $each_logo['process_icon'] ) ? $each_logo['process_icon'] : '';
+					$process_icon = !empty( $each_logo['process_icon'] ) ? $each_logo['process_icon']['value'] : '';
 					$process_content = !empty( $each_logo['process_content'] ) ? $each_logo['process_content'] : '';
 
 					$image_url = wp_get_attachment_url( $process_image );

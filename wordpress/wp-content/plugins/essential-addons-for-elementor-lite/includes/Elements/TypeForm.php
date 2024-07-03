@@ -11,7 +11,6 @@ use \Elementor\Controls_Manager;
 use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Box_Shadow;
 use \Elementor\Widget_Base;
-use \Elementor\Scheme_Color;
 
 class TypeForm extends Widget_Base {
 
@@ -113,7 +112,7 @@ class TypeForm extends Widget_Base {
         $this->end_controls_section();
     }
 
-    protected function _register_controls () {
+    protected function register_controls () {
 
         if ($this->get_personal_token() == '') {
             $this->no_token_set();

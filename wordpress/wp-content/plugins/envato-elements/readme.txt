@@ -2,9 +2,9 @@
 Contributors: envato
 Tags: elementor, elements, templates, template kit
 Requires at least: 4.6
-Tested up to: 5.6
+Tested up to: 6.4
 Requires PHP: 5.6
-Stable tag: 2.0.8
+Stable tag: 2.0.13
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -14,7 +14,7 @@ Access thousands of quality, free templates; plus royalty-free photos from Envat
 
 Create professional WordPress websites faster than ever with the [Envato Elements WordPress plugin](https://elements.envato.com/extensions/wordpress/?utm_source=extensions&utm_medium=referral&utm_campaign=elements_extensions_wporg).
 
-Join 200,000+ website creators - Browse and import Elementor Templates and premium stock photos without leaving WordPress.
+Browse and import Elementor Templates and premium stock photos without leaving WordPress.
 
 = Free Template Kits for Elementor =
 Everyone has access to try thousands of free page and block templates to use within Elementor. All you need to do is browse, import, then customize
@@ -78,6 +78,24 @@ If you have any questions or feedback for the team, please send an email to exte
 
 
 == Changelog ==
+
+= 2.0.13 - 2024-03-27 =
+* Updated compatibility tags for WordPress and Elementor
+* Added extra permission checks for installing Template Kits
+
+= 2.0.12 - 2023-04-17 =
+* Fix: Improved error message around missing ZipArchive extension
+* Fix: Improved errors around installations that are missing NONCE_SALT constant
+* Feature: Updated WordPress and Elementor version compatability numbers
+
+= 2.0.11 - 2021-10-21 =
+* Fix: Swap to using ZipArchive for Template Kit extraction
+
+= 2.0.10 - 2021-09-17 =
+* Feature: Better compatibility with Elementor Kits
+
+= 2.0.9 - 2021-07-19 =
+* Fix: Compatibility with Elementor 3.3.0
 
 = 2.0.8 - 2021-02-02 =
 * Feature: Support for Elementor Landing Page templates

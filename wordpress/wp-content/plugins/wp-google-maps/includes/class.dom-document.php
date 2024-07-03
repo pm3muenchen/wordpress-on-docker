@@ -5,8 +5,22 @@ namespace WPGMZA;
 if(!defined('ABSPATH'))
 	return;
 
-require_once(plugin_dir_path(__FILE__) . 'class.dom-element.php');
+/**
+ * We don't actually need to be callin require once here at all
+ * 
+ * The autoloader works fine, but because it was rebuilt in some ways for PHP8 
+ * 
+ * We will leave it as it, with a conditional PHP8 brach for now
+ * 
+ * Expect this to be removed more fully soon
+*/
+if(version_compare(phpversion(), '8.0', '>=')){
+	require_once(plugin_dir_path(__FILE__) . 'php8/class.dom-element.php');
+} else {
+	require_once(plugin_dir_path(__FILE__) . 'class.dom-element.php');
+}
 
+#[\AllowDynamicProperties]
 class DOMDocument extends \DOMDocument
 {
 	private $src_file;
@@ -25,13 +39,29 @@ class DOMDocument extends \DOMDocument
 	
 	public static function convertUTF8ToHTMLEntities($html)
 	{
-		if(function_exists('mb_convert_encoding'))
-			return mb_convert_encoding($html, 'HTML-ENTITIES', 'UTF-8');
-		else
-		{
-			trigger_error('Using fallback UTF to HTML entity conversion', E_USER_NOTICE);
-			return htmlspecialchars_decode(utf8_decode(htmlentities($html, ENT_COMPAT, 'utf-8', false)));
+
+		try{
+			if(version_compare(phpversion(), '8.2', '>=') && function_exists('mb_encode_numericentity')){
+				/* Deprecations in PHP require us to rework the way we do conversions */
+				$converted = htmlspecialchars_decode(mb_encode_numericentity(htmlentities($html, ENT_QUOTES, 'UTF-8'), [0x80, 0x10FFFF, 0, ~0], 'UTF-8'));
+				return $converted;
+			} else {
+				if(function_exists('mb_convert_encoding')){
+					return mb_convert_encoding($html, 'HTML-ENTITIES', 'UTF-8');
+				} else{
+					trigger_error('Using fallback UTF to HTML entity conversion', E_USER_NOTICE);
+					return htmlspecialchars_decode(utf8_decode(htmlentities($html, ENT_COMPAT, 'utf-8', false)));
+				}
+			}
+		} catch (\Exception $ex){
+			if(function_exists('mb_convert_encoding')){
+				return mb_convert_encoding($html, 'HTML-ENTITIES', 'UTF-8');
+			} else{
+				trigger_error('Using fallback UTF to HTML entity conversion', E_USER_NOTICE);
+				return htmlspecialchars_decode(utf8_decode(htmlentities($html, ENT_COMPAT, 'utf-8', false)));
+			}
 		}
+		
 	}
 	
 	/**
@@ -59,6 +89,7 @@ class DOMDocument extends \DOMDocument
 	 * @param int $options See http://php.net/manual/en/domdocument.load.php
 	 * @return boolean TRUE on success, FALSE otherwise
 	 */
+	#[\ReturnTypeWillChange]
 	public function load($src, $options=null)
 	{
 		if(!is_string($src))
@@ -79,8 +110,7 @@ class DOMDocument extends \DOMDocument
 	
 	public function onError($severity, $message, $file, $unused)
 	{
-		if(!preg_match('/DOMDocument::loadHTML.+line: (\d+)/', $message, $m))
-		{
+		if(!preg_match('/DOMDocument::loadHTML.+line: (\d+)/', $message, $m)){
 			trigger_error($message, E_USER_WARNING);
 			return;
 		}
@@ -108,8 +138,14 @@ class DOMDocument extends \DOMDocument
 				);
 
 				/* Supress error because MO files cause issues which can be ignored */
+				/* Update 2022-05-12 -> We don't need to log these at all, 
+				 * even surpression results in php-error class being added to WP admin area
+				 * 
+				 * So we simply don't track the notice as it doesn't serve a real purpose on account of MO files 
+				*/
+				/*
 				@trigger_error($message, E_USER_WARNING);
-				
+				*/
 				return;
 			}
 			
@@ -130,6 +166,14 @@ class DOMDocument extends \DOMDocument
 			
 			if(!$inPhp)
 				$lineCounter++;
+		}
+
+		$safeEntities = array('progress');
+		foreach($safeEntities as $entity){
+			if(preg_match("/DOMDocument::loadHTML.+{$entity} invalid in Entity/", $message, $m)){
+				// HTML 5 safe entity, doesn't need to be logged
+				return;
+			}
 		}
 		
 		trigger_error("Failed to translate line number", E_USER_WARNING);

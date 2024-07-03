@@ -38,6 +38,7 @@
   11. Espresso Events
   12. Espresso Events Tickets
   13. Attendees List
+  14. Eventbrite
 
   Events Addon for Elementor Unique Styling
   ------------------------------------
@@ -5449,6 +5450,21 @@ span.tribe-locality {
   -ms-box-shadow: 0 3px 13px 0 rgba(0,0,0,.08);
   box-shadow: 0 3px 13px 0 rgba(0,0,0,.08);
 }
+.naeep-upcoming-day-carousel {
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto 30px;
+  border: 1px solid #ededec;
+  -webkit-border-radius: 4px;
+  -ms-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-transition: all ease .4s;
+  -ms-transition: all ease .4s;
+  transition: all ease .4s;
+  -webkit-box-shadow: 0 3px 13px 0 rgba(0,0,0,.08);
+  -ms-box-shadow: 0 3px 13px 0 rgba(0,0,0,.08);
+  box-shadow: 0 3px 13px 0 rgba(0,0,0,.08);
+}
 .naeep-upcoming-day .naeep-btn i {
   padding-right: 0;
   line-height: 40px;
@@ -5559,6 +5575,12 @@ span.tribe-locality {
   font-weight: 500;
   color: #333;
   padding-left: 10px;
+}
+.naeep-upcoming.naeep-upcoming-style-four .venue-info-wrap {
+  text-align: center;
+}
+.naeep-upcoming.naeep-upcoming-style-four .venue-info-wrap h5 span {
+  padding-left: 0px;
 }
 .naeep-rating {
   display: inline-block;
@@ -6838,4 +6860,259 @@ ul.event-org li img {
   max-width: 50px;
   border-radius: 4px;
   margin-right: 15px;
+}
+
+/* 14. Eventbrite */
+.naeep-upcoming-style-three .naeep-upcoming-day {
+  padding: 0;
+}
+.naeep-upcoming-style-news-scroll .naeep-news-scroll {
+  padding: 0 10px 0px 0;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  min-width: 250px;
+}
+.naeep-upcoming-style-three .naeep-upcoming-image,
+.naeep-unique-upcoming-style-three .naeep-upcoming-image,
+.naeep-upcoming-style-news-scroll .naeep-upcoming-image {
+  height: 220px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.naeep-upcoming-style-news-scroll .naeep-upcoming-image {
+  min-height: 100px;
+  height: 100px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  flex-basis: 100px;
+  margin-right: 15px;
+}
+
+.naeep-unique-upcoming-style-three .naeep-upcoming-image-wrapper {
+  z-index: 1;
+  position: relative;
+}
+.naeep-upcoming.naeep-unique-upcoming-style-three h2 {
+    font-size: 34px;
+    padding: 0;
+    margin: 0 0 10px;
+    background: #0e25ff;
+    color: #FFF;
+    display: inline-block;
+    border-radius: 100%;
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    position: absolute;
+    left: calc(50% - 40px);
+    right: 0;
+    bottom: -50px;
+    text-align: center;
+    z-index: 9;
+}
+.naeep-upcoming.naeep-unique-upcoming-style-three .naeep-upcoming-day h5 {
+    font-weight: 700;
+    padding: 0;
+    margin: 0 0 10px;
+}
+.naeep-unique-upcoming-style-three .naeep-upcoming-day {
+    padding: 50px 30px 35px;
+    text-align: center;
+}
+.naeep-unique-upcoming-style-three .naeep-upcoming-day .naeep-btn-wrap {
+    position: relative;
+    bottom: 0;
+    right: 0;
+}
+.naeep-unique-upcoming-style-three .naeep-upcoming-day .naeep-btn-wrap .naeep-btn {
+    min-width: auto;
+    width: auto;
+    height: auto;
+    line-height: inherit;
+    border-radius: 5px;
+    padding: 12px 30px 10px;
+    font-weight: bold;
+}
+.naeep-upcoming-style-news-scroll .naeep-upcoming-info {
+  flex-basis: calc(100% - 115px);
+}
+.naeep-upcoming-style-news-scroll .upcoming-title, 
+.naeep-upcoming-style-news-scroll .upcoming-date {
+  width: 100%;
+}
+.naeep-upcoming-style-news-scroll .upcoming-date .date {
+  font-size: 13px;
+  padding-bottom: 0px;
+}
+.naeep-upcoming-style-three .naeep-upcoming-info {
+  padding: 20px 40px 30px;
+}
+.naeep-upcoming-style-timeline {
+  padding-top: 50px;
+  padding-bottom: 30px;
+}
+.naeep-upcoming-style-timeline .naeep-upcoming-day {
+  padding: 0;
+  overflow: hidden;
+}
+.naeep-upcoming-style-timeline, .naeep-upcoming-day-col {
+  position: relative;
+}
+.naeep-upcoming-style-timeline .naeep-upcoming-timeline-bar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: #eee;
+  left: calc( 50% - 1.5px);
+  z-index: 8;
+}
+.naeep-upcoming-style-timeline .naeep-upcoming-image {
+  width: 200px;
+  height: 240px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  float: left;
+}
+.naeep-upcoming-style-timeline .naeep-upcoming-info {
+  padding: 20px 25px 30px;
+  width: calc(100% - 200px);
+  float: right;
+}
+.naeep-upcoming-day-col:after {
+  position: absolute;
+  top: 30px;
+  left: -10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  background: #fb6564;
+  content: '';
+  z-index: 9;
+}
+.naeep-upcoming-date-wrapper {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  width: 60px;
+  height: 60px;
+  background: #fb6564;
+  text-align: center;
+}
+.naeep-upcoming-date-wrapper .naeep-upcoming-date-inner {
+  top: 50%;
+  transform: translateY(-50%);
+  position: relative;
+  z-index: 99;
+}
+.naeep-upcoming-day .naeep-upcoming-date-wrapper span.naeep-upcoming-date {
+  font-weight: 900;
+  font-size: 26px;
+  color: #fff;
+  display: block;
+  padding: 0;
+  line-height: 26px;
+}
+.naeep-upcoming-day .naeep-upcoming-date-wrapper span.naeep-upcoming-month {
+  font-weight: 500;
+  font-size: 12px;
+  color: #fff;
+  display: block;
+  padding: 0;
+  line-height: 12px;
+}
+.naeep-upcoming-style-timeline .naeep-upcoming-day-col:before {
+  position: absolute;
+  top: 30px;
+  left: 15px;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-right: 10px solid #ddd;
+  border-bottom: 10px solid transparent;
+  content: '';
+  z-index: 9;
+}
+.naeep-upcoming-style-timeline .naeep-upcoming-day {
+  -webkit-box-shadow: 0 3px 3px 0 rgba(0,0,0,.08);
+  -ms-box-shadow: 0 3px 3px 0 rgba(0,0,0,.08);
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,.08);
+}
+.naeep-upcoming-style-timeline .naeep-upcoming-day-col:nth-child(even) {
+  padding-left: 25px;
+  margin-top: 90px;
+}
+.naeep-upcoming-style-timeline .naeep-upcoming-day-col:nth-child(odd) {
+  padding-right: 25px;
+  left: inherit;
+}
+.naeep-upcoming-style-timeline .naeep-upcoming-day-col:nth-child(odd):after{
+  left: inherit;
+  right: -10px;
+}
+.naeep-upcoming-style-timeline .naeep-upcoming-day-col:nth-child(odd):before{
+  left: inherit;
+  right: 15px;
+  border-left: 10px solid #ddd;
+  border-right: 0;
+}
+.naeep-upcoming-style-timeline .naeep-upcoming-day-col:nth-child(even) .naeep-upcoming-date-wrapper {
+  left: inherit;
+  right: 10px;
+}
+.naeep-upcoming-style-timeline .naeep-upcoming-day-col:nth-child(even)  .naeep-upcoming-image {
+  float: right;
+}
+.naeep-upcoming-style-timeline .naeep-upcoming-day-col:nth-child(even)  .naeep-upcoming-info {
+  float: left;
+}
+
+@media(max-width: 767px) {
+  .naeep-upcoming-style-timeline .naeep-upcoming-timeline-bar {
+    left: 20px;
+  }  
+  .naeep-upcoming-style-timeline .naeep-upcoming-image {
+    width: 100%;
+    height: 200px;
+  }
+  .naeep-upcoming-style-timeline .naeep-upcoming-day-col:nth-child(2n) .naeep-upcoming-image {
+    float: left;
+  }
+  .naeep-upcoming-style-timeline .naeep-upcoming-info {
+    width: 100%;
+    float: left;
+  }
+  .naeep-upcoming-style-timeline .naeep-upcoming-day-col:nth-child(2n) {
+    padding-left: 45px;
+    margin-top: 0px;
+  }
+  .naeep-upcoming-style-timeline .naeep-upcoming-day-col:nth-child(2n+1) {
+    padding-right: 15px;
+    padding-left: 45px;
+  }
+  .naeep-upcoming-style-timeline .naeep-upcoming-day-col::before {
+    left: 35px;
+  }
+  .naeep-upcoming-style-timeline .naeep-upcoming-day-col:nth-child(2n+1)::before {
+    left: 35px;
+    right: inherit;
+    border-right: 10px solid #ddd;
+    border-left: 0;
+  }
+  .naeep-upcoming-day-col::after {
+    left: 10px;
+  }
+  .naeep-upcoming-style-timeline .naeep-upcoming-day-col:nth-child(2n+1)::after {
+    left: 10px;
+    right: inherit;
+  }
+  .naeep-upcoming-style-timeline .naeep-upcoming-day-col:nth-child(2n+1) .naeep-upcoming-date-wrapper {
+    left: inherit;
+    right: 10px;
+  }
 }

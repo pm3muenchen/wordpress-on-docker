@@ -35,7 +35,8 @@ class Links {
 			$args = array(
 				'post_type' => $wp_type,
 				'post_status' => 'publish',
-				'numberposts' => - 1
+				'numberposts' => - 1,
+				'suppress_filters' => false
 			);
 
 			$posts = get_posts( $args );

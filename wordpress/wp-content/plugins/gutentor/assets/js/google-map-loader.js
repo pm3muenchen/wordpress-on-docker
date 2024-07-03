@@ -37,8 +37,13 @@ const initMapScript = () => {
 
             if ( map.attributes.markers && 0 < map.attributes.markers.length ) {
                 map.attributes.markers.forEach( marker => {
-                    const position = new google.maps.LatLng( marker.latitude, marker.longitude );
-
+                    let position;
+                    if( marker.hasOwnProperty('e4Lat')){
+                        position = new google.maps.LatLng( marker.e4Lat, marker.e4Lon );
+                    }
+                    else{
+                        position = new google.maps.LatLng( marker.latitude, marker.longitude );
+                    }
                     const mark = new google.maps.Marker({
                         position,
                         map: googleMap,

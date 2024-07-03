@@ -6,7 +6,6 @@
  */
 namespace Happy_Addons\Elementor\Widget;
 
-use Elementor\Scheme_Typography;
 use Elementor\Utils;
 use Elementor\Control_Media;
 use Elementor\Controls_Manager;
@@ -14,6 +13,7 @@ use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Typography;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 
 defined( 'ABSPATH' ) || die();
 
@@ -51,7 +51,16 @@ class Image_Compare extends Base {
         return [ 'compare', 'image', 'before', 'after' ];
     }
 
+	/**
+     * Register widget content controls
+     */
 	protected function register_content_controls() {
+		$this->__image_content_controls();
+		$this->__settings_content_controls();
+	}
+
+	protected function __image_content_controls() {
+
 		$this->start_controls_section(
 			'_section_images',
 			[
@@ -146,6 +155,9 @@ class Image_Compare extends Base {
         );
 
         $this->end_controls_section();
+	}
+
+	protected function __settings_content_controls() {
 
         $this->start_controls_section(
             '_section_settings',
@@ -184,11 +196,11 @@ class Image_Compare extends Base {
                 'options' => [
                     'horizontal' => [
                         'title' => __( 'Horizontal', 'happy-elementor-addons' ),
-                        'icon' => 'fa fa-arrows-h',
+                        'icon' => 'eicon-h-align-stretch',
                     ],
                     'vertical' => [
                         'title' => __( 'Vertical', 'happy-elementor-addons' ),
-                        'icon' => 'fa fa-arrows-v',
+                        'icon' => 'eicon-v-align-stretch',
                     ],
                 ],
                 'default' => 'horizontal',
@@ -228,7 +240,16 @@ class Image_Compare extends Base {
         $this->end_controls_section();
     }
 
+	/**
+     * Register widget style controls
+     */
     protected function register_style_controls() {
+		$this->__handle_style_controls();
+		$this->__label_style_controls();
+	}
+
+    protected function __handle_style_controls() {
+
         $this->start_controls_section(
             '_section_style_handle',
             [
@@ -353,6 +374,9 @@ class Image_Compare extends Base {
         );
 
         $this->end_controls_section();
+	}
+
+    protected function __label_style_controls() {
 
         $this->start_controls_section(
             '_section_style_label',
@@ -490,7 +514,9 @@ class Image_Compare extends Base {
             [
                 'name' => 'label_typography',
                 'selector' => '{{WRAPPER}} .twentytwenty-before-label:before, {{WRAPPER}} .twentytwenty-after-label:before',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_3,
+                'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_TEXT,
+				],
             ]
         );
 
@@ -540,7 +566,7 @@ class Image_Compare extends Base {
     }
 
 
-    public function _content_template() {
+    public function content_template() {
         ?>
         <#
         view.addRenderAttribute( 'container', 'class', [

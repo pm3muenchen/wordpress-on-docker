@@ -3,9 +3,9 @@ Contributors: briKou
 Donate link: https://www.paypal.me/BriceCapobianco
 Tags: editor, underline, justify, wysiwyg, gutenberg, ACF
 Requires at least: 4.7
-Tested up to: 5.3
+Tested up to: 6.4.3
 Requires PHP: 5.5.12
-Stable tag: 0.3
+Stable tag: 0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
  
@@ -57,35 +57,42 @@ Just go to Settings -> Writing and select the option you want under "Editor styl
 
 == Changelog ==
 
-= 0.3 - 14/11/2019 =
+= 0.4.1 - 2024/03/07 =
+* Tested on WP 6.4.3 with success!
+
+= 0.4 - 2022/10/24 =
+* Tested on WP 6.0.3 with success!
+* Update readme
+
+= 0.3 - 2019/11/14 =
 * Tested on WP 5.3 with success!
 * Change default option to "Re-add underline & justify buttons" on plugin activation
 
-= 0.2 - 09/04/2018 =
+= 0.2 - 2018/04/09 =
 * Tested on WP 4.9.8 with success!
 * Added support for Gutenberg for its "Classic" bloc only.
 * Remove option 3  "Re-add underline & justify + rearrange" (depracated)
 
-= 0.1.4 - 03/31/2017 =
+= 0.1.4 - 2017/31/03 =
 * Tested on WP 4.7.3 with success!
 * Fix broken links in plugins meta
 
-= 0.1.3 - 01/14/2016 =
+= 0.1.3 - 2016/14/01 =
 * Added the fourth option to only re-add justify button (push methode)
 * Push non standard button to the end of the buttons lines for the third option. This prevents from removing extra buttons added by other plugins.
 * Fix for ACF (free) on the second option
 
-= 0.1.2 - 11/14/2016 =
+= 0.1.2 - 2016/14/11 =
 * Changes MCE button hook priority to prevent errors with other plugins adding extra buttons.
 
-= 0.1.1 - 11/10/2016 =
+= 0.1.1 - 2016/10/11 =
 * Fixes an issue hidding Editor content.
 
-= 0.1 - 11/06/2016 =
+= 0.1 - 2016/06/116 =
 * First release.
 
 == Upgrade Notice ==
-= 0.1 - 11/06/2016 =
+= 0.1 - 2016/06/11 =
 * The old option "Re-add underline & justify + rearrange" has been deprecated in 0.2 (sept. 2018) as it cause conflicts with the new Gutenberg editor. This option automatically switches to "Re-add underline & justify buttons" since.
 
 = 0.1.3 =

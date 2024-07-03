@@ -1,74 +1,90 @@
-=== Restrict User Access - Membership Plugin with Force ===
+=== Restrict User Access - Ultimate Membership & Content Protection ===
 Contributors: intoxstudio, devinstitute, keraweb, freemius
 Donate link: #
-Tags: restrict content, membership, access control, capabilities, members, bbpress, buddypress
-Requires at least: 4.8
-Requires PHP: 5.6
-Tested up to: 5.6
-Stable tag: 2.1.3
+Tags: content-restriction, membership, access-control, permissions, member, bbpress
+Requires at least: 5.5
+Requires PHP: 7.1
+Tested up to: 6.5
+Stable tag: 2.7
 License: GPLv3
 
 Create Access Levels and restrict any post, page, category, etc. Supports bbPress, BuddyPress, WooCommerce, WPML, and more.
 
 == Description ==
 
-Restrict content and contexts to control what your users get exclusive access to, or drip content over time. Create an unlimited number of Access Levels and override user and role capabilities.
+**Restrict User Access is a fast and simple Membership Plugin for WordPress. Restrict your content in minutes, NOT hours.**
 
-Use this plugin to quickly set up a membership site where your users can get different levels such as Gold, Silver and Bronze. Then, restrict access to e.g. posts tagged "Premium", articles written by specific authors, or all your free products.
+Quickly set up a paid membership site where your users can get different levels such as Platinum, Gold, or Free. Then, grant those levels when a user purchases a product in WooCommerce.
 
-No coding required.
+###👥 Unlimited Access Levels
 
-####Unlimited Access Levels
+Users can have multiple levels, and you control how long memberships should last. When unauthorized users try to access restricted content, you can redirect them to another URL or display a teaser.
 
-* Multiple levels per user
-* Sync with User Roles, Logged in, or Logged out
-* Add membership durations
-* Unlock (drip) content for new members
-* Permit & deny level capabilities
-* Hide nav menu items
-* Restrict Widget Areas in [Content Aware Sidebars](https://dev.institute/wordpress-sidebars/)
-* Redirect unauthorized users to a page or custom link
-* Tease content for unauthorized users and show custom message
-* Shortcode to fine-tune restrictions in your posts or pages
+###⚡ Level Membership Automations
 
-####Unlimited Content Restrictions
+Automatically add levels to your users based on something they do (Triggers) or something they are (Traits):
 
-Conditionally restrict all your posts, pages, categories, or any content you want. Restrict User Access even allows you to combine conditions. This means that you e.g. can restrict all posts in Category X written by author Y.
+* User Roles
+* Logged-in or Guests
+* WooCommerce Purchases
+* Easy Digital Downloads Purchases
+* BuddyPress Member Types
+* GiveWP Donations
 
-For each level you can restrict content with the following conditions:
+###🔒 Contextual Content Protection
 
-* Singulars, eg. each post, page, or custom post type
-* Content with select taxonomies, eg. categories or tags
-* Content written by a select author
+Prevent unauthorized users from visiting your posts, pages, or categories. You can even combine the conditions: protect all posts tagged "Premium" written by a select author.
+
+The following Access Conditions are available out of the box:
+
+* Posts, Pages & Custom Post Types
+* Content with Tags, Categories, or Custom Taxonomies
+* Content written by select Authors
 * Page Templates
-* Post Type Archives
+* Blog Page & Post Type Archives
 * Author Archives
-* (Custom) Taxonomy Archives
-* Search Results
-* 404 Not Found Page
-* Front Page
-* Blog Page
-* bbPress User Profiles
-* BuddyPress Member Pages
-* Languages (qTranslate X, Polylang, Transposh, WPML, TranslatePress)
+* Taxonomy Archives
+* Front Page, Search Results, 404 Not Found Page
+* bbPress Profiles, Forums & Topics
+* BuddyPress Profile Sections
+* Languages (Polylang, qTranslate X, TranslatePress, Transposh, Weglot, WPML)
 * Pods Pages
 
-####Plugin Integrations & Support
+Note that Access Conditions do not apply to content displayed in lists.
 
-Restrict User Access automatically supports Custom Post Types and Taxonomies created by any plugin or theme. Moreover, it comes with built-in support for some of the most popular WordPress plugins.
+###✅ Grant & Deny Capabilities
+
+The easy-to-use WordPress User Manager gives you full control over the capabilities the members should or shouldn't have. Access Level Capabilities will override the permissions set by roles or other plugins.
+
+###👁️ Hide Admin Bar & Nav Menu Visibility
+
+Disable the admin bar for select levels and control what menu items members can see. You can even hide any widget area created with [Content Aware Sidebars](https://dev.institute/wordpress-sidebars/?utm_source=readme&utm_medium=referral&utm_content=section&utm_campaign=rua)
+
+###🤖 Restrict Content from Other Plugins
+
+Restrict User Access autodetects Custom Post Types and Taxonomies created by any plugin or theme. Built-in support for some of the most popular WordPress plugins means that you e.g. can restrict access to bbPress forums or multilingual content.
 
 * bbPress
 * BuddyPress
 * Easy Digital Downloads
-* qTranslate X
 * Pods
 * Polylang
 * TranslatePress
-* Transposh Translation Filter
 * WooCommerce
+* Weglot
 * WPML
+* and more ...
 
-####Shortcodes
+###🛡️ WordPress Security Enhancements
+
+* **WP REST API Content Protection**
+Enforces PoLA to minimize attack surfaces and stop threat actors from harvesting your data
+* **How to display content in lists**
+Display excerpts only or hide content when post types are displayed in blog, archives, search results, lists, etc.
+
+###📑 Restrict Content with Shortcodes
+
+Fine-tune content visibility in your posts or pages by adding simple shortcodes:
 
 `
 [restrict level="platinum"]
@@ -87,42 +103,44 @@ Other users will see content from page with ID 1.
 [login-form]
 `
 
-####Developer API
+###👋 Developer-friendly API
+
+Restrict User Access makes it super easy for developers to programmatically customize WordPress access control by adding a few lines of code to theme templates.
+
+####Example - Add level to current user
 
 `
-rua_get_user($user_id): RUA_User_Interface;
-rua_get_level_by_name(string $name): WP_Post;
-
-RUA_User_Interface {
-    get_id(): int;
-    get_attribute(string $name, mixed $default_value = null): mixed;
-    has_global_access(): bool;
-    level_memberships(): RUA_User_Level_Interface[];
-    get_level_ids(): int[];
-    add_level(int $level_id): bool;
-    remove_level(int $level_id): bool;
-    has_level(int $level): bool;
-}
-
-RUA_User_Level_Interface {
-    get_user_id(): int;
-    user(): RUA_User_Interface;
-    get_level_id(): int;
-    get_level_extend_ids(): int[];
-    level(): RUA_Level_Interface;
-    get_status(): string;
-    get_start(): int;
-    get_expiry(): int;
-    is_active(): bool;
-}
-
+rua_get_user()->add_level($level_id);
 `
 
-####More Information
+####Example - Check if current user has an active level membership
 
-* [Documentation](https://dev.institute/docs/restrict-user-access/?utm_source=readme&utm_medium=referral&utm_content=info&utm_campaign=rua)
-* [GitHub](https://github.com/intoxstudio/restrict-user-access)
-* [Twitter](https://twitter.com/intoxstudio)
+`
+if(rua_get_user()->has_level($level_id)) {
+    //show restricted content
+} else {
+    //show content if unauthorized
+}
+`
+
+[View full RUA PHP API documentation here.](https://dev.institute/docs/restrict-user-access/developer-api/?utm_source=readme&utm_medium=referral&utm_content=section&utm_campaign=rua)
+
+###🎛️ Premium Add-ons for Restrict User Access
+
+Complete your WordPress membership site with these powerful extensions
+
+* **[ACF Restriction](https://dev.institute/products/category/restrict-user-access/?utm_source=readme&utm_medium=referral&utm_content=acf&utm_campaign=rua)**
+Restrict content that contain data from Advanced Custom Fields plugin
+* **[Date Restriction](https://dev.institute/products/category/restrict-user-access/?utm_source=readme&utm_medium=referral&utm_content=date&utm_campaign=rua)**
+Restrict content based on the time it was published
+* **[Meta Box Restriction](https://dev.institute/products/category/restrict-user-access/?utm_source=readme&utm_medium=referral&utm_content=metabox&utm_campaign=rua)**
+Restrict content that contain data from Meta Box plugin
+* **[Timelock](https://dev.institute/products/category/restrict-user-access/?utm_source=readme&utm_medium=referral&utm_content=timelock&utm_campaign=rua)**
+Determine when to enable or disable select Access Conditions
+* **[URL Restriction](https://dev.institute/products/category/restrict-user-access/?utm_source=readme&utm_medium=referral&utm_content=url&utm_campaign=rua)**
+Restrict content based on the WordPress URL, with wildcard support
+* **[Visibility Control](https://dev.institute/products/category/restrict-user-access/?utm_source=readme&utm_medium=referral&utm_content=visibility&utm_campaign=rua)**
+Hide content from blog, search results, archives, custom lists, WP REST API, and more
 
 == Installation ==
 
@@ -150,24 +168,21 @@ If the plugin is deactivated, any restricted content will become accessible to e
 **Tips**
 In order to restrict a context, e.g. "All Posts with Category X", simply select a new type of content from the dropdown below the **AND** label and repeat Step 3.
 
-You can choose to negate conditions, meaning that if you negate the group "All posts with Category X", the level will get exclusive access to all content but that.
+= I added a level to a user, but it can still access other content? =
 
-= I added a Level to a user, but it can still see other content? =
+When you use Access Conditions to restrict some pages, only members of this level will be able to visit those pages, but they can still visit other pages too.
 
-When you create an Access Level to restrict some content, only users with this level will be able to see that content.
+You can change this behavior from the Options tab by toggling "Deny Access to Unprotected Content" to ON.
 
-An Access Level has two Default Access modes that can be changed from the Options tab:
-
-1. All unrestricted content (default): Members can also access all content that has not been restricted by other levels
-1. Restricted content only: Members can only access the content that has been restricted for this level
+With this option enabled, members can only visit the pages selected as Access Conditions.
 
 To prevent lockout, Administrators will have access to all content regardless of your levels.
 
-= Restricted content is still being displayed on archive pages or in widgets? =
+= Restricted content is still displayed in blog, archives, search results, etc? =
 
-Restrict User Access does currently not support hiding single items from archive pages, search results, widgets or custom lists.
+By default, Access Conditions do not apply to items in archive pages, search results, widgets, WP REST API, or custom lists.
 
-It is recommended only to show titles and excerpts in these cases.
+[Learn more about how to completely hide content here.](https://dev.institute/docs/restrict-user-access/faq/restricted-content-not-hidden/?utm_source=readme&utm_medium=referral&utm_content=faq&utm_campaign=rua)
 
 = Restricted file is still accessible with deep link? =
 
@@ -176,6 +191,10 @@ Restrict User Access does currently not support restricting deep links to files,
 = User still able to edit restricted content in Admin Dashboard? =
 
 Capabilities and Access Conditions serve different purposes and are not combined. Access Conditions are applied only to the frontend, while capabilities work throughout the site (both Admin Dashboard and frontend).
+
+= How can I report security bugs? =
+
+You can report security bugs through the Patchstack Vulnerability Disclosure Program. The Patchstack team help validate, triage and handle any security vulnerabilities. [Report a security vulnerability.](https://patchstack.com/database/vdp/restrict-user-access)
 
 = I have other questions, can you help? =
 
@@ -193,82 +212,79 @@ Of course! Check out the links below:
 
 == Upgrade Notice ==
 
+Plugin data will be updated automatically. It is strongly recommended to take a backup of your site.
+
 == Changelog ==
 
 [Follow development and see all changes on GitHub](https://github.com/intoxstudio/restrict-user-access)
 
 ####Highlights
 
-= 2.1.3 =
+= 2.7 =
 
-* [new] wordpress 5.6 support
-* [updated] wp-content-aware-engine library
-* [updated] freemius sdk
-
-= 2.1.2 =
-
-* [new] identical taxonomy names are now displayed with their post type
-* [fixed] error when attempting to add member to non-existing level
-* [fixed] non-member redirection for custom links
-* [fixed] taxonomy and attachment condition suggestions would not display all results
-
-= 2.1.1 =
-
-* [fixed] users could not be added to levels, regression from v2.1
-
-= 2.1 =
-
-* [new] intelligent search by id in post type condition
-* [new] intelligent search by id, email in author condition
 * [new] ui and performance improvements
-* [new] wordpress 5.5 support
-* [new] restrict shortcode supports multiple levels
-* [new] restrict shortcode drip_days parameter
-* [new] RUA_User_Level_Interface and RUA_Level_Interface interfaces
-* [updated] wp-content-aware-engine library
-* [updated] freemius sdk
-* [updated] RUA_User_Interface interface
-* [updated] improved non-member redirection
-* [fixed] condition option to auto-select new children
-
-= 2.0 =
-
-* [new] default access option to lockdown levels
-* [new] exception conditions
-* [new] ability to unset capabilities on extended levels
-* [new] level manager shows inherited capabilities
-* [new] compatibility with wooselect
-* [updated] optimized and reduced plugin size with 26%
-* [updated] improved non-member redirection
-* [fixed] nav menu editor in wp5.4+ showing duplicate level options
-* [fixed] level member list would in some cases always redirect to page 1
-* [deprecated] negated conditions
-* [deprecated] simple date archive condition
-
-= 1.3 =
-
-* [new] translatepress access condition
-* [new] wordpress 5.4 support
-* [new] minimum wordpress version 4.8
+* [new] wordpress 6.5 support
+* [new] minimum wordpress version 5.5
+* [new] minimum php version 7.1
+* [fixed] memberships now removed on user deletion
+* [fixed] improved compatibility with wpml plugin
 * [updated] wp-content-aware-engine library
 * [updated] freemius sdk
 
-= 1.2.1 =
+= 2.6.1 =
 
-* [fixed] condition type cache would in some cases be primed with bad data
-* [fixed] edge case where negated conditions would be ignored
-
-= 1.2 =
-
-* [new] condition type cache for improved performance
-* [new] categories and search in dropdown for access condition types
-* [new] filter to modify [restrict] shortcode
-* [new] filter to disable nav menu restrictions
-* [new] wordpress 5.3 support
-* [new] minimum wordpress version 4.6
-* [updated] ui improvements
-* [updated] wp-content-aware-engine library
-* [updated] wp-db-updater library
+* [new] ui and performance improvements
 * [updated] freemius sdk
+* [fixed] timezone discrepancies in level memberships
+* [fixed] conflict with other plugins erroneously manipulating membership queries
+
+= 2.6 =
+
+* [new] rest api content protection
+* [new] control how content is displayed in lists
+* [updated] buddypress 12 compatibility
+* [fixed] compatibility with polylang and wpml
+* [fixed] xss vulnerability when editing levels
+
+= 2.5 =
+
+* [new] admin ability to extend, search, and sort memberships
+* [new] member trait - givewp donation
+* [new] wp multisite network support
+* [new] greatly improved membership data storage
+* [new] wordpress 6.4 support
+* [new] minimum wordpress version 5.1
+* [new] minimum php version 7.0
+* [new] ui and performance improvements
+* [updated] wp-content-aware-engine library
+* [updated] freemius sdk
+
+= 2.4.3 =
+
+* [new] wordpress 6.2 support
+* [updated] freemius sdk
+
+= 2.4.2 =
+
+* [new] api to update user level start, expiry, status
+* [new] ui improvements
+* [updated] freemius sdk
+* [removed] deprecated php api methods: rua_get_user_roles, rua_get_user_levels, rua_get_user_level_start, rua_get_user_level_expiry, rua_is_user_level_expired, rua_has_user_level, rua_add_user_level, rua_remove_user_level
+
+= 2.4.1 =
+
+* [new] wordpress 6.1 support
+* [new] ui improvements
+* [fixed] user role trait would in some cases not work for extended levels
+* [updated] wp-content-aware-engine library
+
+= 2.4 =
+
+* [new] member trigger - easy digital downloads purchase
+* [new] member trait - buddypress member type
+* [new] member trait - user role (supersedes user role sync)
+* [new] auto-complete searching for member automations
+* [new] ui and performance improvements
+* [updated] wp-content-aware-engine library
 
 See changelog.txt for previous changes.

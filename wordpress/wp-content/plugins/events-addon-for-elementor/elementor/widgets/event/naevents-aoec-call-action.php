@@ -45,7 +45,7 @@ if ( is_plugin_active( 'all-in-one-event-calendar/all-in-one-event-calendar.php'
 		 * Register Events Addon for Elementor All-in-One Event Calendar Call To Action widget controls.
 		 * Adds different input fields to allow the user to change and customize the widget settings.
 		*/
-		protected function _register_controls(){
+		protected function register_controls(){
 
 			$args = array(
 	    'post_type' => 'ai1ec_event',
@@ -193,7 +193,6 @@ if ( is_plugin_active( 'all-in-one-event-calendar/all-in-one-event-calendar.php'
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'name_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 					'selector' => '{{WRAPPER}} .naeep-cta h3',
 				]
 			);
@@ -209,10 +208,6 @@ if ( is_plugin_active( 'all-in-one-event-calendar/all-in-one-event-calendar.php'
 					[
 						'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'scheme' => [
-							'type' => Scheme_Color::get_type(),
-							'value' => Scheme_Color::COLOR_1,
-						],
 						'selectors' => [
 							'{{WRAPPER}} .naeep-cta h3, {{WRAPPER}} .naeep-cta h3 a' => 'color: {{VALUE}};',
 						],
@@ -231,10 +226,6 @@ if ( is_plugin_active( 'all-in-one-event-calendar/all-in-one-event-calendar.php'
 					[
 						'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'scheme' => [
-							'type' => Scheme_Color::get_type(),
-							'value' => Scheme_Color::COLOR_2,
-						],
 						'selectors' => [
 							'{{WRAPPER}} .naeep-cta h3 a:hover' => 'color: {{VALUE}};',
 						],
@@ -301,7 +292,6 @@ if ( is_plugin_active( 'all-in-one-event-calendar/all-in-one-event-calendar.php'
 				[
 					'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 					'name' => 'btn_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_4,
 					'selector' => '{{WRAPPER}} .naeep-btn',
 				]
 			);

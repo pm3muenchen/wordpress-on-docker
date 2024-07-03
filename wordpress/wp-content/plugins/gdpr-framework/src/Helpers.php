@@ -13,7 +13,8 @@ class Helpers
 {
     public function supportUrl($url = '')
     {
-        return gdpr('config')->get('help.url') . $url;
+        global $gdpr;
+        return $gdpr->HelpUrl . $url;
     }
 
     /**
@@ -314,11 +315,13 @@ class Helpers
      */
     public function getDataProtectionAuthorityInfo($countryCode = null)
     {
+        global $gdpr;
+
         if (!$countryCode) {
-            $countryCode = gdpr('options')->get('company_location');
+            $countryCode = $gdpr->Options->get('company_location');
         }
 
-        $dpaData = require(gdpr('config')->get('plugin.path') . 'assets/data-protection-authorities.php');
+        $dpaData = require($gdpr->PluginPath  . 'assets/data-protection-authorities.php');
 
         if (isset($dpaData[$countryCode])) {
             return $dpaData[$countryCode];
@@ -332,12 +335,18 @@ class Helpers
      */
     public function getDataProtectionAuthorities()
     {
-        return require(gdpr('config')->get('plugin.path') . 'assets/data-protection-authorities.php');
+        global $gdpr;
+        return require($gdpr->PluginPath . 'assets/data-protection-authorities.php');
     }
 
     public function getAdminUrl($suffix = '')
     {
         return admin_url('tools.php?page=privacy' . $suffix);
+    }
+
+    public function premiumStore()
+    {
+        return 'https://orders.data443.com/index.php?rp=/store/gdpr-framework';
     }
 
     public function getDashboardDataPageUrl($suffix = '')
@@ -347,11 +356,12 @@ class Helpers
 
     public function getPrivacyToolsPageUrl()
     {
-        if(gdpr('options')->get('custom_tools_page')){
-			$privacyToolsUrl = gdpr('options')->get('custom_tools_page');
+        global $gdpr;
+        if($gdpr->Options->get('custom_tools_page')){
+			$privacyToolsUrl = $gdpr->Options->get('custom_tools_page');
 			return $privacyToolsUrl;			
 		}else{
-			$toolsPageId = gdpr('options')->get('tools_page');
+			$toolsPageId = $gdpr->Options->get('tools_page');
         	return $toolsPageId ? get_permalink($toolsPageId) : '';
 		}		
 		
@@ -359,7 +369,8 @@ class Helpers
 
     public function getPrivacyPolicyPageUrl()
     {
-        $policyPageId = gdpr('options')->get('policy_page');
+        global $gdpr;
+        $policyPageId = $gdpr->Options->get('policy_page');
         $policyPageurl = get_permalink($policyPageId);
         add_filter( 'gdpr_custom_policy_link', 'gdprfPrivacyPolicyurl' );
         $policyPageurl = apply_filters( 'gdpr_custom_policy_link',$policyPageurl);
@@ -376,6 +387,56 @@ class Helpers
     public function docs($url = '')
     {
         return 'https://www.data443.com/' . $url;
+    }
+
+    public function data443()
+    {
+        return 'https://data443.com/';
+    }
+
+    public function wordpressReview()
+    {
+        return 'https://wordpress.org/plugins/gdpr-framework/#reviews';
+    }
+
+    public function supportRequest()
+    {
+        return 'https://data443.atlassian.net/servicedesk/customer/portal/2/group/6';
+    }
+
+    public function siteOwnersGuide()
+    {
+        return 'https://data443.atlassian.net/servicedesk/customer/portal/2/article/2078998660';
+    }
+
+    public function developerDocs()
+    {
+        return 'https://data443.atlassian.net/servicedesk/customer/portal/2/article/2082439194';
+    }
+
+    public function knowledgeBase()
+    {
+        return 'https://data443.atlassian.net/servicedesk/customer/portal/2/article/192708653';
+    }
+
+    public function controllingPersonalData()
+    {
+        return 'https://data443.atlassian.net/servicedesk/customer/portal/2/article/2082439201';
+    }
+
+    public function legalGrounds()
+    {
+        return 'https://data443.atlassian.net/servicedesk/customer/portal/2/article/2079293576';
+    }
+
+    public function personalData()
+    {
+        return ' https://data443.atlassian.net/servicedesk/customer/portal/2/article/2083029023';
+    }
+
+    public function privacyPolicy()
+    {
+        return 'https://data443.atlassian.net/servicedesk/customer/portal/2/article/2082897943';
     }
 
     /**

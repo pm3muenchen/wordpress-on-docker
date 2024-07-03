@@ -26,9 +26,11 @@ const UploadKitCard = ({ item }) => {
             }}
           />
         </label>
-        {chosenFile ? (
-          <DoTheFileUpload chosenFile={chosenFile} />
-        ) : null}
+        {chosenFile
+          ? (
+            <DoTheFileUpload chosenFile={chosenFile} />
+            )
+          : null}
       </div>
     </GridItem>
   )

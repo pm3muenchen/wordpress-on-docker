@@ -91,40 +91,40 @@ if ( ! class_exists( 'Gutentor_Featured_N3_T2' ) ) {
 			return $output;
 		}
 
-        /**
-         * Term Template
-         *
-         * @param {string} $output
-         * @param {array}  $terms
-         * @param {array}  $attributes
-         *
-         * @return {string}
-         */
-        public function term_template( $output, $terms, $attributes ) {
+		/**
+		 * Term Template
+		 *
+		 * @param {string} $output
+		 * @param {array}  $terms
+		 * @param {array}  $attributes
+		 *
+		 * @return {string}
+		 */
+		public function term_template( $output, $terms, $attributes ) {
 
-            if ( ! $this->isT2( $attributes ) ) {
-                return $output;
-            }
-            $index = 0;
-            foreach ( $terms as $term ) {
-                if ( $index === 0 ) {
-                    $output .= "<div class='" . apply_filters( 'gutentor_term_module_t2_grid_class', 'grid-lg-6 grid-md-6 grid-12', $attributes ) . "'>";
-                }
-                if ( $index === 0 || $index === 1 ) {
-                    $output .= $this->t2_single_article( $term, $attributes, $index );
-                }
-                if ( $index === 1 ) {
-                    $output .= '</div>';/*$index === 1*/
-                }
-                if ( $index === 2 ) {
-                    $output .= "<div class='" . apply_filters( 'gutentor_term_module_t2_grid_class', 'grid-lg-6 grid-md-6 grid-12', $attributes ) . "'>";
-                    $output .= $this->t2_single_article( $term, $attributes, $index );
-                    $output .= '</div>';
-                }
-                $index++;
-            }
-            return $output;
-        }
+			if ( ! $this->isT2( $attributes ) ) {
+				return $output;
+			}
+			$index = 0;
+			foreach ( $terms as $term ) {
+				if ( $index === 0 ) {
+					$output .= "<div class='" . apply_filters( 'gutentor_term_module_t2_grid_class', 'grid-lg-6 grid-md-6 grid-12', $attributes ) . "'>";
+				}
+				if ( $index === 0 || $index === 1 ) {
+					$output .= $this->t2_single_article( $term, $attributes, $index );
+				}
+				if ( $index === 1 ) {
+					$output .= '</div>';/*$index === 1*/
+				}
+				if ( $index === 2 ) {
+					$output .= "<div class='" . apply_filters( 'gutentor_term_module_t2_grid_class', 'grid-lg-6 grid-md-6 grid-12', $attributes ) . "'>";
+					$output .= $this->t2_single_article( $term, $attributes, $index );
+					$output .= '</div>';
+				}
+				$index++;
+			}
+			return $output;
+		}
 	}
 }
 Gutentor_Featured_N3_T2::get_instance()->run();

@@ -26,12 +26,14 @@
 			esc_html_e("My Maps", "wp-google-maps");
 			?>
 		</h1>
+
+		<div class="wpgmza-persistent-notice-container"></div>
 		
 		<div class='wpgmza-review-nag'>
 			<?php
-			echo sprintf( __( '<h3>We need your love!</h3><p>If you are enjoying our plugin, please consider <a href="%1$s" target="_blank" class="button-border button-border__green">reviewing WP Google Maps</a>. It would mean the world to us! If you are experiencing issues with the plugin, please <a href="%2$s" target="_blank"  class="button-border button-border__green">contact us</a> and we will help you as soon as humanly possible!</p>', 'wp-google-maps' ),
-				'https://wordpress.org/support/view/plugin-reviews/wp-google-maps?filter=5',
-				'http://www.wpgmaps.com/contact-us/'
+			echo sprintf( __( '<h3>We need your love!</h3><p>If you are enjoying our plugin, please consider <a href="%1$s" target="_blank" class="button-border button-border__green">reviewing WP Go Maps</a>. It would mean the world to us! If you are experiencing issues with the plugin, please <a href="%2$s" target="_blank"  class="button-border button-border__green">contact us</a> and we will help you as soon as humanly possible!</p>', 'wp-google-maps' ),
+				esc_url('https://wordpress.org/support/view/plugin-reviews/wp-google-maps?filter=5'),
+				esc_url('http://www.wpgmaps.com/contact-us/')
 			);
 			?>
 			
@@ -45,7 +47,7 @@
 		</div>
 		
 		<p class='wpgmza_upgrade_nag'>
-			<a href="https://www.wpgmaps.com/purchase-professional-version/?utm_source=plugin&amp;utm_medium=link&amp;utm_campaign=mappage_1" 	
+			<a href="https://www.wpgmaps.com/purchase-professional-version/?utm_source=plugin&amp;utm_medium=link&amp;utm_campaign=mappage_1<?php echo wpgmzaGetUpsellLinkParams(); ?>" 	
 				target="_BLANK" 
 				title="<?php esc_html_e("Pro Version", "wp-google-maps"); ?>">
 				<?php
@@ -56,7 +58,7 @@
 			esc_html_e("with the", "wp-google-maps");
 			?>
 			
-			<a href="https://www.wpgmaps.com/purchase-professional-version/?utm_source=plugin&amp;utm_medium=link&amp;utm_campaign=mappage_2"
+			<a href="https://www.wpgmaps.com/purchase-professional-version/?utm_source=plugin&amp;utm_medium=link&amp;utm_campaign=mappage_2<?php echo wpgmzaGetUpsellLinkParams(); ?>"
 				title="Pro Version"
 				target="_BLANK">
 				<?php
@@ -64,7 +66,7 @@
 				?></a>
 				
 			<?php
-			esc_html_e("of WP Google Maps for only", "wp-google-maps");
+			esc_html_e("of WP Go Maps for only", "wp-google-maps");
 			?>
 			
 			<strong>$39.99 <?php esc_html_e("once off!","wp-google-maps"); ?></strong>

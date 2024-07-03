@@ -44,7 +44,7 @@ class Event_Elementor_Addon_Video extends Widget_Base{
 	 * Register Events Addon for Elementor Video widget controls.
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	*/
-	protected function _register_controls(){
+	protected function register_controls(){
 
 		$this->start_controls_section(
 			'section_video',
@@ -286,10 +286,6 @@ class Event_Elementor_Addon_Video extends Widget_Base{
 				[
 					'label' => esc_html__( 'Background Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_2,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .naeep-video-btn' => 'background-color: {{VALUE}};',
 					],
@@ -410,7 +406,6 @@ class Event_Elementor_Addon_Video extends Widget_Base{
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'sasvid_title_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .naeep-video-wrap .video-label',
 			]
 		);
@@ -426,10 +421,6 @@ class Event_Elementor_Addon_Video extends Widget_Base{
 				[
 					'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_1,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .naeep-video-wrap .video-label' => 'color: {{VALUE}};',
 					],
@@ -448,10 +439,6 @@ class Event_Elementor_Addon_Video extends Widget_Base{
 				[
 					'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_2,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .naeep-video-wrap a:hover .video-label' => 'color: {{VALUE}};',
 					],

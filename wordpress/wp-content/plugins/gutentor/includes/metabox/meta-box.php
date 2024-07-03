@@ -71,10 +71,10 @@ if ( ! class_exists( 'Gutentor_Custom_Meta_Box' ) ) :
 		 * Meta box initialization.
 		 */
 		public function init_metabox() {
-            $options = get_option( 'gutentor_settings_options' );
+            $options = gutentor_get_options();
             $value   = false;
-            if ( isset( $options['gutentor_enable_edd_demo_url'] ) && ! empty( $options['gutentor_enable_edd_demo_url'] ) ) {
-                $value = $options['gutentor_enable_edd_demo_url'];
+            if ( isset( $options['edd-demo-url'] ) && ! empty( $options['edd-demo-url'] ) ) {
+                $value = $options['edd-demo-url'];
             }
             if( $value){
                 add_action( 'add_meta_boxes', array( $this, 'add_metabox' ) );
@@ -108,7 +108,7 @@ if ( ! class_exists( 'Gutentor_Custom_Meta_Box' ) ) :
 			?>  
 			<div class="gutentor-custom-meta components-base-control">
 				<div class="components-base-control__field">
-					<label class="components-base-control__label"><?php echo esc_html__( 'Demo URL', 'gutentor' ); ?></label>
+					<label class="components-base-control__label" for="gutentor_edd_demo_url"><?php echo esc_html__( 'Demo URL', 'gutentor' ); ?></label>
 					<input name="gutentor_edd_demo_url" value="<?php echo esc_attr( $gutentor_edd_demo_url_value ); ?>" id="gutentor_edd_demo_url" class="components-select-control__input" />
 				</div>
 			</div>

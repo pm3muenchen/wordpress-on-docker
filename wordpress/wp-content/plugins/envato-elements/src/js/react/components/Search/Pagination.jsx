@@ -33,7 +33,7 @@ const Pagination = ({ currentPage, totalHits, perPage, searchParams, onSearchSub
           activeClassName={styles.paginationActive}
           disabledClassName={styles.paginationDisabled}
         />
-      )
+        )
       : null
   )
 }

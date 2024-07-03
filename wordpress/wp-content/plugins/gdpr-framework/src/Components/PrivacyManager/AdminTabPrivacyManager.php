@@ -14,7 +14,7 @@ class AdminTabPrivacyManager extends AdminTab
 
     public function __construct()
     {
-        $this->title = _x('Privacy Manager', '(Admin)', 'gdpr-framework');
+        $this->title = _x('Global Privacy Manager', '(Admin)', 'gdpr-framework');
 
         add_action('gdpr/admin/action/PrivacyManager/generate', [$this, 'generatePrivacyManager']);
     }

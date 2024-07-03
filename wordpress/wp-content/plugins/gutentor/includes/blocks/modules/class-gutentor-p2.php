@@ -48,6 +48,21 @@ if ( ! class_exists( 'Gutentor_P2' ) ) {
 		}
 
 		/**
+		 * Set register_block_type_args variable on parent
+		 * Used for blog template loading
+		 *
+		 * @since      3.0.6
+		 * @package    Gutentor
+		 * @author     Gutentor <info@gutentor.com>
+		 */
+		public function register_block_type_args() {
+			$this->register_block_type_args = array(
+				'view_script_handles' => array( 'magnific-popup' ),
+				'style_handles'       => array( 'magnific-popup' ),
+			);
+		}
+
+		/**
 		 * Returns attributes for this Block
 		 *
 		 * @static
@@ -72,6 +87,10 @@ if ( ! class_exists( 'Gutentor_P2' ) ) {
 				'pTaxType'                        => array(
 					'type'    => 'string',
 					'default' => 'category',
+				),
+				'pTaxOperator'                    => array(
+					'type'    => 'string',
+					'default' => 'IN',
 				),
 				'pTaxTerm'                        => array(
 					'type'  => 'array',
@@ -143,10 +162,17 @@ if ( ! class_exists( 'Gutentor_P2' ) ) {
 					'type'    => 'boolean',
 					'default' => false,
 				),
+				'pContentPos'                     => array(
+					'type'    => 'object',
+					'default' => array(
+						'desktop' => 'g-pos-bottom',
+						'tablet'  => 'g-pos-bottom',
+						'mobile'  => 'g-pos-bottom',
+					),
+				),
 			);
 			$blog_partial_attrs = array_merge_recursive( $blog_post_attr, $this->get_module_common_attrs() );
-			$blog_partial_attrs = array_merge_recursive( $blog_partial_attrs, $this->get_module_query_elements_common_attrs() );
-			return $blog_partial_attrs;
+			return array_merge_recursive( $blog_partial_attrs, $this->get_module_query_elements_common_attrs() );
 		}
 
 
@@ -164,10 +190,9 @@ if ( ! class_exists( 'Gutentor_P2' ) ) {
 
 			$blockID = isset( $attributes['pID'] ) ? $attributes['pID'] : $attributes['gID'];
 			$gID     = isset( $attributes['gID'] ) ? $attributes['gID'] : '';
-            $output  = $default_class = '';
-            if ( isset( $attributes['className'] ) ) {
-                $default_class = esc_attr( $attributes['className'] );
-            }
+			$output  = '';
+
+			$default_class = gutentor_block_add_default_classes( 'gutentor-p2', $attributes );
 
 			$tag                     = $attributes['mTag'] ? $attributes['mTag'] : 'section';
 			$template                = $attributes['p2Temp'] ? $attributes['p2Temp'] : '';
@@ -201,7 +226,8 @@ if ( ! class_exists( 'Gutentor_P2' ) ) {
 			if ( isset( $attributes['pTaxType'] ) && ! empty( $attributes['pTaxType'] ) &&
 				isset( $attributes['pTaxTerm'] ) && ! empty( $attributes['pTaxTerm'] ) ) {
 
-				$query_args['taxonomy'] = $attributes['pTaxType'];
+				$query_args['taxonomy']    = $attributes['pTaxType'];
+				$query_args['taxOperator'] = $attributes['pTaxOperator'] ? $attributes['pTaxOperator'] : 'IN';
 
 				if ( is_array( $attributes['pTaxTerm'] ) ) {
 					$p2_terms = array();
@@ -214,15 +240,15 @@ if ( ! class_exists( 'Gutentor_P2' ) ) {
 				}
 			}
 
-            if ( isset( $attributes['pAuthor'] ) && ! empty( $attributes['pAuthor'] ) ) {
-                if ( is_array( $attributes['pAuthor'] ) ) {
-                    $author_list = array();
-                    foreach ( $attributes['pAuthor'] as $data ) {
-                        $author_list[] = $data['value'];
-                    }
-                    $query_args['author__in'] = $author_list;
-                }
-            }
+			if ( isset( $attributes['pAuthor'] ) && ! empty( $attributes['pAuthor'] ) ) {
+				if ( is_array( $attributes['pAuthor'] ) ) {
+					$author_list = array();
+					foreach ( $attributes['pAuthor'] as $data ) {
+						$author_list[] = $data['value'];
+					}
+					$query_args['author__in'] = $author_list;
+				}
+			}
 
 			if ( isset( $attributes['offset'] ) ) {
 				$query_args['offset'] = $attributes['offset'];
@@ -240,7 +266,7 @@ if ( ! class_exists( 'Gutentor_P2' ) ) {
 			$gutentor_p2_news_the_query = new WP_Query( gutentor_get_query( $query_args ) );
 
 			if ( $gutentor_p2_news_the_query->have_posts() ) :
-				$output .= '<' . $tag . ' class="' . apply_filters( 'gutentor_post_module_main_wrap_class', gutentor_concat_space( 'section-' . $gID, 'gutentor-post-module', 'gutentor-post-module-p2', 'gutentor-post-' . $post_number, $align, 'gutentor-template-' . $template,$default_class ), $attributes ) . '" id="' . esc_attr( $blockID ) . '" ' . GutentorAnimationOptionsDataAttr( $blockComponentAnimation ) . '>' . "\n";
+				$output .= '<' . $tag . ' class="' . apply_filters( 'gutentor_post_module_main_wrap_class', gutentor_concat_space( 'section-' . $gID, 'gutentor-post-module', 'gutentor-post-module-p2', 'gutentor-post-' . $post_number, $align, 'gutentor-template-' . $template, $default_class ), $attributes ) . '" id="' . esc_attr( $blockID ) . '" ' . GutentorAnimationOptionsDataAttr( $blockComponentAnimation ) . '>' . "\n";
 				$output .= apply_filters( 'gutentor_post_module_before_container', '', $attributes );
 				$output .= "<div class='" . apply_filters( 'gutentor_post_module_container_class', 'grid-container', $attributes ) . "'>";
 				$output .= "<div class='" . apply_filters( 'gutentor_post_module_grid_row_class', 'grid-row', $attributes ) . "'>";

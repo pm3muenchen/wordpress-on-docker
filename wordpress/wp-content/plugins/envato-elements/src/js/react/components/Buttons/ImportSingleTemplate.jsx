@@ -68,7 +68,7 @@ const ImportSingleTemplate = ({ templateKitId, templateId, existingImports = [] 
           setImportState('importingFetchJsonData')
         }}
       />
-    )
+      )
     : (
       <Button
         type='primary' label={isElementorMagicMode ? 'Insert Template' : 'Import Template'} icon='plus' onClick={() => {
@@ -76,7 +76,7 @@ const ImportSingleTemplate = ({ templateKitId, templateId, existingImports = [] 
           setImportState('importingFetchJsonData')
         }}
       />
-    )
+      )
   // This is the importing button we display to the user during the import process:
   const ImportingButton = <Button type='primary' label={`Importing ${Math.round(importProgress * 100)}%`} icon='updateSpinning' disabled />
   // This is the button that goes to imported template:
@@ -88,52 +88,58 @@ const ImportSingleTemplate = ({ templateKitId, templateId, existingImports = [] 
       {importState === 'idle' ? StartImportButton : null}
       {importState === 'importingFetchJsonData' || importState === 'importingImages' || importState === 'importingTemplate' ? ImportingButton : null}
 
-      {importState === 'importingFetchJsonData' ? (
-        <GetTemplateData
-          templateKitId={templateKitId}
-          templateId={templateId}
-          completeCallback={(data) => {
+      {importState === 'importingFetchJsonData'
+        ? (
+          <GetTemplateData
+            templateKitId={templateKitId}
+            templateId={templateId}
+            completeCallback={(data) => {
             // This means we've collected the Elementor JSOn data correctly, time to import these images:
-            setTemplateDataToImport(data)
-            setImportState('importingImages')
-          }}
-        />
-      ) : null}
-      {importState === 'importingImages' ? (
-        <ImportElementorTemplateImages
-          templateData={templateDataToImport}
-          progressCallback={(importProgress) => {
-            setImportProgress(importProgress)
-          }}
-          completeCallback={() => {
+              setTemplateDataToImport(data)
+              setImportState('importingImages')
+            }}
+          />
+          )
+        : null}
+      {importState === 'importingImages'
+        ? (
+          <ImportElementorTemplateImages
+            templateData={templateDataToImport}
+            progressCallback={(importProgress) => {
+              setImportProgress(importProgress)
+            }}
+            completeCallback={() => {
             // This means we've imported the template images correctly, time to fire off the final json import.
-            setImportState('importingTemplate')
-          }}
-        />
-      ) : null}
-      {importState === 'importingTemplate' ? (
-        <ImportTemplateInBackground
-          templateKitId={templateKitId}
-          templateId={templateId}
-          importAgain={importTemplateAgain}
-          insertToPage={isElementorMagicMode}
-          completeCallback={(data) => {
+              setImportState('importingTemplate')
+            }}
+          />
+          )
+        : null}
+      {importState === 'importingTemplate'
+        ? (
+          <ImportTemplateInBackground
+            templateKitId={templateKitId}
+            templateId={templateId}
+            importAgain={importTemplateAgain}
+            insertToPage={isElementorMagicMode}
+            completeCallback={(data) => {
             // This means the final template import has been completed and we have a template ID ready to go
-            if (data && data.imported_template_id) {
-              setImportProgress(1)
-              setTimeout(() => {
-                setImportedTemplateId(data.imported_template_id)
-                setImportState('idle')
-              }, 300)
+              if (data && data.imported_template_id) {
+                setImportProgress(1)
+                setTimeout(() => {
+                  setImportedTemplateId(data.imported_template_id)
+                  setImportState('idle')
+                }, 300)
 
-              // Fire off the magic button insert callback if it exists
-              if (isElementorMagicMode && magicButtonMode.insertCallback && typeof magicButtonMode.insertCallback === 'function') {
-                magicButtonMode.insertCallback(data)
+                // Fire off the magic button insert callback if it exists
+                if (isElementorMagicMode && magicButtonMode.insertCallback && typeof magicButtonMode.insertCallback === 'function') {
+                  magicButtonMode.insertCallback(data)
+                }
               }
-            }
-          }}
-        />
-      ) : null}
+            }}
+          />
+          )
+        : null}
     </>
   )
 }

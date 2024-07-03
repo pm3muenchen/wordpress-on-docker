@@ -12,15 +12,17 @@ class AdminMapDataTable extends DataTable
 		
 		DataTable::__construct($WPGMZA_TABLE_NAME_MAPS, $ajax_parameters, $datatable_options);
 		
-		$this->element->setAttribute('data-wpgmza-admin-map-datatable', null);
+		@$this->element->setAttribute('data-wpgmza-admin-map-datatable', null);
 		
 		wp_enqueue_style('datatables', plugin_dir_url(WPGMZA_FILE) . 'css/data_table_front.css');
 		
+		$buttonClass = $wpgmza->internalEngine->getButtonClass('button');
+
 		if($wpgmza->isProVersion()) {
 			$this->element->import('<div class="wpgmza-marker-listing__actions">
-				&#x21b3;
-				<button class="wpgmza button select_all_maps" type="button">' . __('Select All', 'wp-google-maps') . '</button>
-				<button class="wpgmza button bulk_delete_maps" type="button">' . __('Bulk Delete', 'wp-google-maps') . '</button>
+				<span>&#x21b3;</span>
+				<button class="wpgmza ' . $buttonClass . ' select_all_maps" type="button">' . __('Select All', 'wp-google-maps') . '</button>
+				<button class="wpgmza ' . $buttonClass . ' bulk_delete_maps" type="button">' . __('Bulk Delete', 'wp-google-maps') . '</button>
 			</div>');
 		}
 	}
@@ -48,10 +50,15 @@ class AdminMapDataTable extends DataTable
 	
 	protected function filterColumns(&$columns, $input_params)
 	{
+
+		global $wpgmza;
+
 		DataTable::filterColumns($columns, $input_params);
 		
 		$placeholder = AdminMapDataTable::ID_PLACEHOLDER;
 		
+		$buttonClass = $wpgmza->internalEngine->getButtonClass('button');
+
 		foreach($columns as $key => $value) {
 			$name = $this->getColumnNameByIndex($key);
 			global $wpgmza;
@@ -59,9 +66,9 @@ class AdminMapDataTable extends DataTable
 			switch($name) {
 				case 'mark':
 				
-					$columns[$key] = "REPLACE(\"
-						<input type='checkbox' name='mark' data-map-id='$placeholder'/>
-					\", \"$placeholder\", id) AS mark";
+					$columns[$key] = "REPLACE('
+						<input type=\'checkbox\' name=\'mark\' data-map-id=\'$placeholder\'/>
+					', '$placeholder', id) AS mark";
 					
 					break;
 				
@@ -89,29 +96,31 @@ class AdminMapDataTable extends DataTable
 		
 					if($wpgmza->isProVersion()) {
 						$columns[$key] = "REPLACE('
-						<button 
-							class=\"button button-primary\"
-							data-map-id=\"$placeholder\" 
-							data-action=\"edit\">
-							" . esc_sql( __('Edit', 'wp-google-maps') ) . "
-						</button>
-						<button 
-							class=\"button button-primary\"
-							data-map-id=\"$placeholder\" 
-							data-action=\"trash\">
-							" . esc_sql( __('Trash', 'wp-google-maps') ) . "
-						</button>
-						<button 
-							class=\"button button-primary\"
-							data-map-id=\"$placeholder\" 
-							data-action=\"duplicate\">
-							" . esc_sql( __('Duplicate', 'wp-google-maps') ) . "
-						</button>
+						<div class=\"wpgmza-action-group\">
+							<button 
+								class=\"{$buttonClass}\"
+								data-map-id=\"$placeholder\" 
+								data-action=\"edit\">
+								" . esc_sql( __('Edit', 'wp-google-maps') ) . "
+							</button>
+							<button 
+								class=\"{$buttonClass}\"
+								data-map-id=\"$placeholder\" 
+								data-action=\"trash\">
+								" . esc_sql( __('Trash', 'wp-google-maps') ) . "
+							</button>
+							<button 
+								class=\"{$buttonClass}\"
+								data-map-id=\"$placeholder\" 
+								data-action=\"duplicate\">
+								" . esc_sql( __('Duplicate', 'wp-google-maps') ) . "
+							</button>
+						</div>
 					', '$placeholder', id) AS action";
 					} else {
 						$columns[$key] = "REPLACE('
 						<button 
-							class=\"button button-primary\"
+							class=\"{$buttonClass}\"
 							data-map-id=\"$placeholder\" 
 							data-action=\"edit\">
 							" . esc_sql( __('Edit', 'wp-google-maps') ) . "
@@ -158,6 +167,17 @@ class AdminMapDataTable extends DataTable
 		$clauses .= " AND active=0";
 
 		return $clauses;
+	}
+
+	protected function filterResults(&$rows){
+		if(!empty($rows)){
+			foreach($rows as $key => $row){
+				if(!empty($row->map_title)){
+					$rows[$key]->map_title = strip_tags($row->map_title);
+				}
+			}
+		}
+		return $rows;
 	}
 }
 

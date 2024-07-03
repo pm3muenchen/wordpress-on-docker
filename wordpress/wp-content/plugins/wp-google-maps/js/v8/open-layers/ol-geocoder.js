@@ -75,7 +75,7 @@ jQuery(function($) {
 			data.countrycodes = options.country;
 		}
 		
-		$.ajax("https://nominatim.openstreetmap.org/search/", {
+		$.ajax("https://nominatim.openstreetmap.org/search", {
 			data: data,
 			success: function(response, xhr, status) {
 				callback(response);
@@ -203,11 +203,20 @@ jQuery(function($) {
 		}
 		else if(options.latLng)
 		{
+			if(!(options.latLng instanceof WPGMZA.LatLng)){
+				options.latLng = new WPGMZA.LatLng(options.latLng);
+			}
+
 			location = options.latLng.toString();
 			
 			finish = function(response, status)
 			{
 				var address = response[0].display_name;
+
+				if(options.fullResult){
+					address = response[0];
+				}
+				
 				callback([address], status);
 			}
 		}

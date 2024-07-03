@@ -1,9 +1,9 @@
 <?php
 /**
- * @package WP Content Aware Engine
+ * @package wp-content-aware-engine
  * @author Joachim Jensen <joachim@dev.institute>
  * @license GPLv3
- * @copyright 2020 by Joachim Jensen
+ * @copyright 2023 by Joachim Jensen
  */
 
 defined('ABSPATH') || exit;
@@ -12,7 +12,7 @@ defined('ABSPATH') || exit;
  * Version of this WPCA
  * @var string
  */
-$this_wpca_version = '9.1.1.3';
+$this_wpca_version = '16.0';
 
 /**
  * Class to make sure the latest
@@ -23,12 +23,11 @@ $this_wpca_version = '9.1.1.3';
 if (!class_exists('WPCALoader')) {
     class WPCALoader
     {
-
         /**
          * Absolute paths and versions
          * @var array
          */
-        private static $_paths = array();
+        private static $_paths = [];
 
         public function __construct()
         {
@@ -55,19 +54,16 @@ if (!class_exists('WPCALoader')) {
          */
         public static function load()
         {
-
             //legacy version present, cannot continue
             if (class_exists('WPCACore')) {
                 return;
             }
 
-            //SORT_NUMERIC added in 9.1
-            arsort(self::$_paths, SORT_NUMERIC);
-
-            foreach (self::$_paths as $path => $version) {
-                $file = $path.'core.php';
+            uasort(self::$_paths, 'version_compare');
+            foreach (array_reverse(self::$_paths, true) as $path => $version) {
+                $file = $path . 'core.php';
                 if (file_exists($file)) {
-                    include($file);
+                    include $file;
                     define('WPCA_VERSION', $version);
                     WPCACore::init();
                     do_action('wpca/loaded');
@@ -89,6 +85,10 @@ if (!class_exists('WPCALoader')) {
         }
     }
     //Hook as early as possible after plugins are loaded
-    add_action('plugins_loaded', array('WPCALoader','load'), -999999);
+    add_action(
+        'plugins_loaded',
+        ['WPCALoader','load'],
+        defined('PHP_INT_MIN') ? PHP_INT_MIN : ~PHP_INT_MAX
+    );
 }
 WPCALoader::add(plugin_dir_path(__FILE__), $this_wpca_version);

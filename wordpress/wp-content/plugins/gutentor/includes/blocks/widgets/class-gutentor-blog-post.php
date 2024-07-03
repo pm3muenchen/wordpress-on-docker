@@ -283,6 +283,18 @@ if ( ! class_exists( 'Gutentor_Blog_Post' ) ) {
 						'mobileLeft'    => '',
 					),
 				),
+				'mBGImageSrc'                     => array(
+					'type'    => 'string',
+					'default' => 'self-hosted-local',
+				),
+				'mBGVideoSrc'                     => array(
+					'type'    => 'string',
+					'default' => 'self-hosted-local',
+				),
+				'mBGVideoUrl'                     => array(
+					'type'    => 'string',
+					'default' => 'https://www.youtube.com/watch?v=bGMi7L78hVk',
+				),
 			);
 			return array_merge_recursive( $blog_post_attr, $this->get_single_item_common_attrs() );
 		}
@@ -434,10 +446,10 @@ if ( ! class_exists( 'Gutentor_Blog_Post' ) ) {
 		public function render_callback( $attributes, $content ) {
 
 			$blockID = isset( $attributes['blockID'] ) ? $attributes['blockID'] : '';
-			$output  = $default_class = '';
-            if ( isset( $attributes['className'] ) ) {
-                $default_class = esc_attr( $attributes['className'] );
-            }
+			$output  = '';
+
+			$default_class = gutentor_block_add_default_classes( 'gutentor-blog-post', $attributes );
+
 			// the query
 			$args = array(
 				'posts_per_page'      => $attributes['postsToShow'],
@@ -456,7 +468,7 @@ if ( ! class_exists( 'Gutentor_Blog_Post' ) ) {
 			$the_query = new WP_Query( $args );
 
 			if ( $the_query->have_posts() ) :
-				$output .= '<' . $tag . ' class="' . apply_filters( 'gutentor_save_section_class', 'gutentor-section gutentor-blog-post-wrapper ' . gutentor_concat_space( $template, $align,$default_class ) . '', $attributes ) . '" id="section-' . esc_attr( $blockID ) . '" ' . GutentorAnimationOptionsDataAttr( $blockComponentAnimation ) . '>' . "\n";
+				$output .= '<' . $tag . ' class="' . apply_filters( 'gutentor_save_section_class', 'gutentor-section gutentor-blog-post-wrapper ' . gutentor_concat_space( $template, $align, $default_class ) . '', $attributes ) . '" id="section-' . esc_attr( $blockID ) . '" ' . GutentorAnimationOptionsDataAttr( $blockComponentAnimation ) . '>' . "\n";
 				$output .= apply_filters( 'gutentor_save_before_container', '', $attributes );
 				$output .= "<div class='" . apply_filters( 'gutentor_save_container_class', 'grid-container', $attributes ) . "'>";
 				$output .= apply_filters( 'gutentor_save_before_block_items', '', $attributes );

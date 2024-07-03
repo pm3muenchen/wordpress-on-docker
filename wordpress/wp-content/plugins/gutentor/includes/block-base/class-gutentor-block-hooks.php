@@ -13,17 +13,6 @@ if ( ! class_exists( 'Gutentor_Block_Hooks' ) ) {
 	 */
 	class Gutentor_Block_Hooks {
 
-
-
-		/**
-		 * Prevent some functions to called many times
-		 *
-		 * @access private
-		 * @since 2.0.0
-		 * @var integer
-		 */
-		private static $counter = 0;
-
 		/**
 		 * Gets an instance of this object.
 		 * Prevents duplicate instances which avoid artefacts and improves performance.
@@ -77,8 +66,7 @@ if ( ! class_exists( 'Gutentor_Block_Hooks' ) ) {
 				'<svg width="100%" height="100px" viewBox="0 0 1280 140" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 140h1280C573.08 140 0 0 0 0z" fill-opacity=".3" style="fill-rule:evenodd; transform: rotate(180deg); transform-origin:50% 50%;"/><path d="M0 140h1280C573.08 140 0 30 0 30z" fill-opacity=".5" style="fill-rule:evenodd; transform: rotate(180deg); transform-origin:50% 50%;"/><path d="M0 140h1280C573.08 140 0 60 0 60z" style="fill-rule:evenodd; transform: rotate(180deg); transform-origin:50% 50%;"/></svg>',
 			);
 
-			$shape = apply_filters( 'gutentor_shape_list', $shape );
-			return $shape;
+			return apply_filters( 'gutentor_shape_list', $shape );
 		}
 
 		/**
@@ -128,8 +116,11 @@ if ( ! class_exists( 'Gutentor_Block_Hooks' ) ) {
 			$this->add_filter( 'gutentor_save_grid_column_class', $this, 'add_column_class', 10, 2 );
 			$this->add_filter( 'gutentor_save_before_block_items', $this, 'add_block_save_header', 10, 2 );
 			$this->add_filter( 'gutentor_save_link_attr', $this, 'addButtonLinkAttr', 10, 3 );
+			$this->add_filter( 'gutentor_edit_post_module_readmore_button_data', $this, 'addButtonWrap', 10, 3 );
 			$this->add_filter( 'gutentor_save_block_header_data', $this, 'gutentor_heading_title', 10, 2 );
 			$this->add_filter( 'gutentor_save_grid_column_class', $this, 'addingBlogStyleOptionsClass', 15, 2 );
+            $this->add_filter( 'gutentor_post_module_product_button_class', $this, 'addingProductButtonWrap', 10, 3 );
+            $this->add_filter( 'gutentor_post_module_download_button_class', $this, 'addingProductButtonWrap', 10, 3 );
 			$this->add_filter( 'gutentor_edit_enable_column', $this, 'remove_column_class_blog_post', 8, 2 );
 
 			/*Get dynamic CSS location*/
@@ -193,7 +184,8 @@ if ( ! class_exists( 'Gutentor_Block_Hooks' ) ) {
 				if ( $is_m_hide ) {
 					$device_class .= ' d-none';
 					if ( ! $is_t_hide ) {
-						$device_class .= ' d-sm-block';
+						//$device_class .= ' d-sm-block';
+						$device_class .= ' d-md-block';
 					}
 					if ( ! $device_class && ! strpos( $device_class, 'd-lg-block' ) ) {
 						$device_class .= ' d-lg-block';
@@ -302,7 +294,8 @@ if ( ! class_exists( 'Gutentor_Block_Hooks' ) ) {
 			if ( $is_m_hide ) {
 				$device_class .= ' d-none';
 				if ( ! $is_t_hide ) {
-					$device_class .= ' d-sm-block';
+					//$device_class .= ' d-sm-block';
+                    $device_class .= ' d-md-block';
 				}
 				if ( ! $device_class && ! strpos( $device_class, 'd-lg-block' ) ) {
 					$device_class .= ' d-lg-block';
@@ -396,13 +389,12 @@ if ( ! class_exists( 'Gutentor_Block_Hooks' ) ) {
 			if ( 'video' !== $blockComponentBGType ) {
 				return $output;
 			}
-			$blockComponentBGVideo = ( isset( $attributes['blockComponentBGVideo'] ) ) ? $attributes['blockComponentBGVideo'] : '';
-			if ( ! $blockComponentBGVideo ) {
-				return $output;
-			}
+			$blockComponentBGVideo      = ( isset( $attributes['blockComponentBGVideo'] ) ) ? $attributes['blockComponentBGVideo'] : '';
 			$blockComponentBGVideoLoop  = ( isset( $attributes['blockComponentBGVideoLoop'] ) ) ? $attributes['blockComponentBGVideoLoop'] : '';
 			$blockComponentBGVideoMuted = ( isset( $attributes['blockComponentBGVideoMuted'] ) ) ? $attributes['blockComponentBGVideoMuted'] : '';
-			$videoOutput                = GutentorBackgroundVideoOutput( $blockComponentBGType, $blockComponentBGVideo, $blockComponentBGVideoLoop, $blockComponentBGVideoMuted );
+			$backgroundVideoSrc         = ( isset( $attributes['mBGVideoSrc'] ) ) ? $attributes['mBGVideoSrc'] : '';
+			$backgroundVideoUrl         = ( isset( $attributes['mBGVideoUrl'] ) ) ? $attributes['mBGVideoUrl'] : '';
+			$videoOutput                = GutentorUpdatedBackgroundVideoOutput( $blockComponentBGType, $backgroundVideoSrc, $blockComponentBGVideo, $backgroundVideoUrl, $blockComponentBGVideoLoop, $blockComponentBGVideoMuted );
 			if ( $videoOutput ) {
 				$output = gutentor_concat_space( $output, $videoOutput );
 			}
@@ -592,6 +584,7 @@ if ( ! class_exists( 'Gutentor_Block_Hooks' ) ) {
 		public function add_link_to_post_thumbnails( $output, $url, $attributes ) {
 			$output_wrap = '';
 			$target      = '';
+			$class      = '';
 			$rel         = '';
 			if ( empty( $output ) || $output == null ) {
 				return $output;
@@ -605,12 +598,15 @@ if ( ! class_exists( 'Gutentor_Block_Hooks' ) ) {
 			if ( array_key_exists( 'blockImageBoxLinkOpenNewTab', $attributes ) ) {
 				$target = $attributes['blockImageBoxLinkOpenNewTab'] ? 'target="_blank"' : '';
 			}
+            if ( array_key_exists( 'blockImageBoxLinkClass', $attributes ) ) {
+                $class = $attributes['blockImageBoxLinkClass'] ? $attributes['blockImageBoxLinkClass'] : '';
+            }
 			if ( array_key_exists( 'blockImageBoxLinkRel', $attributes ) ) {
 				$rel = ( $attributes['blockImageBoxLinkRel'] ) ? 'rel="' . $attributes['blockImageBoxLinkRel'] . '"' : '';
 
 			}
 
-			$output_wrap .= '<a class="gutentor-single-item-image-link" href="' . $url . '" ' . $target . ' ' . $rel . '>';
+			$output_wrap .= '<a class="gutentor-single-item-image-link ' . $class . '" href="' . $url . '" ' . $target . ' ' . $rel . '>';
 			$output_wrap .= $output;
 			$output_wrap .= '</a>';
 			return $output_wrap;
@@ -681,6 +677,30 @@ if ( ! class_exists( 'Gutentor_Block_Hooks' ) ) {
 			return gutentor_concat_space( $output, $local_data );
 		}
 
+        /**
+         * Add Button Wrap Attributes
+         *
+         * @param {object} $output
+         * @param {string} $post
+         * @param {object} buttonLinkOptions
+         * @return string
+         */
+        public function addButtonWrap( $output, $post, $attributes ) {
+
+            if ( $attributes['gName'] != 'gutentor/p1' ) {
+                return $output;
+            }
+            $outPutData        = '';
+            $enable_height = ( $attributes['pEqlHeight'] ) ? $attributes['pEqlHeight'] : false;
+            if ( !$enable_height ) {
+                return $output;
+            }
+            $outPutData .= '<div class="gutentor-button-wrap">';
+            $outPutData .= $output;
+            $outPutData .= '</div>';
+            return $outPutData;
+        }
+
 		/**
 		 * Callback functions for body_class,
 		 * Adding Admin Body Class.
@@ -746,6 +766,24 @@ if ( ! class_exists( 'Gutentor_Block_Hooks' ) ) {
 			return gutentor_concat_space( $output, $blog_style_class );
 		}
 
+        /**
+         * Adding Product
+         *
+         * @param {array} output
+         * @param {object} props
+         * @return {array}
+         */
+        public function addingProductButtonWrap( $output,$post, $attributes ) {
+            if ( $attributes['gName'] != 'gutentor/p1' ) {
+                return $output;
+            }
+            $enable_height = ( $attributes['pEqlHeight'] ) ? $attributes['pEqlHeight'] : false;
+            if ( !$enable_height ) {
+                return $output;
+            }
+            return gutentor_concat_space( $output, 'gutentor-button-wrap' );
+        }
+
 		/**
 		 * Remove Column Class in Blog post
 		 *
@@ -770,8 +808,8 @@ if ( ! class_exists( 'Gutentor_Block_Hooks' ) ) {
 		 * @return string
 		 */
 		public function get_dynamic_style_location( $gutentor_dynamic_style_location ) {
-			if ( gutentor_get_options( 'gutentor_dynamic_style_location' ) ) {
-				$gutentor_dynamic_style_location = gutentor_get_options( 'gutentor_dynamic_style_location' );
+			if ( gutentor_get_options( 'dynamic-res-location' ) ) {
+				$gutentor_dynamic_style_location = gutentor_get_options( 'dynamic-res-location' );
 			}
 			return $gutentor_dynamic_style_location;
 		}

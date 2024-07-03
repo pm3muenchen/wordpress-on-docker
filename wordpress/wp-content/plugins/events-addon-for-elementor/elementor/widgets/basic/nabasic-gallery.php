@@ -44,7 +44,7 @@ class Event_Elementor_Addon_Gallery extends Widget_Base{
 	 * Register Event_Elementor_Addon Gallery widget controls.
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	*/
-	protected function _register_controls(){
+	protected function register_controls(){
 
 		$this->start_controls_section(
 			'section_filter',
@@ -283,10 +283,11 @@ class Event_Elementor_Addon_Gallery extends Widget_Base{
 			'popup_icon',
 			[
 				'label' => esc_html__( 'Popup Icon', 'events-addon-for-elementor' ),
-				'type' => Controls_Manager::ICON,
-				'options' => NAEEP_Controls_Helper_Output::get_include_icons(),
-				'frontend_available' => true,
-				'default' => 'fa fa-search',
+				'type' => Controls_Manager::ICONS,
+				'default' => [
+					'value' => 'fas fa-search',
+					'library' => 'fa-solid',
+				],
 				'condition' => [
 					'need_popup' => 'true',
 				],
@@ -472,7 +473,6 @@ class Event_Elementor_Addon_Gallery extends Widget_Base{
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'filter_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .masonry-filters ul li a',
 			]
 		);
@@ -554,10 +554,6 @@ class Event_Elementor_Addon_Gallery extends Widget_Base{
 				[
 					'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_4,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .masonry-filters ul li a' => 'color: {{VALUE}};',
 					],
@@ -575,10 +571,6 @@ class Event_Elementor_Addon_Gallery extends Widget_Base{
 				[
 					'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_2,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .masonry-filters ul li a.active, {{WRAPPER}} .masonry-filters ul li a:hover' => 'color: {{VALUE}}',
 					],
@@ -589,10 +581,6 @@ class Event_Elementor_Addon_Gallery extends Widget_Base{
 				[
 					'label' => esc_html__( 'Dot Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_2,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .masonry-filters ul li a:after' => 'background-color: {{VALUE}};',
 					],
@@ -638,10 +626,6 @@ class Event_Elementor_Addon_Gallery extends Widget_Base{
 			[
 				'label' => esc_html__( 'Info Background Color', 'events-addon-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_2,
-				],
 				'selectors' => [
 					'{{WRAPPER}} .style-two .gallery-info' => 'background-color: {{VALUE}};',
 				],
@@ -683,10 +667,6 @@ class Event_Elementor_Addon_Gallery extends Widget_Base{
 				[
 					'label' => esc_html__( 'Overlay Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_2,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .naeep-gallery-item .naeep-image:after' => 'background-color: {{VALUE}};',
 					],
@@ -783,10 +763,6 @@ class Event_Elementor_Addon_Gallery extends Widget_Base{
 				[
 					'label' => esc_html__( 'Icon Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_2,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .naeep-popup a.pp-icon' => 'color: {{VALUE}};',
 					],
@@ -846,7 +822,6 @@ class Event_Elementor_Addon_Gallery extends Widget_Base{
 			[
 				'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 				'name' => 'sasstp_title_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .gallery-info h2',
 			]
 		);
@@ -862,10 +837,6 @@ class Event_Elementor_Addon_Gallery extends Widget_Base{
 				[
 					'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_1,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .gallery-info h2, {{WRAPPER}} .gallery-info h2 a' => 'color: {{VALUE}};',
 					],
@@ -903,7 +874,6 @@ class Event_Elementor_Addon_Gallery extends Widget_Base{
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'gallery_subtitle_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_2,
 				'selector' => '{{WRAPPER}} .gallery-subtitle',
 			]
 		);
@@ -1025,7 +995,7 @@ class Event_Elementor_Addon_Gallery extends Widget_Base{
 				$info_style = !empty( $each_value['info_style'] ) ? $each_value['info_style'] : '';
 				$need_hover = !empty( $each_value['need_hover'] ) ? $each_value['need_hover'] : '';
 				$need_popup = !empty( $each_value['need_popup'] ) ? $each_value['need_popup'] : '';
-				$popup_icon = !empty( $each_value['popup_icon'] ) ? $each_value['popup_icon'] : '';
+				$popup_icon = !empty( $each_value['popup_icon'] ) ? $each_value['popup_icon']['value'] : '';
 				$pop_icon_style = !empty( $each_value['pop_icon_style'] ) ? $each_value['pop_icon_style'] : '';
 				$icon_link = !empty( $each_value['icon_link']['url'] ) ? $each_value['icon_link']['url'] : '';
 				$icon_link_external = !empty( $each_value['icon_link']['is_external'] ) ? 'target="_blank"' : '';

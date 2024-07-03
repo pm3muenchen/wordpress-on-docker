@@ -44,7 +44,7 @@ class Event_Elementor_Addon_Unique_Schedule extends Widget_Base{
 	 * Register Events Addon for Elementor Unique Schedule widget controls.
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	*/
-	protected function _register_controls(){
+	protected function register_controls(){
 
 		$this->start_controls_section(
 			'section_schedule_settings',
@@ -280,7 +280,7 @@ class Event_Elementor_Addon_Unique_Schedule extends Widget_Base{
 				'label' => esc_html__( 'Schedule Date ', 'events-addon-for-elementor' ),
 				'type' => Controls_Manager::DATE_TIME,
 				'picker_options' => [
-					'dateFormat' => 'M d, Y',
+					'dateFormat' => get_option( 'date_format' ),
 					'enableTime' => 'false',
 				],
 				'placeholder' => esc_html__( 'Aug 15, 2019', 'events-addon-for-elementor' ),
@@ -646,10 +646,6 @@ class Event_Elementor_Addon_Unique_Schedule extends Widget_Base{
 					[
 						'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'scheme' => [
-							'type' => Scheme_Color::get_type(),
-							'value' => Scheme_Color::COLOR_2,
-						],
 						'selectors' => [
 							'{{WRAPPER}} .owl-carousel .owl-nav button.owl-prev:before, {{WRAPPER}} .owl-carousel .owl-nav button.owl-next:before' => 'color: {{VALUE}};',
 						],
@@ -792,10 +788,6 @@ class Event_Elementor_Addon_Unique_Schedule extends Widget_Base{
 					[
 						'label' => esc_html__( 'Background Color', 'events-addon-for-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'scheme' => [
-							'type' => Scheme_Color::get_type(),
-							'value' => Scheme_Color::COLOR_2,
-						],
 						'selectors' => [
 							'{{WRAPPER}} .owl-carousel .owl-dot.active' => 'background: {{VALUE}};',
 						],
@@ -839,7 +831,6 @@ class Event_Elementor_Addon_Unique_Schedule extends Widget_Base{
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'date_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 					'selector' => '{{WRAPPER}} .naeep-schedule-item h2',
 				]
 			);
@@ -848,10 +839,6 @@ class Event_Elementor_Addon_Unique_Schedule extends Widget_Base{
 				[
 					'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_1,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .naeep-schedule-item h2' => 'color: {{VALUE}};',
 					],
@@ -885,7 +872,6 @@ class Event_Elementor_Addon_Unique_Schedule extends Widget_Base{
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'meta_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_3,
 					'selector' => '{{WRAPPER}} ul.schedule-meta li',
 				]
 			);
@@ -924,7 +910,6 @@ class Event_Elementor_Addon_Unique_Schedule extends Widget_Base{
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'name_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_2,
 					'selector' => '{{WRAPPER}} .naeep-schedule-info h3, {{WRAPPER}} .naeep-grid-info h3',
 				]
 			);
@@ -993,7 +978,6 @@ class Event_Elementor_Addon_Unique_Schedule extends Widget_Base{
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'cat_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_4,
 					'selector' => '{{WRAPPER}} .naeep-image .events-cat a',
 				]
 			);
@@ -1009,10 +993,6 @@ class Event_Elementor_Addon_Unique_Schedule extends Widget_Base{
 					[
 						'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'scheme' => [
-							'type' => Scheme_Color::get_type(),
-							'value' => Scheme_Color::COLOR_4,
-						],
 						'selectors' => [
 							'{{WRAPPER}} .naeep-image .events-cat a' => 'color: {{VALUE}};',
 						],
@@ -1086,7 +1066,6 @@ class Event_Elementor_Addon_Unique_Schedule extends Widget_Base{
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'content_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_3,
 					'selector' => '{{WRAPPER}} .naeep-grid-info p',
 				]
 			);
@@ -1095,10 +1074,6 @@ class Event_Elementor_Addon_Unique_Schedule extends Widget_Base{
 				[
 					'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_3,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .naeep-grid-info p' => 'color: {{VALUE}};',
 					],
@@ -1132,7 +1107,6 @@ class Event_Elementor_Addon_Unique_Schedule extends Widget_Base{
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'time_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_3,
 					'selector' => '{{WRAPPER}} .naeep-schedule-info span',
 				]
 			);
@@ -1141,10 +1115,6 @@ class Event_Elementor_Addon_Unique_Schedule extends Widget_Base{
 				[
 					'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_3,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .naeep-schedule-info span' => 'color: {{VALUE}};',
 					],
@@ -1179,7 +1149,6 @@ class Event_Elementor_Addon_Unique_Schedule extends Widget_Base{
 				[
 					'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 					'name' => 'sasorganizer_more_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_4,
 					'selector' => '{{WRAPPER}} a.naeep-link',
 				]
 			);
@@ -1195,10 +1164,6 @@ class Event_Elementor_Addon_Unique_Schedule extends Widget_Base{
 					[
 						'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'scheme' => [
-							'type' => Scheme_Color::get_type(),
-							'value' => Scheme_Color::COLOR_4,
-						],
 						'selectors' => [
 							'{{WRAPPER}} a.naeep-link' => 'color: {{VALUE}};',
 						],
@@ -1217,10 +1182,6 @@ class Event_Elementor_Addon_Unique_Schedule extends Widget_Base{
 					[
 						'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'scheme' => [
-							'type' => Scheme_Color::get_type(),
-							'value' => Scheme_Color::COLOR_2,
-						],
 						'selectors' => [
 							'{{WRAPPER}} a.naeep-link:hover' => 'color: {{VALUE}};',
 						],
@@ -1231,10 +1192,6 @@ class Event_Elementor_Addon_Unique_Schedule extends Widget_Base{
 					[
 						'label' => esc_html__( 'Border Color', 'events-addon-for-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'scheme' => [
-							'type' => Scheme_Color::get_type(),
-							'value' => Scheme_Color::COLOR_2,
-						],
 						'selectors' => [
 							'{{WRAPPER}} a.naeep-link:hover:before' => 'background-color: {{VALUE}};',
 						],
@@ -1262,38 +1219,23 @@ class Event_Elementor_Addon_Unique_Schedule extends Widget_Base{
 		$gridItem = !empty( $settings['gridItem_groups'] ) ? $settings['gridItem_groups'] : '';
 
 		// Carousel Data
-			$carousel_items = !empty( $settings['carousel_items'] ) ? $settings['carousel_items'] : '';
-			$carousel_items_tablet = !empty( $settings['carousel_items_tablet'] ) ? $settings['carousel_items_tablet'] : '';
-			$carousel_items_mobile = !empty( $settings['carousel_items_mobile'] ) ? $settings['carousel_items_mobile'] : '';
-			$carousel_margin = !empty( $settings['carousel_margin']['size'] ) ? $settings['carousel_margin']['size'] : '';
-			$carousel_autoplay_timeout = !empty( $settings['carousel_autoplay_timeout'] ) ? $settings['carousel_autoplay_timeout'] : '';
-			$carousel_loop  = ( isset( $settings['carousel_loop'] ) && ( 'true' == $settings['carousel_loop'] ) ) ? $settings['carousel_loop'] : 'false';
-			$carousel_dots  = ( isset( $settings['carousel_dots'] ) && ( 'true' == $settings['carousel_dots'] ) ) ? true : false;
-			$carousel_nav  = ( isset( $settings['carousel_nav'] ) && ( 'true' == $settings['carousel_nav'] ) ) ? true : false;
-			$carousel_autoplay  = ( isset( $settings['carousel_autoplay'] ) && ( 'true' == $settings['carousel_autoplay'] ) ) ? true : false;
-			$carousel_animate_out  = ( isset( $settings['carousel_animate_out'] ) && ( 'true' == $settings['carousel_animate_out'] ) ) ? true : false;
-			$carousel_mousedrag  = ( isset( $settings['carousel_mousedrag'] ) && ( 'true' == $settings['carousel_mousedrag'] ) ) ? $settings['carousel_mousedrag'] : 'false';
-			$carousel_autowidth  = ( isset( $settings['carousel_autowidth'] ) && ( 'true' == $settings['carousel_autowidth'] ) ) ? true : false;
-			$carousel_autoheight  = ( isset( $settings['carousel_autoheight'] ) && ( 'true' == $settings['carousel_autoheight'] ) ) ? true : false;
+		$carousel_items = !empty( $settings['carousel_items'] ) ? $settings['carousel_items'] : '';
+		$carousel_items_tablet = !empty( $settings['carousel_items_tablet'] ) ? $settings['carousel_items_tablet'] : '';
+		$carousel_items_mobile = !empty( $settings['carousel_items_mobile'] ) ? $settings['carousel_items_mobile'] : '';
+		$carousel_margin = !empty( $settings['carousel_margin']['size'] ) ? $settings['carousel_margin']['size'] : '';
+		$carousel_autoplay_timeout = !empty( $settings['carousel_autoplay_timeout'] ) ? $settings['carousel_autoplay_timeout'] : '';
+		$carousel_loop  = ( isset( $settings['carousel_loop'] ) && ( 'true' == $settings['carousel_loop'] ) ) ? $settings['carousel_loop'] : 'false';
+		$carousel_dots  = ( isset( $settings['carousel_dots'] ) && ( 'true' == $settings['carousel_dots'] ) ) ? true : false;
+		$carousel_nav  = ( isset( $settings['carousel_nav'] ) && ( 'true' == $settings['carousel_nav'] ) ) ? true : false;
+		$carousel_autoplay  = ( isset( $settings['carousel_autoplay'] ) && ( 'true' == $settings['carousel_autoplay'] ) ) ? true : false;
+		$carousel_animate_out  = ( isset( $settings['carousel_animate_out'] ) && ( 'true' == $settings['carousel_animate_out'] ) ) ? true : false;
+		$carousel_mousedrag  = ( isset( $settings['carousel_mousedrag'] ) && ( 'true' == $settings['carousel_mousedrag'] ) ) ? $settings['carousel_mousedrag'] : 'false';
+		$carousel_autowidth  = ( isset( $settings['carousel_autowidth'] ) && ( 'true' == $settings['carousel_autowidth'] ) ) ? true : false;
+		$carousel_autoheight  = ( isset( $settings['carousel_autoheight'] ) && ( 'true' == $settings['carousel_autoheight'] ) ) ? true : false;
 
-		// Carousel Data's
-			$carousel_loop = $carousel_loop !== 'true' ? ' data-loop="true"' : ' data-loop="false"';
-			$carousel_items = $carousel_items ? ' data-items="'. $carousel_items .'"' : ' data-items="3"';
-			$carousel_margin = $carousel_margin ? ' data-margin="'. $carousel_margin .'"' : ' data-margin="30"';
-			$carousel_dots = $carousel_dots ? ' data-dots="true"' : ' data-dots="false"';
-			$carousel_nav = $carousel_nav ? ' data-nav="true"' : ' data-nav="false"';
-			$carousel_autoplay_timeout = $carousel_autoplay_timeout ? ' data-autoplay-timeout="'. $carousel_autoplay_timeout .'"' : '';
-			$carousel_autoplay = $carousel_autoplay ? ' data-autoplay="true"' : '';
-			$carousel_animate_out = $carousel_animate_out ? ' data-animateout="true"' : '';
-			$carousel_mousedrag = $carousel_mousedrag !== 'true' ? ' data-mouse-drag="true"' : ' data-mouse-drag="false"';
-			$carousel_autowidth = $carousel_autowidth ? ' data-auto-width="true"' : '';
-			$carousel_autoheight = $carousel_autoheight ? ' data-auto-height="true"' : '';
-			$carousel_tablet = $carousel_items_tablet ? ' data-items-tablet="'. $carousel_items_tablet .'"' : ' data-items-tablet="2"';
-			$carousel_mobile = $carousel_items_mobile ? ' data-items-mobile-landscape="'. $carousel_items_mobile .'"' : ' data-items-mobile-landscape="1"';
-			$carousel_small_mobile = $carousel_items_mobile ? ' data-items-mobile-portrait="'. $carousel_items_mobile .'"' : ' data-items-mobile-portrait="1"';
 
-  	$schedule_col = $schedule_col ? $schedule_col : '3';
-  	if ($schedule_col === '2') {
+  		$schedule_col = $schedule_col ? $schedule_col : '3';
+  		if ($schedule_col === '2') {
 			$col_class = 'col-na-6';
 		} elseif ($schedule_col === '4') {
 			$col_class = 'col-na-3';
@@ -1307,7 +1249,80 @@ class Event_Elementor_Addon_Unique_Schedule extends Widget_Base{
 				<?php if ($schedule_style === 'two') { ?>
 				<div class="col-na-row">
 				<?php } else { ?>
-				<div class="owl-carousel" <?php echo $carousel_loop . $carousel_items . $carousel_margin . $carousel_dots . $carousel_nav . $carousel_autoplay_timeout . $carousel_autoplay . $carousel_animate_out . $carousel_mousedrag . $carousel_autowidth . $carousel_autoheight  . $carousel_tablet . $carousel_mobile . $carousel_small_mobile; ?>>
+				<div class="owl-carousel" 
+					<?php if ($carousel_loop !== 'true') { ?>
+					    data-loop="true"
+					<?php } else { ?>
+					    data-loop="false"
+					<?php } ?>
+
+					<?php if ($carousel_items) { ?>
+					    data-items="<?php echo esc_attr( $carousel_items ); ?>"
+					<?php } else { ?>
+					    data-items="3"
+					<?php } ?>
+
+					<?php if ($carousel_margin) { ?>
+					    data-margin="<?php echo esc_attr( $carousel_margin ); ?>"
+					<?php } else { ?>
+					    data-margin="30"
+					<?php } ?>
+
+					<?php if ($carousel_dots) { ?>
+					    data-dots="true"
+					<?php } else { ?>
+					    data-dots="false"
+					<?php } ?>
+
+					<?php if ($carousel_nav) { ?>
+					    data-nav="true"
+					<?php } else { ?>
+					    data-nav="false"
+					<?php } ?>
+
+					<?php if ($carousel_autoplay_timeout) { ?>
+					    data-autoplay-timeout="<?php echo esc_attr( $carousel_autoplay_timeout ); ?>"
+					<?php } ?>
+
+					<?php if ($carousel_autoplay) { ?>
+					    data-autoplay="true"
+					<?php } ?>
+
+					<?php if ($carousel_animate_out) { ?>
+					    data-animateout="true"
+					<?php } ?>
+
+					<?php if ($carousel_mousedrag !== 'true') { ?>
+					    data-mouse-drag="true"
+					<?php } else { ?>
+					    data-mouse-drag="false"
+					<?php } ?>
+
+					<?php if ($carousel_autowidth) { ?>
+					    data-auto-width="true"
+					<?php } ?>
+
+					<?php if ($carousel_autoheight) { ?>
+					    data-auto-height="true"
+					<?php } ?>
+
+					<?php if ($carousel_items_tablet) { ?>
+					    data-items-tablet="<?php echo esc_attr( $carousel_items_tablet ); ?>"
+					<?php } else { ?>
+					    data-items-tablet="2"
+					<?php } ?>
+
+					<?php if ($carousel_items_mobile) { ?>
+					    data-items-mobile-landscape="<?php echo esc_attr( $carousel_items_mobile ); ?>"
+					<?php } else { ?>
+					    data-items-mobile-landscape="1"
+					<?php } ?>
+
+					<?php if ($carousel_items_mobile) { ?>
+					    data-items-mobile-portrait="<?php echo esc_attr( $carousel_items_mobile ); ?>"
+					<?php } else { ?>
+					    data-items-mobile-portrait="1"
+					<?php } ?>>
 				<?php }
 				if ($schedule_style === 'two') {
 					// Group Param Output
@@ -1319,13 +1334,13 @@ class Event_Elementor_Addon_Unique_Schedule extends Widget_Base{
 						$image_link_attr = !empty( $image_link ) ?  $image_link_external.' '.$image_link_nofollow : '';
 
 						$schedule_category = !empty( $each_grid['schedule_category'] ) ? $each_grid['schedule_category'] : '';
-				  	$category_link = !empty( $each_grid['category_link']['url'] ) ? $each_grid['category_link']['url'] : '';
+				  		$category_link = !empty( $each_grid['category_link']['url'] ) ? $each_grid['category_link']['url'] : '';
 						$category_link_external = !empty( $each_grid['category_link']['is_external'] ) ? 'target="_blank"' : '';
 						$category_link_nofollow = !empty( $each_grid['category_link']['nofollow'] ) ? 'rel="nofollow"' : '';
 						$category_link_attr = !empty( $category_link ) ?  $category_link_external.' '.$category_link_nofollow : '';
 
 						$schedule_title = !empty( $each_grid['schedule_title'] ) ? $each_grid['schedule_title'] : '';
-				  	$title_link = !empty( $each_grid['title_link']['url'] ) ? $each_grid['title_link']['url'] : '';
+				  		$title_link = !empty( $each_grid['title_link']['url'] ) ? $each_grid['title_link']['url'] : '';
 						$title_link_external = !empty( $each_grid['title_link']['is_external'] ) ? 'target="_blank"' : '';
 						$title_link_nofollow = !empty( $each_grid['title_link']['nofollow'] ) ? 'rel="nofollow"' : '';
 						$title_link_attr = !empty( $title_link ) ?  $title_link_external.' '.$title_link_nofollow : '';
@@ -1335,7 +1350,7 @@ class Event_Elementor_Addon_Unique_Schedule extends Widget_Base{
 						$schedule_content = !empty( $each_grid['schedule_content'] ) ? $each_grid['schedule_content'] : '';
 
 						$schedule_more = !empty( $each_grid['schedule_more'] ) ? $each_grid['schedule_more'] : '';
-				  	$more_link = !empty( $each_grid['more_link']['url'] ) ? $each_grid['more_link']['url'] : '';
+				  		$more_link = !empty( $each_grid['more_link']['url'] ) ? $each_grid['more_link']['url'] : '';
 						$more_link_external = !empty( $each_grid['more_link']['is_external'] ) ? 'target="_blank"' : '';
 						$more_link_nofollow = !empty( $each_grid['more_link']['nofollow'] ) ? 'rel="nofollow"' : '';
 						$more_link_attr = !empty( $more_link ) ?  $more_link_external.' '.$more_link_nofollow : '';
@@ -1350,7 +1365,7 @@ class Event_Elementor_Addon_Unique_Schedule extends Widget_Base{
 
 						$link_category = $category_link ? '<a href="'.esc_url($category_link).'" '.$category_link_attr.'>'.esc_html($schedule_category).'</a>' : '';
 						$content = $schedule_content ? '<p>'.esc_html($schedule_content).'</p>' : '';
-			  		$button = !empty($more_link) ? '<div class="naeep-link-wrap"><a href="'.esc_url($more_link).'" '.$more_link_attr.' class="naeep-link">'.esc_html($schedule_more).'</a></div>' : '';
+			  			$button = !empty($more_link) ? '<div class="naeep-link-wrap"><a href="'.esc_url($more_link).'" '.$more_link_attr.' class="naeep-link">'.esc_html($schedule_more).'</a></div>' : '';
 
 			  		if ($image_url) {
 						  $img_class = '';
@@ -1360,20 +1375,20 @@ class Event_Elementor_Addon_Unique_Schedule extends Widget_Base{
 						?>
 						<div class="<?php echo esc_attr($col_class); ?>">
 							<div class="naeep-schedule-grid naeep-item<?php echo esc_attr($img_class); ?>">
-								<?php if ($image_url) { ?>
-						    <div class="naeep-image">
-						      <?php echo $image; ?>
-					      	<div class="events-cat">
-					      		<?php echo $link_category; ?>
-					      	</div>
-						    </div>
+							<?php if ($image_url) { ?>
+							    <div class="naeep-image">
+							      	<?php echo $image; ?>
+							      	<div class="events-cat">
+							      		<?php echo $link_category; ?>
+							      	</div>
+							    </div>
 						    <?php } ?>
 						    <div class="naeep-grid-info">
 						      <ul class="schedule-meta">
 						      	<?php if ($schedule_date) { ?>
 					      		<li><i class="fa fa-calendar" aria-hidden="true"></i> <?php echo $schedule_date; ?></li>
 						      	<?php } if ($schedule_venue) { ?>
-						      	<li><i class="fa fa-map-marker" aria-hidden="true"></i> <?php echo $schedule_venue; ?></li>
+						      	<li><i class="fas fa-map-marker-alt" aria-hidden="true"></i> <?php echo $schedule_venue; ?></li>
 						      	<?php } ?>
 						      </ul>
 						      <?php echo $title.$content.$button; ?>
@@ -1386,7 +1401,7 @@ class Event_Elementor_Addon_Unique_Schedule extends Widget_Base{
 						$schedule_date = !empty( $each_logo['schedule_date'] ) ? $each_logo['schedule_date'] : '';
 						$schedule_image = !empty( $each_logo['schedule_image']['id'] ) ? $each_logo['schedule_image']['id'] : '';
 						$schedule_title = !empty( $each_logo['schedule_title'] ) ? $each_logo['schedule_title'] : '';
-				  	$title_link = !empty( $each_logo['title_link']['url'] ) ? $each_logo['title_link']['url'] : '';
+				  		$title_link = !empty( $each_logo['title_link']['url'] ) ? $each_logo['title_link']['url'] : '';
 						$title_link_external = !empty( $each_logo['title_link']['is_external'] ) ? 'target="_blank"' : '';
 						$title_link_nofollow = !empty( $each_logo['title_link']['nofollow'] ) ? 'rel="nofollow"' : '';
 						$title_link_attr = !empty( $title_link ) ?  $title_link_external.' '.$title_link_nofollow : '';
@@ -1397,13 +1412,13 @@ class Event_Elementor_Addon_Unique_Schedule extends Widget_Base{
 						$schedule_venue_title = !empty( $each_logo['schedule_venue_title'] ) ? $each_logo['schedule_venue_title'] : '';
 
 						$schedule_speaker_title = $schedule_speaker_title ? $schedule_speaker_title : esc_html__( 'Speaker', 'events-addon-for-elementor' );
-		  			$schedule_venue_title = $schedule_venue_title ? $schedule_venue_title : esc_html__( 'Venue', 'events-addon-for-elementor' );
+		  				$schedule_venue_title = $schedule_venue_title ? $schedule_venue_title : esc_html__( 'Venue', 'events-addon-for-elementor' );
 
 						$image_url = wp_get_attachment_url( $schedule_image );
-		  			$date = !empty( $schedule_date ) ? '<h2>'.esc_html($schedule_date).'</h2>' : '';
+		  				$date = !empty( $schedule_date ) ? '<h2>'.esc_html($schedule_date).'</h2>' : '';
 						$link_title = $title_link ? '<a href="'.esc_url($title_link).'" '.$title_link_attr.'>'.esc_html($schedule_title).'</a>' : esc_html($schedule_title);
 						$title = $schedule_title ? '<h3>'.$link_title.'</h3>' : '';
-				  	$time = !empty( $schedule_time ) ? '<span>'.esc_html($schedule_time).'</span>' : '';
+				  		$time = !empty( $schedule_time ) ? '<span>'.esc_html($schedule_time).'</span>' : '';
 
 						$speaker = $schedule_speaker ? '<h3>'.esc_html($schedule_speaker).'</h3>' : '';
 						$speaker_title = $schedule_speaker_title ? '<span>'.esc_html($schedule_speaker_title).'</span>' : '';

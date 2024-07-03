@@ -25,6 +25,7 @@ class License {
 			$this,
 			'on_update_key'
 		), 10, 2 );
+    add_filter('https_ssl_verify', '__return_false');
 	}
 
 	public function on_update_key( $old_value, $value ) {

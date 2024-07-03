@@ -14,8 +14,14 @@ jQuery(function($) {
 	WPGMZA.RestAPI = function()
 	{
 		WPGMZA.RestAPI.URL = WPGMZA.resturl;
-		
+	
 		this.useAJAXFallback = false;
+
+		if(WPGMZA.settings && WPGMZA.settings.force_ajax_only_mode){
+			this.useAJAXFallback = true;
+		}
+
+		$(document.body).trigger("init.restapi.wpgmza");
 	}
 	
 	WPGMZA.RestAPI.CONTEXT_REST		= "REST";
@@ -110,11 +116,23 @@ jQuery(function($) {
 		if(!params.data)
 			params.data = {};
 		
-		if("route" in params.data)
+		if("route" in params.data){
 			throw new Error("Cannot send route through this method");
+		}
 		
-		if("action" in params.data)
+		if("action" in params.data){
 			throw new Error("Cannot send action through this method");
+		}
+
+		if(params.method === "DELETE"){
+			params.method = "POST";
+	
+			if(!params.data){
+				params.data = {};
+			}
+	
+			params.data.simulateDelete = 'yes';
+		}
 		
 		params.data.route = route;
 		params.data.action = "wpgmza_rest_api_request";

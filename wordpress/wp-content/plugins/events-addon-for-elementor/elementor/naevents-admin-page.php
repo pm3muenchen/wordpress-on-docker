@@ -2,7 +2,7 @@
 if ( ! function_exists( 'naevents_admin_page' ) ) {
   function naevents_admin_page(){ ?>
   <div class="wrap">
-    <h1>Welcome to the <strong>Events Addon for Elementor</strong></h1>
+    <h1 class="display-block">Welcome to the <strong>Events Addon for Elementor</strong></h1>
 
     <div class="card naevents-normal-card card-primary">
     	<h2 class="title">Description</h2>

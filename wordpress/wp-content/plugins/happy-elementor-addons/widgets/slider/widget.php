@@ -12,7 +12,7 @@ use Elementor\Controls_Manager;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Typography;
-use Elementor\Scheme_Typography;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use Elementor\Utils;
 use Elementor\Icons_Manager;
 
@@ -52,7 +52,16 @@ class Slider extends Base {
 		return [ 'slider', 'image', 'gallery', 'carousel' ];
 	}
 
+	/**
+     * Register widget content controls
+     */
 	protected function register_content_controls() {
+		$this->__slider_content_controls();
+		$this->__slider_settings_content_controls();
+	}
+
+	protected function __slider_content_controls() {
+
 		$this->start_controls_section(
 			'_section_slides',
 			[
@@ -145,7 +154,31 @@ class Slider extends Base {
 			]
 		);
 
+		$this->add_control(
+			'title_tag',
+			[
+				'label' => __( 'Title HTML Tag', 'happy-elementor-addons' ),
+				'type' => Controls_Manager::SELECT,
+				// 'separator' => 'before',
+				'options' => [
+					'h1' => 'H1',
+					'h2' => 'H2',
+					'h3' => 'H3',
+					'h4' => 'H4',
+					'h5' => 'H5',
+					'h6' => 'H6',
+					'div' => 'div',
+					'span' => 'span',
+					'p' => 'p',
+				],
+				'default' => 'h2',
+			]
+		);
+
 		$this->end_controls_section();
+	}
+
+	protected function __slider_settings_content_controls() {
 
 		$this->start_controls_section(
 			'_section_settings',
@@ -285,7 +318,18 @@ class Slider extends Base {
 		$this->end_controls_section();
 	}
 
+	/**
+     * Register widget style controls
+     */
 	protected function register_style_controls() {
+		$this->__slider_item_style_controls();
+		$this->__slider_content_style_controls();
+		$this->__slider_arrow_style_controls();
+		$this->__slider_dot_style_controls();
+	}
+
+	protected function __slider_item_style_controls() {
+
 		$this->start_controls_section(
 			'_section_style_item',
 			[
@@ -315,6 +359,9 @@ class Slider extends Base {
 		);
 
 		$this->end_controls_section();
+	}
+
+	protected function __slider_content_style_controls() {
 
 		$this->start_controls_section(
 			'_section_style_content',
@@ -384,7 +431,9 @@ class Slider extends Base {
 			[
 				'name' => 'title',
 				'selector' => '{{WRAPPER}} .ha-slick-title',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_2,
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
+				],
 			]
 		);
 
@@ -425,11 +474,16 @@ class Slider extends Base {
 			[
 				'name' => 'subtitle',
 				'selector' => '{{WRAPPER}} .ha-slick-subtitle',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_3,
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_TEXT,
+				],
 			]
 		);
 
 		$this->end_controls_section();
+	}
+
+	protected function __slider_arrow_style_controls() {
 
 		$this->start_controls_section(
 			'_section_style_arrow',
@@ -618,7 +672,9 @@ class Slider extends Base {
 		$this->end_controls_tabs();
 
 		$this->end_controls_section();
+	}
 
+	protected function __slider_dot_style_controls() {
 		$this->start_controls_section(
 			'_section_style_dots',
 			[
@@ -805,7 +861,7 @@ class Slider extends Base {
 				}
 				?>
 
-				<div class="ha-slick-slide">
+				<div class="ha-slick-slide slick-slide">
 					<<?php echo $item_tag; ?> <?php $this->print_render_attribute_string( $id ); ?>>
 						<?php if ( $image ) : ?>
 							<img class="ha-slick-img" src="<?php echo esc_url( $image ); ?>" alt="<?php echo esc_attr( $slide['title'] ); ?>">
@@ -813,9 +869,14 @@ class Slider extends Base {
 
 						<?php if ( $slide['title'] || $slide['subtitle'] ) : ?>
 							<div class="ha-slick-content">
-								<?php if ( $slide['title'] ) : ?>
-									<h2 class="ha-slick-title"><?php echo ha_kses_basic( $slide['title'] ); ?></h2>
-								<?php endif; ?>
+								<?php
+									if ( $slide['title'] ) {
+										printf( '<%1$s class="ha-slick-title">%2$s</%1$s>',
+											ha_escape_tags( $settings['title_tag'], 'h2' ),
+											ha_kses_basic( $slide['title'] )
+										);
+									}
+								?>
 								<?php if ( $slide['subtitle'] ) : ?>
 									<p class="ha-slick-subtitle"><?php echo ha_kses_basic( $slide['subtitle'] ); ?></p>
 								<?php endif; ?>

@@ -56,7 +56,9 @@ if ( ! class_exists( 'Astra_Sites_Importer_Log' ) ) :
 		private function __construct() {
 
 			// Check file read/write permissions.
-			add_action( 'admin_init', array( $this, 'has_file_read_write' ) );
+			if ( current_user_can( 'edit_posts' ) ) {
+				add_action( 'admin_init', array( $this, 'has_file_read_write' ) );
+			}
 
 		}
 
@@ -91,9 +93,16 @@ if ( ! class_exists( 'Astra_Sites_Importer_Log' ) ) :
 		 */
 		public function file_permission_notice() {
 			$upload_dir = self::log_dir();
+			$plugin_name = ASTRA_SITES_NAME;
+			if ( is_callable( 'Astra_Sites_White_Label::get_instance' ) ) {
+				$is_white_label = Astra_Sites_White_Label::get_instance()->is_white_labeled();
+				$plugin_name = $is_white_label ? Astra_Sites_White_Label::get_instance()->get_white_label_name() : ASTRA_SITES_NAME;
+			}
+			/* translators: %1$s refers to the plugin name */
+			$notice = sprintf( __( 'Required File Permissions to import the templates from %s are missing.', 'astra-sites' ), $plugin_name );
 			?>
 			<div class="notice notice-error astra-sites-must-notices astra-sites-file-permission-issue">
-				<p><?php esc_html_e( 'Required File Permissions to import the templates are missing.', 'astra-sites' ); ?></p>
+				<p><?php echo esc_html( $notice ); ?></p>
 				<?php if ( defined( 'FS_METHOD' ) ) { ?>
 					<p><?php esc_html_e( 'This is usually due to inconsistent file permissions.', 'astra-sites' ); ?></p>
 					<p><code><?php echo esc_html( $upload_dir['path'] ); ?></code></p>
@@ -204,6 +213,9 @@ if ( ! class_exists( 'Astra_Sites_Importer_Log' ) ) :
 
 				// Add an index file for security.
 				Astra_Sites::get_instance()->get_filesystem()->put_contents( $dir_info['path'] . 'index.html', '' );
+
+				// Add an .htaccess for security.
+				Astra_Sites::get_instance()->get_filesystem()->put_contents( $dir_info['path'] . '.htaccess', 'deny from all' );
 			}
 
 			return $dir_info;
@@ -220,11 +232,11 @@ if ( ! class_exists( 'Astra_Sites_Importer_Log' ) ) :
 
 			$upload_path = trailingslashit( $upload_dir['path'] );
 
-			// File format e.g. 'import-31-Oct-2017-06-39-12.txt'.
-			self::$log_file = $upload_path . 'import-' . gmdate( 'd-M-Y-h-i-s' ) . '.txt';
+			// File format e.g. 'import-31-Oct-2017-06-39-12-hashcode.log'.
+			self::$log_file = $upload_path . 'import-' . gmdate( 'd-M-Y-h-i-s' ) . '-' . wp_hash( 'starter-templates-log' ) . '.log';
 
 			if ( ! get_option( 'astra_sites_recent_import_log_file', false ) ) {
-				update_option( 'astra_sites_recent_import_log_file', self::$log_file );
+				update_option( 'astra_sites_recent_import_log_file', self::$log_file, 'no' );
 			}
 		}
 
@@ -242,6 +254,11 @@ if ( ! class_exists( 'Astra_Sites_Importer_Log' ) ) :
 				$log_file = self::$log_file;
 			}
 
+			if ( apply_filters( 'astra_sites_debug_logs', false ) ) {
+				error_log( $content ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log -- This is for the debug logs while importing. This is conditional and will not be logged in the debug.log file for normal users.
+			}
+
+
 			$existing_data = '';
 			if ( file_exists( $log_file ) ) {
 				$existing_data = Astra_Sites::get_instance()->get_filesystem()->get_contents( $log_file );
@@ -249,8 +266,6 @@ if ( ! class_exists( 'Astra_Sites_Importer_Log' ) ) :
 
 			// Style separator.
 			$separator = PHP_EOL;
-
-			astra_sites_error_log( $content );
 
 			Astra_Sites::get_instance()->get_filesystem()->put_contents( $log_file, $existing_data . $separator . $content, FS_CHMOD_FILE );
 		}
@@ -328,7 +343,7 @@ if ( ! class_exists( 'Astra_Sites_Importer_Log' ) ) :
 		 * @return string Current Server Software.
 		 */
 		public static function get_software() {
-			return $_SERVER['SERVER_SOFTWARE'];
+			return isset( $_SERVER['SERVER_SOFTWARE'] ) ? sanitize_text_field( $_SERVER['SERVER_SOFTWARE'] ) : '';
 		}
 
 		/**
@@ -377,9 +392,7 @@ if ( ! class_exists( 'Astra_Sites_Importer_Log' ) ) :
 		 * @return string Current PHP Max Input Vars
 		 */
 		public static function get_php_max_input_vars() {
-			// @codingStandardsIgnoreStart
 			return ini_get( 'max_input_vars' ); // phpcs:disable PHPCompatibility.IniDirectives.NewIniDirectives.max_input_varsFound
-			// @codingStandardsIgnoreEnd
 		}
 
 		/**
@@ -437,7 +450,7 @@ if ( ! class_exists( 'Astra_Sites_Importer_Log' ) ) :
 				$events[ $key ] = $time;
 			}
 
-			$expired = get_transient( 'astra-sites-import-check' );
+			$expired = get_site_transient( 'astra-sites-import-check' );
 			if ( $expired ) {
 				global $wpdb;
 				$transient = 'astra-sites-import-check';
@@ -450,7 +463,7 @@ if ( ! class_exists( 'Astra_Sites_Importer_Log' ) ) :
 					LIKE %s",
 						'%_transient_timeout_' . $transient . '%'
 					)
-				);
+				); // WPCS: cache ok. // WPCS: db call ok.
 
 				$older_date       = $transient_timeout[0];
 				$transient_status = 'Transient: Not Expired! Recheck in ' . human_time_diff( time(), $older_date );
@@ -484,7 +497,7 @@ if ( ! class_exists( 'Astra_Sites_Importer_Log' ) ) :
 								$file      = str_replace( $upload_dir['path'], $upload_dir['url'], $file );
 								?>
 								<li>
-									<a target="_blank" href="<?php echo esc_attr( $file ); ?>"><?php echo esc_html( $file_name ); ?></a>
+									<a target="_blank" href="<?php echo esc_url( $file ); ?>"><?php echo esc_html( $file_name ); ?></a>
 								</li>
 							<?php } ?>
 						</ul>
@@ -498,7 +511,7 @@ if ( ! class_exists( 'Astra_Sites_Importer_Log' ) ) :
 								$file      = str_replace( $upload_dir['path'], $upload_dir['url'], $file );
 								?>
 								<li>
-									<a target="_blank" href="<?php echo esc_attr( $file ); ?>"><?php echo esc_html( $file_name ); ?></a>
+									<a target="_blank" href="<?php echo esc_url( $file ); ?>"><?php echo esc_html( $file_name ); ?></a>
 								</li>
 							<?php } ?>
 						</ul>

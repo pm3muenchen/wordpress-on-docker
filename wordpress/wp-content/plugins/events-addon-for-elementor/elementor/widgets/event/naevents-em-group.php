@@ -45,7 +45,7 @@ if ( is_plugin_active( 'events-manager/events-manager.php' ) ) {
 		 * Register Events Addon for Elementor Events Manager Group widget controls.
 		 * Adds different input fields to allow the user to change and customize the widget settings.
 		*/
-		protected function _register_controls(){
+		protected function register_controls(){
 
 			$events = get_posts( 'post_type="event"&numberposts=-1' );
 	    $EventID = array();
@@ -477,7 +477,6 @@ if ( is_plugin_active( 'events-manager/events-manager.php' ) ) {
 					[
 						'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 						'name' => 'text_typography',
-						'scheme' => Scheme_Typography::TYPOGRAPHY_3,
 						'selector' => '{{WRAPPER}} .naeep-em-group, {{WRAPPER}} .naeep-em-group p, {{WRAPPER}} .naeep-em-group span',
 					]
 				);
@@ -486,10 +485,6 @@ if ( is_plugin_active( 'events-manager/events-manager.php' ) ) {
 					[
 						'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'scheme' => [
-							'type' => Scheme_Color::get_type(),
-							'value' => Scheme_Color::COLOR_3,
-						],
 						'selectors' => [
 							'{{WRAPPER}} .naeep-em-group, {{WRAPPER}} .naeep-em-group p, {{WRAPPER}} .naeep-em-group span' => 'color: {{VALUE}};',
 						],
@@ -510,7 +505,6 @@ if ( is_plugin_active( 'events-manager/events-manager.php' ) ) {
 				[
 					'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 					'name' => 'link_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_4,
 					'selector' => '{{WRAPPER}} .naeep-em-group a',
 				]
 			);
@@ -526,10 +520,6 @@ if ( is_plugin_active( 'events-manager/events-manager.php' ) ) {
 					[
 						'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'scheme' => [
-							'type' => Scheme_Color::get_type(),
-							'value' => Scheme_Color::COLOR_4,
-						],
 						'selectors' => [
 							'{{WRAPPER}} .naeep-em-group a' => 'color: {{VALUE}};',
 						],
@@ -547,10 +537,6 @@ if ( is_plugin_active( 'events-manager/events-manager.php' ) ) {
 					[
 						'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'scheme' => [
-							'type' => Scheme_Color::get_type(),
-							'value' => Scheme_Color::COLOR_2,
-						],
 						'selectors' => [
 							'{{WRAPPER}} .naeep-em-group a:hover' => 'color: {{VALUE}};',
 						],
@@ -593,7 +579,6 @@ if ( is_plugin_active( 'events-manager/events-manager.php' ) ) {
 				Group_Control_Typography::get_type(),
 				[
 					'name' => 'pagi_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 					'selector' => '{{WRAPPER}} .em-pagination a, {{WRAPPER}} .em-pagination span',
 				]
 			);

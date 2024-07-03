@@ -3,9 +3,9 @@ Contributors: brainstormforce
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Tags: custom-menu, custom-logo, entertainment, featured-images, full-width-template, one-column, two-columns, left-sidebar, e-commerce, right-sidebar, custom-colors, editor-style, featured-images, full-width-template, microformats, post-formats, rtl-language-support, theme-options, threaded-comments, translation-ready, blog
-Tested up to: 5.7
+Tested up to: 6.5
 Requires PHP: 5.3
-Stable tag: 3.3.2
+Stable tag: 4.7.2
 
 Astra is fast, fully customizable & beautiful WordPress theme suitable for blog, personal portfolio, business website and WooCommerce storefront.
 
@@ -54,14 +54,26 @@ There are multiple ways you can use a child theme with the Astra Theme, Use any 
 2. More information on creating child theme. - https://developer.wordpress.org/themes/advanced-topics/child-themes/
 
 
-= Screenshot Licenses =
+= Screenshot & WP-Preview Starter Content Licenses =
 
-Screenshot images are all licensed under Creative Commons Zero (CC0) ( https://pxhere.com/en/license )
-https://pxhere.com/en/photo/100653
-https://pxhere.com/en/photo/759723
-https://pxhere.com/en/photo/1259448
-https://pxhere.com/en/photo/1456591
-https://pxhere.com/en/photo/1389199
+Screenshot image is a collage of actual sites created using the Astra WordPress Theme.
+
+Icons used are all licensed under Massachusetts Institute of Technology ( MIT ) License ( https://heroicons.com )
+
+Illustrations used are all licensed under Creative Commons ( CC0 ) License ( https://gumroad.com/l/humaaans )
+https://websitedemos.net/web-design-agency-08/wp-content/uploads/sites/796/2021/05/standing-24.png
+https://websitedemos.net/web-design-agency-08/wp-content/uploads/sites/796/2021/05/sitting-2.png
+
+Hand-drawn illustrations used are created by Brainstorm Force and released under Creative Commons ( CC0 ) License.
+https://websitedemos.net/web-design-agency-08/wp-content/uploads/sites/796/2021/05/girl-with-image-container.png
+https://websitedemos.net/web-design-agency-08/wp-content/uploads/sites/796/2021/05/boy-with-code-container.png
+https://websitedemos.net/web-design-agency-08/wp-content/uploads/sites/796/2021/05/web-browser.png
+
+Images used in the WordPress preview starter content are all licensed under Creative Commons ( CC0 ) License ( https://pxhere.com )
+
+The same site as screenshot can be imported from here https://websitedemos.net/web-design-agency-08/.
+
+For more information, refer to this document on how to create a page like in the screenshot - https://wpastra.com/docs/replicating-the-screenshot/.
 
 
 = Normalizing styles =
@@ -87,3 +99,8 @@ Breadcrumb Trail is distributed under the terms of the GNU GPL v2 or later.
 
 Underscores
 https://underscores.me/, (C) 2012-2020 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
+
+= Webfonts Loader =
+
+Astra local fonts feature is based on Webfonts Loader by WordPress Themes Team (WPTT). (https://github.com/WPTT/webfont-loader)
+Licensed under MIT ( https://github.com/WPTT/webfont-loader/blob/master/LICENSE )

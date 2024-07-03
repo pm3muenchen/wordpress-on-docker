@@ -1,1252 +1,51 @@
-# Translation of Plugins - Gutenberg Page Building Toolkit – EditorsKit - Development (trunk) in Norwegian (Bokmål)
-# This file is distributed under the same license as the Plugins - Gutenberg Page Building Toolkit – EditorsKit - Development (trunk) package.
+# Translation of Plugins - Gutenberg Block Editor Toolkit – EditorsKit - Stable (latest release) in Norwegian (Bokmål)
+# This file is distributed under the same license as the Plugins - Gutenberg Block Editor Toolkit – EditorsKit - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-07-14 19:48:11+0000\n"
+"PO-Revision-Date: 2021-11-10 11:09:40+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: GlotPress/3.0.0-alpha.2\n"
+"X-Generator: GlotPress/4.0.1\n"
 "Language: nb_NO\n"
-"Project-Id-Version: Plugins - Gutenberg Page Building Toolkit – EditorsKit - Development (trunk)\n"
+"Project-Id-Version: Plugins - Gutenberg Block Editor Toolkit – EditorsKit - Stable (latest release)\n"
 
-#: src/extensions/components/preview/components/controls.js:99
-msgid "Close preview mode"
-msgstr "Lukk forhåndsvisningsmodus"
-
-#: src/extensions/components/preview/components/controls.js:130
-msgid "Enter mobile preview mode"
-msgstr "Gå til mobil forhåndsvisningsmodus"
-
-#: src/extensions/components/preview/components/controls.js:121
-msgid "Enter tablet preview mode"
-msgstr "Gå til nettbrett forhåndsvisningsmodus"
-
-#: src/extensions/components/preview/components/controls.js:112
-msgid "Enter desktop preview mode"
-msgstr "Gå til skrivebord forhåndsvisningsmodus"
-
-#: src/extensions/components/preview/components/controls.js:103
-msgid "Live Preview"
-msgstr "Levende forhåndsvisning"
-
-#: src/extensions/components/preview/components/controls.js:69
-msgid "Show preview without opening new window."
-msgstr "Vis forhåndsvisning uten å åpne et nytt vindu."
-
-#: src/extensions/components/help-tips/components/about.js:20
-msgid "WordPress Version is"
-msgstr "WordPress-versjon er"
-
-#: src/extensions/components/help-tips/components/about.js:19
-msgid "Editor Version is"
-msgstr "Redigeringsverktøy-versjon er"
-
-#: src/extensions/components/gradient-controls/components/controls.js:165
-msgid "Custom Gradient applied to selected block."
-msgstr "Tilpasset gradient brukt på valgt blokk."
-
-#: src/extensions/components/gradient-controls/components/controls.js:155
-msgid "Custom Gradient copied to your clipboard."
-msgstr "Tilpasset gradient kopiert til din utklippstavle."
-
-#: src/extensions/components/gradient-controls/components/controls.js:109
-#: src/extensions/components/gradient-controls/components/controls.js:115
-msgid "Paste Gradient Value"
-msgstr "Lim inn gradientverdi"
-
-#: src/extensions/components/gradient-controls/components/controls.js:58
-msgid "Paste Gradient"
-msgstr "Lim inn gradient"
-
-#: src/extensions/components/gradient-controls/components/controls.js:46
-msgid "Copy Gradient Value"
-msgstr "Kopier gradientverdi"
-
-#: includes/class-editorskit-features-manager.php:300
-msgid "Gradient Controls"
-msgstr "Gradientkontroller"
-
-#: src/extensions/formats/charmap/controls.js:148
-msgid "No characters found."
-msgstr "Ingen tegn funnet."
-
-#: src/extensions/formats/charmap/controls.js:120
-msgid "Arrows"
-msgstr "Piler"
-
-#: src/extensions/formats/charmap/controls.js:115
-msgid "Latin"
-msgstr "Latinsk"
-
-#: src/extensions/formats/charmap/controls.js:110
-msgid "Math"
-msgstr "Matematikk"
-
-#: src/extensions/formats/charmap/controls.js:105
-msgid "Misc"
-msgstr "Forskjellig"
-
-#: src/extensions/formats/charmap/controls.js:93
-msgid "Search"
-msgstr "Søk"
-
-#: src/extensions/formats/charmap/controls.js:86
-msgid "Insert Special Character"
-msgstr "Sett inn spesialtegn"
-
-#: includes/class-editorskit-features-manager.php:152
-#: src/extensions/formats/charmap/index.js:19
-#: src/extensions/formats/charmap/controls.js:161
-msgid "Special Characters"
-msgstr "Spesialtegn"
-
-#: src/extensions/components/preview/components/controls.js:75
-#: src/extensions/components/preview/components/controls.js:137
-#: src/blocks/shareablock/components/downloads.js:108
-msgid "Preview"
-msgstr "Forhåndsvis"
-
-#: src/blocks/shareablock/components/downloads.js:101
-msgid "Insert"
-msgstr "Sett inn"
-
-#: src/blocks/shareablock/components/downloads.js:101
-msgid "Downloading...."
-msgstr "Laster ned..."
-
-#: src/blocks/shareablock/components/downloads.js:75
-msgid "Downloads"
-msgstr "Nedlastinger"
-
-#: src/blocks/shareablock/components/downloads.js:74
-msgid "No %1$s Found. %2$sClick here to browse.%3$s"
-msgstr "Ingen %1$s funnet. %2$sKlikk her for å bla gjennom.%3$s"
-
-#: src/blocks/shareablock/components/downloads.js:62
-msgid "Templates"
-msgstr "Maler"
-
-#: src/blocks/shareablock/components/downloads.js:57
-msgid "Block Patterns"
-msgstr "Blokkmønstre"
-
-#: src/blocks/shareablock/components/downloads.js:52
-msgid "All Downloads"
-msgstr "Alle nedlastinger"
-
-#: src/blocks/shareablock/components/downloads.js:40
-msgid "ShareABlock Patterns and Templates"
-msgstr "ShareABlock mønstre og maler"
-
-#: src/blocks/shareablock/components/edit.js:243
-msgid "Get API Key"
-msgstr "Få API-nøkkel"
-
-#: src/blocks/shareablock/components/edit.js:236
-msgid "Apply & View Downloads"
-msgstr "Bruk og vis nedlastinger"
-
-#: src/blocks/shareablock/components/edit.js:218
-msgid "Enter Public API Key…"
-msgstr "Oppgi offentlig API-nøkkel..."
-
-#: src/blocks/shareablock/components/edit.js:210
-msgid "View Downloads"
-msgstr "Se nedlastinger"
-
-#: src/blocks/shareablock/components/edit.js:192
-msgid "Invalid API or Access Token."
-msgstr "Ugyldig API- eller tilgangskode."
-
-#: src/blocks/shareablock/components/edit.js:184
-msgid "Insert your downloads from shareablock.com at ease."
-msgstr "Sett enkelt inn dine nedlastinger fra shareablock.com."
-
-#: src/blocks/shareablock/components/edit.js:183
-msgid "ShareABlock from EditorsKit"
-msgstr "ShareABlock fra EditorsKit"
-
-#: src/blocks/shareablock/components/loading.js:10
-msgid "Loading…"
-msgstr "Laster..."
-
-#: src/blocks/shareablock/components/inspector.js:94
-msgid "Remove"
-msgstr "Fjern"
-
-#: src/blocks/shareablock/components/inspector.js:85
-msgid "Save"
-msgstr "Lagre"
-
-#: src/blocks/shareablock/components/inspector.js:85
-msgid "Saved"
-msgstr "Lagret"
-
-#: src/blocks/shareablock/components/inspector.js:76
-#: src/blocks/shareablock/components/edit.js:225
-msgid "Enter Access Token…"
-msgstr "Oppgi adgangskode..."
-
-#: src/blocks/shareablock/components/inspector.js:69
-msgid "Enter API Key…"
-msgstr "Oppgi API-nøkkel..."
-
-#: src/blocks/shareablock/components/inspector.js:65
-msgid "Add API key and Access Token. Updating this API key will set all your downloads to use the new key."
-msgstr "Legg til API-nøkkel og adgangskode. Oppdatering av denne API-nøkkelen vil få alle dine nedlastinger til å bruke den nye nøkkelen."
-
-#: src/blocks/shareablock/components/inspector.js:61
-#: src/blocks/shareablock/components/edit.js:217
-msgid "API Settings"
-msgstr "API-innstilinger"
-
-#: src/blocks/shareablock/index.js:21
-msgid "shareablock"
-msgstr "shareablock"
-
-#: src/blocks/shareablock/index.js:20
-msgid "block patterns"
-msgstr "blokkmønstre"
-
-#: src/blocks/shareablock/index.js:19
-msgid "template"
-msgstr "mal"
-
-#: src/blocks/shareablock/index.js:17
-msgid "Easily insert your downloads from shareablock.com"
-msgstr "Sett enkelt inn dine nedlastinger fra shareablock.com"
-
-#: src/blocks/shareablock/index.js:16
-msgid "ShareABlock"
-msgstr "ShareABlock"
-
-#: src/extensions/block-styles/list/index.js:45
-msgid "Dashed"
-msgstr "Stiplet"
-
-#: includes/class-editorskit-post-meta.php:74
-msgid "API key and token from shareablock.com"
-msgstr "API-nøkkel og adgangskode fra shareablock.com"
-
-#: src/admin/index.js:119
-msgid "Get this Extension"
-msgstr "Skaff dette tillegget"
-
-#: src/admin/index.js:111
-msgid "Typography and Google Fonts"
-msgstr "Typografi og Google Fonts"
-
-#: src/extensions/components/url-popover/url-input-ui.js:172
-msgid "Remove link"
-msgstr "Fjern lenke"
-
-#: src/extensions/components/url-popover/url-input-ui.js:140
-msgid "Insert link"
-msgstr "Sett inn lenke"
-
-#: src/extensions/components/url-popover/url-input-ui.js:139
-msgid "Edit link"
-msgstr "Rediger lenke"
-
-#: src/extensions/components/url-popover/url-input-ui.js:123
-msgid "Hover Animation"
-msgstr "Oversveve-animasjon"
-
-#: src/extensions/formats/indent-increase/index.js:19
-#: src/extensions/formats/indent-increase/controls.js:38
-msgid "Indent Increase"
-msgstr "Økning av innrykk"
-
-#: src/extensions/formats/indent-decrease/index.js:19
-#: src/extensions/formats/indent-decrease/controls.js:38
-msgid "Indent Decrease"
-msgstr "Minsking av innrykk"
+#: plugin.php:74 plugin.php:86
+msgid "Cheating huh?"
+msgstr "Jukser vi?"
 
 #. translators: %s: EditorsKit settings page link
-#: includes/class-editorskit-welcome.php:175
+#: includes/class-editorskit-welcome.php:191
 msgid "Thank you for installing and activating EditorsKit Plugin. Please go to %1$sSettings > EditorsKit%2$s to get started."
 msgstr "Takk for at du installerte og aktiverte utvidelsen EditorsKit. Vennlihst gå til %1$sInnstilinger > EditorsKit%2$s for å komme i gang."
 
-#: includes/class-editorskit-features-manager.php:244
-msgid "Link Toolbar for Cover, Group & Column"
-msgstr "Lenke-verktøylinje for omslag, gruppe og kolonne"
-
-#: includes/class-editorskit-features-manager.php:132
-msgid "Indents"
-msgstr "Innrykk"
-
-#: src/extensions/block-styles/columns/index.js:15
-msgid "Gapless"
-msgstr "Avstandsfri"
-
-#: src/extensions/advanced-controls/options/devices/index.js:100
-msgid "Alignment for Tablet Devices"
-msgstr "Justeringer for nettbrett"
-
-#: src/extensions/advanced-controls/options/devices/index.js:88
-msgid "Alignment for Mobile Devices"
-msgstr "Justeringer for mobil"
-
-#: src/extensions/advanced-controls/options/devices/index.js:78
-msgid "Tablet"
-msgstr "Nettbrett"
-
-#: src/extensions/advanced-controls/options/devices/index.js:73
-msgid "Mobile"
-msgstr "Mobil"
-
-#: src/extensions/advanced-controls/options/devices/index.js:67
-msgid "Assign different alignment for tablet and mobile devices aside from the option you already have for desktop on the block toolbar."
-msgstr "Benytt forskjellig justering for nettbrett og mobile enheter ved siden av det alternativet du allerede har valgt for skrivebord på blokkverktøylinjen."
-
-#: src/extensions/advanced-controls/options/devices/index.js:66
-msgid "Responsive Text Alignment"
-msgstr "Responsiv tekstjustering"
-
-#: src/extensions/advanced-controls/options/devices/index.js:48
-msgid "Responsive Visibility"
-msgstr "Responsiv synlighet"
-
-#: src/extensions/advanced-controls/options/devices/alignment-toolbar.js:40
-msgid "Change text alignment"
-msgstr "Endre tekstjustering"
-
-#: src/extensions/advanced-controls/options/devices/alignment-toolbar.js:25
-msgid "Align text right"
-msgstr "Juster tekst mot høyre"
-
-#: src/extensions/advanced-controls/options/devices/alignment-toolbar.js:20
-msgid "Align text center"
-msgstr "Juster tekst mot midten"
-
-#: src/extensions/advanced-controls/options/devices/alignment-toolbar.js:15
-msgid "Align text left"
-msgstr "Juster tekst mot venstre"
-
-#: src/admin/addon-settings.js:11
-msgid "This area provide settings for all activated EditorsKit add ons."
-msgstr "Dette området tilbyr innstillinger for alle aktiverte tillegg til EditorsKit."
-
-#: src/admin/index.js:46
-msgid "Extensions"
-msgstr "Tilleggsmoduler"
-
-#: src/admin/index.js:39
-msgid "Blocks Manager"
-msgstr "Blokkadministrator"
-
-#: src/admin/index.js:34
-msgid "Features Manager"
-msgstr "Funksjonsbehandler"
-
-#: src/admin/index.js:29
-msgid "Tutorial and Docs"
-msgstr "Veiledinger og dokumentasjon"
-
-#: src/admin/index.js:24
-msgid "Getting Started"
-msgstr "Komme i gang"
-
-#: src/extensions/block-styles/list/index.js:51
-msgid "Starred"
-msgstr "Stjernemerket"
-
-#: src/extensions/block-styles/list/index.js:39
-msgid "Connected"
-msgstr "Tilkoblet"
-
-#: src/extensions/block-styles/list/index.js:33
-msgid "Crossed"
-msgstr "Krysset"
-
-#: src/extensions/block-styles/list/index.js:27
-msgid "Checked"
-msgstr "Avkrysset"
-
-#: src/extensions/block-styles/list/index.js:21
-msgid "Arrow"
-msgstr "Pil"
-
-#: src/extensions/block-styles/list/index.js:15
-msgid "None"
-msgstr "Ingen"
-
-#: src/extensions/block-panel/list-settings/index.js:64
-msgid "Bullet/Icon Color"
-msgstr "Farge på kule/ikon"
-
-#: src/admin/docs/index.js:173
-msgid "Additional List Block Styles"
-msgstr "Ytterligere listeblokk-stiler"
-
-#: includes/class-editorskit-features-manager.php:229
-msgid "Cover Block Vertical Alignment"
-msgstr "Vertikal justering av omslagsblokk"
-
-#: includes/class-editorskit-features-manager.php:219
-msgid "Convert Reusable Block Toolbar"
-msgstr "Verktøylinje for konvertering av gjenbrukbar blokk"
-
-#: includes/class-editorskit-features-manager.php:209
-msgid "Button Block Full Width"
-msgstr "Fullbredde knappeblokk"
-
-#: src/extensions/block-toolbar/reusable-convert/components/controls.js:56
-msgid "Reusable Block converted."
-msgstr "Gjenbrukbar blokk konvertert."
-
-#: src/extensions/block-toolbar/reusable-convert/components/controls.js:30
-msgid "Convert to Regular Blocks"
-msgstr "Konverter til vanlige blokker"
-
-#: src/extensions/advanced-controls/fullwidth/index.js:24
-msgid "Toggle to display this block's as full width."
-msgstr "Veksle for å vise denne blokken i full bredde"
-
-#: src/extensions/advanced-controls/fullwidth/index.js:24
-msgid "Full width display is enabled."
-msgstr "Fullbreddevisning er slått på."
-
-#: src/extensions/advanced-controls/fullwidth/index.js:21
-msgid "Full Width Display"
-msgstr "Fullbreddevisning"
-
-#: src/extensions/formats/abbreviation/components/edit.js:63
-msgid "Example: fr, en, de, etc. Use it only if the abbreviation’s language is different from page main language."
-msgstr "Eksempel: fr, en, de, no osv. Bruk bare om forkortelsens språk er et annet en sidens hovedspråk."
-
-#: src/extensions/formats/abbreviation/components/edit.js:61
-msgid "Language (optional)"
-msgstr "Språk (velgfritt)"
-
-#: src/extensions/formats/abbreviation/components/edit.js:56
-msgid "Title"
-msgstr "Tittel"
-
-#: src/extensions/formats/abbreviation/components/edit.js:53
-msgid "Insert Abbreviation"
-msgstr "Sett inn forkortelse"
-
-#: src/extensions/advanced-controls/disable-block/index.js:88
-msgid "Click if you want this block to be disabled on Block Manager."
-msgstr "Klikk om du vil at denne blokken skal være slått av i blokkadministratoren."
-
-#: src/extensions/advanced-controls/disable-block/index.js:84
-msgid "Remove & Disable Block"
-msgstr "Fjern og slå av blokk"
-
-#: src/extensions/advanced-controls/disable-block/index.js:38
-msgid " block has been disabled."
-msgstr "blokk har blitt slått av."
-
-#: includes/class-editorskit-features-manager.php:214
-msgid "Columns Block Background Color"
-msgstr "Bakgrunnsfarge for kolonneblokk"
-
-#: includes/class-editorskit-features-manager.php:117
-#: src/extensions/formats/abbreviation/components/edit.js:47
-#: src/extensions/formats/abbreviation/index.js:19
-msgid "Abbreviation"
-msgstr "Forkortelse"
-
-#: src/blocks/lorem/index.js:32
-msgid "Create lorem ipsum placeholder paragraph."
-msgstr "Lag et lorem ipsum plassholder-avsnitt."
-
-#: src/blocks/lorem/index.js:19
-msgid "Lorem Dev Tool"
-msgstr "Lorem utviklingsverktøy"
-
-#: src/admin/docs/index.js:143
-msgid "Enable Developer Tools"
-msgstr "Slå på utviklerverktøy"
-
-#: src/admin/block-manager/index.js:71
-msgid "No blocks found."
-msgstr "Ingen blokker funnet."
-
-#: src/admin/block-manager/index.js:66
-msgid "Available block types"
-msgstr "Tilgjengelige blokktyper"
-
-#: src/admin/block-manager/index.js:53
-msgid "%1$d block is disabled."
-msgid_plural "%1$d blocks are disabled."
-msgstr[0] "%1$d blokk er slått av."
-msgstr[1] "%1$d blokker er slått av."
-
-#: src/admin/block-manager/index.js:42
-msgid "Search for a block"
-msgstr "Søk etter en blokk"
-
-#: src/extensions/block-panel/list-settings/index.js:53
-#: src/extensions/block-panel/column-background/index.js:33
-msgid "Color Settings"
-msgstr "Fargeinnstillinger"
-
-#: src/extensions/block-panel/list-settings/index.js:40
-msgid "Text Settings"
-msgstr "Tekstinnstillinger"
-
-#: src/admin/docs/index.js:291
-msgid "Documentation"
-msgstr "Dokumentasjon"
-
-#: src/admin/docs/index.js:272
-msgid "Block Styling"
-msgstr "Blokkstil"
-
-#: src/admin/docs/index.js:255
-msgid "Block Visibility"
-msgstr "Blokksynlighet"
-
-#: src/admin/docs/index.js:187
-msgid "Rich Text Formatting"
-msgstr "Rik tekstformatering"
-
-#: src/admin/docs/index.js:169
-msgid "More Image & Cover Block Styles"
-msgstr "Flere bilde- og omslagsblokk-stiler"
-
-#: src/admin/docs/index.js:165
-msgid "Display Cover and Image Blocks in Fullscreen"
-msgstr "Vis omslags- og bildeblokker i fullskjerm"
-
-#: src/admin/docs/index.js:158
-msgid "Using Custom Display Logic"
-msgstr "Bruker tilpasset visningslogikk"
-
-#: src/admin/docs/index.js:154
-msgid "Hide Block on Logged-in/out Users"
-msgstr "Skjul blokk for innloggede/utloggede brukere"
-
-#: src/admin/docs/index.js:150
-msgid "Block Visibility on Desktop, Mobile or Tablet"
-msgstr "Blokksynlighet på skrivebord, mobil og nettbrett"
-
-#: src/admin/docs/index.js:139
-msgid "Accessible Help, Tips & Tricks"
-msgstr "Tilgjengelig hjelp, tips og triks"
-
-#: src/admin/docs/index.js:135
-msgid "Additional CSS Class(es) Auto Suggestions"
-msgstr "Automatiske forslag til ekstra CSS-klasse(r)"
-
-#: src/admin/docs/index.js:131
-msgid "Enable Block Guide Lines"
-msgstr "Slå på blokk-hjelpelinjer"
-
-#: src/admin/docs/index.js:127
-msgid "Disable Auto Saving"
-msgstr "Slå av automatisk lagring"
-
-#: src/admin/docs/index.js:123
-msgid "Code Editor Syntax Highlighter"
-msgstr "Syntaksutheving for koderedigering"
-
-#: src/admin/docs/index.js:115
-msgid "Easily Hide Title"
-msgstr "Skjul tittelen enkelt"
-
-#: src/admin/docs/index.js:108
-msgid "Changing List Block Font Size & Text Color"
-msgstr "Endre skriftstørrelse og tekstfarge for listeblokk"
-
-#: src/admin/docs/index.js:104
-msgid "Media & Text Block Links"
-msgstr "Media- og tekstblokklenker"
-
-#: src/admin/docs/index.js:100
-msgid "Media & Text Block Card Layout"
-msgstr "Oppsett for media- og tekstblokk-kort"
-
-#: src/admin/docs/index.js:92
-msgid "Export and Import Blocks"
-msgstr "Eksporter og importer blokker"
-
-#: src/admin/docs/index.js:88
-msgid "Set Image Block as Featured Image"
-msgstr "Sett bildeblokk som fremhevet bilde"
-
-#: src/admin/docs/index.js:77
-msgid "View or Add Estimated Reading Time"
-msgstr "Se og beregn beregnet lesetid"
-
-#: src/admin/docs/index.js:73
-msgid "Markdown Writing Shortcuts"
-msgstr "Snarveier for skriving med markdown"
-
-#: src/admin/docs/index.js:62
-msgid "Add Nonbreaking Space"
-msgstr "Legg til hardt mellomrom"
-
-#: src/admin/docs/index.js:58
-msgid "Transform Text to Uppercase"
-msgstr "Forvandle tekst til store bokstaver"
-
-#: src/admin/docs/index.js:54
-msgid "Justified Paragraph Alignment"
-msgstr "Strukket avsnittsjustering"
-
-#: src/admin/docs/index.js:50
-msgid "Subscript and Superscript Text Formatting"
-msgstr "Tekstformatering med senket og hevet skrift"
-
-#: src/admin/docs/index.js:46
-msgid "Adding Link \"rel\" NoFollow or Sponsored Attributes"
-msgstr "Legge til ikke-følg eller sponset relasjonsattributter"
-
-#: src/admin/docs/index.js:42
-msgid "Adding Highlighted Text Background Color"
-msgstr "Legge til uthevet tekstbakgrunn"
-
-#: src/admin/docs/index.js:38
-msgid "Adding Selected Text Color"
-msgstr "Legge til farge for valgt tekst"
-
-#: src/admin/index.js:142
-msgid "Getting Started with"
-msgstr "Kom i gang med"
-
-#: src/admin/index.js:141
-msgid "Settings → EditorsKit"
-msgstr "Innstillinger → EditorsKit"
-
-#: src/admin/index.js:65
-msgid "EditorsKit video preview"
-msgstr "EditorsKit video-forhåndsvisning"
-
-#: includes/class-editorskit-features-manager.php:254
-msgid "List Block Text Color"
-msgstr "Tekstfarge for listeblokk"
-
-#: includes/class-editorskit-features-manager.php:249
-msgid "List Block Font Size"
-msgstr "Skriftstørrelse for listeblokk"
-
-#: src/extensions/disable-title/controls.js:69
-msgid "Title is hidden on your website."
-msgstr "Tittel er skjult på ditt nettsted."
-
-#: src/extensions/disable-title/controls.js:66
-msgid "block-options"
-msgstr "blokk-alternativer"
-
-#: src/extensions/components/help-tips/components/controls.js:125
-msgid "About"
-msgstr "Om"
-
-#: src/extensions/components/help-tips/components/about.js:26
-msgid "EditorsKit %s"
-msgstr "EditorsKit %s"
-
-#: src/extensions/components/help-tips/components/about.js:25
-msgid " Want to help? %sGet involved or report an issue%s."
-msgstr " Vil du hjelpe? %sBli engasjert eller rapporter et problem%s."
-
-#: src/extensions/components/help-tips/components/about.js:23
-msgid "You are using the new block editor powered by the %sGutenberg Plugin%s."
-msgstr "Du bruker den nye blokkredigeringen drevet av %sGutenberg-utvidelsen%s."
-
-#: src/extensions/components/help-tips/components/about.js:22
-msgid "You are using the new block editor bundled on WordPress core %s"
-msgstr "Du bruker den nye blokkredigeringen i WordPress-kjernen %s"
-
-#: src/extensions/components/help-tips/components/about.js:12
-msgid "About Gutenberg Block Editor"
-msgstr "Om Gutenberg blokkredigersverktøyet"
-
-#: src/extensions/formats/nbsp/components/edit.js:56
-msgid "Nonbreaking space"
-msgstr "Hardt mellomrom"
-
-#: includes/class-editorskit-features-manager.php:331
-msgid "Select Parent Block"
-msgstr "Velg forelder-blokk"
-
-#: includes/class-editorskit-features-manager.php:327
-msgid "Shortcuts"
-msgstr "Snarveier"
-
-#: includes/class-editorskit-features-manager.php:147
-#: src/extensions/formats/nbsp/index.js:19
-msgid "Nonbreaking Space"
-msgstr "Hardt mellomrom"
-
-#: src/extensions/components/help-tips/components/controls.js:196
-msgid "Fetching..."
-msgstr "Henter..."
-
-#: src/extensions/components/help-tips/components/controls.js:193
-msgid "Next"
-msgstr "Neste"
-
-#: src/extensions/components/help-tips/components/controls.js:185
-msgid "View All Tips and Tricks"
-msgstr "Se alle tips og triks"
-
-#: src/extensions/components/help-tips/components/controls.js:149
-msgid "Remove/Disable Help Button"
-msgstr "Fjern/slå av hjelpeknappen"
-
-#: src/extensions/components/help-tips/components/controls.js:142
-msgid "EditorsKit Community Help"
-msgstr "Hjelp fra EditorsKit-samfunnet"
-
-#: src/extensions/components/help-tips/components/controls.js:134
-#: src/extensions/components/help-tips/components/controls.js:157
-msgid "Tips and Tricks"
-msgstr "Tips og triks"
-
-#: src/extensions/transform/empty-paragraphs/components/controls.js:89
-msgid "This prompt will only be shown once and will remember your preference. Thanks!"
-msgstr "Denne ledeteksten vil bare vises én gang og vil huske ditt valg. Takk!"
-
-#: src/extensions/transform/empty-paragraphs/components/controls.js:87
-msgid "No, Thanks"
-msgstr "Nei, takk"
-
-#: src/extensions/transform/empty-paragraphs/components/controls.js:83
-msgid "Yes Enable"
-msgstr "Ja, slå på"
-
-#: src/extensions/transform/empty-paragraphs/components/controls.js:76
-msgid "Do you want to automatically transform three(3) consecutive empty paragraphs into Spacer Block?"
-msgstr "Ønsker du automatisk å omforme tre (3) etterfølgende tomme avsnitt til en avstandsblokk?"
-
-#: src/extensions/transform/empty-paragraphs/components/controls.js:69
-msgid "Enable Shortcut"
-msgstr "Slå på snarvei"
-
-#: includes/class-editorskit-features-manager.php:310
-#: src/extensions/components/help-tips/components/controls.js:105
-#: src/extensions/components/help-tips/components/controls.js:106
-msgid "Help, tips and tricks"
-msgstr "Hjelp, tips og triks"
-
-#: includes/class-editorskit-features-manager.php:198
-#: src/admin/docs/index.js:81
-msgid "Transform 3 Empty Paragraphs to Spacer Block"
-msgstr "Forvandle tre tomme avsnitt til avstandsblokk"
-
-#: src/extensions/formats/alignment/components/control.js:31
-msgid "Align caption right"
-msgstr "Juster bildetekst til høyre"
-
-#: src/extensions/formats/alignment/components/control.js:26
-msgid "Align caption center"
-msgstr "Juster bildetekst til midten"
-
-#: src/extensions/formats/alignment/components/control.js:21
-msgid "Align caption left"
-msgstr "Juster bildetekst til venstre"
-
-#: src/extensions/formats/alignment/index.js:20
-msgid "Change Caption Alignment"
-msgstr "Endre justering av bildetekst"
-
-#: src/extensions/block-settings/copy/components/controls.js:110
-msgid "Selected blocks copied."
-msgstr "Valgte blokker kopiert."
-
-#: src/extensions/block-settings/copy/components/controls.js:108
-msgid "Selected block copied."
-msgstr "Valgt blokk kopiert."
-
-#: src/extensions/block-settings/copy/components/controls.js:74
-msgid "Copy"
-msgstr "Kopier"
-
-#: includes/class-editorskit-features-manager.php:224
-#: src/admin/docs/index.js:96
-msgid "Copy Selected Block(s)"
-msgstr "Kopier valgt(e) blokk(er)"
-
-#: src/extensions/components/reading-time/components/controls.js:53
-msgid "Reading Time"
-msgstr "Lesetid"
-
-#: src/extensions/block-toolbar/block-navigator/components/controls.js:35
-msgid "Open block navigator"
-msgstr "Åpne blokknavigeringen"
-
-#: src/extensions/block-toolbar/media-text-card/components/toolbar.js:73
-msgid "Show media on bottom"
-msgstr "Vis media på bunnen"
-
-#: src/extensions/block-toolbar/media-text-card/components/toolbar.js:65
-msgid "Show media on top"
-msgstr "Vis media på toppen"
-
-#: src/extensions/block-navigation/list.js:43
-msgid "(selected block)"
-msgstr "(valgt blokk)"
-
-#: src/extensions/block-navigation/index.js:36
-#: src/extensions/block-navigation/dropdown.js:38
-msgid "Block navigation"
-msgstr "Blokknavigering"
-
-#: includes/class-editorskit-features-manager.php:259
-msgid "Media Text Block Layout"
-msgstr "Oppsett for media-tekstblokk"
-
-#: includes/class-editorskit-features-manager.php:234
-#: src/extensions/block-toolbar/block-navigator/components/controls.js:43
-msgid "Block Navigator"
-msgstr "Blokknavigering"
-
-#: includes/class-editorskit-features-manager.php:205
-#: src/admin/docs/index.js:221
-msgid "Block Options"
-msgstr "Bkokkalternativer"
-
-#: includes/class-editorskit-features-manager.php:183
-msgid "Estimated Reading Time"
-msgstr "Anslått lesetid"
-
-#. translators: accessibility label for external links, where the argument is
-#. the link text
-#: src/extensions/formats/link/components/utils.js:106
-msgid "%s (opens in a new tab)"
-msgstr "%s (åpnes i en ny fane)"
-
-#: src/extensions/formats/link/components/inline.js:306
-#: src/extensions/block-toolbar/media-text-link/components/controls.js:278
-#: src/extensions/components/url-popover/url-input-ui.js:118
-msgid "Sponsored"
-msgstr "Sponset"
-
-#: src/extensions/formats/link/components/inline.js:301
-#: src/extensions/components/url-popover/url-input-ui.js:113
-msgid "No Follow"
-msgstr "Ikke følg"
-
-#: src/extensions/formats/link/components/inline.js:228
-msgid "Link inserted."
-msgstr "Lenke satt inn."
-
-#: src/extensions/formats/link/components/inline.js:226
-msgid "Link edited."
-msgstr "Lenke redigert."
-
-#: src/extensions/formats/link/components/inline.js:224
-msgid "Warning: the link has been inserted but may have errors. Please test it."
-msgstr "Advarsel: Lenken er satt inn, men kan ha feil. Vennligst test den."
-
-#: src/extensions/formats/link/components/link-viewer.js:53
-msgid "Edit"
-msgstr "Rediger"
-
-#: src/extensions/formats/link/components/edit.js:128
-msgid "Unlink"
-msgstr "Fjern lenke"
-
-#: src/extensions/formats/link/components/edit.js:84
-msgid "Link removed."
-msgstr "Lenke fjernet."
-
-#: src/extensions/formats/link/components/edit.js:29
-msgid "Add Link"
-msgstr "Legg til lenke"
-
-#: src/extensions/formats/link/components/url-input.js:280
-msgid "(no title)"
-msgstr "(ingen tittel)"
-
-#: src/extensions/formats/link/components/url-input.js:243
-msgid "Paste URL or type to search"
-msgstr "Lim inn URL eller skriv for å søke"
-
-#: src/extensions/formats/link/components/url-input.js:238
-msgid "URL"
-msgstr "URL"
-
-#: src/extensions/formats/link/components/url-input.js:201
-msgid "Link selected."
-msgstr "Lenke valgt."
-
-#: src/extensions/formats/link/components/url-input.js:117
-msgid "No results."
-msgstr "Ingen resultater."
-
-#: src/extensions/formats/link/components/url-input.js:111
-msgid "%d result found, use up and down arrow keys to navigate."
-msgid_plural "%d results found, use up and down arrow keys to navigate."
-msgstr[0] "%d resultat funnet, bruk opp- og nedpiler for å navigere"
-msgstr[1] "%d resultater funnet, bruk opp- og nedpiler for å navigere"
-
-#: src/extensions/formats/link/components/link-editor.js:37
-#: src/extensions/formats/abbreviation/components/edit.js:87
-#: src/extensions/components/gradient-controls/components/controls.js:133
-msgid "Apply"
-msgstr "Bruk"
-
-#: src/extensions/formats/link/index.js:21
-msgid "Link"
-msgstr "Lenke"
-
-#: includes/class-editorskit-features-manager.php:142
-msgid "Link with \"rel\" Attributes"
-msgstr "Lenke med \"rel\"-attributter"
-
-#: src/extensions/components/featured-image/components/controls.js:93
-msgid "Replace Image"
-msgstr "Bytt ut bilde"
-
-#: src/extensions/components/featured-image/components/controls.js:68
-msgid "Edit or update the image"
-msgstr "Rediger eller oppdater bildet"
-
-#: src/extensions/components/featured-image/components/controls.js:47
-msgid "Upload Featured Image"
-msgstr "Last opp fremhevet bilde"
-
-#: src/extensions/components/featured-image/components/controls.js:29
-msgid "To edit the featured image, you need permission to upload media."
-msgstr "For å redigere det fremhevede bildet trenger du tillatelse til å laste opp media."
-
-#: src/extensions/components/featured-image/components/controls.js:25
-msgid "Remove Image"
-msgstr "Fjern bilde"
-
-#: src/extensions/components/featured-image/components/controls.js:24
-msgid "Set Featured Image"
-msgstr "Bestem fremhevet bilde"
-
-#: src/extensions/components/featured-image/components/controls.js:23
-msgid "Featured Image"
-msgstr "Fremhevet bilde"
-
-#: src/extensions/block-toolbar/media-text-link/components/controls.js:285
-msgid "Apply link to whole block"
-msgstr "Bruk lenke på hele blokken"
-
-#: src/extensions/block-toolbar/media-text-link/components/controls.js:271
-msgid "No follow"
-msgstr "Ikke følg"
-
-#: src/extensions/formats/link/components/inline.js:296
-#: src/extensions/block-toolbar/media-text-link/components/controls.js:266
-#: src/extensions/components/url-popover/url-input-ui.js:108
-msgid "Open in New Tab"
-msgstr "Åpne i ny fane"
-
-#: src/extensions/block-toolbar/media-text-link/components/controls.js:234
-msgid "Attachment Page"
-msgstr "Vedleggsside"
-
-#: src/extensions/block-toolbar/media-text-link/components/controls.js:228
-msgid "Media File"
-msgstr "Mediefil"
-
-#: src/extensions/block-toolbar/media-text-link/components/controls.js:162
-msgid "Remove Link"
-msgstr "Fjern lenke"
-
-#: src/extensions/block-toolbar/media-text-link/components/controls.js:111
-msgid "Media Link"
-msgstr "Medialenke"
-
-#: src/extensions/block-toolbar/media-text-link/components/controls.js:111
-msgid "Edit Media Link"
-msgstr "Rediger medielenke"
-
-#: includes/class-editorskit-features-manager.php:290
-#: src/admin/docs/index.js:119
-msgid "Drag and Drop Featured Image"
-msgstr "Dra og slipp fremhevet bilde"
-
-#: src/blocks/import/index.js:38
-msgid "Import blocks exported using EditorsKit plugin."
-msgstr "Importer blokker eksportert med utvidelsen EditorsKit"
-
-#: src/extensions/components/manager/components/index.js:45
-msgid "EditorsKit Features Manager"
-msgstr "Behandle EditorsKit-funksjoner"
-
-#: src/extensions/block-settings/set-as-featured/components/controls.js:88
-msgid "Featured Image Removed."
-msgstr "Fremhevet bilde fjernet."
-
-#: src/extensions/block-settings/set-as-featured/components/controls.js:77
-msgid "Image Set as Featured."
-msgstr "Bilde satt som fremhevet."
-
-#: src/extensions/block-settings/set-as-featured/components/controls.js:29
-msgid "Set as Featured Image"
-msgstr "Sett som fremhevet bilde"
-
-#: src/extensions/block-settings/set-as-featured/components/controls.js:28
-msgid "Remove as Featured Image"
-msgstr "Fjern som fremhevet bilde"
-
-#: includes/class-editorskit-features-manager.php:264
-msgid "Set Image Block as Featured"
-msgstr "Sett bildeblokk som fremhevet"
-
-#: includes/class-editorskit-features-manager.php:188
-msgid "Heading Block Label"
-msgstr "Etikett for bildeblokk"
-
-#: includes/class-editorskit-features-manager.php:320
-#: src/extensions/components/scroll-down/components/scrolldown.js:36
-msgid "View Custom Fields"
-msgstr "Se tilpassede felter"
-
-#: includes/class-editorskit-features-manager.php:280
-msgid "Code Editor Syntax Highlight"
-msgstr "Syntaksutheving i koderedigering"
-
-#: src/extensions/components/editor-height/components/height.js:55
-msgid "Editor Height"
-msgstr "Høyde på redigeringsverktøy"
-
-#: src/extensions/components/editor-height/components/height.js:52
-msgid "Toggle to change editor min-height similar to browser viewport."
-msgstr "Veksle for å endre minimumshøyden på redigeringsvinduet lik nettleservinduet."
-
-#: includes/class-editorskit-features-manager.php:295
-msgid "Editor Min-Height"
-msgstr "Minimumshøyde for redigeringsvinduet"
-
-#: src/extensions/advanced-controls/custom-class-name/index.js:67
-msgid "Additional CSS Class(es)"
-msgstr "Ekstra CSS-klasse(r)"
-
-#: includes/class-editorskit-features-manager.php:285
-msgid "Custom Class Names"
-msgstr "Navn på egendefinerte klasser"
-
-#: src/extensions/block-settings/visibility-settings/components/modal.js:116
-msgid "Attention: The display settings (show/hide for mobile, tablet, desktop or users) will only take effect once you are on the live page, and not while you're editing in Gutenberg."
-msgstr "OBS: Innstillingene for visning (vis/skjul for mobil, brett, skrivebord eller brukere) vil bare få effekt når du ser på den levende siden, ikke nå du er i blokkredigeringen."
-
-#: src/extensions/block-styles/image/index.js:44
-msgid "Shadow"
-msgstr "Skygge"
-
-#: src/extensions/block-styles/image/index.js:38
-msgid "Inverted Diagonal"
-msgstr "Omvendt diagonal"
-
-#: src/extensions/block-styles/image/index.js:32
-msgid "Diagonal"
-msgstr "Diagonal"
-
-#: src/extensions/block-styles/image/index.js:26
-msgid "Rounded Corners"
-msgstr "Avrundede hjørner"
-
-#: src/extensions/block-styles/image/index.js:20
-msgid "Circular"
-msgstr "Sirkulær"
-
-#: src/extensions/advanced-controls/index.js:110
-msgid "Attention: The display settings (show/hide for mobile, tablet or desktop) will only take effect once you are on the live page, and not while you're editing in Gutenberg."
-msgstr "OBS: Innstillingene for visning (vis/skjul for mobil, brett eller skrivebord) vil bare få effekt når du ser på den levende siden, ikke nå du er i blokkredigeringen."
-
-#: src/extensions/advanced-controls/index.js:106
-msgid "Responsive"
-msgstr "Responsiv"
-
-#: src/extensions/advanced-controls/options/devices/index.js:60
-msgid "Hide on Mobile"
-msgstr "Skjul på mobil"
-
-#: src/extensions/advanced-controls/options/devices/index.js:55
-msgid "Hide on Tablet"
-msgstr "Skjul på nettbrett"
-
-#: src/extensions/advanced-controls/options/devices/index.js:50
-msgid "Hide on Desktop"
-msgstr "Skjul på skrivebord"
-
-#: src/extensions/advanced-controls/options/height/index.js:24
-msgid "Toggle to display this block's height full screen of the browser viewport."
-msgstr "Veksle for å vise denne blokkens høyde lik hele vinduet i nettleseren."
-
-#: src/extensions/advanced-controls/options/height/index.js:24
-msgid "Full screen height is enabled."
-msgstr "Fullskjermhøyde er skrudd på."
-
-#: src/extensions/advanced-controls/options/height/index.js:21
-msgid "Full Screen Height"
-msgstr "Fullskjermhøyde"
-
-#: src/extensions/advanced-controls/options/state/index.js:50
-msgid "Toggle to hide this block when users are guests or logged out."
-msgstr "Veksle for å skjule denne blokken når brukere er gjester eller logget ut."
-
-#: src/extensions/advanced-controls/options/state/index.js:50
-msgid "Hidden on guests or logged out users."
-msgstr "Skjult for gjester eller utloggede brukere,"
-
-#: src/extensions/advanced-controls/options/state/index.js:49
-msgid "Hide on Loggedout Users"
-msgstr "Skjul for utloggede brukere"
-
-#: src/extensions/advanced-controls/options/state/index.js:44
-msgid "Toggle to hide this block when users are not logged in."
-msgstr "Veksle for å skjule denne blokken når brukere ikke er logget inn."
-
-#: src/extensions/advanced-controls/options/state/index.js:44
-msgid "Hidden when users are logged in."
-msgstr "Skjult når brukere er logget inn."
-
-#: src/extensions/advanced-controls/options/state/index.js:43
-msgid "Hide on Loggedin Users"
-msgstr "Skjul for innloggede brukere"
-
-#: src/blocks/import/components/edit.js:119
-msgid "Upload"
-msgstr "Last opp"
-
-#: src/blocks/import/components/edit.js:96
-msgid "Drag a file or upload a new one from your device."
-msgstr "Dra inn en fil eller last opp en ny fra din enhet,"
-
-#: src/blocks/import/components/edit.js:95
-#: src/blocks/import/components/edit.js:108
-msgid "Import from JSON"
-msgstr "Importer fra JSON"
-
-#: src/blocks/import/components/edit.js:82
-msgid "Unknown error"
-msgstr "Ukjent feil"
-
-#: src/blocks/import/components/edit.js:79
-msgid "Invalid Reusable Block JSON file"
-msgstr "Ugyldig JSON-fil for gjenbrukbar blokk"
-
-#: src/blocks/import/components/edit.js:76
-msgid "Invalid JSON file"
-msgstr "Ugyldig JSON-fil"
-
-#: src/blocks/import/index.js:25
-msgid "migrate"
-msgstr "migrer"
-
-#: src/blocks/import/index.js:24
-msgid "download"
-msgstr "last ned"
-
-#: src/blocks/import/index.js:23
-msgid "import"
-msgstr "importer"
-
-#: src/blocks/import/index.js:20
-msgid "Import"
-msgstr "Import"
-
-#: src/extensions/formats/background-color/components/edit.js:47
-msgid "Purple Mist"
-msgstr "Lilla tåke"
-
-#: src/extensions/formats/background-color/components/edit.js:42
-msgid "Blue Moon"
-msgstr "Blå måne"
-
-#: src/extensions/formats/background-color/components/edit.js:37
-msgid "Spring Green"
-msgstr "Vårgrønn"
-
-#: src/extensions/formats/background-color/components/edit.js:32
-msgid "Pink Flamingo"
-msgstr "Rosa flamingo"
-
-#: src/extensions/formats/background-color/components/edit.js:27
-msgid "Orange Sunrise"
-msgstr "Oransje soloppgang"
-
-#: src/extensions/formats/background-color/components/edit.js:23
-msgid "Highlight Color"
-msgstr "Fremhevet farge"
-
-#: includes/class-editorskit-features-manager.php:239
-#: src/extensions/block-settings/export/components/export.js:77
-msgid "Export as JSON"
-msgstr "Eksporter som JSON"
-
-#: src/extensions/components/markdown/components/config.js:47
-msgid "Code"
-msgstr "Kode"
-
-#: src/extensions/components/markdown/components/config.js:43
-msgid "Strikethrough"
-msgstr "Gjennomstrek"
-
-#: src/extensions/components/markdown/components/config.js:39
-msgid "Bold"
-msgstr "Fet"
-
-#: src/extensions/components/markdown/components/config.js:35
-msgid "Italic"
-msgstr "Kursiv"
-
-#: src/extensions/components/markdown/components/config.js:31
-msgid "Blockquote"
-msgstr "Blokksitat"
-
-#: src/extensions/components/markdown/components/config.js:27
-msgid "Bulleted list"
-msgstr "Punktliste"
-
-#: src/extensions/components/markdown/components/config.js:23
-msgid "Numbered list"
-msgstr "Nummerert liste"
-
-#: src/extensions/components/markdown/components/config.js:19
-msgid "Small header (h4)"
-msgstr "Liten overskrift (h4)"
-
-#: src/extensions/components/markdown/components/config.js:15
-msgid "Medium header (h3)"
-msgstr "Middels overskrift (h3)"
-
-#: src/extensions/components/markdown/components/config.js:11
-msgid "Large header (h2)"
-msgstr "Stor overskrift (h2)"
-
-#: src/extensions/components/markdown/components/menu.js:99
-msgid "Keyboard Shortcuts"
-msgstr "Tastatursnarveier"
-
-#: src/extensions/components/markdown/components/menu.js:95
-#: src/extensions/components/markdown/components/config.js:7
-msgid "Markdown Formatting"
-msgstr "Formatering av markdown"
-
-#: src/extensions/components/manager/components/index.js:41
-msgid "EditorsKit Settings"
-msgstr "Innstillinger for EditorsKit"
-
-#: src/extensions/block-settings/clear-formatting/components/controls.js:32
-msgid "Clear Block Formatting"
-msgstr "Fjern blokkformatering"
-
-#: includes/class-editorskit-user-feedback.php:286
+#: includes/class-editorskit-welcome.php:150
+msgid "Getting started with EditorsKit"
+msgstr "Å komme i gang med EditorsKit"
+
+#: includes/class-editorskit-user-feedback.php:300
 msgid "No thanks / I already have"
 msgstr "Nei takk / Jeg har allerede"
 
-#: includes/class-editorskit-user-feedback.php:285
+#: includes/class-editorskit-user-feedback.php:299
+#: includes/notices/class-editorskit-support-notice.php:53
+#: src/admin/index.js:256
 msgid "Leave a Review"
 msgstr "Legg inn en omtale"
 
 #. translators: 1. Name, 2. Time
-#: includes/class-editorskit-user-feedback.php:281
+#: includes/class-editorskit-user-feedback.php:295
 msgid "You have been using %1$s for %2$s now. Mind leaving a review to let us know know what you think? We'd really appreciate it!"
 msgstr "Du har brukt %1$s i %2$s nå. Kunne du tenke deg å legge inn en omtale for å la oss få vite hva du synes? Vi vil sette stor pris på det!"
 
 #. translators: 1. Name
-#: includes/class-editorskit-user-feedback.php:278
+#: includes/class-editorskit-user-feedback.php:292
 msgid "Are you enjoying %s Plugin?"
 msgstr "Har du glede av utvidelsen %s?"
 
 #. translators: 1. Name
-#: includes/class-editorskit-user-feedback.php:274
+#: includes/class-editorskit-user-feedback.php:288
 msgid "%s WordPress Plugin"
 msgstr "%s WordPress-utvidelse"
 
@@ -1304,252 +103,229 @@ msgstr "et år"
 msgid "%s years"
 msgstr "%s år"
 
-#: includes/class-editorskit-features-manager.php:315
+#: includes/class-editorskit-post-meta.php:104
+msgid "API key and token from shareablock.com"
+msgstr "API-nøkkel og adgangskode fra shareablock.com"
+
+#: includes/class-editorskit-features-manager.php:326
+msgid "Select Parent Block"
+msgstr "Velg forelder-blokk"
+
+#: includes/class-editorskit-features-manager.php:322
+msgid "Shortcuts"
+msgstr "Snarveier"
+
+#: includes/class-editorskit-features-manager.php:310
+#: src/extensions/components/scroll-down/components/scrolldown.js:36
+msgid "View Custom Fields"
+msgstr "Se tilpassede felter"
+
+#: includes/class-editorskit-features-manager.php:305
 msgid "Toggle Title Visibility"
 msgstr "Veksle synlighet for tittel"
 
-#: includes/class-editorskit-features-manager.php:305
-msgid "Toggle Auto Save"
-msgstr "Veksle automatisk lagring"
+#: includes/class-editorskit-features-manager.php:300
+#: src/extensions/components/help-tips/components/controls.js:105
+#: src/extensions/components/help-tips/components/controls.js:106
+msgid "Help, tips and tricks"
+msgstr "Hjelp, tips og triks"
 
-#: includes/class-editorskit-features-manager.php:271
-#: src/admin/docs/index.js:238
-msgid "Tools"
-msgstr "Verktøy"
+#: includes/class-editorskit-features-manager.php:295
+msgid "Gradient Controls"
+msgstr "Gradientkontroller"
 
-#: includes/class-editorskit-features-manager.php:193
-msgid "Markdown"
-msgstr "Markdown"
+#: includes/class-editorskit-features-manager.php:290
+msgid "Editor Min-Height"
+msgstr "Minimumshøyde for redigeringsvinduet"
 
-#: includes/class-editorskit-features-manager.php:179
-#: src/admin/docs/index.js:204
-msgid "Writing"
-msgstr "Skriving"
+#: includes/class-editorskit-features-manager.php:285
+#: src/admin/docs/index.js:111
+msgid "Drag and Drop Featured Image"
+msgstr "Dra og slipp fremhevet bilde"
 
-#: includes/class-editorskit-features-manager.php:172
-#: src/extensions/formats/uppercase/index.js:19
-#: src/extensions/formats/uppercase/controls.js:32
-msgid "Uppercase"
-msgstr "Store bokstaver"
-
-#: includes/class-editorskit-features-manager.php:162
-#: src/extensions/formats/superscript/index.js:19
-#: src/extensions/formats/superscript/controls.js:45
-msgid "Superscript"
-msgstr "Hevet skrift"
-
-#: includes/class-editorskit-features-manager.php:157
-#: src/extensions/formats/subscript/index.js:19
-#: src/extensions/formats/subscript/controls.js:45
-msgid "Subscript"
-msgstr "Senket skrift"
-
-#: includes/class-editorskit-features-manager.php:137
-msgid "Justified Alignment"
-msgstr "Kantjustert tekst"
-
-#: includes/class-editorskit-features-manager.php:127
-msgid "Highlighted Text Color"
-msgstr "Farge på fremhevet tekst"
-
-#: includes/class-editorskit-features-manager.php:122
-#: src/extensions/formats/clear/index.js:19
-#: src/extensions/formats/clear/controls.js:39 src/admin/docs/index.js:66
-msgid "Clear Formatting"
-msgstr "Fjern formatering"
-
-#: includes/class-editorskit-features-manager.php:113
-msgid "Formats"
-msgstr "Formater"
-
-#: includes/class-editorskit-features-manager.php:91
-msgid "ACF Support"
-msgstr "ACF-støtte"
-
-#: includes/class-editorskit-features-manager.php:101
-msgid "Display Logic"
-msgstr "Visningslogikk"
-
-#: includes/class-editorskit-features-manager.php:106
-msgid "User Login State"
-msgstr "Innloggingsstatus for bruker"
-
-#: includes/class-editorskit-features-manager.php:87
-msgid "Visibility"
-msgstr "Synlighet"
-
-#: src/extensions/components/autosave/components/menu.js:79
-msgid "Auto Save"
-msgstr "Automatisk lagring"
-
-#: src/extensions/components/autosave/components/menu.js:76
-msgid "Toggle to disable or enable editor autosaving feature."
-msgstr "Veksle for å skru av eller på automatisk lagring i redigeringsverktøyet."
-
-#: src/extensions/components/autosave/components/menu.js:21
-msgid "Auto Save Disabled"
-msgstr "Automatisk lagring skrudd av,"
-
-#: src/extensions/formats/background-color/index.js:18
-#: src/extensions/block-panel/column-background/index.js:39
-msgid "Background Color"
-msgstr "Bakgrunnsfarge"
-
-#: src/extensions/formats/text-color/components/edit.js:13
-#: src/extensions/formats/text-color/index.js:18
-#: src/extensions/block-panel/list-settings/index.js:59
-msgid "Text Color"
-msgstr "Tekstfarge"
-
-#: src/extensions/formats/justify/index.js:19
-#: src/extensions/advanced-controls/options/devices/alignment-toolbar.js:30
-msgid "Align text justify"
-msgstr "Juster tekst kant-til-kant"
-
-#: src/extensions/formats/justify/controls.js:29
-msgid "Justify"
-msgstr "Kantjuster"
-
-#: includes/class-editorskit-features-manager.php:167
-#: src/extensions/formats/underline/index.js:17
-#: src/extensions/formats/underline/index.js:48
-#: src/extensions/formats/markdown/index.js:20
-msgid "Underline"
-msgstr "Understrek"
+#: includes/class-editorskit-features-manager.php:280
+msgid "Custom Class Names"
+msgstr "Navn på egendefinerte klasser"
 
 #: includes/class-editorskit-features-manager.php:275
+msgid "Code Editor Syntax Highlight"
+msgstr "Syntaksutheving i koderedigering"
+
+#: includes/class-editorskit-features-manager.php:270
 #: src/extensions/components/guidelines/components/menu.js:67
 msgid "Block Guide Lines"
 msgstr "Ledelinjer for blokk"
 
-#: src/extensions/components/guidelines/components/menu.js:64
-msgid "Show visible guide lines on title and blocks"
-msgstr "Vis synlige ledelinjer for tittel og blokker"
+#: includes/class-editorskit-features-manager.php:266
+#: src/admin/docs/index.js:226
+msgid "Tools"
+msgstr "Verktøy"
 
-#: src/extensions/block-settings/visibility-settings/components/modal.js:70
-msgid "Advanced"
-msgstr "Avansert"
+#: includes/class-editorskit-features-manager.php:259
+msgid "Set Image Block as Featured"
+msgstr "Sett bildeblokk som fremhevet"
 
-#: src/extensions/block-settings/visibility-settings/components/modal.js:62
-#: src/extensions/block-styles/columns/index.js:9
-#: src/extensions/block-styles/image/index.js:14
-#: src/extensions/block-styles/list/index.js:9
-msgid "Default"
-msgstr "Standard"
+#: includes/class-editorskit-features-manager.php:254
+msgid "Media Text Block Layout"
+msgstr "Oppsett for media-tekstblokk"
 
-#: src/extensions/block-settings/visibility-settings/components/modal.js:100
-#: src/extensions/transform/empty-paragraphs/components/controls.js:72
-#: src/extensions/block-toolbar/block-navigator/components/controls.js:44
-#: src/extensions/components/manager/components/index.js:47
-#: src/extensions/components/markdown/components/menu.js:101
-#: src/extensions/components/help-tips/components/about.js:15
-#: src/extensions/components/help-tips/components/controls.js:160
-msgid "Close"
-msgstr "Lukk"
+#: includes/class-editorskit-features-manager.php:249
+msgid "List Block Text Color"
+msgstr "Tekstfarge for listeblokk"
 
-#: src/extensions/block-settings/visibility-settings/components/modal.js:89
-#: src/extensions/block-settings/visibility-settings/components/modal.js:98
-msgid "Visibility Settings"
-msgstr "Innstillinger for synlighet"
+#: includes/class-editorskit-features-manager.php:244
+msgid "List Block Font Size"
+msgstr "Skriftstørrelse for listeblokk"
 
-#: includes/class-editorskit-features-manager.php:96
+#: includes/class-editorskit-features-manager.php:239
+msgid "Link Toolbar for Cover, Group & Column"
+msgstr "Lenke-verktøylinje for omslag, gruppe og kolonne"
+
+#: includes/class-editorskit-features-manager.php:234
+#: src/extensions/block-settings/export/components/export.js:77
+msgid "Export as JSON"
+msgstr "Eksporter som JSON"
+
+#: includes/class-editorskit-features-manager.php:229
+#: src/extensions/block-toolbar/block-navigator/components/controls.js:43
+msgid "Block Navigator"
+msgstr "Blokknavigering"
+
+#: includes/class-editorskit-features-manager.php:224
+msgid "Columns Block Background Color"
+msgstr "Bakgrunnsfarge for kolonneblokk"
+
+#: includes/class-editorskit-features-manager.php:219
+msgid "Button Block Full Width"
+msgstr "Fullbredde knappeblokk"
+
+#: includes/class-editorskit-features-manager.php:215
+#: src/admin/docs/index.js:209
+msgid "Block Options"
+msgstr "Bkokkalternativer"
+
+#: includes/class-editorskit-features-manager.php:208
+#: src/admin/docs/index.js:81
+msgid "Transform 3 Empty Paragraphs to Spacer Block"
+msgstr "Forvandle tre tomme avsnitt til avstandsblokk"
+
+#: includes/class-editorskit-features-manager.php:203
+msgid "Markdown"
+msgstr "Markdown"
+
+#: includes/class-editorskit-features-manager.php:198
+msgid "Heading Block Label"
+msgstr "Etikett for bildeblokk"
+
+#: includes/class-editorskit-features-manager.php:193
+msgid "Estimated Reading Time"
+msgstr "Anslått lesetid"
+
+#: includes/class-editorskit-features-manager.php:189
+#: src/admin/docs/index.js:192
+msgid "Writing"
+msgstr "Skriving"
+
+#: includes/class-editorskit-features-manager.php:182
+#: src/extensions/formats/uppercase/controls.js:32
+#: src/extensions/formats/uppercase/index.js:19
+msgid "Uppercase"
+msgstr "Store bokstaver"
+
+#: includes/class-editorskit-features-manager.php:177
+#: src/extensions/formats/markdown/index.js:20
+#: src/extensions/formats/underline/index.js:17
+#: src/extensions/formats/underline/index.js:48
+msgid "Underline"
+msgstr "Understrek"
+
+#: includes/class-editorskit-features-manager.php:172
+#: src/extensions/formats/superscript/controls.js:45
+#: src/extensions/formats/superscript/index.js:19
+msgid "Superscript"
+msgstr "Hevet skrift"
+
+#: includes/class-editorskit-features-manager.php:167
+#: src/extensions/formats/subscript/controls.js:45
+#: src/extensions/formats/subscript/index.js:19
+msgid "Subscript"
+msgstr "Senket skrift"
+
+#: includes/class-editorskit-features-manager.php:162
+#: src/extensions/formats/charmap/controls.js:161
+#: src/extensions/formats/charmap/index.js:19
+msgid "Special Characters"
+msgstr "Spesialtegn"
+
+#: includes/class-editorskit-features-manager.php:157
+#: src/extensions/formats/nbsp/index.js:19
+msgid "Nonbreaking Space"
+msgstr "Hardt mellomrom"
+
+#: includes/class-editorskit-features-manager.php:152
+msgid "Link with \"rel\" Attributes"
+msgstr "Lenke med \"rel\"-attributter"
+
+#: includes/class-editorskit-features-manager.php:147
+msgid "Justified Alignment"
+msgstr "Kantjustert tekst"
+
+#: includes/class-editorskit-features-manager.php:142
+msgid "Indents"
+msgstr "Innrykk"
+
+#: includes/class-editorskit-features-manager.php:137
+msgid "Highlighted Text Color"
+msgstr "Farge på fremhevet tekst"
+
+#: includes/class-editorskit-features-manager.php:132
+#: src/admin/docs/index.js:66 src/extensions/formats/clear/controls.js:39
+#: src/extensions/formats/clear/index.js:19
+msgid "Clear Formatting"
+msgstr "Fjern formatering"
+
+#: includes/class-editorskit-features-manager.php:127
+#: src/extensions/formats/abbreviation/components/edit.js:47
+#: src/extensions/formats/abbreviation/index.js:19
+msgid "Abbreviation"
+msgstr "Forkortelse"
+
+#: includes/class-editorskit-features-manager.php:123
+msgid "Formats"
+msgstr "Formater"
+
+#: includes/class-editorskit-features-manager.php:118
+msgid "Visibility"
+msgstr "Synlighet"
+
+#: includes/class-editorskit-features-manager.php:110
+msgid "Display Logic"
+msgstr "Visningslogikk"
+
+#: includes/class-editorskit-features-manager.php:102
+msgid "User Login State"
+msgstr "Innloggingsstatus for bruker"
+
+#: includes/class-editorskit-features-manager.php:97
 msgid "Devices"
 msgstr "Enheter"
 
-#: src/extensions/advanced-controls/options/logic/index.js:26
-msgid "Add valid PHP conditional tags for custom & advanced visibility options."
-msgstr "Legg til gyldige, betingede PHP-koder for tilpassede og avanserte synlighetsalternativer."
+#: includes/class-editorskit-features-manager.php:92
+msgid "ACF Support"
+msgstr "ACF-støtte"
 
-#: src/extensions/advanced-controls/options/logic/index.js:25
-msgid "Conditional Logic"
-msgstr "Betingelseslogikk"
-
-#: src/extensions/advanced-controls/options/acf/index.js:136
-msgid "Additional support for Advanced Custom Fields plugin. Will automatically show when you have the plugin installed and activated."
-msgstr "Tilleggsstøtte for utvidelsen Avanserte Tilpassede Felt (ACF). Vil automatisk vises når du har utvidelsen installert og aktivert."
-
-#: src/extensions/advanced-controls/options/acf/index.js:132
-msgid "Conditional Value"
-msgstr "Betingelsesverdi"
-
-#: src/extensions/advanced-controls/options/acf/index.js:124
-msgid "Is Not Empty"
-msgstr "Er ikke tom"
-
-#: src/extensions/advanced-controls/options/acf/index.js:120
-msgid "Is Empty"
-msgstr "Er tom"
-
-#: src/extensions/advanced-controls/options/acf/index.js:116
-msgid "Does Not Contain"
-msgstr "Inneholder ikke"
-
-#: src/extensions/advanced-controls/options/acf/index.js:112
-msgid "Contains"
-msgstr "Inneholder"
-
-#: src/extensions/advanced-controls/options/acf/index.js:108
-msgid "Is Not Equal to"
-msgstr "Er ikke lik"
-
-#: src/extensions/advanced-controls/options/acf/index.js:104
-msgid "Is Equal to"
-msgstr "Er lik"
-
-#: src/extensions/advanced-controls/options/acf/index.js:100
-msgid "Select Condition"
-msgstr "Velg betingelse"
-
-#: src/extensions/advanced-controls/options/acf/index.js:83
-msgid "Show when Condition's met"
-msgstr "Vis når betingelsene er oppfylt"
-
-#: src/extensions/advanced-controls/options/acf/index.js:79
-msgid "Hide when Condition's met"
-msgstr "Skjul når betingelsene er oppfylt"
-
-#: src/extensions/advanced-controls/options/acf/index.js:75
-msgid "Select Visibility Option"
-msgstr "Velg synlighetsalternativ"
-
-#: src/extensions/advanced-controls/options/acf/index.js:70
-msgid "Advanced Custom Fields"
-msgstr "Avanserte Tilpassede Felt"
-
-#: src/extensions/advanced-controls/options/acf/index.js:49
-msgid "Select Field"
-msgstr "Velg felt"
-
-#: src/admin/index.js:70
-msgid "If you have any questions or suggestion, let us know through %1$sTwitter%4$s or our %2$sFacebook community %4$s. Also, %3$ssubscribe to our newsletter%4$s if you want to stay up to date with what's new and upcoming at EditorsKit."
-msgstr "Om du har spørsmål eller synpunkter, la oss få vite det gjennom %1$sTwitter%4$s eller vårt %2$sFacebook-felleskap %4$s. Dessuten, %3$sabonner på vårt nyhetsbrev%4$s om du ønsker å være oppdatert om hva som er nytt og kommende hos EditorsKit."
-
-#: includes/class-editorskit-welcome.php:138
-msgid "Getting started with EditorsKit"
-msgstr "Å komme i gang med EditorsKit"
-
-#: plugin.php:72 plugin.php:84
-msgid "Cheating huh?"
-msgstr "Jukser vi?"
-
-#. Author URI of the plugin
-msgid "https://jeffreycarandang.com/"
-msgstr "https://jeffreycarandang.com/"
-
-#. Author of the plugin
-msgid "Jeffrey Carandang"
-msgstr "Jeffrey Carandang"
-
-#. Plugin Name of the plugin
-#: includes/class-editorskit-user-feedback.php:315
-#: includes/class-editorskit-welcome.php:139
-msgid "EditorsKit"
-msgstr "EditorsKit"
+#. Description of the plugin
+#: plugin.php
+msgid "EditorsKit is a suite of <strong>page building block options</strong> for the Gutenberg block editor."
+msgstr "EditorsKit er en samling <strong>muligheter for sidebygging med blokker</strong> for redigeringsverktøyet i Gutenberg."
 
 #. Plugin URI of the plugin
+#: plugin.php
 msgid "https://editorskit.com/"
 msgstr "https://editorskit.com/"
 
-#. Description of the plugin
-msgid "EditorsKit is a suite of <strong>page building block options</strong> for the Gutenberg block editor."
-msgstr "EditorsKit er en samling <strong>muligheter for sidebygging med blokker</strong> for redigeringsverktøyet i Gutenberg."
+#. Plugin Name of the plugin
+#: plugin.php includes/class-editorskit-user-feedback.php:328
+#: includes/class-editorskit-welcome.php:151
+msgid "EditorsKit"
+msgstr "EditorsKit"

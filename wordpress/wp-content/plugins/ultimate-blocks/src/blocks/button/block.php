@@ -17,12 +17,14 @@ function ub_buttons_parse($b){
     $addNofollow = true;
     $addSponsored = false;
     $size = 'medium';
+    $iconSize = 0;
     $chosenIcon = '';
     $buttonText = 'Button Text';
+    $iconUnit = 'px';
 
     extract($b); //should overwrite the values above if they exist in the array
 
-    $iconSize = array('small' => 25, 'medium' => 30, 'large' => 35, 'larger' => 40);
+    $presetIconSize = array('small' => 25, 'medium' => 30, 'large' => 35, 'larger' => 40);
 
     return '<div class="ub-button-container' . ($buttonWidth === 'full' ? ' ub-button-full-container' : '') . '">
     <a href="' . esc_url($url) . '" target="' . ($openInNewTab ? '_blank' : '_self') . '"
@@ -31,10 +33,13 @@ function ub_buttons_parse($b){
     ($buttonWidth === 'full' ? ' ub-button-full-width' :
         ($buttonWidth === 'flex' ? ' ub-button-flex-'. $size : '')) . '" role="button">
     <div class="ub-button-content-holder">'.
-        ($chosenIcon !== '' ? '<span class="ub-button-icon-holder"><svg xmlns="http://www.w3.org/2000/svg"
-        height="' . $iconSize[$size] . '", width="' . $iconSize[$size] . '"
-        viewBox="0, 0, ' . Ultimate_Blocks_IconSet::generate_fontawesome_icon($chosenIcon)[0] . ', ' . Ultimate_Blocks_IconSet::generate_fontawesome_icon($chosenIcon)[1]
-        . '"><path fill="currentColor" d="' . Ultimate_Blocks_IconSet::generate_fontawesome_icon($chosenIcon)[2] . '"></svg></span>': '')
+        (($chosenIcon !== '' && !is_null($chosenIcon))? '<span class="ub-button-icon-holder">' .
+        '<svg xmlns="http://www.w3.org/2000/svg"' .
+        'height="' . ($iconSize ? : $presetIconSize[$size]) . ($iconUnit === 'em' ? 'em':'') .
+        '", width="' . ($iconSize ? : $presetIconSize[$size]) . ($iconUnit === 'em' ? 'em' :'') . '"' .
+        'viewBox="0, 0, ' . Ultimate_Blocks_IconSet::generate_fontawesome_icon($chosenIcon)[0] . ', ' . Ultimate_Blocks_IconSet::generate_fontawesome_icon($chosenIcon)[1]
+        . '"><path fill="currentColor" d="' . Ultimate_Blocks_IconSet::generate_fontawesome_icon($chosenIcon)[2] . '"></svg>'
+        . '</span>': '')
         .'<span class="ub-button-block-btn">' . $buttonText . '</span>
     </div></a></div>';
 }
@@ -46,22 +51,40 @@ function ub_render_button_block($attributes){
 
     $iconSize = array('small' => 25, 'medium' => 30, 'large' => 35, 'larger' => 40);
 
-    $buttonDisplay = (!isset($buttons) || count($buttons) === 0 ? '<div class="ub-button-container align-button-' . $align.(isset($className) ? ' ' . esc_attr($className) : '') . '"' . (!isset($blockID) || $blockID === '' ? ' ': ' id="ub-button-' . $blockID . '"') . '>
+    $buttonDisplay = (!isset($buttons) || count($buttons) === 0 ? '<div class="ub-button-container align-button-' . esc_attr($align) . (isset($className) ? ' ' . esc_attr($className) : '') . '"' . (!isset($blockID) || $blockID === '' ? ' ': ' id="ub-button-' . esc_attr($blockID) . '"') . '>
     <a href="' . esc_url($url) . '" target="' . ($openInNewTab ? '_blank' : '_self') . '"
     rel="noopener noreferrer' . ($addNofollow ? ' nofollow' : '').'"
-    class="ub-button-block-main ub-button-' . $size .
+    class="ub-button-block-main ub-button-' . esc_attr($size) .
     ($buttonWidth === 'full' ? ' ub-button-full-width' :
-        ($buttonWidth === 'flex' ? ' ub-button-flex-' . $size : '')) . '">
+        ($buttonWidth === 'flex' ? ' ub-button-flex-' . esc_attr($size) : '')) . '">
     <div class="ub-button-content-holder">' .
         ($chosenIcon !== '' ? '<span class="ub-button-icon-holder"><svg xmlns="http://www.w3.org/2000/svg"
-        height="' . $iconSize[$size] . '", width="' . $iconSize[$size] . '"
+        height="' . esc_attr($iconSize[$size]) . '", width="' . esc_attr($iconSize[$size]) . '"
         viewBox="0, 0, ' . Ultimate_Blocks_IconSet::generate_fontawesome_icon($chosenIcon)[0] . ', ' . Ultimate_Blocks_IconSet::generate_fontawesome_icon($chosenIcon)[1]
         .'"><path fill="currentColor" d="' . Ultimate_Blocks_IconSet::generate_fontawesome_icon($chosenIcon)[2] . '"></svg></span>': '')
-        .'<span class="ub-button-block-btn">' . $buttonText . '</span>
+        .'<span class="ub-button-block-btn">' . wp_kses_post($buttonText) . '</span>
     </div></a></div>' : join('', array_map('ub_buttons_parse', $buttons)));
-
-    return '<div class="' . (isset($buttons) && count($buttons) > 0 ? 'ub-buttons' : 'ub-button') . (isset($buttons) && count($buttons) > 0 ? ' align-button-' . ($align === '' ? 'center' : $align) : '')
-    .(isset($className) ? ' ' . esc_attr($className) : '') . '" ' .(!isset($blockID) || $blockID === '' ? ' ': ' id="ub-button-' . $blockID . '"') . '>' .$buttonDisplay . '</div>';
+    $classes = array();
+    if(isset($buttons) && count($buttons) > 0){
+        $classes[] = 'ub-buttons';
+        if($align === ''){
+            $classes[] = 'align-button-center';
+        } else{
+            $classes[] = 'align-button-' . esc_attr($align) . '';
+        }
+    } else {
+        $classes[] = 'ub-button';
+    }
+    $classes[] = 'orientation-button-' . esc_attr($orientation) . '';
+    if($isFlexWrap){
+        $classes[] = 'ub-flex-wrap';
+    }
+    $block_attributes = get_block_wrapper_attributes(
+            array(
+                'class' => esc_attr(implode(" ", $classes))
+            )
+    );
+    return '<div '. $block_attributes . ' ' .(!isset($blockID) || $blockID === '' ? ' ': ' id="ub-button-' . esc_attr($blockID) . '"') . '>' . $buttonDisplay . '</div>';
 }
 
 function ub_button_add_frontend_assets() {
@@ -84,9 +107,9 @@ function ub_button_add_frontend_assets() {
 }
 
 function ub_register_button_block() {
-	if ( function_exists( 'register_block_type' ) ) {
+	if ( function_exists( 'register_block_type_from_metadata' ) ) {
         require dirname(dirname(__DIR__)) . '/defaults.php';
-		register_block_type( 'ub/button', array(
+		register_block_type_from_metadata( dirname(dirname(dirname(__DIR__))) . '/dist/blocks/button', array(
             'attributes' => $defaultValues['ub/button']['attributes'],
 			'render_callback' => 'ub_render_button_block'));
 	}

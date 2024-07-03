@@ -19,6 +19,7 @@ add_filter( 'wp_page_menu_args', 'astra_masthead_custom_page_menu_items', 10, 2 
 add_filter( 'wp_nav_menu_items', 'astra_masthead_custom_nav_menu_items', 10, 2 );
 add_action( 'astra_footer_content', 'astra_footer_small_footer_template', 5 );
 add_action( 'astra_entry_content_single', 'astra_entry_content_single_template' );
+add_action( 'astra_entry_content_single_page', 'astra_entry_content_single_page_template' );
 add_action( 'astra_entry_content_blog', 'astra_entry_content_blog_template' );
 add_action( 'astra_entry_content_404_page', 'astra_entry_content_404_page_template' );
 add_action( 'astra_footer_content', 'astra_advanced_footer_markup', 1 );
@@ -169,7 +170,7 @@ if ( ! function_exists( 'astra_masthead_toggle_buttons_primary' ) ) {
 		if ( ! $disable_primary_navigation || ( 'none' != $custom_header_section && ! $display_outside_menu ) ) {
 			$menu_title          = trim( apply_filters( 'astra_main_menu_toggle_label', astra_get_option( 'header-main-menu-label' ) ) );
 			$menu_label_class    = '';
-			$screen_reader_title = __( 'Main Menu', 'astra' );
+			$screen_reader_title = esc_html__( 'Main Menu', 'astra' );
 			if ( '' !== $menu_title ) {
 				$menu_label_class    = 'ast-menu-label';
 				$screen_reader_title = $menu_title;
@@ -212,7 +213,7 @@ if ( ! function_exists( 'astra_footer_small_footer_template' ) ) {
 	function astra_footer_small_footer_template() {
 
 		$small_footer_layout = astra_get_option_meta( 'footer-sml-layout', 'footer-sml-layout-2' );
-		$small_footer_layout = apply_filters( 'ast_footer_sml_layout', $small_footer_layout );
+		$small_footer_layout = apply_filters( 'astra_footer_sml_layout', $small_footer_layout );
 
 		if ( 'disabled' != $small_footer_layout ) {
 
@@ -360,4 +361,17 @@ if ( ! function_exists( 'astra_header_custom_item_outside_menu' ) ) {
 			echo $markup; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 	}
+}
+
+/**
+ * Single page markup
+ *
+ * => Used in files:
+ *
+ * /template-parts/single/content-header.php
+ *
+ * @since 4.0.0
+ */
+function astra_entry_content_single_page_template() {
+	get_template_part( 'template-parts/single/content-header' );
 }

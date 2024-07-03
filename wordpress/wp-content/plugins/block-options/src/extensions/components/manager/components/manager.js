@@ -24,6 +24,7 @@ class FeaturesManager extends Component {
 
 		this.state = {
 			isOpen: false,
+			isUpdated: false,
 		};
 	}
 
@@ -41,21 +42,26 @@ class FeaturesManager extends Component {
 
 		return (
 			<Fragment>
-				{ map( getSettings, ( category ) => {
+				{ map( getSettings, ( category,index ) => {
 					return (
-						<section className="edit-post-options-modal__section">
+						<section key={index} className="edit-post-options-modal__section">
 							<h2 className="edit-post-options-modal__section-title">{ category.label }</h2>
 							<ul className="edit-post-editorskit-manager-modal__checklist">
-								{ map( category.items, ( item ) => {
+								{ map( category.items, ( item,itemIndex ) => {
+									const featureName = 'disableEditorsKit' + capitalize( item.name ) + capitalize( category.name );
 									return (
 										<li
+											key={itemIndex}
 											className="edit-post-editorskit-manager-modal__checklist-item"
 										>
 											<CheckboxControl
 												className="edit-post-options-modal__option"
 												label={ item.label }
-												checked={ ! select( 'core/edit-post' ).isFeatureActive( 'disableEditorsKit' + capitalize( item.name ) + capitalize( category.name ) ) }
-												onChange={ () => onToggle( category.name, item.name ) }
+												checked={ ! wp.data.select( 'core/edit-post' ).isFeatureActive( featureName ) }
+												onChange={ () => {
+													onToggle( category.name, item.name );
+													this.setState( { isUpdated: ! this.state.isUpdated } );
+												} }
 											/>
 										</li>
 									);
@@ -72,7 +78,7 @@ class FeaturesManager extends Component {
 export default compose( [
 	withSelect( () => ( {
 		editorSettings: select( 'core/editor' ).getEditorSettings(),
-		preferences: select( 'core/edit-post' ).getPreferences(),
+		preferences: select( 'core/preferences' ),
 	} ) ),
 	withDispatch( ( dispatch ) => ( {
 		onToggle( category, item ) {

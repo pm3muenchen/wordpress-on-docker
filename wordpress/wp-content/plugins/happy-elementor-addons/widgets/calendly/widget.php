@@ -47,9 +47,10 @@ class Calendly extends Base {
 	}
 
 	/**
-	 * Register content related controls
-	 */
+     * Register widget content controls
+     */
 	protected function register_content_controls() {
+
 		$this->start_controls_section(
 			'_section_calendly',
 			[
@@ -127,7 +128,7 @@ class Calendly extends Base {
 	}
 
 	/**
-	 * Register styles related controls
+	 * Register widget style controls
 	 */
 	protected function register_style_controls() {
 		$this->start_controls_section(
@@ -185,7 +186,7 @@ class Calendly extends Base {
 		?>
 		<?php if ( $settings['calendly_username'] ): ?>
             <div class="calendly-inline-widget"
-                 data-url="https://calendly.com/<?php echo esc_attr( $settings['calendly_username'] ); ?><?php echo esc_attr( $calendly_time ); ?>/?<?php if ( 'yes' === $settings['event_type_details'] ): echo 'hide_event_type_details=1'; endif; ?><?php if ( $settings['text_color'] ): echo "&text_color=" . str_replace( '#', '', $settings['text_color'] ); endif; ?><?php if ( $settings['button_link_color'] ): echo "&primary_color=" . str_replace( '#', '', $settings['button_link_color'] ); endif; ?><?php if ( $settings['background_color'] ): echo "&background_color=" . str_replace( '#', '', $settings['background_color'] ); endif; ?>"
+                 data-url="https://calendly.com/<?php echo esc_attr( $settings['calendly_username'] ); ?><?php echo esc_attr( $calendly_time ); ?>/?<?php if ( 'yes' === $settings['event_type_details'] ): echo 'hide_event_type_details=1'; endif; ?><?php if ( $settings['text_color'] ): echo "&text_color=" . str_replace( '#', '', esc_attr($settings['text_color']) ); endif; ?><?php if ( $settings['button_link_color'] ): echo "&primary_color=" . str_replace( '#', '', esc_attr($settings['button_link_color']) ); endif; ?><?php if ( $settings['background_color'] ): echo "&background_color=" . str_replace( '#', '', esc_attr($settings['background_color']) ); endif; ?>"
                  style="min-width:320px;"></div>
             <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js"></script>
 			<?php if ( \Elementor\Plugin::$instance->editor->is_edit_mode() ) : ?>

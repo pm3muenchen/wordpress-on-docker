@@ -1,365 +1,220 @@
-<?php
+<?php 
 
-// Call To Action (Event) - Checkbox
-if ( ! function_exists( 'naeafe_pro_call_to_action_render' ) ) {
-  function naeafe_pro_call_to_action_render() {
-    $options = get_option( 'eafe_prow_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_prow_settings[naeafe_pro_call_to_action]' id='naeafe_pro_call_to_action-id' <?php checked( isset($options['naeafe_pro_call_to_action']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
+// unique widgets options
+if ( ! function_exists( 'naeafe_pro_widgets_settings_init' ) ) {
+  function naeafe_pro_widgets_settings_init() {
+    $naeafe_pro_widgets = [];
+    $naeafe_pro_widgets['pro_call_to_action'] = array(
+      'title' => __( 'Call To Action', 'events-addon-for-elementor' ),
+      'demo_url' => '',
+      'documentation_url' => '',
+      'video_url' => '',
+      'is_premium' => '',
+    );
+    $naeafe_pro_widgets['pro_events_list'] = array(
+      'title' => __( 'Events List', 'events-addon-for-elementor' ),
+      'demo_url' => '',
+      'documentation_url' => '',
+      'video_url' => '',
+      'is_premium' => '',
+    );
+    $naeafe_pro_widgets['pro_events_attendees'] = array(
+      'title' => __( 'Events Attendees', 'events-addon-for-elementor' ),
+      'demo_url' => '',
+      'documentation_url' => '',
+      'video_url' => '',
+      'is_premium' => '',
+    );
+    $naeafe_pro_widgets['pro_events_ticket_selector'] = array(
+      'title' => __( 'Events Ticket Selector', 'events-addon-for-elementor' ),
+      'demo_url' => 'https://nicheaddons.com/demos/events/elements/ticket-element/',
+      'documentation_url' => '',
+      'video_url' => '',
+      'is_premium' => '',
+    );
+    $naeafe_pro_widgets['pro_events_calendar'] = array(
+      'title' => __( 'Events Calendar', 'events-addon-for-elementor' ),
+      'demo_url' => '',
+      'documentation_url' => '',
+      'video_url' => '',
+      'is_premium' => '',
+    );
+    $naeafe_pro_widgets['pro_event_categories'] = array(
+      'title' => __( 'Event Categories', 'events-addon-for-elementor' ),
+      'demo_url' => '',
+      'documentation_url' => 'https://nicheaddons.com/demos/events/elements/event-category/',
+      'video_url' => '',
+      'is_premium' => '',
+    );
+    $naeafe_pro_widgets['pro_event_form'] = array(
+      'title' => __( 'Event Form', 'events-addon-for-elementor' ),
+      'demo_url' => '',
+      'documentation_url' => '',
+      'video_url' => '',
+      'is_premium' => '',
+    );
+    $naeafe_pro_widgets['pro_events_group'] = array(
+      'title' => __( 'Events Group', 'events-addon-for-elementor' ),
+      'demo_url' => '',
+      'documentation_url' => '',
+      'video_url' => '',
+      'is_premium' => '',
+    );
+    $naeafe_pro_widgets['pro_event_locations'] = array(
+      'title' => __( 'Event Locations', 'events-addon-for-elementor' ),
+      'demo_url' => '',
+      'documentation_url' => '',
+      'video_url' => '',
+      'is_premium' => '',
+    );
+    $naeafe_pro_widgets['pro_event_search'] = array(
+      'title' => __( 'Event Search', 'events-addon-for-elementor' ),
+      'demo_url' => '',
+      'documentation_url' => '',
+      'video_url' => '',
+      'is_premium' => '',
+    );
+    $naeafe_pro_widgets['pro_events_full_calendar'] = array(
+      'title' => __( 'Events Full Calendar', 'events-addon-for-elementor' ),
+      'demo_url' => '',
+      'documentation_url' => '',
+      'video_url' => '',
+      'is_premium' => '',
+    );
+    $naeafe_pro_widgets['pro_info_box'] = array(
+      'title' => __( 'Info Box', 'events-addon-for-elementor' ),
+      'demo_url' => 'https://nicheaddons.com/demos/events/elements/info-box-element/',
+      'documentation_url' => '',
+      'video_url' => '',
+      'is_premium' => '',
+    );
+    $naeafe_pro_widgets['pro_events_map'] = array(
+      'title' => __( 'Events Map', 'events-addon-for-elementor' ),
+      'demo_url' => '',
+      'documentation_url' => '',
+      'video_url' => '',
+      'is_premium' => '',
+    );
+    $naeafe_pro_widgets['pro_events_subscribe'] = array(
+      'title' => __( 'Events Subscribe', 'events-addon-for-elementor' ),
+      'demo_url' => 'https://nicheaddons.com/demos/events/elements/subscribe-element/',
+      'documentation_url' => '',
+      'video_url' => '',
+      'is_premium' => '',
+    );
+    $naeafe_pro_widgets['pro_calendar_button'] = array(
+      'title' => __( 'Calendar Button', 'events-addon-for-elementor' ),
+      'demo_url' => '',
+      'documentation_url' => '',
+      'video_url' => '',
+      'is_premium' => '',
+    );
+    $naeafe_pro_widgets['pro_chart'] = array(
+      'title' => __( 'Chart', 'events-addon-for-elementor' ),
+      'demo_url' => 'https://nicheaddons.com/demos/events/elements/pro-chart/',
+      'documentation_url' => 'https://nicheaddons.com/docs/events-addon-pro-elements/chart/',
+      'video_url' => '',
+      'is_premium' => true,
+    );
+    $naeafe_pro_widgets['pro_pricing'] = array(
+      'title' => __( 'Pricing', 'events-addon-for-elementor' ),
+      'demo_url' => 'https://nicheaddons.com/demos/events/elements/pro-pricing/',
+      'documentation_url' => 'https://nicheaddons.com/docs/events-addon-pro-elements/pricing/',
+      'video_url' => '',
+      'is_premium' => true,
+    );
+    $naeafe_pro_widgets['pro_venues'] = array(
+      'title' => __( 'Venues', 'events-addon-for-elementor' ),
+      'demo_url' => 'https://nicheaddons.com/demos/events/elements/venues-element/',
+      'documentation_url' => 'https://nicheaddons.com/docs/events-addon-pro-elements/venues/',
+      'video_url' => '',
+      'is_premium' => true,
+    );
+    $naeafe_pro_widgets['pro_conference'] = array(
+      'title' => __( 'Conference', 'events-addon-for-elementor' ),
+      'demo_url' => 'https://nicheaddons.com/demos/events/elements/event-conference/',
+      'documentation_url' => 'https://nicheaddons.com/docs/events-addon-pro-elements/conference/',
+      'video_url' => '',
+      'is_premium' => true,
+    );
+    $naeafe_pro_widgets['pro_countdown'] = array(
+      'title' => __( 'Countdown', 'events-addon-for-elementor' ),
+      'demo_url' => 'https://nicheaddons.com/demos/events/elements/event-countdown/',
+      'documentation_url' => 'https://nicheaddons.com/docs/events-addon-pro-elements/countdown/',
+      'video_url' => '',
+      'is_premium' => true,
+    );
+    $naeafe_pro_widgets['pro_schedule'] = array(
+      'title' => __( 'Schedule', 'events-addon-for-elementor' ),
+      'demo_url' => 'https://nicheaddons.com/demos/events/elements/event-schedule/',
+      'documentation_url' => 'https://nicheaddons.com/docs/events-addon-pro-elements/schedule/',
+      'video_url' => '',
+      'is_premium' => true,
+    );
+    $naeafe_pro_widgets['pro_upcoming_events'] = array(
+      'title' => __( 'Upcoming Events', 'events-addon-for-elementor' ),
+      'demo_url' => 'https://nicheaddons.com/demos/events/elements/upcoming-evevts/',
+      'documentation_url' => 'https://nicheaddons.com/docs/events-addon-pro-elements/upcoming-events/',
+      'video_url' => '',
+      'is_premium' => true,
+    );
+    $naeafe_pro_widgets['pro_event_search_listing'] = array(
+      'title' => __( 'Event Search Listing', 'events-addon-for-elementor' ),
+      'demo_url' => '',
+      'documentation_url' => '',
+      'video_url' => '',
+      'is_premium' => true,
+    );
+    $naeafe_pro_widgets['pro_event_listing'] = array(
+      'title' => __( 'Event Listing', 'events-addon-for-elementor' ),
+      'demo_url' => '',
+      'documentation_url' => 'https://nicheaddons.com/docs/events-addon-pro-elements/event-listing/',
+      'video_url' => '',
+      'is_premium' => true,
+    );
+    $naeafe_pro_widgets['pro_event_slider'] = array(
+      'title' => __( 'Event Slider', 'events-addon-for-elementor' ),
+      'demo_url' => 'https://nicheaddons.com/demos/events/elements/event-slider/',
+      'documentation_url' => 'https://nicheaddons.com/docs/events-addon-pro-elements/event-slider/',
+      'video_url' => '',
+      'is_premium' => true
+    );
+    $naeafe_pro_widgets['pro_sessions'] = array(
+      'title' => __( 'Sessions', 'events-addon-for-elementor' ),
+      'demo_url' => 'https://nicheaddons.com/demos/events/elements/event-sessions/',
+      'documentation_url' => 'https://nicheaddons.com/docs/events-addon-pro-elements/sessions/',
+      'video_url' => '',
+      'is_premium' => true
+    );
+    $naeafe_pro_widgets['pro_event_category'] = array(
+      'title' => __( 'Event Category', 'events-addon-for-elementor' ),
+      'demo_url' => 'https://nicheaddons.com/demos/events/elements/event-category/',
+      'documentation_url' => 'https://nicheaddons.com/docs/events-addon-pro-elements/event-category/',
+      'video_url' => '',
+      'is_premium' => true
+    );
+    $naeafe_pro_widgets['pro_organizer'] = array(
+      'title' => __( 'Organizer', 'events-addon-for-elementor' ),
+      'demo_url' => 'https://nicheaddons.com/demos/events/elements/event-organizer/',
+      'documentation_url' => 'https://nicheaddons.com/docs/events-addon-pro-elements/organizer/',
+      'video_url' => '',
+      'is_premium' => true
+    );
+    $naeafe_pro_widgets['pro_eventbrite_event'] = array(
+      'title' => __( 'Eventbrite Event', 'events-addon-for-elementor' ),
+      'demo_url' => '',
+      'documentation_url' => 'https://nicheaddons.com/demos/events/elements/eventbrite-event/',
+      'video_url' => '',
+      'is_premium' => true
+    );
+    $naeafe_pro_widgets['pro_eventbrite_events'] = array(
+      'title' => __( 'Eventbrite Events', 'events-addon-for-elementor' ),
+      'demo_url' => 'https://nicheaddons.com/demos/events/elements/eventbrite-events/',
+      'documentation_url' => '',
+      'video_url' => '',
+      'is_premium' => true,
+    );
 
-// Events List (Event) - Checkbox
-if ( ! function_exists( 'naeafe_pro_events_list_render' ) ) {
-  function naeafe_pro_events_list_render() {
-    $options = get_option( 'eafe_prow_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_prow_settings[naeafe_pro_events_list]' id='naeafe_pro_events_list-id' <?php checked( isset($options['naeafe_pro_events_list']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Events Attendees (Event) - Checkbox
-if ( ! function_exists( 'naeafe_pro_events_attendees_render' ) ) {
-  function naeafe_pro_events_attendees_render() {
-    $options = get_option( 'eafe_prow_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_prow_settings[naeafe_pro_events_attendees]' id='naeafe_pro_events_attendees-id' <?php checked( isset($options['naeafe_pro_events_attendees']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Events Ticket Selector (Event) - Checkbox
-if ( ! function_exists( 'naeafe_pro_events_ticket_selector_render' ) ) {
-  function naeafe_pro_events_ticket_selector_render() {
-    $options = get_option( 'eafe_prow_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_prow_settings[naeafe_pro_events_ticket_selector]' id='naeafe_pro_events_ticket_selector-id' <?php checked( isset($options['naeafe_pro_events_ticket_selector']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Events Calendar (Event) - Checkbox
-if ( ! function_exists( 'naeafe_pro_events_calendar_render' ) ) {
-  function naeafe_pro_events_calendar_render() {
-    $options = get_option( 'eafe_prow_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_prow_settings[naeafe_pro_events_calendar]' id='naeafe_pro_events_calendar-id' <?php checked( isset($options['naeafe_pro_events_calendar']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Event Categories (Event) - Checkbox
-if ( ! function_exists( 'naeafe_pro_event_categories_render' ) ) {
-  function naeafe_pro_event_categories_render() {
-    $options = get_option( 'eafe_prow_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_prow_settings[naeafe_pro_event_categories]' id='naeafe_pro_event_categories-id' <?php checked( isset($options['naeafe_pro_event_categories']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Event Form (Event) - Checkbox
-if ( ! function_exists( 'naeafe_pro_event_form_render' ) ) {
-  function naeafe_pro_event_form_render() {
-    $options = get_option( 'eafe_prow_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_prow_settings[naeafe_pro_event_form]' id='naeafe_pro_event_form-id' <?php checked( isset($options['naeafe_pro_event_form']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Events Group (Event) - Checkbox
-if ( ! function_exists( 'naeafe_pro_events_group_render' ) ) {
-  function naeafe_pro_events_group_render() {
-    $options = get_option( 'eafe_prow_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_prow_settings[naeafe_pro_events_group]' id='naeafe_pro_events_group-id' <?php checked( isset($options['naeafe_pro_events_group']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Event Locations (Event) - Checkbox
-if ( ! function_exists( 'naeafe_pro_event_locations_render' ) ) {
-  function naeafe_pro_event_locations_render() {
-    $options = get_option( 'eafe_prow_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_prow_settings[naeafe_pro_event_locations]' id='naeafe_pro_event_locations-id' <?php checked( isset($options['naeafe_pro_event_locations']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Event Search (Event) - Checkbox
-if ( ! function_exists( 'naeafe_pro_event_search_render' ) ) {
-  function naeafe_pro_event_search_render() {
-    $options = get_option( 'eafe_prow_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_prow_settings[naeafe_pro_event_search]' id='naeafe_pro_event_search-id' <?php checked( isset($options['naeafe_pro_event_search']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Event Search Listing (Event) - Checkbox
-if ( ! function_exists( 'naeafe_pro_event_search_listing_render' ) ) {
-  function naeafe_pro_event_search_listing_render() {
-    $options = get_option( 'eafe_prow_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_prow_settings[naeafe_pro_event_search_listing]' id='naeafe_pro_event_search_listing-id' <?php checked( isset($options['naeafe_pro_event_search_listing']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Events Full Calendar (Event) - Checkbox
-if ( ! function_exists( 'naeafe_pro_events_full_calendar_render' ) ) {
-  function naeafe_pro_events_full_calendar_render() {
-    $options = get_option( 'eafe_prow_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_prow_settings[naeafe_pro_events_full_calendar]' id='naeafe_pro_events_full_calendar-id' <?php checked( isset($options['naeafe_pro_events_full_calendar']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Info Box (Event) - Checkbox
-if ( ! function_exists( 'naeafe_pro_info_box_render' ) ) {
-  function naeafe_pro_info_box_render() {
-    $options = get_option( 'eafe_prow_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_prow_settings[naeafe_pro_info_box]' id='naeafe_pro_info_box-id' <?php checked( isset($options['naeafe_pro_info_box']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Events Map (Event) - Checkbox
-if ( ! function_exists( 'naeafe_pro_events_map_render' ) ) {
-  function naeafe_pro_events_map_render() {
-    $options = get_option( 'eafe_prow_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_prow_settings[naeafe_pro_events_map]' id='naeafe_pro_events_map-id' <?php checked( isset($options['naeafe_pro_events_map']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Events Subscribe (Event) - Checkbox
-if ( ! function_exists( 'naeafe_pro_events_subscribe_render' ) ) {
-  function naeafe_pro_events_subscribe_render() {
-    $options = get_option( 'eafe_prow_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_prow_settings[naeafe_pro_events_subscribe]' id='naeafe_pro_events_subscribe-id' <?php checked( isset($options['naeafe_pro_events_subscribe']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Calendar Button (Event) - Checkbox
-if ( ! function_exists( 'naeafe_pro_calendar_button_render' ) ) {
-  function naeafe_pro_calendar_button_render() {
-    $options = get_option( 'eafe_prow_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_prow_settings[naeafe_pro_calendar_button]' id='naeafe_pro_calendar_button-id' <?php checked( isset($options['naeafe_pro_calendar_button']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Chart (Pro) - Checkbox
-if ( ! function_exists( 'naeafe_pro_chart_render' ) ) {
-  function naeafe_pro_chart_render() {
-    $options = get_option( 'eafe_prow_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_prow_settings[naeafe_pro_chart]' id='naeafe_pro_chart-id' <?php checked( isset($options['naeafe_pro_chart']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Pricing (Pro) - Checkbox
-if ( ! function_exists( 'naeafe_pro_pricing_render' ) ) {
-  function naeafe_pro_pricing_render() {
-    $options = get_option( 'eafe_prow_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_prow_settings[naeafe_pro_pricing]' id='naeafe_pro_pricing-id' <?php checked( isset($options['naeafe_pro_pricing']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Venues (Pro) - Checkbox
-if ( ! function_exists( 'naeafe_pro_venues_render' ) ) {
-  function naeafe_pro_venues_render() {
-    $options = get_option( 'eafe_prow_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_prow_settings[naeafe_pro_venues]' id='naeafe_pro_venues-id' <?php checked( isset($options['naeafe_pro_venues']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Conference (Pro) - Checkbox
-if ( ! function_exists( 'naeafe_pro_conference_render' ) ) {
-  function naeafe_pro_conference_render() {
-    $options = get_option( 'eafe_prow_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_prow_settings[naeafe_pro_conference]' id='naeafe_pro_conference-id' <?php checked( isset($options['naeafe_pro_conference']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Countdown (Pro) - Checkbox
-if ( ! function_exists( 'naeafe_pro_countdown_render' ) ) {
-  function naeafe_pro_countdown_render() {
-    $options = get_option( 'eafe_prow_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_prow_settings[naeafe_pro_countdown]' id='naeafe_pro_countdown-id' <?php checked( isset($options['naeafe_pro_countdown']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Schedule (Pro) - Checkbox
-if ( ! function_exists( 'naeafe_pro_schedule_render' ) ) {
-  function naeafe_pro_schedule_render() {
-    $options = get_option( 'eafe_prow_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_prow_settings[naeafe_pro_schedule]' id='naeafe_pro_schedule-id' <?php checked( isset($options['naeafe_pro_schedule']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Upcoming Events (Pro) - Checkbox
-if ( ! function_exists( 'naeafe_pro_upcoming_events_render' ) ) {
-  function naeafe_pro_upcoming_events_render() {
-    $options = get_option( 'eafe_prow_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_prow_settings[naeafe_pro_upcoming_events]' id='naeafe_pro_upcoming_events-id' <?php checked( isset($options['naeafe_pro_upcoming_events']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Event Listing (Pro) - Checkbox
-if ( ! function_exists( 'naeafe_pro_event_listing_render' ) ) {
-  function naeafe_pro_event_listing_render() {
-    $options = get_option( 'eafe_prow_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_prow_settings[naeafe_pro_event_listing]' id='naeafe_pro_event_listing-id' <?php checked( isset($options['naeafe_pro_event_listing']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Event Slider (Pro) - Checkbox
-if ( ! function_exists( 'naeafe_pro_event_slider_render' ) ) {
-  function naeafe_pro_event_slider_render() {
-    $options = get_option( 'eafe_prow_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_prow_settings[naeafe_pro_event_slider]' id='naeafe_pro_event_slider-id' <?php checked( isset($options['naeafe_pro_event_slider']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Sessions (Pro) - Checkbox
-if ( ! function_exists( 'naeafe_pro_sessions_render' ) ) {
-  function naeafe_pro_sessions_render() {
-    $options = get_option( 'eafe_prow_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_prow_settings[naeafe_pro_sessions]' id='naeafe_pro_sessions-id' <?php checked( isset($options['naeafe_pro_sessions']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Event Category (Pro) - Checkbox
-if ( ! function_exists( 'naeafe_pro_event_category_render' ) ) {
-  function naeafe_pro_event_category_render() {
-    $options = get_option( 'eafe_prow_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_prow_settings[naeafe_pro_event_category]' id='naeafe_pro_event_category-id' <?php checked( isset($options['naeafe_pro_event_category']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Organizer (Pro) - Checkbox
-if ( ! function_exists( 'naeafe_pro_organizer_render' ) ) {
-  function naeafe_pro_organizer_render() {
-    $options = get_option( 'eafe_prow_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_prow_settings[naeafe_pro_organizer]' id='naeafe_pro_organizer-id' <?php checked( isset($options['naeafe_pro_organizer']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
+    return $naeafe_pro_widgets;
   }
 }

@@ -3,7 +3,7 @@
  * @package Restrict User Access
  * @author Joachim Jensen <joachim@dev.institute>
  * @license GPLv3
- * @copyright 2020 by Joachim Jensen
+ * @copyright 2024 by Joachim Jensen
  */
 
 class RUA_Collection implements IteratorAggregate, Countable
@@ -13,12 +13,13 @@ class RUA_Collection implements IteratorAggregate, Countable
      */
     private $items;
 
-    public function __construct($items = array())
+    public function __construct($items = [])
     {
         $this->items = $items;
     }
 
     /**
+     * @since 2.1
      * @param mixed $value
      *
      * @return self
@@ -30,6 +31,7 @@ class RUA_Collection implements IteratorAggregate, Countable
     }
 
     /**
+     * @since 2.1
      * @param string $key
      * @param mixed $value
      *
@@ -42,6 +44,7 @@ class RUA_Collection implements IteratorAggregate, Countable
     }
 
     /**
+     * @since 2.1
      * @param string $key
      *
      * @return self
@@ -53,6 +56,8 @@ class RUA_Collection implements IteratorAggregate, Countable
     }
 
     /**
+     * @since 2.1
+     *
      * @return mixed|null
      */
     public function pop()
@@ -61,6 +66,7 @@ class RUA_Collection implements IteratorAggregate, Countable
     }
 
     /**
+     * @since 2.1
      * @param string $key
      *
      * @return bool
@@ -71,6 +77,7 @@ class RUA_Collection implements IteratorAggregate, Countable
     }
 
     /**
+     * @since 2.1
      * @param string $key
      * @param mixed|null $default_value
      *
@@ -82,9 +89,8 @@ class RUA_Collection implements IteratorAggregate, Countable
     }
 
     /**
-     * Get all objects in manager
+     * @since 2.1
      *
-     * @since 1.0
      * @return  array
      */
     public function all()
@@ -92,6 +98,12 @@ class RUA_Collection implements IteratorAggregate, Countable
         return $this->items;
     }
 
+    /**
+     * @since 2.1
+     * @param callable $callback
+     *
+     * @return static
+     */
     public function filter($callback)
     {
         if (!is_callable($callback)) {
@@ -102,18 +114,29 @@ class RUA_Collection implements IteratorAggregate, Countable
     }
 
     /**
-     * @since 1.0
-     *
-     * @return int
+     * @inheritDoc
      */
+    #[ReturnTypeWillChange]
     public function count()
     {
         return count($this->items);
     }
 
     /**
-     * @return Traversable
+     * @since 2.2
+     *
+     * @return bool
      */
+    public function is_empty()
+    {
+        return empty($this->items);
+    }
+
+    /**
+     * @inheritDoc
+     * @ignore
+     */
+    #[ReturnTypeWillChange]
     public function getIterator()
     {
         return new ArrayIterator($this->items);

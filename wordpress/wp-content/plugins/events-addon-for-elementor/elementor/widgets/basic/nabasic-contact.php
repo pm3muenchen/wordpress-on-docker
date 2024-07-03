@@ -44,7 +44,7 @@ class Event_Elementor_Addon_Contact extends Widget_Base{
 	 * Register Events Addon for Elementor Contact widget controls.
 	 * Adds different input fields to allow the user to change and customize the widget settings.
 	*/
-	protected function _register_controls(){
+	protected function register_controls(){
 
 		$this->start_controls_section(
 			'section_contact',
@@ -80,10 +80,11 @@ class Event_Elementor_Addon_Contact extends Widget_Base{
 			'contact_icon',
 			[
 				'label' => esc_html__( 'Select Icon', 'events-addon-for-elementor' ),
-				'type' => Controls_Manager::ICON,
-				'options' => NAEEP_Controls_Helper_Output::get_include_icons(),
-				'frontend_available' => true,
-				'default' => 'fa fa-phone',
+				'type' => Controls_Manager::ICONS,
+				'default' => [
+					'value' => 'fas fa-phone',
+					'library' => 'fa-solid',
+				],
 				'condition' => [
 					'upload_type' => 'icon',
 				],
@@ -510,10 +511,6 @@ class Event_Elementor_Addon_Contact extends Widget_Base{
 				[
 					'label' => esc_html__( 'Icon Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_2,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .naeep-contact-item .naeep-icon' => 'color: {{VALUE}};',
 					],
@@ -587,7 +584,6 @@ class Event_Elementor_Addon_Contact extends Widget_Base{
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'gallery_title_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .contact-info h2',
 			]
 		);
@@ -596,10 +592,6 @@ class Event_Elementor_Addon_Contact extends Widget_Base{
 			[
 				'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
-				],
 				'selectors' => [
 					'{{WRAPPER}} .contact-info h2' => 'color: {{VALUE}};',
 				],
@@ -618,7 +610,6 @@ class Event_Elementor_Addon_Contact extends Widget_Base{
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'gallery_contact_title_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_2,
 				'selector' => '{{WRAPPER}} .naeep-contact-item .contact-info ul li span',
 			]
 		);
@@ -627,10 +618,6 @@ class Event_Elementor_Addon_Contact extends Widget_Base{
 			[
 				'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_2,
-				],
 				'selectors' => [
 					'{{WRAPPER}} .naeep-contact-item .contact-info ul li span' => 'color: {{VALUE}};',
 				],
@@ -673,7 +660,6 @@ class Event_Elementor_Addon_Contact extends Widget_Base{
 			[
 				'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 				'name' => 'sasstp_text_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_3,
 				'selector' => '{{WRAPPER}} .naeep-contact-item .contact-info ul li',
 			]
 		);
@@ -689,10 +675,6 @@ class Event_Elementor_Addon_Contact extends Widget_Base{
 				[
 					'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_3,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .naeep-contact-item .contact-info ul li, {{WRAPPER}} .naeep-contact-item .contact-info ul li a' => 'color: {{VALUE}};',
 					],
@@ -710,10 +692,6 @@ class Event_Elementor_Addon_Contact extends Widget_Base{
 				[
 					'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_2,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .naeep-contact-item .contact-info ul li a:hover' => 'color: {{VALUE}};',
 					],
@@ -734,7 +712,7 @@ class Event_Elementor_Addon_Contact extends Widget_Base{
 		$listItems_groups = !empty( $settings['listItems_groups'] ) ? $settings['listItems_groups'] : [];
 		$upload_type = !empty( $settings['upload_type'] ) ? $settings['upload_type'] : '';
 		$contact_image = !empty( $settings['contact_image']['id'] ) ? $settings['contact_image']['id'] : '';
-		$contact_icon = !empty( $settings['contact_icon'] ) ? $settings['contact_icon'] : '';
+		$contact_icon = !empty( $settings['contact_icon'] ) ? $settings['contact_icon']['value'] : '';
 		$contact_title = !empty( $settings['contact_title'] ) ? $settings['contact_title'] : '';
 		$section_alignment = !empty( $settings['section_alignment'] ) ? $settings['section_alignment'] : '';
 

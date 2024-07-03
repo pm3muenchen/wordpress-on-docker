@@ -10,7 +10,7 @@ use \Elementor\Controls_Manager;
 use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Typography;
-use \Elementor\Scheme_Typography;
+use \Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use \Elementor\Widget_Base;
 use \Essential_Addons_Elementor\Classes\Helper;
 
@@ -55,30 +55,30 @@ class Caldera_Forms extends Widget_Base
         return 'https://essential-addons.com/elementor/docs/caldera-forms/';
     }
 
-    protected function _register_controls()
+    protected function register_controls()
     {
         /*-----------------------------------------------------------------------------------*/
         /*    Content Tab
         /*-----------------------------------------------------------------------------------*/
-        if (!class_exists('\Caldera_Forms')) {
-            $this->start_controls_section(
-                'eael_global_warning',
-                [
-                    'label' => __('Warning!', 'essential-addons-for-elementor-lite'),
-                ]
-            );
+	    if ( ! class_exists( '\Caldera_Forms' ) ) {
+		    $this->start_controls_section(
+			    'eael_global_warning',
+			    [
+				    'label'             => __( 'Warning!', 'essential-addons-for-elementor-lite'),
+			    ]
+		    );
 
-            $this->add_control(
-                'eael_global_warning_text',
-                [
-                    'type' => Controls_Manager::RAW_HTML,
-                    'raw' => __('<strong>Caldera Forms</strong> is not installed/activated on your site. Please install and activate <strong>Caldera Forms</strong> first.', 'essential-addons-for-elementor-lite'),
-                    'content_classes' => 'eael-warning',
-                ]
-            );
+		    $this->add_control(
+			    'eael_global_warning_text',
+			    [
+				    'type' => Controls_Manager::RAW_HTML,
+				    'raw' => __( '<strong>Caldera Forms</strong> has been closed as of April 5, 2022 and is not available for download. You can try the other Form plugins instead', 'essential-addons-for-elementor-lite'),
+				    'content_classes' => 'eael-warning',
+			    ]
+		    );
 
-            $this->end_controls_section();
-        } else {
+		    $this->end_controls_section();
+	    } else {
             /**
              * Content Tab: Caldera Forms
              * -------------------------------------------------
@@ -124,6 +124,9 @@ class Caldera_Forms extends Widget_Base
                     'default' => '',
                     'condition' => [
                         'custom_title_description' => 'yes',
+                    ],
+                    'ai' => [
+                        'active' => false,
                     ],
                 ]
             );
@@ -231,15 +234,15 @@ class Caldera_Forms extends Widget_Base
                 'options' => [
                     'left' => [
                         'title' => __('Left', 'essential-addons-for-elementor-lite'),
-                        'icon' => 'fa fa-align-left',
+                        'icon' => 'eicon-text-align-left',
                     ],
                     'center' => [
                         'title' => __('Center', 'essential-addons-for-elementor-lite'),
-                        'icon' => 'fa fa-align-center',
+                        'icon' => 'eicon-text-align-center',
                     ],
                     'right' => [
                         'title' => __('Right', 'essential-addons-for-elementor-lite'),
-                        'icon' => 'fa fa-align-right',
+                        'icon' => 'eicon-text-align-right',
                     ],
                 ],
                 'default' => '',
@@ -345,7 +348,9 @@ class Caldera_Forms extends Widget_Base
             [
                 'name' => 'form_description_typography',
                 'label' => __('Typography', 'essential-addons-for-elementor-lite'),
-                'scheme' => Scheme_Typography::TYPOGRAPHY_4,
+                'global' => [
+	                'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+                ],
                 'selector' => '{{WRAPPER}} .eael-contact-form-description',
                 'condition' => [
                     'custom_title_description' => 'yes',
@@ -559,15 +564,15 @@ class Caldera_Forms extends Widget_Base
                 'options' => [
                     'left' => [
                         'title' => __('Left', 'essential-addons-for-elementor-lite'),
-                        'icon' => 'fa fa-align-left',
+                        'icon' => 'eicon-text-align-left',
                     ],
                     'center' => [
                         'title' => __('Center', 'essential-addons-for-elementor-lite'),
-                        'icon' => 'fa fa-align-center',
+                        'icon' => 'eicon-text-align-center',
                     ],
                     'right' => [
                         'title' => __('Right', 'essential-addons-for-elementor-lite'),
-                        'icon' => 'fa fa-align-right',
+                        'icon' => 'eicon-text-align-right',
                     ],
                 ],
                 'default' => '',
@@ -1478,9 +1483,11 @@ class Caldera_Forms extends Widget_Base
 
     protected function render()
     {
-        if (!class_exists('\Caldera_Forms')) {
-            return;
-        }
+	    if ( ! class_exists( '\Caldera_Forms' ) ) {
+		    printf( '<center>%s</center>', __( '<strong>Caldera Forms</strong> has been closed as of April 5, 2022 and is not available for download. You can try the other Form plugins instead', 'essential-addons-for-elementor-lite' ) );
+
+		    return;
+	    }
 
         $settings = $this->get_settings_for_display();
 
@@ -1526,7 +1533,7 @@ class Caldera_Forms extends Widget_Base
                         <?php }?>
                     </div>
                 <?php }?>
-                <?php echo do_shortcode('[caldera_form id="' . $settings['contact_form_list'] . '" ]'); ?>
+                <?php echo do_shortcode('[caldera_form id="' . esc_attr( $settings['contact_form_list'] ) . '" ]'); ?>
             </div>
             <?php
         }

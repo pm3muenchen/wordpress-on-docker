@@ -45,7 +45,7 @@ if ( is_plugin_active( 'event-organiser/event-organiser.php' ) ) {
 		 * Register Events Addon for Elementor Event Organiser List widget controls.
 		 * Adds different input fields to allow the user to change and customize the widget settings.
 		*/
-		protected function _register_controls(){
+		protected function register_controls(){
 
 			$this->start_controls_section(
 				'section_event',
@@ -195,7 +195,6 @@ if ( is_plugin_active( 'event-organiser/event-organiser.php' ) ) {
 				[
 					'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 					'name' => 'link_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_4,
 					'selector' => '{{WRAPPER}} .naeep-eo-list ul.eo-events li',
 				]
 			);
@@ -211,10 +210,6 @@ if ( is_plugin_active( 'event-organiser/event-organiser.php' ) ) {
 					[
 						'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'scheme' => [
-							'type' => Scheme_Color::get_type(),
-							'value' => Scheme_Color::COLOR_4,
-						],
 						'selectors' => [
 							'{{WRAPPER}} .naeep-eo-list ul.eo-events li, {{WRAPPER}} .naeep-eo-list ul.eo-events li a' => 'color: {{VALUE}};',
 						],

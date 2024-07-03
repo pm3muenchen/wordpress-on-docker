@@ -1,3 +1,411 @@
+= 3.11.2 - 27 June 2024 =
+
+- Tweak: Lightbox widget Alignment option added.
+- Fix: Security improvement for Gradient Heading widget.
+
+= 3.11.1 - 12 June 2024 =
+
+- Tweak: Taxonomy List Widget Alignment option added for inline style.
+- Fix: Fatal error with BuddyBoss Platform.
+
+= 3.11.0 - 30 May 2024 =
+
+- New: Lightbox Widget.
+- Fix: GravityForms style issue.
+- Fix: Security improvement for Image Accordion widget.
+- Fix: Security improvement for Post Navigation widget.
+
+= 3.10.9 - 16 May 2024 =
+
+- Fix: Security improvement for Skill Bars widget.
+
+= 3.10.8 - 8 May 2024 =
+
+- Fix: Security improvement for Event Calendar and Image Stack Group widget.
+
+= 3.10.7 - 25 April 2024 =
+
+- Fix: Security improvement for Calendly widget.
+
+= 3.10.6 - 18 April 2024 =
+
+- Fix: Security improvement for Site Title, Horizontal Timeline, Image Stack Group and Photo Stack widget.
+- Update: Made Compatible with Elementor 3.21
+
+= 3.10.5 - 4 April 2024 =
+
+- Fix: Templates won't refresh on rare case.
+- Fix: Icon size and Icon spacing in Content Switcher Widget.
+- Fix: Security improvement for Calendly, Page Title, Post Title, Card, Gradient Heading and Review widget.
+- Tweak: Container template support in Content Switcher Widget.
+- Update: Security improvement for Happy Clone feature.
+- Update: Made Compatible with WordPress 6.5 & Elementor 3.20
+
+= 3.10.4 - 4 March 2024 =
+
+- Fix: Dual Button widget breaks on container direction change issue
+- Fix: The Data Table widget doesn't respect the scrolling option for Tablet mode issue.
+- Fix: Mailchimp invalid API key issue.
+- Fix: svg icon issue in Social Icon, Card and Image Stack Group widget.
+- Fix: Security improvement for Archive Title, Author Meta and Photo Stack widget.
+- Fix: The Image Compare widget is not visible on Frontend.
+- Tweak: Scroll As Shown Slides option added in the Horizontal Timeline widget.
+- Tweak: Scroll As Shown Slides option added in the Image Carousel widget.
+- Update: Appsero SDK to version 2.0.0.
+- Update: RTL support added to the Slider widget.
+- Update: RTL support added to the Image Carousel widget.
+- Update: RTL support added to the Horizontal Timeline widget.
+- Update: Security improvement for Happy Clone feature.
+
+= 3.10.3 - 28 February 2024 =
+
+- Fix: Compatible with Elementor 3.19.x and Elementor Pro 3.19.x
+- Fix: Elementor editor panel widget not showing up.
+- Tweak: Minimum required PHP version 7.4
+- Tweak: Minimum required Elementor version 3.7.0
+- Tweak: Minimum required WordPress version 5.0
+
+= 3.10.2 - 29 January 2024 =
+
+- Fix: Event Calendar(Google Calendar) page crashing and throwing Critical Error issue.
+- Fix: Security improvement for Happy Clone and Wrapper Link feature.
+- Fix: Security improvement for Animated Link and Age Gate widget.
+
+= 3.10.1 - 1 January 2024 =
+
+- Fix: Security improvement for Age Gate widget.
+
+= 3.10.0 - 19 December 2023 =
+
+- New: Support for Equal Height in Container.
+- Fix: Appsero SDK to version 1.2.5.
+- Fix: Security improvement for Twitter Feed, Post Tab, Mailchimp and Review widget.
+- Fix: Security improvement for Happy Clone and Theme Builder feature.
+- Fix: Conflict identified with Events Tickets Plus.
+- Fix: XSS security issue causing Scroll to Top issue.
+- Fix: External link not working in Photo Stack widget.
+- Fix: Styling issue with WPForms submit button.
+- Fix: Template icon display problem in the container.
+- Fix: Compatibility issue with WPML and Content Switcher widget.
+- Tweak: Warning notice for News Ticker widget.
+
+= 3.9.1.1 - 2 November 2023 =
+
+- Fix: Emergency hotfix.
+
+= 3.9.1 - 2 November 2023 =
+
+- Fix: Age gate preview mode issue.
+- Update: Made Compatible with Elementor Free 3.17.x & Elementor Pro 3.17.x
+
+= 3.9.0 - 23 October 2023 =
+
+- New: Age Gate widget.
+- Fix: Conflict with Event Ticket Plus.
+- Fix : Made compatible with latest Elementor & WordPress versions.
+- Fix : Bug fixes and performance improvements.
+
+= 3.8.9 - 13 September 2023 =
+
+- Update: Made Compatible with Elementor Free 3.16.x & Elementor Pro 3.16.x
+
+= 3.8.8 - 13 September 2023 =
+
+- Update: Made Compatible with Elementor Free 3.16.1 & Elementor Pro 3.16.0.
+
+= 3.8.7 - 4 September 2023 =
+
+- Tweak: Remove "Edit + Happy Clone" finder category due to deprecations.
+- Fix: PHP Warning issue fixed with Fun Factor widget.
+- Fix: Use Global Typography for controls.
+
+= 3.8.6 - 7 August 2023 =
+
+- Update: Made Compatible with Elementor Free 3.15.1 & Elementor Pro 3.15.0.
+
+= 3.8.5 - 14 June 2023 =
+
+- Fix: Minor Fixes.
+- Fix: Elementor compatibility tag updated.
+
+= 3.8.4 - 11 April 2023 =
+
+- New: Section features compatibility with container.
+- Fix: Global color issue fixed with Info Box, LordIcon & Icon Box widget.
+- Fix: Themebuilder widget compatible with Elementor experimental features.
+- Fix: Safari compatibility for specific js.
+- Fix: Nav Menu widget hamburger issues fixes.
+- Fix: Minor bug fixes.
+
+= 3.8.3 - 27 March 2023 =
+
+- Update: Appsero client updated to `v1.2.3`.
+- Fix: Specific fixes for Elementor cloud.
+
+= 3.8.2 - 25 January 2023 =
+
+- Fix: Minor Fixes.
+
+= 3.8.1 - 11 January 2023 =
+
+- Tweak: Removed `elementor/finder/categories/init` deprecated hook.
+- Tweak: Removed `elementor/widgets/widgets_registered` deprecated hook.
+- Fix: Image Sizing is not working on the Photo Stack widget.
+
+= 3.8.0 - 26 December 2022 =
+
+- New: Theme Builder feature.
+- New: Site Logo widget.
+- New: Site Title widget.
+- New: Site Tagline widget.
+- New: Nav Menu widget.
+- New: Page Title widget.
+- New: Post Title widget.
+- New: Post Excerpt widget.
+- New: Post Content widget.
+- New: Featured Image widget.
+- New: Author Box widget.
+- New: Post Comments widget.
+- New: Post Navigation widget.
+- New: Post Info widget.
+- New: Archive Title widget.
+- New: Archive Posts widget.
+- Tweak: Integrate Margin Control on Infobox Widget.
+- Tweak: Photo Stack Group widgets images alt support added.
+- Fix: Post Tab date format is not properly working.
+
+
+= 3.7.2 - 20 November 2022 =
+
+- Fix: Equal Height is not working on Tablet.
+- Fix: Pricing Table's Feature title is not working with <br> tag.
+- Fix: The Post Tab widget is showing all posts on the page load.
+- Fix: The News Ticker widget display only 5 posts.
+
+= 3.7.1 - 18 October 2022 =
+
+- Tweak: Scroll To Top feature enhancements like customize the icon, text, and image, and enable or disable the feature for different devices. Plus, we've fixed the page refresh issue when making changes to the settings.
+- Tweak: Horizontal scrolling on Data Table mobile responsive view.
+- Tweak: Word Break Option Introduce on Data Table mobile responsive view.
+- Tweak: Meta items Removal option in Post Tab Widget.
+- Tweak: Advance Post Queries & Query ID integration with the Post Tab Widgets.
+- Tweak: Info Box Widget, media position responsive control.
+- Tweak: Price Table widget's title tag changing option added.
+- Tweak: Add Phone Number field on the Team Member widget's social profile section.
+- Tweak: Add Prefix & Suffix Spacing control in the Fun Factor widget.
+- Tweak: Add Post ordering option with the Post Tab widget.
+- Fix: Three sixty rotation & Taxonomy List are not working as a template.
+- Fix: Post list excerpt not showing.
+
+= 3.7.0 - 30 August 2022 =
+
+- New: Scroll To Top - Feature
+- Tweak: Introduce `elementor/widgets/register` hook for making it compatible with elementor 3.7.x
+
+= 3.6.3 - 10 August 2022 =
+
+- Tweak: Removed `Elementor\DB::is_built_with_elementor` deprecated method from Elementor 3.7.0.
+- Fix: Post tab title tag issue
+- Fix: Infobox lord icon render issue
+
+= 3.6.2 - 5 July 2022 =
+
+- Tweak: Horizontal Timeline Title Link
+- Tweak: Added category support for product in the Post List widget
+- Fix: Event Calendar link issue
+- Fix: Logo Grid Insert Media From URL issue
+- Fix: Content switcher switch direction responsive issue
+
+= 3.6.1 - 13 June 2022 =
+
+- Update: Happy Icon pack (added new 16 icons)
+- Fix: Team Member URL issue
+- Fix: Event Calendar issue
+- Fix: Global Widget frontend broken issue
+- Tweak: Added dynamic tag in Comparison Table
+
+= 3.6.0 - 30 May 2022 =
+
+- New: LordIcon widget
+- Fix: Mixed content issue solve
+- Fix: Team Member PHP warning notice
+- Fix: Justified Grid row height issue
+- Tweak: Added LordIcon support in Info Box & Icon Box widget
+- Tweak: Dynamic date format set for post list and post tab widget
+- Tweak: WPML support for creative button widget
+
+= 3.5.2 - 26 April 2022 =
+
+- New: Photo Stack widget
+- Tweak: Added vertical and horizontal direction for Content switcher
+- Tweak: Lower animation speed input option enable for all carousel widgets
+- Fix: Justified Grid row height issue
+- Fix: Gravity form display issue on editor
+- Fix: Mailchimp success message show on corner case
+
+= 3.5.1 - 29 March 2022 =
+
+- Fix: Image Compare widget white space issue
+- Fix: 360-degree widget mobile overlay issue
+
+= 3.5.0 - 24 March 2022 =
+
+- Tweak: Removed `_register_controls` deprecated method.
+- Tweak: Replace `register_controls` with `register`.
+- Tweak: Change default url for PDF Viewer.
+- Fix: Miscellaneous deprecations.
+- Fix: Setup Wizard redirection issue.
+- Improve: Elementor 3.6.1 compatibility.
+
+= 3.4.4 - 1 March 2022 =
+
+- New: Double Opt In support for mailchimp widget.
+- Tweak: Improve Slider on load behavior
+- Tweak: Improve Image Carousel on load behavior
+- Tweak: Comparison Table description field
+- Tweak: Comparison Table add button style control for individual item
+
+= 3.4.3 - 17 February 2022 =
+
+- Tweak: Pdf Viewer Dynamic Link tag support
+- Tweak: Creative Button Dynamic Link tag support for url
+- Fix: Calendly Width fix
+
+= 3.4.2 - 6 February 2022 =
+
+- Tweak: Setup Wizard Performance Improvement
+
+= 3.4.1 - 31 January 2022 =
+
+- New: Comparison Table Widget
+- Fix: Card widget alignment issue as global widget
+- Fix: Dashboard Analytics Page issue
+
+= 3.4.0 - 22 December 2021 =
+
+- New: Happy Icons v6 (New 53 icons)
+- New: Two new shape dividers added ( christmas, christmas 2 )
+- Tweak: Pdf Viewer multiple viewer support in same page
+- Fix: Happy Clone issue with template type
+
+= 3.3.3 - 12 December 2021 =
+
+- Fix: Social icon missing for viber
+- Tweak: Pdf view add support for page selection
+
+= 3.3.2 - 8 December 2021 =
+
+- Code improvement
+
+= 3.3.1 - 6 December 2021 =
+
+- New: Pdf Viewer
+- Fix: Image Stack Group icon size overflow issue
+- Fix: Review Banner logic
+- Fix: Post Tab widget undefined warning issue
+- Tweak: Code improvement
+
+= 3.3.0 - 27 October 2021 =
+
+- New: Creative Button Widget
+- Fix: Dashboard widget broken style
+- Fix: Happy Tooltip JS optimization
+- Fix: Privacy policy missing link in setup wizard
+- Fix: MailChimp audience tags issue solve
+- Fix: Dashboard widgets and features disable all issues.
+- Tweak: Replace `_content_template` function with `content_template`.
+
+= 3.2.2 - 29 September 2021 =
+
+- Fix: Setup wizard asset loading
+- Fix: Resolved an unexpected warning in admin area while debugging is enabled.
+- Fix: Missing Template Engine icon in Elementor Editor.
+- Fix: Icon Box widget Badge z-index reduced
+
+= 3.2.1 - 23 September 2021 =
+
+- Fix: Setup wizard improvement and cache issue resolved.
+
+= 3.2.0 - 23 September 2021 =
+
+- New: Setup Wizard for guided plugin configuration
+- New: Widget Group in Dashboard
+- New: Dashboard to show latest offer & news
+- New: Widget uses analytics in Dashboard
+
+= 3.1.0 - 25 August 2021 =
+
+- New: Added disable option for Column Extended feature
+- New: Added disable option for Text Stroke feature
+- New: Added compatibility with PHP 8.0
+- Fix: Icon Box badge z-index issue
+- Remove: Alignment option from 360deg widget
+
+= 3.0.1 - 8 August 2021 =
+
+- Improve: Review Banner Logic
+- Fix: Image Stack group default image missing issue
+- Fix: Conflicts with Elementor "Border Type" style control
+
+= 3.0.0 - 3 August 2021 =
+
+- New: Image Stack Group Widget
+- New: Image Accordion Widget
+- New: Happy Tooltip feature
+- New: Added Team Member widget Ligthbox option
+- New: Added Horizontal Timeline Title HTML Tag control option
+- New: Added Taxonomy List HTML Tag control option
+- New: Added Post Tab Title HTML Tag control option
+- New: Added News Ticker widget Post Title HTML Tag control option
+- New: Added Carousel Widget Title & Subtitle HTML Tag control option
+- New: Added Sliders Widget Title & Subtitle HTML Tag control option
+- New: Added Global credential key dashboard. User can set credentials in settings panel and use it globally (Mailchimp Widget, Twitter Feed Widget)
+- Update: Image Hover Effect Title HTML Tag control
+- Update: All widgets Coding structure update
+- Update: Happy select 2 control update
+- Update: Mailchimp form alignment improved and optimized with some coding updates.
+- Fix: Taxonomy List Select2 issue
+- Fix: Post tab Select2 issue
+- Fix: Post list Select2 issue
+- Fix: News ticker Select2 issue
+- Fix: Mailchimp Select2 issue
+- Fix: Improve some style for compatibility on the content switcher
+
+= 2.27.0 - 5 July 2021 =
+
+- New: Content Switcher Widget
+
+= 2.26.0 - 1 July 2021 =
+
+- New: Prefix and Suffix option for the Fun Factor widget
+- New: Link Target option added to Twitter Feed widget
+- Tweak: Added Tag for subscriber lists in mailchimp widget
+- Fix: Mailchimp integration instruction improved
+
+= 2.25.0 - 16 June 2021 =
+
+- New: Mailchimp Widget
+- New: Added Lightbox support to Horizontal Timeline widget
+- New: Image Hover Effect hover title html tag option added
+- Tweak: Added html tag support to Horizontal Timeline description
+- Tweak: Dynamic Tag support for Image Hover effect's image field
+- Tweak: Modify select 2 control
+- Fix: The Event Widget's events popups responsive issue
+
+= 2.24.1 - 18 May 2021 =
+
+- Tweak: Step Flow title html tag option increased
+- Tweak: Gravity form ajax submit enable option
+- Fix: Gravity form input height issue
+- Fix: 360 Rotation widget fallback background color conflict issue
+
+= 2.24.0 - 25 April 2021 =
+
+- Tweak: Animated Link widget alignment control added
+- Fix: Security patches
+- Tweak: Removed `Elementor\Scheme_Typography` deprecated function
+- Tweak: Happy Elementor Addons not active when Elementor doesn’t meet minimum version requirements
+
 = 2.23.0 - 12 April 2021 =
 
 - New: Animated Link Widget
@@ -68,7 +476,7 @@
 - Tweak: Updated Horizontal timeline widget default style
 - Tweak: Added % unit in Slider arrow position controls
 - Tweak: Added % unit in Carousel arrow position controls
-- Tweak: Added % unit in Horizontal timline arrow position control
+- Tweak: Added % unit in Horizontal timeline arrow position control
 - Tweak: Separated Floating effects JS handler from main JS file
 - Fix: Slider arrow not hiding issue
 - Fix: Carousel arrow not hiding issue
@@ -110,8 +518,8 @@
 = 2.14.3 - 12 October 2020 =
 
 - Update: Appsero client updated to `v1.2.0`
-- Tweak: Added Calendy pro feature notice
-- Tweak: Added Calendy default username "happyaddons"
+- Tweak: Added Calendly pro feature notice
+- Tweak: Added Calendly default username "happyaddons"
 - Tweak: Common cached files are loaded once as internal css
 - Fix: Card widget badge dynamic tag issue
 - Fix: Happy templates popup button auto duplicate issue
@@ -154,7 +562,7 @@
 - Tweak: Removed assets loading hook priority
 - Tweak: Improved Dual Button default style
 - Fix: CSS Transform normal/hover mode not working on frontend issue
-- Fix: Color change doens't have any effect on SVG icon issue
+- Fix: Color change doesn't have any effect on SVG icon issue
 - Fix: Card widget image size issue on Firefox and responsive mode
 
 = 2.13.1 - 6 August 2020 =
@@ -173,7 +581,7 @@
 - New: `happyaddons/extensions/css_transform` hook to control CSS Transform
 - New: `happyaddons/extensions/on_demand_cache` hook to control On Demand Assets Loading
 - Tweak: Added CSS Transform hover state support
-- Tweak: Added Stepflow direction arrow rotatation support
+- Tweak: Added Stepflow direction arrow rotation support
 - Tweak: Added Card button full width support
 - Tweak: Added Card responsive image positioning
 - Tweak: Restored justify alignment in all widgets
@@ -203,7 +611,7 @@
 
 = 2.12.1 - 9 June 2020 =
 
-- Fix: GravityForms widget issue causing elementor editor continuous loding
+- Fix: GravityForms widget issue causing elementor editor continuous loading
 
 = 2.12.0 - 8 June 2020 =
 
@@ -251,7 +659,7 @@
 = 2.7.3 - 31 March 2020 =
 
 - Tweak: Custom attribute output support for all links
-- Tweak: Added pro widgets awarness panel
+- Tweak: Added pro widgets awareness panel
 - Fix: Missing styles issue on page/post clone
 - Fix: Popup link not working with link issue
 - Fix: Twitter feed issue

@@ -2,12 +2,12 @@
 # This file is distributed under the same license as the Plugins - Envato Elements &#8211; Photos &amp; Elementor Templates - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-02-03 11:27:28+0000\n"
+"PO-Revision-Date: 2024-02-17 09:13:21+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: GlotPress/3.0.0-alpha.2\n"
+"X-Generator: GlotPress/4.0.0\n"
 "Language: nl\n"
 "Project-Id-Version: Plugins - Envato Elements &#8211; Photos &amp; Elementor Templates - Stable (latest release)\n"
 
@@ -37,7 +37,7 @@ msgstr "Klanten"
 
 #: inc/api/class-template-kit-import.php:107
 msgid "Logo Grid"
-msgstr "Logo Grid"
+msgstr "Logo raster"
 
 #: inc/api/class-template-kit-import.php:106
 msgid "Gallery"
@@ -45,7 +45,7 @@ msgstr "Galerij"
 
 #: inc/api/class-template-kit-import.php:105
 msgid "Portfolio"
-msgstr "Portefeuille"
+msgstr "Portfolio"
 
 #: inc/api/class-template-kit-import.php:104
 msgid "Countdown"
@@ -85,7 +85,7 @@ msgstr "Team"
 
 #: inc/api/class-template-kit-import.php:95
 msgid "Call to Action"
-msgstr "Oproep tot actie"
+msgstr "Call To Action"
 
 #: inc/api/class-template-kit-import.php:94
 msgid "Contact"
@@ -145,17 +145,18 @@ msgstr "Enkel: Home"
 
 #: inc/api/class-template-kit-import.php:78
 msgid "Single: Page"
-msgstr "Enkele pagina"
+msgstr "Enkel: pagina"
 
 #: inc/api/class-requirements.php:300
 msgid "Sorry, you are not allowed to install themes on this site."
-msgstr "Sorry, je mag geen thema's installeren op deze site."
+msgstr "Je hebt geen toestemming om thema's installeren op deze site."
 
 #: inc/api/class-requirements.php:259 inc/api/class-requirements.php:346
 msgid "Unable to connect to the filesystem. Please confirm your credentials."
 msgstr "Kan geen verbinding maken met het bestandssysteem. Bevestig je gegevens."
 
 #. Description of the plugin
+#: envato-elements.php
 msgid "Access beautifully designed Template Kits + Photos from Envato Elements."
 msgstr "Toegang tot prachtig ontworpen template kits + Foto's van Envato Elements."
 
@@ -164,6 +165,7 @@ msgid "About"
 msgstr "Over"
 
 #. Author URI of the plugin
+#: envato-elements.php
 msgid "https://elements.envato.com/extensions/wordpress/?utm_source=extensions&utm_medium=referral&utm_campaign=elements_extensions_wpplugins"
 msgstr "https://elements.envato.com/extensions/wordpress/?utm_source=extensions&utm_medium=referral&utm_campaign=elements_extensions_wpplugins"
 
@@ -194,14 +196,16 @@ msgstr "7.2 of hoger"
 #. translators: %s: PHP version
 #: envato-elements.php:78
 msgid "Envato Elements requires PHP version %s+, plugin is currently NOT ACTIVE. Please contact the hosting provider. WordPress recommends version %s."
-msgstr "Envato Elements vereist PHP-versie %s +, plugin is momenteel NIET ACTIEF. Neem contact op met de hostingprovider. WordPress raadt versie %s aan."
+msgstr "Envato Elements vereist PHP versie %s +, plugin is momenteel NIET ACTIEF. Neem contact op met de hostingprovider. WordPress raadt versie %s aan."
 
 #. Author of the plugin
+#: envato-elements.php
 msgid "Envato"
 msgstr "Envato"
 
 #. Plugin Name of the plugin
-#: inc/backend/class-welcome.php:32 inc/backend/class-welcome.php:44
+#: envato-elements.php inc/backend/class-welcome.php:32
+#: inc/backend/class-welcome.php:44
 msgid "Envato Elements"
 msgstr "Envato Elements"
 
@@ -220,4 +224,4 @@ msgstr "HTTP fout"
 #. translators: %s: WordPress version
 #: envato-elements.php:102
 msgid "Envato Elements requires WordPress version %s+. Because you are using an earlier version, the plugin is currently NOT ACTIVE."
-msgstr "Envato Elements vereist WordPress-versie %s +. Omdat je een eerdere versie gebruikt, is de plugin momenteel NIET ACTIEF."
+msgstr "Envato Elements vereist WordPress versie %s+. Omdat je een eerdere versie gebruikt, is de plugin momenteel NIET ACTIEF."

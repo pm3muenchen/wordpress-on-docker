@@ -2,7 +2,7 @@
 /*
  * UnderConstructionPage
  * Work Desk theme
- * (c) WebFactory Ltd, 2015 - 2021
+ * (c) WebFactory Ltd, 2015 - 2023
  */
 
 
@@ -20,7 +20,7 @@ if (!defined('ABSPATH')) {
     <title>[title]</title>
     <meta name="description" content="[description]" />
     <meta name="generator" content="[generator]">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,600,900">
+    <link rel="stylesheet" href="https://fonts.bunny.net/css?family=Nunito:200,600,900">
     [head]
   </head>
 
@@ -48,11 +48,12 @@ if (!defined('ABSPATH')) {
     </div>
     <div id="desk" style="background-image: url([theme-url]work_desk.png);" alt="Work Desk" title="Work Desk">&nbsp;</div>
     [footer]
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="<?php echo includes_url('js/jquery/jquery.min.js'); ?>" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script type="text/javascript">
     jQuery(function($) {
       $(window).on('resize', function() {
-        if ($(window).width() > 767) {
+        var result = (767 - $(window).width()).toString();
+        if (result.charAt(0) === '-') {
           tmp = $(window).height() - $('.container').height();
           $('#desk').height(tmp);
         }

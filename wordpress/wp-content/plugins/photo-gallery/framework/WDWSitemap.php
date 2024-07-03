@@ -44,12 +44,7 @@ final class WDWSitemap {
       global $wpdb;
       $shortcode = $wpdb->get_var($wpdb->prepare("SELECT tagtext FROM " . $wpdb->prefix . "bwg_shortcode WHERE id='%d'", $params['id']));
       if ($shortcode) {
-        $shortcode_params = explode('" ', $shortcode);
-        foreach ($shortcode_params as $shortcode_param) {
-          $shortcode_param = str_replace('"', '', $shortcode_param);
-          $shortcode_elem = explode('=', $shortcode_param);
-          $params[str_replace(' ', '', $shortcode_elem[0])] = $shortcode_elem[1];
-        }
+        $params = array_merge(WDWLibrary::parse_tagtext_to_array($shortcode), $params);
       }
       else {
         return;
@@ -80,7 +75,7 @@ final class WDWSitemap {
         foreach ( $images as $image ) {
           if ( strpos($image->filetype, 'EMBED') === FALSE ) {
             $this->images[] = array(
-              'src' => BWG()->upload_url . $image->image_url_raw,
+              'src' => BWG()->upload_url . (isset($image->image_url_raw) ? $image->image_url_raw : $image->image_url),
               'title' => $image->alt,
               'alt' => $image->alt
             );

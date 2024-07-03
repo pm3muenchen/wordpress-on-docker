@@ -1,0 +1,839 @@
+# Translation of Plugins - Templately – Gutenberg &amp; Elementor Template Library: 5000+ Free &amp; Pro Ready Templates &amp; Cloud! - Stable (latest release) in Dutch
+# This file is distributed under the same license as the Plugins - Templately – Gutenberg &amp; Elementor Template Library: 5000+ Free &amp; Pro Ready Templates &amp; Cloud! - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2024-05-10 20:30:33+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/4.0.1\n"
+"Language: nl\n"
+"Project-Id-Version: Plugins - Templately – Gutenberg &amp; Elementor Template Library: 5000+ Free &amp; Pro Ready Templates &amp; Cloud! - Stable (latest release)\n"
+
+#: includes/Utils/Installer.php:214
+msgid "The plugin requires WordPress version %s or higher. You are running version %s."
+msgstr "De plugin vereist WordPress versie %s of hoger. Je gebruikt versie %s."
+
+#: includes/Utils/Installer.php:205
+msgid "The plugin requires PHP version %s or higher. You are running version %s."
+msgstr "De plugin vereist PHP versie %s of hoger. Je gebruikt versie %s."
+
+#: includes/Utils/Installer.php:194 includes/Utils/Installer.php:252
+msgid "Failed to activate theme"
+msgstr "Thema niet geactiveerd"
+
+#: includes/Utils/Installer.php:179
+msgid "Failed to install theme"
+msgstr "Thema niet geïnstalleerd"
+
+#: includes/Utils/Installer.php:149
+msgid "Function themes_api does not exist"
+msgstr "Functie themes_api bestaat niet"
+
+#: includes/Utils/Installer.php:144
+msgid "Theme is already active"
+msgstr "Thema is al actief"
+
+#: includes/Utils/Installer.php:111
+msgid "Failed to install plugin"
+msgstr "Plugin niet geïnstalleerd"
+
+#: includes/Core/Importer/FullSiteImport.php:266
+msgid "Template pack download failed with response code: "
+msgstr "Downloaden van template pakket mislukt met reactie code: "
+
+#: views/builder/conditions.php:3 assets/js/elementor.js:1
+msgid "Condition (by Templately)"
+msgstr "Voorwaarde (door Templately)"
+
+#: views/builder/conditions.php:1
+msgid "Display Condtions by Templately"
+msgstr "Condities weergeven door Templately"
+
+#: includes/Core/Importer/WPImport.php:1278
+msgid "The uploaded file could not be moved"
+msgstr "Het geüploade bestand kan niet worden verplaatst"
+
+#: includes/Core/Importer/WPImport.php:1262
+msgid "Sorry, this file type is not permitted for security reasons."
+msgstr "Dit bestandstype is niet toegestaan in verband met veiligheidsredenen."
+
+#: includes/Core/Importer/WPImport.php:1230
+msgid "Remote file is too large, limit is %s"
+msgstr "Extern bestand is te groot, limiet is %s"
+
+#: includes/Core/Importer/WPImport.php:1221
+msgid "Downloaded file has incorrect size"
+msgstr "Het gedownloade bestand heeft een onjuiste grootte"
+
+#: includes/Core/Importer/WPImport.php:1215
+msgid "Zero size file downloaded"
+msgstr "Bestand met nul grootte gedownload"
+
+#: includes/Core/Importer/WPImport.php:1207
+msgid "Remote server did not respond"
+msgstr "Externe server reageerde niet"
+
+#. translators: 1: HTTP error message, 2: HTTP error code.
+#: includes/Core/Importer/WPImport.php:1198
+msgid "Remote server returned the following unexpected result: %1$s (%2$s)"
+msgstr "De externe server heeft het volgende onverwachte resultaat geretourneerd: %1$s (%2$s)"
+
+#. translators: 1: WordPress error message, 2: WordPress error code.
+#: includes/Core/Importer/WPImport.php:1188
+msgid "Request failed due to an error: %1$s (%2$s)"
+msgstr "Aanvraag mislukt vanwege een fout: %1$s (%2$s)"
+
+#: includes/Core/Importer/WPImport.php:1172
+msgid "Could not create temporary file."
+msgstr "Kon tijdelijk bestand niet aanmaken."
+
+#: includes/Core/Importer/WPImport.php:1081
+msgid "Invalid file type"
+msgstr "Ongeldig bestandstype"
+
+#: includes/Core/Importer/WPImport.php:1045
+msgid "Fetching attachments is not enabled"
+msgstr "Bijlagen ophalen is niet ingeschakeld"
+
+#. translators: %s: Menu slug.
+#: includes/Core/Importer/WPImport.php:907
+msgid "Menu item skipped due to invalid menu slug: %s"
+msgstr "Menu item overgeslagen vanwege ongeldige menu slug: %s"
+
+#: includes/Core/Importer/WPImport.php:894
+msgid "Menu item skipped due to missing menu slug"
+msgstr "Menu item overgeslagen vanwege ontbrekende menu slug"
+
+#. translators: 1: Post title, 2: Post type.
+#: includes/Core/Importer/WPImport.php:592
+msgid "Failed to import %1$s: Invalid post type %2$s"
+msgstr "Importeren van %1$s mislukt: ongeldig berichttype %2$s"
+
+#. translators: 1: Term taxonomy, 2: Term name.
+#. translators: 1: Post type singular label, 2: Post title.
+#. translators: 1: Taxonomy name, 2: Term name.
+#: includes/Core/Importer/WPImport.php:491
+#: includes/Core/Importer/WPImport.php:690
+#: includes/Core/Importer/WPImport.php:740
+msgid "Failed to import %1$s %2$s"
+msgstr "Kan %1$s %2$s niet importeren"
+
+#. translators: %s: Author display name.
+#: includes/Core/Importer/WPImport.php:395
+msgid "Failed to create new user for %s. Their posts will be attributed to the current user."
+msgstr "Kan geen nieuwe gebruiker maken voor %s. Hun berichten worden toegeschreven aan de huidige gebruiker."
+
+#. translators: %s: Post author.
+#: includes/Core/Importer/WPImport.php:333
+msgid "Failed to import author %s. Their posts will be attributed to the current user."
+msgstr "Niet gelukt om auteur %s te importeren. Hun berichten worden aan de huidige gebruiker toegewezen."
+
+#: includes/Core/Importer/WPImport.php:265
+msgid "The file does not exist, please try again."
+msgstr "Het bestand bestaat niet, probeer het opnieuw."
+
+#: includes/Core/Importer/Utils/Utils.php:14
+msgid "JSON file not exists. "
+msgstr "JSON bestand bestaat niet. "
+
+#: includes/Core/Importer/Runners/WPContent.php:28
+msgid "Importing Pages, Posts, Products, Navigation, etc"
+msgstr "Importeerfuncties voor pagina's, berichten, producten, navigatie, enz"
+
+#: includes/Core/Importer/Runners/WPContent.php:24
+msgid "WordPress Contents"
+msgstr "WordPress inhoud"
+
+#: includes/Core/Importer/Runners/Templates.php:24
+msgid "Importing Templates (i.e: Header, Footer, etc)"
+msgstr "Templates importeren (bijv. header, footer, enz.)"
+
+#: includes/Core/Importer/Runners/Taxonomies.php:21
+msgid "Importing Taxonomies"
+msgstr "Taxonomieën importeren"
+
+#: includes/Core/Importer/Runners/Taxonomies.php:13
+msgid "Taxonomies"
+msgstr "Taxonomieën"
+
+#: includes/Core/Importer/Runners/GutenbergContent.php:36
+msgid "Importing Gutenberg Templates (Pages, Posts etc)"
+msgstr "Gutenberg templates importeren (pagina's, berichten enz.)"
+
+#: includes/Core/Importer/Runners/GutenbergContent.php:20
+msgid "Block Editor Content"
+msgstr "Inhoud blok-editor"
+
+#: includes/Core/Importer/Runners/Finalizer.php:35
+#: includes/Core/Importer/Runners/Finalizer.php:39
+msgid "Finalizing Your Imports"
+msgstr "Je import afronden"
+
+#: includes/Core/Importer/Runners/ExtraContent.php:30
+msgid "Importing Forms and Others Extra Contents"
+msgstr "Formulieren en andere extra inhoud importeren"
+
+#: includes/Core/Importer/Runners/ExtraContent.php:18
+msgid "Extra Contents"
+msgstr "Extra inhoud"
+
+#: includes/Core/Importer/Runners/ElementorContent.php:31
+msgid "Importing Elementor Templates (Pages, Posts etc)"
+msgstr "Elementor templates importeren (Pagina's, Berichten enz.)"
+
+#: includes/Core/Importer/Runners/Customizer.php:29
+msgid "Updating customizer settings."
+msgstr "Customizer instellingen updaten."
+
+#: includes/Core/Importer/Runners/Customizer.php:17
+msgid "Customizer"
+msgstr "Customizer"
+
+#: includes/Core/Importer/Runners/BaseRunner.php:51
+msgid "Platform is not specified. Please try again after specifying the platform."
+msgstr "Platform is niet opgegeven. Probeer het opnieuw nadat je het platform hebt opgegeven."
+
+#: includes/Core/Importer/Parsers/WXR_Parser_SimpleXML.php:58
+#: includes/Core/Importer/Parsers/WXR_Parser_SimpleXML.php:66
+msgid "There was an error when reading this WXR file"
+msgstr "Er is een fout opgetreden bij het lezen van dit WXR bestand"
+
+#: includes/Core/Importer/Parsers/WXR_Parser_Regex.php:146
+#: includes/Core/Importer/Parsers/WXR_Parser_SimpleXML.php:71
+#: includes/Core/Importer/Parsers/WXR_Parser_SimpleXML.php:77
+#: includes/Core/Importer/Parsers/WXR_Parser_XML.php:190
+msgid "This does not appear to be a WXR file, missing/invalid WXR version number"
+msgstr "Dit lijkt geen WXR bestand te zijn, ontbrekend/ongeldig WXR versienummer"
+
+#: includes/Core/Importer/FullSiteImport.php:305
+#: includes/Core/Importer/FullSiteImport.php:658 assets/js/templately.js:1
+msgid "It seems we're experiencing technical difficulties. Please try again or contact <a href='%s' target='_blank'>support</a>."
+msgstr "Het lijkt erop dat we technische problemen ondervinden. Probeer het opnieuw of neem contact op met <a href='%s' target='_blank'>support</a>."
+
+#: includes/Core/Importer/FullSiteImport.php:353
+msgid "Cannot be imported, as the manifest file is corrupted"
+msgstr "Kan niet worden geïmporteerd, omdat het manifestbestand corrupt is"
+
+#: includes/Core/Importer/FullSiteImport.php:292
+msgid "WP_Filesystem cannot be initialized"
+msgstr "WP_Filesystem kan niet worden geïnitialiseerd"
+
+#: includes/Core/Importer/FullSiteImport.php:283
+msgid "Downloading Failed. Please try again"
+msgstr "Downloaden mislukt. Probeer het opnieuw"
+
+#: includes/Core/Importer/FullSiteImport.php:269
+#: includes/Core/Importer/FullSiteImport.php:279
+msgid "Template is getting ready"
+msgstr "Template wordt klaargemaakt"
+
+#: includes/Core/Importer/FullSiteImport.php:254
+msgid "Template pack download failed"
+msgstr "Downloaden van template pakket mislukt"
+
+#: includes/Core/Importer/FullSiteImport.php:227
+msgid "Permission Passed"
+msgstr "Toestemming verleend"
+
+#: includes/Core/Importer/FullSiteImport.php:218
+msgid "Upload directory is not writable."
+msgstr "Upload folder is niet beschrijfbaar."
+
+#: includes/Core/Importer/FullSiteImport.php:186
+#: includes/Core/Importer/FullSiteImport.php:668 assets/js/templately.js:1
+msgid "Oops!"
+msgstr "Oops!"
+
+#: includes/Core/Importer/FullSiteImport.php:163
+msgid "Please update the templately plugin."
+msgstr "Update de Templately plugin."
+
+#: includes/Core/Importer/FullSiteImport.php:138
+msgid "Invalid Pack ID."
+msgstr "Ongeldig Pack ID."
+
+#: includes/Core/Importer/FullSiteImport.php:52
+msgid "Unauthorized action."
+msgstr "Niet geautoriseerde reactie."
+
+#: includes/Core/Importer/Form.php:31
+msgid "Cannot be imported."
+msgstr "Kan niet worden geïmporteerd."
+
+#: includes/Core/Importer/Form.php:25
+msgid "Form JSON does not exists."
+msgstr "Formulier JSON bestaat niet."
+
+#: includes/Core/Admin.php:67
+msgctxt "Screen reader text for the items list heading on the post type listing screen. Default “Posts list”/”Pages list”. Added in 4.4"
+msgid "Templates list"
+msgstr "Templates lijst"
+
+#: includes/Core/Admin.php:66
+msgctxt "Screen reader text for the pagination heading on the post type listing screen. Default “Posts list navigation”/”Pages list navigation”. Added in 4.4"
+msgid "Templates list navigation"
+msgstr "Templates lijst navigatie"
+
+#: includes/Core/Admin.php:65
+msgctxt "Screen reader text for the filter links heading on the post type listing screen. Default “Filter posts list”/”Filter pages list”. Added in 4.4"
+msgid "Filter templates list"
+msgstr "Filter templates lijst"
+
+#: includes/Core/Admin.php:64
+msgctxt "Overrides the “Uploaded to this post”/”Uploaded to this page” phrase (used when viewing media attached to a post). Added in 4.4"
+msgid "Uploaded to this template"
+msgstr "Geüpload naar deze template"
+
+#: includes/Core/Admin.php:62
+msgctxt "The post type archive label used in nav menus. Default “Post Archives”. Added in 4.4"
+msgid "Template archives"
+msgstr "Template archieven"
+
+#: includes/Core/Admin.php:61
+msgctxt "Overrides the “Use as featured image” phrase for this post type. Added in 4.3"
+msgid "Use as cover image"
+msgstr "Als omslagafbeelding gebruiken"
+
+#: includes/Core/Admin.php:60
+msgctxt "Overrides the “Remove featured image” phrase for this post type. Added in 4.3"
+msgid "Remove cover image"
+msgstr "Omslagafbeelding verwijderen"
+
+#: includes/Core/Admin.php:59
+msgctxt "Overrides the “Set featured image” phrase for this post type. Added in 4.3"
+msgid "Set cover image"
+msgstr "Omslagafbeelding instellen"
+
+#: includes/Core/Admin.php:58
+msgctxt "Overrides the “Featured Image” phrase for this post type. Added in 4.3"
+msgid "Template Cover Image"
+msgstr "Template omslagafbeelding"
+
+#: includes/Core/Admin.php:57
+msgid "No templates found in Trash."
+msgstr "Geen templates gevonden in prullenbak."
+
+#: includes/Core/Admin.php:56
+msgid "No templates found."
+msgstr "Geen templates gevonden."
+
+#: includes/Core/Admin.php:55
+msgid "Parent Templates:"
+msgstr "Hoofd templates:"
+
+#: includes/Core/Admin.php:54
+msgid "Search Templates"
+msgstr "Zoek templates"
+
+#: includes/Core/Admin.php:53
+msgid "All Templates"
+msgstr "Alle templates"
+
+#: includes/Core/Admin.php:50
+msgid "New Template"
+msgstr "Nieuw template"
+
+#: includes/Core/Admin.php:49 assets/js/templately.js:1
+msgid "Add New Template"
+msgstr "Nieuwe template toevoegen"
+
+#: includes/Core/Admin.php:48
+msgid "Add New"
+msgstr "Nieuwe toevoegen"
+
+#: includes/Core/Admin.php:47
+msgctxt "Add New on Toolbar"
+msgid "Book"
+msgstr "Boek"
+
+#: includes/Core/Admin.php:46
+msgctxt "Admin Menu text"
+msgid "Theme Builder"
+msgstr "Thema bouwer"
+
+#: includes/Core/Admin.php:45
+msgctxt "Post type singular name"
+msgid "Theme Builder"
+msgstr "Thema bouwer"
+
+#: includes/Core/Admin.php:44
+msgctxt "Post type general name"
+msgid "Theme Builders"
+msgstr "Thema bouwers"
+
+#: includes/Builder/Types/Single.php:15
+msgid "Singles"
+msgstr "Enkelen"
+
+#: includes/Builder/Types/Search.php:16
+msgid "Search Results"
+msgstr "Zoek resultaten"
+
+#: includes/Builder/Types/Search.php:12
+msgid "Search Result"
+msgstr "Zoekresultaat"
+
+#: includes/Builder/Types/ProductSingle.php:15
+msgid "Products Single"
+msgstr "Enkelvoudige producten"
+
+#: includes/Builder/Types/ProductSingle.php:11
+msgid "Product Single"
+msgstr "Product single"
+
+#: includes/Builder/Types/ProductArchive.php:15
+msgid "Product Archives"
+msgstr "Product archieven"
+
+#: includes/Builder/Types/ProductArchive.php:11
+msgid "Product Archive"
+msgstr "Productarchief"
+
+#: includes/Builder/Types/Post.php:15
+msgid "Posts"
+msgstr "Berichten"
+
+#: includes/Builder/Types/Post.php:11
+msgid "Post"
+msgstr "Bericht"
+
+#: includes/Builder/Types/Page.php:14
+msgid "Page"
+msgstr "Pagina"
+
+#: includes/Builder/Types/Header.php:17
+msgid "Headers"
+msgstr "Headers"
+
+#: includes/Builder/Types/Footer.php:16
+msgid "Footers"
+msgstr "Footers"
+
+#: includes/Builder/Types/Error.php:15
+msgid "404 Error Pages"
+msgstr "404 fout pagina"
+
+#: includes/Builder/Types/CourseSingle.php:15
+msgid "Courses Single"
+msgstr "Cursus enkelvoudig"
+
+#: includes/Builder/Types/CourseSingle.php:11
+msgid "Course Single"
+msgstr "Cursus enkelvoudig"
+
+#: includes/Builder/Types/CourseArchive.php:15
+msgid "Course Archives"
+msgstr "Cursus archieven"
+
+#: includes/Builder/Types/CourseArchive.php:11
+msgid "Course Archive"
+msgstr "Cursus archief"
+
+#: includes/Builder/Types/Archive.php:16
+msgid "Archives"
+msgstr "Archieven"
+
+#: includes/Builder/Source.php:178
+msgctxt "Template Library"
+msgid "No Templates found in Trash"
+msgstr "Geen templates gevonden in de prullenbak"
+
+#: includes/Builder/Source.php:177
+msgctxt "Template Library"
+msgid "No Templates found"
+msgstr "Geen templates gevonden"
+
+#: includes/Builder/Source.php:176
+msgctxt "Template Library"
+msgid "Search Template"
+msgstr "Zoek template"
+
+#: includes/Builder/Source.php:175
+msgctxt "Template Library"
+msgid "View Template"
+msgstr "Template bekijken"
+
+#: includes/Builder/Source.php:174
+msgctxt "Template Library"
+msgid "All Templates"
+msgstr "Alle templates"
+
+#: includes/Builder/Source.php:173
+msgctxt "Template Library"
+msgid "New Template"
+msgstr "Nieuwe template"
+
+#: includes/Builder/Source.php:172
+msgctxt "Template Library"
+msgid "Edit Template"
+msgstr "Template bewerken"
+
+#: includes/Builder/Source.php:170 includes/Builder/Source.php:171
+msgctxt "Template Library"
+msgid "Add New Template"
+msgstr "Nieuwe template toevoegen"
+
+#: includes/Builder/Source.php:169
+msgctxt "Template Library"
+msgid "Template"
+msgstr "Template"
+
+#: includes/Builder/Source.php:165 includes/Builder/Source.php:180
+msgctxt "Template Library"
+msgid "Templates"
+msgstr "Templates"
+
+#: includes/Builder/Source.php:141
+msgid "Edit Conditions"
+msgstr "Voorwaarden bewerken"
+
+#: includes/Builder/Source.php:97
+msgid "Platform"
+msgstr "Platform"
+
+#: includes/Builder/Source.php:96
+msgid "Type"
+msgstr "Type"
+
+#: includes/Builder/PageTemplates.php:23
+msgid "Templately Gutenberg Template"
+msgstr "Templately Gutenberg template"
+
+#: includes/Builder/Managers/LocationManager.php:68
+#: includes/Builder/Types/Single.php:11
+msgid "Single"
+msgstr "Enkele"
+
+#: includes/Builder/Managers/LocationManager.php:64
+#: includes/Builder/ThemeBuilder.php:166 includes/Builder/Types/Archive.php:12
+msgid "Archive"
+msgstr "Archief"
+
+#: includes/Builder/Managers/LocationManager.php:60
+#: includes/Builder/Types/Footer.php:12
+msgid "Footer"
+msgstr "Footer"
+
+#: includes/Builder/Managers/LocationManager.php:56
+#: includes/Builder/Types/Header.php:13
+msgid "Header"
+msgstr "Header"
+
+#: includes/Builder/Conditions/WooCommerce.php:14
+msgid "WooCommerce"
+msgstr "WooCommerce"
+
+#: includes/Builder/Conditions/Singular.php:24
+msgid "All Singular"
+msgstr "Allemaal enkelvoud"
+
+#: includes/Builder/Conditions/Singular.php:20
+msgid "Singular"
+msgstr "Enkelvoud"
+
+#: includes/Builder/Conditions/Search.php:15
+msgid "Search"
+msgstr "Zoeken"
+
+#: includes/Builder/Conditions/ProductSearch.php:11
+msgid "Product Search"
+msgstr "Product zoeken"
+
+#: includes/Builder/Conditions/PostTypeArchive.php:31
+#: includes/Builder/Conditions/PostTypeArchive.php:35
+msgid "%s Archive"
+msgstr "%s archief"
+
+#: includes/Builder/Conditions/PostByAuthor.php:19
+msgid "%s By Author"
+msgstr "%s door auteur"
+
+#: includes/Builder/Conditions/General.php:24
+msgid "Entire Site"
+msgstr "Gehele site"
+
+#: includes/Builder/Conditions/General.php:16
+msgid "General"
+msgstr "Algemeen"
+
+#: includes/Builder/Conditions/Front.php:11
+msgid "Front Page"
+msgstr "Voorpagina"
+
+#: includes/Builder/Conditions/Error.php:11 includes/Builder/Types/Error.php:11
+msgid "404 Error"
+msgstr "404 fout"
+
+#: includes/Builder/Conditions/Archive.php:27
+msgid "All Archives"
+msgstr "Alle archieven"
+
+#: includes/API/Conditions.php:92
+msgid "Successfully saved."
+msgstr "Succesvol opgeslagen."
+
+#: includes/API/SavedTemplates.php:29
+msgid "Sorry, you do not have permission to delete this template."
+msgstr "Je hebt geen toestemming om deze template te verwijderen."
+
+#: includes/Core/Admin.php:279
+msgid "🔥 Get access to 5,000+ Ready Templates & save up to 65% OFF now"
+msgstr "🔥 Krijg toegang tot meer dan 5.000+ kant-en-klare templates & bespaar nu tot 65% KORTING"
+
+#: includes/API/Items.php:131 includes/API/Items.php:156
+msgid "Invalid Type Call"
+msgstr "Ongeldige type oproep"
+
+#: includes/Core/Admin.php:214
+msgid "We hope you're enjoying %s! Could you please do us a favor and give us a review on %s to help us spread the word and boost our motivation?"
+msgstr "We hopen dat je geniet van %s! Kun je ons een plezier doen en ons een beoordeling geven op %s om ons te helpen het woord te verspreiden en onze motivatie te verhogen?"
+
+#: includes/Core/Platform/Elementor.php:84
+msgid "You have to install/activate %s to import %s Template."
+msgstr "Je moet %s installeren/activeren om %s template te importeren."
+
+#: includes/Core/Importer/Runners/Templates.php:20 assets/js/templately.js:1
+msgid "Templates"
+msgstr "Templates"
+
+#: includes/Builder/Types/Page.php:18 assets/js/templately.js:1
+msgid "Pages"
+msgstr "Pagina's"
+
+#: includes/Builder/Source.php:222 assets/js/templately.js:1
+msgid "All"
+msgstr "Alle"
+
+#: includes/Core/Admin.php:52 assets/js/templately.js:1
+msgid "View Template"
+msgstr "Template bekijken"
+
+#: includes/Core/Admin.php:51 assets/js/templately.js:1
+msgid "Edit Template"
+msgstr "Template bewerken"
+
+#: includes/Core/Admin.php:279 assets/js/templately.js:1
+msgid "Upgrade to Pro"
+msgstr "Upgraden naar Pro"
+
+#: includes/Plugin.php:94
+msgid "Un-serializing instances of this class is forbidden."
+msgstr "Unserialiseren van instanties van deze klasse is verboden."
+
+#: includes/Plugin.php:85
+msgid "Cloning is forbidden."
+msgstr "Klonen is verboden."
+
+#: includes/Core/Platform/Gutenberg.php:86
+msgid "Save %s in Templately"
+msgstr "Opslaan %s in Templately"
+
+#: includes/Core/Platform/Elementor.php:191
+msgid "Something must went wrong."
+msgstr "Er moet iets mis zijn gegaan."
+
+#: includes/Core/Admin.php:250
+msgid "Never show again"
+msgstr "Nooit meer laten zien"
+
+#: includes/Core/Admin.php:246
+msgid "I need help"
+msgstr "Ik heb hulp nodig"
+
+#: includes/Core/Admin.php:234
+msgid "Maybe Later"
+msgstr "Misschien later"
+
+#: includes/Core/Admin.php:227
+msgid "I already did"
+msgstr "Heb ik al gedaan"
+
+#: includes/Core/Admin.php:223
+msgid "Sure, you deserve it!"
+msgstr "Tuurlijk, je verdient het!"
+
+#: includes/API/WorkSpaces.php:301
+msgid "Invalid item id for delete cloud item."
+msgstr "Ongeldig item ID voor verwijderen cloud item."
+
+#: includes/API/WorkSpaces.php:273
+msgid "Invalid item id for get cloud item."
+msgstr "Ongeldig item ID voor get cloud item."
+
+#: includes/API/WorkSpaces.php:253
+msgid "Invalid Files ID."
+msgstr "Ongeldige bestands ID."
+
+#: includes/API/WorkSpaces.php:249
+msgid "Invalid Workspace ID."
+msgstr "Ongeldige werkruimte ID."
+
+#: includes/API/WorkSpaces.php:221
+msgid "You should provide a valid WorkSpace ID."
+msgstr "Je moet een geldige werkruimte ID overleggen."
+
+#: includes/API/WorkSpaces.php:133 includes/API/WorkSpaces.php:181
+msgid "Workspace name cannot be empty."
+msgstr "De naam van de werkruimte kan niet leeg zijn."
+
+#: includes/API/WorkSpaces.php:113
+msgid "The workspace you looking for is not exists anymore."
+msgstr "De werkruimte die je zoekt bestaat niet meer."
+
+#: includes/API/WorkSpaces.php:76
+msgid "Invalid workspace slug for get workspace."
+msgstr "Ongeldige workspace slug voor get workspace."
+
+#: includes/API/WorkSpaces.php:32
+msgid "Sorry, you need to login/re-login to get your workspace list."
+msgstr "Je moet inloggen/opnieuw inloggen om je werkruimte lijst te krijgen."
+
+#: includes/API/SignUp.php:50
+msgid "Password and confirm password should be matched."
+msgstr "Wachtwoord en wachtwoord moeten overeenkomen."
+
+#: includes/API/SignUp.php:46
+msgid "Confirm password cannot be empty."
+msgstr "Het wachtwoord kan niet leeg zijn."
+
+#: includes/API/SignUp.php:43 assets/js/templately.js:1
+msgid "Password cannot be empty."
+msgstr "Het wachtwoord kan niet leeg zijn."
+
+#: includes/API/SignUp.php:37
+msgid "Email cannot be empty."
+msgstr "E-mail kan niet leeg zijn."
+
+#: includes/API/MyClouds.php:233
+msgid "Invalid Item ID for delete cloud item."
+msgstr "Ongeldig item ID voor verwijderen cloud item."
+
+#: includes/API/MyClouds.php:175
+msgid "Invalid Item ID for download cloud item."
+msgstr "Ongeldig item ID voor download cloud item."
+
+#: includes/API/Items.php:287
+msgid "Unfavourite Action Failed: Something went wrong."
+msgstr "Ongunstige actie mislukt: er ging iets mis."
+
+#: includes/API/Items.php:192
+msgid "Search keyword cannot be empty."
+msgstr "Het zoeken keyword kan niet leeg zijn."
+
+#: includes/API/Items.php:175
+msgid "Item data not found"
+msgstr "Item gegevens niet gevonden"
+
+#: includes/API/Items.php:149
+msgid "Items slug cannot be empty."
+msgstr "Items slug kunnen niet leeg zijn."
+
+#: includes/API/Import.php:56
+msgid "Template data is invalid. Please kindly contact Templately Support."
+msgstr "Template gegevens zijn ongeldig. Neem contact op met Templately ondersteuning."
+
+#: includes/API/Import.php:27 includes/API/Import.php:150
+#: includes/API/Import.php:162
+msgid "Invalid ID is provided."
+msgstr "Er is een ongeldige ID opgegeven."
+
+#: includes/API/Dependencies.php:129
+msgid "You have supplied an invalid requirements. Please reload the page and try again."
+msgstr "Je hebt ongeldige vereisten ingevuld. Laad de pagina opnieuw en probeer het opnieuw."
+
+#: includes/API/Dependencies.php:24
+msgid "Sorry, you do not have permission to install a plugin."
+msgstr "Jij hebt geen toestemming om een plugin te installeren."
+
+#: includes/API/API.php:148
+msgid "Sorry, you need to login/re-login again."
+msgstr "Je moet inloggen/opnieuw inloggen."
+
+#. Description of the plugin
+#: templately.php
+msgid "The Best Templates Cloud for Elementor & Gutenberg. Get access to stunning templates, WorkSpace, Cloud Library & many more."
+msgstr "De beste templatescloud voor Elementor en Gutenberg. Krijg toegang tot verbluffende templates, WorkSpace, Cloud Library en nog veel meer."
+
+#: includes/Utils/Installer.php:102
+msgid "Unable to connect to the filesystem. Please confirm your credentials."
+msgstr "Kan geen verbinding maken met het bestandssysteem. Bevestig je inloggegevens."
+
+#: includes/API/Dependencies.php:112
+msgid "You have the plugin installed."
+msgstr "Je hebt de plugin geïnstalleerd."
+
+#: includes/Core/Admin.php:362
+msgid "plugin to be installed and activated. Please install Elementor to continue."
+msgstr "plugin die moet worden geïnstalleerd en geactiveerd. Installeer Elementor om door te gaan."
+
+#: includes/API/Dependencies.php:82 includes/Core/Admin.php:361
+#: includes/Core/Importer/Runners/ElementorContent.php:15
+#: assets/js/templately.js:1
+msgid "Elementor"
+msgstr "Elementor"
+
+#: includes/Core/Admin.php:360
+msgid "requires"
+msgstr "vereist"
+
+#: views/header.php:10
+msgid "Version"
+msgstr "Versie"
+
+#: includes/API/Login.php:166
+msgid "Logged out."
+msgstr "Uitgelogd."
+
+#: includes/Core/Platform/Elementor.php:185
+msgid "Successfully Deleted."
+msgstr "Succesvol verwijderd."
+
+#: includes/API/SignUp.php:34 assets/js/templately.js:1
+msgid "Last name cannot be empty."
+msgstr "Achternaam mag niet leeg zijn."
+
+#: includes/API/SignUp.php:31 assets/js/templately.js:1
+msgid "First name cannot be empty."
+msgstr "Voornaam mag niet leeg zijn."
+
+#: includes/API/ThemeBuilderApi.php:62
+msgid "Something went wrong. %s"
+msgstr "Er ging iets fout: %s"
+
+#: includes/API/Login.php:80
+msgid "Password field cannot be empty."
+msgstr "Wachtwoordveld mag niet leeg zijn."
+
+#: includes/API/Login.php:76 includes/API/SignUp.php:40
+msgid "Make sure you have given a valid email address."
+msgstr "Zorg ervoor dat je een geldig e-mailadres hebt opgegeven."
+
+#: includes/API/Login.php:69
+msgid "API Key field cannot be empty."
+msgstr "API-sleutel veld mag niet leeg zijn."
+
+#: includes/API/Items.php:321 includes/Builder/Types/BaseTemplate.php:200
+#: includes/Utils/Base.php:31 includes/Utils/Base.php:42
+#: assets/js/templately.js:1
+msgid "Something went wrong."
+msgstr "Er is iets fout gegaan."
+
+#. Author URI of the plugin
+#: templately.php
+msgid "https://templately.com/"
+msgstr "https://templately.com/"
+
+#. Plugin URI of the plugin
+#: templately.php
+msgid "https://templately.com"
+msgstr "https://templately.com"
+
+#. Plugin Name of the plugin
+#. Author of the plugin
+#: templately.php includes/Core/Admin.php:359
+#: includes/Core/Platform/Gutenberg.php:82 views/header.php:7
+#: assets/js/elementor.js:1
+msgid "Templately"
+msgstr "Templately"

@@ -7,7 +7,6 @@
 namespace Happy_Addons\Elementor\Widget;
 
 use Elementor\Group_Control_Css_Filter;
-use Elementor\Scheme_Typography;
 use Elementor\Utils;
 use Elementor\Control_Media;
 use Elementor\Controls_Manager;
@@ -16,6 +15,7 @@ use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Typography;
 use Happy_Addons\Elementor\Traits\Button_Renderer;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 
 defined( 'ABSPATH' ) || die();
 
@@ -55,7 +55,17 @@ class Card extends Base {
 		return [ 'card', 'blurb', 'infobox', 'content', 'block', 'box' ];
 	}
 
+	/**
+     * Register widget content controls
+     */
 	protected function register_content_controls() {
+		$this->__image_badge_content_controls();
+		$this->__title_desc_content_controls();
+		$this->__button_content_controls();
+	}
+
+	protected function __image_badge_content_controls() {
+
 		$this->start_controls_section(
 			'_section_image',
 			[
@@ -142,6 +152,9 @@ class Card extends Base {
 		);
 
 		$this->end_controls_section();
+	}
+
+	protected function __title_desc_content_controls() {
 
 		$this->start_controls_section(
 			'_section_title',
@@ -247,6 +260,9 @@ class Card extends Base {
 		);
 
 		$this->end_controls_section();
+	}
+
+	protected function __button_content_controls() {
 
 		$this->start_controls_section(
 			'_section_button',
@@ -397,7 +413,18 @@ class Card extends Base {
 		$this->end_controls_section();
 	}
 
+	/**
+     * Register widget style controls
+     */
 	protected function register_style_controls() {
+		$this->__image_style_controls();
+		$this->__badge_style_controls();
+		$this->__title_desc_style_controls();
+		$this->__button_style_controls();
+	}
+
+	protected function __image_style_controls() {
+
 		$this->start_controls_section(
 			'_section_style_image',
 			[
@@ -662,6 +689,9 @@ class Card extends Base {
 		$this->end_controls_tabs();
 
 		$this->end_controls_section();
+	}
+
+	protected function __badge_style_controls() {
 
 		$this->start_controls_section(
 			'_section_style_badge',
@@ -824,11 +854,16 @@ class Card extends Base {
 					'font_size' => ['']
 				],
 				'selector' => '{{WRAPPER}} .ha-badge',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_3,
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_TEXT,
+				],
 			]
 		);
 
 		$this->end_controls_section();
+	}
+
+	protected function __title_desc_style_controls() {
 
 		$this->start_controls_section(
 			'_section_style_content',
@@ -888,7 +923,9 @@ class Card extends Base {
 				'name' => 'title_typography',
 				'label' => __( 'Typography', 'happy-elementor-addons' ),
 				'selector' => '{{WRAPPER}} .ha-card-title',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_2,
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
+				],
 			]
 		);
 
@@ -930,11 +967,16 @@ class Card extends Base {
 				'name' => 'description_typography',
 				'label' => __( 'Typography', 'happy-elementor-addons' ),
 				'selector' => '{{WRAPPER}} .ha-card-text',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_3,
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_TEXT,
+				],
 			]
 		);
 
 		$this->end_controls_section();
+	}
+
+	protected function __button_style_controls() {
 
 		$this->start_controls_section(
 			'_section_style_button',
@@ -961,7 +1003,9 @@ class Card extends Base {
 			[
 				'name' => 'button_typography',
 				'selector' => '{{WRAPPER}} .ha-btn',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_4,
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_ACCENT,
+				],
 			]
 		);
 
@@ -1091,7 +1135,7 @@ class Card extends Base {
 		$this->add_render_attribute(
 			'badge_text',
 			'class',
-			['ha-badge', sprintf( 'ha-badge--%s', esc_attr( $settings['badge_position'] ) )]
+			[ 'ha-badge', sprintf( 'ha-badge--%s', esc_attr( $settings['badge_position'] ) ) ]
 		);
 
 		$this->add_inline_editing_attributes( 'title', 'basic' );
@@ -1115,7 +1159,7 @@ class Card extends Base {
 			<?php
 			if ( $settings['title' ] ) :
 				printf( '<%1$s %2$s>%3$s</%1$s>',
-					tag_escape( $settings['title_tag'] ),
+					ha_escape_tags( $settings['title_tag'] ),
 					$this->get_render_attribute_string( 'title' ),
 					ha_kses_basic( $settings['title' ] )
 					);
@@ -1133,7 +1177,7 @@ class Card extends Base {
 		<?php
 	}
 
-	public function _content_template() {
+	public function content_template() {
 		?>
 		<#
 		view.addInlineEditingAttributes( 'badge_text', 'none' );
@@ -1169,7 +1213,8 @@ class Card extends Base {
 
 		<div class="ha-card-body">
 			<# if (settings.title) { #>
-				<{{ settings.title_tag }} {{{ view.getRenderAttributeString( 'title' ) }}}>{{{ settings.title }}}</{{ settings.title_tag }}>
+			<# var title_tag = elementor.helpers.validateHTMLTag( settings.title_tag ); #>
+				<{{ title_tag }} {{{ view.getRenderAttributeString( 'title' ) }}}>{{{ settings.title }}}</{{ title_tag }}>
 			<# } #>
 
 			<# if (settings.description) { #>

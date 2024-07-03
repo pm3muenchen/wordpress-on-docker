@@ -18,6 +18,10 @@ class Dynamic_CSS extends Post_Local_Cache {
 	private $post_id_for_data;
 
 	protected function get_post_id_for_data() {
+		if ( empty( $this->post_dynamic_elements_ids ) ) {
+			return null;
+		}
+
 		return $this->post_id_for_data;
 	}
 
@@ -63,6 +67,17 @@ class Dynamic_CSS extends Post_Local_Cache {
 	 * @access public
 	 */
 	public function get_name() {
+		return 'dynamic';
+	}
+
+	/**
+	 * Get Responsive Control Duplication Mode
+	 *
+	 * @since 3.4.0
+	 *
+	 * @return string
+	 */
+	protected function get_responsive_control_duplication_mode() {
 		return 'dynamic';
 	}
 

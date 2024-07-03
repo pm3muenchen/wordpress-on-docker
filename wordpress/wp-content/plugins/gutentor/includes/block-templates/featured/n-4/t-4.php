@@ -55,8 +55,6 @@ if ( ! class_exists( 'Gutentor_Featured_N4_T4' ) ) {
 
 		}
 
-
-
 		/**
 		 * Post template
 		 *

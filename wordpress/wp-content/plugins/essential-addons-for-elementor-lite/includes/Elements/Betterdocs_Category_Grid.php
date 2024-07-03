@@ -78,7 +78,7 @@ class Betterdocs_Category_Grid extends Widget_Base
         return 'https://essential-addons.com/elementor/docs/betterdocs-category-grid/';
     }
 
-    protected function _register_controls()
+    protected function register_controls()
     {
         /*-----------------------------------------------------------------------------------*/
         /*    Content Tab
@@ -287,6 +287,9 @@ class Betterdocs_Category_Grid extends Widget_Base
                     'default' => __('Explore More', 'essential-addons-for-elementor-lite'),
                     'condition' => [
                         'show_button' => 'true',
+                    ],
+                    'ai' => [
+                        'active' => false,
                     ],
                 ]
             );
@@ -767,6 +770,7 @@ class Betterdocs_Category_Grid extends Widget_Base
                 [
                     'name' => 'count_font_size',
                     'selector' => '{{WRAPPER}} .eael-docs-item-count',
+                    'exclude' => [ 'line_height' ],
                 ]
             );
 
@@ -874,7 +878,7 @@ class Betterdocs_Category_Grid extends Widget_Base
             $this->add_control(
                 'count_transition',
                 [
-                    'label'                 => __( 'Transition', 'essential-addons-elementor' ),
+                    'label'                 => __( 'Transition', 'essential-addons-for-elementor-lite' ),
                     'type'                  => Controls_Manager::SLIDER,
                     'default'               => [
                         'size'      => '300',
@@ -1434,7 +1438,7 @@ class Betterdocs_Category_Grid extends Widget_Base
             $this->add_control(
                 'button_transition',
                 [
-                    'label'                 => __( 'Transition', 'essential-addons-elementor' ),
+                    'label'                 => __( 'Transition', 'essential-addons-for-elementor-lite' ),
                     'type'                  => Controls_Manager::SLIDER,
                     'default'               => [
                         'size'      => '300',
@@ -1510,15 +1514,15 @@ class Betterdocs_Category_Grid extends Widget_Base
                     'options' => [
                         'left' => [
                             'title' => __('Left', 'essential-addons-for-elementor-lite'),
-                            'icon' => 'fa fa-align-left',
+                            'icon' => 'eicon-text-align-left',
                         ],
                         'center' => [
                             'title' => __('Center', 'essential-addons-for-elementor-lite'),
-                            'icon' => 'fa fa-align-center',
+                            'icon' => 'eicon-text-align-center',
                         ],
                         'right' => [
                             'title' => __('Right', 'essential-addons-for-elementor-lite'),
-                            'icon' => 'fa fa-align-right',
+                            'icon' => 'eicon-text-align-right',
                         ],
                     ],
                     'selectors' => [
@@ -1535,15 +1539,15 @@ class Betterdocs_Category_Grid extends Widget_Base
                     'options' => [
                         'left' => [
                             'title' => __('Left', 'essential-addons-for-elementor-lite'),
-                            'icon' => 'fa fa-align-left',
+                            'icon' => 'eicon-text-align-left',
                         ],
                         'center' => [
                             'title' => __('Center', 'essential-addons-for-elementor-lite'),
-                            'icon' => 'fa fa-align-center',
+                            'icon' => 'eicon-text-align-center',
                         ],
                         'right' => [
                             'title' => __('Right', 'essential-addons-for-elementor-lite'),
-                            'icon' => 'fa fa-align-right',
+                            'icon' => 'eicon-text-align-right',
                         ],
                     ],
                     'selectors' => [
@@ -1603,6 +1607,14 @@ class Betterdocs_Category_Grid extends Widget_Base
 
         if($settings['exclude']) {
             $terms_object['exclude'] =  $settings['exclude'];
+        }
+
+        if ($settings['orderby'] == 'betterdocs_order') {
+            $terms_object['meta_key'] = 'doc_category_order';
+            $terms_object['orderby'] = 'meta_value_num';
+            $terms_object['order'] = 'ASC';
+        } else {
+            $terms_object['orderby'] = $settings['orderby'];
         }
 
         $default_multiple_kb = Helper::get_betterdocs_multiple_kb_status();
@@ -1702,7 +1714,7 @@ class Betterdocs_Category_Grid extends Widget_Base
         <script type="text/javascript">
             jQuery(document).ready(function($) {
                 $('.eael-better-docs-category-grid').each(function() {
-                    var $scope = jQuery(".elementor-element-<?php echo $this->get_id(); ?>"),
+                    var $scope = jQuery(".elementor-element-<?php echo esc_js( $this->get_id() ); ?>"),
                         $gallery = $(this);
                         $layout_mode = $gallery.data('layout-mode');
 

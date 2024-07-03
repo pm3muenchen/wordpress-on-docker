@@ -77,7 +77,7 @@ if ( ! class_exists( 'Gutentor_Templateberg' ) ) {
 
 			/*prevent gutentor to redirect*/
 			update_option( '__templateberg_do_redirect', false );
-            require_once ABSPATH . 'wp-admin/includes/file.php';
+			require_once ABSPATH . 'wp-admin/includes/file.php';
 			include_once ABSPATH . 'wp-admin/includes/plugin.php';
 
 			if ( is_plugin_active_for_network( $plugin ) || is_plugin_active( $plugin ) ) {
@@ -198,7 +198,6 @@ if ( ! class_exists( 'Gutentor_Templateberg' ) ) {
 			}
 			$icalendar = $this->get_notification_calendar();
 
-
 			/**
 			 * Return from notice display if:
 			 * 5 days
@@ -225,9 +224,9 @@ if ( ! class_exists( 'Gutentor_Templateberg' ) ) {
 			if ( $request->get_param( 'condition' ) ) {
 				$condition = sanitize_text_field( $request->get_param( 'condition' ) );
 				switch ( $condition ) {
-                    case 'maybe':
-                        $output = update_user_meta( get_current_user_id(), 'gutentor_templateberg_notice_calendar', time() );
-                        break;
+					case 'maybe':
+						$output = update_user_meta( get_current_user_id(), 'gutentor_templateberg_notice_calendar', time() );
+						break;
 
 					case 'active':
 						$output = $this->install_templateberg();
@@ -237,15 +236,15 @@ if ( ! class_exists( 'Gutentor_Templateberg' ) ) {
 						$output = admin_url( 'admin.php?page=templateberg' );
 						break;
 
-                    case 'gutentor':
-                    case 'refresh':
-                        if ( gutentor_is_templateberg_active() && gutentor_templateberg_has_account() ) {
-                            $options                                 = get_option( 'gutentor_settings_options' );
-                            $options['gutentor_enable_import_block'] = false;
-                            update_option( 'gutentor_settings_options', $options );
-                        }
-                        $output = get_option( 'gutentor_settings_options' );
-                        break;
+					case 'gutentor':
+					case 'refresh':
+						if ( gutentor_is_templateberg_active() && gutentor_templateberg_has_account() ) {
+							$options                        = gutentor_get_options();
+							$options['enable-import-block'] = false;
+							update_option( 'gutentor_settings_options', $options );
+						}
+						$output = gutentor_get_options();
+						break;
 				}
 			}
 			return rest_ensure_response( $output );

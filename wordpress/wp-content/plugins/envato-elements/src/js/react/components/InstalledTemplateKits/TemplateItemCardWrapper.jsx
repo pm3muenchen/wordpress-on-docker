@@ -35,19 +35,21 @@ const TemplateItemCardWrapper = ({ template }) => {
                 }
               }}
             >
-              {isActivationModelOpen ? (
-                <TemplatePreviewModal
-                  templateScreenShotUrl={templateScreenShotUrl}
-                  templatePreviewTitle={templateName}
-                  templateKitId={templateKitId}
-                  templateId={templateId}
-                  existingImports={templateExistingImports}
-                  onCloseCallback={() => {
-                    setOpenActivationModal(false)
-                  }}
-                  installRequirements={blockImport}
-                />
-              ) : null}
+              {isActivationModelOpen
+                ? (
+                  <TemplatePreviewModal
+                    templateScreenShotUrl={templateScreenShotUrl}
+                    templatePreviewTitle={templateName}
+                    templateKitId={templateKitId}
+                    templateId={templateId}
+                    existingImports={templateExistingImports}
+                    onCloseCallback={() => {
+                      setOpenActivationModal(false)
+                    }}
+                    installRequirements={blockImport}
+                  />
+                  )
+                : null}
               <Button
                 type='ghost'
                 icon='expand'
@@ -60,22 +62,24 @@ const TemplateItemCardWrapper = ({ template }) => {
         )}
         Buttons={(
           <>
-            {blockImport ? (
-              <>
-                <p className={styles.unmetRequirementsMessage}>
-                  {template.unmet_requirements.join(' ')}
-                </p>
-                <Button type='warning' label='Ignore Requirements' icon='cross' onClick={() => setBlockImport(false)} />
-              </>
-            ) : (
-              <ButtonWrapper>
-                <ImportSingleTemplate
-                  templateKitId={templateKitId}
-                  templateId={templateId}
-                  existingImports={templateExistingImports}
-                />
-              </ButtonWrapper>
-            )}
+            {blockImport
+              ? (
+                <>
+                  <p className={styles.unmetRequirementsMessage}>
+                    {template.unmet_requirements.join(' ')}
+                  </p>
+                  <Button type='warning' label='Ignore Requirements' icon='cross' onClick={() => setBlockImport(false)} />
+                </>
+                )
+              : (
+                <ButtonWrapper>
+                  <ImportSingleTemplate
+                    templateKitId={templateKitId}
+                    templateId={templateId}
+                    existingImports={templateExistingImports}
+                  />
+                </ButtonWrapper>
+                )}
           </>
         )}
         title={templateName}

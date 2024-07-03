@@ -101,14 +101,25 @@ class DataExporter
 
                 // Account for arrays with just one item, such as usermeta
                 if (is_array($value) && 1 === count($value)) {
-                    $value = $value[0];
+                    $tmp = '';
+                    foreach ($value as $key => $value2) {
+                        $tmp = $value2;
+                    }
+                    $value = $tmp;
                 }
 
                 // In case of arrays, recurse
-                if (is_array($value)) {
+                if ( is_array( $value ) ) {
                     $output .= $this->formatAsTable($value, ($level + 1));
                 } else {
-                    $output .= esc_html($value);
+                    // check for an object
+                    if ( ! empty( $value->user_nicename ) ) {
+                        $output .= esc_html( $value->user_nicename );
+                    } elseif ( is_object( $value ) ) {
+                        $output .= esc_html( print_r( $value, true ) );
+                    } else {
+                        $output .= wp_kses_post( $value );
+                    }
                 }
                 $output .= "</td>";
 

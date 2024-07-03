@@ -29,29 +29,38 @@ const InstallRequirementInBackground = ({ requirement, completeCallback }) => {
 
   return (
     <>
-      {loading ? (
-        <>
-          <span className={`dashicons dashicons-update ${styles.installingIcon}`} />
-          Installing...
-        </>
-      ) : null}
-      {error ? (
-        <>
-          <span className='dashicons dashicons-no' />
-          {data && data.error ? (
-            <>
-              {data.error.data && data.error.data.url
-                ? <a href={data.error.data.url} target='_blank' rel='noopener noreferrer'>{data.error.message}</a> : data.error.message}
-            </>
-          ) : 'Error'}
-        </>
-      ) : null}
-      {!loading && !error ? (
-        <>
-          <span className='dashicons dashicons-yes-alt' />
-          Success!
-        </>
-      ) : null}
+      {loading
+        ? (
+          <>
+            <span className={`dashicons dashicons-update ${styles.installingIcon}`} />
+            Installing...
+          </>
+          )
+        : null}
+      {error
+        ? (
+          <>
+            <span className='dashicons dashicons-no' />
+            {data && data.error
+              ? (
+                <>
+                  {data.error.data && data.error.data.url
+                    ? <a href={data.error.data.url} target='_blank' rel='noopener noreferrer'>{data.error.message}</a>
+                    : data.error.message}
+                </>
+                )
+              : 'Error'}
+          </>
+          )
+        : null}
+      {!loading && !error
+        ? (
+          <>
+            <span className='dashicons dashicons-yes-alt' />
+            Success!
+          </>
+          )
+        : null}
     </>
   )
 }
@@ -60,14 +69,16 @@ const RequiredCSSPreview = ({ previewCss }) => {
   const [openRequiredCSSModal, setOpenRequiredCSSModal] = useState(false)
   return (
     <>
-      {openRequiredCSSModal ? (
-        <ModalWrapper isOpen onCloseCallback={() => setOpenRequiredCSSModal(false)}>
-          <code className={styles.cssPreview}>
-            <pre>
-              {previewCss}
-            </pre>
-          </code>
-        </ModalWrapper>) : null}{' '}
+      {openRequiredCSSModal
+        ? (
+          <ModalWrapper isOpen onCloseCallback={() => setOpenRequiredCSSModal(false)}>
+            <code className={styles.cssPreview}>
+              <pre>
+                {previewCss}
+              </pre>
+            </code>
+          </ModalWrapper>)
+        : null}{' '}
       <a
         href='#'
         onClick={(event) => {
@@ -162,83 +173,95 @@ const MissingRequirements = ({ plugins, theme, settings, requiredCss, templateKi
   // We have some missing requirements, display a banner with a button that opens a modal:
   return (
     <>
-      {openRequirementsModal ? (
-        <ModalWrapper isOpen onCloseCallback={completeCallback}>
-          <div>
-            <MainHeading title='Missing Requirements' />
-            <p className={styles.notice}>Please install and activate these missing requirements for this Template Kit to work correctly. We recommend checking with your web developer before applying these changes.</p>
-            <ul className={styles.requirements}>
-              {missingRequirements.map((requirement, index) => {
-                return (
-                  <li key={`requirement${index}`} className={styles.requirement}>
-                    <div className={styles.checkbox}>
-                      <input
-                        type='checkbox' id={`requirement${index}`} name='installRequirement[]' value='1' disabled={installingIndex !== null} checked={isRequirementSelectedForInstall(index)} onChange={(e) => {
-                          const isChecked = !!e.target.checked
-                          setRequirementsToInstall(oldRequirements => ({ ...oldRequirements, [index]: isChecked }))
-                        }}
-                      />
-                    </div>
-                    <div className={styles.text}>
-                      <label htmlFor={`requirement${index}`}>
-                        {requirement.theme ? `Theme: ${requirement.theme.name}` : null}
-                        {requirement.plugin ? `Plugin: ${requirement.plugin.name}` : null}
-                        {requirement.setting ? `Setting: ${requirement.setting.name}` : null}
-                        {requirement.requiredCss ? (
-                          <>
-                            {requirement.requiredCss.name}: {requirement.requiredCss.description}
-                            <RequiredCSSPreview previewCss={requirement.requiredCss.css_preview} />
-                          </>
-                        ) : null}
-                      </label>
-                    </div>
-                    <div className={styles.status}>
-                      {installingIndex === index || installingIndex > index ? (
-                        <InstallRequirementInBackground key={`installRequirement${index}`} requirement={isRequirementSelectedForInstall(index) ? requirement : null} completeCallback={installNextRequirement} />
-                      ) : null}
-                    </div>
-                  </li>
-                )
-              })}
-              {theme ? (
-                <li className={styles.requirement}>
-                  <div className={styles.checkbox}>
-                    <span className='dashicons dashicons-warning' />
-                  </div>
-                  <div className={styles.text}>
-                  FYI: This Template Kit has only been tested with the "{theme.name}" WordPress theme. <br />
-                    If the imported templates don’t look correct please read <ExternalLink href='https://help.market.envato.com/hc/en-us/sections/360007560992-Template-Kits' text='this article' />.
-                  </div>
-                </li>
-              ) : null}
-            </ul>
-            <div className={styles.footer}>
-              {installingIndex === null ? (
-                <Button
-                  type='primary' icon='plus' label='Install Above Selected Requirements' onClick={() => {
-                    setInstallingIndex(0)
-                  }}
-                />
-              ) : (
-                <>
-                  {installingIndex >= missingCount ? (
+      {openRequirementsModal
+        ? (
+          <ModalWrapper isOpen onCloseCallback={completeCallback}>
+            <div>
+              <MainHeading title='Missing Requirements' />
+              <p className={styles.notice}>Please install and activate these missing requirements for this Template Kit to work correctly. We recommend checking with your web developer before applying these changes.</p>
+              <ul className={styles.requirements}>
+                {missingRequirements.map((requirement, index) => {
+                  return (
+                    <li key={`requirement${index}`} className={styles.requirement}>
+                      <div className={styles.checkbox}>
+                        <input
+                          type='checkbox' id={`requirement${index}`} name='installRequirement[]' value='1' disabled={installingIndex !== null} checked={isRequirementSelectedForInstall(index)} onChange={(e) => {
+                            const isChecked = !!e.target.checked
+                            setRequirementsToInstall(oldRequirements => ({ ...oldRequirements, [index]: isChecked }))
+                          }}
+                        />
+                      </div>
+                      <div className={styles.text}>
+                        <label htmlFor={`requirement${index}`}>
+                          {requirement.theme ? `Theme: ${requirement.theme.name}` : null}
+                          {requirement.plugin ? `Plugin: ${requirement.plugin.name}` : null}
+                          {requirement.setting ? `Setting: ${requirement.setting.name}` : null}
+                          {requirement.requiredCss
+                            ? (
+                              <>
+                                {requirement.requiredCss.name}: {requirement.requiredCss.description}
+                                <RequiredCSSPreview previewCss={requirement.requiredCss.css_preview} />
+                              </>
+                              )
+                            : null}
+                        </label>
+                      </div>
+                      <div className={styles.status}>
+                        {installingIndex === index || installingIndex > index
+                          ? (
+                            <InstallRequirementInBackground key={`installRequirement${index}`} requirement={isRequirementSelectedForInstall(index) ? requirement : null} completeCallback={installNextRequirement} />
+                            )
+                          : null}
+                      </div>
+                    </li>
+                  )
+                })}
+                {theme && theme.name
+                  ? (
+                    <li className={styles.requirement}>
+                      <div className={styles.checkbox}>
+                        <span className='dashicons dashicons-warning' />
+                      </div>
+                      <div className={styles.text}>
+                        FYI: This Template Kit has only been tested with the "{theme.name}" WordPress theme. <br />
+                        If the imported templates don’t look correct please read <ExternalLink href='https://help.market.envato.com/hc/en-us/sections/360007560992-Template-Kits' text='this article' />.
+                      </div>
+                    </li>
+                    )
+                  : null}
+              </ul>
+              <div className={styles.footer}>
+                {installingIndex === null
+                  ? (
+                    <Button
+                      type='primary' icon='plus' label='Install Above Selected Requirements' onClick={() => {
+                        setInstallingIndex(0)
+                      }}
+                    />
+                    )
+                  : (
                     <>
-                      <p className={styles.notice}>Once the above is completed you can close this window.</p>
-                      <Button
-                        type='primary' icon='plus' label='Close' onClick={completeCallback}
-                      />
+                      {installingIndex >= missingCount
+                        ? (
+                          <>
+                            <p className={styles.notice}>Once the above is completed you can close this window.</p>
+                            <Button
+                              type='primary' icon='plus' label='Close' onClick={completeCallback}
+                            />
+                          </>
+                          )
+                        : (
+                          <p className={styles.notice}>
+                            Installing...
+                          </p>
+                          )}
                     </>
-                  ) : (
-                    <p className={styles.notice}>
-                    Installing...
-                    </p>
-                  )}
-                </>
-              )}
+                    )}
+              </div>
             </div>
-          </div>
-        </ModalWrapper>
-      ) : null}
+          </ModalWrapper>
+          )
+        : null}
       <div className={styles.wrapper}>
         <div className={styles.textWrapper}>
           <strong>Attention!</strong> There are {missingCount} requirements that need installing for this Template Kit to work correctly.

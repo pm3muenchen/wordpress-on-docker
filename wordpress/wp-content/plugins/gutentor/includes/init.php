@@ -149,6 +149,15 @@ class Gutentor {
 		 */
 		require_once GUTENTOR_PATH . 'includes/i18n.php';
 
+		/*Cron*/
+		require_once GUTENTOR_PATH . 'includes/class-gutentor-cron.php';
+
+		/*Pro*/
+		require_once GUTENTOR_PATH . 'includes/pro/gutentor-pro-init.php';
+
+		/*User data*/
+		require_once GUTENTOR_PATH . 'includes/admin/class-gutentor-tracking.php';
+
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
@@ -168,7 +177,8 @@ class Gutentor {
 		/*Meta*/
 		require_once GUTENTOR_PATH . 'includes/metabox/meta-box.php';
 
-		/*Blocks*/
+		/*
+		Blocks*/
 		/*block-base*/
 		require_once GUTENTOR_PATH . 'includes/block-base/class-gutentor-block-base.php';
 		require_once GUTENTOR_PATH . 'includes/block-base/class-gutentor-query-elements.php';
@@ -179,20 +189,33 @@ class Gutentor {
 		/*Block Templates*/
 		require_once GUTENTOR_PATH . 'includes/block-templates/featured/featured.php';
 
+		/*Elements*/
+		require_once GUTENTOR_PATH . 'includes/blocks/elements/class-gutentor-e2.php';/* ***Do not remove required for PHP BLOCK*/
+		require_once GUTENTOR_PATH . 'includes/blocks/elements/class-gutentor-e3.php';/* ***Do not remove required for Enquee*/
+		require_once GUTENTOR_PATH . 'includes/blocks/elements/class-gutentor-e4.php';/* ***Do not remove required for PHP BLOCK*/
+		require_once GUTENTOR_PATH . 'includes/blocks/elements/class-gutentor-e9.php';/* ***Do not remove required for PHP BLOCK*/
+		require_once GUTENTOR_PATH . 'includes/blocks/elements/class-gutentor-e11.php';/* ***Do not remove required for PHP BLOCK*/
 
-        /*Elements*/
-        require_once GUTENTOR_PATH . 'includes/blocks/elements/class-gutentor-e4.php';/* ***Do not remove required for PHP BLOCK*/
-
-        /*Widgets*/
-        require_once GUTENTOR_PATH . 'includes/blocks/widgets/class-gutentor-blog-post.php';/* ***Do not remove required for PHP BLOCK*/
-        require_once GUTENTOR_PATH . 'includes/blocks/widgets/class-gutentor-google-map.php';/* ***Do not remove required for PHP BLOCK*/
+		/*Widgets*/
+		require_once GUTENTOR_PATH . 'includes/blocks/widgets/class-gutentor-blog-post.php';/* ***Do not remove required for PHP BLOCK*/
+		require_once GUTENTOR_PATH . 'includes/blocks/widgets/class-gutentor-google-map.php';/* ***Do not remove required for PHP BLOCK*/
+		require_once GUTENTOR_PATH . 'includes/blocks/widgets/class-gutentor-counter-box.php';/* ***Do not remove required for Enquee*/
+		require_once GUTENTOR_PATH . 'includes/blocks/widgets/class-gutentor-progress-bar.php';/* ***Do not remove required for Enquee*/
+		require_once GUTENTOR_PATH . 'includes/blocks/widgets/class-gutentor-video-popup.php';/* ***Do not remove required for Enquee*/
+		require_once GUTENTOR_PATH . 'includes/blocks/widgets/class-gutentor-gallery.php';/* ***Do not remove required for Enquee*/
+		require_once GUTENTOR_PATH . 'includes/blocks/widgets/class-gutentor-image-slider.php';/* ***Do not remove required for Enquee*/
 
 		/*Post Modules*/
 		require_once GUTENTOR_PATH . 'includes/blocks/modules/class-gutentor-p1.php';/* ***Do not remove required for PHP BLOCK*/
 		require_once GUTENTOR_PATH . 'includes/blocks/modules/class-gutentor-p3.php';/* ***Do not remove required for PHP BLOCK*/
 		require_once GUTENTOR_PATH . 'includes/blocks/modules/class-gutentor-p2.php';/* ***Do not remove required for PHP BLOCK*/
+		require_once GUTENTOR_PATH . 'includes/blocks/modules/class-gutentor-p4.php';/* ***Do not remove required for Enquee*/
 		require_once GUTENTOR_PATH . 'includes/blocks/modules/class-gutentor-p5.php';/* ***Do not remove required for PHP BLOCK*/
 		require_once GUTENTOR_PATH . 'includes/blocks/modules/class-gutentor-p6.php';/* ***Do not remove required for PHP BLOCK*/
+		require_once GUTENTOR_PATH . 'includes/blocks/modules/class-gutentor-m0.php';/* ***Do not remove required for Enquee*/
+		require_once GUTENTOR_PATH . 'includes/blocks/modules/class-gutentor-m4.php';/* ***Do not remove required for Enquee*/
+		require_once GUTENTOR_PATH . 'includes/blocks/modules/class-gutentor-m5.php';/* ***Do not remove required for Enquee*/
+		require_once GUTENTOR_PATH . 'includes/blocks/modules/class-gutentor-m10.php';/* ***Do not remove required for Enquee*/
 
 		/*Term Modules*/
 		require_once GUTENTOR_PATH . 'includes/blocks/modules/class-gutentor-t1.php';/* ***Do not remove required for PHP BLOCK*/
@@ -207,7 +230,7 @@ class Gutentor {
 		/*Advanced Import*/
 		require_once GUTENTOR_PATH . 'includes/tools/class-gutentor-advanced-import.php';
 
-        /*Tb Notice*/
+		/*Tb Notice*/
 		require_once GUTENTOR_PATH . 'includes/tools/class-gutentor-templateberg.php';
 
 		/*Dynamic CSS*/
@@ -244,25 +267,33 @@ class Gutentor {
 
 		$plugin_hooks = gutentor_hooks();
 
-		/*Hook: some options for Gutentor.*/
-		$this->loader->add_action( 'customize_register', $plugin_hooks, 'customize_register' );
-
 		/*Hook: Register Scripts*/
 		$this->loader->add_action( 'init', $plugin_hooks, 'register_script_style' );
 
 		/*Hook: Both Frontend and Backend assets.*/
 		$this->loader->add_action( 'enqueue_block_assets', $plugin_hooks, 'block_assets' );
 
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_hooks, 'load_last_scripts', 99 );
+		/*
+		equal or greater than 20 doesnot work
+		Changed on 3.2.6
+		// $this->loader->add_action( 'wp_enqueue_scripts', $plugin_hooks, 'load_last_scripts', 999 );
+		*/
+		$this->loader->add_action( 'wp_footer', $plugin_hooks, 'load_last_scripts', 10 );
 
 		/*Hook: Editor assets.*/
 		$this->loader->add_action( 'enqueue_block_editor_assets', $plugin_hooks, 'block_editor_assets', 999 );
+		$this->loader->add_action( 'customize_preview_init', $plugin_hooks, 'customize_preview_init', 999 );
 
-        /*Hook: Adding Gutentor Color palatte.*/
-        $this->loader->add_action( 'after_setup_theme', $plugin_hooks, 'add_color_palette',99999 );
+		/*Hook: Adding Gutentor Color palatte.*/
+		$this->loader->add_action( 'after_setup_theme', $plugin_hooks, 'add_color_palette', 99999 );
 
 		/*Hook Adding Block Categories*/
-		$this->loader->add_filter( 'block_categories', $plugin_hooks, 'add_block_categories', 99999 );
+
+		if ( version_compare( get_bloginfo( 'version' ), '5.8', '>=' ) ) {
+			$this->loader->add_filter( 'block_categories_all', $plugin_hooks, 'add_block_categories', 99999 );
+		} else {
+			$this->loader->add_filter( 'block_categories', $plugin_hooks, 'add_block_categories', 99999 );
+		}
 
 		/*Adding Body Class*/
 		$this->loader->add_filter( 'body_class', $plugin_hooks, 'add_body_class' );
@@ -270,10 +301,11 @@ class Gutentor {
 		/*Adding Admin Body Class*/
 		$this->loader->add_filter( 'admin_body_class', $plugin_hooks, 'add_admin_body_class' );
 
-		/*Adding page templates
+		/*
+		Adding page templates
 		From 3.0.3 replaced by gutentor\includes\admin\settings\class-admin-settings.php*/
-//		$this->loader->add_filter( 'theme_page_templates', $plugin_hooks, 'gutentor_add_page_template' );
-//		$this->loader->add_filter( 'page_template', $plugin_hooks, 'gutentor_redirect_page_template' );
+		// $this->loader->add_filter( 'theme_page_templates', $plugin_hooks, 'gutentor_add_page_template' );
+		// $this->loader->add_filter( 'page_template', $plugin_hooks, 'gutentor_redirect_page_template' );
 
 		/*Adding style*/
 		$this->loader->add_filter( 'wp_kses_allowed_html', $plugin_hooks, 'allow_style_tags' );
@@ -282,9 +314,6 @@ class Gutentor {
 		$this->loader->add_filter( 'gutentor_default_options', $plugin_hooks, 'acmethemes_alter_default_options' );
 
 		$this->loader->add_action( 'widgets_init', $plugin_hooks, 'register_gutentor_reusable_block_selector_widget' );
-
-		/*gutentor_force_load_block_assets*/
-		$this->loader->add_action( 'gutentor_force_load_block_assets', $plugin_hooks, 'force_load_block_assets' );
 
 	}
 	/**

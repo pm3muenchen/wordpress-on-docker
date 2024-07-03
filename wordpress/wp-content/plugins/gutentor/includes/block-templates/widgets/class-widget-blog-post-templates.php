@@ -93,14 +93,14 @@ if ( ! class_exists( 'Gutentor_Widget_Blog_Post_Templates' ) ) {
 			}
 			$output .= '<div class="entry-meta">';
 			if ( $attributes['enablePostDate'] ) {
-				$dateFontAwesomeClass = (int) gutentor_get_options( 'gutentor_font_awesome_version' ) === 4 ? 'fa fa-calendar' : 'far fa-calendar-alt';
+				$dateFontAwesomeClass = (int) gutentor_get_options( 'fa-version' ) === 4 ? 'fa fa-calendar' : 'far fa-calendar-alt';
 				$output              .= '<div class="posted-on"><i class="' . $dateFontAwesomeClass . '"></i>';
 				$output              .= '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . get_the_date() . '</a>';
 				$output              .= '</div>';
 
 			}
 			if ( $attributes['enablePostAuthor'] ) {
-				$authorFontAwesomeClass = (int) gutentor_get_options( 'gutentor_font_awesome_version' ) === 4 ? 'fa fa-user' : 'far fa-user';
+				$authorFontAwesomeClass = (int) gutentor_get_options( 'fa-version' ) === 4 ? 'fa fa-user' : 'far fa-user';
 				$output                .= '<div class="author vcard"><i class="' . $authorFontAwesomeClass . '"></i>';
 				$output                .= '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . get_the_author() . '</a>';
 				$output                .= '</div>';
@@ -108,7 +108,7 @@ if ( ! class_exists( 'Gutentor_Widget_Blog_Post_Templates' ) ) {
 			if ( $attributes['enablePostCategory'] ) {
 				$categories_list = get_the_category_list( esc_html__( ', ', 'gutentor' ) );
 				if ( $categories_list ) {
-					$catFontAwesomeClass = (int) gutentor_get_options( 'gutentor_font_awesome_version' ) === 4 ? 'fa fa-tags' : 'fas fa-tags';
+					$catFontAwesomeClass = (int) gutentor_get_options( 'fa-version' ) === 4 ? 'fa fa-tags' : 'fas fa-tags';
 					$output             .= '<div class="cat-links"><i class="' . $catFontAwesomeClass . '"></i>' . $categories_list . '</div>';
 				}
 			}
@@ -143,7 +143,7 @@ if ( ! class_exists( 'Gutentor_Widget_Blog_Post_Templates' ) ) {
 
 			$output = $data;
 
-			if ( 'blog-template1' == $attributes['blockBlogTemplate'] ) {
+			if ( 'blog-template1' === $attributes['blockBlogTemplate'] ) {
 				$output = $this->template_1( $data, $post, $attributes );
 			}
 			return $output;

@@ -41,35 +41,65 @@ class FilemanagerController {
   }
 
   public function display() {
-	$params = array();
-	$dir = $this->model->get_from_session('dir', '');
+    $params = array();
+    $dir = str_replace(array('\\', '..'), '', WDWLibrary::validate_path($this->model->get_from_session('dir', '')));
+
     $search = $this->model->get_from_session('search', '');
     $page_num = $this->model->get_from_session('paged', 0);
     $callback = $this->model->get_from_session('callback', '');
     $valid_types = explode( ',', strtolower('jpg,jpeg,png,gif,svg') );
 
 	// set session data.
-	$session_data = array();
-    $session_data['sort_by'] = $this->model->get_from_session('sort_by', 'date_modified');
-    $session_data['sort_order'] = $this->model->get_from_session('sort_order', 'desc');
+    $session_data = array();
     $session_data['items_view'] = $this->model->get_from_session('items_view', 'thumbs');
     $session_data['clipboard_task'] = $this->model->get_from_session('clipboard_task', '');
     $session_data['clipboard_files'] = $this->model->get_from_session('clipboard_files', '');
     $session_data['clipboard_src'] = $this->model->get_from_session('clipboard_src', '');
     $session_data['clipboard_dest'] = $this->model->get_from_session('clipboard_dest', '');
-	$params['session_data'] = $session_data;
 
-	$params['dir'] = ($dir == '' || $dir == '/') ? '/' : $dir .'/';
-	$params['path_components'] = $this->model->get_path_components( $dir );
-	$params['search'] = $search;
-	$params['page_num'] = $page_num;
-	$params['valid_types'] = $valid_types;
-	$params['orderby'] = $session_data['sort_by'];
-	$params['order'] = $session_data['sort_order'];
-	$params['page_per'] = $this->page_per;
-	// get file lists.
-	$items = $this->model->get_file_lists( $params );
-	$params['items'] = $items;
+    // Get ordering for each WP user.
+    $bwg_filemanager_sorting_array = get_option('bwg_filemanager_sorting');
+    // Set ordering for current WP user if not exist.
+    if ( !$bwg_filemanager_sorting_array ) {
+      $bwg_filemanager_sorting_array = array();
+    }
+    if ( empty($bwg_filemanager_sorting_array[get_current_user_id()]) ) {
+      $bwg_filemanager_sorting_array[get_current_user_id()]['sort_by'] = 'date_modified';
+      $bwg_filemanager_sorting_array[get_current_user_id()]['sort_order'] = 'desc';
+    }
+
+    // Update ordering if sorted for current WP user.
+    $sort_by = WDWLibrary::get('sort_by', '');
+    if ( $sort_by !== '' ) {
+      $sort_by = in_array($sort_by, array( 'name', 'size', 'date_modified' )) ? $sort_by : 'date_modified';
+      $sort_order = WDWLibrary::get('sort_order', 'desc');
+      $sort_order = ($sort_order == 'desc') ? 'desc' : 'asc';
+
+      $bwg_filemanager_sorting_array[get_current_user_id()] = array(
+        'sort_by' => $sort_by,
+        'sort_order' => $sort_order,
+      );
+      update_option('bwg_filemanager_sorting', $bwg_filemanager_sorting_array);
+    }
+
+    $session_data['sort_by'] = $bwg_filemanager_sorting_array[get_current_user_id()]['sort_by'];
+    $session_data['sort_order'] = $bwg_filemanager_sorting_array[get_current_user_id()]['sort_order'];
+
+    $params['orderby'] = $session_data['sort_by'];
+    $params['session_data'] = $session_data;
+    $params['dir'] = ($dir == '' || $dir == '/') ? '/' : $dir .'/';
+    $params['path_components'] = $this->model->get_path_components( $dir );
+    $params['search'] = $search;
+    $params['page_num'] = $page_num;
+    $params['valid_types'] = $valid_types;
+
+
+    $params['order'] = $session_data['sort_order'];
+    $params['page_per'] = $this->page_per;
+
+    // get file lists.
+    $items = $this->model->get_file_lists( $params );
+    $params['items'] = $items;
 
 	$pagination_args = array(
 		'action' => 'addImages',
@@ -98,34 +128,34 @@ class FilemanagerController {
   }
 
   function pagination() {
-	$dir = $this->model->get_from_session('dir', '');
-	$dir = ($dir == '') ? '/' : $dir .'/';
-	$order   = $this->model->get_from_session('order', 'desc');
-	$orderby = $this->model->get_from_session('orderby', 'date_modified');
-	$search = $this->model->get_from_session('search', '');
-	$paged = $this->model->get_from_session('paged', 0);
-	$page_per = $this->page_per;
-	$data = $this->model->get_file_lists(
-		array(
-		'dir' => $dir,
-		'order' => $order,
-		'orderby' => $orderby,
-		'page_num' => $paged,
-		'page_per' => $page_per,
-		'search' => $search
-		)
-	);
-	$html = '';
-	$i = 0;
-	if ( !empty($data['files']) ) {
-		foreach($data['files'] as $file ) {
-			++$i;
-			$file['index'] = $paged * $this->page_per + $i;
-			$html .= $this->view->print_file_thumb($file);
-		}
-	}
-	$json = array('html' => $html);
-	echo json_encode($json); exit;
+    $dir = str_replace(array('\\', '..'), '', $this->model->get_from_session('dir', ''));
+    $dir = ($dir == '') ? '/' : $dir .'/';
+    $order   = $this->model->get_from_session('order', 'desc');
+    $orderby = $this->model->get_from_session('orderby', 'date_modified');
+    $search = $this->model->get_from_session('search', '');
+    $paged = $this->model->get_from_session('paged', 0);
+    $page_per = $this->page_per;
+    $data = $this->model->get_file_lists(
+      array(
+      'dir' => $dir,
+      'order' => $order,
+      'orderby' => $orderby,
+      'page_num' => $paged,
+      'page_per' => $page_per,
+      'search' => $search
+      )
+    );
+    $html = '';
+    $i = 0;
+    if ( !empty($data['files']) ) {
+      foreach($data['files'] as $file ) {
+        ++$i;
+        $file['index'] = $paged * $this->page_per + $i;
+        $html .= $this->view->print_file_thumb($file);
+      }
+    }
+    $json = array('html' => $html);
+    echo json_encode($json); exit;
   }
 
 	function get_all_select() {
@@ -146,15 +176,13 @@ class FilemanagerController {
    * @return mixed
    */
 	private function esc_dir($dir) {
-		$dir = str_replace('../', '', $dir);
-
+        $dir = str_replace(array('../', '.'), '', $dir);
 		return $dir;
 	}
 
   public function make_dir() {
-
     global $wpdb;
-    $input_dir = (isset($_REQUEST['dir']) ? str_replace('\\', '', WDWLibrary::get('dir','','sanitize_text_field','REQUEST')) : '');
+    $input_dir = (isset($_REQUEST['dir']) ? str_replace(array('\\', '..'), '', WDWLibrary::get('dir','','sanitize_text_field','REQUEST')) : '');
     $input_dir = htmlspecialchars_decode($input_dir, ENT_COMPAT | ENT_QUOTES);
     $input_dir = $this->esc_dir($input_dir);
 
@@ -174,7 +202,7 @@ class FilemanagerController {
     $new_dir_path = $this->esc_dir($new_dir_path);
 
     if (file_exists($new_dir_path) == true) {
-      $msg = __("Directory already exists.", BWG()->prefix);
+      $msg = __("Directory already exists.", 'photo-gallery');
     }
     else {
       $msg = '';
@@ -220,9 +248,9 @@ class FilemanagerController {
   }
 
   public function parsing_items() {
-		$dir = $this->model->get_from_session('dir', '');
+		$dir = str_replace(array('\\', '..'), '', $this->model->get_from_session('dir', ''));
 		$dir = ($dir == '' || $dir == '/') ? '/' : $dir .'/';
-		$input_dir = (isset($_REQUEST['dir']) ? str_replace('\\', '', WDWLibrary::get('dir','','sanitize_text_field','REQUEST')) : '');
+		$input_dir = (isset($_REQUEST['dir']) ? str_replace(array('\\', '..'), '', WDWLibrary::get('dir', '', 'sanitize_text_field', 'REQUEST')) : '');
 		$valid_types = explode(',', 'jpg,jpeg,png,gif,svg');
 		$parsing = $this->model->files_parsing_db(array(
 			'refresh' => true,
@@ -249,8 +277,8 @@ class FilemanagerController {
 	}
 
   public function rename_item() {
-	global $wpdb;
-    $input_dir = (isset($_REQUEST['dir']) ? str_replace('\\', '', WDWLibrary::get('dir','','sanitize_text_field','REQUEST')) : '');
+	  global $wpdb;
+    $input_dir = (isset($_REQUEST['dir']) ? str_replace(array('\\', '..'), '', WDWLibrary::get('dir', '', 'sanitize_text_field', 'REQUEST')) : '');
     $input_dir = htmlspecialchars_decode($input_dir, ENT_COMPAT | ENT_QUOTES);
     $input_dir = $this->esc_dir($input_dir);
 
@@ -261,22 +289,24 @@ class FilemanagerController {
     $file_name = $file_names[0];
     $file_name = htmlspecialchars_decode($file_name, ENT_COMPAT | ENT_QUOTES);
     $file_name = str_replace('../', '', $file_name);
+    $file_name = basename($file_name);
 
     $file_new_name = (isset($_REQUEST['file_new_name']) ? stripslashes(WDWLibrary::get('file_new_name','','sanitize_text_field','REQUEST')) : '');
+    $file_new_name = WDWLibrary::media_name_clean($file_new_name);
     $file_new_name = htmlspecialchars_decode($file_new_name, ENT_COMPAT | ENT_QUOTES);
     $file_new_name = $this->esc_dir($file_new_name);
+    $file_new_name = basename($file_new_name);
 
     $file_path = $cur_dir_path . '/' . $file_name;
     $thumb_file_path = $cur_dir_path . '/thumb/' . $file_name;
     $original_file_path = $cur_dir_path . '/.original/' . $file_name;
     $msg = '';
-
     if (file_exists($file_path) == false) {
-      $msg = __("File doesn't exist.", BWG()->prefix);
+      $msg = __("File doesn't exist.", 'photo-gallery');
     }
     elseif (is_dir($file_path) == true) {
       if (rename($file_path, $cur_dir_path . '/' . sanitize_file_name($file_new_name)) == false) {
-        $msg = __("Can't rename the file.", BWG()->prefix);
+        $msg = __("Can't rename the file.", 'photo-gallery');
       }
       else {
         $args = array(
@@ -333,9 +363,11 @@ class FilemanagerController {
 	  }
     }
     elseif ((strrpos($file_name, '.') !== false)) {
-      $file_extension = substr($file_name, strrpos($file_name, '.') + 1);
-      if (rename($file_path, $cur_dir_path . '/' . $file_new_name . '.' . $file_extension) == false) {
-        $msg = __("Can't rename the file.", BWG()->prefix);
+      $allowed_extensions_list = array('jpg','jpeg', 'png','gif','svg');
+      $file_extension = strtolower(substr($file_name, strrpos($file_name, '.') + 1));
+
+      if (!in_array($file_extension, $allowed_extensions_list) || rename($file_path, $cur_dir_path . '/' . $file_new_name . '.' . $file_extension) == false) {
+        $msg = __("Can't rename the file.", 'photo-gallery');
       }
       else {
         $wpdb->update($wpdb->prefix . 'bwg_image', array(
@@ -355,16 +387,16 @@ class FilemanagerController {
 
         );
 
-		$path = $input_dir .'/';
-		$wpdb->update($wpdb->prefix . 'bwg_file_paths',
-			array(
-				'name'	 	=> $file_new_name . '.' . $file_extension,
-				'filename' 	=> $file_new_name,
-				'thumb' 	=> 'thumb/'. $file_new_name . '.' . $file_extension,
-				'alt' 		=> $file_new_name,
-				'date_modified' => date('Y-m-d H:i:s')
-			),
-			array('path' => $path, 'name' => $file_name),
+        $path = $input_dir .'/';
+        $wpdb->update($wpdb->prefix . 'bwg_file_paths',
+            array(
+                'name'	 	=> $file_new_name . '.' . $file_extension,
+                'filename' 	=> $file_new_name,
+                'thumb' 	=> 'thumb/'. $file_new_name . '.' . $file_extension,
+                'alt' 		=> $file_new_name,
+                'date_modified' => date('Y-m-d H:i:s')
+            ),
+            array('path' => $path, 'name' => $file_name),
       array('%s','%s','%s','%s','%s'),
       array('%s','%s')
 
@@ -375,7 +407,7 @@ class FilemanagerController {
       }
     }
     else {
-      $msg = __("Can't rename the file.", BWG()->prefix);
+      $msg = __("Can't rename the file.", 'photo-gallery');
 	}
     $_REQUEST['file_names'] = '';
     $args = array(
@@ -397,7 +429,7 @@ class FilemanagerController {
 
   public function remove_items() {
     global $wpdb;
-    $input_dir = (isset($_REQUEST['dir']) ? str_replace('\\', '', (WDWLibrary::get('dir','','sanitize_text_field','REQUEST'))) : '');
+    $input_dir = (isset($_REQUEST['dir']) ? str_replace(array('\\', '..'), '', WDWLibrary::get('dir', '', 'sanitize_text_field', 'REQUEST')) : '');
     $input_dir = htmlspecialchars_decode($input_dir, ENT_COMPAT | ENT_QUOTES);
     $input_dir = $this->esc_dir($input_dir);
 
@@ -408,35 +440,40 @@ class FilemanagerController {
     $msg = '';
 	  $file_path_tbl = $wpdb->prefix . 'bwg_file_paths';
     foreach ($file_names as $file_name) {
-      $file_name = htmlspecialchars_decode($file_name, ENT_COMPAT | ENT_QUOTES);
-      $file_name = str_replace('../', '', $file_name);
-      $file_path = $cur_dir_path . '/' . $file_name;
-      $thumb_file_path = $cur_dir_path . '/thumb/' . $file_name;
-      $original_file_path = $cur_dir_path . '/.original/' . $file_name;
-      if (file_exists($file_path) == false) {
-        $msg = __("Some of the files couldn't be removed.", BWG()->prefix);
-      }
-      else {
-        if ( is_dir($file_path) == true ) {
-			$paths = $this->getRecursivePathLists($path, $file_name);
-			if ( !empty($paths) ) {
-				$wpdb->delete( $file_path_tbl, array('path' => $path, 'name' => $file_name), array('%s','%s'));
-				foreach( $paths as $val ) {
-					$wpdb->delete( $file_path_tbl, array('path' => $val), array('%s') );
-				}
-			}
+        $file_name = htmlspecialchars_decode($file_name, ENT_COMPAT | ENT_QUOTES);
+        $file_name = str_replace('../', '', $file_name);
+        $file_name = basename($file_name);
+
+        $allowed_extensions_list = array('jpg','jpeg', 'png','gif','svg');
+        $file_extension = strtolower(substr($file_name, strrpos($file_name, '.') + 1));
+        $file_path = $cur_dir_path . '/' . $file_name;
+
+        $thumb_file_path = $cur_dir_path . '/thumb/' . $file_name;
+        $original_file_path = $cur_dir_path . '/.original/' . $file_name;
+        if ( (!in_array($file_extension, $allowed_extensions_list) && !is_dir($file_path)) || file_exists($file_path) == false ) {
+            $msg = __("Some of the files couldn't be removed.", 'photo-gallery');
         }
         else {
-          $wpdb->delete( $file_path_tbl, array('path' => $path, 'name' => $file_name), array('%s','%s') );
+            if ( is_dir($file_path) == true ) {
+                $paths = $this->getRecursivePathLists($path, $file_name);
+                if ( !empty($paths) ) {
+                    $wpdb->delete( $file_path_tbl, array('path' => $path, 'name' => $file_name), array('%s','%s'));
+                    foreach( $paths as $val ) {
+                        $wpdb->delete( $file_path_tbl, array('path' => $val), array('%s') );
+                    }
+                }
+            }
+            else {
+              $wpdb->delete( $file_path_tbl, array('path' => $path, 'name' => $file_name), array('%s','%s') );
+            }
+            $this->remove_file_dir($file_path, $input_dir, $file_name);
+            if (file_exists($thumb_file_path)) {
+              $this->remove_file_dir($thumb_file_path);
+            }
+            if (file_exists($original_file_path)) {
+              $this->remove_file_dir($original_file_path);
+            }
         }
-        $this->remove_file_dir($file_path, $input_dir, $file_name);
-        if (file_exists($thumb_file_path)) {
-          $this->remove_file_dir($thumb_file_path);
-        }
-        if (file_exists($original_file_path)) {
-          $this->remove_file_dir($original_file_path);
-        }
-      }
     }
     $_REQUEST['file_names'] = '';
     $args = array(
@@ -458,10 +495,9 @@ class FilemanagerController {
 
   public function paste_items() {
 	global $wpdb;
-	$input_dir = (isset($_REQUEST['dir']) ? str_replace('\\', '', (WDWLibrary::get('dir','','sanitize_text_field','REQUEST'))) : '');
+	$input_dir = (isset($_REQUEST['dir']) ? str_replace(array('\\', '..'), '', WDWLibrary::get('dir', '', 'sanitize_text_field', 'REQUEST')) : '');
 	$input_dir = htmlspecialchars_decode($input_dir, ENT_COMPAT | ENT_QUOTES);
 	$input_dir = $this->esc_dir($input_dir);
-
 
 	$msg = '';
 	$flag = TRUE;
@@ -472,15 +508,16 @@ class FilemanagerController {
 	$src_dir = $src_dir == '' ? $this->uploads_dir : $this->uploads_dir . '/' . $src_dir;
 	$src_dir = htmlspecialchars_decode($src_dir, ENT_COMPAT | ENT_QUOTES);
 	$src_dir = $this->esc_dir($src_dir);
-
 	$dest_dir = (isset($_REQUEST['clipboard_dest']) ? stripslashes(WDWLibrary::get('clipboard_dest','','sanitize_text_field','REQUEST')) : '');
 	$dest_dir = $dest_dir == '' ? $this->uploads_dir : $this->uploads_dir . '/' . $dest_dir;
 	$dest_dir = htmlspecialchars_decode($dest_dir, ENT_COMPAT | ENT_QUOTES);
 	$dest_dir = $this->esc_dir($dest_dir);
 
 	$path_old = (isset($_REQUEST['clipboard_src']) ? stripslashes(WDWLibrary::get('clipboard_src','','sanitize_text_field','REQUEST')) .'/' : '/');
-	$path_new = (isset($_REQUEST['clipboard_dest']) ? stripslashes(WDWLibrary::get('clipboard_dest','','sanitize_text_field','REQUEST')) .'/' : '/');
-	$file_path_tbl = $wpdb->prefix . 'bwg_file_paths';
+    $path_old = $this->esc_dir($path_old);
+    $path_new = (isset($_REQUEST['clipboard_dest']) ? stripslashes(WDWLibrary::get('clipboard_dest','','sanitize_text_field','REQUEST')) .'/' : '/');
+    $path_new = $this->esc_dir($path_new);
+    $file_path_tbl = $wpdb->prefix . 'bwg_file_paths';
 
 	switch ((isset($_REQUEST['clipboard_task']) ? stripslashes(WDWLibrary::get('clipboard_task','','sanitize_text_field','REQUEST')) : '')) {
 		case 'copy': {
@@ -489,8 +526,11 @@ class FilemanagerController {
 				unset($file['id']);
 				$file_name = htmlspecialchars_decode($file_name, ENT_COMPAT | ENT_QUOTES);
 				$file_name = str_replace('../', '', $file_name);
+                $file_name = sanitize_file_name(basename($file_name));
+                $allowed_extensions_list = array('jpg','jpeg', 'png','gif','svg');
+                $file_extension = strtolower(substr($file_name, strrpos($file_name, '.') + 1));
 				$src = $src_dir . '/' . $file_name;
-				if (file_exists($src) == false) {
+				if ( (!in_array($file_extension, $allowed_extensions_list)  && !is_dir($src)) || file_exists($src) == false ) {
 					$msg = "Failed to copy some of the files.";
 					$msg = $file_name;
 					continue;
@@ -525,7 +565,7 @@ class FilemanagerController {
 					}
 				}
 				if ( !$this->copy_file_dir($src, $dest) ) {
-					$msg = __("Failed to copy some of the files.", BWG()->prefix);
+					$msg = __("Failed to copy some of the files.", 'photo-gallery');
 				}
 				if ( !is_dir($src_dir . '/' . $file_name) ) {
 					$_file_name = !empty($new_file_name) ? $new_file_name : $file_name;
@@ -563,16 +603,19 @@ class FilemanagerController {
 			foreach ( $file_names as $file_name ) {
 				$file_name = htmlspecialchars_decode($file_name, ENT_COMPAT | ENT_QUOTES);
 				$file_name = str_replace('../', '', $file_name);
-				$src = $src_dir . '/' . $file_name;
+                $allowed_extensions_list = array('jpg','jpeg', 'png','gif','svg');
+                $file_extension = strtolower(substr($file_name, strrpos($file_name, '.') + 1));
+
+                $src = $src_dir . '/' . $file_name;
 				$dest = $dest_dir . '/' . $file_name;
 
-				if ( (file_exists($src) == FALSE) || (file_exists($dest) == TRUE) ) {
+				if ( (!in_array($file_extension, $allowed_extensions_list) && !is_dir($src)) || (file_exists($src) == FALSE) || (file_exists($dest) == TRUE) ) {
 					$flag = FALSE;
 				} else {
 					$flag = rename($src, $dest);
 				}
 				if ( !$flag ) {
-					$msg = __("Failed to move some of the files.", BWG()->prefix);
+					$msg = __("Failed to move some of the files.", 'photo-gallery');
 				}
 				else {
 					if ( is_dir($dest_dir . '/' . $file_name) ) {
@@ -683,7 +726,7 @@ class FilemanagerController {
 
   public function import_items() {
     $args = array(
-      'action' => 'bwg_UploadHandler',
+      'action' => 'bwg_upl',
       'importer_thumb_width' => WDWLibrary::get('importer_thumb_width','','intval','REQUEST'),
       'importer_thumb_height' => WDWLibrary::get('importer_thumb_height','','intval','REQUEST'),
       'callback' => WDWLibrary::get('callback','','sanitize_text_field','REQUEST'),
@@ -691,11 +734,11 @@ class FilemanagerController {
       'importer_img_width' => WDWLibrary::get('importer_img_width','','intval','REQUEST'),
       'importer_img_height' => WDWLibrary::get('importer_img_height','','intval','REQUEST'),
       'import' => 'true',
-      'redir' => WDWLibrary::get('dir','','sanitize_text_field','REQUEST'),
-      'dir' => WDWLibrary::get('dir','','sanitize_text_field','REQUEST') . '/',
+      'redir' => str_replace(array('\\', '..'), '', WDWLibrary::get('dir', '', 'sanitize_text_field', 'REQUEST')),
+      'dir' => str_replace(array('\\', '..'), '', WDWLibrary::get('dir', '', 'sanitize_text_field', 'REQUEST')) . '/',
     );
 
-    $query_url = wp_nonce_url( admin_url('admin-ajax.php'), 'bwg_UploadHandler', 'bwg_nonce' );
+    $query_url = wp_nonce_url( admin_url('admin-ajax.php'), 'bwg_upl', 'bwg_nonce' );
     $query_url = add_query_arg($args, $query_url);
     header('Location: ' . $query_url);
     exit;

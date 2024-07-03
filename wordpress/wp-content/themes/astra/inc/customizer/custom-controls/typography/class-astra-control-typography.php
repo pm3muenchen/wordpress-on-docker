@@ -117,6 +117,7 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 			'300'       => __( 'Light 300', 'astra' ),
 			'300italic' => __( '300 Italic', 'astra' ),
 			'400'       => __( 'Normal 400', 'astra' ),
+			'normal'    => __( 'Normal 400', 'astra' ),
 			'italic'    => __( '400 Italic', 'astra' ),
 			'500'       => __( 'Medium 500', 'astra' ),
 			'500italic' => __( '500 Italic', 'astra' ),
@@ -167,7 +168,7 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 
 		<label>
 		<# if ( data.label ) { #>
-			<span class="customize-control-title">{{{data.label}}}</span>
+			<span class="customize-control-title">{{{data.label}}}</span> <?php // phpcs:ignore WordPressVIPMinimum.Security.Mustache.OutputNotation -- Required to display label ?>
 		<# } #>
 
 		</label>

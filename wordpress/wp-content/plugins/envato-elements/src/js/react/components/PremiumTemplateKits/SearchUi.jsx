@@ -36,20 +36,22 @@ const PremiumTemplateKits = ({ searchParams, onSearchSubmitted, aggregations }) 
           onSearchSubmitted({ ...args })
         }}
       />
-      {industriesForDropdown ? (
-        <div className={styles.searchFilter}>
-          <Filter
-            searchFilterChange={(args) => {
-              onSearchSubmitted({ ...searchParams, ...args })
-            }}
-            label='Categories'
-            name='industries'
-            value={searchParams.industries}
-            attributes={industriesForDropdown}
-            updateTitleWithCurrent={false}
-          />
-        </div>
-      ) : null}
+      {industriesForDropdown
+        ? (
+          <div className={styles.searchFilter}>
+            <Filter
+              searchFilterChange={(args) => {
+                onSearchSubmitted({ ...searchParams, ...args })
+              }}
+              label='Categories'
+              name='industries'
+              value={searchParams.industries}
+              attributes={industriesForDropdown}
+              updateTitleWithCurrent={false}
+            />
+          </div>
+          )
+        : null}
     </div>
   )
 }

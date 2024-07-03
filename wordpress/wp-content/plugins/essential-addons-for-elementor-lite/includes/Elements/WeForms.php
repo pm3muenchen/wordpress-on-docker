@@ -11,7 +11,7 @@ use \Elementor\Controls_Manager;
 use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Typography;
-use \Elementor\Scheme_Typography;
+use \Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use \Elementor\Widget_Base;
 use \Essential_Addons_Elementor\Classes\Helper;
 
@@ -60,7 +60,7 @@ class WeForms extends Widget_Base
         return 'https://essential-addons.com/elementor/docs/weforms/';
     }
 
-    protected function _register_controls()
+    protected function register_controls()
     {
 
         if (!function_exists('WeForms')) {
@@ -123,7 +123,7 @@ class WeForms extends Widget_Base
                             ],
                         ],
                         'default' => '1',
-                        'description' => '<span class="pro-feature"> Get the  <a href="https://wpdeveloper.net/in/upgrade-essential-addons-elementor" target="_blank">Pro version</a> for more stunning elements and customization options.</span>',
+                        'description' => '<span class="pro-feature"> Get the  <a href="https://wpdeveloper.com/upgrade/ea-pro" target="_blank">Pro version</a> for more stunning elements and customization options.</span>',
                     ]
                 );
 
@@ -163,15 +163,15 @@ class WeForms extends Widget_Base
                     ],
                     'left' => [
                         'title' => esc_html__('Left', 'essential-addons-for-elementor-lite'),
-                        'icon' => 'fa fa-align-left',
+                        'icon' => 'eicon-text-align-left',
                     ],
                     'center' => [
                         'title' => esc_html__('Center', 'essential-addons-for-elementor-lite'),
-                        'icon' => 'fa fa-align-center',
+                        'icon' => 'eicon-text-align-center',
                     ],
                     'right' => [
                         'title' => esc_html__('Right', 'essential-addons-for-elementor-lite'),
-                        'icon' => 'fa fa-align-right',
+                        'icon' => 'eicon-text-align-right',
                     ],
                 ],
                 'default' => 'default',
@@ -633,15 +633,15 @@ class WeForms extends Widget_Base
                     ],
                     'left' => [
                         'title' => esc_html__('Left', 'essential-addons-for-elementor-lite'),
-                        'icon' => 'fa fa-align-left',
+                        'icon' => 'eicon-text-align-left',
                     ],
                     'center' => [
                         'title' => esc_html__('Center', 'essential-addons-for-elementor-lite'),
-                        'icon' => 'fa fa-align-center',
+                        'icon' => 'eicon-text-align-center',
                     ],
                     'right' => [
                         'title' => esc_html__('Right', 'essential-addons-for-elementor-lite'),
-                        'icon' => 'fa fa-align-right',
+                        'icon' => 'eicon-text-align-right',
                     ],
                 ],
                 'default' => 'default',
@@ -653,7 +653,9 @@ class WeForms extends Widget_Base
             Group_Control_Typography::get_type(),
             [
                 'name' => 'eael_weform_submit_btn_typography',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_1,
+                'global' => [
+	                'default' => Global_Typography::TYPOGRAPHY_PRIMARY
+                ],
                 'selector' => '{{WRAPPER}} .eael-weform-container ul.wpuf-form .wpuf-submit input[type="submit"]',
             ]
         );
@@ -794,7 +796,7 @@ class WeForms extends Widget_Base
 
         if (!empty($settings['wpuf_contact_form'])) {
             echo '<div class="eael-weform-container">
-			' . do_shortcode('[weforms id="' . $settings['wpuf_contact_form'] . '" ]') . '
+			' . do_shortcode('[weforms id="' . esc_attr( $settings['wpuf_contact_form'] ) . '" ]') . '
 		</div>';
         }
     }

@@ -20,6 +20,11 @@
 			</a>
 		</li>
 		<li>
+			<a href="#markers">
+				<?php esc_html_e('Markers', 'wp-google-maps'); ?>
+			</a>
+		</li>
+		<li>
 			<a href="#info-windows">
 				<?php esc_html_e('InfoWindows', 'wp-google-maps'); ?>
 			</a>
@@ -55,6 +60,18 @@
 			<select name="wpgmza_maps_engine" id="wpgmza_maps_engine">
 				<option value="google-maps"><?php esc_html_e('Google Maps', 'wp-google-maps'); ?></option>
 				<option value="open-layers"><?php esc_html_e('OpenLayers', 'wp-google-maps'); ?></option>
+			</select>
+
+			<small style="margin-left: 5px"><a href="<?php echo admin_url('admin.php?page=wp-google-maps-menu&action=installer'); ?>"><?php esc_html_e("Open Installer", "wp-google-maps"); ?></a></small>
+		</fieldset>
+
+		<fieldset>
+			<legend>
+				<?php esc_html_e('Build', 'wp-google-maps'); ?>
+			</legend>
+			<select name="internal_engine" id="internal_engine">
+				<option value="legacy"><?php esc_html_e('Legacy', 'wp-google-maps'); ?></option>
+				<option value="atlas-novus"><?php esc_html_e('Atlas Novus', 'wp-google-maps'); ?></option>
 			</select>
 		</fieldset>
 	
@@ -99,6 +116,13 @@
 					</div>
 				</label>
 				
+				<label data-required-maps-engine="google-maps">
+					<div>
+						<input name="wpgmza_settings_map_tilt_controls" class="wpgmza-fancy-toggle-switch" type="checkbox"/>
+						<?php esc_html_e('Disable Tilt Controls', 'wp-google-maps'); ?>
+					</div>
+				</label>
+
 				<label>
 					<div>
 						<input name="wpgmza_settings_map_scroll" class="wpgmza-fancy-toggle-switch" type="checkbox"/>
@@ -125,7 +149,7 @@
 		<fieldset>
 			<legend>
 				<?php esc_html_e('User Interface Style', 'wp-google-maps'); ?>
-				(<em><a href='https://www.wpgmaps.com/documentation/user-interface-style-options/' target='_BLANK'><?php esc_html_e('examples', 'wp-google-maps'); ?></a></em>)
+				(<em><a href='https://docs.wpgmaps.com/user-interface-style' target='_BLANK'><?php esc_html_e('examples', 'wp-google-maps'); ?></a></em>)
 			</legend>
 			
 			<ul>
@@ -266,7 +290,30 @@
 				<option value='none'><?php esc_html_e("None", "wp-google-maps"); ?></option>
 			</select>
 		</fieldset>
+
+		<fieldset class="wpgmza-pro-feature wpgmza-pro-feature-hide">
+			<legend>
+				<?php esc_html_e('Marker Field Query Mode', 'wp-google-maps'); ?>
+			</legend>
+			<select name='marker_field_query_mode'>
+				<option value=''><?php esc_html_e("Partial", "wp-google-maps"); ?></option>
+				<option value='strict'><?php esc_html_e("Exact", "wp-google-maps"); ?></option>
+			</select>
+
+			<small>
+				<?php _e("By default, marker fields may return partial matches, in some cases you may prefer exact matches only", "wp-google-maps"); ?>
+			</small>
+		</fieldset>
 		
+		<fieldset class="wpgmza-pro-feature wpgmza-pro-feature-hide">
+			<legend>
+				<?php esc_html_e('ACF Description Type', 'wp-google-maps'); ?>
+			</legend>
+			<select name='acf_product_description_type'>
+				<option value='full'><?php esc_html_e("Full", "wp-google-maps"); ?></option>
+				<option value='excerpt'><?php esc_html_e("Excerpt", "wp-google-maps"); ?></option>
+			</select>
+		</fieldset>
 		
 		
 		<fieldset data-required-maps-engine="open-layers">
@@ -292,71 +339,57 @@
 					?>
 				</option>
 				
-				<option value="http://tile.thunderforest.com/cycle/{z}/{x}/{y}.png"
-					data-preview-image="http://b.tile.opencyclemap.org/cycle/16/33199/22539.png">
+				<option value="https://tile.thunderforest.com/cycle/{z}/{x}/{y}.png"
+					data-preview-image="https://b.tile.opencyclemap.org/cycle/16/33199/22539.png">
 					<?php
 					_e('OpenCycleMap', 'wp-google-maps');
-					?>
+					?> *
 				</option>
 				
-				<option value="http://a.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
+				<option value="https://a.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
 					data-preview-image="https://wiki.openstreetmap.org/w/images/6/63/Humanitarian_style.png">
 					<?php
 					_e('Humanitarian', 'wp-google-maps');
 					?>
 				</option>
 				
-				<option value="https://{a-c}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png"
-					data-preview-image="http://a.www.toolserver.org/tiles/bw-mapnik/9/264/179.png">
-					<?php
-					_e('Mapnik OSM B&amp;W', 'wp-google-maps');
-					?>
-				</option>
-				
-				<option value="https://tiles.wmflabs.org/osm-no-labels/{z}/{x}/{y}.png"
-					data-preview-image="http://c.tiles.wmflabs.org/osm-no-labels/14/7452/6839.png">
-					<?php
-					_e('Mapnik OSM No Labels', 'wp-google-maps');
-					?>
-				</option>
-				
-				<option value="http://a.tile.stamen.com/toner/{z}/{x}/{y}.png"
-					data-preview-image="http://a.tile.stamen.com/toner/10/529/366.png">
+				<option value="https://a.tile.stamen.com/toner/{z}/{x}/{y}.png"
+					data-preview-image="https://a.tile.stamen.com/toner/10/529/366.png">
 					<?php
 					_e('Stamen Toner', 'wp-google-maps');
 					?>
 				</option>
 				
 				<option value="http://c.tile.stamen.com/watercolor/{z}/{x}/{y}.jpg"
-					data-preview-image="https://wiki.openstreetmap.org/w/images/d/d2/Tile_watercolor_stamen.jpg">
+					data-preview-image="http://wiki.openstreetmap.org/w/images/d/d2/Tile_watercolor_stamen.jpg">
 					<?php
 					_e('Stamen Watercolor', 'wp-google-maps');
-					?>
+					?> (No SSL)
 				</option>
 				
-				<option value="http://tile.thunderforest.com/transport/{z}/{x}/{y}.png"
-					data-preview-image="http://a.tile2.opencyclemap.org/transport/13/4150/2819.png">
+				<option value="https://tile.thunderforest.com/transport/{z}/{x}/{y}.png"
+					data-preview-image="https://a.tile2.opencyclemap.org/transport/13/4150/2819.png">
 					<?php
 					_e('Transport Map', 'wp-google-maps');
-					?>
+					?> *
 				</option>
 				
-				<option value="http://tile.thunderforest.com/landscape/{z}/{x}/{y}.png"
-					data-preview-image="http://a.tile.thunderforest.com/landscape/14/4773/6144.png">
+				<option value="https://tile.thunderforest.com/landscape/{z}/{x}/{y}.png"
+					data-preview-image="https://a.tile.thunderforest.com/landscape/14/4773/6144.png">
 					<?php
 					_e('Thunderforest Landscape', 'wp-google-maps');
-					?>
+					?> *
 				</option>
 				
-				<option value="http://tile.thunderforest.com/outdoors/{z}/{x}/{y}.png"
-					data-preview-image="http://a.tile.thunderforest.com/outdoors/14/4772/6144.png">
+				<option value="https://tile.thunderforest.com/outdoors/{z}/{x}/{y}.png"
+					data-preview-image="https://a.tile.thunderforest.com/outdoors/14/4772/6144.png">
 					<?php
 					_e('Thunderforest Outdoors', 'wp-google-maps');
-					?>
+					?> *
 				</option>
 				
-				<option value="http://tile.memomaps.de/tilegen/{z}/{x}/{y}.png"
-					data-preview-image="http://tile.memomaps.de/tilegen/12/2200/1343.png">
+				<option value="https://tile.memomaps.de/tilegen/{z}/{x}/{y}.png"
+					data-preview-image="https://tile.memomaps.de/tilegen/12/2200/1343.png">
 					<?php
 					_e('Öpnvkarte', 'wp-google-maps');
 					?>
@@ -366,32 +399,50 @@
 					data-preview-image="http://www.openptmap.org/tiles//10/529/366.png">
 					<?php
 					_e('OpenPtMap', 'wp-google-maps');
-					?>
+					?> (No SSL)
 				</option>
 				
 				<option value="https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png">
 					<?php
 					_e('Carto Light (Positron)', 'wp-google-maps');
-					?>
+					?> *
 				</option>
 				
 				<option value="https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png"
 					data-preview-image="https://wiki.openstreetmap.org/w/images/b/ba/Cartodb_dark_tile.png">
 					<?php
 					_e('Carto Dark (Dark Matter)', 'wp-google-maps');
-					?>
+					?> *
 				</option>
-				
-				<option value="https://maps-cdn.salesboard.biz/styles/klokantech-3d-gl-style/{z}/{x}/{y}.png">
+
+				<option value="https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png">
 					<?php
-					_e('Klokantech 3d', 'wp-google-maps');
-					?>
+					_e('MapTiler Streets', 'wp-google-maps');
+					?> *
+				</option>
+
+				<option value="https://api.maptiler.com/maps/outdoor/{z}/{x}/{y}.png">
+					<?php
+					_e('MapTiler Outdoor', 'wp-google-maps');
+					?> *
+				</option>
+
+				<option value="https://api.maptiler.com/maps/pastel/{z}/{x}/{y}.png">
+					<?php
+					_e('MapTiler Pastel', 'wp-google-maps');
+					?> *
+				</option>
+
+				<option value="https://api.maptiler.com/maps/basic/{z}/{x}/{y}.png">
+					<?php
+					_e('MapTiler Basic', 'wp-google-maps');
+					?> *
 				</option>
 				
 				<option value="https://caltopo.com/tile/mb_topo/{z}/{x}/{y}.png">
 					<?php
 					_e('Caltopo', 'wp-google-maps');
-					?>
+					?> *
 				</option>
 
 				<option value="custom_override">
@@ -401,7 +452,7 @@
 				</option>
 				
 			</select> 
-			<small>&nbsp; <?php _e("You can add an API key under the Advanced Settings tab if required by your TileServer provider", "wp-google-maps"); ?></small>
+			<small>&nbsp; * <?php _e("You can add an API key under the Advanced Settings tab if required by your TileServer provider", "wp-google-maps"); ?></small>
 		</fieldset>
 		
 		<fieldset data-required-maps-engine="open-layers">
@@ -451,6 +502,16 @@
 			<legend><?php _e('Always exclude engine API on pages', 'wp-google-maps'); ?></legend>
 			<input name="wpgmza_always_exclude_engine_api_on_pages" placeholder="<?php _e('Page IDs'); ?>"/>
 		</fieldset>
+
+		<fieldset>
+			<legend><?php _e('Enable async loading API parameter', 'wp-google-maps'); ?></legend>
+			<input name="enable_google_api_async_param" type="checkbox"/>
+			<small>
+				<?php
+				_e("Aligns API loading with best-practice from Google. Considered beta for now, will become default later", "wp-google-maps");
+				?>
+			</small>
+		</fieldset>
 		
 		<fieldset>
 			<legend><?php _e('Prevent other plugins and theme loading API', 'wp-google-maps'); ?></legend>
@@ -471,21 +532,13 @@
 				<option value="edit_posts"><?php _e('Contributor', 'wp-google-maps'); ?></option>
 				<option value="read"><?php _e('Subscriber', 'wp-google-maps'); ?></option>
 			</select>
+			<small>
+				<strong><?php _e("Note:", "wp-google-maps"); ?></strong> 
+				<?php
+					_e("Granting lower level users access to the settings/editor will allow them to manage custom scripts (JavaScript), which could be abused, please exercise caution and consider this carefully.", "wp-google-maps");
+				?>
+			</small>
 		</fieldset>
-
-		<fieldset>
-			<legend><?php _e("Retina Icon Width","wp-google-maps"); ?></legend>
-			<span class="settings-group">
-				<input name='wpgmza_settings_retina_width' type='text' size='4' maxlength='4' id='wpgmza_settings_retina_width'/> px
-			</span>
-		</fieldset>
-		<fieldset>
-			<legend><?php _e("Retina Icon Height","wp-google-maps"); ?></legend>
-			<span class="settings-group">
-				<input name='wpgmza_settings_retina_height' type='text' size='4' maxlength='4' id='wpgmza_settings_retina_height'/> px
-			</span>
-		</fieldset>
-
 		
 		<!-- NB: Usage tracking dropped as of 2018 GDPR changes -->
 		
@@ -512,8 +565,172 @@
 				?>
 			</small>
 		</fieldset>
+
+		<fieldset class="wpgmza-pro-feature wpgmza-pro-feature-hide">
+			<legend>
+				<?php
+				_e("Gallery Image Size", "wp-google-maps");
+				?>
+			</legend>
+			<select name="gallery_item_source_size">
+				<option value="full"><?php _e('Full', 'wp-google-maps'); ?></option>
+				<option value="large"><?php _e('Large', 'wp-google-maps'); ?></option>
+				<option value="medium"><?php _e('Medium', 'wp-google-maps'); ?></option>
+				<option value="small"><?php _e('Small', 'wp-google-maps'); ?></option>
+				<option value="thumbnail"><?php _e('Thumbnail', 'wp-google-maps'); ?></option>
+			</select>
+
+			<small>
+				<?php _e("Only applies to new images, existing markers would need to be resaved, lightboxes will use full size", "wp-google-maps"); ?>
+			</small>
+		</fieldset>
 	</div>
 	
+	<div id="markers">
+
+		<fieldset data-required-maps-engine="google-maps">
+			<legend>
+				<?php esc_html_e('Marker Render Mode', 'wp-google-maps'); ?>
+			</legend>
+			<label>
+				<select name="googleMarkerMode" id="googleMarkerMode">
+					<option value="marker"><?php esc_html_e('Marker (Default)', 'wp-google-maps'); ?></option>
+					<option value="advancedMarkerElement"><?php esc_html_e('Advanced Marker (Beta)', 'wp-google-maps'); ?></option>
+				</select>
+				<p>
+					<small style="width: 700px; display: block;">
+						<?php
+							_e("Google Maps has deprecated the default Marker module. They encourage using the Advanced Marker module instead, which allows CSS selection and minor performance improvements. We support this new render mode, which is considered beta for now, while we finalize our implementation.", "wp-google-maps");
+						?>
+					</small>
+				</p>
+			</label>
+		</fieldset>
+
+		<fieldset data-required-maps-engine="open-layers">
+			<legend>
+				<?php esc_html_e('Marker Render Mode', 'wp-google-maps'); ?>
+			</legend>
+			<label>
+				<select name="olMarkerMode" id="olMarkerMode">
+					<option value="element"><?php esc_html_e('Element (Default)', 'wp-google-maps'); ?></option>
+					<option value="vector"><?php esc_html_e('Vector (Alpha)', 'wp-google-maps'); ?></option>
+				</select>
+				<p>
+					<small style="width: 700px; display: block;">
+						<?php
+							_e("OpenLayers supports two render modes, Element is the most well supported and reliable option (recommended for most users). Vector is available in alpha (early-preview) as an alternative which has some performance improvements. Vector mode does not support all of our features, for example, hover icons, animations and transitions will no longer function when this mode is enabled.", "wp-google-maps");
+						?>
+					</small>
+				</p>
+			</label>
+		</fieldset>
+
+		<fieldset>
+			<legend><?php _e("Retina Icon Width","wp-google-maps"); ?></legend>
+			<span class="settings-group">
+				<input name='wpgmza_settings_retina_width' type='text' size='4' maxlength='4' id='wpgmza_settings_retina_width'/> px
+			</span>
+		</fieldset>
+
+		<fieldset>
+			<legend><?php _e("Retina Icon Height","wp-google-maps"); ?></legend>
+			<span class="settings-group">
+				<input name='wpgmza_settings_retina_height' type='text' size='4' maxlength='4' id='wpgmza_settings_retina_height'/> px
+			</span>
+		</fieldset>
+
+		<h3>
+			<?php
+			esc_html_e("Marker Data Location", "wp-google-maps");
+			?>
+		</h3>
+		
+		
+		
+		<fieldset>
+			<legend><?php esc_html_e("Pull marker data from", "wp-google-maps"); ?></legend>
+			
+			<ul>
+				<li>
+					<label>
+						<input name="wpgmza_settings_marker_pull" value="0" type="radio" checked="checked"/>
+						<?php
+						esc_html_e("Database", "wp-google-maps");
+						?>
+					</label>
+				</li>
+				<li>
+					<label>
+						<input name="wpgmza_settings_marker_pull" value="1" type="radio"/>
+						<?php
+						esc_html_e("XML File", "wp-google-maps");
+						?>
+					</label>
+				</li>
+			</ul>
+		</fieldset>
+		
+		<fieldset id="xml-cache-settings">
+			<p>
+				<?php
+				esc_html_e("We suggest that you change the two fields below ONLY if you are experiencing issues when trying to save the marker XML files.", "wp-google-maps");
+				?>
+			</p>
+			<fieldset>
+				<legend><?php esc_html_e("Marker data XML directory", "wp-google-maps"); ?></legend>
+				<input name="wpgmza_marker_xml_location" class="regular-text code"/>
+				<p>
+					<small>
+						<?php esc_html_e("You can use the following", "wp-google-maps"); ?>
+						: {wp_content_dir},{plugins_dir},{uploads_dir}
+					</small>
+				</p>
+				<p>
+					<small>
+						<?php esc_html_e("Currently using", "wp-google-maps"); ?>
+						<strong>
+							NB: Add $marker_location here
+						</strong>
+					</small>
+				</p>
+				<!-- NB: See wpgmza_file_perms_check in legacy-core.php -->
+			</fieldset>
+			
+			<fieldset>
+				<legend><?php esc_html_e("Marker data XML URL", "wp-google-maps"); ?></legend>
+				<input name="wpgmza_marker_xml_url" class="regular-text code"/>
+				<p>
+					<small>
+						<?php esc_html_e("You can use the following", "wp-google-maps"); ?>
+						: {wp_content_dir},{plugins_dir},{uploads_dir}
+					</small>
+				</p>
+				<p>
+					<small>
+						<?php esc_html_e("Currently using", "wp-google-maps"); ?>
+						<strong>
+							NB: Add $marker_url here
+						</strong>
+					</small>
+				</p>
+				<!-- NB: See wpgmza_file_perms_check in legacy-core.php -->
+			</fieldset>
+
+			<p>
+				<small>
+					<strong><?php _e("Note", "wp-google-maps"); ?>: </strong>
+					<?php
+						esc_html_e("We no longer recommend using the XML option, outside of special use cases. For most users the database method will be more reliable and efficient", "wp-google-maps");
+					?>
+				</small>
+			</p>
+			
+		</fieldset>
+
+
+	</div>
+
 	<div id="info-windows">
 
 	<fieldset class="wpgmza-pro-feature-hide">
@@ -528,11 +745,11 @@
 			
 				<label>
 					<input type="radio" name="wpgmza_iw_type" value="0" class="wpgmza-pro-feature"/>
-					<div class='wpgmza-flex-item wpgmza-infowindow-picker__item'>
+					<div class='wpgmza-flex-item wpgmza-infowindow-picker__item iw_custom_click_hide'>
 						<div class="wpgmza-card wpgmza-card-border__hover">
 							<img src="<?php echo WPGMZA_PLUGIN_DIR_URL . '/images/marker_iw_type_1.png'; ?>"
 								title="<?php esc_attr_e('Default', 'wp-google-maps'); ?>"
-								class="iw_custom_click_hide wpgmza_mlist_selection"
+								class="wpgmza_mlist_selection"
 								/>
 							<span class='wpgmza-infowindow-style__name'>
 								<?php
@@ -545,11 +762,11 @@
 				
 				<label>
 					<input type="radio" name="wpgmza_iw_type" value="1" class="wpgmza-pro-feature"/>
-					<div class='wpgmza-flex-item wpgmza-infowindow-picker__item'>
+					<div class='wpgmza-flex-item wpgmza-infowindow-picker__item iw_custom_click_show'>
 						<div class="wpgmza-card wpgmza-card-border__hover">
 							<img src="<?php echo WPGMZA_PLUGIN_DIR_URL . '/images/marker_iw_type_2.png'; ?>"
 								title="<?php esc_attr_e('Default', 'wp-google-maps'); ?>"
-								class="iw_custom_click_hide wpgmza_mlist_selection"
+								class="wpgmza_mlist_selection"
 								/>
 							<span class='wpgmza-infowindow-style__name'>
 								<?php
@@ -562,11 +779,11 @@
 				
 				<label>
 					<input type="radio" name="wpgmza_iw_type" value="2" class="wpgmza-pro-feature"/>
-					<div class='wpgmza-flex-item wpgmza-infowindow-picker__item'>
+					<div class='wpgmza-flex-item wpgmza-infowindow-picker__item iw_custom_click_show'>
 						<div class="wpgmza-card wpgmza-card-border__hover">
 							<img src="<?php echo WPGMZA_PLUGIN_DIR_URL . '/images/marker_iw_type_3.png'; ?>"
 								title="<?php esc_attr_e('Default', 'wp-google-maps'); ?>"
-								class="iw_custom_click_hide wpgmza_mlist_selection"
+								class="wpgmza_mlist_selection"
 								/>
 							<span class='wpgmza-infowindow-style__name'>
 								<?php
@@ -579,11 +796,11 @@
 				
 				<label>
 					<input type="radio" name="wpgmza_iw_type" value="3" class="wpgmza-pro-feature"/>
-					<div class='wpgmza-flex-item wpgmza-infowindow-picker__item'>
+					<div class='wpgmza-flex-item wpgmza-infowindow-picker__item iw_custom_click_show'>
 						<div class="wpgmza-card wpgmza-card-border__hover">
 							<img src="<?php echo WPGMZA_PLUGIN_DIR_URL . '/images/marker_iw_type_4.png'; ?>"
 								title="<?php esc_attr_e('Default', 'wp-google-maps'); ?>"
-								class="iw_custom_click_hide wpgmza_mlist_selection"
+								class="wpgmza_mlist_selection"
 								/>
 							<span class='wpgmza-infowindow-style__name'>
 								<?php
@@ -597,11 +814,11 @@
 				
 				<label>
 					<input type="radio" name="wpgmza_iw_type" value="-1" class="wpgmza-pro-feature"/>
-					<div class='wpgmza-flex-item wpgmza-infowindow-picker__item'>
+					<div class='wpgmza-flex-item wpgmza-infowindow-picker__item iw_custom_click_hide'>
 						<div class="wpgmza-card wpgmza-card-border__hover">
 							<img src="<?php echo WPGMZA_PLUGIN_DIR_URL . '/images/marker_iw_type_inherit.png'; ?>"
 								title="<?php esc_attr_e('No Global Setting', 'wp-google-maps'); ?>"
-								class="iw_custom_click_hide wpgmza_mlist_selection"
+								class="wpgmza_mlist_selection"
 								/>
 				
 							<span class='wpgmza-infowindow-style__name'>
@@ -683,6 +900,15 @@
 					esc_html_e("Hide the address field","wp-google-maps"); 
 					?>
 				</li>
+
+				<!-- Hide Categories -->
+				<li>
+					<div class='switch'>
+						<input name='infowindow_hide_category' id='infowindow_hide_category' class='cmn-toggle cmn-toggle-round-flat' type='checkbox' value='yes'/> 
+						<label for='infowindow_hide_category'></label>
+					</div>
+					<?php esc_html_e("Hide the category field","wp-google-maps");  ?>
+				</li>
 			</ul>
 		</fieldset>
 
@@ -742,7 +968,7 @@
 			<a target="_blank"
 				href="<?php 
 				
-					echo esc_attr(\WPGMZA\Plugin::getProLink("https://www.wpgmaps.com/purchase-professional-version/?utm_source=plugin&amp;utm_medium=link&amp;utm_campaign=mlisting_settings"));
+					echo esc_attr(\WPGMZA\Plugin::getProLink("https://www.wpgmaps.com/purchase-professional-version/?utm_source=plugin&amp;utm_medium=link&amp;utm_campaign=mlisting_settings" . wpgmzaGetUpsellLinkParams()));
 				
 				?>">
 				
@@ -752,6 +978,54 @@
 			?>
 			
 		</div>
+
+		<h4>
+			<?php 
+			esc_html_e("General Settings","wp-google-maps"); 
+			?> 
+		</h4>
+
+		<fieldset class="wpgmza-pro-feature">
+			<legend>
+				<?php 
+				esc_html_e("Show X items by default","wp-google-maps"); 
+				?>
+			</legend>
+			
+			<select id='wpgmza_default_items' name='wpgmza_default_items'>
+				<option value="1">1</option>
+				<option value="5">5</option>
+				<option value="10">10</option>
+				<option value="25">25</option>
+				<option value="50">50</option>
+				<option value="100">100</option>
+				<option value="-1">ALL</option>
+			</select>
+		</fieldset>
+
+		<fieldset class="wpgmza-pro-feature">
+			<legend>
+				<?php
+				_e("Disable Auto-Scroll", "wp-google-maps");
+				?>
+			</legend>
+			
+			<ul>
+				<li>
+					<div class='switch'>
+						<input name='disable_scroll_on_marker_listing_click' 
+							class='cmn-toggle cmn-toggle-round-flat' 
+							type='checkbox' 
+							id='disable_scroll_on_marker_listing_click' 
+							value='yes'/>
+						<label for='disable_scroll_on_marker_listing_click'></label>
+					</div>
+					<?php 
+					esc_html_e("Prevent the page from scrolling to the map element when a marker listing item is clicked","wp-google-maps"); 
+					?>
+				</li>
+			</ul>
+		</fieldset>
 		
 		<h4>
 			<?php 
@@ -885,22 +1159,30 @@
 				</li>
 			</ul>
 		</fieldset>
-		
+
 		<fieldset class="wpgmza-pro-feature">
+		
 			<legend>
-				<?php 
-				esc_html_e("Show X items by default","wp-google-maps"); 
+				<?php
+				_e("Advanced Options", "wp-google-maps");
 				?>
 			</legend>
 			
-			<select id='wpgmza_default_items' name='wpgmza_default_items'>
-				<option value="5">5</option>
-				<option value="10">10</option>
-				<option value="25">25</option>
-				<option value="50">50</option>
-				<option value="100">100</option>
-				<option value="-1">ALL</option>
-			</select>
+			<ul>
+				<li>
+					<div class='switch'>
+						<input name='enable_datatables_enter_search' 
+							class='cmn-toggle cmn-toggle-round-flat' 
+							type='checkbox' 
+							id='enable_datatables_enter_search' 
+							value='yes'/>
+						<label for='enable_datatables_enter_search'></label>
+					</div>
+					<?php 
+					esc_html_e("Only trigger Datatable search on enter/return key (Reduce server load)","wp-google-maps"); 
+					?>
+				</li>
+			</ul>
 		</fieldset>
 		
 		<h4>
@@ -1091,7 +1373,7 @@
 				</li>
 				
 				<li>
-					<input name='carousel_autoplay' type='text' id='carousel_autoplay value="5000"'/>
+					<input name='carousel_autoplay' type='text' id='carousel_autoplay' value="5000"/>
 					<?php esc_html_e("Autoplay after x milliseconds (1000 = 1 second)","wp-google-maps"); ?>
 				</li>
 			</ul>
@@ -1120,11 +1402,13 @@
 			<legend><?php _e('Google Maps API Key (required)', 'wp-google-maps'); ?></legend>
 			<label>
 				<input name="wpgmza_google_maps_api_key" id='wpgmza_google_maps_api_key' style='width: 400px;'/>
+				<small style="margin-left: 5px"><a href="<?php echo admin_url('admin.php?page=wp-google-maps-menu&action=installer'); ?>"><?php esc_html_e("Open Installer", "wp-google-maps"); ?></a></small>
+
 				<p>
 					<small>
 						<?php
 						_e("This API key can be obtained from 
-						the <a href='https://console.developers.google.com' target='_BLANK'>Google Developers Console</a>. Our <a href='http://www.wpgmaps.com/documentation/creating-a-google-maps-api-key/' target='_BLANK'>documentation</a> provides a full guide on how to obtain this.", "wp-google-maps");
+						the <a href='https://wpgmaps.com/google-maps-developer-console/' target='_BLANK'>Google Developers Console</a>. Our <a href='https://docs.wpgmaps.com/creating-a-google-maps-api-key' target='_BLANK'>documentation</a> provides a full guide on how to obtain this.", "wp-google-maps");
 						?>
 					</small>
 				</p>
@@ -1181,100 +1465,19 @@
 			
 		
 		</fieldset>
-
-
-		
-		<h3>
-			<?php
-			esc_html_e("Marker Data Location", "wp-google-maps");
-			?>
-		</h3>
-		
-		<p>
-			<?php
-			esc_html_e("We suggest that you change the two fields below ONLY if you are experiencing issues when trying to save the marker XML files.", "wp-google-maps");
-			?>
-		</p>
-		
-		<fieldset>
-			<legend><?php esc_html_e("Pull marker data from", "wp-google-maps"); ?></legend>
-			
-			<ul>
-				<li>
-					<label>
-						<input name="wpgmza_settings_marker_pull" value="0" type="radio" checked="checked"/>
-						<?php
-						esc_html_e("Database", "wp-google-maps");
-						?>
-					</label>
-				</li>
-				<li>
-					<label>
-						<input name="wpgmza_settings_marker_pull" value="1" type="radio"/>
-						<?php
-						esc_html_e("XML File", "wp-google-maps");
-						?>
-					</label>
-				</li>
-			</ul>
-		</fieldset>
-		
-		<fieldset id="xml-cache-settings">
-		
-			<fieldset>
-				<legend><?php esc_html_e("Marker data XML directory", "wp-google-maps"); ?></legend>
-				<input name="wpgmza_marker_xml_location" class="regular-text code"/>
-				<p>
-					<small>
-						<?php esc_html_e("You can use the following", "wp-google-maps"); ?>
-						: {wp_content_dir},{plugins_dir},{uploads_dir}
-					</small>
-				</p>
-				<p>
-					<small>
-						<?php esc_html_e("Currently using", "wp-google-maps"); ?>
-						<strong>
-							NB: Add $marker_location here
-						</strong>
-					</small>
-				</p>
-				<!-- NB: See wpgmza_file_perms_check in legacy-core.php -->
-			</fieldset>
-			
-			<fieldset>
-				<legend><?php esc_html_e("Marker data XML URL", "wp-google-maps"); ?></legend>
-				<input name="wpgmza_marker_xml_url" class="regular-text code"/>
-				<p>
-					<small>
-						<?php esc_html_e("You can use the following", "wp-google-maps"); ?>
-						: {wp_content_dir},{plugins_dir},{uploads_dir}
-					</small>
-				</p>
-				<p>
-					<small>
-						<?php esc_html_e("Currently using", "wp-google-maps"); ?>
-						<strong>
-							NB: Add $marker_url here
-						</strong>
-					</small>
-				</p>
-				<!-- NB: See wpgmza_file_perms_check in legacy-core.php -->
-			</fieldset>
-			
-		</fieldset>
 		
 		<!--<fieldset id="library-script-panel-container"></fieldset>-->
 		
 		<h3><?php esc_html_e('Custom Scripts', 'wp-google-maps'); ?></h3>
 		
-		<fieldset>
+		<fieldset class='wpgmza-code-mirror-legacy-port'>
 			<legend>
 				<?php esc_html_e('Custom CSS', 'wp-google-maps'); ?>
 			</legend>
 			<textarea name="wpgmza_custom_css"></textarea>
 		</fieldset>
 		
-		<fieldset>
+		<fieldset class='wpgmza-code-mirror-legacy-port'>
 			<legend>
 				<?php esc_html_e('Custom JS', 'wp-google-maps'); ?>
 			</legend>
@@ -1323,7 +1526,7 @@
 				</label>
 			</p>
 			<p>&nbsp;</p>
-			<p>
+			<p class="wpgmza-pro-feature-hide">
 				<label>
 					<button danger="wpgmza_destroy_maps" name="wpgmza_destroy_data" class="wpgmza_destroy_data wpgmza_general_btn button button-secondary">Delete all maps</button>
 					
@@ -1359,6 +1562,16 @@
 					
 				</label>
 			</p>
+
+			<p>&nbsp;</p>
+			<p class="wpgmza-pro-feature-hide">
+				<button class="wpgmza_general_btn button button-secondary wpgmza-performance-tool-button" data-tool-type="add_db_indexing">Add Indexes</button>
+				<button class="wpgmza_general_btn button button-secondary wpgmza-performance-tool-button" data-tool-type="remove_db_indexing">Remove Indexes</button>
+				
+				<small class="wpgmza-button-hint-small">
+					<?php esc_html_e('Add/remove performance indexes from the database tables that may improve query times. Only do this if suggested by our support team', 'wp-google-maps'); ?>
+				</small>
+			</p>
 			
 		</fieldset>
 
@@ -1393,6 +1606,35 @@
 			</label>
 		</fieldset>
 
+		<fieldset>
+			<legend><?php esc_html_e("Disable WP Engine Governor", "wp-google-maps"); ?></legend>
+			<label>
+				<input name="disable_wp_engine_governor" type="checkbox"/>
+				
+					<small>
+						<?php
+						esc_html_e("If you are using WP Engine and see 'KILLED QUERY' error logs, our database queries may not be running properly. Enabling this setting will set a constant in your site, which disabled the WP Engine Governor, which prevents long queries for performance.", "wp-google-maps");
+						?>
+					</small>
+				
+			</label>
+		</fieldset>
+		
+
+		<fieldset>
+			<legend><?php esc_html_e("Enable Dynamic SQL Refactors", "wp-google-maps"); ?></legend>
+			<label>
+				<input name="enable_dynamic_sql_refac_filter" type="checkbox"/>
+				
+					<small>
+						<?php
+						esc_html_e("Use this setting if your marker/map lists are not loading, or no results are being returned throughout the system. Commonly recommend in situations where single quote queries are not allowed. (WP Engine Users)", "wp-google-maps");
+						?>
+					</small>
+				
+			</label>
+		</fieldset>
+
 		<fieldset id="wpgmza-disable-automatic-backups" class="wpgmza-pro-feature">
 			<legend><?php esc_html_e("Disable Automatic Backups (beta)", "wp-google-maps"); ?></legend>
 			<label>
@@ -1401,6 +1643,48 @@
 					<small>
 						<?php
 						esc_html_e('We recommend leaving automatic backups enabled. We will automatically backup your data before an import or update to our plugin.', 'wp-google-maps');
+						?>
+					</small>
+				
+			</label>
+		</fieldset>
+
+		<fieldset id="wpgmza-disable-google-fonts" data-required-maps-engine="google-maps">
+			<legend><?php esc_html_e("Prevent Google Fonts (beta)", "wp-google-maps"); ?></legend>
+			<label>
+				<input name="disable_google_fonts" type="checkbox"/>
+				
+					<small>
+						<?php
+						esc_html_e('Use this setting to prevent the Google Maps API from loading externally hosted fonts. This is a highly experimental option and may lead to unexpected layout changes. We recommend loading fonts from a local source when this is enabled.', 'wp-google-maps');
+						?>
+					</small>
+				
+			</label>
+		</fieldset>
+
+		<fieldset id="wpgmza-google-csp-headers" data-required-maps-engine="google-maps">
+			<legend><?php esc_html_e("Enable Google CSP Headers (beta)", "wp-google-maps"); ?></legend>
+			<label>
+				<input name="enable_google_csp_headers" type="checkbox"/>
+				
+					<small>
+						<?php
+						esc_html_e('Automatically add Google CSP headers to your site, to allow Google Resources to load as expected. Only enable this if you are fully aware of the implications this can have, or when advised by our support team.', 'wp-google-maps');
+						?>
+					</small>
+				
+			</label>
+		</fieldset>
+
+		<fieldset id="wpgmza-force-ajax-mode">
+			<legend><?php esc_html_e("Ajax Only Transports (beta)", "wp-google-maps"); ?></legend>
+			<label>
+				<input name="force_ajax_only_mode" type="checkbox"/>
+				
+					<small>
+						<?php
+						esc_html_e('Bypass the REST API and only transport background data over Ajax requests. Only enable this if you are experiencing trouble with REST API requests.', 'wp-google-maps');
 						?>
 					</small>
 				
@@ -1457,7 +1741,7 @@
 				_e('Require consent before loading Maps API', 'wp-google-maps');
 				?>
 				<i class="fa fa-question-circle" 
-					title="<?php _e('The GDPR views IP Addresses as Personal Data, which requires consent before being processed. Loading the Google Maps API stores some user information, such as IP Addresses. WP Google Maps endeavours to uphold the spirit of data protection as per the GDPR. Enable this to option to prevent the Maps API from loading, until a user has consented to it.', 'wp-google-maps'); ?>"/>
+					title="<?php _e('The GDPR views IP Addresses as Personal Data, which requires consent before being processed. Loading the Google Maps API stores some user information, such as IP Addresses. WP Go Maps endeavours to uphold the spirit of data protection as per the GDPR. Enable this to option to prevent the Maps API from loading, until a user has consented to it.', 'wp-google-maps'); ?>"/>
 			</label>
 			<input name="wpgmza_gdpr_require_consent_before_load" type="checkbox"/>
 		</fieldset>
@@ -1469,7 +1753,7 @@
 			?>
 			<br><br>
 			<?php
-				_e('WP Google Maps GDPR options have been disabled as they are fully controlled by Complianz', 'wp-google-maps');
+				_e('WP Go Maps GDPR options have been disabled as they are fully controlled by Complianz', 'wp-google-maps');
 			?>
 		</span>
 	</div>
@@ -1583,6 +1867,3 @@
 	</p>
 	
 </form>
-<?php if (get_user_meta( get_current_user_id(), 'wpgmza_hide_chat', true ) == 1 ) {} else { ?>
-<a href='https://wpgooglemaps.bleeper.io/' title='Chat with WP Google Maps now' target='_BLANK' class='wpgmza-chat-help'><span id='wpgmzaCloseChat'></span></a>
-<?php } ?>

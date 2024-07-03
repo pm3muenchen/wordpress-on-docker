@@ -7,7 +7,7 @@
     The second major requirement of GDPR is a thorough Privacy Policy that explains all of the rights your customers
     have and describes how exactly their data is used. We've put together a GDPR-compliant privacy policy template for you.
     Fill in the fields below and a privacy policy will be generated automatically. Note that you will need to modify it later to suit your website and business. <br>
-    <a href="<?= gdpr('helpers')->docs('gdpr-setting-up-the-privacy-policy/'); ?>" target="_blank">Read more about the Privacy Policy</a><br><br>
+    <a href="<?= gdpr('helpers')->privacyPolicy(); ?>" target="_blank">Read more about the Privacy Policy</a><br><br>
     If you already have a GDPR-compliant Privacy Policy, simply select the page where it is displayed and skip the rest.
     <br>
 </p>
@@ -86,7 +86,7 @@
 
             If your company is located outside of the EU and the EFTA zone and you do not have a branch inside the EU,
             GDPR requires you to appoint a representative contact which has to be a person or company located in the EU.
-            <a href="<?= gdpr('helpers')->docs('wordpress-site-owners-guide-to-gdpr/'); ?>" target="_blank">Read more about appointing a representative and your options here</a>.
+            <a href="<?= gdpr('helpers')->siteOwnersGuide(); ?>" target="_blank">Read more about appointing a representative and your options here</a>.
         </p>
         <p>
             If you have a representative contact, enter the contact details below.
@@ -170,22 +170,30 @@
                 name="gdpr_has_terms_page"
                 id="gdpr_has_terms_page"
                 class="js-gdpr-conditional"
-                data-show=".gdpr-terms-page"
+                data-show=".gdpr-select-terms-page"
                 value="yes"
             <?= checked($hasTermsPage, 'yes'); ?>
-        >
+        />
         I have a Terms & Conditions page
     </label>
 </p>
-<p>
-    <span class="gdpr-terms-page hidden">
+
+<p class="gdpr-select-terms-page hidden">
     <label for="gdpr_terms_page">Select the page where your Terms & Conditions are displayed</label>
-        <?php if ($termsPageNote): ?>
-            <em><?= esc_html($termsPageNote); ?></em>
-        <?php endif; ?>
-        <?= $termsPageSelector; ?>
-        <br>
-    </span>
+    <?php if ($termsPageNote): ?>
+        <em><?= esc_html($termsPageNote); ?></em>
+    <?php endif; ?>
+    <?= $termsPageSelector; ?>
+    <strong>OR</strong>
+    <label for="gdpr_custom_terms_page">Enter the page URL where your Terms & Conditions page will be displayed</label>
+    <input 
+        type="url" 
+        name="gdpr_custom_terms_page" 
+        id="gdpr_custom_terms_page" 
+        value="<?= esc_attr($termsPageUrl); ?>"
+    />
+    <br/>
+    <span class="notice_gdpr">(Leave blank if the Terms & Conditions page is selected above or make it blank if the page exists in the page list.)</span>
 </p>
 
 <hr>

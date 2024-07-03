@@ -1,11 +1,11 @@
-=== Maps Widget for Google Maps - Google Maps Builder ===
+=== Maps Widget for Google Maps ===
 Contributors: WebFactory
-Tags: google maps, maps, map, google map, google maps widget, map markers, wp google maps, wp google map, map plugin, directions, google map plugin, map widget
+Tags: google maps, map, google map, google maps widget, map widget
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 4.0
-Tested up to: 5.7
-Stable tag: 4.21
+Tested up to: 6.5
+Stable tag: 4.25
 Requires PHP: 5.2
 
 Are your Google Maps slow? Try Map Widget for Google Maps. You'll have a fast Google Maps widget with a thumbnail & lightbox map in minutes!
@@ -180,8 +180,23 @@ Try <a href="http://www.niftymaps.co">Nifty Maps</a> - a comprehensive Map Build
 7. Thumbnail map - light color scheme
 
 == Changelog ==
+= 4.25 =
+* 2023/04/04
+* JavaScript is no longer accepted in the widget footer and header fields
 
-= 4.20 =
+= 4.24 =
+* 2023/03/07
+* minor security fixes
+
+= 4.23 =
+* 2022/11/26
+* minor security fixes
+
+= 4.22 =
+* 2021/07/18
+* added notice for WP 5.8
+
+= 4.21 =
 * 2021/03/07
 * minor fixes
 * checked on WP 5.7

@@ -13,7 +13,7 @@ use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Typography;
-use Elementor\Scheme_Typography;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 
 defined( 'ABSPATH' ) || die();
 
@@ -51,7 +51,16 @@ class Image_Grid extends Base {
 		return [ 'gallery', 'image', 'masonry', 'even', 'portfolio', 'filterable', 'grid' ];
 	}
 
+	/**
+     * Register widget content controls
+     */
 	protected function register_content_controls() {
+		$this->__gallery_content_controls();
+		$this->__advance_content_controls();
+	}
+
+	protected function __gallery_content_controls() {
+
 		$this->start_controls_section(
 			'_section_gallery',
 			[
@@ -126,6 +135,9 @@ class Image_Grid extends Base {
 		);
 
 		$this->end_controls_section();
+	}
+
+	protected function __advance_content_controls() {
 
 		$this->start_controls_section(
 			'_section_advance',
@@ -276,7 +288,16 @@ class Image_Grid extends Base {
 		$this->end_controls_section();
 	}
 
+	/**
+     * Register widget style controls
+     */
 	protected function register_style_controls() {
+		$this->__image_style_controls();
+		$this->__menu_style_controls();
+	}
+
+	protected function __image_style_controls() {
+
 		$this->start_controls_section(
 			'_section_style_image',
 			[
@@ -438,6 +459,9 @@ class Image_Grid extends Base {
 		$this->end_controls_tabs();
 
 		$this->end_controls_section();
+	}
+
+	protected function __menu_style_controls() {
 
 		$this->start_controls_section(
 			'_section_style_menu',
@@ -536,7 +560,9 @@ class Image_Grid extends Base {
 			[
 				'name' => 'button_typography',
 				'selector' => '{{WRAPPER}} .ha-filter__item',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_3,
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_TEXT,
+				],
 			]
 		);
 
@@ -734,11 +760,26 @@ class Image_Grid extends Base {
 		return compact( 'menu', 'items' );
 	}
 
+	protected function image_missing_alert() {
+		if( ha_elementor()->editor ){
+			printf(
+				'<div %s>%s</div>',
+				'style="margin: 1rem;padding: 1rem 1.25rem;border-left: 5px solid #f5c848;color: #856404;background-color: #fff3cd;"',
+				__( 'Please select an image first to render the grid properly', 'happy-elementor-addons' )
+			);
+		}
+	}
+
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 		$gallery = $this->get_gallery_data();
 
 		if ( empty( $gallery ) ) {
+			return;
+		}
+
+		if ( count( $gallery['items'] ) <= 0 ) {
+			$this->image_missing_alert();
 			return;
 		}
 

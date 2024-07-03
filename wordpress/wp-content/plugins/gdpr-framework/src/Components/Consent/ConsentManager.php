@@ -38,16 +38,18 @@ class ConsentManager
     }
 
     public function registerDefaultConsentTypes()
-    {   
+    {
+        global $gdpr;
+        
         /****
          * privacy-policy default consent
          */
-        $policyPageUrl = get_permalink(gdpr('options')->get('policy_page'));
+        $policyPageUrl = get_permalink($gdpr->Options->get('policy_page'));
         add_filter( 'gdpr_custom_policy_link', 'gdprfPrivacyPolicyurl' );
     
         $policyPageUrl = apply_filters( 'gdpr_custom_policy_link',$policyPageUrl);
 
-        gdpr('consent')->register(
+        $gdpr->Consent->register(
             'privacy-policy',
             sprintf(
                 __('I accept the %sPrivacy Policy%s', 'gdpr-framework'),
@@ -57,10 +59,33 @@ class ConsentManager
             _x('This consent is not visible by default. If someone wishes to withdraw it, they should simply request to delete all their data.', '(Admin)', 'gdpr-framework'),
             false
         );
+
+        /****
+         * privacy-policy do-not-sell-request form default consent
+         */
+
+        $this->register(
+                    'do-not-sell-info',
+                    sprintf(
+                        __( 'Do Not Sell My Data', 'gdpr-framework' )
+                    ),
+                    _x( 'I do not consent to having my information sold by ' , '(Admin)', 'gdpr-framework' ) .get_bloginfo('name'). '.',
+                    true
+                );
+
+        $this->register(
+                    'receive-communications',
+                    sprintf(
+                        __( 'Receive Communications from ', 'gdpr-framework' )  . get_bloginfo('name')
+                    ),
+                    _x( 'I agree to receive other communications from ' , '(Admin)', 'gdpr-framework' ) .get_bloginfo('name'). '.',
+                    true
+                );
+
         /****
          * terms-conditions default consent
          */
-        $termsPage = gdpr('options')->get('terms_page');
+        $termsPage = $gdpr->Options->get('terms_page');
         if ($termsPage) {
             $termsPageUrl = get_permalink($termsPage);
         } else {
@@ -68,7 +93,7 @@ class ConsentManager
         }
 
         if ($termsPageUrl) {
-            gdpr('consent')->register(
+            $gdpr->Consent->register(
                 'terms-conditions',
                 sprintf(
                     __('I accept the %sTerms & Conditions%s', 'gdpr-framework'),
@@ -79,19 +104,19 @@ class ConsentManager
                 false
             );
         }
-        /****
-         * ClassiDocsCallback default consent
-         */
-        gdpr('consent')->register(
-            'ClassiDocsCallback','ClassiDocsCallback',
-            _x('This consent is not visible by default. If someone wishes to withdraw it, they should simply request to delete all their data.', '(Admin)', 'gdpr-framework'),
-            true
+
+        $this->register(
+            'gdpr_cookie_consent',
+            _x( 'Site Cookie Consent', '(Admin)', 'gdpr-framework' ),
+            _x( 'This consent is not visible by default. If someone wishes to withdraw it, they should simply request to delete all their data.', '(Admin)', 'gdpr-framework' ),
+            false
         );
+
         /****
          * Woocommerce Policy consent
          */
         if ( class_exists( 'WooCommerce' ) ) {
-            gdpr('consent')->register(
+            $gdpr->Consent->register(
                 'gdpr_woo_consent', _x('Woocommerce Policy Consent', '(Admin)', 'gdpr-framework'),
                 _x('This consent is visible by default on woocommerce checkout page. If someone wishes to withdraw it, they should simply request to delete all their data.', '(Admin)', 'gdpr-framework'),
                 true
@@ -149,18 +174,23 @@ class ConsentManager
      */
     public function registerCustomConsentTypes()
     {
-        $savedConsentTypes = gdpr('options')->get('consent_types');
+        global $gdpr;
+
+        $savedConsentTypes = $gdpr->Options->get('consent_types');
 
         if (is_array($savedConsentTypes) && count($savedConsentTypes)) 
         {
             foreach ($savedConsentTypes as $consentType) 
             {
-                $this->customConsentTypes[$consentType['slug']] = [
-                    'slug'        => isset($consentType['slug']) ? $consentType['slug'] : '',
-                    'title'       => isset($consentType['title']) ? $consentType['title'] : '',
-                    'description' => isset($consentType['description']) ? $consentType['description'] : '',
-                    'visible'     => isset($consentType['visible']) ? $consentType['visible'] : '',
-                ];
+                /* FRAM-135 check for the slug key before the reference */
+                if (!empty($consentType['slug'])) {
+                    $this->customConsentTypes[$consentType['slug']] = [
+                        'slug'        => isset($consentType['slug']) ? $consentType['slug'] : '',
+                        'title'       => isset($consentType['title']) ? $consentType['title'] : '',
+                        'description' => isset($consentType['description']) ? $consentType['description'] : '',
+                        'visible'     => isset($consentType['visible']) ? $consentType['visible'] : '',
+                    ];
+                }
             }
         }
     }
@@ -172,8 +202,9 @@ class ConsentManager
      */
     public function saveCustomConsentTypes($consentTypes)
     {
-        // Todo: validate to make sure something broken is not saved to DB
-        gdpr('options')->set('consent_types', $consentTypes);
+        global $gdpr;
+
+        $gdpr->Options->set('consent_types', $consentTypes);
     }
 
     /**
@@ -184,22 +215,7 @@ class ConsentManager
      */
     public function isRegisteredConsent($consent)
     {
-		
-		return null !== $this->getConsentTypes( $consent );
-		//return isset($this->getConsentTypes()[$consent]);
-    }
-
-    /**
-     * Check if the given consent is valid. If not, throw error.
-     *
-     * @param $consent
-     */
-    protected function validateConsent($consent)
-    {
-        if (!$this->isRegisteredConsent($consent)) 
-        {
-            wp_die("Not a valid consent: " . esc_html($consent));
-        }
+        return null !== $this->getConsentTypes( $consent );
     }
 
     /**
@@ -210,18 +226,17 @@ class ConsentManager
      */
     public function giveConsent($email, $consent, $valid_until = null)
     {
-        $this->validateConsent($consent);
+        if ($this->isRegisteredConsent($consent)) {
+            $validation = apply_filters('gdpr/consent/give', true, $email, $consent);
 
-        $validation = apply_filters('gdpr/consent/give', true, $email, $consent);
+            // If the data subject has already given this consent, do nothing
+            if ($this->model->given($email, $consent) || !$validation) {
+                return;
+            }
 
-        // If the data subject has already given this consent, do nothing
-        if ($this->model->given($email, $consent) || !$validation) 
-        {
-            return;
+            $this->model->give($email, $consent,  $valid_until);
+            do_action('gdpr/consent/given', $email, $consent);
         }
-
-        $this->model->give($email, $consent,  $valid_until);
-        do_action('gdpr/consent/given', $email, $consent);
     }
 
     /**
@@ -232,18 +247,17 @@ class ConsentManager
      */
     public function withdrawConsent($email, $consent)
     {
-        $this->validateConsent($consent);
+        if ($this->isRegisteredConsent($consent)) {
+            $validation = apply_filters('gdpr/consent/withdraw', true, $email, $consent);
 
-        $validation = apply_filters('gdpr/consent/withdraw', true, $email, $consent);
+            // If the consent has never been given or if data subject has already withdrawn this consent, do nothing
+            if (!$this->model->exists($email, $consent) || $this->model->withdrawn($email, $consent) || !$validation) {
+                return;
+            }
 
-        // If the consent has never been given or if data subject has already withdrawn this consent, do nothing
-        if (!$this->model->exists($email, $consent) || $this->model->withdrawn($email, $consent) || !$validation) 
-        {
-            return;
+            $this->model->withdraw($email, $consent);
+            do_action('gdpr/consent/withdrawn', $email, $consent, 'withdrawn');
         }
-
-        $this->model->withdraw($email, $consent);
-        do_action('gdpr/consent/withdrawn', $email, $consent, 'withdrawn');
     }
 
     /**
@@ -254,14 +268,13 @@ class ConsentManager
      */
     public function deleteConsent($email, $consent)
     {
-        $this->validateConsent($consent);
+        if ($this->isRegisteredConsent($consent)) {
+            if ($this->model->given($email, $consent)) {
+                do_action('gdpr/consent/withdrawn', $email, $consent, 'deleted');
+            }
 
-        if ($this->model->given($email, $consent)) 
-        {
-            do_action('gdpr/consent/withdrawn', $email, $consent, 'deleted');
+            $this->model->delete($email, $consent);
         }
-
-        $this->model->delete($email, $consent);
     }
 
     /**
@@ -273,14 +286,13 @@ class ConsentManager
      */
     public function anonymizeConsent($email, $consent, $anonymizedId)
     {
-        $this->validateConsent($consent);
+        if ($this->isRegisteredConsent($consent)) {
+            if ($this->model->given($email, $consent)) {
+                do_action('gdpr/consent/withdrawn', $email, $consent, 'anonymized');
+            }
 
-        if ($this->model->given($email, $consent)) 
-        {
-            do_action('gdpr/consent/withdrawn', $email, $consent, 'anonymized');
+            $this->model->anonymize($email, $consent, $anonymizedId);
         }
-
-        $this->model->anonymize($email, $consent, $anonymizedId);
     }
 
     /**
@@ -302,7 +314,7 @@ class ConsentManager
     {
         return $this->model->getAllwithdetails($email);
     }
-    
+
     /**
      * Get all logs deleted for user
      *
@@ -312,7 +324,7 @@ class ConsentManager
     {
         return $this->model->deletelog($id);
     }
-    
+
     /**
      * Get all user logs
      *
@@ -332,7 +344,7 @@ class ConsentManager
      * @return array
      */
     public function getConsentData($dataSubjectConsents)
-    {   
+    {
 		$consentTypes = $this->getConsentTypes();
 		$consents     = [];
 
@@ -349,66 +361,13 @@ class ConsentManager
 					$consents[$slug] = $consentType;
 					$consents[$slug]['valid_until'] = $subjectConsentUntilArray[$slug];
 				}
-			}        
+			}
 		}
-        return $consents;
-    }
-     /**
-     * Get the registered consent types and add 'given' field depending
-     * on whether or not the user has given this particular consent
-     *
-     * @param $dataSubjectConsents
-     * @return array
-     */
-    public function getClassiDocsdata($dataSubjectConsents)
-    {   
-        $old_responce=array();
-        $getclassidocs_url = gdpr('options')->get('classidocs_url');
-        $classidoc_API_URL1 = esc_url_raw($getclassidocs_url."/gdpr/query/");
-        $response = wp_remote_get($classidoc_API_URL1); 
-        if ( is_array( $response ) && ! is_wp_error( $response ) ) 
-        {   
-            if(json_Decode($response['body'])){
-                foreach(json_Decode($response['body']) as $data)
-                {
-                    if($dataSubjectConsents == $data->query)
-                    {
-                        $old_responce[]=$data->id;
-                    }
-                }
-            }
-        }
-
-        $body=array();
-        $ClassiDocsdata ="";
-        if(gdpr('options')->get('classidocs_integration'))
-        {
-            if($old_responce)
-            {
-                foreach($old_responce as $response)
-                {
-                    $query=$response;       //static for testing
-                    $getclassidocs_url = gdpr('options')->get('classidocs_url');
-                    $classidoc_API_URL2 = esc_url_raw($getclassidocs_url."/gdpr/query/".$query."?pageSize=200");
-                    $response = wp_remote_get($classidoc_API_URL2); 
-                    if ( is_array( $response ) && ! is_wp_error( $response ) ) 
-                    {
-                        $headers = $response['headers']; // array of http header lines
-                        $body[]    = $response['body']; // use the content
-                    }
-                }
-            }
-                        
-        }
-        if(isset($body[0]))
-        {
-            $ClassiDocsdata = $body[0];
-        }
-        return $ClassiDocsdata;
+		return $consents;
 	}
-	
-	public function getbySlugConsent($dataSubjectConsents)
-    {   
+
+    public function getbySlugConsent($dataSubjectConsents)
+    {
         if(isset($dataSubjectConsents) && !empty($dataSubjectConsents)){
             $dataSubjectConsents=sanitize_key($dataSubjectConsents);
             $consentTypes = $this->getConsentTypes();
@@ -420,8 +379,6 @@ class ConsentManager
                 }
             }
         }
-
-        
     }
 
     /**

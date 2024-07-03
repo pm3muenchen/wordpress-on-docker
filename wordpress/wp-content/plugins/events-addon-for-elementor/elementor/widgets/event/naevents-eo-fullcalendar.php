@@ -45,7 +45,7 @@ if ( is_plugin_active( 'event-organiser/event-organiser.php' ) ) {
 		 * Register Events Addon for Elementor Event Organiser Full Calendar widget controls.
 		 * Adds different input fields to allow the user to change and customize the widget settings.
 		*/
-		protected function _register_controls(){
+		protected function register_controls(){
 
 			$this->start_controls_section(
 				'section_event',
@@ -284,7 +284,6 @@ if ( is_plugin_active( 'event-organiser/event-organiser.php' ) ) {
 				[
 					'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 					'name' => 'sastable_head_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 					'selector' => '{{WRAPPER}} .naeep-em-calendar table thead tr td',
 				]
 			);
@@ -293,10 +292,6 @@ if ( is_plugin_active( 'event-organiser/event-organiser.php' ) ) {
 				[
 					'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_1,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .naeep-em-calendar table thead tr td' => 'color: {{VALUE}};',
 					],
@@ -317,7 +312,6 @@ if ( is_plugin_active( 'event-organiser/event-organiser.php' ) ) {
 				[
 					'label' => esc_html__( 'Typography', 'events-addon-for-elementor' ),
 					'name' => 'text_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_3,
 					'selector' => '{{WRAPPER}} .eo-fullcalendar .fc-event, {{WRAPPER}} .fc-row .fc-content-skeleton td',
 				]
 			);
@@ -326,10 +320,6 @@ if ( is_plugin_active( 'event-organiser/event-organiser.php' ) ) {
 				[
 					'label' => esc_html__( 'Color', 'events-addon-for-elementor' ),
 					'type' => Controls_Manager::COLOR,
-					'scheme' => [
-						'type' => Scheme_Color::get_type(),
-						'value' => Scheme_Color::COLOR_3,
-					],
 					'selectors' => [
 						'{{WRAPPER}} .eo-fullcalendar .fc-event' => 'color: {{VALUE}};',
 					],

@@ -48,6 +48,21 @@ if ( ! class_exists( 'Gutentor_P6' ) ) {
 		}
 
 		/**
+		 * Set register_block_type_args variable on parent
+		 * Used for blog template loading
+		 *
+		 * @since      3.0.6
+		 * @package    Gutentor
+		 * @author     Gutentor <info@gutentor.com>
+		 */
+		public function register_block_type_args() {
+			$this->register_block_type_args = array(
+				'view_script_handles' => array( 'magnific-popup' ),
+				'style_handles'       => array( 'magnific-popup' ),
+			);
+		}
+
+		/**
 		 * Load Dependencies
 		 * Used for blog template loading
 		 *
@@ -115,6 +130,10 @@ if ( ! class_exists( 'Gutentor_P6' ) ) {
 				'pTaxType'                        => array(
 					'type'    => 'string',
 					'default' => 'category',
+				),
+				'pTaxOperator'                    => array(
+					'type'    => 'string',
+					'default' => 'IN',
 				),
 				'pPostType'                       => array(
 					'type'    => 'string',
@@ -193,11 +212,35 @@ if ( ! class_exists( 'Gutentor_P6' ) ) {
 					'type'    => 'boolean',
 					'default' => true,
 				),
+				/*Featured Post avatar*/
+				'pFPOnAvatar'                     => array(
+					'type'    => 'boolean',
+					'default' => false,
+				),
+				'pFPAvatarPos'                    => array(
+					'type'    => 'string',
+					'default' => 'g-avatar-img-fp-t-l',
+				),
+				'pFPAvatarSize'                   => array(
+					'type'    => 'string',
+					'default' => '48',
+				),
+				'pFPAvatarOColor'                 => array(
+					'type'    => 'object',
+					'default' => array(
+						'enable' => false,
+						'normal' => '',
+						'hover'  => '',
+					),
+				),
+				'pFPOnByAuthor'                   => array(
+					'type'    => 'boolean',
+					'default' => false,
+				),
 			);
 			$blog_partial_attrs = array_merge_recursive( $blog_post_attr, $this->get_module_common_attrs() );
 			$blog_partial_attrs = array_merge_recursive( $blog_partial_attrs, $this->get_module_query_elements_common_attrs() );
-			$blog_partial_attrs = array_merge_recursive( $blog_partial_attrs, $this->get_module_featured_post_query_elements_common_attrs() );
-			return $blog_partial_attrs;
+			return array_merge_recursive( $blog_partial_attrs, $this->get_module_featured_post_query_elements_common_attrs() );
 		}
 
 
@@ -215,10 +258,9 @@ if ( ! class_exists( 'Gutentor_P6' ) ) {
 
 			$blockID = isset( $attributes['pID'] ) ? $attributes['pID'] : $attributes['gID'];
 			$gID     = isset( $attributes['gID'] ) ? $attributes['gID'] : '';
-            $output  = $default_class = '';
-            if ( isset( $attributes['className'] ) ) {
-                $default_class = esc_attr( $attributes['className'] );
-            }
+			$output  = '';
+
+			$default_class = gutentor_block_add_default_classes( 'gutentor-p6', $attributes );
 
 			$tag                     = $attributes['mTag'] ? $attributes['mTag'] : 'div';
 			$template                = $attributes['p6Temp'] ? $attributes['p6Temp'] : '';
@@ -252,7 +294,8 @@ if ( ! class_exists( 'Gutentor_P6' ) ) {
 			if ( isset( $attributes['pTaxType'] ) && ! empty( $attributes['pTaxType'] ) &&
 				isset( $attributes['pTaxTerm'] ) && ! empty( $attributes['pTaxTerm'] ) ) {
 
-				$query_args['taxonomy'] = $attributes['pTaxType'];
+				$query_args['taxonomy']    = $attributes['pTaxType'];
+				$query_args['taxOperator'] = $attributes['pTaxOperator'] ? $attributes['pTaxOperator'] : 'IN';
 
 				if ( is_array( $attributes['pTaxTerm'] ) ) {
 					$p1_terms = array();
@@ -265,15 +308,15 @@ if ( ! class_exists( 'Gutentor_P6' ) ) {
 				}
 			}
 
-            if ( isset( $attributes['pAuthor'] ) && ! empty( $attributes['pAuthor'] ) ) {
-                if ( is_array( $attributes['pAuthor'] ) ) {
-                    $author_list = array();
-                    foreach ( $attributes['pAuthor'] as $data ) {
-                        $author_list[] = $data['value'];
-                    }
-                    $query_args['author__in'] = $author_list;
-                }
-            }
+			if ( isset( $attributes['pAuthor'] ) && ! empty( $attributes['pAuthor'] ) ) {
+				if ( is_array( $attributes['pAuthor'] ) ) {
+					$author_list = array();
+					foreach ( $attributes['pAuthor'] as $data ) {
+						$author_list[] = $data['value'];
+					}
+					$query_args['author__in'] = $author_list;
+				}
+			}
 
 			if ( isset( $attributes['offset'] ) ) {
 				$query_args['offset'] = $attributes['offset'];
@@ -295,14 +338,14 @@ if ( ! class_exists( 'Gutentor_P6' ) ) {
 			$the_query         = new WP_Query( gutentor_get_query( $query_args ) );
 			$single_post_class = $the_query->post_count === 1 ? 'gutentor-single-post' : '';
 
-			$output .= '<' . $tag . ' class="' . apply_filters( 'gutentor_post_module_main_wrap_class', gutentor_concat_space( 'section-' . $gID, 'gutentor-post-module', 'gutentor-post-module-p6', $single_post_class, $template, $align,$default_class ), $attributes ) . '" id="' . esc_attr( $blockID ) . '" data-gbid="' . esc_attr( $gID ) . '" ' . GutentorAnimationOptionsDataAttr( $blockComponentAnimation ) . '>' . "\n";
+			$output .= '<' . $tag . ' class="' . apply_filters( 'gutentor_post_module_main_wrap_class', gutentor_concat_space( 'section-' . $gID, 'gutentor-post-module', 'gutentor-post-module-p6', $single_post_class, $template, $align, $default_class ), $attributes ) . '" id="' . esc_attr( $blockID ) . '" data-gbid="' . esc_attr( $gID ) . '" ' . GutentorAnimationOptionsDataAttr( $blockComponentAnimation ) . '>' . "\n";
 			$output .= apply_filters( 'gutentor_post_module_before_container', '', $attributes );
 			$output .= "<div class='" . apply_filters( 'gutentor_post_module_container_class', 'grid-container', $attributes ) . "'>";
 			$output .= apply_filters( 'gutentor_post_module_before_block_items', '', $attributes );
 			$output .= "<div class='" . apply_filters( 'gutentor_post_module_grid_row_class', 'grid-row', $attributes ) . "' " . gutentor_get_html_attr( apply_filters( 'gutentor_post_module_attr', array(), $attributes ) ) . '>';
 
 			if ( $the_query->have_posts() ) :
-				$output .= apply_filters( 'gutentor_post_module_p6_query_data', '', $the_query, $attributes );
+				$output .= apply_filters( 'gutentor_post_module_p6_query_data', '', $the_query, $attributes, $content );
 			else :
 				$output .= '<header class="g-n-f-t-1"><h2 class="g-n-f-title">' . esc_html( $nothing_found_text ) . '</h2></header>';
 			endif;

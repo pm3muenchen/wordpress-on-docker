@@ -7,6 +7,15 @@ class BWGModelSite {
       $id = $wpdb->get_var('SELECT id FROM ' . $wpdb->prefix . 'bwg_theme WHERE default_theme=1');
     }
     $row = new WD_BWG_Theme($id);
+    foreach ( $row as $key => $val ) {
+      // '#' is removed from the color (jscolor lib v2.4.5)
+      preg_match('/_color/', $key, $is_color_array);
+      if ( !empty($is_color_array) && !empty($is_color_array[0]) ) {
+        $val = str_replace('#', '', $val);
+      }
+      $row->$key = $val;
+    }
+
     return $row;
   }
 
@@ -40,7 +49,7 @@ class BWGModelSite {
     return $row;
   }
 
-  public function get_album_row_data( $id, $from ) {
+  public function get_album_row_data( $id, $from, $bwg = 0 ) {
     global $wpdb;
     if ( $id == 0 ) {
       $row = $wpdb->get_results('SELECT * FROM ' . $wpdb->prefix . 'bwg_gallery');
@@ -48,6 +57,7 @@ class BWGModelSite {
     else {
       $row = $wpdb->get_row($wpdb->prepare('SELECT * FROM ' . $wpdb->prefix . 'bwg_album WHERE id="%d"', $id));
     }
+    $GLOBALS['bwg_random_seed_' . $bwg] = rand();
     if ( is_object($row) ) {
       if ( $from ) {
         $row->permalink = WDWLibrary::get_custom_post_permalink(array( 'slug' => $row->slug, 'post_type' => 'album' ));
@@ -69,13 +79,12 @@ class BWGModelSite {
    * Inner Gallery Groups data will not be included in sitemap.
   */
   public function get_image_rows_data_from_album($album_id) {
-
     global $wpdb;
-    $format = '';
-    if( $album_id ) {
+    if ( $album_id ) {
       $where = 'image.gallery_id IN (SELECT alb_gal_id FROM `' . $wpdb->prefix . 'bwg_album_gallery` as albgal WHERE albgal.album_id=%d AND (SELECT gal.published from `' . $wpdb->prefix . 'bwg_gallery` as gal WHERE gal.id=albgal.alb_gal_id))';
       $format = intval( $album_id );
-    } else {
+    }
+    else {
       $where = '(SELECT gal.published from `' . $wpdb->prefix . 'bwg_gallery` as gal WHERE gal.id=image.gallery_id)=%d';
       $format = 1;
     }
@@ -86,9 +95,10 @@ class BWGModelSite {
 
   public function get_tags_rows_data($gallery_id) {
     global $wpdb;
-    if( $gallery_id ) {
+    if ( $gallery_id ) {
       $row = $wpdb->get_results($wpdb->prepare('Select t1.* FROM ' . $wpdb->prefix . 'terms AS t1 LEFT JOIN ' . $wpdb->prefix . 'term_taxonomy AS t2 ON t1.term_id = t2.term_id' . ($gallery_id ? ' LEFT JOIN (SELECT DISTINCT tag_id , gallery_id  FROM ' . $wpdb->prefix . 'bwg_image_tag) AS t3 ON t1.term_id=t3.tag_id' : '') . ' WHERE taxonomy="bwg_tag"' . ($gallery_id ? ' AND t3.gallery_id="%d"' : '') . ' ORDER BY t1.name  ASC', $gallery_id));
-    } else {
+    }
+    else {
       $row = $wpdb->get_results('Select t1.* FROM ' . $wpdb->prefix . 'terms AS t1 LEFT JOIN ' . $wpdb->prefix . 'term_taxonomy AS t2 ON t1.term_id = t2.term_id' . ($gallery_id ? ' LEFT JOIN (SELECT DISTINCT tag_id , gallery_id  FROM ' . $wpdb->prefix . 'bwg_image_tag) AS t3 ON t1.term_id=t3.tag_id' : '') . ' WHERE taxonomy="bwg_tag"' . ($gallery_id ? ' AND t3.gallery_id="%d"' : '') . ' ORDER BY t1.name  ASC');
     }
     return $row;
@@ -194,7 +204,7 @@ class BWGModelSite {
 
           $row->preview_image = WDWLibrary::image_url_version( $row->preview_image, $row->modified_date );
         }
-        if ( !empty( $row->random_preview_image ) ) {
+        if ( !empty( $row->random_preview_image ) && empty( $row->preview_image ) ) {
           $row->resolution_thumb = WDWLibrary::get_thumb_size( $row->random_preview_image );
           if ( $row->resolution_thumb == "" ) {
             $row->resolution_thumb = $this->get_album_preview_thumb_dimensions( $row->random_preview_image );

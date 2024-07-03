@@ -2,7 +2,7 @@
 /**
  * Sticky Header Extension
  *
- * @package Astra Addon
+ * @package Astra
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -24,7 +24,7 @@ if ( ! class_exists( 'Astra_Ext_Transparent_Header' ) ) {
 		/**
 		 * Member Variable
 		 *
-		 * @var instance
+		 * @var object instance
 		 */
 		private static $instance;
 

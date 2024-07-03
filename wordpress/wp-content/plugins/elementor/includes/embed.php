@@ -31,6 +31,10 @@ class Embed {
 		'youtube' => '/^.*(?:youtu\.be\/|youtube(?:-nocookie)?\.com\/(?:(?:watch)?\?(?:.*&)?vi?=|(?:embed|v|vi|user)\/))([^\?&\"\'>]+)/',
 		'vimeo' => '/^.*vimeo\.com\/(?:[a-z]*\/)*([‌​0-9]{6,11})[?]?.*/',
 		'dailymotion' => '/^.*dailymotion.com\/(?:video|hub)\/([^_]+)[^#]*(#video=([^_&]+))?/',
+		'videopress' => [
+			'/^(?:http(?:s)?:\/\/)?videos\.files\.wordpress\.com\/([a-zA-Z\d]{8,})\//i',
+			'/^(?:http(?:s)?:\/\/)?(?:www\.)?video(?:\.word)?press\.com\/(?:v|embed)\/([a-zA-Z\d]{8,})(.+)?/i',
+		],
 	];
 
 	/**
@@ -48,6 +52,7 @@ class Embed {
 		'youtube' => 'https://www.youtube{NO_COOKIE}.com/embed/{VIDEO_ID}?feature=oembed',
 		'vimeo' => 'https://player.vimeo.com/video/{VIDEO_ID}#t={TIME}',
 		'dailymotion' => 'https://dailymotion.com/embed/video/{VIDEO_ID}',
+		'videopress' => 'https://videopress.com/embed/{VIDEO_ID}',
 	];
 
 	/**
@@ -65,13 +70,17 @@ class Embed {
 	 */
 	public static function get_video_properties( $video_url ) {
 		foreach ( self::$provider_match_masks as $provider => $match_mask ) {
-			preg_match( $match_mask, $video_url, $matches );
+			if ( ! is_array( $match_mask ) ) {
+				$match_mask = [ $match_mask ];
+			}
 
-			if ( $matches ) {
-				return [
-					'provider' => $provider,
-					'video_id' => $matches[1],
-				];
+			foreach ( $match_mask as $mask ) {
+				if ( preg_match( $mask, $video_url, $matches ) ) {
+					return [
+						'provider' => $provider,
+						'video_id' => $matches[1],
+					];
+				}
 			}
 		}
 
@@ -118,6 +127,26 @@ class Embed {
 			}
 
 			$replacements['{TIME}'] = $time_text;
+
+			/**
+			 * Handle Vimeo private videos
+			 *
+			 * Vimeo requires an additional parameter when displaying private/unlisted videos. It has two ways of
+			 * passing that parameter:
+			 * * as an endpoint - vimeo.com/{video_id}/{privacy_token}
+			 * OR
+			 * * as a GET parameter named `h` - vimeo.com/{video_id}?h={privacy_token}
+			 *
+			 * The following regex match looks for either of these methods in the Vimeo URL, and if it finds a privacy
+			 * token, it adds it to the embed params array as the `h` parameter (which is how Vimeo can receive it when
+			 * using Oembed).
+			 */
+			$h_param = [];
+			preg_match( '/(?|(?:[\?|\&]h={1})([\w]+)|\d\/([\w]+))/', $video_url, $h_param );
+
+			if ( ! empty( $h_param ) ) {
+				$embed_url_params['h'] = $h_param[1];
+			}
 		}
 
 		$embed_pattern = str_replace( array_keys( $replacements ), $replacements, $embed_pattern );
@@ -150,6 +179,7 @@ class Embed {
 		$default_frame_attributes = [
 			'class' => 'elementor-video-iframe',
 			'allowfullscreen',
+			'allow' => 'clipboard-write',
 			'title' => sprintf(
 				/* translators: %s: Video provider */
 				__( '%s Video Player', 'elementor' ),
@@ -161,7 +191,7 @@ class Embed {
 		if ( ! $video_embed_url ) {
 			return null;
 		}
-		if ( ! $options['lazy_load'] ) {
+		if ( ! isset( $options['lazy_load'] ) || ! $options['lazy_load'] ) {
 			$default_frame_attributes['src'] = $video_embed_url;
 		} else {
 			$default_frame_attributes['data-lazy-load'] = $video_embed_url;
@@ -254,6 +284,6 @@ class Embed {
 			return null;
 		}
 
-		return '<div class="elementor-image">' . sprintf( '<img src="%1$s" alt="%2$s" title="%2$s" width="%3$s" />', $oembed_data['thumbnail_url'], esc_attr( $oembed_data['title'] ), '100%' ) . '</div>';
+		return '<div class="elementor-image">' . sprintf( '<img src="%1$s" alt="%2$s" title="%2$s" width="%3$s" loading="lazy" />', $oembed_data['thumbnail_url'], esc_attr( $oembed_data['title'] ), '100%' ) . '</div>';
 	}
 }

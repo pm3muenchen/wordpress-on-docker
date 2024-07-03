@@ -1,8 +1,8 @@
 <?php
 /**
- * Sticky Header - Customizer.
+ * Transparent Header - Customizer.
  *
- * @package Astra Addon
+ * @package Astra
  * @since 1.0.0
  */
 
@@ -22,7 +22,7 @@ if ( ! class_exists( 'Astra_Ext_Transparent_Header_Loader' ) ) {
 		/**
 		 * Member Variable
 		 *
-		 * @var instance
+		 * @var object instance
 		 */
 		private static $instance;
 
@@ -56,16 +56,21 @@ if ( ! class_exists( 'Astra_Ext_Transparent_Header_Loader' ) ) {
 		public function theme_defaults( $defaults ) {
 
 			// Header - Transparent.
-			$defaults['transparent-header-logo']                       = '';
-			$defaults['transparent-header-retina-logo']                = '';
-			$defaults['different-transparent-logo']                    = 0;
-			$defaults['different-transparent-retina-logo']             = 0;
-			$defaults['transparent-header-logo-width']                 = array(
+			$defaults['transparent-header-logo']           = '';
+			$defaults['transparent-header-retina-logo']    = '';
+			$defaults['different-transparent-logo']        = 0;
+			$defaults['different-transparent-retina-logo'] = 0;
+			$defaults['transparent-header-logo-width']     = array(
 				'desktop' => 150,
 				'tablet'  => 120,
 				'mobile'  => 100,
 			);
-			$defaults['transparent-header-enable']                     = 0;
+			$defaults['transparent-header-enable']         = 0;
+			/**
+			 * Old option for 404, search and archive pages.
+			 *
+			 * For default value on separate option this setting is in use.
+			 */
 			$defaults['transparent-header-disable-archive']            = 1;
 			$defaults['transparent-header-disable-latest-posts-index'] = 1;
 			$defaults['transparent-header-on-devices']                 = 'both';
@@ -84,11 +89,24 @@ if ( ! class_exists( 'Astra_Ext_Transparent_Header_Loader' ) ) {
 			$defaults['transparent-submenu-bg-color']          = '';
 			$defaults['transparent-submenu-color']             = '';
 			$defaults['transparent-submenu-h-color']           = '';
+			$defaults['transparent-header-logo-color']         = '';
 
 			/**
 			* Transparent Header Responsive Colors
 			*/
 			$defaults['transparent-header-bg-color-responsive'] = array(
+				'desktop' => '',
+				'tablet'  => '',
+				'mobile'  => '',
+			);
+
+			$defaults['hba-transparent-header-bg-color-responsive'] = array(
+				'desktop' => '',
+				'tablet'  => '',
+				'mobile'  => '',
+			);
+
+			$defaults['hbb-transparent-header-bg-color-responsive'] = array(
 				'desktop' => '',
 				'tablet'  => '',
 				'mobile'  => '',
@@ -202,6 +220,7 @@ if ( ! class_exists( 'Astra_Ext_Transparent_Header_Loader' ) ) {
 				array(
 					'is_astra_hf_builder_active' => Astra_Builder_Helper::$is_header_footer_builder_active,
 					'is_flex_based_css'          => Astra_Builder_Helper::apply_flex_based_css(),
+					'transparent_header_devices' => astra_get_option( 'transparent-header-on-devices' ),
 				)
 			);
 		}

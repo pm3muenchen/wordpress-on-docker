@@ -1,4 +1,5 @@
 /* eslint-env jest */
+/* eslint no-import-assign: 0 */
 import React from 'react'
 import { renderWithGlobalConfig, act, fireEvent, waitFor } from 'test-utils'
 import TokenProjectSignup from './TokenProjectSignup'
@@ -34,63 +35,63 @@ it('should close modal after completing sign up process', async () => {
   })
 
   // Fill in and submit step 1 of the token flow::
-  await act(async () => {
-    // Input box:
-    const tokenInputBox = getByTestId('token-input')
-    fireEvent.change(tokenInputBox, { target: { value: 'test-token-value' } })
-    expect(tokenInputBox.value).toBe('test-token-value')
+  // await act(async () => {
+  // Input box:
+  const tokenInputBox = getByTestId('token-input')
+  fireEvent.change(tokenInputBox, { target: { value: 'test-token-value' } })
+  expect(tokenInputBox.value).toBe('test-token-value')
 
-    // Button click
-    const tokenSubmitButton = getByTestId('elements-token-submit')
-    fireEvent.click(tokenSubmitButton)
+  // Button click
+  const tokenSubmitButton = getByTestId('elements-token-submit')
+  fireEvent.click(tokenSubmitButton)
 
-    // Check the API call was fired:
-    expect(mockVerifyExtensionsToken.default).toHaveBeenCalled()
+  // Check the API call was fired:
+  expect(mockVerifyExtensionsToken.default).toHaveBeenCalled()
 
-    // Wait for the modal to swap to step 2
-    await waitFor(() => {
-      expect(getByTestId('project-name-input')).toBeInTheDocument()
-    }, {
-      timeout: 2000
-    })
+  // Wait for the modal to swap to step 2
+  await waitFor(() => {
+    expect(getByTestId('project-name-input')).toBeInTheDocument()
+  }, {
+    timeout: 2000
   })
+  // })
 
   // Fill in and submit step 2 of the token flow::
-  await act(async () => {
-    // Input box:
-    const projectInputBox = getByTestId('project-name-input')
-    expect(projectInputBox.value).toBe('Default Project Name')
-    fireEvent.change(projectInputBox, { target: { value: 'My project name' } })
-    expect(projectInputBox.value).toBe('My project name')
+  // await act(async () => {
+  // Input box:
+  const projectInputBox = getByTestId('project-name-input')
+  expect(projectInputBox.value).toBe('Default Project Name')
+  fireEvent.change(projectInputBox, { target: { value: 'My project name' } })
+  expect(projectInputBox.value).toBe('My project name')
 
-    // Button click
-    const projectSubmitButton = getByTestId('project-name-submit')
-    fireEvent.click(projectSubmitButton)
+  // Button click
+  const projectSubmitButton = getByTestId('project-name-submit')
+  fireEvent.click(projectSubmitButton)
 
-    // Check the API call was fired:
-    expect(mockSetProjectName.default).toHaveBeenCalled()
+  // Check the API call was fired:
+  expect(mockSetProjectName.default).toHaveBeenCalled()
 
-    // Wait for the modal to swap to final step
-    await waitFor(() => {
-      expect(getByTestId('complete-signup-wizard')).toBeInTheDocument()
-    }, {
-      timeout: 2000
-    })
+  // Wait for the modal to swap to final step
+  await waitFor(() => {
+    expect(getByTestId('complete-signup-wizard')).toBeInTheDocument()
+  }, {
+    timeout: 2000
   })
+  // })
 
   // Click the final "complete" button
-  await act(async () => {
-    // Input box:
-    const completeButton = getByTestId('complete-signup-wizard')
-    fireEvent.click(completeButton)
+  // await act(async () => {
+  // Input box:
+  const completeButton = getByTestId('complete-signup-wizard')
+  fireEvent.click(completeButton)
 
-    // Wait for modal to be closed
-    await waitFor(() => {
-      act(() => {
-        expect(onCloseCallback).toHaveBeenCalled()
-      })
-    }, {
-      timeout: 4000
+  // Wait for modal to be closed
+  await waitFor(() => {
+    act(() => {
+      expect(onCloseCallback).toHaveBeenCalled()
     })
+  }, {
+    timeout: 4000
   })
+  // })
 })

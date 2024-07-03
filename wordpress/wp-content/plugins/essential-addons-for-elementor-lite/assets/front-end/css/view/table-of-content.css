@@ -13,7 +13,7 @@ html {
 }
 
 .eael-toc .eael-toc-not-found {
-  color: #a94442;
+  color: rgb(169, 68, 66);
 }
 
 .eael-toc.eael-toc-disable {
@@ -187,6 +187,10 @@ html {
   list-style: none;
 }
 
+.eael-toc .eael-toc-body ul.eael-toc-list .eael-toc-link.eael-highlight-active:first-child {
+  color: #ff7d50;
+}
+
 .eael-toc .eael-toc-body ul.eael-toc-list.eael-toc-bullet li:before {
   content: "";
   position: relative;
@@ -262,8 +266,7 @@ html {
   display: block;
   white-space: nowrap;
   overflow: hidden;
-  -o-text-overflow: ellipsis;
-     text-overflow: ellipsis;
+  text-overflow: ellipsis;
 }
 
 @media only screen and (max-width: 767px) {

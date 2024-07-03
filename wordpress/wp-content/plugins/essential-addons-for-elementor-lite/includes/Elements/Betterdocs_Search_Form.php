@@ -12,7 +12,6 @@ use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Typography;
 use \Elementor\Group_Control_Background;
-use \Elementor\Scheme_Typography;
 use \Elementor\Widget_Base;
 
 class Betterdocs_Search_Form extends Widget_Base
@@ -72,7 +71,7 @@ class Betterdocs_Search_Form extends Widget_Base
         return 'https://essential-addons.com/elementor/docs/betterdocs-search-form/';
     }
 
-    protected function _register_controls()
+    protected function register_controls()
     {
         /*-----------------------------------------------------------------------------------*/
         /*    Content Tab
@@ -147,6 +146,18 @@ class Betterdocs_Search_Form extends Widget_Base
                 'section_search_field_settings',
                 [
                     'label' => __('Search Field', 'essential-addons-for-elementor-lite'),
+                ]
+            );
+
+            $this->add_control(
+                'section_search_field_placeholder',
+                [
+                    'label'   => __('Placeholder', 'essential-addons-for-elementor-lite'),
+                    'type'    => Controls_Manager::TEXT,
+                    'default' => esc_html__('Search', 'essential-addons-for-elementor-lite'),
+                    'ai' => [
+                        'active' => false,
+                    ],
                 ]
             );
 
@@ -567,13 +578,14 @@ class Betterdocs_Search_Form extends Widget_Base
     {
         if (!defined('BETTERDOCS_URL')) return;
         $settings = $this->get_settings_for_display();
-        $shortcode  = sprintf('[betterdocs_search_form]', apply_filters('eael_betterdocs_search_form_params', []));
+        $shortcode  = sprintf('[betterdocs_search_form placeholder="'.$settings['section_search_field_placeholder'].'"]', apply_filters('eael_betterdocs_search_form_params', []));
         echo do_shortcode(shortcode_unautop($shortcode));
     }
 
     public function render_plain_content()
     {
+        $settings = $this->get_settings_for_display();
         // In plain mode, render without shortcode
-        echo '[betterdocs_search_form]';
+        echo '[betterdocs_search_form placeholder="'.$settings['section_search_field_placeholder'].'"]';
     }
 }

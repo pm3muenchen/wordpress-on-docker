@@ -5,7 +5,7 @@
             var oldTemplateButton = templateAddSection.html();
             oldTemplateButton = oldTemplateButton.replace(
                 '<div class="elementor-add-section-drag-title',
-                '<div class="elementor-add-section-area-button elementor-add-templately-promo-button"><i class="eaicon-easyjobs"></i></div><div class="elementor-add-section-drag-title'
+                '<div class="elementor-add-section-area-button elementor-add-templately-promo-button"></div><div class="elementor-add-section-drag-title'
             );
             templateAddSection.html(oldTemplateButton);
         }
@@ -129,7 +129,6 @@
                             });
                         } else {
                             button.text("Install");
-                            alert(response.data);
                         }
 
                         button.attr("disabled", false);
@@ -158,7 +157,6 @@
                             });
                         } else {
                             button.text("Activate");
-                            alert(response.data);
                         }
 
                         button.attr("disabled", false);

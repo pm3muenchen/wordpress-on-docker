@@ -46,7 +46,7 @@
 											id="myonoffswitch3"
 											type="checkbox"
 											data-action="<?php echo esc_attr( $block_id ); ?>"
-											class="onoffswitch-checkbox cb-toggler <?php echo esc_attr( $cls ); ?>"
+											class="onoffswitch-checkbox  <?php echo esc_attr( $cls ); ?>"
 										<?php checked( $status, true ); ?>
 									>
 									<label class="onoffswitch-label" for="myonoffswitch">
@@ -83,7 +83,7 @@
 											id="myonoffswitch3"
 											type="checkbox"
 											data-action="<?php echo esc_attr( $block_id ); ?>"
-											class="onoffswitch-checkbox cb-toggler <?php echo esc_attr( $cls ); ?>"
+											class="onoffswitch-checkbox  <?php echo esc_attr( $cls ); ?>"
 										<?php checked( $status, true ); ?>
 									>
 									<label class="onoffswitch-label" for="myonoffswitch">
@@ -120,7 +120,7 @@
 											id="myonoffswitch3"
 											type="checkbox"
 											data-action="<?php echo esc_attr( $block_id ); ?>"
-											class="onoffswitch-checkbox cb-toggler <?php echo esc_attr( $cls ); ?>"
+											class="onoffswitch-checkbox  <?php echo esc_attr( $cls ); ?>"
 										<?php checked( $status, true ); ?>
 									>
 									<label class="onoffswitch-label" for="myonoffswitch">
@@ -157,7 +157,7 @@
                                                 id="myonoffswitch3"
                                                 type="checkbox"
                                                 data-action="<?php echo esc_attr( $block_id ); ?>"
-                                                class="onoffswitch-checkbox cb-toggler <?php echo esc_attr( $cls ); ?>"
+                                                class="onoffswitch-checkbox  <?php echo esc_attr( $cls ); ?>"
                                             <?php checked( $status, true ); ?>
                                         >
                                         <label class="onoffswitch-label" for="myonoffswitch">
@@ -194,7 +194,7 @@
 											id="myonoffswitch3"
 											type="checkbox"
 											data-action="<?php echo esc_attr( $block_id ); ?>"
-											class="onoffswitch-checkbox cb-toggler <?php echo esc_attr( $cls ); ?>"
+											class="onoffswitch-checkbox  <?php echo esc_attr( $cls ); ?>"
 										<?php checked( $status, true ); ?>
 									>
 									<label class="onoffswitch-label" for="myonoffswitch">

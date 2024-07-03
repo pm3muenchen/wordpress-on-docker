@@ -136,6 +136,7 @@ function wpautoterms_country_translations_de () {
   "BE-WLG": "Lüttich", 
   "BE-WLX": "Luxemburg", 
   "BE-WNA": "Namur", 
+  "BE-BRU": "Brussels-Capital Region",
   "BF": "Burkina Faso", 
   "BF-BAL": "Balé", 
   "BF-BAM": "Bam", 

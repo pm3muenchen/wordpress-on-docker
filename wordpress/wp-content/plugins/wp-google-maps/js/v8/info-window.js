@@ -107,7 +107,9 @@ jQuery(function($) {
 	
 	WPGMZA.InfoWindow.prototype.addEditButton = function() {
 		if (WPGMZA.currentPage == "map-edit") {
-			return ' <a title="Edit this marker" style="width:15px;" class="wpgmza_edit_btn" data-edit-marker-id="'+this.feature.id+'"><i class="fa fa-edit"></i></a>';	
+			if(this.feature instanceof WPGMZA.Marker){
+				return ' <a title="Edit this marker" style="width:15px;" class="wpgmza_edit_btn" data-edit-marker-id="'+this.feature.id+'"><i class="fa fa-edit"></i></a>';	
+			}
 		}
 		return '';
 

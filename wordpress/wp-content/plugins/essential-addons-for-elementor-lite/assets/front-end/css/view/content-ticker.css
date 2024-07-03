@@ -56,6 +56,10 @@
   text-align: left;
 }
 
+.eael-ticker-wrap .eael-content-ticker.swiper-initialized .swiper-wrapper {
+  overflow: initial;
+}
+
 @media only screen and (max-width: 767px) {
   .eael-ticker-wrap {
     -webkit-box-orient: horizontal;
@@ -63,7 +67,6 @@
         -ms-flex-flow: row wrap;
             flex-flow: row wrap;
   }
-
   .content-ticker-pagination {
     display: none;
   }
@@ -82,8 +85,11 @@
       -ms-flex-pack: center;
           justify-content: center;
   -webkit-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
+}
+
+.eael-ticker-wrap .swiper-button-next:before, .eael-ticker-wrap .swiper-button-next:after, .eael-ticker-wrap .swiper-button-prev:before, .eael-ticker-wrap .swiper-button-prev:after {
+  display: none;
 }
 
 .rtl .eael-ticker-wrap .eael-content-ticker.swiper-container .swiper-slide {

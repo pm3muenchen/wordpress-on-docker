@@ -1,186 +1,308 @@
 <?php
-if ( ! function_exists( 'eafe_bw_settings_init' ) ) {
-  function eafe_bw_settings_init() {
-
-    register_setting( 'naeventsBasicWidgets', 'eafe_bw_settings' );
-
-    // Card Title - Basic Widgets
-    add_settings_section(
-      'eafe_naeventsBasicWidgets_section',
-      __( 'Basic Widgets', 'events-addon-for-elementor' ),
-      '',
-      'naeventsBasicWidgets'
-    );
-
-    $naevents_basic_widgets['about_me'] = __( 'About Me', 'events-addon-for-elementor' );
-    $naevents_basic_widgets['about_us'] = __( 'About Us', 'events-addon-for-elementor' );
-    $naevents_basic_widgets['blog'] = __( 'Blog', 'events-addon-for-elementor' );
-    $naevents_basic_widgets['primary_button'] = __( 'Primary Button', 'events-addon-for-elementor' );
-    $naevents_basic_widgets['chart'] = __( 'Chart', 'events-addon-for-elementor' );
-    $naevents_basic_widgets['contact'] = __( 'Contact', 'events-addon-for-elementor' );
-    $naevents_basic_widgets['gallery'] = __( 'Gallery', 'events-addon-for-elementor' );
-    $naevents_basic_widgets['get_apps'] = __( 'Get Apps', 'events-addon-for-elementor' );
-    $naevents_basic_widgets['history'] = __( 'History', 'events-addon-for-elementor' );
-    $naevents_basic_widgets['image_compare'] = __( 'Image Compare', 'events-addon-for-elementor' );
-    $naevents_basic_widgets['process'] = __( 'Process', 'events-addon-for-elementor' );
-    $naevents_basic_widgets['separator'] = __( 'Separator', 'events-addon-for-elementor' );
-    $naevents_basic_widgets['services'] = __( 'Services', 'events-addon-for-elementor' );
-    $naevents_basic_widgets['slider'] = __( 'Slider', 'events-addon-for-elementor' );
-    $naevents_basic_widgets['subscribe_contact'] = __( 'Subscribe / Contact', 'events-addon-for-elementor' );
-    $naevents_basic_widgets['table'] = __( 'Table', 'events-addon-for-elementor' );
-    $naevents_basic_widgets['team_single'] = __( 'Team Single', 'events-addon-for-elementor' );
-    $naevents_basic_widgets['team'] = __( 'Team', 'events-addon-for-elementor' );
-    $naevents_basic_widgets['testimonials'] = __( 'Testimonials', 'events-addon-for-elementor' );
-    $naevents_basic_widgets['typewriter'] = __( 'Typewriter', 'events-addon-for-elementor' );
-    $naevents_basic_widgets['video'] = __( 'Video', 'events-addon-for-elementor' );
-    foreach ($naevents_basic_widgets as $key => $value) {
-      // Label
-      add_settings_field(
-        'naeafe_'. $key,
-        $value,
-        'naeafe_'. $key .'_render',
-        'naeventsBasicWidgets',
-        'eafe_naeventsBasicWidgets_section',
-        array( 'label_for' => 'naeafe_'. $key .'-id' )
-      );
-    }
-
-  }
-}
-
-if ( ! function_exists( 'eafe_unqw_settings_init' ) ) {
-  function eafe_unqw_settings_init() {
-
-    register_setting( 'naeventsUniqueWidgets', 'eafe_unqw_settings' );
-
-    // Card Title - Unique Widgets
-    add_settings_section(
-      'eafe_naeventsUniqueWidgets_section',
-      __( 'Unique Widgets', 'events-addon-for-elementor' ),
-      '',
-      'naeventsUniqueWidgets'
-    );
-
-    $naevents_unique_widgets['unique_accommodation'] = __( 'Accommodation', 'events-addon-for-elementor' );
-    $naevents_unique_widgets['unique_calendar_button'] = __( 'Calendar Button', 'events-addon-for-elementor' );
-    $naevents_unique_widgets['unique_call_action'] = __( 'Call Action', 'events-addon-for-elementor' );
-    $naevents_unique_widgets['unique_conference'] = __( 'Conference', 'events-addon-for-elementor' );
-    $naevents_unique_widgets['unique_countdown'] = __( 'Countdown', 'events-addon-for-elementor' );
-    $naevents_unique_widgets['unique_discussion'] = __( 'Discussion', 'events-addon-for-elementor' );
-    $naevents_unique_widgets['unique_event'] = __( 'Event', 'events-addon-for-elementor' );
-    $naevents_unique_widgets['unique_infobox'] = __( 'Infobox', 'events-addon-for-elementor' );
-    $naevents_unique_widgets['unique_organizer'] = __( 'Organizer', 'events-addon-for-elementor' );
-    $naevents_unique_widgets['unique_pricing'] = __( 'Pricing', 'events-addon-for-elementor' );
-    $naevents_unique_widgets['unique_schedule_list'] = __( 'Schedule List', 'events-addon-for-elementor' );
-    $naevents_unique_widgets['unique_schedule_tab'] = __( 'Schedule Tab', 'events-addon-for-elementor' );
-    $naevents_unique_widgets['unique_schedule'] = __( 'Schedule', 'events-addon-for-elementor' );
-    $naevents_unique_widgets['unique_sessions'] = __( 'Sessions', 'events-addon-for-elementor' );
-    $naevents_unique_widgets['unique_ticket'] = __( 'Ticket', 'events-addon-for-elementor' );
-    $naevents_unique_widgets['unique_upcoming'] = __( 'Upcoming', 'events-addon-for-elementor' );
-    $naevents_unique_widgets['unique_venues'] = __( 'Venues', 'events-addon-for-elementor' );
-    foreach ($naevents_unique_widgets as $key => $value) {
-      // Label
-      add_settings_field(
-        'naeafe_'. $key,
-        $value,
-        'naeafe_'. $key .'_render',
-        'naeventsUniqueWidgets',
-        'eafe_naeventsUniqueWidgets_section',
-        array( 'label_for' => 'naeafe_'. $key .'-id' )
-      );
-    }
-
-  }
-}
-
-if ( ! function_exists( 'eafe_prow_settings_init' ) ) {
-  function eafe_prow_settings_init() {
-
-    register_setting( 'naeventsProWidgets', 'eafe_prow_settings' );
-
-    // Card Title - Pro Widgets
-    add_settings_section(
-      'eafe_naeventsProWidgets_section',
-      __( 'Event & Pro Widgets', 'events-addon-for-elementor' ),
-      '',
-      'naeventsProWidgets'
-    );
-
-    $naevents_pro_widgets['pro_call_to_action'] = __( 'Call To Action (Free)', 'events-addon-for-elementor' );
-    $naevents_pro_widgets['pro_events_list'] = __( 'Events List (Free)', 'events-addon-for-elementor' );
-    $naevents_pro_widgets['pro_events_attendees'] = __( 'Events Attendees (Free)', 'events-addon-for-elementor' );
-    $naevents_pro_widgets['pro_events_ticket_selector'] = __( 'Events Ticket Selector (Free)', 'events-addon-for-elementor' );
-    $naevents_pro_widgets['pro_events_calendar'] = __( 'Events Calendar (Free)', 'events-addon-for-elementor' );
-    $naevents_pro_widgets['pro_event_categories'] = __( 'Event Categories (Free)', 'events-addon-for-elementor' );
-    $naevents_pro_widgets['pro_event_form'] = __( 'Event Form (Free)', 'events-addon-for-elementor' );
-    $naevents_pro_widgets['pro_events_group'] = __( 'Events Group (Free)', 'events-addon-for-elementor' );
-    $naevents_pro_widgets['pro_event_locations'] = __( 'Event Locations (Free)', 'events-addon-for-elementor' );
-    $naevents_pro_widgets['pro_event_search'] = __( 'Event Search (Free)', 'events-addon-for-elementor' );
-    $naevents_pro_widgets['pro_events_full_calendar'] = __( 'Events Full Calendar (Free)', 'events-addon-for-elementor' );
-    $naevents_pro_widgets['pro_info_box'] = __( 'Info Box (Free)', 'events-addon-for-elementor' );
-    $naevents_pro_widgets['pro_events_map'] = __( 'Events Map (Free)', 'events-addon-for-elementor' );
-    $naevents_pro_widgets['pro_events_subscribe'] = __( 'Events Subscribe (Free)', 'events-addon-for-elementor' );
-    $naevents_pro_widgets['pro_calendar_button'] = __( 'Calendar Button (Free)', 'events-addon-for-elementor' );
-    $naevents_pro_widgets['pro_chart'] = __( 'Chart (Pro)', 'events-addon-for-elementor' );
-    $naevents_pro_widgets['pro_pricing'] = __( 'Pricing (Pro)', 'events-addon-for-elementor' );
-    $naevents_pro_widgets['pro_venues'] = __( 'Venues (Pro)', 'events-addon-for-elementor' );
-    $naevents_pro_widgets['pro_conference'] = __( 'Conference (Pro)', 'events-addon-for-elementor' );
-    $naevents_pro_widgets['pro_countdown'] = __( 'Countdown (Pro)', 'events-addon-for-elementor' );
-    $naevents_pro_widgets['pro_schedule'] = __( 'Schedule (Pro)', 'events-addon-for-elementor' );
-    $naevents_pro_widgets['pro_upcoming_events'] = __( 'Upcoming Events (Pro)', 'events-addon-for-elementor' );
-    $naevents_pro_widgets['pro_event_search_listing'] = __( 'Event Search Listing (Pro)', 'events-addon-for-elementor' );
-    $naevents_pro_widgets['pro_event_listing'] = __( 'Event Listing (Pro)', 'events-addon-for-elementor' );
-    $naevents_pro_widgets['pro_event_slider'] = __( 'Event Slider (Pro)', 'events-addon-for-elementor' );
-    $naevents_pro_widgets['pro_sessions'] = __( 'Sessions (Pro)', 'events-addon-for-elementor' );
-    $naevents_pro_widgets['pro_event_category'] = __( 'Event Category (Pro)', 'events-addon-for-elementor' );
-    $naevents_pro_widgets['pro_organizer'] = __( 'Organizer (Pro)', 'events-addon-for-elementor' );
-    
-    foreach ($naevents_pro_widgets as $key => $value) {
-      // Label
-      add_settings_field(
-        'naeafe_'. $key,
-        $value,
-        'naeafe_'. $key .'_render',
-        'naeventsProWidgets',
-        'eafe_naeventsProWidgets_section',
-        array( 'label_for' => 'naeafe_'. $key .'-id' )
-      );
-    }
-
-  }
-}
-
 // Output on Admin Page
 if ( ! function_exists( 'naevents_admin_sub_page' ) ) {
   function naevents_admin_sub_page() { ?>
-    <h2 class="title">Enable & Disable - Primary Elementor Widgets</h2>
-    <div class="card naevents-fields-card naevents-fields-basic">
-      <form action='options.php' method='post'>
-        <?php
-        settings_fields( 'naeventsBasicWidgets' );
-        do_settings_sections( 'naeventsBasicWidgets' );
-        submit_button(__( 'Save Basic Widgets Settings', 'events-addon-for-elementor' ), 'basic-submit-class');
-        ?>
-      </form>
+    
+    <?php 
+      $eafe_bw_settings  = get_option('eafe_bw_settings') ? get_option('eafe_bw_settings') : [];
+      $eafe_uw_settings  = get_option('eafe_unqw_settings') ? get_option('eafe_unqw_settings') : [];
+      $eafe_pro_settings = get_option('eafe_prow_settings') ? get_option('eafe_prow_settings') : [];
+      $eafe_bw_toggle    = get_option('eafe_bw_toggle') ? get_option('eafe_bw_toggle') : 0;
+      $eafe_uw_toggle    = get_option('eafe_uw_toggle') ? get_option('eafe_uw_toggle') : 0;
+      $eafe_pro_toggle  = get_option('eafe_prow_toggle') ? get_option('eafe_prow_toggle') : 0;
+    ?>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="//fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <div class="naeafe-admin-options naeafe-container">
+
+      <div class="mb-4 mt-4">
+        <h1>Welcome to the <strong>Events Addon for Elementor</strong></h1>
+        <p class="lead">Events Addon for Elementor covers all the must-needed elements for creating a perfect Event website using Elementor Page Builder. 30+ Unique & Basic Elementor widget covers all of the Event elements. Including getting a list of event posts from the most popular Events WordPress plugins.</p>
+      </div>
+
+      <div class="naeafe-row">
+        <div class="naeafe-col-8">
+          <div class="naeafe-row align-items-center">
+            <div class="naeafe-col-6">
+              <div class="d-flex align-items-center naeafe-logo-wrapper">
+                <img src="<?php echo NAEAFE_URL . 'assets/images/logo.png'; ?>" alt="logo" class="naeafe-logo">
+                <span>
+                  by <a href="https://nicheaddons.com/" target="_blank"><strong>Nichaddons</strong></a> / Version: <?php echo NAEAFE_VERSION; ?>
+                </span>
+              </div>
+            </div>
+            <div class="naeafe-col-6">
+              <div class="d-flex justify-content-end">
+                <div class="naeafe-search-widget-holder">
+                  <svg class="naeafe-search-widget-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20"><path d="M18.869 19.162l-5.943-6.484c1.339-1.401 2.075-3.233 2.075-5.178 0-2.003-0.78-3.887-2.197-5.303s-3.3-2.197-5.303-2.197-3.887 0.78-5.303 2.197-2.197 3.3-2.197 5.303 0.78 3.887 2.197 5.303 3.3 2.197 5.303 2.197c1.726 0 3.362-0.579 4.688-1.645l5.943 6.483c0.099 0.108 0.233 0.162 0.369 0.162 0.121 0 0.242-0.043 0.338-0.131 0.204-0.187 0.217-0.503 0.031-0.706zM1 7.5c0-3.584 2.916-6.5 6.5-6.5s6.5 2.916 6.5 6.5-2.916 6.5-6.5 6.5-6.5-2.916-6.5-6.5z"></path></svg>
+                  <input class="naevents-search-widget-field naeafe-search-widget-field naeafe-input" value="" placeholder="Search widgets">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Basic Widgets Area -->
+          <div class="naeafe-widgets-section">
+            <div class="naeafe-widgets-section-inner">
+              <div class="naeafe-widgets-section-title-holder">
+                <h3 class="naeafe-widgets-section-title"><?php esc_html_e('Basic Widgets', 'events-addon-for-elementor'); ?></h3>
+                <div class="naeafe-checkbox-toggle naeafe-field">
+                  <h6 class="naevents-checkbox-toggle-text"><?php esc_html_e('Activate All', 'events-addon-for-elementor'); ?></h6>
+                  <label class="switch naevents-checkbox-toggle-label">
+                    <input type="checkbox" <?php checked( $eafe_bw_toggle, 1 ); ?> id="naevents-checkbox-toggle-bw" value="1">
+                    <span class="naevents-checkbox-toggle-bw-slider slider round" data-ajax-url="<?php echo admin_url('admin-ajax.php'); ?>" data-nonce="<?php echo wp_create_nonce( 'eafe_bw_toggle_nonce' ); ?>"></span>
+                  </label>
+                  <button 
+                  class="button button-outline basic-submit-class naevents-bw-settings-save" 
+                  ><?php esc_html_e('Save', 'events-addon-for-elementor'); ?></button>
+                </div>
+              </div>
+              
+              <form method="post" class="naevents-bw-settings-form" data-ajax-url="<?php echo admin_url('admin-ajax.php'); ?>" data-nonce="<?php echo wp_create_nonce( 'naevents-bw-settings' ); ?>">
+                <div class="naeafe-row">
+                  <?php foreach (naeafe_basic_widgets_settings_init() as $id => $option) { ?>
+                  <!-- Widgets start -->
+                  <div class="naeafe-col-6 naevents-widget-col" data-widget-name="<?php echo strtolower( $option['title'] ); ?>"> 
+                    <div class="naeafe-widget-grid<?php if($option['is_premium']) { ?> naeafe-widget-premium<?php } ?>">
+                      <div class="naeafe-widget-grid-inner">
+                        <!-- Widget start -->
+                        <div class="naeafe-widgets-item naeafe-col-sm-12 naeafe-col-md-6">
+                          <div class="naeafe-widgets-item-top">
+                            <h4 class="naeafe-widgets-title">
+                              <span class="naeafe-widgets-title-inner">
+                                <?php echo esc_html($option['title']); ?>
+                                <?php if($option['is_premium']) { ?>
+                                  <sup class="naeafe-widgets-premium-label"><?php esc_html_e('premium', 'events-addon-for-elementor'); ?></sup>
+                                <?php } ?>
+                              </span>
+                            </h4>
+                            <div class="naeafe-checkbox-toggle naeafe-field">
+                              <label class="switch">
+                                <?php $eafe_bw_id = isset($eafe_bw_settings['nbeds_' . $id]) ? $eafe_bw_settings['nbeds_' . $id] : '' ;?>
+                                <input type="checkbox" <?php checked( $eafe_bw_id, 1 ); ?> name="nbeds_<?php echo esc_attr($id); ?>" id="nbeds_<?php echo esc_attr($id); ?>-id" value="1">
+                                <span class="slider round"></span>
+                              </label>
+                            </div>
+                          </div>
+                          <?php if($option['demo_url']) { ?>
+                            <a href="<?php echo $option['demo_url']; ?>" target="_blank"><?php esc_html_e('Demo', 'events-addon-for-elementor'); ?></a>
+                          <?php } if($option['documentation_url']) { ?>
+                            <a href="<?php echo $option['documentation_url']; ?>" target="_blank"><?php esc_html_e('Documentation', 'events-addon-for-elementor'); ?></a>
+                          <?php } if($option['video_url']) { ?>
+                            <a href="<?php echo $option['video_url']; ?>" target="_blank"><?php esc_html_e('Video', 'events-addon-for-elementor'); ?></a>
+                          <?php } ?>
+                        </div>                  
+                      </div>  
+                    </div>
+                  </div><!-- Widgets end -->
+                  <?php } ?> 
+                </div>
+              </form>
+            </div>
+          </div><!-- Basic Widgets Area End -->
+
+          <!-- Unique Widgets Area -->
+          <div class="naeafe-widgets-section">
+            <div class="naeafe-widgets-section-inner">
+              <div class="naeafe-widgets-section-title-holder">
+                <h3 class="naeafe-widgets-section-title"><?php esc_html_e('Unique Widgets', 'events-addon-for-elementor'); ?></h3>
+                <div class="naeafe-checkbox-toggle naeafe-field">
+                  <h6 class="naevents-checkbox-toggle-text"><?php esc_html_e('Activate All', 'events-addon-for-elementor'); ?></h6>
+                  <label class="switch naevents-checkbox-toggle-label">
+                    <input type="checkbox" <?php checked( $eafe_uw_toggle, 1 ); ?> id="naevents-checkbox-toggle-uw" value="1">
+                    <span class="naevents-checkbox-toggle-uw-slider slider round" data-ajax-url="<?php echo admin_url('admin-ajax.php'); ?>" data-nonce="<?php echo wp_create_nonce( 'eafe_uw_toggle_nonce' ); ?>"></span>
+                  </label>
+                  <button 
+                  class="button button-outline basic-submit-class naevents-uw-settings-save" 
+                  ><?php esc_html_e('Save', 'events-addon-for-elementor'); ?></button>
+                </div>
+              </div>
+              
+              <form method="post" class="naevents-uw-settings-form" data-ajax-url="<?php echo admin_url('admin-ajax.php'); ?>" data-nonce="<?php echo wp_create_nonce( 'naevents-uw-settings' ); ?>">
+                <div class="naeafe-row">
+                  <?php foreach (naeafe_unique_widgets_settings_init() as $id => $option) { ?>
+                  <!-- Widgets start -->
+                  <div class="naeafe-col-6 naevents-widget-col" data-widget-name="<?php echo strtolower( $option['title'] ); ?>"> 
+                    <div class="naeafe-widget-grid <?php if($option['is_premium']) { ?>naeafe-widget-premium<?php } ?>">
+                      <div class="naeafe-widget-grid-inner">
+                        <!-- Widget start -->
+                        <div class="naeafe-widgets-item naeafe-col-sm-12 naeafe-col-md-6">
+                          <div class="naeafe-widgets-item-top">
+                            <h4 class="naeafe-widgets-title">
+                              <span class="naeafe-widgets-title-inner">
+                                <?php echo esc_html($option['title']); ?>
+                                <?php if($option['is_premium']) { ?>
+                                  <sup class="naeafe-widgets-premium-label"><?php esc_html_e('premium', 'events-addon-for-elementor'); ?></sup>
+                                <?php } ?>
+                              </span>
+                            </h4>
+                            <div class="naeafe-checkbox-toggle naeafe-field">
+                              <?php if(eafe_fs()->is_free_plan() && $option['is_premium']) { 
+                                $plan_class = 'free-plan'; 
+                              } else { 
+                                $plan_class = 'paid-plan'; 
+                              } ?>
+                              <img class="img-toggle <?php echo $plan_class; ?>" src="<?php echo NAEAFE_URL . 'assets/images/toggle.png'; ?>" alt="toggle">
+                              <label class="switch main-toggle <?php echo $plan_class; ?>">
+                                <?php $eafe_uw_id = (!empty($eafe_uw_settings) && isset($eafe_uw_settings['naeafe_' . $id])) ? $eafe_uw_settings['naeafe_' . $id] : 0 ;?>
+                                <input type="checkbox" <?php checked( $eafe_uw_id, 1 ); ?> data-d="<?php echo $eafe_uw_settings['naeafe_' . $id]; ?>" name="naeafe_<?php echo esc_attr($id); ?>" id="naeafe_<?php echo esc_attr($id); ?>-id" value="1">
+                                <span class="slider round"></span>
+                              </label>
+                            </div>
+                          </div>
+                          <?php if($option['demo_url']) { ?>
+                            <a href="<?php echo $option['demo_url']; ?>" target="_blank"><?php esc_html_e('Demo', 'events-addon-for-elementor'); ?></a>
+                          <?php } if($option['documentation_url']) { ?>
+                            <a href="<?php echo $option['documentation_url']; ?>" target="_blank"><?php esc_html_e('Documentation', 'events-addon-for-elementor'); ?></a>
+                          <?php } if($option['video_url']) { ?>
+                            <a href="<?php echo $option['video_url']; ?>" target="_blank"><?php esc_html_e('Video', 'events-addon-for-elementor'); ?></a>
+                          <?php } if(eafe_fs()->is_free_plan() && $option['is_premium']) { ?>
+                            <a href="<?php echo admin_url('admin.php?page=naevents_admin_page-pricing'); ?>" class="naeafe-update-pro" target="_blank"><?php esc_html_e('Upgrade', 'events-addon-for-elementor'); ?></a>
+                          <?php } ?>
+                        </div>
+                      </div>  
+                    </div>
+                  </div><!-- Widgets end -->
+                  <?php } ?> 
+                </div>
+              </form>
+            </div>
+          </div><!-- Unique Widgets Area End -->        
+
+          <!-- Pro Widgets Area -->
+          <div class="naeafe-widgets-section">
+            <div class="naeafe-widgets-section-inner">
+              <div class="naeafe-widgets-section-title-holder">
+                <h3 class="naeafe-widgets-section-title"><?php esc_html_e('Pro Widgets', 'events-addon-for-elementor'); ?></h3>
+                <div class="naeafe-checkbox-toggle naeafe-field">
+                  <h6 class="naevents-checkbox-toggle-text"><?php esc_html_e('Activate All', 'events-addon-for-elementor'); ?></h6>
+                  <label class="switch naevents-checkbox-toggle-label">
+                    <input type="checkbox" <?php checked( $eafe_pro_toggle, 1 ); ?> id="naevents-checkbox-toggle-pro" value="1">
+                    <span class="naevents-checkbox-toggle-pro-slider slider round" data-ajax-url="<?php echo admin_url('admin-ajax.php'); ?>" data-nonce="<?php echo wp_create_nonce( 'eafe_pro_toggle_nonce' ); ?>"></span>
+                  </label>
+                  <button 
+                  class="button button-outline basic-submit-class naevents-pro-settings-save" 
+                  ><?php esc_html_e('Save', 'events-addon-for-elementor'); ?></button>
+                </div>
+              </div>
+              
+              <form method="post" class="naevents-pro-settings-form" data-ajax-url="<?php echo admin_url('admin-ajax.php'); ?>" data-nonce="<?php echo wp_create_nonce( 'naevents-pro-settings' ); ?>">
+                <div class="naeafe-row">
+                  <?php foreach (naeafe_pro_widgets_settings_init() as $id => $option) { ?>
+                  <!-- Widgets start -->
+                  <div class="naeafe-col-6 naevents-widget-col" data-widget-name="<?php echo strtolower( $option['title'] ); ?>"> 
+                    <div class="naeafe-widget-grid <?php if($option['is_premium']) { ?>naeafe-widget-premium<?php } ?>">
+                      <div class="naeafe-widget-grid-inner">
+                        <!-- Widget start -->
+                        <div class="naeafe-widgets-item naeafe-col-sm-12 naeafe-col-md-6">
+                          <div class="naeafe-widgets-item-top">
+                            <h4 class="naeafe-widgets-title">
+                              <span class="naeafe-widgets-title-inner">
+                                <?php echo esc_html($option['title']); ?>
+                                <?php if($option['is_premium']) { ?>
+                                  <sup class="naeafe-widgets-premium-label"><?php esc_html_e('premium', 'events-addon-for-elementor'); ?></sup>
+                                <?php } ?>
+                              </span>
+                            </h4>
+                            <div class="naeafe-checkbox-toggle naeafe-field">
+                              <?php if(eafe_fs()->is_free_plan() && $option['is_premium']) { 
+                                $plan_class = 'free-plan'; 
+                              } else { 
+                                $plan_class = 'paid-plan'; 
+                              } ?>
+                              <img class="img-toggle <?php echo $plan_class; ?>" src="<?php echo NAEAFE_URL . 'assets/images/toggle.png'; ?>" alt="toggle">
+                              <label class="switch main-toggle <?php echo $plan_class; ?>">
+                                <?php $eafe_pro_id = (!empty($eafe_pro_settings) && isset($eafe_pro_settings['naeafe_' . $id])) ? $eafe_pro_settings['naeafe_' . $id] : 0 ;?>
+                                <input type="checkbox" <?php checked( $eafe_pro_id, 1 ); ?> data-d="<?php echo $eafe_pro_settings['naeafe_' . $id]; ?>" name="naeafe_<?php echo esc_attr($id); ?>" id="naeafe_<?php echo esc_attr($id); ?>-id" value="1">
+                                <span class="slider round"></span>
+                              </label>
+                            </div>
+                          </div>
+                          <?php if($option['demo_url']) { ?>
+                            <a href="<?php echo $option['demo_url']; ?>" target="_blank"><?php esc_html_e('Demo', 'events-addon-for-elementor'); ?></a>
+                          <?php } if($option['documentation_url']) { ?>
+                            <a href="<?php echo $option['documentation_url']; ?>" target="_blank"><?php esc_html_e('Documentation', 'events-addon-for-elementor'); ?></a>
+                          <?php } if($option['video_url']) { ?>
+                            <a href="<?php echo $option['video_url']; ?>" target="_blank"><?php esc_html_e('Video', 'events-addon-for-elementor'); ?></a>
+                          <?php } if(eafe_fs()->is_free_plan() && $option['is_premium']) { ?>
+                            <a href="<?php echo admin_url('admin.php?page=naevents_admin_page-pricing'); ?>" class="naeafe-update-pro" target="_blank"><?php esc_html_e('Upgrade', 'events-addon-for-elementor'); ?></a>
+                          <?php } ?>
+                        </div>
+                      </div>  
+                    </div>
+                  </div><!-- Widgets end -->
+                  <?php } ?> 
+                </div>
+              </form>
+            </div>
+          </div><!-- Pro Widgets Area End -->  
+
+        </div>
+        <!-- Advertisements start -->
+        <div class="naeafe-col-4">
+          <div class="nichads-wrapper ms-3">
+            <div class="single-nichads mb-4">
+              <a href="//nicheaddons.com">
+                <img src="//nicheaddons.com/wp-content/uploads/2023/07/420x250-nichbase.jpg" alt="nichbase">
+              </a>            
+            </div>
+            <div class="naeafe-row">
+              <div class="naeafe-col-6">
+                <div class="naeafe-info-box">
+                  <a href="//nicheaddons.com/demos/events/" target="_blank">
+                    <span class="ti-blackboard"></span>
+                    <span>Live Demo</span>
+                  </a>
+                </div>
+              </div>
+              <div class="naeafe-col-6">
+                <div class="naeafe-info-box">
+                  <a href="//wordpress.org/plugins/events-addon-for-elementor/" target="_blank">
+                    <span class="ti-world"></span>
+                    <span>Plugins Page</span>
+                  </a>
+                </div>
+              </div>
+              <div class="naeafe-col-6">
+                <div class="naeafe-info-box">
+                  <a href="//nicheaddons.com/docs/basic-elements/" target="_blank">
+                    <span class="ti-book"></span>
+                    <span>Documentation</span>
+                  </a>
+                </div>
+              </div>
+              <div class="naeafe-col-6">
+                <div class="naeafe-info-box">
+                  <a href="<?php echo admin_url('admin.php?page=naevents_admin_page-contact') ?>" target="_blank">
+                    <span class="ti-headphone-alt"></span>
+                    <span>Support</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="single-nichads mb-4">
+              <a href="//nicheaddons.com/plugins/restaurant-addon/" target="_blank">
+                <img src="//nicheaddons.com/wp-content/uploads/2023/08/420x680-restaurant-pro.jpg" alt="event-pro">
+              </a>               
+            </div>
+            <div class="single-nichads mb-4">
+              <a href="//nicheaddons.com/themes/nichebase/" target="_blank">
+                <img src="//nicheaddons.com/wp-content/uploads/2023/07/420x680-nichbase-2.jpg" alt="nichbase">
+              </a>               
+            </div>
+            <div class="single-nichads mb-4">
+              <a href="//nicheaddons.com/plugin/" target="_blank">
+                <img src="//nicheaddons.com/wp-content/uploads/2023/08/420x680-other-plugins.jpg" alt="other-plugins">
+              </a>               
+            </div>
+          </div>
+        </div><!-- Advertisements end -->
+      </div>
     </div>
-    <div class="card naevents-fields-card naevents-fields-unique">
-      <form action='options.php' method='post'>
-        <?php
-        settings_fields( 'naeventsUniqueWidgets' );
-        do_settings_sections( 'naeventsUniqueWidgets' );
-        submit_button(__( 'Save Unique Widgets Settings', 'events-addon-for-elementor' ), 'unique-submit-class');
-        ?>
-      </form>
-    </div>
-    <div class="card naevents-fields-card naevents-fields-pro">
-      <form action='options.php' method='post'>
-        <?php
-        settings_fields( 'naeventsProWidgets' );
-        do_settings_sections( 'naeventsProWidgets' );
-        submit_button(__( 'Save Pro Widgets Settings', 'events-addon-for-elementor' ), 'pro-submit-class');
-        ?>
-      </form>
-    </div>
+    
     <?php
   }
 }

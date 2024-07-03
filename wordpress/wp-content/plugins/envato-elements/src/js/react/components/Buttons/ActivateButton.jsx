@@ -8,12 +8,14 @@ const ActivateButton = () => {
 
   return (
     <>
-      {isActivationModelOpen ? (
-        <TokenProjectSignup onCloseCallback={() => {
-          setOpenActivationModal(false)
-        }}
-        />
-      ) : null}
+      {isActivationModelOpen
+        ? (
+          <TokenProjectSignup onCloseCallback={() => {
+            setOpenActivationModal(false)
+          }}
+          />
+          )
+        : null}
       <ExternalLinkButton
         type='primary'
         label='Get Started'

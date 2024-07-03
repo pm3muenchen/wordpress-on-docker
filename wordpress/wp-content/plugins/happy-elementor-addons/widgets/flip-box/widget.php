@@ -14,8 +14,8 @@ use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Text_Shadow;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Typography;
-use Elementor\Scheme_Typography;
 use Elementor\Utils;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 
 defined( 'ABSPATH' ) || die();
 
@@ -52,7 +52,17 @@ class Flip_Box extends Base {
         return [ 'flip', 'box', 'flip', 'info', 'content', 'animation' ];
     }
 
+	/**
+     * Register widget content controls
+     */
     protected function register_content_controls() {
+		$this->__front_side_content_controls();
+		$this->__back_side_content_controls();
+		$this->__settings_content_controls();
+	}
+
+    protected function __front_side_content_controls() {
+
         $this->start_controls_section(
             '_section_front',
             [
@@ -190,15 +200,15 @@ class Flip_Box extends Base {
                 'options' => [
                     'left' => [
                         'title' => __( 'Left', 'happy-elementor-addons' ),
-                        'icon' => 'fa fa-align-left',
+                        'icon' => 'eicon-text-align-left',
                     ],
                     'center' => [
                         'title' => __( 'Center', 'happy-elementor-addons' ),
-                        'icon' => 'fa fa-align-center',
+                        'icon' => 'eicon-text-align-center',
                     ],
                     'right' => [
                         'title' => __( 'Right', 'happy-elementor-addons' ),
-                        'icon' => 'fa fa-align-right',
+                        'icon' => 'eicon-text-align-right',
                     ],
                 ],
                 'selectors' => [
@@ -209,6 +219,9 @@ class Flip_Box extends Base {
         );
 
         $this->end_controls_section();
+	}
+
+    protected function __back_side_content_controls() {
 
         $this->start_controls_section(
             '_section_back',
@@ -347,15 +360,15 @@ class Flip_Box extends Base {
                 'options' => [
                     'left' => [
                         'title' => __( 'Left', 'happy-elementor-addons' ),
-                        'icon' => 'fa fa-align-left',
+                        'icon' => 'eicon-text-align-left',
                     ],
                     'center' => [
                         'title' => __( 'Center', 'happy-elementor-addons' ),
-                        'icon' => 'fa fa-align-center',
+                        'icon' => 'eicon-text-align-center',
                     ],
                     'right' => [
                         'title' => __( 'Right', 'happy-elementor-addons' ),
-                        'icon' => 'fa fa-align-right',
+                        'icon' => 'eicon-text-align-right',
                     ],
                 ],
                 'selectors' => [
@@ -366,6 +379,9 @@ class Flip_Box extends Base {
         );
 
         $this->end_controls_section();
+	}
+
+    protected function __settings_content_controls() {
 
         $this->start_controls_section(
             '_section_settings',
@@ -401,7 +417,17 @@ class Flip_Box extends Base {
 
     }
 
+	/**
+     * Register widget style controls
+     */
     protected function register_style_controls() {
+		$this->__common_style_controls();
+		$this->__front_side_style_controls();
+		$this->__back_side_style_controls();
+	}
+
+    protected function __common_style_controls() {
+
         $this->start_controls_section(
             '_section_common_style',
             [
@@ -446,6 +472,9 @@ class Flip_Box extends Base {
         );
 
         $this->end_controls_section();
+	}
+
+    protected function __front_side_style_controls() {
 
         // front side
         $this->start_controls_section(
@@ -722,7 +751,9 @@ class Flip_Box extends Base {
                 'name' => 'front_title_typography',
                 'label' => __( 'Typography', 'happy-elementor-addons' ),
                 'selector' => '{{WRAPPER}} .ha-flip-box-front-inner .ha-flip-box-heading',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_2,
+                'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
+				],
             ]
         );
 
@@ -773,7 +804,9 @@ class Flip_Box extends Base {
                 'name' => 'front_description_typography',
                 'label' => __( 'Typography', 'happy-elementor-addons' ),
                 'selector' => '{{WRAPPER}} .ha-flip-box-front-inner .ha-text p',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_3,
+                'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_TEXT,
+				],
             ]
         );
 
@@ -790,6 +823,9 @@ class Flip_Box extends Base {
         $this->end_controls_tabs();
 
         $this->end_controls_section();
+	}
+
+    protected function __back_side_style_controls() {
 
         // back side
         $this->start_controls_section(
@@ -1097,7 +1133,9 @@ class Flip_Box extends Base {
                 'name' => 'back_title_typography',
                 'label' => __( 'Typography', 'happy-elementor-addons' ),
                 'selector' => '{{WRAPPER}} .ha-flip-box-back-inner .ha-flip-box-heading-back',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_2,
+                'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
+				],
             ]
         );
 
@@ -1136,7 +1174,9 @@ class Flip_Box extends Base {
                 'name' => 'back_description_typography',
                 'label' => __( 'Typography', 'happy-elementor-addons' ),
                 'selector' => '{{WRAPPER}} .ha-flip-box-back-inner .ha-text p',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_3,
+                'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_TEXT,
+				],
             ]
         );
 
@@ -1159,7 +1199,7 @@ class Flip_Box extends Base {
         $settings = $this->get_settings_for_display();
 
         // icon/image
-        if ( $settings['front_icon_image']['id'] && isset( $settings['front_icon_image']['url'] ) ) {
+        if ( isset( $settings['front_icon_image']['id'] ) && isset( $settings['front_icon_image']['url'] ) ) {
             $this->add_render_attribute( 'front_icon_image', 'src', $settings['front_icon_image']['url'] );
             $this->add_render_attribute( 'front_icon_image', 'alt', Control_Media::get_image_alt( $settings['front_icon_image'] ) );
             $this->add_render_attribute( 'front_icon_image', 'title', Control_Media::get_image_title( $settings['front_icon_image'] ) );

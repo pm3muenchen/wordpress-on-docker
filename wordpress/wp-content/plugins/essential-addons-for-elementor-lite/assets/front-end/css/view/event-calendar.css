@@ -1,9 +1,26 @@
-@charset "UTF-8";
 .eael-event-calendar-wrapper {
   font-family: Segoe UI;
 }
-.eael-event-calendar-wrapper .fc-row table {
-  margin: 0px !important;
+.eael-event-calendar-wrapper .eael-event-calendar-cls {
+  min-height: 800px;
+  min-width: 100%;
+}
+.eael-event-calendar-wrapper .fc-event {
+  padding: 5px 10px;
+}
+.eael-event-calendar-wrapper a {
+  color: #181818;
+}
+.eael-event-calendar-wrapper .fc-timeGridWeek-view .fc-event,
+.eael-event-calendar-wrapper fc-timeGridDay-view .fc-event {
+  padding: 5px;
+}
+.eael-event-calendar-wrapper .fc .fc-timegrid .fc-daygrid-day-events {
+  position: relative;
+}
+.eael-event-calendar-wrapper .fc .fc-daygrid-day-events {
+  position: absolute;
+  width: 100%;
 }
 .eael-event-calendar-wrapper .fc table {
   margin: auto;
@@ -12,6 +29,9 @@
 .eael-event-calendar-wrapper .fc-view table thead:first-child tr:first-child td {
   border-top: 1px solid #ddd !important;
   border-bottom: none !important;
+}
+.eael-event-calendar-wrapper .fc-daygrid-event-dot {
+  display: none !important;
 }
 .eael-event-calendar-wrapper .fc-day-grid-event {
   margin-top: 2px;
@@ -31,6 +51,13 @@
 .eael-event-calendar-wrapper .fc-day-number {
   font-size: 14px;
   float: center !important;
+}
+.eael-event-calendar-wrapper .fc-col-header-cell-cushion {
+  padding: 10px;
+}
+.eael-event-calendar-wrapper .fc-daygrid-block-event .fc-event-time,
+.eael-event-calendar-wrapper .fc-daygrid-dot-event .fc-event-title {
+  font-weight: 400;
 }
 .eael-event-calendar-wrapper .eaelec-modal {
   position: fixed;
@@ -58,7 +85,6 @@
   background: #000000;
   opacity: 0;
   -webkit-transition: all 0.3s ease-out;
-  -o-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
 }
 .eael-event-calendar-wrapper .eaelec-modal.eael-ec-popup-ready {
@@ -163,8 +189,7 @@
 }
 @media (max-width: 575px) {
   .eael-event-calendar-wrapper .fc-toolbar {
-    margin: 0 !important;
-    padding: 0 !important;
+    margin: 10px !important;
   }
   .eael-event-calendar-wrapper .fc-toolbar .fc-center {
     width: 100% !important;
@@ -192,8 +217,36 @@
 .eael-event-calendar-wrapper .fc-toolbar.fc-header-toolbar .fc-left .fc-button .fc-icon {
   font-size: 13px;
 }
-.eael-event-calendar-wrapper .eael-event-completed {
-  text-decoration: line-through;
+.eael-event-calendar-wrapper.layout-table table {
+  margin-bottom: 0;
+}
+.eael-event-calendar-wrapper.layout-table table tbody tr td .hide {
+  display: none !important;
+}
+.eael-event-calendar-wrapper.layout-table .ea-advanced-data-table-search-left {
+  text-align: left;
+}
+.eael-event-calendar-wrapper.layout-table .ea-advanced-data-table-search-right {
+  text-align: right;
+}
+.eael-event-calendar-wrapper.layout-table .eael-event-calendar-pagination {
+  border: none !important;
+  padding: 0;
+}
+.eael-event-calendar-wrapper.layout-table .eael-event-calendar-pagination span,
+.eael-event-calendar-wrapper.layout-table .eael-event-calendar-pagination a {
+  display: inline-block;
+  border: 1px solid #eee;
+  margin: 2px;
+  padding: 3px 8px;
+  font-size: 14px;
+  border-radius: 4px;
+}
+.eael-event-calendar-wrapper.layout-table .eael-event-calendar-pagination a {
+  cursor: pointer;
+}
+.elementor-page .entry-content .eael-event-calendar-wrapper a {
+  text-decoration: none;
 }
 .fc-toolbar.fc-header-toolbar .fc-button-group button:not(:first-child) {
   margin-left: 5px;
@@ -219,19 +272,19 @@
   -webkit-font-smoothing: antialiased;
 }
 .fc-toolbar.fc-header-toolbar button.fc-timeGridWeek-button:before {
-  content: "";
+  content: "\f03a";
   left: 8px;
 }
 .fc-toolbar.fc-header-toolbar button.fc-timeGridDay-button:before {
-  content: "";
+  content: "\f0c9";
   left: 21px;
 }
 .fc-toolbar.fc-header-toolbar button.fc-dayGridMonth-button:before {
-  content: "";
+  content: "\f00a";
 }
 .fc-toolbar.fc-header-toolbar button.fc-listWeek-button:before,
 .fc-toolbar.fc-header-toolbar button.fc-listMonth-button:before {
-  content: "";
+  content: "\f00b";
 }
 .fc-toolbar.fc-header-toolbar button.fc-button.fc-button-primary {
   -webkit-box-shadow: none;
@@ -250,7 +303,7 @@
   padding: 8px 12px;
   border: none;
 }
-.fc-toolbar.fc-header-toolbar button.fc-button.fc-button-primary.fc-state-active, .fc-toolbar.fc-header-toolbar button.fc-button.fc-button-primary:hover, .fc-toolbar.fc-header-toolbar button.fc-button.fc-button-primary:visited, .fc-toolbar.fc-header-toolbar button.fc-button.fc-button-primary:focus {
+.fc-toolbar.fc-header-toolbar button.fc-button.fc-button-primary.fc-state-active, .fc-toolbar.fc-header-toolbar button.fc-button.fc-button-primary:hover, .fc-toolbar.fc-header-toolbar button.fc-button.fc-button-primary:visited {
   background: #5725ff;
   color: #fff;
   -webkit-box-shadow: none;
@@ -313,6 +366,10 @@ span.fc-day-number {
   padding-bottom: 10px;
   padding-top: 10px;
 }
+.fc-unthemed .fc-listWeek-view .fc-list-table tr.fc-list-item .fc-list-item-title a,
+.fc-unthemed .fc-listMonth-view .fc-list-table tr.fc-list-item .fc-list-item-title a {
+  text-decoration: none;
+}
 .fc-unthemed .fc-dayGridMonth-view .fc-day-grid-event .fc-time {
   font-weight: 400;
 }
@@ -361,8 +418,7 @@ span.fc-day-number {
 .fc-unthemed .fc-time-grid .fc-event .fc-content .fc-title {
   white-space: nowrap;
   overflow: hidden;
-  -o-text-overflow: ellipsis;
-     text-overflow: ellipsis;
+  text-overflow: ellipsis;
 }
 .fc-unthemed .fc-event:hover {
   color: #707070;
@@ -370,13 +426,12 @@ span.fc-day-number {
 .eaelec-modal.eael-zoom-in {
   opacity: 0;
   -webkit-transition: all 0.3s ease-out;
-  -o-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
+  display: none;
 }
 .eaelec-modal.eael-zoom-in .eaelec-modal-content {
   opacity: 0;
   -webkit-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   -webkit-transform: scale(0.5);
       -ms-transform: scale(0.5);
@@ -399,6 +454,11 @@ span.fc-day-number {
 }
 .eaelec-modal.eael-zoom-in.eael-ec-modal-removing .eael-ec-modal-bg {
   opacity: 0;
+}
+.eaelec-modal.eael-ec-popup-ready {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 @media (min-width: 768px) and (max-width: 1024px) {
   .eael-event-calendar-wrapper .fc-toolbar.fc-header-toolbar {
@@ -430,57 +490,67 @@ span.fc-day-number {
   .eael-event-calendar-wrapper .fc-dayGridMonth-view .fc-day-grid-event .fc-content {
     font-size: 12px;
   }
-
-  .fc-right,
-.fc-left {
-    width: 100%;
-    text-align: center;
+  .eael-event-calendar-wrapper .fc-daygrid.fc-dayGridMonth-view.fc-view {
+    overflow: auto;
   }
-
-  .fc-left {
-    text-align: center;
+  .eael-event-calendar-wrapper .fc-daygrid.fc-dayGridMonth-view.fc-view > table.fc-scrollgrid.fc-scrollgrid-liquid {
+    position: relative;
+    height: 600px;
+    width: auto !important;
   }
-
-  .fc-right {
+  .eael-event-calendar-wrapper .fc-daygrid.fc-dayGridMonth-view.fc-view .fc-col-header-cell,
+  .eael-event-calendar-wrapper .fc-daygrid.fc-dayGridMonth-view.fc-view td.fc-daygrid-day {
+    width: 160px;
+  }
+  .fc .fc-toolbar.fc-header-toolbar {
     margin-bottom: 10px;
   }
-  .fc-right .fc-button-group .fc-button.fc-button-primary {
+  .fc-toolbar-chunk {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin-bottom: 5px;
+    text-align: center;
+    width: 100%;
+  }
+  .fc-toolbar-chunk .fc-button-group .fc-button.fc-button-primary {
     font-size: 11px;
   }
-  .fc-right .fc-button-group .fc-button.fc-button-primary:before {
+  .fc-toolbar-chunk .fc-button-group .fc-button.fc-button-primary:before {
     font-size: 11px;
     padding-left: 0;
   }
-
   .fc-center {
     text-align: center;
   }
-
   .fc-toolbar.fc-header-toolbar {
-    display: inline-block;
+    display: grid;
     width: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    grid-row-gap: 5px;
   }
   .fc-toolbar.fc-header-toolbar .fc-button-group button.fc-button.fc-button-primary {
     margin-left: 5px;
     font-size: 12px;
   }
-
   th.fc-widget-header > span {
     padding: 0;
     font-size: 14px;
   }
-
   .fc-basic-view .fc-day-number,
-.fc-basic-view .fc-week-number {
+  .fc-basic-view .fc-week-number {
     padding: 0;
     margin: 0;
     font-size: 10px;
   }
-
   .fc-basic-view .fc-body .fc-row {
     min-height: 2em;
   }
-
   .eael-event-calendar-wrapper .eaelec-modal-body {
     height: 100px;
   }

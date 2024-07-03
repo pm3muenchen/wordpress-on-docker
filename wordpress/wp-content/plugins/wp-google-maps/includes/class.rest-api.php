@@ -61,6 +61,7 @@ class RestAPI extends Factory
 		if(function_exists('wp_doing_ajax'))
 			return wp_doing_ajax();
 		
+		/* Developer Hook (Filter) - Alter doing ajax status for rest requests */
 		return apply_filters( 'wp_doing_ajax', defined( 'DOING_AJAX' ) && DOING_AJAX );
 	}
 	
@@ -216,6 +217,9 @@ class RestAPI extends Factory
 	 */
 	public function getRequestParameters()
 	{
+
+		global $wpgmza;
+
 		switch($_SERVER['REQUEST_METHOD'])
 		{
 			case 'GET':
@@ -262,7 +266,8 @@ class RestAPI extends Factory
 			'polygons'			=> "{$wpdb->prefix}wpgmza_polygon",
 			'polylines'			=> "{$wpdb->prefix}wpgmza_polylines",
 			'circles'			=> "{$wpdb->prefix}wpgmza_circles",
-			'rectangles'		=> "{$wpdb->prefix}wpgmza_rectangles"
+			'rectangles'		=> "{$wpdb->prefix}wpgmza_rectangles",
+			'pointlabels'		=> "{$wpdb->prefix}wpgmza_point_labels"
 		);
 	}
 	
@@ -286,13 +291,13 @@ class RestAPI extends Factory
 			'useCompressedPathVariable'	=> true
 		));
 		
-		$this->registerRoute('/(features|polygons|polylines|circles|rectangles)(\/\d+)?/', array(
+		$this->registerRoute('/(features|polygons|polylines|circles|rectangles|pointlabels)(\/\d+)?/', array(
 			'methods'					=> array('GET'),
 			'callback'					=> array($this, 'features'),
 			'useCompressedPathVariable' => true,
 		));
 		
-		$this->registerRoute('/(polygons|polylines|circles|rectangles)(\/\d+)?/', array(
+		$this->registerRoute('/(polygons|polylines|circles|rectangles|pointlabels)(\/\d+)?/', array(
 			'methods'					=> array('DELETE', 'POST'),
 			'callback'					=> array($this, 'features'),
 			'permission_callback'		=> array($wpgmza, 'isUserAllowedToEdit')
@@ -327,6 +332,7 @@ class RestAPI extends Factory
 			'useCompressedPathVariable'	=> true
 		));
 		
+	    /* Developer Hook (Action) - Register additional rest routes */     
 		do_action('wpgmza_register_rest_api_routes');
 	}
 	
@@ -341,9 +347,13 @@ class RestAPI extends Factory
 		global $wp_query;
 		
 		$active_plugins = get_option('active_plugins');
-		if(!empty($wp_query->query_vars) && array_search('permalink-manager/permalink-manager.php', $active_plugins))
+		if(!empty($wp_query->query_vars) && array_search('permalink-manager/permalink-manager.php', $active_plugins)){
 			$wp_query->query_vars['do_not_redirect'] = 1;
+		}
 		
+	    /* Developer Hook (Action) - Run actions as part of the Rest API initialization */     
+		do_action("wpgmza_rest_api_init");
+
 		$this->registerRoutes();
 	}
 	
@@ -372,7 +382,7 @@ class RestAPI extends Factory
 	public function onAJAXRequest()
 	{
 		$this->onRestAPIInit();
-		
+
 		// Check route is specified
 		if(empty($_REQUEST['route']))
 		{
@@ -384,6 +394,27 @@ class RestAPI extends Factory
 				)
 			), 404);
 			return;
+		}
+
+		/* In some cases, the route will include sub-pathing, and for some reason the system cannot always deal with that
+		 * this will attempt to resolve that by directly altering the request data to map that correctly 
+		*/
+		if(!empty($_REQUEST['action']) && $_REQUEST['action'] === 'wpgmza_rest_api_request'){
+			$remapExclusions = array("/features/", "/marker-listing/");
+			if(!empty($_REQUEST['route']) && !in_array($_REQUEST['route'], $remapExclusions)){
+				/* Mutate the request URI */
+				$route = $_REQUEST['route'];
+
+				if(strpos($route, '/wpgmza/v1') === FALSE){
+					$route = "/wpgmza/v1{$route}";
+				}
+
+				$_SERVER['REQUEST_URI'] = $route;
+
+				if(!empty($_POST['action']) && $_POST['action'] === 'wpgmza_rest_api_request'){
+					unset($_POST['action']);
+				}
+			}
 		}
 		
 		// Try to match the route
@@ -462,7 +493,7 @@ class RestAPI extends Factory
 
 	public function onWPRestCacheDetermineObjectType($type, $cache_key, $data, $uri){
 		if(strpos($uri, 'wpgmza') !== FALSE){
-			return "WP Google Maps Data";
+			return "WP Go Maps Data";
 		}
 		return $type;
 	}
@@ -522,6 +553,7 @@ class RestAPI extends Factory
 	public function features($request)
 	{
 		global $wpdb;
+		global $wpgmza;
 		
 		$route		= $_SERVER['REQUEST_URI'];
 		
@@ -538,6 +570,7 @@ class RestAPI extends Factory
 		$feature_type = $m[1];
 		$qualified = "WPGMZA\\" . rtrim( ucwords($feature_type), 's' );
 
+		$this->checkRequestContext();
 		$this->checkForDeleteSimulation();
 		
 
@@ -567,7 +600,7 @@ class RestAPI extends Factory
 				$subclasses				= Feature::getSubclasses();
 				$types					= array_map(function($str) { return strtolower($str) . 's'; }, $subclasses);
 				$result					= array(
-					'request'			=> $params
+					'request'			=> $this->cleanRequestOutput($params)
 				);
 
 				
@@ -665,6 +698,11 @@ class RestAPI extends Factory
 				break;
 			
 			case 'POST':
+				if(!$wpgmza->isUserAllowedToEdit()){
+					/* Permission re-assertion */
+					return new \WP_Error('wpgmza_permission_denied', 'You do not have permission to access this resource');
+				}
+
 				$data		= stripslashes_deep($_POST);
 				$id			= ( isset($m[3]) ? ltrim($m[3], '/') : ( isset($m[2]) ? ltrim($m[2], '/') : -1 ) );
 				if(isset($data['id'])) {
@@ -682,6 +720,10 @@ class RestAPI extends Factory
 				break;
 				
 			case 'DELETE':
+				if(!$wpgmza->isUserAllowedToEdit()){
+					/* Permission re-assertion */
+					return new \WP_Error('wpgmza_permission_denied', 'You do not have permission to access this resource');
+				}
 				
 				$id			= ( isset($m[3]) ? ltrim($m[3], '/') : ( isset($m[2]) ? ltrim($m[2], '/') : -1) );
 				
@@ -728,6 +770,17 @@ class RestAPI extends Factory
 			unset($_POST['simulateDelete']);
 		}
 	}
+
+	protected function checkRequestContext(){
+		global $wpgmza;
+		if(!empty($_REQUEST['context'])){
+			switch($_REQUEST['context']){
+				case 'editor':
+					$wpgmza->processingContext = 'editor';
+					break;
+			}
+		}
+	}
 	
 	/**
 	 * Callback for the /markers REST API route.
@@ -737,25 +790,68 @@ class RestAPI extends Factory
 	public function markers($request)
 	{
 		global $wpdb;
+		global $wpgmza;
 		global $wpgmza_tblname;
 		
 		$route 		= $_SERVER['REQUEST_URI'];
 		$params		= $this->getRequestParameters();
 
+		$this->checkRequestContext();
 		$this->checkForDeleteSimulation();
-		
+
 		switch($_SERVER['REQUEST_METHOD'])
 		{
 			case 'GET':
 				if(preg_match('#/wpgmza/v1/markers/(\d+)#', $route, $m)) {
-					
-					$marker = Marker::createInstance($m[1], Crud::SINGLE_READ, isset($_GET['raw_data']));
-					return $marker;
+					try{
+						$marker = Marker::createInstance($m[1], Crud::SINGLE_READ, isset($_GET['raw_data']));
+						return $marker;
+					} catch (\Exception $ex){
+						return new \WP_Error('wpgmza_marker_not_found', 'Marker does not exist', array('status' => 404));
+					} catch (\Error $err){
+						return new \WP_Error('wpgmza_marker_not_found', 'Marker does not exist', array('status' => 404));
+					}
+				}
+
+				if(isset($_GET['action'])){
+					switch($_GET['action']){
+						case 'count-duplicates':
+							$total		= $wpdb->get_var("SELECT COUNT(*) FROM $wpgmza_tblname");
+							$duplicates	= $wpdb->get_var("SELECT COUNT(*) FROM $wpgmza_tblname GROUP BY map_id, lat, lng, address, title, link, description");
+							return array(
+								'count' => number_format($total - $duplicates)
+							);
+							break;
+						case 'remove-duplicates':
+							$allowed	= $wpdb->get_col("SELECT MIN(id) FROM $wpgmza_tblname GROUP BY map_id, lat, lng, address, title, link, description");
+							if(empty($allowed)){
+								return array(
+									'message' => sprintf(
+										__("Removed %s markers", "wp-google-maps"),
+										"0"
+									)
+								);
+							}
+
+							$imploded	= implode(',', $allowed);
+							$qstr		= "DELETE FROM $wpgmza_tblname WHERE id NOT IN ($imploded)";
+							$result		= $wpdb->query($qstr);
+							
+							if($result === false)
+								throw new \Exception($wpdb->last_error);
+							
+							return array(
+								'message' => sprintf(
+									__("Removed %s markers", "wp-google-maps"),
+									number_format($result)
+								)
+							);
+							
+							break;
+					}
 				}
 				
 				$fields = null;
-				
-				
 				if(isset($params['fields']) && is_string($params['fields']))
 					$fields = explode(',', $params['fields']);
 				else if(!empty($params['fields']))
@@ -819,6 +915,10 @@ class RestAPI extends Factory
 				break;
 			
 			case 'POST':
+				if(!$wpgmza->isUserAllowedToEdit()){
+					/* Permission re-assertion */
+					return new \WP_Error('wpgmza_permission_denied', 'You do not have permission to access this resource');
+				}
 			
 				if(preg_match('#/wpgmza/v1/markers/(\d+)#', $route, $m))
 					$id = $m[1];
@@ -851,6 +951,10 @@ class RestAPI extends Factory
 				break;
 			
 			case 'DELETE':
+				if(!$wpgmza->isUserAllowedToEdit()){
+					/* Permission re-assertion */
+					return new \WP_Error('wpgmza_permission_denied', 'You do not have permission to access this resource');
+				}
 				
 				// Workaround for PHP not populating $_REQUEST
 				$request = array();
@@ -863,15 +967,18 @@ class RestAPI extends Factory
 				else if(preg_match('/markers\/(\d+)/', $route, $m))
 					$id = $m[1];
 					
-				if($id)
-				{
+				if($id){
 					$marker = Marker::createInstance($id);
+					
+					$mapId = $marker->map_id;
+
 					$marker->trash();
-				}
-				else if(isset($request['ids']))
+
+					$map = Map::createInstance($mapId);
+					$map->updateXMLFile();
+				} else if(isset($request['ids'])) {
 					Marker::bulk_trash($request['ids']);
-				else
-				{
+				} else{
 					http_response_code(400);
 					return (object)array(
 						'message' => "No ID(s) specified",
@@ -908,8 +1015,18 @@ class RestAPI extends Factory
 			$class = '\\' . stripslashes( $request['phpClass'] );
 
 		try{	
+			if(empty($class)){
+				/* The class name is empty, no reflection possible, return early */
+				return false;
+			}
+
 			$reflection = new \ReflectionClass($class);
-		}catch(Exception $e) {
+		}catch(\Exception $e) {
+			return new \WP_Error('wpgmza_invalid_datatable_class', 'Invalid class specified', array('status' => 403));
+		}
+
+		$reflectionNamespace = $reflection->getNamespaceName();
+		if(empty($reflectionNamespace) || strpos($reflectionNamespace, 'WPGMZA') === FALSE){
 			return new \WP_Error('wpgmza_invalid_datatable_class', 'Invalid class specified', array('status' => 403));
 		}
 		
@@ -935,7 +1052,10 @@ class RestAPI extends Factory
 		$params	= $this->getRequestParameters();
 		$cache	= new NominatimGeocodeCache();
 		
-		$record	= $cache->get(addslashes($params['query']));
+		$record = false;
+		if(!empty($params) && !empty($params['query'])){
+			$record	= $cache->get(addslashes($params['query']));
+		}
 		
 		if(!$record)
 			$record = array();
@@ -955,5 +1075,16 @@ class RestAPI extends Factory
 		$now = new \DateTime();
 		
 		update_option('wpgmza_last_rest_api_blocked', $now->format(\DateTime::ISO8601));
+	}
+
+	public function cleanRequestOutput($requestData){
+		if(!empty($requestData) && is_array($requestData)){
+			foreach($requestData as $key => $value){
+				if(is_string($value)){
+					$requestData[$key] = sanitize_text_field($value);
+				}
+			}
+		}
+		return $requestData;
 	}
 }

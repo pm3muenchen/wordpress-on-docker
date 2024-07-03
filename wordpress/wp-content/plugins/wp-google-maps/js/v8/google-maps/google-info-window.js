@@ -79,6 +79,18 @@ jQuery(function($) {
 		
 		this.createGoogleInfoWindow();
 		this.setFeature(feature);
+
+		/* Handle one shot auto pan disabler */
+		if(typeof feature._osDisableAutoPan !== 'undefined'){
+			if(feature._osDisableAutoPan){
+				/* This has been flagged to not be an auto-pan open call */
+				this.googleInfoWindow.setOptions({disableAutoPan : true});
+				feature._osDisableAutoPan = false;
+			} else {
+				/* Restore auto pan for manual interactions */
+				this.googleInfoWindow.setOptions({disableAutoPan : false});
+			}
+		}
 		
 		this.googleInfoWindow.open(
 			this.feature.map.googleMap,
@@ -90,6 +102,18 @@ jQuery(function($) {
 		var html = "<div id='" + guid + "'>" + eaBtn + ' ' + this.content + "</div>";
 
 		this.googleInfoWindow.setContent(html);
+
+		if(this.googleObject instanceof google.maps.marker.AdvancedMarkerElement){
+			/* Check for nudge params */
+			if(this.feature.offsetX || this.feature.offsetY){
+				this.googleInfoWindow.setOptions({
+					pixelOffset : new google.maps.Size(
+						this.feature.offsetX,
+						-this.feature.offsetY
+					)
+				});
+			}
+		}
 		
 		var intervalID;
 		intervalID = setInterval(function(event) {

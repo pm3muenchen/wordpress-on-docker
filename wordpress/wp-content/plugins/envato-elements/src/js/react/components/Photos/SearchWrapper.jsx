@@ -23,14 +23,16 @@ const SearchWrapper = ({ searchParams, onSearchSubmitted }) => {
 
       {loading ? <LoadingAnimation /> : null}
       {error ? <ErrorLoadingData /> : null}
-      {!loading && !error && data ? (
-        <SearchResults
-          searchResults={data}
-          searchParams={searchParams}
-          onSearchSubmitted={onSearchSubmitted}
-          layout={layout}
-        />
-      ) : null}
+      {!loading && !error && data
+        ? (
+          <SearchResults
+            searchResults={data}
+            searchParams={searchParams}
+            onSearchSubmitted={onSearchSubmitted}
+            layout={layout}
+          />
+          )
+        : null}
     </>
   )
 }

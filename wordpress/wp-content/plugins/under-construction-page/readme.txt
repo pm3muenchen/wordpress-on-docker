@@ -1,10 +1,10 @@
 === Under Construction ===
 Contributors: WebFactory
-Tags: coming soon page, under construction mode, under construction, under construction page, coming soon, maintenance mode, maintenance page, launch page, coming soon mode, maintenance mode page, offline page, maintenance, landing page
+Tags: coming soon page, under construction mode, under construction, under construction page, coming soon mode
 Requires at least: 4.0
 Requires PHP: 5.2
-Tested up to: 5.7
-Stable tag: 3.88
+Tested up to: 6.5
+Stable tag: 4.00
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,16 +13,17 @@ Easy to use Under Construction Page & Coming Soon Page. Enable Under Constructio
 
 == Description ==
 
-Create an Under Construction Page, Maintenance Mode Page, Coming Soon Page or a Landing Page that takes **less than a minute to install & configure**. Under Construction won't waste your time! It's simple, fast, efficient & user-friendly with <a href="https://underconstructionpage.com/#designs">great templates</a> users love.
+Create an Under Construction Page, Maintenance Mode Page, Coming Soon Page or a Landing Page that takes **less than a minute to install & configure**. Under Construction won't waste your time! It's simple, fast, efficient & user-friendly with <a href="https://underconstructionpage.com/#designs">great templates</a> users love. Under Construction uses Bunny Fonts for GDPR compatibility.
 
 [youtube https://www.youtube.com/watch?v=fqqWrQENSDc]
 
-> **PRO** version offers more than 50 extra features and options including the drag&drop builder, over a million hi-res searchable images, 200+ templates, affiliate&traffic tracking, advanced access control, MailChimp, Zapier & universal autoresponder integration, white-label license mode and priority support. Find out more on the <a href="https://underconstructionpage.com/">official plugin site</a>.
+> **PRO** version offers more than 50 extra features and options including the drag&drop builder, over a million hi-res searchable images, 300+ templates, affiliate&traffic tracking, advanced access control, MailChimp, Zapier & universal autoresponder integration, white-label license mode and priority support. Find out more on the <a href="https://underconstructionpage.com/">official plugin site</a>.
 
 A simple, no-nonsense under construction plugin for all those situations when you have to hide the site behind an Under Construction page for a while. Live examples are available on the <a href="https://underconstructionpage.com/">Under Construction website</a>. Give us a shout on Twitter <a href="http://twitter.com/WebFactoryLtd">@WebFactoryLtd</a> or check out the <a href="https://youtu.be/fqqWrQENSDc">video</a>.
 
 Thanks to our partnership with <a href="https://wordpress.org/plugins/weglot/">Weglot</a>, UCP is fully multilanguage ready and you can instantly translate your under construction page to 100+ languages with one click.
 
+**If you're having problems with SSL or HTTPS try our free <a href="https://wordpress.org/plugins/wp-force-ssl/">WP Force SSL</a> plugin. It's a great plugin to enable SSL and fix SSL issues.**
 
 **Options**
 
@@ -70,6 +71,12 @@ Under Construction Page is compatible with the following caching plugins: W3 Tot
 * <a href="https://firstsiteguide.com/under-construction-page-review/">FirstSiteGuide</a> says: "a perfect choice"
 * WPblog wrote a <a href="https://www.wpblog.com/quick-ways-to-put-wordpress-site-under-construction/">review</a> as well
 * <a href="https://wptopdog.com/under-construction-plugin-review/">WP TopDog</a> had Daniel explain how to use the Under Construction Page
+
+**GDPR Compatibility**
+We are not lawyers. Please do not take any of the following as legal advice.
+Under Construction plugin uses Bunny Fonts on the front end, and in the admin. Usage of the Google Analytics service is optional. No other resources are loaded from or shared with 3rd parties. Opting to use Bunny Fonts and/or Google Analytics will result in data sharing/tracking as described in their terms of service.
+If you opt to activate your PRO license in the plugin admin, some data will be shared with WebFactory Ltd; that’s clearly noted below the license activation form.
+
 
 == Installation ==
 
@@ -134,6 +141,55 @@ Or if needed, upload manually;
 
 == Changelog ==
 
+= 4.00 =
+* 2024/04/11
+* updated Google Analytics tracking code
+* fixed 2 templates so jquery is not loaded remotely
+
+= 3.99 =
+* 2024/02/17
+* fixed some template tags getting stripped by wp_kses
+
+= 3.98 =
+* 2024/01/29
+* fixed notice popup close button
+
+= 3.97 =
+* 2023/02/10
+* nonce fixes; thank you Wordfence!
+
+= 3.96 =
+* 2023/01/16
+* changes in PRO prices
+* code cleanup
+* minor compatibility fix
+
+= 3.95 =
+* 2022/11/22
+* Google Fonts replaced with GDPR friendly Bunny Fonts
+
+= 3.93 =
+* 2022/04/13
+* Fix for escaping HTML that shouldn't be escaped
+
+= 3.92 =
+* 2022/01/13
+* Google Analytics fix
+* sorry for the multiple updates :(
+
+= 3.91 =
+* 2022/01/12
+* fix for Weglot integration
+
+= 3.90 =
+* 2022/01/05
+* security fixes
+* added ad for our WP Force SSL plugin
+
+= 3.89 =
+* 2021/07/23
+* bug fix for Weglot
+
 = 3.88 =
 * 2021/02/20
 * 500,000 installations hit on 2021/01/31
@@ -180,350 +236,7 @@ Or if needed, upload manually;
 * minor bug fixes
 * removed Security Ninja ads
 * 400,000 installations hit on 2019-12-06
-
-= 3.65 =
-* 2019/11/21
-* minor bug fixes
-* removed NotificationX integration
-* added support for Hummingbird cache plugin
-
-= 3.60 =
-* 2019/10/31
-* minor bug fixes
-* adjusted GUI for WP v5.3
-* 3,152,000 downloads
-
-= 3.55 =
-* 2019/09/18
-* minor bug fixes
-* new theme: Research
-* 2,980,000 downloads
-
-= 3.50 =
-* 2019/08/07
-* clean up
-* NotificationX plugin integration
-* 2,812,000 downloads
-
-= 3.45 =
-* 2019/05/21
-* bug fixes
-* lower monthly prices
-
-= 3.40 =
-* 2019/04/17
-* bug fixes
-* partnership with NordVPN
-
-= 3.35 =
-* 2019/03/18
-* 300,000 installs hit on 2019/01/18 with 2,151,500 downloads
-* bug fixes
-* partnership with Weglot
-
-= 3.31 =
-* 2019/01/15
-* minor security fix
-
-= 3.30 =
-* 2018/12/18
-* minor security fixes in admin
-* moved SN & MailOptin to the beginning of featured plugins list
-* new cache busting for SiteGround SuperCacher
-* removed "add media" from content field
-* moved "show some love" up in admin, below content
-
-= 3.25 =
-* 2018/11/27
-* new theme - Work Desk
-* started promoting SN & MailOptin in featured plugins tab
-* wp_redirect() vulnerability fix
-
-= 3.20 =
-* 2018/11/12
-* few bug fixes
-* integration with MailOptin - collect leads & emails with in-content forms and popups
-* we're at 1,820,000 downloads
-
-= 3.15 =
-* 2018/08/22
-* minor bug fixes
-* new theme: 000webhost
-* added custom settings for 000webhost users
-* we're at 1,634,783 downloads
-
-= 3.10 =
-* 2018/06/19
-* minor bug fixes
-* removed translation help notice
-* added welcome notice
-* we're at 1,445,311 downloads
-
-= 3.05 =
-* 2018/05/29
-* added support for cache clearing for Swift Performance Lite
-* new theme - Dumper Truck
-* asking for help with translations, again
-
-= 3.0 =
-* 2018/04/23
-* added VK icon - a Russian social network
-* new theme - Temporarily Closed
-* added discount for old users
-
-= 2.95 =
-* 2018/03/26
-* we reached 200k active installations on March 23rd & 1,115,000 downloads
-* new theme - Hard Worker
-
-= 2.90 =
-* 2018/03/13
-* removed the "help us translate" notice
-* few small bug fixes
-* added theme preview feature
-* GUI buttons now follow plugin's branding guide
-
-= 2.85 =
-* 2018/02/05
-* involving users into translation efforts
-* no more "rate us" notice
-* we crossed the 1M downloads mark
-
-= 2.80 =
-* 2017/12/05
-* translation efforts are still in full swing
-* new theme - Christmas
-* minor changes
-* we crossed the 890k downloads mark
-
-= 2.75 =
-* 2017/11/22
-* translation efforts are in full swing
-* PRO version is available
-* new logo
-
-= 2.70 =
-* 2017/11/06
-* continued marking strings for translation
-* added button for resetting settings
-
-= 2.66 =
-* 2017/10/19
-* fixed bug: some users weren't able to close the notification on front-end
-* added contact option on plugin deactivation
-
-= 2.65 =
-* 2017/10/17
-* fixed CORS issue on FontAwesome
-* all times are now GMT+0
-* removed survey
-* review request notification adjusted
-* added notification on front-end for whitelisted users when UCP is enabled
-
-= 2.60 =
-* 2017/10/02
-* continuing with UX improvements
-* minor code improvements
-* new theme - Bulldozer
-* new survey - How do you use UCP?
-* added deactivation survey
-
-= 2.55 =
-* 2017/09/18
-* big UX improvements and more coming soon
-* redesigned admin bar menu
-* added favicon to all themes
-* fixed Skype icon; it got broken in v2.40
-* minor code improvements
-
-= 2.50 =
-* 2017/09/04
-* CDNs are no longer used except for Google Fonts
-* new theme - Clock
-* minor code improvements
-* list of social icons in admin is now truncated by default and a "show more" button added
-
-= 2.45 =
-* 2017/08/21
-* support is now available directly from the Support tab
-* added notification when UCP is enabled and End Date is in the past resulting in UCP not being shown
-* retry-after header is now properly set
-* minor improvements
-
-= 2.40 =
-* 2017/08/07
-* new social icon - Telegram
-* removed autoresponders survey
-* we've crossed the 100k users mark on August 5th & 515k downloads
-
-= 2.35 =
-* 2017/07/24
-* UCP can now be quickly disabled/enabled directly from the admin bar menu
-* new theme - Stop
-* added support for WP Fastest Cache
-
-= 2.30 =
-* 2017/07/10
-* we've crossed the 90k users mark on July 8th
-* added autoresponders survey
-* new filter - ucp_is_construction_mode_enabled
-* CSS in all themes is now enqueued, not hardcoded
-
-= 2.25 =
-* 2017/06/26
-* new theme - Setup
-* improved UCP's toolbar/admin bar menu item
-
-= 2.20 =
-* 2017/06/12
-* new theme - Internet of Things
-* added support for Siteground caching plugin
-* we've crossed the 80k users mark on June 7th
-
-= 2.15 =
-* 2017/05/29
-* new theme - Puzzles contributed by <a href="https://twitter.com/EdelHaut">Ralf Biester</a>
-* removed design survey
-
-= 2.10 =
-* 2017/05/15
-* new theme - Laptop
-* we've crossed the 70k users mark on May 7th
-* minor changes
-
-= 2.05 =
-* 2017/05/03
-* new theme - Ambulance
-* we've crossed 300k downloads
-* added filters to ease integrations and customizations
-* fixed bug with telephone number link/icon not working on Android
-
-= 2.0 =
-* 2017/04/24
-* new theme - Light Bulb
-* continued work on marking strings for translation
-
-= 1.96 =
-* 2017/04/12
-* new theme - Rocket Launch #2
-* started working on marking strings for translation
-* added designs survey
-
-= 1.90 =
-* 2017/04/03
-* new theme - People at Work #2
-* small adjustements for new repo
-* moved FontAwesome to CDN
-* we've crossed the 60k users mark :)
-
-= 1.85 =
-* 2017/03/23
-* new theme - Hot Air Baloon
-* new social icon - Vimeo
-
-= 1.80 =
-* 2017/03/13
-* new theme - Lighthouse
-* admin bar notice is no longer visible to non-admins
-* minor fixes
-
-= 1.75 =
-* 2017/03/02
-* new theme - Sad Site
-* removed survey
-* added new social icon: Tumblr
-* we've crossed the 50k users mark
-
-= 1.70 =
-* 2017/02/22
-* new theme - Windmill
-* code improvements
-
-= 1.66 =
-* 2017/02/13
-* new theme - People at Work
-* added new social icon: WhatsApp
-
-= 1.60 =
-* 2017/02/06
-* new theme - Safe
-* added "Support" tab with FAQ and links
-* minor bug fixes
-* added 2 social icons: Skype and Phone
-* we've crossed the 40k users mark
-
-= 1.55 =
-* 2017/01/30
-* new theme - Cyber Chick Dark
-* added "Custom CSS" option
-* minor bug fixes
-* security improvements
-
-= 1.51 =
-* 2017/01/23
-* new theme - Loader
-* added "Show Login Button" option
-* added 1 social icon: Email
-
-= 1.45 =
-* 2017/01/16
-* new theme - Rocket Launch
-* added "Site Description" SEO option
-* added 2 social icons: Behance & Instagram
-* features survey is shown to users to decide what features will be developed next
-
-= 1.40 =
-* 2017/01/03
-* new theme - Cyber Chick
-* added "Google Analytics Tracking ID" option
-* added "Whitelisted Users" option
-* added "Show some Love" option
-* we've crossed the 30k users mark
-
-= 1.35 =
-* 2016/12/23
-* new theme - Under Construction Text
-* GUI enhancements
-* added "end date" option
-
-= 1.30 =
-* 2016/11/29
-* we've crossed the 20k users mark & 100k downloads ;)
-* added notice on login form when Maintenance is enabled
-* new theme - Forklift at Work
-* GUI overhaul started
-* added Dribbble social icon
-
-= 1.25 =
-* 2016/10/24
-* fixed fatal cache busting bug reported by @jonofgahh
-
-= 1.24 =
-* 2016/10/24
-* 3 new social icons
-* new theme
-
-= 1.22 =
-* 2016/10/10
-* minor fixes
-* new theme
-
-= 1.20 =
-* 2016/09/27
-* complete rewrite of the plugin
-* 2 new themes
-
-= 1.15 =
-* 2016/09/05
-* WebFactory took over development @ 10k installs & 70k downloads
-* fixed major bugs
-
-= 1.10 =
-* 2013/12/01
-* Add option to set Google Font
-* Add option to set font size
-* Add option to set FB and Twitter URL
-
+* for older changelog entries please refer to https://underconstructionpage.com/old-changelog.txt
 
 == Frequently Asked Questions ==
 
@@ -582,3 +295,7 @@ Open your site and force refresh browser cache (Ctrl or Shift + F5). If that doe
 = Is UCP compatible with caching plugins? =
 
 UCP is compatible with all caching plugins. However, please note that we automatically empty cache when UCP status is changed only for the following plugins: W3 Total Cache, WP Super Cache, Endurance Page Cache, SiteGround SuperCacher and WP Fastest Cache.
+
+= How can I report security bugs? =
+
+You can report security bugs through the Patchstack Vulnerability Disclosure Program. The Patchstack team help validate, triage and handle any security vulnerabilities. [Report a security vulnerability.](https://patchstack.com/database/vdp/under-construction-page)

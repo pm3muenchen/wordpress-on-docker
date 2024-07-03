@@ -1,12 +1,12 @@
 ﻿=== Events Addon for Elementor ===
-Contributors: nicheaddons
+Contributors: nicheaddons, freemius
 Author URI: https://nicheaddons.com/
 Plugin URI: https://nicheaddons.com/demos/events/
 Tags: elementor, addons, events, elementor widget, elementor extensions, elements, conference, meetup, concert
-Requires PHP: 5.6
-Requires at least: 5.0
-Tested up to: 5.7
-Stable tag: 1.9.1
+Requires PHP: 7.4
+Requires at least: 6.0
+Tested up to: 6.5.4
+Stable tag: 2.1.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,9 +14,12 @@ Events Addon for Elementor is an Elementor Addons for Event Websites.
 
 
 == Description ==
-Events Addon for Elementor covers all the must-needed elements for creating a perfect Event website using Elementor Page Builder. 30+ Unique & Basic Elementor widget covers all of the Event elements. Including getting a list of event posts from most popular Events WordPress plugins. Like, Accommodation, Venue, Conference, Event Timing Countdown, Organizer, Speakers, Schedules, Upcoming Events, and Tickets.
+Events Addon for Elementor covers all the must-needed elements for creating a perfect Event website using Elementor Page Builder. 30+ Unique & Basic Elementor widget covers all of the Event elements. Including getting a list of event posts from the most popular Events WordPress plugins. Like, Accommodation, Venue, Conference, Event Timing Countdown, Organizer, Speakers, Schedules, Upcoming Events, and Tickets.
 
-[Check Live Demo](https://nicheaddons.com/demos/events/)  |  [All Elements List](https://nicheaddons.com/demos/events/elements/)  |  [Download XML](https://nicheaddons.com/plugins/event-addon/)  |  [NicheBase (Theme)](https://wordpress.org/themes/nichebase/)  |  [Elasta (Theme)](https://wordpress.org/themes/elasta/)
+[Learn More](https://nicheaddons.com/plugins/event-addon/)
+
+[All Elements List](https://nicheaddons.com/demos/events/elements/)  |  [Demo Event Website](https://nicheaddons.com/demos/events/)
+
 
 ### Create a 100% FREE Event Website
 https://www.youtube.com/watch?v=gPFxbk-4Hn8
@@ -33,14 +36,17 @@ Our experienced Team supports your every question carefully, and your points/not
 ### Detailed Documentation
 We’ve explained everything about the plugin in our detailed documentation, it does not only explain the (How to’s?) instead it’ll explain the effective way of using the addon.
 
-[Documentation](https://nicheaddons.com/docs/basic-elements/)
+[Basic Elements Documentation](https://nicheaddons.com/docs/basic-elements/)
+[Unique Elements Documentation](https://nicheaddons.com/docs/events-addon-unique-elements/)
+[Pro Elements Documentation](https://nicheaddons.com/docs/events-addon-pro-elements/)
 
 ### Supported Event Plugins
-1. [The Events Calendar](https://wordpress.org/plugins/the-events-calendar/)
-2. [All-in-One Event Calendar](https://wordpress.org/plugins/all-in-one-event-calendar/)
-3. [Events Manager](https://wordpress.org/plugins/events-manager/)
-4. [Event Organiser](https://wordpress.org/plugins/event-organiser/)
-5. [Event Espresso 4 Decaf – Event Registration Event Ticketing](https://wordpress.org/plugins/event-espresso-decaf/)
+1. [Eventbrite](https://www.eventbrite.com/)
+2. [The Events Calendar](https://wordpress.org/plugins/the-events-calendar/)
+3. [All-in-One Event Calendar](https://wordpress.org/plugins/all-in-one-event-calendar/)
+4. [Events Manager](https://wordpress.org/plugins/events-manager/)
+5. [Event Organiser](https://wordpress.org/plugins/event-organiser/)
+6. [Event Espresso 4 Decaf – Event Registration Event Ticketing](https://wordpress.org/plugins/event-espresso-decaf/)
 
 ### 35+ Event Free Widgets & Counting
 
@@ -48,30 +54,27 @@ You can find all of the following 35+ most useful widgets of your Awesome Event 
 
 All elements list: [Elements List](https://nicheaddons.com/demos/events/elements/)
 
-> Basic Widgets
+> Event Elements - FREE
 
-1. [About Me](https://nicheaddons.com/demos/events/elements/about-me-element/) - Name, Profession, Social Media Links, Description, and Button link.
-2. [About Us](https://nicheaddons.com/demos/events/elements/about-us-element/) - All Basic Company Details Meta Information, Social Icons, Description, and Alignments.
-3. [Blog](https://nicheaddons.com/demos/events/elements/blog-element/) - Columns up to four, Limit, Order & Order by, Certain Category posts, Certain ID's, Excerpt and it's length, Pagination, and more.
-4. [Chart](https://nicheaddons.com/demos/events/elements/chart-element/) - Contains - Bar and PIE Charts.
-5. [Contact](https://nicheaddons.com/demos/events/elements/contact-element/) - Contact form box, Title, Short Content and Contact form shortcode.
-6. [Gallery](https://nicheaddons.com/demos/events/elements/gallery-element/) - Filter, Title, Subtitle, Positioning Controls, Zoom, and Links.
-7. [Get Apps](https://nicheaddons.com/demos/events/elements/get-apps-element/) - App Store, Play Store, and Chrome Browser Extension images, and links. Title, Sub-title, and short content.
-8. [History](https://nicheaddons.com/demos/events/elements/history-element/) - Time or Year, Title, Short Content, and Read More link. With Swappable Image.
-9. [Image Compare](https://nicheaddons.com/demos/events/elements/image-compare-element/) - Before and After Images with a vertical and horizontal controller.
-10. [Process](https://nicheaddons.com/demos/events/elements/process-element/) - Includes Three Types of Different Design Layouts, Title, Icon, or Numbers and, Short Content.
-11. [Separator](https://nicheaddons.com/demos/events/elements/separator-element/) - Vertical Alignment and Horizontal Alignment with Headings, Icon, or Text between separator lines.
-12. [Services](https://nicheaddons.com/demos/events/elements/services-element/) - Five style types of a service element, icon or image, Headings, Short Content and, Read More link.
-13. [Slider](https://nicheaddons.com/demos/events/elements/slider-element/) - Sider animation control, background image uploads, Heading, Short Content and, two buttons.
-14. [Subscibe](https://nicheaddons.com/demos/events/elements/subscribe-element/) - Title, Short Content with Shortcode Placement area. That you can able to install any third-party subscribe form plugin and include that shortcode into this design.
-15. [Table](https://nicheaddons.com/demos/events/elements/table-element/) - Easy to add row and columns, Supported multiple inside elements.
-16. [Team Single](https://nicheaddons.com/demos/events/elements/team-single-element/) - Name, Profession, Meta Informations, Contact Details, Social Links, and, Short Content.
-17. [Team](https://nicheaddons.com/demos/events/elements/team-element/) - Four Styles, Name, Short Content, Social Links, and Profession.
-18. [Testimonials](https://nicheaddons.com/demos/events/elements/testimonials-element/) - Three Styles, Images, Content, and Client Name, Professions.
-19. [Type Writter](https://nicheaddons.com/demos/events/elements/typewriter-element/) - Typing Animation Controls, Speed, and Cursor Controls.
-20. [Video](https://nicheaddons.com/demos/events/elements/video-element/) - Title, Cover Image with Animated Button - Video Popup.
+1. [Information Box](https://nicheaddons.com/demos/events/elements/event-info-box/) - Icon, Title, Days, Date, Address, Stylings.
+2. [Event Listing](https://nicheaddons.com/demos/events/elements/event-listing/) - Two Styles, Date, Title, Time, Description, Address, Stylings.
 
-> Event Specific Widgets
+> Event Elements - PRO
+
+1. [Upcoming Events](https://nicheaddons.com/demos/events/elements/upcoming-evevts/) - Three Styles, Name, Time, Speaker, Location, Days Left, Ticket Price, Stylings.
+2. [Event Category](https://nicheaddons.com/demos/events/elements/event-category/) - Boxes Size, Background Image, Columns & Stylings.
+3. [Event Schedule](https://nicheaddons.com/demos/events/elements/event-schedule/) - Two Styles, Carousel Settings, Background Image, Stylings.
+4. [Event Conference](https://nicheaddons.com/demos/events/elements/event-conference/) - Title, Sub-Title, Day Counter, Description, Location, Speaker, Alignment & Stylings.
+5. [Event Organizer](https://nicheaddons.com/demos/events/elements/event-organizer/) - Two Styles, Name, Photo, Date, Learn More Button & Stylings.
+6. [Event Listings](https://nicheaddons.com/demos/events/elements/event-listing-2/) - Three Styles, Carousel Settings, Title, Image, Date, Location, Speakers, Stylings.
+7. [Event Countdown](https://nicheaddons.com/demos/events/elements/event-countdown/) - Title, Date Picker, Stylings.
+8. [Event Slider](https://nicheaddons.com/demos/events/elements/event-slider/) - Title, Category, Speakers, Date, Location, Stylings.
+9. [Event Sessions](https://nicheaddons.com/demos/events/elements/event-sessions/) - Title, Time, Location, Stylings.
+10. [Eventbrite Events](https://nicheaddons.com/demos/events/elements/eventbrite-events/) - Four Styles, Name, Time, Speaker, Location, Days Left, Ticket Price, Stylings.
+11. [Eventbrite Carousel](https://nicheaddons.com/demos/events/elements/eventbrite-events-carousel/) - Two Styles, Title, Date, Location, Days Left, Stylings.
+12. [Eventbrite Event](https://nicheaddons.com/demos/events/elements/eventbrite-event/) - Three Styles, Name, Time, Speaker, Location, Days Left, Stylings.
+
+> Event Unique Elements - FREE
 
 1. [Accommodation](https://nicheaddons.com/demos/events/elements/accommodation-element/) - Two Styles, Place Name, Pricings, Ratings, Image, Short Content, and Read More link.
 2. [Conference](https://nicheaddons.com/demos/events/elements/conference-element/) - Title, Content, Location, Organizer, Countdown, Date & Time and more.
@@ -88,15 +91,43 @@ All elements list: [Elements List](https://nicheaddons.com/demos/events/elements
 13. [Ticket](https://nicheaddons.com/demos/events/elements/ticket-element/) - A Call to Action for dedicated Ticket element, Title, Sub-Title, Short Content and, Buy Now button.
 14. [Upcoming Events](https://nicheaddons.com/demos/events/elements/upcoming-element/) - Two Styles, Days left, Title, Date, Speaker, and Place.
 15. [Venues](https://nicheaddons.com/demos/events/elements/venues-element/) - Two - Three - Four Columns, Date, Title, Short Content, and Read More link.
-16. Calendar Button - Direct click to add event information to your calendar app.
-17. Call to Action - Title, Subtitle, Content, and Button.
+
+> Event Unique Elements - PRO
+
+1. [Pricing](https://nicheaddons.com/demos/events/elements/pro-pricing/) - Two Styles, Title, Description, Pricing, Features, Button & Stylings.
+2. [Schedule](https://nicheaddons.com/demos/events/elements/pro-schedule/) - Days, Time, Icon, Title, Description, Location, Spearker & Stylings.
+3. [Chart](https://nicheaddons.com/demos/events/elements/pro-chart/) - Four Styles, Numeric Values, Stylings.
+4. [Venues](https://nicheaddons.com/demos/events/elements/pro-venues/) - Title, Description, Photos, Alignment & Stylings.
+
+> Basic Elements - FREE
+
+1. [About Me](https://nicheaddons.com/demos/events/elements/about-me-element/) - Name, Profession, Social Media Links, Description, and Button link.
+2. [About Us](https://nicheaddons.com/demos/events/elements/about-us-element/) - All Basic Company Details Meta Information, Social Icons, Description, and Alignments.
+3. [Blog](https://nicheaddons.com/demos/events/elements/blog-element/) - Columns up to four, Limit, Order & Order by, Certain Category posts, Certain ID's, Excerpt and it's length, Pagination, and more.
+4. [Chart](https://nicheaddons.com/demos/events/elements/chart-element/) - Contains - Bar and PIE Charts.
+5. [Contact](https://nicheaddons.com/demos/events/elements/contact-element/) - Contact form box, Title, Short Content and Contact form shortcode.
+6. [Gallery](https://nicheaddons.com/demos/events/elements/gallery-element/) - Filter, Title, Subtitle, Positioning Controls, Zoom, and Links.
+7. [Get Apps](https://nicheaddons.com/demos/events/elements/get-apps-element/) - App Store, Play Store, and Chrome Browser Extension images, and links. Title, Sub-title, and short content.
+8. [History](https://nicheaddons.com/demos/events/elements/history-element/) - Time or Year, Title, Short Content, and Read More link. With Swappable Image.
+9. [Image Compare](https://nicheaddons.com/demos/events/elements/image-compare-element/) - Before and After Images with a vertical and horizontal controller.
+10. [Process](https://nicheaddons.com/demos/events/elements/process-element/) - Includes Three Types of Different Design Layouts, Title, Icon, or Numbers and, Short Content.
+11. [Separator](https://nicheaddons.com/demos/events/elements/separator-element/) - Vertical Alignment and Horizontal Alignment with Headings, Icon, or Text between separator lines.
+12. [Services](https://nicheaddons.com/demos/events/elements/services-element/) - Five style types of a service element, icon or image, Headings, Short Content and, Read More link.
+13. [Slider](https://nicheaddons.com/demos/events/elements/slider-element/) - Sider animation control, background image uploads, Heading, Short Content and, two buttons.
+14. [Subscibe](https://nicheaddons.com/demos/events/elements/subscribe-element/) - Title, Short Content with Shortcode Placement area. That you can able to install any third-party subscribe form plugin and include that shortcode into this design.
+15. [Table](https://nicheaddons.com/demos/events/elements/table-element/) - Easy to add rows and columns, Supported multiple inside elements.
+16. [Team Single](https://nicheaddons.com/demos/events/elements/team-single-element/) - Name, Profession, Meta Informations, Contact Details, Social Links, and, Short Content.
+17. [Team](https://nicheaddons.com/demos/events/elements/team-element/) - Four Styles, Name, Short Content, Social Links, and Profession.
+18. [Testimonials](https://nicheaddons.com/demos/events/elements/testimonials-element/) - Three Styles, Images, Content, and Client Name, Professions.
+19. [Type Writter](https://nicheaddons.com/demos/events/elements/typewriter-element/) - Typing Animation Controls, Speed, and Cursor Controls.
+20. [Video](https://nicheaddons.com/demos/events/elements/video-element/) - Title, Cover Image with Animated Button - Video Popup.
 
 
 == Installation ==
 * Make sure you already have a WordPress site and the Elementor plugin installed and activated.
 
 = Default Installation =
-1. Install "Events Addon for Elementor" via WordPress plugin directory.
+1. Install "Events Addon for Elementor" via the WordPress plugin directory.
 2. Once installed Activate "Events Addon for Elementor."
 
 = Manual Installation =
@@ -124,6 +155,105 @@ No, it'll not work without Elementor Page Builder, it's an addon for Elementor.
 
 
 == Changelog ==
+
+= 2.1.7
+* Security Improvements: Basic slider
+
+= 2.1.6
+* Security Improvements: Sanitization & data validation have been added
+
+= 2.1.5
+* Icon issues fix for several widgets
+
+= 2.1.4
+* Capability updated
+
+= 2.1.3
+* Security updated
+
+= 2.1.2
+* Header redirect issue fix
+
+= 2.1.1
+* Add image updated
+
+= 2.1.0
+* New admin panel added
+* Swiper slider error fix
+* Minor PHP warning fix
+* Translation
+
+= 2.0.4
+* New style added for Upcoming Events widget
+* Few resposive issue fix
+* PHP warning fix
+* Translation
+
+= 2.0.3
+* Freemius Update 2.5.10
+* Translation
+
+= 2.0.2
+* Added color options for pro schedule widget
+* Translation
+
+= 2.0.1
+* Added facility to add more than 3 images in schedule list widget.
+* Translation
+
+= 2.0.0
+* Added new icon controls for all widgets as per elementor guideline.
+* Translation
+
+= 1.9.9
+* Timezone field added for all Event Widgets.
+* Improvements & Bug Fixes.
+* Translation
+
+= 1.9.8.2
+* Date Format
+* Translation
+
+= 1.9.8.1
+* Table Widget Fixes
+* Translation
+
+= 1.9.8
+* Security Fixes and Improvements
+
+= 1.9.7
+* Colors for event listing
+* Translation
+
+= 1.9.6
+* Style tab fixes for
+* about me - content
+* about us - content
+* Accommodation - content
+* Event category
+* Event slider
+* Organizer
+* Popup toggle added for venue widget
+
+= 1.9.5
+* Added 2 more layout styles in eventbrite widget
+* Added 2 more layout styles in event widget
+* Fixed venue image popup issue, replaced with link
+* Swiper slider updated with latest elementor
+
+= 1.9.4
+* Fixes & Improvements
+
+= 1.9.3
+* Integrate Eventbrite API
+* Added 2 New Elementor Addons (Eventbrite Events, Eventbrite Event) - For Pro Users
+* Eventbrite Events - 4 Styles Applied - 2 With Existing Design & 2 New - Carousel & Timeline Features Added
+* Eventbrite Event - Designed to Get Info from Single Event - 3 Styles Available
+* Translation
+
+= 1.9.2
+* Scheme_Color & Scheme_Typography Removed
+* Translation
 
 = 1.9.1
 * Upcoming past events fixes
@@ -198,7 +328,7 @@ No, it'll not work without Elementor Page Builder, it's an addon for Elementor.
 
 = 1.8.2
 * Style Three Added on Schedule Widget
-* Histroy Widget Two Extra Styles Added
+* History Widget Two Extra Styles Added
 * Schedule List Equal Height
 * Get Apps - Style Improvement
 * Subscribe - Style Improvement
@@ -244,7 +374,7 @@ No, it'll not work without Elementor Page Builder, it's an addon for Elementor.
 * Team Single Widget: Content & Image Padding
 * Testimonial Widget New Design Added
 * Pricing Widget Gradient Color Added
-* Shedule List Widget New Design Added
+* Schedule List Widget New Design Added
 * Schedule Tab Widget New Design Added
 * Upcoming Widget New Design Added
 * Minor Improvements & Fixes

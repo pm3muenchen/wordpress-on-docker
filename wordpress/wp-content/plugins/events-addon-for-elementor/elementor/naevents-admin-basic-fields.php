@@ -1,274 +1,157 @@
 <?php
 
-// About Me - Checkbox
-if ( ! function_exists( 'naeafe_about_me_render' ) ) {
-  function naeafe_about_me_render() {
-    $options = get_option( 'eafe_bw_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_bw_settings[naeafe_about_me]' id='naeafe_about_me-id' <?php checked( isset($options['naeafe_about_me']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
+// Basic widgets options
+if ( ! function_exists( 'naeafe_basic_widgets_settings_init' ) ) {
+  function naeafe_basic_widgets_settings_init() {
+    $naeafe_basic_widgets = [];
+    $naeafe_basic_widgets['about_me'] = array(
+      'title' => __( 'About Me', 'events-addon-for-elementor' ),
+      'demo_url' => 'https://nicheaddons.com/demos/events/elements/about-me-element/',
+      'documentation_url' => 'https://nicheaddons.com/docs/basic-elements/about-me/',
+      'video_url' => '',
+      'is_premium' => '',
+    );
+    $naeafe_basic_widgets['about_us'] = array(
+      'title' => __( 'About Us', 'events-addon-for-elementor' ),
+      'demo_url' => 'https://nicheaddons.com/demos/events/elements/about-us-element/',
+      'documentation_url' => 'https://nicheaddons.com/docs/basic-elements/about-us/',
+      'video_url' => '',
+      'is_premium' => '',
+    );
+    $naeafe_basic_widgets['blog'] = array(
+      'title' => __( 'Blog', 'events-addon-for-elementor' ),
+      'demo_url' => 'https://nicheaddons.com/demos/events/elements/blog-element/',
+      'documentation_url' => 'https://nicheaddons.com/docs/basic-elements/blog/',
+      'video_url' => '',
+      'is_premium' => '',
+    );
+    $naeafe_basic_widgets['primary_button'] = array(
+      'title' => __( 'Primary Button', 'events-addon-for-elementor' ),
+      'demo_url' => '',
+      'documentation_url' => '',
+      'video_url' => '',
+      'is_premium' => '',
+    );
+    $naeafe_basic_widgets['chart'] = array(
+      'title' => __( 'Chart', 'events-addon-for-elementor' ),
+      'demo_url' => 'https://nicheaddons.com/demos/events/elements/chart-element/',
+      'documentation_url' => 'https://nicheaddons.com/docs/basic-elements/chart/',
+      'video_url' => '',
+      'is_premium' => '',
+    );
+    $naeafe_basic_widgets['contact'] = array(
+      'title' => __( 'Contact', 'events-addon-for-elementor' ),
+      'demo_url' => 'https://nicheaddons.com/demos/events/elements/contact-element/',
+      'documentation_url' => 'https://nicheaddons.com/docs/basic-elements/contact-details/',
+      'video_url' => '',
+      'is_premium' => '',
+    );
+    $naeafe_basic_widgets['gallery'] = array(
+      'title' => __( 'Gallery', 'events-addon-for-elementor' ),
+      'demo_url' => 'https://nicheaddons.com/demos/events/elements/gallery-element/',
+      'documentation_url' => 'https://nicheaddons.com/docs/basic-elements/gallery/',
+      'video_url' => '',
+      'is_premium' => '',
+    );
+    $naeafe_basic_widgets['get_apps'] = array(
+      'title' => __( 'Get Apps', 'events-addon-for-elementor' ),
+      'demo_url' => 'https://nicheaddons.com/demos/events/elements/get-apps-element/',
+      'documentation_url' => 'https://nicheaddons.com/docs/basic-elements/get-apps/',
+      'video_url' => '',
+      'is_premium' => '',
+    );
+    $naeafe_basic_widgets['history'] = array(
+      'title' => __( 'History', 'events-addon-for-elementor' ),
+      'demo_url' => 'https://nicheaddons.com/demos/events/elements/history-element/',
+      'documentation_url' => 'https://nicheaddons.com/docs/basic-elements/history/',
+      'video_url' => '',
+      'is_premium' => '',
+    );
+    $naeafe_basic_widgets['image_compare'] = array(
+      'title' => __( 'Image Compare', 'events-addon-for-elementor' ),
+      'demo_url' => 'https://nicheaddons.com/demos/events/elements/image-compare-element/',
+      'documentation_url' => 'https://nicheaddons.com/docs/basic-elements/image-compare/',
+      'video_url' => '',
+      'is_premium' => '',
+    );
+    $naeafe_basic_widgets['process'] = array(
+      'title' => __( 'Process', 'events-addon-for-elementor' ),
+      'demo_url' => 'https://nicheaddons.com/demos/events/elements/process-element/',
+      'documentation_url' => 'https://nicheaddons.com/docs/basic-elements/process/',
+      'video_url' => '',
+      'is_premium' => '',
+    );
+    $naeafe_basic_widgets['separator'] = array(
+      'title' => __( 'Separator', 'events-addon-for-elementor' ),
+      'demo_url' => 'https://nicheaddons.com/demos/events/elements/separator-element/',
+      'documentation_url' => 'https://nicheaddons.com/docs/basic-elements/separator/',
+      'video_url' => '',
+      'is_premium' => '',
+    );
+    $naeafe_basic_widgets['services'] = array(
+      'title' => __( 'Services', 'events-addon-for-elementor' ),
+      'demo_url' => 'https://nicheaddons.com/demos/events/elements/services-element/',
+      'documentation_url' => 'https://nicheaddons.com/docs/basic-elements/services/',
+      'video_url' => '',
+      'is_premium' => '',
+    );
+    $naeafe_basic_widgets['slider'] = array(
+      'title' => __( 'Slider', 'events-addon-for-elementor' ),
+      'demo_url' => 'https://nicheaddons.com/demos/events/elements/slider-element/',
+      'documentation_url' => 'https://nicheaddons.com/docs/basic-elements/slider/',
+      'video_url' => '',
+      'is_premium' => '',
+    );
+    $naeafe_basic_widgets['subscribe_contact'] = array(
+      'title' => __( 'Subscribe / Contact', 'events-addon-for-elementor' ),
+      'demo_url' => 'https://nicheaddons.com/demos/events/elements/subscribe-element/',
+      'documentation_url' => 'https://nicheaddons.com/docs/basic-elements/subscribe/',
+      'video_url' => '',
+      'is_premium' => '',
+    );
+    $naeafe_basic_widgets['table'] = array(
+      'title' => __( 'Table', 'events-addon-for-elementor' ),
+      'demo_url' => 'https://nicheaddons.com/demos/events/elements/table-element/',
+      'documentation_url' => 'https://nicheaddons.com/docs/basic-elements/table/',
+      'video_url' => '',
+      'is_premium' => '',
+    );
+    $naeafe_basic_widgets['team_single'] = array(
+      'title' => __( 'Team Single', 'events-addon-for-elementor' ),
+      'demo_url' => 'https://nicheaddons.com/demos/events/elements/team-single-element/',
+      'documentation_url' => 'https://nicheaddons.com/docs/basic-elements/team-single/',
+      'video_url' => '',
+      'is_premium' => '',
+    );
+    $naeafe_basic_widgets['team'] = array(
+      'title' => __( 'Team', 'events-addon-for-elementor' ),
+      'demo_url' => 'https://nicheaddons.com/demos/events/elements/team-element/',
+      'documentation_url' => 'https://nicheaddons.com/docs/basic-elements/team/',
+      'video_url' => '',
+      'is_premium' => '',
+    );
+    $naeafe_basic_widgets['testimonials'] = array(
+      'title' => __( 'Testimonials', 'events-addon-for-elementor' ),
+      'demo_url' => 'https://nicheaddons.com/demos/events/elements/testimonials-element/',
+      'documentation_url' => 'https://nicheaddons.com/docs/basic-elements/testimonial/',
+      'video_url' => '',
+      'is_premium' => '',
+    );
+    $naeafe_basic_widgets['typewriter'] = array(
+      'title' => __( 'Typewriter', 'events-addon-for-elementor' ),
+      'demo_url' => 'https://nicheaddons.com/demos/events/elements/typewriter-element/',
+      'documentation_url' => 'https://nicheaddons.com/docs/basic-elements/typewriter/',
+      'video_url' => '',
+      'is_premium' => '',
+    );
+    $naeafe_basic_widgets['video'] = array(
+      'title' => __( 'Video', 'events-addon-for-elementor' ),
+      'demo_url' => 'https://nicheaddons.com/demos/events/elements/video-element/',
+      'documentation_url' => 'https://nicheaddons.com/docs/basic-elements/video/',
+      'video_url' => '',
+      'is_premium' => '',
+    );
 
-// About Us - Checkbox
-if ( ! function_exists( 'naeafe_about_us_render' ) ) {
-  function naeafe_about_us_render() {
-    $options = get_option( 'eafe_bw_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_bw_settings[naeafe_about_us]' id='naeafe_about_us-id' <?php checked( isset($options['naeafe_about_us']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Blog - Checkbox
-if ( ! function_exists( 'naeafe_blog_render' ) ) {
-  function naeafe_blog_render() {
-    $options = get_option( 'eafe_bw_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_bw_settings[naeafe_blog]' id='naeafe_blog-id' <?php checked( isset($options['naeafe_blog']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Primary Button - Checkbox
-if ( ! function_exists( 'naeafe_primary_button_render' ) ) {
-  function naeafe_primary_button_render() {
-    $options = get_option( 'eafe_bw_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_bw_settings[naeafe_primary_button]' id='naeafe_primary_button-id' <?php checked( isset($options['naeafe_primary_button']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Chart - Checkbox
-if ( ! function_exists( 'naeafe_chart_render' ) ) {
-  function naeafe_chart_render() {
-    $options = get_option( 'eafe_bw_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_bw_settings[naeafe_chart]' id='naeafe_chart-id' <?php checked( isset($options['naeafe_chart']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Contact - Checkbox
-if ( ! function_exists( 'naeafe_contact_render' ) ) {
-  function naeafe_contact_render() {
-    $options = get_option( 'eafe_bw_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_bw_settings[naeafe_contact]' id='naeafe_contact-id' <?php checked( isset($options['naeafe_contact']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Gallery - Checkbox
-if ( ! function_exists( 'naeafe_gallery_render' ) ) {
-  function naeafe_gallery_render() {
-    $options = get_option( 'eafe_bw_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_bw_settings[naeafe_gallery]' id='naeafe_gallery-id' <?php checked( isset($options['naeafe_gallery']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Get Apps - Checkbox
-if ( ! function_exists( 'naeafe_get_apps_render' ) ) {
-  function naeafe_get_apps_render() {
-    $options = get_option( 'eafe_bw_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_bw_settings[naeafe_get_apps]' id='naeafe_get_apps-id' <?php checked( isset($options['naeafe_get_apps']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// History - Checkbox
-if ( ! function_exists( 'naeafe_history_render' ) ) {
-  function naeafe_history_render() {
-    $options = get_option( 'eafe_bw_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_bw_settings[naeafe_history]' id='naeafe_history-id' <?php checked( isset($options['naeafe_history']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Image Compare - Checkbox
-if ( ! function_exists( 'naeafe_image_compare_render' ) ) {
-  function naeafe_image_compare_render() {
-    $options = get_option( 'eafe_bw_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_bw_settings[naeafe_image_compare]' id='naeafe_image_compare-id' <?php checked( isset($options['naeafe_image_compare']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Process - Checkbox
-if ( ! function_exists( 'naeafe_process_render' ) ) {
-  function naeafe_process_render() {
-    $options = get_option( 'eafe_bw_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_bw_settings[naeafe_process]' id='naeafe_process-id' <?php checked( isset($options['naeafe_process']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Separator - Checkbox
-if ( ! function_exists( 'naeafe_separator_render' ) ) {
-  function naeafe_separator_render() {
-    $options = get_option( 'eafe_bw_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_bw_settings[naeafe_separator]' id='naeafe_separator-id' <?php checked( isset($options['naeafe_separator']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Services - Checkbox
-if ( ! function_exists( 'naeafe_services_render' ) ) {
-  function naeafe_services_render() {
-    $options = get_option( 'eafe_bw_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_bw_settings[naeafe_services]' id='naeafe_services-id' <?php checked( isset($options['naeafe_services']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Slider - Checkbox
-if ( ! function_exists( 'naeafe_slider_render' ) ) {
-  function naeafe_slider_render() {
-    $options = get_option( 'eafe_bw_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_bw_settings[naeafe_slider]' id='naeafe_slider-id' <?php checked( isset($options['naeafe_slider']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Subscribe Contact - Checkbox
-if ( ! function_exists( 'naeafe_subscribe_contact_render' ) ) {
-  function naeafe_subscribe_contact_render() {
-    $options = get_option( 'eafe_bw_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_bw_settings[naeafe_subscribe_contact]' id='naeafe_subscribe_contact-id' <?php checked( isset($options['naeafe_subscribe_contact']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Table - Checkbox
-if ( ! function_exists( 'naeafe_table_render' ) ) {
-  function naeafe_table_render() {
-    $options = get_option( 'eafe_bw_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_bw_settings[naeafe_table]' id='naeafe_table-id' <?php checked( isset($options['naeafe_table']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Team Single - Checkbox
-if ( ! function_exists( 'naeafe_team_single_render' ) ) {
-  function naeafe_team_single_render() {
-    $options = get_option( 'eafe_bw_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_bw_settings[naeafe_team_single]' id='naeafe_team_single-id' <?php checked( isset($options['naeafe_team_single']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Team - Checkbox
-if ( ! function_exists( 'naeafe_team_render' ) ) {
-  function naeafe_team_render() {
-    $options = get_option( 'eafe_bw_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_bw_settings[naeafe_team]' id='naeafe_team-id' <?php checked( isset($options['naeafe_team']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Testimonials - Checkbox
-if ( ! function_exists( 'naeafe_testimonials_render' ) ) {
-  function naeafe_testimonials_render() {
-    $options = get_option( 'eafe_bw_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_bw_settings[naeafe_testimonials]' id='naeafe_testimonials-id' <?php checked( isset($options['naeafe_testimonials']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Typewriter - Checkbox
-if ( ! function_exists( 'naeafe_typewriter_render' ) ) {
-  function naeafe_typewriter_render() {
-    $options = get_option( 'eafe_bw_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_bw_settings[naeafe_typewriter]' id='naeafe_typewriter-id' <?php checked( isset($options['naeafe_typewriter']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
-  }
-}
-
-// Video - Checkbox
-if ( ! function_exists( 'naeafe_video_render' ) ) {
-  function naeafe_video_render() {
-    $options = get_option( 'eafe_bw_settings' );
-    ?>
-    <label class="switch">
-      <input type='checkbox' name='eafe_bw_settings[naeafe_video]' id='naeafe_video-id' <?php checked( isset($options['naeafe_video']), 1 ); ?> value='1' />
-      <span class="slider round"></span>
-    </label>
-    <?php
+    return $naeafe_basic_widgets;
   }
 }

@@ -15,42 +15,42 @@ class WPSEO_Admin_Asset {
 	 *
 	 * @var string
 	 */
-	const TYPE_JS = 'js';
+	public const TYPE_JS = 'js';
 
 	/**
 	 * Constant used to identify file type as a CSS file.
 	 *
 	 * @var string
 	 */
-	const TYPE_CSS = 'css';
+	public const TYPE_CSS = 'css';
 
 	/**
 	 * The name option identifier.
 	 *
 	 * @var string
 	 */
-	const NAME = 'name';
+	public const NAME = 'name';
 
 	/**
 	 * The source option identifier.
 	 *
 	 * @var string
 	 */
-	const SRC = 'src';
+	public const SRC = 'src';
 
 	/**
 	 * The dependencies option identifier.
 	 *
 	 * @var string
 	 */
-	const DEPS = 'deps';
+	public const DEPS = 'deps';
 
 	/**
 	 * The version option identifier.
 	 *
 	 * @var string
 	 */
-	const VERSION = 'version';
+	public const VERSION = 'version';
 
 	/* Style specific. */
 
@@ -59,14 +59,14 @@ class WPSEO_Admin_Asset {
 	 *
 	 * @var string
 	 */
-	const MEDIA = 'media';
+	public const MEDIA = 'media';
 
 	/**
 	 * The rtl option identifier.
 	 *
 	 * @var string
 	 */
-	const RTL = 'rtl';
+	public const RTL = 'rtl';
 
 	/* Script specific. */
 
@@ -75,7 +75,7 @@ class WPSEO_Admin_Asset {
 	 *
 	 * @var string
 	 */
-	const IN_FOOTER = 'in_footer';
+	public const IN_FOOTER = 'in_footer';
 
 	/**
 	 * Asset identifier.
@@ -207,7 +207,7 @@ class WPSEO_Admin_Asset {
 	/**
 	 * Returns the asset version.
 	 *
-	 * @return string
+	 * @return string|null
 	 */
 	public function get_version() {
 		if ( ! empty( $this->version ) ) {
@@ -229,7 +229,7 @@ class WPSEO_Admin_Asset {
 	/**
 	 * Returns whether a script asset should be loaded in the footer of the page.
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	public function is_in_footer() {
 		return $this->in_footer;
@@ -238,7 +238,7 @@ class WPSEO_Admin_Asset {
 	/**
 	 * Returns whether this CSS has a RTL counterpart.
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	public function has_rtl() {
 		return $this->rtl;

@@ -6,17 +6,13 @@
  */
 namespace Happy_Addons\Elementor\Widget;
 
-use Elementor\Scheme_Typography;
-use Elementor\Utils;
-use Elementor\Control_Media;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
-use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Text_Shadow;
-use Happy_Addons\Elementor\Controls\Group_Control_Foreground;
 
 defined( 'ABSPATH' ) || die();
 
@@ -55,9 +51,10 @@ class Number extends Base {
 	}
 
 	/**
-	 * Register content related controls
-	 */
+     * Register widget content controls
+     */
 	protected function register_content_controls() {
+
 		$this->start_controls_section(
 			'_section_number',
 			[
@@ -114,6 +111,12 @@ class Number extends Base {
 	 * Register styles related controls
 	 */
 	protected function register_style_controls() {
+		$this->__number_bg_style_controls();
+		$this->__text_style_controls();
+	}
+
+	protected function __number_bg_style_controls() {
+
 		$this->start_controls_section(
 			'number_background_style',
 			[
@@ -190,15 +193,15 @@ class Number extends Base {
 				'options' => [
 					'left' => [
 						'title' => __( 'Left', 'happy-elementor-addons' ),
-						'icon' => 'fa fa-align-left',
+						'icon' => 'eicon-text-align-left',
 					],
 					'center' => [
 						'title' => __( 'Center', 'happy-elementor-addons' ),
-						'icon' => 'fa fa-align-center',
+						'icon' => 'eicon-text-align-center',
 					],
 					'right' => [
 						'title' => __( 'Right', 'happy-elementor-addons' ),
-						'icon' => 'fa fa-align-right',
+						'icon' => 'eicon-text-align-right',
 					],
 				],
 				'toggle' => true,
@@ -283,6 +286,9 @@ class Number extends Base {
         );
 
 		$this->end_controls_section();
+	}
+
+	protected function __text_style_controls() {
 
         $this->start_controls_section(
             '_section_style_text',
@@ -309,7 +315,9 @@ class Number extends Base {
                 'name' => 'number_text_typography',
                 'label' => __( 'Typography', 'happy-elementor-addons' ),
                 'selector' => '{{WRAPPER}} .ha-number-text',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_3,
+                'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_TEXT,
+				],
             ]
         );
 

@@ -159,7 +159,7 @@ jQuery(function($) {
 		
 		function formatCoord(coord)
 		{
-			if($.isNumeric(coord))
+			if(WPGMZA.isNumeric(coord))
 				return coord;
 			return parseFloat( String(coord).replace(/[\(\)\s]/, "") );
 		}
@@ -223,6 +223,11 @@ jQuery(function($) {
         
         options.draggable				= !isSettingDisabled(this.wpgmza_settings_map_draggable);
         options.disableDoubleClickZoom	= isSettingDisabled(this.wpgmza_settings_map_clickzoom);
+
+        if(isSettingDisabled(this.wpgmza_settings_map_tilt_controls)){
+        	options.rotateControl = false;
+        	options.tilt = 0;
+        }
 		
 		// NB: This setting is handled differently as setting scrollwheel to true breaks gestureHandling
 		if(this.wpgmza_settings_map_scroll)
@@ -259,9 +264,20 @@ jQuery(function($) {
 				options.mapTypeId = google.maps.MapTypeId.ROADMAP;
 				break;
 		}
+
+		if(WPGMZA.settings && WPGMZA.settings.googleMarkerMode && WPGMZA.settings.googleMarkerMode === WPGMZA.GoogleMarker.MARKER_MODE_ADVANCED){
+			options.mapId = `wpgmza_map_${this.id}`;
+		}
 		
-		if(this.wpgmza_theme_data && this.wpgmza_theme_data.length)
+		if(this.wpgmza_theme_data && this.wpgmza_theme_data.length){
 			options.styles = WPGMZA.GoogleMap.parseThemeData(this.wpgmza_theme_data);
+
+			if(WPGMZA.settings && WPGMZA.settings.googleMarkerMode && WPGMZA.settings.googleMarkerMode === WPGMZA.GoogleMarker.MARKER_MODE_ADVANCED){
+				console.log(`📍 WP Go Maps: You are using the Advanced Marker Element mode, with a custom theme, this is not currently supported. Google requires you to load map themes via their cloud styling system instead. To remove this notice, please switch back to the default marker render mode`);
+			}
+		}
+
+
 		
 		return options;
 	}

@@ -4,17 +4,17 @@ function ub_render_expand_portion_block($attributes, $content){
     extract($attributes);
     return '<div class="ub-expand-portion ub-expand-' . $displayType .
         ($displayType === 'full' ? ' ub-hide' : '').
-        (isset($className) ? ' ' . esc_attr($className) : '') . '">' .
-        $content.
+        (isset($className) ? ' ' . $className : '') . '">' .
+        $content .
         '<a class="ub-expand-toggle-button" role="button" aria-expanded="false" aria-controls="'.
-            ($parentID === '' ? '' : "ub-expand-full-" . $parentID).'" tabindex="0">' . $clickText . '</a>'
+            ($parentID === '' ? '' : "ub-expand-full-" . $parentID ).'" tabindex="0">' . $clickText . '</a>'
         . '</div>';
 }
 
 function ub_register_expand_portion_block($attributes){
-    if ( function_exists( 'register_block_type' ) ) {
+    if ( function_exists( 'register_block_type_from_metadata' ) ) {
         require dirname(dirname(__DIR__)) . '/defaults.php';
-        register_block_type( 'ub/expand-portion', array(
+        register_block_type_from_metadata( dirname(dirname(dirname(__DIR__))) . '/dist/blocks/expand/expand-portion/block.json', array(
             'attributes' => $defaultValues['ub/expand-portion']['attributes'],
 			'render_callback' => 'ub_render_expand_portion_block'));
 	}
@@ -22,14 +22,31 @@ function ub_register_expand_portion_block($attributes){
 
 function ub_render_expand_block($attributes, $content){
     extract($attributes);
-    return '<div class="ub-expand '.(isset($className) ? ' ' . esc_attr($className) : '')
-    .'" id="ub-expand-'.$blockID.'">'.$content.'</div>';
+
+    $scrollTargetPrefix = '';
+
+    switch($scrollTargetType){
+        case 'id':
+            $scrollTargetPrefix = '#';
+            break;
+        case 'class':
+            $scrollTargetPrefix = '.';
+            break;
+        case 'element':
+        default:
+            $scrollTargetPrefix = '';
+    }
+
+    return '<div class="wp-block-ub-expand ub-expand '.(isset($className) ? ' ' . $className : '')
+
+    .'" id="ub-expand-'. esc_attr($blockID) .'"' .  ($allowScroll ? (' data-scroll-type="' . esc_attr($scrollOption) . '"' . ($scrollOption === 'fixedamount' ? ' data-scroll-amount="' . esc_attr($scrollOffset) . '"' : '')
+    . ($scrollOption === 'namedelement' ? ' data-scroll-target="' . $scrollTargetPrefix . esc_attr($scrollTarget) . '"' : '')) : '' ) . '>'. $content .'</div>';
 }
 
 function ub_register_expand_block($attributes){
-    if ( function_exists( 'register_block_type' ) ) {
+    if ( function_exists( 'register_block_type_from_metadata' ) ) {
         require dirname(dirname(__DIR__)) . '/defaults.php';
-        register_block_type( 'ub/expand', array(
+        register_block_type_from_metadata( dirname(dirname(dirname(__DIR__))) . '/dist/blocks/expand/block.json', array(
             'attributes' => $defaultValues['ub/expand']['attributes'],
 			'render_callback' => 'ub_render_expand_block'));
 	}

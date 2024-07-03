@@ -103,16 +103,16 @@ if ( ! class_exists( 'Gutentor_Featured_N3_T4' ) ) {
 			}
 			$index = 0;
 			foreach ( $terms as $term ) {
-                if ( $index === 0 || $index === 1 ) {
-                    $output .= "<div class='" . apply_filters( 'gutentor_term_module_t2_grid_class', 'grid-lg-6 grid-lg-6 grid-12', $attributes ) . "'>";
-                    $output .= $this->t2_single_article( $term, $attributes, $index );
-                    $output .= '</div>';
-                }
-                if ( $index === 2 ) {
-                    $output .= "<div class='" . apply_filters( 'gutentor_term_module_t2_grid_class', 'grid-lg-12 grid-lg-12 grid-12', $attributes ) . "'>";
-                    $output .= $this->t2_single_article( $term, $attributes, $index );
-                    $output .= '</div>';
-                }
+				if ( $index === 0 || $index === 1 ) {
+					$output .= "<div class='" . apply_filters( 'gutentor_term_module_t2_grid_class', 'grid-lg-6 grid-lg-6 grid-12', $attributes ) . "'>";
+					$output .= $this->t2_single_article( $term, $attributes, $index );
+					$output .= '</div>';
+				}
+				if ( $index === 2 ) {
+					$output .= "<div class='" . apply_filters( 'gutentor_term_module_t2_grid_class', 'grid-lg-12 grid-lg-12 grid-12', $attributes ) . "'>";
+					$output .= $this->t2_single_article( $term, $attributes, $index );
+					$output .= '</div>';
+				}
 				$index++;
 			}
 			return $output;
