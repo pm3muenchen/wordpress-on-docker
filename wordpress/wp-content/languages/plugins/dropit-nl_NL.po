@@ -1,0 +1,60 @@
+# Translation of Plugins - Drop it - Stable (latest release) in Dutch
+# This file is distributed under the same license as the Plugins - Drop it - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-12-10 20:21:53+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/3.0.0-alpha.2\n"
+"Language: nl\n"
+"Project-Id-Version: Plugins - Drop it - Stable (latest release)\n"
+
+#: languages/dropit-translations.php:11
+msgid "Use a featured image"
+msgstr "gebruik als uitgelichte afbeelding"
+
+#: languages/dropit-translations.php:5
+msgid "GIFs from Giphy.com"
+msgstr "GIF's van Giphy.com"
+
+#. Author of the plugin/theme
+msgid "Riad Benguella"
+msgstr "Riad Benguella"
+
+#. Description of the plugin/theme
+msgid "Easily insert free photos from unsplash.com or giphy.com right from Gutenberg's sidebar."
+msgstr "Voeg vanuit Gutenberg's zijbalk eenvoudig gratis foto's toe van unsplash.com of giphy.com."
+
+#. Plugin URI of the plugin/theme
+msgid "https://github.com/youknowriad/dropit"
+msgstr "https://github.com/youknowriad/dropit"
+
+#. Plugin Name of the plugin/theme
+msgid "Drop it"
+msgstr "Drop it"
+
+#: languages/dropit-translations.php:23
+msgid "on"
+msgstr "op"
+
+#: languages/dropit-translations.php:20
+msgid "Photo by"
+msgstr "Foto van"
+
+#: languages/dropit-translations.php:17
+msgid "Add photo"
+msgstr "Foto toevoegen"
+
+#: languages/dropit-translations.php:14
+msgid "Upload photo"
+msgstr "Foto uploaden"
+
+#: languages/dropit-translations.php:8
+msgid "Search…"
+msgstr "Zoeken..."
+
+#: languages/dropit-translations.php:26
+msgid "Photos from Unsplash.com"
+msgstr "Foto's van Unsplash.com"

@@ -1,0 +1,1 @@
+!function(n){"use strict";n(document).ready(function(){n(" body ").removeClass("wn-preloader").addClass("wn-start-rendering"),n(window).on("load",function(){setTimeout(function(){n(".pg-loading-screen").fadeOut(400)},1e3)})})}(jQuery);

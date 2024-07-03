@@ -1,0 +1,459 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2017-03-29 11:40+0530\n"
+"PO-Revision-Date: 2017-03-29 11:44+0530\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: hi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7.1\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: core/ReduxCore\n"
+"X-Poedit-SearchPathExcluded-1: *.js\n"
+"X-Poedit-SearchPathExcluded-2: *.css\n"
+"X-Poedit-SearchPathExcluded-3: importer/inc/Downloader.php\n"
+"X-Poedit-SearchPathExcluded-4: importer/inc/Helpers.php\n"
+"X-Poedit-SearchPathExcluded-5: importer/inc/WidgetImporter.php\n"
+"X-Poedit-SearchPathExcluded-6: importer/inc/WXRImporter.php\n"
+"X-Poedit-SearchPathExcluded-7: importer/vendor/proteusthemes/wp-content-"
+"importer-v2/src/WXRImporter.php\n"
+
+#: 404.php:22
+msgid "404"
+msgstr "404"
+
+#: 404.php:23
+msgid "Page Not Found"
+msgstr "Stránka nenalezena"
+
+#: core/theme-option.php:138
+msgid "General"
+msgstr "Obecné"
+
+#: core/theme-option.php:145
+msgid "Body Background"
+msgstr "Pozadí těla stránky"
+
+#: core/theme-option.php:146
+msgid "Body background with image, color, etc."
+msgstr "Pozadí těla stránky s obrázkem, barvou atd."
+
+#: core/theme-option.php:155
+msgid "Link Color"
+msgstr "Barva odkazu"
+
+#: core/theme-option.php:163
+msgid "Link Hover Color"
+msgstr "Barva odkazu při přejetí myší"
+
+#: core/theme-option.php:172
+msgid "Header"
+msgstr "Záhlaví"
+
+#: core/theme-option.php:179
+msgid "Logo"
+msgstr "Logo"
+
+#: core/theme-option.php:180
+msgid "Upload logo of your website."
+msgstr "Nahrajte logo svého webu."
+
+#: core/theme-option.php:188
+msgid "Favicon"
+msgstr "Ikona stránky"
+
+#: core/theme-option.php:189
+msgid "Upload favicon of your website."
+msgstr "Nahrajte ikonu stránky svého webu."
+
+#: core/theme-option.php:198
+msgid "Footer"
+msgstr "Zápatí"
+
+#: core/theme-option.php:206
+msgid "Background Color"
+msgstr "Barva pozadí"
+
+#: core/theme-option.php:214
+msgid "Typography"
+msgstr "Typografie"
+
+#: core/theme-option.php:221
+msgid "Body Font Style"
+msgstr "Styl písma těla"
+
+#: core/theme-option.php:226 core/theme-option.php:244
+#: core/theme-option.php:262 core/theme-option.php:281
+#: core/theme-option.php:300 core/theme-option.php:319
+#: core/theme-option.php:338
+msgid "Select the font size, font family, color etc"
+msgstr "Vyberte velikost písma, druh písma, barvu atd."
+
+#: core/theme-option.php:239
+msgid "H1 Font Style"
+msgstr "Styl písma H1"
+
+#: core/theme-option.php:257
+msgid "H2 Font Style"
+msgstr "Styl písma H2"
+
+#: core/theme-option.php:276
+msgid "H3 Font Style"
+msgstr "Styl písma H3"
+
+#: core/theme-option.php:295
+msgid "H4 Font Style"
+msgstr "Styl písma H4"
+
+#: core/theme-option.php:314
+msgid "H5 Font Style"
+msgstr "Styl písma H5"
+
+#: core/theme-option.php:333
+msgid "H6 Font Style"
+msgstr "Styl písma H6"
+
+#: core/theme-option.php:353
+msgid "Social"
+msgstr "Sociální sítě"
+
+#: core/theme-option.php:355
+msgid "Enter your social profile links here:"
+msgstr "Sem zadejte odkazy na své profily na sociálních sítích:"
+
+#: core/theme-option.php:361
+msgid "Facebook"
+msgstr "Facebook"
+
+#: core/theme-option.php:367
+msgid "Twitter"
+msgstr "Twitter"
+
+#: core/theme-option.php:373
+msgid "Google Plus"
+msgstr "Google Plus"
+
+#: core/theme-option.php:380
+msgid "Icon Color"
+msgstr "Barva ikony"
+
+#: core/theme-option.php:381
+msgid "Select social icon color"
+msgstr "Vyberte barvu ikony sociální sítě"
+
+#: core/theme-option.php:389
+msgid "Icon Background Color"
+msgstr "Barva pozadí ikony"
+
+#: core/theme-option.php:390
+msgid "Select social icon background color"
+msgstr "Vyberte barvu pozadí ikony sociální sítě"
+
+#: core/theme-option.php:398
+msgid "Home"
+msgstr "Hlavní stránka"
+
+#: core/theme-option.php:405
+msgid "Banner"
+msgstr "Banner"
+
+#: core/theme-option.php:406 core/theme-option.php:484
+#: core/theme-option.php:508
+msgid "Please upload the image."
+msgstr "Nahrajte obrázek."
+
+#: core/theme-option.php:414
+msgid "Banner Text"
+msgstr "Text banneru"
+
+#: core/theme-option.php:420
+msgid "Banner Sub-text"
+msgstr "Vedlejší text banneru"
+
+#: core/theme-option.php:431
+msgid "Left Section Image"
+msgstr "Obrázek levé sekce"
+
+#: core/theme-option.php:432 core/theme-option.php:442
+#: core/theme-option.php:449
+msgid "Below the banner"
+msgstr "Pod bannerem"
+
+#: core/theme-option.php:433 core/theme-option.php:460
+msgid "Please upload Image."
+msgstr "Nahrajte obrázek."
+
+#: core/theme-option.php:441
+msgid "Left Section Title"
+msgstr "Nadpis levé sekce"
+
+#: core/theme-option.php:448
+msgid "Left Section Text"
+msgstr "Text levé sekce"
+
+#: core/theme-option.php:459
+msgid " Full Width Section Image"
+msgstr "Obrázek sekce s plnou šířkou"
+
+#: core/theme-option.php:468
+msgid "Full Width Section Text"
+msgstr "Text sekce s plnou šířkou"
+
+#: core/theme-option.php:482
+msgid "Box-1 Image"
+msgstr "Obrázek pole 1"
+
+#: core/theme-option.php:483 core/theme-option.php:493
+#: core/theme-option.php:500 core/theme-option.php:507
+#: core/theme-option.php:517 core/theme-option.php:524
+#: core/theme-option.php:531 core/theme-option.php:541
+#: core/theme-option.php:548
+msgid "Below the full width section"
+msgstr "Pod sekcí s plnou šířkou"
+
+#: core/theme-option.php:492
+msgid "Box-1 Title"
+msgstr "Nadpis pole 1"
+
+#: core/theme-option.php:499
+msgid "Box-1 Text"
+msgstr "Text pole 1"
+
+#: core/theme-option.php:506
+msgid "Box-2 Image"
+msgstr "Obrázek pole 2"
+
+#: core/theme-option.php:516
+msgid "Box-2 Title"
+msgstr "Nadpis pole 2"
+
+#: core/theme-option.php:523
+msgid "Box-2 Text"
+msgstr "Text pole 2"
+
+#: core/theme-option.php:530
+msgid "Box-3 Image"
+msgstr "Obrázek pole 3"
+
+#: core/theme-option.php:532
+msgid "Please upload the image ."
+msgstr "Nahrajte obrázek."
+
+#: core/theme-option.php:540
+msgid "Box-3 Title"
+msgstr "Nadpis pole 3"
+
+#: core/theme-option.php:547
+msgid "Box-3 Text"
+msgstr "Text pole 3"
+
+#: core/theme-option.php:558
+msgid "Bottom Section"
+msgstr "Dolní sekce"
+
+#: core/theme-option.php:575
+msgid "Contact"
+msgstr "Kontakt"
+
+#: core/theme-option.php:582
+msgid "Page content"
+msgstr "Obsah stránky"
+
+#: core/theme-option.php:583
+msgid "Use shortcodes here, if necessary."
+msgstr "Zde můžete použít zkrácený zápis, pokud je to nutné."
+
+#: core/theme-option.php:589
+msgid "Recipients"
+msgstr "Příjemci"
+
+#: core/theme-option.php:590
+msgid "Insert email addresses separated by comma"
+msgstr "Zadejte e-mailové adresy oddělené čárkami"
+
+#: core/theme-option.php:591
+msgid ""
+"Provide email ids on which you want to receive email from contact form. "
+"Example: info@one.com, contact@gmail.com"
+msgstr ""
+"Zadejte e-maily, na které chcete dostávat zprávy z kontaktního formuláře. "
+"Příklad: info@one.com, contact@gmail.com"
+
+#: core/theme-option.php:608
+msgid "Import"
+msgstr "Import"
+
+#: functions.php:94
+msgid "Mainmenu Navigation"
+msgstr "Navigace v hlavní nabídce"
+
+#: functions.php:103
+msgid "Testimonial"
+msgstr "Svědectví"
+
+#: functions.php:121
+msgid "Travel"
+msgstr "Cesta"
+
+#: functions.php:234
+msgid "Group"
+msgstr "Skupina"
+
+#: functions.php:239
+msgid "Price"
+msgstr "Cena"
+
+#: functions.php:243
+msgid "Breakfast"
+msgstr "Snídaně"
+
+#: functions.php:247
+msgid "Flight"
+msgstr "Let"
+
+#: functions.php:251
+msgid "Guide"
+msgstr "Průvodce"
+
+#: functions.php:255
+msgid "Car"
+msgstr "Vozidlo"
+
+#: importer/inc/OneClickDemoImport.php:382
+#, php-format
+msgid ""
+"%1$s%3$sThat's it, all done!%4$s%2$sThe import of demo data has finished. "
+"Please check your page and make sure that everything has been imported "
+"correctly.%5$s"
+msgstr ""
+"%1$s%3$sA to je vše - hotovo!%4$s%2$sImport ukázkových dat byl dokončen. "
+"Prohlédněte si svou stránku a zkontrolujte, zda bylo všechno naimportováno "
+"správně.%5$s"
+
+#: importer/inc/OneClickDemoImport.php:393
+#, php-format
+msgid ""
+"%1$sThe demo import has finished, but there were some import errors.%2$sMore "
+"details about the errors can be found in this %3$s%5$slog file%6$s%4$s%7$s"
+msgstr ""
+"%1$sImport ukázkových dat byl dokončen, ale nastaly při něm nějaké chyby."
+"%2$sDalší podrobnosti o těchto chybách najdete v tomto %3$s%5$sprotokolovém "
+"souboru%6$s%4$s%7$s"
+
+#: importer/views/plugin-page.php:14
+msgid "Import demo data"
+msgstr "Import ukázkových dat"
+
+#: importer/views/plugin-page.php:35
+msgid ""
+"The easiest way to setup your theme is by importing demo data. It includes "
+"demo posts, pages, images and theme settings. This will allow you to edit "
+"the demo content, instead of creating everything from scratch."
+msgstr ""
+"Svou šablonu nejsnáze nakonfigurujete pomocí importu ukázkových dat. Tato "
+"data zahrnují ukázkové příspěvky, stránky, obrázky a nastavení šablony. "
+"Můžete tak upravovat ukázkový obsah a nemusíte vytvářet vše zcela od začátku."
+
+#: importer/views/plugin-page.php:40
+msgid "When you import demo data, please be aware of the following:"
+msgstr "Když importujete ukázková data, mějte na paměti následující:"
+
+#: importer/views/plugin-page.php:43
+msgid ""
+"No existing data will be deleted or modified, this includes posts, pages, "
+"categories, images, custom post types or any other data."
+msgstr ""
+"Nedojde k výmazu ani ke změně žádných existujících dat - to platí pro "
+"příspěvky, kategorie, obrázky, vlastní typy příspěvků a jakákoli další data."
+
+#: importer/views/plugin-page.php:44
+msgid ""
+"Posts, pages, images, widgets, menus and other theme settings will get "
+"imported."
+msgstr ""
+"Naimportují se příspěvky, stránky, obrázky, widgety, nabídky a další "
+"nastavení šablony."
+
+#: importer/views/plugin-page.php:45
+msgid ""
+"It can take a couple of minutes for the import to finish, so please click "
+"the Import button only once."
+msgstr ""
+"Import může trvat i několik minut, proto neklikejte na tlačítko importu "
+"vícekrát."
+
+#: importer/views/plugin-page.php:96 importer/views/plugin-page.php:108
+msgid "Import Demo Data"
+msgstr "Import ukázkových dat"
+
+#: importer/views/plugin-page.php:168
+msgid "Importing, please wait!"
+msgstr "Probíhá import, vyčkejte prosím..."
+
+#: metabox/metabox.php:5
+msgid "Page Settings"
+msgstr "Nastavení stránky"
+
+#: metabox/metabox.php:16
+msgid "Bottom Content"
+msgstr "Obsah dolní sekce"
+
+#: metabox/metabox.php:87
+msgid "Title"
+msgstr "Nadpis"
+
+#: metabox/metabox.php:96
+msgid "Sub Title"
+msgstr "Podtitul"
+
+#: page_Travel.php:98
+msgid "Earlier Travels"
+msgstr "Dřívější cesty"
+
+#: search.php:22
+msgid "Search Results"
+msgstr "Výsledky hledání"
+
+#: single.php:48
+msgid "Published on: "
+msgstr "Publikováno dne:"
+
+#: single.php:80
+msgid "Pages:"
+msgstr "Stránky:"
+
+#: single.php:92
+msgid "Group: "
+msgstr "Skupina:"
+
+#: single.php:98
+msgid "Price: "
+msgstr "Cena:"
+
+#: single.php:104
+msgid "Breakfast: "
+msgstr "Snídaně:"
+
+#: single.php:110
+msgid "Flight: "
+msgstr "Let:"
+
+#: single.php:116
+msgid "Guide: "
+msgstr "Průvodce:"
+
+#: single.php:122
+msgid "Car: "
+msgstr "Vozidlo:"
+
+#~ msgid "Trip Types"
+#~ msgstr "Typy cest"
+
+#~ msgid "Meta Box Title"
+#~ msgstr "Nadpis meta pole"

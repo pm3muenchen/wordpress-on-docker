@@ -1,0 +1,900 @@
+# Translation of Plugins - Restrict User Access &#8211; Membership Plugin with Force - Stable (latest release) in Danish
+# This file is distributed under the same license as the Plugins - Restrict User Access &#8211; Membership Plugin with Force - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2021-08-01 12:22:24+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/3.0.0-alpha.2\n"
+"Language: da_DK\n"
+"Project-Id-Version: Plugins - Restrict User Access &#8211; Membership Plugin with Force - Stable (latest release)\n"
+
+#: lib/wp-content-aware-engine/module/transposh.php:33
+#: lib/wp-content-aware-engine/module/translatepress.php:29
+#: lib/wp-content-aware-engine/module/wpml.php:33
+#: lib/wp-content-aware-engine/module/polylang.php:33
+#: lib/wp-content-aware-engine/module/qtranslate.php:33
+msgid "Languages"
+msgstr "Sprog"
+
+#: lib/wp-content-aware-engine/module/post_type.php:429
+msgid "Scheduled"
+msgstr "Planlagt"
+
+#. translators: post state
+#: lib/wp-content-aware-engine/module/post_type.php:426
+msgctxt "post state"
+msgid "Pending"
+msgstr "Afventer"
+
+#: lib/wp-content-aware-engine/module/post_type.php:422
+msgid "Draft"
+msgstr "Kladde"
+
+#: lib/wp-content-aware-engine/module/post_type.php:419
+msgid "Private"
+msgstr "Privat"
+
+#: lib/wp-content-aware-engine/module/post_type.php:414
+msgid "Sticky"
+msgstr "Fastgjort"
+
+#: lib/wp-content-aware-engine/module/post_type.php:410
+msgid "Password protected"
+msgstr "Adgangskodebeskyttet"
+
+#: lib/wp-content-aware-engine/module/post_type.php:247
+#: lib/wp-content-aware-engine/module/post_type.php:379
+msgid "Shop Page"
+msgstr "Shop-side"
+
+#: lib/wp-content-aware-engine/module/post_type.php:244
+#: lib/wp-content-aware-engine/module/post_type.php:375
+msgid "Blog Page"
+msgstr "Blog-side"
+
+#: lib/wp-content-aware-engine/module/page_template.php:35
+msgid "All Templates"
+msgstr "Alle skabeloner"
+
+#: lib/wp-content-aware-engine/module/page_template.php:34
+msgid "Page Templates"
+msgstr "Side-skabeloner"
+
+#: lib/wp-content-aware-engine/module/post_type.php:251
+#: lib/wp-content-aware-engine/module/post_type.php:383
+#: lib/wp-content-aware-engine/module/taxonomy.php:348
+msgid "%s Archives"
+msgstr "Arkiver for %s"
+
+#: lib/wp-content-aware-engine/module/date.php:28
+msgid "Date Archives"
+msgstr "Dato-arkiver"
+
+#: lib/wp-content-aware-engine/module/date.php:26
+msgid "Dates"
+msgstr "Datoer"
+
+#: lib/wp-content-aware-engine/module/static.php:52
+msgid "404 Page"
+msgstr "404-side"
+
+#: lib/wp-content-aware-engine/module/static.php:51
+msgid "Search Results"
+msgstr "Søgeresultater"
+
+#: lib/wp-content-aware-engine/module/static.php:50
+msgid "Front Page"
+msgstr "Forside"
+
+#: lib/wp-content-aware-engine/module/static.php:35
+msgid "Special Pages"
+msgstr "Specielle sider"
+
+#: lib/wp-content-aware-engine/module/pods.php:34
+msgid "All Pods Pages"
+msgstr "Alle Pods Pages"
+
+#: lib/wp-content-aware-engine/module/pods.php:33
+msgid "Pods Pages"
+msgstr "Pods Pages"
+
+#: lib/wp-content-aware-engine/module/author.php:29
+msgid "All Authors"
+msgstr "Alle forfattere"
+
+#: lib/wp-content-aware-engine/module/author.php:28
+msgid "Authors"
+msgstr "Forfattere"
+
+#: lib/wp-content-aware-engine/module/bbpress.php:36
+msgid "All Profiles"
+msgstr "Alle profiler"
+
+#: lib/wp-content-aware-engine/module/bbpress.php:35
+msgid "bbPress User Profiles"
+msgstr "bbPress-brugerprofiler"
+
+#: lib/wp-content-aware-engine/module/bp_member.php:41
+msgid "All Sections"
+msgstr "Alle sektioner"
+
+#: lib/wp-content-aware-engine/module/bp_member.php:39
+msgid "BuddyPress Profiles"
+msgstr "BuddyPress-profiler"
+
+#: lib/wp-content-aware-engine/core.php:1038
+msgid "Except"
+msgstr "Undtagen"
+
+#: lib/wp-content-aware-engine/core.php:1036
+msgid "Not"
+msgstr "Ikke"
+
+#: lib/wp-content-aware-engine/core.php:1030
+msgid "Meet ALL of these conditions"
+msgstr "Opfyld ALLE disse betingelser"
+
+#: lib/wp-content-aware-engine/core.php:1029
+msgid "New condition group"
+msgstr "Ny betingelsesgruppe"
+
+#: lib/wp-content-aware-engine/core.php:1028
+msgid "Conditions have unsaved changes. Do you want to continue and discard these changes?"
+msgstr "Betingelserne har ikke-gemte ændringer. Vil du fortsætte og kassere disse ændringer?"
+
+#: lib/wp-content-aware-engine/core.php:1027
+msgid "Loading more results"
+msgstr "Henter flere resultater"
+
+#: lib/wp-content-aware-engine/core.php:1026
+msgid "No results found."
+msgstr "Ingen resultater fundet."
+
+#: lib/wp-content-aware-engine/core.php:1025
+msgid "Searching"
+msgstr "Søger"
+
+#: lib/wp-content-aware-engine/core.php:960
+msgid "Plugins"
+msgstr "Plugins"
+
+#: lib/wp-content-aware-engine/module/taxonomy.php:53
+#: lib/wp-content-aware-engine/core.php:956
+msgid "Taxonomies"
+msgstr "Taksonomier"
+
+#: lib/wp-content-aware-engine/module/post_type.php:47
+#: lib/wp-content-aware-engine/core.php:952
+msgid "Post Types"
+msgstr "Indholdstyper"
+
+#: lib/wp-content-aware-engine/core.php:803
+msgid "Could not delete conditions"
+msgstr "Kunne ikke slette betingelser"
+
+#: lib/wp-content-aware-engine/core.php:796
+msgid "Conditions updated"
+msgstr "Betingelser opdateret"
+
+#: lib/wp-content-aware-engine/core.php:785
+#: lib/wp-content-aware-engine/core.php:792
+msgid "Unauthorized request"
+msgstr "Uautoriseret anmodning"
+
+#: lib/wp-content-aware-engine/core.php:707
+msgid "Conditional Logic"
+msgstr "Betingelseslogik"
+
+#: lib/wp-content-aware-engine/core.php:308
+msgctxt "condition status"
+msgid "Or"
+msgstr "Eller"
+
+#: lib/wp-content-aware-engine/core.php:301
+msgctxt "condition status"
+msgid "Exception"
+msgstr "Undtagelse"
+
+#: lib/wp-content-aware-engine/core.php:294
+msgctxt "condition status"
+msgid "Negated"
+msgstr "Omvendt"
+
+#: lib/wp-content-aware-engine/core.php:274
+msgid "Condition Group"
+msgstr "Betingelsesgruppe"
+
+#: lib/wp-content-aware-engine/core.php:273
+msgid "Condition Groups"
+msgstr "Betingelsesgrupper"
+
+#: lib/wp-content-aware-engine/view/condition_options.php:40
+msgid "Auto-select new children of selected items"
+msgstr "Vælg automatisk nye under-emner af valgte emner"
+
+#: lib/wp-content-aware-engine/view/condition_options.php:34
+msgid "Exception"
+msgstr "Undtagelse"
+
+#: lib/wp-content-aware-engine/view/condition_options.php:26
+msgid "Negate conditions"
+msgstr "Omvend betingelser"
+
+#: lib/wp-content-aware-engine/view/condition_options.php:17
+msgid "All"
+msgstr "Alle"
+
+#: lib/wp-content-aware-engine/view/condition_options.php:15
+msgid "Archive Pages"
+msgstr "Arkiv-sider"
+
+#: lib/wp-content-aware-engine/view/condition_options.php:13
+msgid "Single Pages"
+msgstr "Individuelle sider"
+
+#: lib/wp-content-aware-engine/view/condition_options.php:10
+msgid "Page Types"
+msgstr "Sidetyper"
+
+#: lib/wp-content-aware-engine/view/group_template.php:22
+msgid "Save Changes"
+msgstr "Gem rettelserne"
+
+#: lib/wp-content-aware-engine/view/condition_template.php:10
+msgid "And"
+msgstr "Og"
+
+#: lib/wp-content-aware-engine/view/meta_box.php:36
+#: lib/wp-content-aware-engine/core.php:1037
+msgid "Or"
+msgstr "Eller"
+
+#: lib/wp-content-aware-engine/view/meta_box.php:25
+#: lib/wp-content-aware-engine/module/post_type.php:378
+msgid "Shop"
+msgstr "Butik"
+
+#: lib/wp-content-aware-engine/view/meta_box.php:18
+msgid "Posts in Category"
+msgstr "Indlæg i kategori"
+
+#: lib/wp-content-aware-engine/view/meta_box.php:14
+msgid "Posts by Author"
+msgstr "Indlæg af forfatter"
+
+#: lib/wp-content-aware-engine/view/meta_box.php:10
+#: lib/wp-content-aware-engine/module/post_type.php:374
+msgid "Blog"
+msgstr "Blog"
+
+#: level.php:397
+msgid "Members-Only Access"
+msgstr "Medlemsadgang"
+
+#: level.php:394
+msgid "No Access Levels found in Trash"
+msgstr "Der blev ikke fundet nogen adgangsniveauer i papirkurven"
+
+#: level.php:393
+msgid "No Access Levels found"
+msgstr "Ingen adgangsniveauer fundet."
+
+#: level.php:392
+msgid "Search Access Levels"
+msgstr "Søg adgangsniveauer"
+
+#: level.php:391
+msgid "View Access Level"
+msgstr "Vis adgangsniveau"
+
+#: level.php:389
+msgid "New Access Level"
+msgstr "Nyt adgangsniveau"
+
+#: level.php:388
+msgid "Edit Access Level"
+msgstr "Rediger adgangsniveau"
+
+#: level.php:387
+msgid "Add New Access Level"
+msgstr "Tilføj nyt adgangsniveau"
+
+#: level.php:386
+msgctxt "level"
+msgid "Add New"
+msgstr "Tilføj nyt"
+
+#: level.php:385
+msgid "Access Level"
+msgstr "Adgangsniveau"
+
+#: level.php:362
+msgid "Not logged-in"
+msgstr "Ikke logget ind"
+
+#: level.php:361
+msgid "Logged-in"
+msgstr "Logget ind"
+
+#: level.php:293
+msgid "Set to 0 for unlimited."
+msgstr "Sæt til 0 for ubegrænset."
+
+#: level.php:291
+msgid "Year(s)"
+msgstr "År"
+
+#: level.php:290
+msgid "Month(s)"
+msgstr "Måneder"
+
+#: level.php:289
+msgid "Week(s)"
+msgstr "Uger"
+
+#: level.php:288
+msgid "Day(s)"
+msgstr "Dage"
+
+#: level.php:280
+msgid "Page to redirect to or display content from under teaser."
+msgstr "Side at omdirigere til eller vise indhold fra under teaser."
+
+#: level.php:276
+msgid "Page"
+msgstr "Side"
+
+#: level.php:272
+msgid "Redirect to another page or show teaser."
+msgstr "Omdiriger til en anden side eller vis teaser."
+
+#: level.php:270
+msgid "Tease & Include"
+msgstr "Vis teaser & inkluder"
+
+#: level.php:269
+msgid "Redirect"
+msgstr "Viderestil"
+
+#: level.php:265
+msgctxt "option"
+msgid "Non-Member Action"
+msgstr "Handling for ikke-medlemmer"
+
+#: level.php:258
+msgid "Synchronized Role"
+msgstr "Synkroniseret rolle"
+
+#: list-capabilities.php:276
+msgid "Select All"
+msgstr "Vælg alle"
+
+#: list-capabilities.php:50
+msgid "Unset"
+msgstr "Neutral"
+
+#: list-capabilities.php:49
+msgid "Deny"
+msgstr "Afvis"
+
+#: list-capabilities.php:48
+msgid "Permit"
+msgstr "Tillad"
+
+#: list-capabilities.php:35
+msgid "No capabilities found."
+msgstr "Ingen kapabiliteter fundet."
+
+#: list-capabilities.php:20 list-capabilities.php:47
+msgid "Capability"
+msgstr "Kapabilitet"
+
+#: freemius.php:54
+msgid "Please help us improve %2$s by securely sharing some usage data with %5$s. If you skip this, that's okay! %2$s will still work just fine."
+msgstr "Hjælp os venligst med at forbedre %2$s ved sikkert at dele nogle brugsdata med %5$s. Hvis du springer dette over, er det helt okay! %2$s vil fungere uanset."
+
+#: freemius.php:53
+msgid "Hey %1$s"
+msgstr "Hey %1$s"
+
+#. translators: %s: post title
+#: admin/level-list-table.php:712
+msgid "Delete &#8220;%s&#8221; permanently"
+msgstr "Slet &#8220;%s&#8221; permanent"
+
+#: admin/level-list-table.php:704
+msgctxt "verb"
+msgid "Trash"
+msgstr "Slet"
+
+#. translators: %s: post title
+#: admin/level-list-table.php:703
+msgid "Move &#8220;%s&#8221; to the Trash"
+msgstr "Flyt &#8220;%s&#8221; til papirkurven"
+
+#. translators: %s: level title
+#: admin/level-list-table.php:695
+msgid "Restore &#8220;%s&#8221; from the Trash"
+msgstr "Genskab &#8220;%s&#8221; fra papirkurven"
+
+#: admin/level-list-table.php:685
+msgid "Edit"
+msgstr "Rediger"
+
+#. translators: %s: level title
+#: admin/level-list-table.php:684
+msgid "Edit &#8220;%s&#8221;"
+msgstr "Rediger &#8220;%s&#8221;"
+
+#: admin/level-list-table.php:624
+msgid "%d year"
+msgid_plural "%d years"
+msgstr[0] "%d år"
+msgstr[1] "%d år"
+
+#: admin/level-list-table.php:623
+msgid "%d month"
+msgid_plural "%d months"
+msgstr[0] "%d måned"
+msgstr[1] "%d måneder"
+
+#: admin/level-list-table.php:622
+msgid "%d week"
+msgid_plural "%d weeks"
+msgstr[0] "%d uge"
+msgstr[1] "%d uger"
+
+#: admin/level-list-table.php:621
+msgid "%d day"
+msgid_plural "%d days"
+msgstr[0] "%d dag"
+msgstr[1] "%d dage"
+
+#: admin/level-list-table.php:607
+msgid "Deny:"
+msgstr "Afvis:"
+
+#: admin/level-list-table.php:607
+msgid "Permit:"
+msgstr "Tillad:"
+
+#: admin/level-list-table.php:474
+msgid "%s is currently editing"
+msgstr "%s redigerer i øjeblikket"
+
+#. translators: %s: post title
+#: admin/level-list-table.php:455
+msgid "&#8220;%s&#8221; (Edit)"
+msgstr "&#8220;%s&#8221; (rediger)"
+
+#: admin/level-list-table.php:412
+msgid "Select %s"
+msgstr "Vælg %s"
+
+#: level.php:284 admin/level-list-table.php:354
+msgid "Duration"
+msgstr "Varighed"
+
+#: admin/level-list-table.php:352
+msgid "Name"
+msgstr "Navn"
+
+#: admin/level-list-table.php:351
+msgctxt "column name"
+msgid "Title"
+msgstr "Titel"
+
+#: admin/level-list-table.php:321
+msgid "Empty Trash"
+msgstr "Tøm papirkurv"
+
+#: admin/level-list-table.php:302
+msgid "Move to Trash"
+msgstr "Flyt til papirkurv"
+
+#: admin/level-list-table.php:300 admin/level-list-table.php:713
+msgid "Delete Permanently"
+msgstr "Slet permanent"
+
+#: admin/level-list-table.php:294 admin/level-list-table.php:696
+msgid "Restore"
+msgstr "Gendan"
+
+#: admin/level-list-table.php:245
+msgid "Inactive <span class=\"count\">(%s)</span>"
+msgid_plural "Inactive <span class=\"count\">(%s)</span>"
+msgstr[0] "Inaktive <span class=\"count\">(%s)</span>"
+msgstr[1] "Inaktive <span class=\"count\">(%s)</span>"
+
+#: admin/level-list-table.php:244
+msgid "Active <span class=\"count\">(%s)</span>"
+msgid_plural "Active <span class=\"count\">(%s)</span>"
+msgstr[0] "Aktive <span class=\"count\">(%s)</span>"
+msgstr[1] "Aktive <span class=\"count\">(%s)</span>"
+
+#: admin/level-list-table.php:230
+msgctxt "levels"
+msgid "All <span class=\"count\">(%s)</span>"
+msgid_plural "All <span class=\"count\">(%s)</span>"
+msgstr[0] "Alle <span class=\"count\">(%s)</span>"
+msgstr[1] "Alle <span class=\"count\">(%s)</span>"
+
+#: admin/settings.php:184
+msgid "Setting can be changed in %s"
+msgstr "Indstillingen kan ændres i %s"
+
+#: level.php:360 admin/settings.php:150
+msgid "-- None --"
+msgstr "-- Ingen --"
+
+#: lib/wp-content-aware-engine/view/group_template.php:24
+#: admin/settings.php:132
+msgid "Settings"
+msgstr "Instillinger"
+
+#: admin/settings.php:131
+msgid "User Access Settings"
+msgstr "Indstillinger for brugeradgang"
+
+#: admin/settings.php:91
+msgid "No"
+msgstr "Nej"
+
+#: admin/settings.php:91
+msgid "Yes"
+msgstr "Ja"
+
+#: admin/settings.php:88
+msgid "Enable Registration"
+msgstr "Aktiver registering"
+
+#: admin/settings.php:80 admin/settings.php:92
+msgid "General Settings"
+msgstr "Generel opsætning"
+
+#: admin/settings.php:76
+msgid "New User Default Role"
+msgstr "Ny brugers standardrolle"
+
+#: admin/settings.php:65
+msgid "New User Default Level"
+msgstr "Standardniveau til nye brugere"
+
+#: lib/wp-content-aware-engine/core.php:948 admin/settings.php:57
+msgid "General"
+msgstr "Generelle indstillinger"
+
+#: admin/level-edit.php:747
+msgid "Access level draft updated."
+msgstr "Udkast til adgangsniveau opdateret."
+
+#. translators: Publish box date format, see http://php.net/date
+#: admin/level-edit.php:745
+msgid "M j, Y @ G:i"
+msgstr "j. M Y H:i"
+
+#: admin/level-edit.php:743
+msgid "Access level scheduled for: <strong>%1$s</strong>."
+msgstr "Adgangsniveau planlagt til: <strong>%1$s</strong> ."
+
+#: admin/level-edit.php:741
+msgid "Access level activated."
+msgstr "Adgangsniveau aktiveret."
+
+#: admin/level-edit.php:740
+msgid "Access level updated."
+msgstr "Adgangsniveau opdateret."
+
+#: admin/level-edit.php:636
+msgid "Enter title here"
+msgstr "Indtast titel her"
+
+#: admin/level-edit.php:543
+msgid "You are not allowed to delete this level."
+msgstr "Du har desværre ikke tilladelse til at slette dette niveau."
+
+#: admin/level-edit.php:530
+msgid "You are not allowed to restore this level from the Trash."
+msgstr "Du har ikke tilladelse til at gendanne dette niveau fra papirkurven."
+
+#: admin/level-edit.php:508
+msgid "You cannot move this level to the Trash. %s is currently editing."
+msgstr "Du kan ikke flytte dette niveau til papirkurven. %s redigerer i øjeblikket."
+
+#: admin/level-edit.php:503
+msgid "You are not allowed to move this level to the Trash."
+msgstr "Du har ikke tilladelse til at flytte dette niveau til papirkurven."
+
+#: admin/level-edit.php:411
+msgid "Access Conditions"
+msgstr "Adgangsbetingelser"
+
+#: admin/level-edit.php:398 admin/level-edit.php:717
+msgid "You are not allowed to create levels."
+msgstr "Du har ikke tilladelse til at oprette niveauer."
+
+#: admin/level-edit.php:375
+msgid "You cannot edit this level because it is in the Trash. Please restore it and try again."
+msgstr "Du kan ikke redigere dette niveau, fordi det er i papirkurven. Gendan det og prøv igen."
+
+#: admin/level-edit.php:372 admin/level-edit.php:715 admin/level-edit.php:720
+msgid "You are not allowed to edit this level."
+msgstr "Du har ikke rettigheder til at redigere dette niveau."
+
+#: admin/level-edit.php:369 admin/level-edit.php:465
+msgid "The level no longer exists."
+msgstr "Niveauet findes ikke længere."
+
+#: admin/level-edit.php:218
+msgid "days"
+msgstr "dage"
+
+#: admin/level-edit.php:217
+msgid "Unlock Time for new members"
+msgstr "Oplåsnings for nye medlemmer"
+
+#: admin/level-edit.php:200
+msgid "Like this plugin? %1$sPlease help make it better with a %2$s rating%3$s. Thank you."
+msgstr "Kan du lide dette plugin? %1$sHjælp venligst med at gøre det bedre, med en %2$s bedømmelse%3$s. Tak skal du have."
+
+#: list-capabilities.php:21 level.php:297 admin/level-list-table.php:355
+#: admin/level-edit.php:157 admin/level-edit.php:413
+msgid "Capabilities"
+msgstr "Egenskaber"
+
+#: admin/level-edit.php:145 admin/level-edit.php:414
+msgid "Options"
+msgstr "Indstillinger"
+
+#: admin/level-edit.php:139
+msgid "Recommendations"
+msgstr "Anbefalinger"
+
+#: admin/level-edit.php:132
+msgid "Publish"
+msgstr "Udgiv"
+
+#: lib/wp-content-aware-engine/module/post_type.php:433
+#: admin/level-edit.php:110
+msgid "(no title)"
+msgstr "(ingen titel)"
+
+#: admin/nav-menu.php:198
+msgid "Restrict menu item to users with these levels or higher."
+msgstr "Begræns menupunkt til brugere med disse niveauer eller højere."
+
+#: admin/admin.php:100
+msgid "You do not have access to this screen."
+msgstr "Du har ikke adgang til denne skærm."
+
+#: admin/level-overview.php:299
+msgid "Undo"
+msgstr "Fortryd"
+
+#: admin/level-overview.php:278
+msgid "%s access level restored from the Trash."
+msgid_plural "%s levels restored from the Trash."
+msgstr[0] "%s adgangsniveau gendannet fra papirkurven."
+msgstr[1] "%s adgangsniveauer gendannet fra papirkurven."
+
+#: admin/level-overview.php:277
+msgid "%s access level moved to the Trash."
+msgid_plural "%s levels moved to the Trash."
+msgstr[0] "%s adgangsniveau flyttet til papirkurven."
+msgstr[1] "%s adgangsniveauer flyttet til papirkurven."
+
+#: admin/level-overview.php:276
+msgid "%s access level permanently deleted."
+msgid_plural "%s levels permanently deleted."
+msgstr[0] "%s adgangsniveau permanent slettet."
+msgstr[1] "%s adgangsniveauer permanent slettet."
+
+#: admin/level-overview.php:275
+msgid "%s access level not updated, somebody is editing it."
+msgid_plural "%s levels not updated, somebody is editing them."
+msgstr[0] "%s adgangsniveau blev ikke opdateret, da de bliver redigeret af en anden."
+msgstr[1] "%s adgangsniveauer blev ikke opdateret, da det bliver redigeret af en anden."
+
+#: admin/level-overview.php:274
+msgid "%s access level updated."
+msgid_plural "%s levels updated."
+msgstr[0] "%s adgangsniveau opdateret."
+msgstr[1] "%s adgangsniveauer opdateret."
+
+#: admin/level-overview.php:230 admin/level-edit.php:547
+msgid "Error in deleting."
+msgstr "Sletning mislykkedes."
+
+#: admin/level-overview.php:226
+msgid "You are not allowed to delete this item."
+msgstr "Du har ikke tilladelse til at slette dette element."
+
+#: admin/level-overview.php:213 admin/level-edit.php:534
+msgid "Error in restoring from Trash."
+msgstr "Gendannelse fra papirkurv mislykkedes."
+
+#: admin/level-overview.php:209
+msgid "You are not allowed to restore this item from the Trash."
+msgstr "Du har ikke tilladelse til at gendanne dette element fra papirkurven."
+
+#: admin/level-overview.php:197 admin/level-edit.php:512
+msgid "Error in moving to Trash."
+msgstr "Fejl ved flytning til papirkurven."
+
+#: admin/level-overview.php:188
+msgid "You are not allowed to move this item to the Trash."
+msgstr "Du har ikke tilladelse til at flytte dette element til papirkurven."
+
+#. translators: %s: search keywords
+#: admin/level-overview.php:123
+msgid "Search results for &#8220;%s&#8221;"
+msgstr "Søgeresultater for &#8220;%s&#8221;"
+
+#: admin/level-overview.php:120
+msgid "Add-Ons"
+msgstr "Add-Ons"
+
+#: admin/level-overview.php:53 admin/level-overview.php:54
+msgid "User Access"
+msgstr "Brugeradgang"
+
+#: app.php:559
+msgid "Search for Levels"
+msgstr "Søg efter niveauer"
+
+#: app.php:306
+msgid "Access Levels synchronized with User Roles will not be listed here."
+msgstr "Adgangsniveauer, der er synkroniseret med brugerroller, vises ikke her."
+
+#: app.php:295
+msgid "Access"
+msgstr "Adgang"
+
+#: app.php:254
+msgid "Log In"
+msgstr "Log ind"
+
+#: app.php:253
+msgid "Remember Me"
+msgstr "Husk mig"
+
+#: app.php:252
+msgid "Password"
+msgstr "Password"
+
+#: app.php:202 app.php:299 app.php:364 level.php:384 level.php:390
+#: admin/nav-menu.php:191
+msgid "Access Levels"
+msgstr "Adgangsniveauer"
+
+#: list-members.php:197
+msgid "%s from now"
+msgstr "%s fra nu"
+
+#: list-members.php:194 admin/level-list-table.php:576
+msgid "Lifetime"
+msgstr "Ubegrænset"
+
+#: list-members.php:175
+msgid "%s ago"
+msgstr "%s siden"
+
+#: list-members.php:151
+msgid "Expired"
+msgstr "Udløbet"
+
+#: list-members.php:148
+msgid "Active"
+msgstr "Aktiv"
+
+#: list-members.php:130 list-members.php:211
+msgid "Remove"
+msgstr "Fjern"
+
+#: list-members.php:60
+msgid "Expiration"
+msgstr "Udløb"
+
+#: list-members.php:59
+msgid "Member Since"
+msgstr "Medlem siden"
+
+#: list-members.php:58
+msgid "Status"
+msgstr "Status"
+
+#: list-members.php:57
+msgid "E-mail"
+msgstr "E-mail"
+
+#: app.php:251 list-members.php:56
+msgid "Username"
+msgstr "Brugernavn"
+
+#: list-members.php:43
+msgid "No members found."
+msgstr "Ingen medlemmer fundet."
+
+#: list-members.php:26 admin/level-list-table.php:353 admin/level-edit.php:151
+#: admin/level-edit.php:412
+msgid "Members"
+msgstr "Medlemmer"
+
+#: list-members.php:25
+msgid "Member"
+msgstr "Medlem"
+
+#: view/meta_box_support.php:28
+msgid "Stellar Add-Ons"
+msgstr "Stellar Add-Ons"
+
+#: view/meta_box_support.php:24
+msgid "Support Forums"
+msgstr "Supportfora"
+
+#: view/meta_box_support.php:22
+msgid "Feedback & Feature Requests"
+msgstr "Feedback & feature-anmodninger"
+
+#: app.php:515 view/meta_box_support.php:20
+msgid "Documentation & FAQ"
+msgstr "Dokumentation & FAQ"
+
+#: view/meta_box_support.php:17
+msgid "Getting Started"
+msgstr "Kom godt i gang"
+
+#: view/meta_box_publish.php:17
+msgid "Save"
+msgstr "Gem"
+
+#: view/meta_box_publish.php:15
+msgid "Create"
+msgstr "Opret"
+
+#: view/meta_box_options.php:81
+msgid "Level Name"
+msgstr "Niveau-navn"
+
+#: view/meta_box_options.php:74 level.php:306
+msgid "Hide Admin Toolbar"
+msgstr "Skjul administratorværktøjslinje"
+
+#: view/meta_box_options.php:45 admin/level-list-table.php:356
+msgid "Non-Member Action"
+msgstr "Handling for ikke-medlemmer"
+
+#: view/meta_box_options.php:39 level.php:395
+msgid "Extend Level"
+msgstr "Udvid niveau"
+
+#: view/meta_box_options.php:33 level.php:314
+msgid "Default Access"
+msgstr "Standard adgang"
+
+#: view/meta_box_options.php:16
+msgid "Do not extend"
+msgstr "Udvid ikke"
+
+#. Author URI of the plugin
+msgid "https://dev.institute"
+msgstr "https://dev.institute"
+
+#. Author of the plugin
+msgid "Joachim Jensen - DEV Institute"
+msgstr "Joachim Jensen - DEV Institute"
+
+#. Description of the plugin
+msgid "Easily restrict content and contexts to provide exclusive access for specific Access Levels."
+msgstr "Begræns let indhold og kontekster for at give eksklusiv adgang for specifikke brugerniveauer."
+
+#. Plugin URI of the plugin
+msgid "https://dev.institute/wordpress-memberships/"
+msgstr "https://dev.institute/wordpress-memberships/"
+
+#. Plugin Name of the plugin
+msgid "Restrict User Access"
+msgstr "Restrict User Access"

@@ -1,0 +1,1529 @@
+/*
+Theme Name: Deep
+Theme URI: http: //deeptem.com/
+Author: WEBNUS
+Author URI: http://themeforest.net/user/WEBNUS
+Description: Deep is a clean responsive WordPress theme specialized for church, resort and spa which is built on the popular template trending right now on the market. This theme contains 2 templates named Discovery and Forward which are fully practical; you'll be able to add sermons, causes & events to your church website in couple of minutes. Deep comes with advanced theme options, live customizer, visual page builder to edit colors, fonts and other aspects of your website to approach to your desired professional state.
+Deep is fully integrated with Visual Composer; this awesome page builder lets you to create complex layouts of your pages and posts with simple drag-n-drop interface. Code is easy to understand and modify, so you can personalize it in easiest way.
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-menu, featured-images, flexible-header, full-width-template, post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
+Text Domain: deep
+*/
+
+/* Theme customization starts here
+-------------------------------------------------------------- */
+
+body {
+	unicode-bidi: embed;
+}
+
+body,
+.widget {
+	direction: rtl;
+}
+
+p {
+	font-size: 14px;
+	line-height: 1.7;
+}
+
+.button.large {
+	font-size: 16px;
+	font-weight: 400;
+}
+
+.rtl #wrap * {
+	letter-spacing: 0 !important;
+}
+
+@media only screen and (min-width: 1281px) {
+
+	.col-xs-1,
+	.col-xs-2,
+	.col-xs-3,
+	.col-xs-4,
+	.col-xs-5,
+	.col-xs-6,
+	.col-xs-7,
+	.col-xs-8,
+	.col-xs-9,
+	.col-xs-10,
+	.col-xs-11,
+	.col-xs-12 {
+		float: right;
+	}
+}
+
+@media (min-width: 768px) {
+
+	.col-sm-1,
+	.col-sm-2,
+	.col-sm-3,
+	.col-sm-4,
+	.col-sm-5,
+	.col-sm-6,
+	.col-sm-7,
+	.col-sm-8,
+	.col-sm-9,
+	.col-sm-10,
+	.col-sm-11,
+	.col-sm-12 {
+		float: right;
+	}
+}
+
+@media (min-width: 961px) {
+
+	.col-md-1,
+	.col-md-2,
+	.col-md-3,
+	.col-md-4,
+	.col-md-5,
+	.col-md-6,
+	.col-md-7,
+	.col-md-8,
+	.col-md-9,
+	.col-md-10,
+	.col-md-11,
+	.col-md-12 {
+		float: right;
+	}
+}
+
+/* Direction
+================================*/
+
+.owl-carousel .owl-wrapper-outer,
+.owl-carousel.owl-theme {
+	direction: ltr;
+}
+
+/* Float Left
+================================*/
+
+input[type="text"].header-saerch,
+.tline-box .post-sharing,
+.blog-post .col-md-6 .postmetadata.tp2sec,
+.blgtyp2.blog-post.format-quote a.readmore,
+.blgtyp3.blog-post.format-quote a.readmore,
+.blog-date-sp,
+.blog-com-sp,
+.blog-date-sp span,
+.blog-post.blgtyp2 .comments-number-x2,
+.next-prev-posts a.next-post,
+.blog-line img,
+.img-hover,
+.blog-post .blog-social-1,
+.post-sharing.post-sharing-5,
+a.addtocart,
+a.select-options,
+.commentlist li .comment-info cite .comment-data,
+.wn-search-gallery,
+.magazin-wrap .magazin-cat-nav-wrap ul.magazin-cat-nav,
+.video-play-btn-wrap.right,
+.alignright .our-team3 figure,
+.alignright .our-team3 .tdetail,
+.alignright .our-team3 .tdetail a,
+.alignright .our-team8 figure,
+.alignright .our-team8 .tdetail,
+.alignright .our-team8 .tdetail a,
+.our-team12 .img-box,
+.our-team12 .img-box img,
+.our-team12 .img-box img,
+.b-author,
+.b-author img,
+.testimonial-brand img,
+.testimonial-brand h5,
+.pricing-plan2 .ppfooter,
+.callout a.callurl,
+.container .dpromo img,
+.w-pricing-table.pt-type6 .pt-footer,
+.wn-portfolio-nav.type-nav3 .wn-portfolio-nav-arrow-right,
+.latest-projects-navigation,
+.subscribe-modern .subscribe-box-input .subscribe-box-submit,
+.blox.dark .subscribe-modern .subscribe-box-input .subscribe-box-submit,
+.teaser-box6 .teaser-subtitle:after,
+.teaser-box13 .liked,
+.teaser-box15 .c-price,
+.teaser-box15 .c-link,
+.countdown-wrapper a.button.black,
+.slideup-note h4:after,
+.ts-di .testimonial .testimonial-content,
+.ts-di .testimonial .testimonial-brand,
+.ts-di .testimonial .testimonial-content,
+.ts-di .testimonial .testimonial-brand,
+.ts-tri.testimonial-slider-owl-carousel .testimonial-content,
+.testimonial-slider-owl-carousel.ts-penta .testimonial-brand img,
+#wrap .testimonial-slider-owl-carousel.ts-penta .testimonial-brand img,
+.testimonial-slider-owl-carousel.ts-hepta .testimonial,
+.testimonial-slider-owl-carousel.ts-hepta .testimonial .testimonial-brand,
+.testimonial-slider-owl-carousel.ts-hepta .testimonial .testimonial-brand,
+.testimonial-slider-owl-carousel.ts-octa .testimonial .testimonial-brand em,
+.latestposts-eleven .latest-b11 .latest-b11-img,
+.latestposts-twelve .latest-b12 .latest-b12-cont .latest-b12-date,
+.latest-b13-date,
+.wn-latest-b16 .latest-b16 .latest-b16-content .latest-b16-footer .latest-date,
+.promobox button,
+.promobox .button,
+.close,
+.nav>.pull-right,
+.tabs-right>.nav-tabs,
+.pull-right,
+.w-login #user-login input.login-button,
+#wrap .esg-filters .esg-navigationbutton,
+.fm-w2-item .fm-w2-price,
+#wrap .food-menu-w3 h5,
+#wrap .food-menu-w4 h5,
+.reservation-form-w2 input[type="submit"],
+.recipe-one:nth-child(2n+4),
+.wn-view-shortcode-icon,
+.magazin-wrap .magazin-cat-nav-wrap ul.magazin-cat-nav,
+.postslider-3 .latest-img,
+.wn-ftc .wn-ftc-header .wn-ftc-close-icons,
+.infobox .button-box,
+.alignright .icon-box5 i,
+.alignright .icon-box5 img,
+.icon-box9 a.magicmore,
+.alignright .icon-box16 i,
+.alignright .icon-box16 img,
+.icon-box25 a.magicmore,
+#search-form,
+.footer-navi.floatright,
+.socialfollow,
+.top-bar .socialfollow,
+#side-content,
+#side-nav a:after,
+#lang_sel_click,
+.date-sp-wrap,
+.widget ul li.cat-item span,
+.woo-cart-header,
+.woo-cart-dropdown span.total,
+.widget #user-login input.login-button,
+#wrap .magazine-sidebar .widget .social-count-plus li,
+.magazine-sidebar .widget .social-count-plus li .follow-us a,
+.sidebar .webnus-login .login-links li:last-child,
+#wrap #buddypress .activity-content .activity-meta a.button.fav,
+#wrap #buddypress .activity-content .activity-meta a.button.unfav,
+#wrap #buddypress .activity-content .activity-meta a.button.delete-activity,
+#wrap #buddypress .activity-comments .acomment-delete,
+#wrap #buddypress #activity-stream .ac-reply-content input[type=submit],
+#wrap #buddypress #activity-stream .ac-reply-content a.ac-reply-cancel,
+.activity #buddypress .item-list-tabs.activity-type-tabs,
+.groups #buddypress .item-list-tabs:not(#subnav),
+.members #buddypress .item-list-tabs:not(#subnav),
+.activity #buddypress .item-list-tabs#subnav,
+.activity #wrap #buddypress .item-list-tabs#subnav #activity-filter-select,
+#buddypress div#item-header #item-header-cover-image #item-header-content {
+	float: left;
+}
+
+/* Float Right
+================================*/
+
+.pin-box,
+.pin-ecxt2 .col1-3,
+.tline-box .tline-author-box .tline-author,
+.tline-author-box img,
+.tline-author-box .tline-date,
+.tline-box.rgtline .tline-author-box img,
+.tline-box.rgtline .port-tline-dt h3,
+.showpost4-contnet .au-avatar-box .au-avatar,
+.blog-post .au-avatar,
+.blog-post.blgtyp2 .au-avatar,
+.blog-single-post .au-avatar img,
+p.blog-inpic img,
+.date-sp-wrap,
+.blog-date-sp h3,
+.pin-box .blog-com-sp,
+.archive.author .about-author-sec img,
+.blog-single-post .post .about-author-sec img,
+.post-sharing.post-sharing-5 h6,
+a.select-options,
+.commentlist li .comment-info img,
+p.comment-form-author,
+p.comment-form-email,
+p.comment-form-url,
+.blog-post .col-md-1,
+.blog-post .col-md-2,
+.blog-post .col-md-5,
+.blog-post .col-md-6,
+.blog-post .col-md-10,
+.post-author-ps3 img,
+.blgtyp4 .alpha,
+.showpost4-contnet .au-avatar-box .blog-author,
+.showpost4-contnet .blog-comments,
+.showpost4-contnet .blog-views,
+.blgtyp1 .blgtyp1-contnet .post-meta-data .blog-cat,
+.blgtyp5 .blgtyp5-contnet .post-meta-data .blog-cat,
+.postmetadata.postshow4 .blog-cat,
+.postmetadata.postshow4 .blog-date,
+.magazin-wrap .magazin-cat-nav-wrap .magazin-title,
+.video-play-btn-wrap.left,
+.our-service-carousel-wrap .owl-item .services-carousel .tdetail i,
+.our-team3 figure,
+.our-team3 .tdetail,
+.b-author p,
+.testimonial2 img,
+.owl-carousel .owl-item,
+.our-clients .our-client-item,
+.testimonial-carousel.testi-carou-2 .testimonial-owl-carousel .t-m-footer img,
+.pricing-plan3 ul li,
+.latest-b2-img,
+.w-pricing-table.pt-type6 .pt-header,
+.w-pricing-table.pt-type6 ul,
+.w-pricing-table.pt-type6 ul li,
+.wn-portfolio-nav.type-nav3 .wn-portfolio-nav-arrow-left,
+.portfolio-carousel-subtitle h4,
+.subscribe-modern .subscribe-box-input .subscribe-box-email,
+.blox.dark .subscribe-modern .subscribe-box-input .subscribe-box-email,
+#wrap .subscribe-modern .subscribe-box-input .subscribe-box-email,
+.subscribe-wish .subscribe-box-input .subscribe-box-email,
+.subscribe-rounded .subscribe-box-input .subscribe-box-email,
+.latestnews1 .ln-item,
+.latestnews2 .ln-date,
+.flip-clock-wrapper ul,
+.flip-clock-divider,
+.ts-di .testimonial .testimonial-brand,
+.ts-di .testimonial .testimonial-content,
+#wrap .testimonial-slider-owl-carousel.ts-mono .testimonial-brand img,
+.ts-di .testimonial .testimonial-brand,
+.ts-di .testimonial .testimonial-content,
+.testimonial-slider-owl-carousel.ts-penta .social-testimonial ul li,
+.ts-hexa .testimonial .testimonial-brand img,
+#wrap .ts-hexa .testimonial .testimonial-brand h5,
+#wrap .testimonial-slider-owl-carousel.ts-hexa .owl-prev,
+#wrap .testimonial-slider-owl-carousel.ts-hexa .owl-next,
+.testimonial-slider-owl-carousel.ts-deca .testimonial .testimonial-content,
+.post-format-icon,
+.latest-b2-img,
+.latestposts-two .entry-meta,
+.entry-content,
+.latestposts-two .blog-date-sec,
+.latestposts-four .latest-b2 .au-avatar,
+.latestposts-seven .wrap-date-icons,
+.latestposts-nine .latest-b9 h3 .link,
+.latestposts-ten .latest-b10 .latest-b10-img,
+.latestposts-eleven .latest-b11 .latest-b11-img,
+.latestposts-eleven .latest-b11 .latest-b11-content,
+.latestposts-eleven .latest-b11 h3,
+.col-md-6.wn-latest-b14,
+.wn-latest-b16 .latest-b16 .latest-b16-content .latest-b16-footer .latest-author,
+.latest-b21.col-md-3,
+.latestposts-twenty-four .latest-b24 .latest-b24-img,
+.latestposts-twenty-four .latest-b24.col-md-3,
+.latestposts-twenty-five .time,
+.latest-cat-box .lc-items img,
+.latest-cat-box .img-hover,
+.dropdown-menu,
+.nav-tabs>li,
+.nav-pills>li,
+.tabs-left>.nav-tabs,
+.pull-left,
+.pagination2 a,
+.alert img,
+.alert img,
+.fm-w2-item .fm-w2-name,
+.food-menu-w3 img,
+.food-menu-w3 h3,
+.food-menu-w4 h3,
+.book-form-deep .r-deep-form input[type="text"],
+.reservation-form-w2 i,
+.reservation-form-w2 .rfw-col span.form-control-wrap,
+.wn-like-shortcode,
+.wn-view-shortcode,
+.wn-like-shortcode .wn-like-count,
+.wn-view-shortcode-count,
+.wn-share-shortcode,
+.wn-share-shortcode .wn-share-shortcode-icon,
+.number li span.num,
+.wn-recipe-single .au-avatar-box .au-avatar,
+.top-related .recipe-item h5 a,
+.top-related .recipe-item h5 a:after,
+.magazin-wrap .magazin-cat-nav-wrap .magazin-title,
+.right-section .magazine-b2.magazine-b2-cont .magazine-b2-img,
+.below-section .magazine-b3.magazine-b3-cont .magazine-b3-img,
+.wn-block-quote.wn-block-quote-1 .image-wrap,
+.wn-block-quote-1 .authorbox img,
+.wn-ftc .wn-ftc-header .ti-comments,
+.wn-ftc .wn-ftc-header .wn-ftc-title-wrap,
+#wrap #nav .wn-category-wrap .wn-category-tab-nav,
+#wrap .wn-category-wrap .wn-category-tab-nav,
+#wrap #nav .wn-category-tab,
+#wrap .wn-category-tab,
+.infobox .showbox,
+.col-md-5th,
+.icon-box img,
+.icon-box i,
+.icon-box5 i,
+.icon-box5 img,
+.icon-box8 i,
+.icon-box9 i,
+.icon-box9 img,
+#wrap .icon-box9 a.magicmore,
+.icon-box16 img,
+.icon-box20 img,
+.icon-box20 i,
+.icon-box20 i,
+.icon-box20 img,
+.icon-box21 .iconbox-leftsection,
+.footer-sbc input[type="text"],
+.footer-sbc input[type="submit"],
+.social-icons a,
+.footer-in a img,
+.footer-in .contact-inf input[name="wcEmail"],
+.footer-in .contact-inf input[name="wcSubject"],
+.footer-navi,
+.socialfollow a,
+.instagram-feed li,
+#pre-footer .footer-social-items li,
+#pre-footer .footer-social-items i,
+#pre-footer .footer-social-items div,
+#side-nav,
+.image-gallery ul li,
+.moonicons-box1 span,
+.one_third,
+.two_third,
+.three_fourth,
+.one_fourth,
+.one_fifth,
+.two_fifth,
+.jcarousel-item,
+.last-project .portfolio-item,
+.tline-box.rgtline,
+.widget .flickr-feed a,
+.widget .instagram-feed a,
+.widget .instagram-feed li,
+.side-list img,
+.sidebar .recipe-list ul li img,
+.side-cart i,
+.side-cart .button,
+.widget-tabs .tab_content .tab-list .image,
+.widget_calendar,
+#footer .lts-tweets .tw-item .tw-icon,
+.woo-cart-dropdown .cart-list a>img,
+.dropcap1,
+.dropcap2,
+.dropcap3,
+#buddypress div.item-list-tabs#subnav ul li.last label,
+#item-header-cover-image .wn-bp-account-friends .wn-followers,
+#item-header-cover-image .wn-bp-account-friends .wn-following,
+#buddypress #item-header-cover-image .wn-bp-account-friends .wn-followers,
+#buddypress #item-header-cover-image .wn-bp-account-friends .wn-following,
+#buddypress .article-container,
+#buddypress .article-image,
+#buddypress .article-container .article-footer,
+#buddypress .article-likes,
+#wrap #invite-anyone-by-email #invite-anyone-steps li,
+#wrap #invite-anyone-group-list li input,
+#wrap .vertical .wn-tabs,
+#wrap #members-list li,
+#wrap #friend-list li,
+#wrap #members-list .action .friendship-button,
+#buddypress .dir-list.members.follow #members-list li .item-avata,
+#buddypress #members-list.wn-isotope li .item-avatar,
+#wrap #members-list li .wn-dropdown-btn,
+#buddypress div.message-search input[type="text"],
+#buddypress div.message-search input[type=submit],
+#buddypress .messages-options-nav select,
+#buddypress .messages-options-nav input[type=submit],
+#buddypress .notifications-options-nav select,
+#buddypress .notifications-options-nav input[type=submit],
+#buddypress #item-header-cover-image #item-buttons .wn-profile-btns .wn-dropdown-btn,
+#wrap #buddypress #item-header-cover-image .wn-profile-btns #post-mention,
+#wrap #buddypress #item-header-cover-image .wn-profile-btns #send-private-message,
+#buddypress #item-header-cover-image #item-buttons .wn-profile-btns .generic-button,
+#wrap #buddypress .activity-content .activity-meta .wpulike,
+#wrap #buddypress #activity-stream .activity-comments .acomment-options .wpulike,
+#buddypress .item-list-tabs.bps_header+.standard-form.bps_form .editfield,
+.activity #buddypress .item-list-tabs#subnav .feed,
+#wrap .buddypress.widget #members-list .vcard .item-avatar,
+#wrap .widget.buddypress #groups-list li .item-avatar,
+#wrap #buddypress .wn-bp-member-social li,
+.whb-nav-wrap #nav,
+.whb-nav-wrap #nav>li {
+	float: right;
+}
+
+/* Text Align Right
+==============================================*/
+
+caption,
+th,
+td,
+.tline-box.rgtline h6.tline-date,
+.tline-box.rgtline h6.tline-author,
+.blog-single-post h6.blog-author,
+.blog1-header-wrap,
+.blgtyp3.blog-post p,
+.blg3both .blgtyp3.blog-post .postmetadata h6,
+.blgtyp3.blog-post .postmetadata h6,
+#wrap .blgtyp2.blog-post h6,
+.blog-line p,
+.blog-line p a,
+.blog-post p.blog-author,
+.blog-post p.blog-author a,
+.about-author-sec a:hover,
+.about-author-sec p,
+a.readmore,
+#wrap #commentform input[type="submit"],
+.widget form input[type="submit"]#searchsubmit,
+.commentbox,
+.w-prev-article,
+.blgtyp4 .postmetadata,
+.blgtyp4 .postmetadata h6,
+#wrap .pagination-blgtype4 .wp-pagenavi,
+.blgtyp5 .postmetadata,
+.blgtyp5 .postmetadata h6,
+#wrap .pagination-blgtype4 .wp-pagenavi,
+li.bbp-forum-info,
+li.bbp-topic-title,
+#bbpress-forums div.bbp-reply-author,
+#bbpress-forums div.bbp-topic-author,
+#bbpress-forums .bbp-body .bbp-topic-content,
+#bbpress-forums li.bbp-footer .bbp-reply-content,
+#bbpress-forums li.bbp-footer .bbp-topic-content,
+#bbpress-forums li.bbp-header .bbp-reply-content,
+#bbpress-forums li.bbp-header .bbp-topic-content,
+.bbp-single-topic-meta .back-to,
+.bbp-single-topic-meta .posted-in,
+.video-play-btn-wrap.left,
+.max-counter.d-counter,
+.max-counter.d-counter h5,
+#talk-business p.talk-business-title,
+.our-service-carousel-wrap .owl-item,
+.our-team3 .social-team,
+.our-team12 .social-ourteam,
+.our-team13 .our-team-socail .social-team,
+.our-team14,
+#wrap .testimonial3 .testimonial-content p,
+.testimonial3 .testimonial-content .t-m-footer,
+.testimonial-carousel.testi-carou-2 .testimonial-owl-carousel .tc-content,
+.testimonial-carousel.testi-carou-2 .testimonial-owl-carousel .t-m-footer,
+.testimonial-carousel.testi-carou-3 .tc-item,
+.pricing-plan3,
+.our-process-item-type2,
+.contact-form .col-md-6:last-child,
+.contact-form .field-group,
+.contact-form h5,
+.w-pricing-table.pt-type4 *,
+.w-pricing-table.pt-type4.featured *,
+.w-pricing-table.pt-type6,
+.w-pricing-table.pt-type6 ul li,
+.wn-portfolio-nav.type-nav2 .wn-portfolio-nav-content.portfolio-next-post,
+.wn-newsletter .subscribe-wish .subscribe-box-input .subscribe-box-email,
+.triple-blue .countdown-w,
+#wrap .ls-slider1-h,
+.ts-di .testimonial .testimonial-content,
+.ts-di .testimonial .testimonial-brand h5,
+#wrap .testimonial-slider-owl-carousel.ts-mono .testimonial-content h4,
+.ts-di .testimonial .testimonial-content,
+.ts-di .testimonial .testimonial-brand h5,
+.ts-tri.testimonial-slider-owl-carousel .testimonial-content h4,
+.ts-tri.testimonial-slider-owl-carousel .testimonial-content h4 q,
+.testimonial-slider-owl-carousel.ts-penta .testimonial-content,
+.testimonial-slider-owl-carousel.ts-penta .testimonial-brand,
+#wrap .testimonial-slider-owl-carousel.ts-penta .testimonial-brand h5,
+.ts-hexa .testimonial .testimonial-content h4,
+.ts-hexa .testimonial-brand,
+#wrap .ts-hexa .testimonial .testimonial-brand h5,
+.testimonial-slider-owl-carousel.ts-hepta .testimonial .testimonial-content,
+.testimonial-slider-owl-carousel.ts-hepta .testimonial .testimonial-brand h5,
+.testimonial-slider-owl-carousel.ts-octa .testimonial .testimonial-content,
+.testimonial-slider-owl-carousel.ts-deca .testimonial .testimonial-content,
+.testimonial-slider-undeca .tc-content-t11 p,
+.testimonial-slider-undeca .tc-content-t11 .tc-social-t11,
+.latestposts-ten .latest-b10 .latest-b10-content,
+.latestposts-ten .latest-b10 .latest-b10-content a.readmore,
+.latestposts-twelve .latest-b12 .latest-b12-cont *,
+.latest-b13-metad2,
+.wn-latest-b22 .latest-b22 .latest-b22-content,
+.wn-latest-b23 .latest-b23-content h2,
+.wn-latest-b23 .latest-b23-content p,
+.progress .bar,
+.title-plus-text.type-1.alignleft,
+#wrap .mec-event-list-minimal .mec-event-article.mec-clear .btn-wrapper,
+#wrap .mec-event-list-minimal .mec-event-article.mec-clear .btn-wrapper .mec-detail-button,
+.food-menu-w3 .w3-menu-top,
+.food-menu-w4 .w4-menu-top,
+.book-form-deep .nice-select,
+.book-form-deep .nice-select .option,
+.wn-share-shortcode .wn-share-shortcode-dropdown a,
+.wn-block-quote.wn-block-quote-2 .wn-block-quote-content,
+.wn-block-quote.wn-block-quote-2 .wn-block-quote-content,
+.ihwt-hotspot-wrapper .ihwt-tooltip-text-align-left .HotspotPlugin_Hotspot>div,
+#wrap .vcw.vcw-converter .vcw-input .vcw-input-child select,
+#wrap .vcw.vcw-converter .vcw-input .vcw-input-child input,
+.vcw.vcw-full-card .vcw-name,
+.vcw.vcw-full-card .vcw-prices .vcw-price .vcw-value,
+.vcw.vcw-full-card .vcw-prices .vcw-price .vcw-currency,
+.vcw.vcw-full-card .vcw-name,
+.vcw.vcw-full-card .vcw-changes .vcw-change .vcw-title,
+.vcw.vcw-full-card .vcw-changes .vcw-change .vcw-value,
+.icon-box1,
+.icon-box5 p,
+.icon-box5 h4,
+.icon-box8,
+.icon-box9,
+#wrap .icon-box10 i,
+.icon-box13,
+.icon-box18.left img,
+.icon-box18.left i,
+.icon-box21 .iconbox-rightsection,
+body.error404 form input.search-side,
+#footer,
+.footer-in h5.subtitle,
+.toggle-top-area h5.subtitle,
+.footer-navi,
+.wp-caption p.wp-caption-text,
+#lang_sel_click,
+.side-list li,
+#footer.litex .side-list li,
+#footer.litex .side-list li:hover,
+.widget .side-list li,
+.woo-cart-header:hover .woo-cart-dropdown,
+#wrap .magazine-sidebar .widget .social-count-plus li,
+#wrap .magazine-sidebar .widget .social-count-plus li .items,
+.personal-sidebar .widget .webnus-about,
+#wrap #header #hamburger-menu-wrap,
+#hamburger-menu-wrap.wn-hamuburger-bg.hamburger-menu-content,
+#wrap .widget .subtitle-wrap,
+.wn-daily-post .latest-b21-cont,
+.tagcloud,
+.whb-nav-wrap #nav ul li.menu-item a,
+#wrap #nav .wn-category-wrap .wn-category-tab-nav li,
+#wrap .wn-category-wrap .wn-category-tab-nav li {
+	text-align: right;
+}
+
+.wn-newsletter .subscribe-wish .subscribe-box-input .subscribe-box-email::-webkit-input-placeholder {
+	text-align: right;
+}
+
+.wn-newsletter .subscribe-wish .subscribe-box-input .subscribe-box-email::-moz-placeholder {
+	text-align: right;
+}
+
+.wn-newsletter .subscribe-wish .subscribe-box-input .subscribe-box-email:-ms-input-placeholder {
+	text-align: right;
+}
+
+.wn-newsletter .subscribe-wish .subscribe-box-input .subscribe-box-email:-moz-placeholder {
+	text-align: right;
+}
+
+.wn-newsletter .subscribe-wish .subscribe-box-input .subscribe-box-email::-webkit-input-placeholder {
+	text-align: right;
+}
+
+.wn-newsletter .subscribe-wish .subscribe-box-input .subscribe-box-email::-moz-placeholder {
+	text-align: right;
+}
+
+.wn-newsletter .subscribe-wish .subscribe-box-input .subscribe-box-email:-ms-input-placeholder {
+	text-align: right;
+}
+
+.wn-newsletter .subscribe-wish .subscribe-box-input .subscribe-box-email:-moz-placeholder {
+	text-align: right;
+}
+
+/* Text Align left
+================================================= */
+
+.w-next-article,
+.bbp-login-form .bbp-submit-wrapper,
+.video-play-btn-wrap.right,
+.our-team14 .social-team,
+.testimonial-slider-owl-carousel.ts-octa .testimonial .testimonial-brand,
+.latestposts-eleven .latest-b11 .latest-b11-img,
+.title-plus-text.type-1.alignright,
+.wn-collections.type-bottom-left .collection-link.directions-key,
+.wn-block-quote.wn-block-quote-2 .block-quote-author,
+ock-quote-2 .wn-block-quote-content .content,
+.wn-block-quote.wn-block-quote-2 .block-quote-author,
+.wn-ftc .wn-ftc-body .wpcf7 .wpcf7-form p:nth-last-of-type(1),
+.ihwt-hotspot-wrapper .ihwt-tooltip-text-align-right .HotspotPlugin_Hotspot>div,
+.vcw.vcw-full-card .vcw-changes .vcw-change:last-child .vcw-title,
+.vcw.vcw-full-card .vcw-changes .vcw-change:last-child .vcw-value,
+.alignright .icon-box5,
+.alignright .icon-box5 *,
+.alignright .icon-box16,
+.alignright .icon-box16 *,
+.icon-box18.right,
+.icon-box18.right img,
+.icon-box18.right i,
+.icon-box18.right h4,
+.icon-box18.right p,
+#footer h5.subtitle span,
+.toggle-top-area h5.subtitle span,
+.footer-in .yp-ft-logo,
+.footbot,
+#wp-calendar caption,
+#wp-calendar tfoot #next,
+.buddypress-sidebar .widget .webnus-about h4 {
+	text-align: left;
+}
+
+/*  Left Auto
+======================================= */
+
+ul.square li:before,
+li.square:before,
+#pin-content,
+.tline-row-r,
+.tline-row-r:before,
+.tline-content-wrap .tline-ecxt,
+#tline-content:before,
+.postshow1 h1.post-title-ps1,
+.post-trait-w .single-featured-image .post-trait-w,
+.post-trait-w .single-featured-image .blog-views,
+.blg3both .blgtyp3.blog-post .postmetadata h6:last-child,
+.blgtyp2.blog-post a.readmore,
+.img-hover:before,
+.commentlist li ul.children li.odd>.comment-content,
+#wrap #commentform label,
+#wrap #commentform p:after,
+.about-author-sec-ps3 p,
+.blgtyp1 .blgtyp1-contnet .post-meta-data .blog-date:before,
+.blgtyp5 .blgtyp5-contnet .post-meta-data .blog-date:before,
+.postmetadata.postshow4 .blog-date:before,
+.blgtyp1 .blgtyp1-contnet .post-meta-data .blog-cat .category-color,
+.blgtyp5 .blgtyp5-contnet .post-meta-data .blog-cat .category-color,
+.showpost4-contnet .blog-cat .category-color,
+.rec-post-type3-content p:before {
+	left: auto;
+}
+
+/*  Right 0
+======================================== */
+
+.wn-news-ticker .ticker-controls:after,
+.magazin-wrap .magazin-cat-nav-wrap .magazin-title:before,
+.magazine-sidebar .widget .social-count-plus li .follow-us a:before,
+ul.square li:before,
+li.square:before,
+#pin-content,
+.tline-row-r,
+.tline-row-r:before,
+.tline-content-wrap .tline-ecxt,
+#tline-content:before,
+.postshow1 h1.post-title-ps1,
+.post-trait-w .single-featured-image .post-trait-w,
+.post-trait-w .single-featured-image .blog-views,
+.blg3both .blgtyp3.blog-post .postmetadata h6:last-child,
+.blgtyp2.blog-post a.readmore,
+.img-hover:before,
+.commentlist li ul.children li.odd>.comment-content,
+#wrap #commentform label,
+#wrap #commentform p:after,
+.about-author-sec-ps3 p,
+.blgtyp1 .blgtyp1-contnet .post-meta-data .blog-date:before,
+.blgtyp5 .blgtyp5-contnet .post-meta-data .blog-date:before,
+.postmetadata.postshow4 .blog-date:before,
+.blgtyp1 .blgtyp1-contnet .post-meta-data .blog-cat .category-color,
+.blgtyp5 .blgtyp5-contnet .post-meta-data .blog-cat .category-color,
+.showpost4-contnet .blog-cat .category-color,
+.rec-post-type3-content p:before,
+#wrap .widget .subtitle:before,
+.rec-posts-type2 .rec-post-type2-content p:before {
+	left: auto;
+	right: 0;
+}
+
+/*  Left 0
+======================================== */
+
+.latestposts-twenty-five .time:before,
+#wrap .magazine-sidebar .widget .side-list ul.wn-popularposts:before,
+.whb-nav-wrap.has-parent-arrow>ul>li.menu-item-has-children:before,
+.whb-nav-wrap.has-parent-arrow>ul>li.mega>a:before,
+#responav li.menu-item a>i.respo-nav-icon {
+	right: auto;
+	left: 0;
+}
+
+@media(max-width: 991px) {
+	.rtl .magazin-wrap .magazin-cat-nav-wrap ul.magazin-cat-nav:before {
+		left: 0;
+		right: auto;
+	}
+}
+
+/*  Others
+ ====================================== */
+
+.wn-news-ticker .ticker-controls {
+	right: auto;
+	left: 7px;
+	padding-left: 0;
+	padding-right: 7px;
+}
+
+.latestposts-twenty-five .time {
+	padding-right: 0;
+	padding-left: 10px;
+	margin-right: 0;
+	margin-left: 10px;
+}
+
+.latest-blg-wrap-title {
+	left: auto;
+	right: 16px;
+}
+
+.latestposts-twenty-four .latest-b24 .latest-b24-img img {
+	margin-right: 0;
+	margin-left: 20px;
+}
+
+#wrap .magazin-wrap .magazin-cat-nav-wrap ul.magazin-cat-nav li.magazin-dropdown-list {
+	padding-right: 15px;
+}
+
+.magazin-wrap.magazin-1 .magazine-b1 .magazine-b1-cont,
+.magazin-wrap.magazin-2 .left-section .magazine-b2 .magazine-b2-cont,
+.magazin-wrap.magazin-3 .left-section .magazine-b3 .magazine-b3-cont {
+	padding: 14px 28px 18px 21px;
+}
+
+.magazin-wrap.magazin-3 .below-section {
+	padding: 0px 115px 20px 36px;
+}
+
+.right-section .magazine-b2.magazine-b2-cont .magazine-b2-img,
+.below-section .magazine-b3.magazine-b3-cont .magazine-b3-img {
+	margin-right: -87px;
+	margin-left: 17px;
+}
+
+.magazin-wrap.magazin-2 .right-section {
+	padding: 20px 43px 20px 20px;
+	margin-left: 0;
+	margin-right: 53px;
+}
+
+.widget .side-list ul li.post-review-item .review-content {
+	right: 60px;
+	left: 20px;
+	padding: 11px 60px 10px 10px;
+}
+
+.widget .side-list ul li.post-review-item:first-child .review-content {
+	left: auto;
+	right: 6%;
+}
+
+.latestposts-twenty-five .time i {
+	margin-right: 0;
+	margin-left: 5px;
+}
+
+@media (max-width:992px) {
+	.latest-b21 {
+		width: 100%;
+	}
+}
+
+#wrap .magazine-sidebar .widget .side-list .wn-popularposts .latest-post-right-sec {
+	right: 86px;
+	padding: 21px 50px 20px 10px;
+	left: 20px;
+}
+
+.blgtyp4 .blgtyp4-contnet {
+	padding: 10% 6% 10% 5%;
+}
+
+.blgtyp4 .omega {
+	margin-left: 0;
+	margin-right: 34%;
+}
+
+.blgtyp4 .alpha {
+	margin-left: 0;
+	margin-right: -52%;
+}
+
+#wrap .magazine-sidebar .widget .social-count-plus li .items .count {
+	margin-right: 0;
+	margin-left: 12px;
+}
+
+#wrap .magazine-sidebar .widget .social-count-plus li .items {
+	padding-left: 0;
+	padding-right: 33px;
+}
+
+#wrap .magazine-sidebar .widget .social-count-plus li a.icon:after {
+	left: auto;
+	right: -28px;
+}
+
+.latest-b21-cont .latest-b21-category {
+	right: 20px;
+}
+
+.rtl .latest-b25-title {
+	line-height: 1.3;
+}
+
+@media(min-width: 992px) and (max-width:1200px) {
+	.rtl .magazin-wrap.magazin-3 .below-section {
+		padding-left: 18px;
+		padding-right: 18px;
+	}
+
+	.rtl .right-section .magazine-b2.magazine-b2-cont .magazine-b2-img,
+	.rtl .below-section .magazine-b3.magazine-b3-cont .magazine-b3-img {
+		float: none;
+		margin: 0;
+		width: auto;
+	}
+
+	.rtl .right-section .magazine-b2.magazine-b2-cont,
+	.rtl .below-section .magazine-b3.magazine-b3-cont {
+		padding: 15px;
+		text-align: center;
+	}
+
+	.rtl .magazin-wrap.magazin-2 .right-section {
+		padding: 20px;
+		margin-right: 0;
+	}
+}
+
+.widget .side-list ul li.post-review-item .review-content {
+	left: 0;
+	right: 60px;
+	padding: 11px 45px 10px 10px;
+	margin-left: 30px;
+	margin-right: 45px;
+}
+
+.right-section .magazine-b2.magazine-b2-cont,
+.below-section .magazine-b3.magazine-b3-cont {
+	padding-right: 0;
+	padding-left: 20px;
+}
+
+@media(max-width: 992px) {
+
+	.right-section .magazine-b2.magazine-b2-cont .magazine-b2-img,
+	.below-section .magazine-b3.magazine-b3-cont .magazine-b3-img {
+		margin-top: -8px;
+	}
+}
+
+.magazin-wrap.magazin-3 .below-section.wn-pagination:nth-child(2n+2) {
+	clear: right;
+}
+
+.col-md-6.below-section.wn-pagination:nth-child(odd) {
+	margin-left: 0;
+	margin-right: 30px;
+}
+
+.side-list img {
+	margin-right: 0;
+	margin-left: 14px;
+}
+
+.widget ul li.cat-item span {
+	float: right;
+	margin-right: 0;
+	margin-left: 5px;
+}
+
+.widget .cat-item {
+	text-align: right;
+}
+
+.widget ul li.cat-item a:after {
+	display: inline-block;
+	content: "\e605";
+	font-size: 9px;
+	font-family: 'simple-line-icons';
+	margin-right: 7px;
+}
+
+.widget ul li.cat-item a:before {
+	display: none;
+}
+
+.whb-nav-wrap #nav ul li.menu-item a {
+	padding: 8px 29px 8px 5px;
+}
+
+.whb-nav-wrap #nav li.mega ul.sub-menu {
+	left: auto;
+	right: 2%;
+}
+
+#wrap #nav .wn-category-wrap .wn-category-tab-nav li.active:after,
+#wrap .wn-category-wrap .wn-category-tab-nav li.active:after {
+	right: auto;
+	left: -32px;
+	border-color: transparent #0a14f4 transparent transparent;
+}
+
+#wrap #nav .wn-category-wrap .wn-category-tab-nav li.active a,
+#wrap .wn-category-wrap .wn-category-tab-nav li.active a {
+	box-shadow: -1px 2px 20px -9px #4e2bfe, 4px 3px 24px -8px #1a19f6, 1px -1px 16px -8px #6620fa;
+	background: linear-gradient(90deg, #0a14f4 0%, #7f18fb 33%, #7715f6 50%, #532dff 75%, #5501e6 100%);
+}
+
+#wrap #nav .wn-category-tab .wn-category .wn-tab-cat-content,
+#wrap .wn-category-tab .wn-category .wn-tab-cat-content {
+	margin-left: 0;
+	margin-right: 6%;
+}
+
+#responav li.menu-item a>i.respo-nav-icon:before {
+	right: auto;
+	left: 50%;
+}
+
+#responav li.menu-item a>i.respo-nav-icon:before {
+	content: "\e605";
+}
+
+#webnus-header-builder .whb-search .search-text-box {
+	padding-right: 20px;
+}
+
+#wrap .post-sharing.post-sharing-5 .blog-social-5 {
+	right: auto;
+	left: -126px;
+}
+
+.post-sharing.post-sharing-5 .blog-social-5:before,
+.post-sharing.post-sharing-5 .blog-social-5:after {
+	left: auto;
+	right: -19px;
+	border-left: 10px solid #ececec;
+	border-right: 10px solid transparent;
+}
+
+.post-sharing.post-sharing-5 .blog-social-5:after {
+	left: auto;
+	right: -18px;
+	border-left: 10px solid #fff;
+	border-right: 10px solid transparent;
+}
+
+.tline-content-wrap {
+	margin-left: auto;
+	margin-right: 220px;
+}
+
+.tline-topdate {
+	margin-left: auto;
+	margin-right: -70px;
+}
+
+@media (min-width: 1200px) {
+	.tline-box .tline-author-box {
+		left: auto;
+		right: -13px;
+	}
+
+	.tline-box .tline-author-box .tline-author {
+		right: -82px;
+		left: auto;
+	}
+}
+
+#wrap .tline-author-box .tline-date {
+	padding-left: 0;
+	padding-right: 28px;
+}
+
+.tline-author-box .tline-date:before {
+	left: auto;
+	right: -2px;
+}
+
+.tline-box .tline-author-box .tline-author {
+	margin-left: 8px;
+	margin-right: -5px;
+}
+
+@media (max-width: 1200px) and (min-width: 992px) {
+	.tline-box .tline-author-box {
+		left: auto;
+		right: -82px;
+	}
+}
+
+@media(min-width: 481px) and (max-width: 991px) {
+	#tline-content:before {
+		left: auto;
+		right: 90px;
+	}
+
+	.tline-topdate {
+		margin-left: 0;
+		margin-right: 15px;
+	}
+
+	.tline-author-box .tline-date,
+	.tline-box .tline-author-box .tline-author,
+	.tline-author-box img {
+		float: none;
+		padding: 0;
+		margin: 0;
+		margin-bottom: 14px;
+	}
+
+	.tline-box .tline-author-box {
+		left: auto;
+		right: 37px;
+	}
+
+	#wrap .tline-box .post-sharing.post-sharing-5 .blog-social-5:before,
+	#wrap .tline-box .post-sharing.post-sharing-5 .blog-social-5:after {
+		left: auto;
+		right: 129px;
+	}
+
+	#wrap .tline-box .post-sharing.post-sharing-5 .blog-social-5:after {
+		left: auto;
+		right: 128px;
+	}
+
+	#wrap .tline-author-box .tline-date {
+		padding: 0;
+	}
+}
+
+.post-author-ps3 .post-avatar-detile-ps3 .post-date-ps3:before {
+	left: auto;
+	right: -15px;
+}
+
+.post-author-ps3 .post-avatar-detile-ps3 .post-name-ps3 {
+	overflow: hidden;
+}
+
+.post-author-ps3 .post-avatar-detile-ps3 .post-date-ps3 {
+	margin-left: 0;
+	margin-right: 15px;
+}
+
+.post-author-ps3 .post-avatar-detile-ps3 {
+	margin-left: 0;
+	margin-right: 80px;
+}
+
+@media (max-width: 1680px) and (min-width: 992px) {
+	.wn-block-quote.wn-block-quote-2 .wn-block-quote-content {
+		margin-left: 0;
+		margin-right: -30px;
+	}
+}
+
+.w-next-article i {
+	right: auto;
+	left: 0px;
+}
+
+.w-prev-article i {
+	right: 0;
+	left: auto;
+}
+
+.w-prev-article {
+	padding-left: 0;
+	padding-right: 59px;
+}
+
+.w-next-article .icon-arrows-slim-right:before {
+	content: "\e066";
+}
+
+.w-prev-article .icon-arrows-slim-left:before {
+	content: "\e068";
+}
+
+.w-next-article {
+	padding-left: 59px;
+	padding-right: 0;
+}
+
+@media(min-width: 1200px) {
+	.about-author-sec-ps3 p {
+		margin: 31px 370px 48px 62px;
+	}
+
+	.about-author-sec-ps3 .blue-sec h5,
+	.about-author-sec-ps3 .blue-sec h6 {
+		left: auto;
+		right: 371px;
+	}
+
+	.about-author-sec-ps3 img {
+		left: auto;
+		right: 30px;
+	}
+}
+
+@media (max-width: 1200px) {
+
+	.about-author-sec-ps3 .blue-sec h5,
+	.about-author-sec-ps3 .blue-sec h6 {
+		left: auto;
+		right: 25px;
+	}
+}
+
+.single-review-title:before,
+.rec-posts-type2 .rec-posts-type2-title:before {
+	left: auto;
+	right: 16px;
+}
+
+.single-review .sinlge-review-row li:last-child {
+	border-right: 1px solid #e8e8e8;
+	border-left: none;
+}
+
+.rec-posts-type2 .rec-post-type2-content p {
+	padding-left: 0;
+	padding-right: 16px;
+}
+
+.whb-menu-cross-icon {
+	margin-left: 15px;
+	margin-right: 0;
+}
+
+@media only screen and (min-width: 1601px) {
+
+	.cntt-w,
+	.vc_col-sm-8.cntt-w {
+		padding-left: 30px;
+		padding-right: 0;
+	}
+}
+
+/* additional */
+.single .post-sharing.post-sharing-5 {
+	float: right;
+}
+
+.dpr-discu-metadata-share-wrap {
+	left: 10px;
+	right: unset;
+}
+
+.dpr-discu-box-header .dpr-discu-box-header-icons {
+	left: 0;
+	right: unset;
+}
+
+.dpr-discu-reply-btn-wrap a.dpr-discu-reply-btn i {
+	margin-left: 2px;
+}
+
+.dpr-join-form-area textarea {
+	height: 46px;
+}
+
+.widget .widget-subscribe-form button {
+	left: 10px;
+	right: unset;
+}
+
+.magazin-wrap.magazin-1 .magazine-b1 .magazine-b1-cont .magazine-b1-date i,
+.magazin-wrap.magazin-2 .left-section .magazine-b2 .magazine-b2-cont .magazine-b2-date i,
+.magazin-wrap.magazin-3 .left-section .magazine-b3 .magazine-b3-cont .magazine-b3-date i {
+	margin-left: 3px;
+}
+
+.latestposts-twenty-four .latest-b24 .latest-b24-content .latest-b24-date i {
+	margin-left: 3px;
+	margin-right: unset;
+}
+
+.magazin-wrap .magazin-dropdown-list ul {
+	left: -30px;
+	right: unset;
+	width: 90px;
+}
+
+.magazin-wrap .magazin-cat-nav-wrap ul.magazin-cat-nav li:last-child {
+	padding-right: 30px;
+	padding-left: unset;
+}
+
+.latest-b21-cont .latest-b21-date i {
+	margin-left: 3px;
+	margin-right: unset;
+}
+
+.latest-b21-cont .latest-author span img {
+	margin-left: 4px;
+	margin-right: unset;
+	float: right;
+}
+
+#wrap .latest-b21-cont .latest-excerpt {
+	text-align: justify;
+}
+
+#wrap .magazine-sidebar .side-list li p.date:before {
+	margin-left: 4px !important;
+	margin-right: 1px !important;
+}
+
+.magazin-wrap.magazin-2 .right-section .magazine-b2 .magazine-b2-cont .magazine-b2-date i,
+.magazin-wrap.magazin-3 .below-section .magazine-b3 .magazine-b3-cont .magazine-b3-date i {
+	margin-left: 3px;
+	margin-right: unset;
+}
+
+.widget .side-list ul li.post-review-item:first-child p.review-date:before {
+	margin-left: 3px;
+	margin-right: unset;
+}
+
+.blgtyp4 .postmetadata h6 i {
+	padding-left: 4px;
+	padding-right: unset;
+}
+
+.latest-b21-cont .latest-b21-date i {
+	float: right;
+}
+
+.wn-ftc .wn-ftc-header .ti-comments {
+	margin-left: 9px;
+}
+
+.wn-ftc-close-icons .ftc-close {
+	left: 0;
+	right: unset;
+}
+
+.wn-ftc .wn-ftc-body .wpcf7 .wpcf7-form input,
+.wn-ftc .wn-ftc-body .wpcf7 .wpcf7-form textarea {
+	padding: 5px 18px;
+	margin: -10px 0px;
+	width: auto !important;
+}
+
+.wn-block-quote.wn-block-quote-2 .wn-block-quote-content .content {
+	line-height: 35px;
+}
+
+#wpc-weather .now .time_symbol {
+	margin-right: 10px;
+}
+
+.postslider-3 .latest-content {
+	direction: rtl;
+}
+
+.postslider-3 .latest-content .category .category-color {
+	right: 0;
+	left: unset;
+}
+
+.postslider-3 .latest-content .category a {
+	padding-right: 18px;
+	padding-left: 9px;
+}
+
+.postslider-3 .latest-content .date:before {
+	right: 0;
+	left: unset;
+}
+
+.postslider-3 .latest-content .date {
+	padding-right: 30px;
+}
+
+.postslider-3 .latest-content .magicmore {
+	float: left;
+}
+
+.a-post-box-2 .latest-cat .latest-color {
+	right: 0;
+	left: unset;
+}
+
+.a-post-box-2 .latest-cat a {
+	margin-right: 18px;
+	margin-left: unset;
+}
+
+.a-post-box-2 .latest-date:before {
+	right: -29px;
+	left: unset;
+}
+
+.a-post-box-2 .latest-date {
+	margin: 0 50px 0 0px;
+}
+
+.postslider-owl-carousel.postslider-1 .category {
+	margin-left: 53px;
+	margin-right: unset;
+}
+
+.postslider-owl-carousel.postslider-1 .category .category-color,
+.postslider-owl-carousel.postslider-2 .category .category-color {
+	right: -18px;
+	left: unset;
+}
+
+.postslider-owl-carousel.postslider-1 .date:before {
+	right: -30px;
+	left: unset;
+}
+
+.postslider-owl-carousel.postslider-1 .date {
+	margin-right: 40px;
+	left: unset;
+}
+
+#w-login form .login-username label,
+#w-login form .login-password label {
+	float: right;
+}
+
+#w-login form .login-username label::before,
+#w-login form .login-password label::before {
+	margin-left: 5px;
+	margin-right: unset;
+	float: right;
+}
+
+a.readmore {
+	float: left;
+}
+
+.pin-ecxt2 .col1-3 span,
+.comments-number-x span {
+	top: 15px;
+	right: 50%;
+	margin-right: -10px;
+	left: unset;
+	margin-left: unset;
+}
+
+.pin-ecxt2 .col1-3 {
+	border-left: 1px solid #eee;
+}
+
+.wn-ftc .wn-ftc-body .wpcf7 .wpcf7-form p:nth-last-of-type(1) {
+	padding-bottom: 0px;
+}
+
+.postmetadata.postshow4 .blog-cat {
+	padding-right: 20px;
+	margin-left: 27px
+}
+
+.postmetadata.postshow4 .blog-date {
+	padding-right: 30px;
+}
+
+.blgtyp1 .blgtyp1-contnet,
+.showpost4-contnet {
+	margin-right: 50%;
+	margin-left: unset;
+	transform: translate(50%, -25%);
+}
+
+.postmetadata h6.blog-views i {
+	margin-right: 10px;
+}
+
+#wrap .postmetadata h6:last-of-type {
+	border-left: none;
+}
+
+#wrap .postmetadata h6 {
+	border-left: 1px solid #ddd;
+	border-right: unset;
+}
+
+.blog-post.blgtyp2 .au-avatar,
+.blog-single-post .au-avatar img {
+	margin-left: 11px;
+	margin-right: unset;
+}
+
+.blog-views-ps3 {
+	right: 15px;
+	left: unset;
+}
+
+.dpr-wrap,
+.dpr-wrap * {
+	text-align: right !important;
+}
+
+.sl-user:before {
+	padding-right: 10px;
+}
+
+.sl-envelope-open:before {
+	padding-right: 10px;
+}
+
+.sl-compass:before {
+	padding-right: 10px;
+}
+
+.dpr-join-form-area i {
+	float: right;
+	margin-left: 12px;
+	margin-right: unset;
+}
+
+.dpr-submit-form-fields .dpr-submit-form-fields-c {
+	float: right;
+}
+
+input[type="text"].search-side,
+input[type="text"].header-saerch {
+	background: #fff url(./assets/dist/images/find-ico1.png) no-repeat left;
+}
+
+#main-content.container {
+	text-align: center;
+}
+
+.error404 h1.pnf404:before {
+	top: 0px;
+	right: 48%;
+}
+
+.dpr-wrap input[type=text],
+.dpr-wrap input[type=email] {
+	padding-right: 40px;
+}
+
+.dpr-submit-form-fields-c i {
+	right: 1px;
+	left: unset;
+}
+
+.dpr-wrap,
+.dpr-wrap * {
+	direction: ltr;
+}
+
+.site-navigation ul li:hover > ul,
+.site-navigation ul li.focus > ul {
+	right: auto;
+}
+
+.site-navigation ul ul li:hover > ul,
+.site-navigation ul ul li.focus > ul {
+	right: 100%;
+	left: auto;
+}

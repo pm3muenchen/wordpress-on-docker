@@ -1,0 +1,527 @@
+# Translation of Plugins - Restrict User Access &#8211; Membership Plugin with Force - Stable (latest release) in English (UK)
+# This file is distributed under the same license as the Plugins - Restrict User Access &#8211; Membership Plugin with Force - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-05-29 05:19:41+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/3.0.0-alpha\n"
+"Language: en_GB\n"
+"Project-Id-Version: Plugins - Restrict User Access &#8211; Membership Plugin with Force - Stable (latest release)\n"
+
+#: lib/wp-content-aware-engine/module/polylang.php:33
+#: lib/wp-content-aware-engine/module/wpml.php:33
+#: lib/wp-content-aware-engine/module/translatepress.php:29
+#: lib/wp-content-aware-engine/module/qtranslate.php:33
+#: lib/wp-content-aware-engine/module/transposh.php:33
+msgid "Languages"
+msgstr "Languages"
+
+#: lib/wp-content-aware-engine/module/post_type.php:422
+msgid "Scheduled"
+msgstr "Scheduled"
+
+#. translators: post state
+#: lib/wp-content-aware-engine/module/post_type.php:419
+msgctxt "post state"
+msgid "Pending"
+msgstr "Pending"
+
+#: lib/wp-content-aware-engine/module/post_type.php:415
+msgid "Draft"
+msgstr "Draft"
+
+#: lib/wp-content-aware-engine/module/post_type.php:412
+msgid "Private"
+msgstr "Private"
+
+#: lib/wp-content-aware-engine/module/post_type.php:407
+msgid "Sticky"
+msgstr "Sticky"
+
+#: lib/wp-content-aware-engine/module/post_type.php:403
+msgid "Password protected"
+msgstr "Password protected"
+
+#: lib/wp-content-aware-engine/module/post_type.php:256
+#: lib/wp-content-aware-engine/module/post_type.php:368
+msgid "Blog Page"
+msgstr "Blog Page"
+
+#: lib/wp-content-aware-engine/module/page_template.php:35
+msgid "All Templates"
+msgstr "All Templates"
+
+#: lib/wp-content-aware-engine/module/page_template.php:34
+msgid "Page Templates"
+msgstr "Page Templates"
+
+#: lib/wp-content-aware-engine/module/taxonomy.php:323
+#: lib/wp-content-aware-engine/module/taxonomy.php:358
+#: lib/wp-content-aware-engine/module/post_type.php:263
+#: lib/wp-content-aware-engine/module/post_type.php:376
+msgid "%s Archives"
+msgstr "%s Archives"
+
+#: lib/wp-content-aware-engine/module/date.php:28
+msgid "Date Archives"
+msgstr "Date Archives"
+
+#: lib/wp-content-aware-engine/module/date.php:26
+msgid "Dates"
+msgstr "Dates"
+
+#: lib/wp-content-aware-engine/module/static.php:52
+msgid "404 Page"
+msgstr "404 Page"
+
+#: lib/wp-content-aware-engine/module/static.php:51
+msgid "Search Results"
+msgstr "Search Results"
+
+#: lib/wp-content-aware-engine/module/static.php:50
+msgid "Front Page"
+msgstr "Front Page"
+
+#: lib/wp-content-aware-engine/module/pods.php:34
+msgid "All Pods Pages"
+msgstr "All Pods Pages"
+
+#: lib/wp-content-aware-engine/module/pods.php:33
+msgid "Pods Pages"
+msgstr "Pods Pages"
+
+#: lib/wp-content-aware-engine/module/author.php:29
+msgid "All Authors"
+msgstr "All Authors"
+
+#: lib/wp-content-aware-engine/module/author.php:28
+msgid "Authors"
+msgstr "Authors"
+
+#: lib/wp-content-aware-engine/module/bbpress.php:36
+msgid "All Profiles"
+msgstr "All Profiles"
+
+#: lib/wp-content-aware-engine/module/bbpress.php:35
+msgid "bbPress User Profiles"
+msgstr "bbPress User Profiles"
+
+#: lib/wp-content-aware-engine/module/bp_member.php:41
+msgid "All Sections"
+msgstr "All Sections"
+
+#: lib/wp-content-aware-engine/module/bp_member.php:39
+msgid "BuddyPress Profiles"
+msgstr "BuddyPress Profiles"
+
+#: lib/wp-content-aware-engine/core.php:995
+msgid "Not"
+msgstr "Not"
+
+#: lib/wp-content-aware-engine/core.php:987
+msgid "Conditions have unsaved changes. Do you want to continue and discard these changes?"
+msgstr "Conditions have unsaved changes. Do you want to continue and discard these changes?"
+
+#: lib/wp-content-aware-engine/core.php:985
+msgid "No results found."
+msgstr "No results found."
+
+#: lib/wp-content-aware-engine/core.php:984
+msgid "Searching"
+msgstr "Searching"
+
+#: lib/wp-content-aware-engine/core.php:915
+#: lib/wp-content-aware-engine/module/taxonomy.php:53
+msgid "Taxonomies"
+msgstr "Taxonomies"
+
+#: lib/wp-content-aware-engine/core.php:911
+#: lib/wp-content-aware-engine/module/post_type.php:47
+msgid "Post Types"
+msgstr "Post Types"
+
+#: lib/wp-content-aware-engine/core.php:762
+msgid "Could not delete conditions"
+msgstr "Could not delete conditions"
+
+#: lib/wp-content-aware-engine/core.php:755
+msgid "Conditions updated"
+msgstr "Conditions updated"
+
+#: lib/wp-content-aware-engine/core.php:744
+#: lib/wp-content-aware-engine/core.php:751
+msgid "Unauthorized request"
+msgstr "Unauthorised request"
+
+#: lib/wp-content-aware-engine/core.php:666
+msgid "Conditional Logic"
+msgstr "Conditional Logic"
+
+#: lib/wp-content-aware-engine/core.php:294
+msgctxt "condition status"
+msgid "Negated"
+msgstr "Negated"
+
+#: lib/wp-content-aware-engine/core.php:274
+msgid "Condition Group"
+msgstr "Condition Group"
+
+#: lib/wp-content-aware-engine/core.php:273
+msgid "Condition Groups"
+msgstr "Condition Groups"
+
+#: lib/wp-content-aware-engine/view/condition_options.php:40
+msgid "Auto-select new children of selected items"
+msgstr "Auto-select new children of selected items"
+
+#: lib/wp-content-aware-engine/view/condition_options.php:26
+msgid "Negate conditions"
+msgstr "Negate conditions"
+
+#: lib/wp-content-aware-engine/view/group_template.php:22
+msgid "Save Changes"
+msgstr "Save Changes"
+
+#: lib/wp-content-aware-engine/view/condition_template.php:10
+msgid "And"
+msgstr "And"
+
+#: lib/wp-content-aware-engine/view/meta_box.php:36
+#: lib/wp-content-aware-engine/core.php:996
+msgid "Or"
+msgstr "Or"
+
+#: level.php:357
+msgid "No Access Levels found in Trash"
+msgstr "No Access Levels found in Bin"
+
+#: level.php:356
+msgid "No Access Levels found"
+msgstr "No Access Levels found"
+
+#: level.php:355
+msgid "Search Access Levels"
+msgstr "Search Access Levels"
+
+#: level.php:354
+msgid "View Access Level"
+msgstr "View Access Level"
+
+#: level.php:352
+msgid "New Access Level"
+msgstr "New Access Level"
+
+#: level.php:351
+msgid "Edit Access Level"
+msgstr "Edit Access Level"
+
+#: level.php:350
+msgid "Add New Access Level"
+msgstr "Add New Access Level"
+
+#: level.php:349
+msgctxt "level"
+msgid "Add New"
+msgstr "Add New"
+
+#: level.php:348
+msgid "Access Level"
+msgstr "Access Level"
+
+#: level.php:325
+msgid "Not logged-in"
+msgstr "Not logged-in"
+
+#: level.php:256
+msgid "Set to 0 for unlimited."
+msgstr "Set to 0 for unlimited."
+
+#: level.php:254
+msgid "Year(s)"
+msgstr "Year(s)"
+
+#: level.php:253
+msgid "Month(s)"
+msgstr "Month(s)"
+
+#: level.php:252
+msgid "Week(s)"
+msgstr "Week(s)"
+
+#: level.php:251
+msgid "Day(s)"
+msgstr "Day(s)"
+
+#: level.php:243
+msgid "Page to redirect to or display content from under teaser."
+msgstr "Page to redirect to or display content from under teaser."
+
+#: level.php:239
+msgid "Page"
+msgstr "Page"
+
+#: level.php:235
+msgid "Redirect to another page or show teaser."
+msgstr "Redirect to another page or show teaser."
+
+#: level.php:232
+msgid "Redirect"
+msgstr "Redirect"
+
+#: level.php:221
+msgid "Synchronized Role"
+msgstr "Synchronised Role"
+
+#: list-capabilities.php:49
+msgid "Deny"
+msgstr "Deny"
+
+#: list-capabilities.php:48
+msgid "Permit"
+msgstr "Permit"
+
+#: list-capabilities.php:35
+msgid "No capabilities found."
+msgstr "No capabilities found."
+
+#: list-capabilities.php:20 list-capabilities.php:47
+msgid "Capability"
+msgstr "Capability"
+
+#: admin/level-list-table.php:624
+msgid "%d year"
+msgid_plural "%d years"
+msgstr[0] "%d year"
+msgstr[1] "%d years"
+
+#: admin/level-list-table.php:623
+msgid "%d month"
+msgid_plural "%d months"
+msgstr[0] "%d month"
+msgstr[1] "%d months"
+
+#: admin/level-list-table.php:622
+msgid "%d week"
+msgid_plural "%d weeks"
+msgstr[0] "%d week"
+msgstr[1] "%d weeks"
+
+#: admin/level-list-table.php:621
+msgid "%d day"
+msgid_plural "%d days"
+msgstr[0] "%d day"
+msgstr[1] "%d days"
+
+#: admin/level-list-table.php:354 level.php:247
+msgid "Duration"
+msgstr "Duration"
+
+#: admin/level-list-table.php:352
+msgid "Name"
+msgstr "Name"
+
+#: admin/settings.php:184
+msgid "Setting can be changed in %s"
+msgstr "Setting can be changed in %s"
+
+#: admin/settings.php:150 level.php:323
+msgid "-- None --"
+msgstr "-- None --"
+
+#: admin/settings.php:132
+#: lib/wp-content-aware-engine/view/group_template.php:24
+msgid "Settings"
+msgstr "Settings"
+
+#: admin/settings.php:131
+msgid "User Access Settings"
+msgstr "User Access Settings"
+
+#: admin/settings.php:91
+msgid "No"
+msgstr "No"
+
+#: admin/settings.php:91
+msgid "Yes"
+msgstr "Yes"
+
+#: admin/settings.php:88
+msgid "Enable Registration"
+msgstr "Enable Registration"
+
+#: admin/settings.php:80 admin/settings.php:92
+msgid "General Settings"
+msgstr "General Settings"
+
+#: admin/settings.php:76
+msgid "New User Default Role"
+msgstr "New User Default Role"
+
+#: admin/settings.php:65
+msgid "New User Default Level"
+msgstr "New User Default Level"
+
+#: admin/settings.php:57 lib/wp-content-aware-engine/core.php:907
+msgid "General"
+msgstr "General"
+
+#: admin/level-edit.php:747
+msgid "Access level draft updated."
+msgstr "Access level draft updated."
+
+#. translators: Publish box date format, see http://php.net/date
+#: admin/level-edit.php:745
+msgid "M j, Y @ G:i"
+msgstr "M j, Y @ G:i"
+
+#: admin/level-edit.php:743
+msgid "Access level scheduled for: <strong>%1$s</strong>."
+msgstr "Access level scheduled for: <strong>%1$s</strong>."
+
+#: admin/level-edit.php:740
+msgid "Access level updated."
+msgstr "Access level updated."
+
+#: admin/level-edit.php:218
+msgid "days"
+msgstr "days"
+
+#: admin/level-edit.php:217
+msgid "Unlock Time for new members"
+msgstr "Unlock Time for new members"
+
+#: admin/level-edit.php:157 admin/level-edit.php:413
+#: admin/level-list-table.php:355 list-capabilities.php:21 level.php:260
+msgid "Capabilities"
+msgstr "Capabilities"
+
+#: admin/level-edit.php:145 admin/level-edit.php:414
+msgid "Options"
+msgstr "Options"
+
+#: admin/nav-menu.php:198
+msgid "Restrict menu item to users with these levels or higher."
+msgstr "Restrict menu item to users with these levels or higher."
+
+#: admin/level-overview.php:278
+msgid "%s access level restored from the Trash."
+msgid_plural "%s levels restored from the Trash."
+msgstr[0] "%s access level restored from the Bin."
+msgstr[1] "%s access levels restored from the Bin."
+
+#: admin/level-overview.php:277
+msgid "%s access level moved to the Trash."
+msgid_plural "%s levels moved to the Trash."
+msgstr[0] "%s access level moved to the Bin."
+msgstr[1] "%s access levels moved to the Bin."
+
+#: admin/level-overview.php:276
+msgid "%s access level permanently deleted."
+msgid_plural "%s levels permanently deleted."
+msgstr[0] "%s access level permanently deleted."
+msgstr[1] "%s access levels permanently deleted."
+
+#: admin/level-overview.php:275
+msgid "%s access level not updated, somebody is editing it."
+msgid_plural "%s levels not updated, somebody is editing them."
+msgstr[0] "%s access level not updated, somebody is editing it."
+msgstr[1] "%s access levels not updated, somebody is editing them."
+
+#: admin/level-overview.php:274
+msgid "%s access level updated."
+msgid_plural "%s levels updated."
+msgstr[0] "%s access level updated."
+msgstr[1] "%s access levels updated."
+
+#: admin/level-overview.php:53 admin/level-overview.php:54
+msgid "User Access"
+msgstr "User Access"
+
+#: app.php:492
+msgid "Search for Levels"
+msgstr "Search for Levels"
+
+#: app.php:287
+msgid "Access Levels synchronized with User Roles will not be listed here."
+msgstr "Access Levels synchronised with User Roles will not be listed here."
+
+#: app.php:276
+msgid "Access"
+msgstr "Access"
+
+#: app.php:244
+msgid "Log In"
+msgstr "Log In"
+
+#: app.php:243
+msgid "Remember Me"
+msgstr "Remember Me"
+
+#: app.php:242
+msgid "Password"
+msgstr "Password"
+
+#: app.php:192 app.php:280 app.php:340 admin/nav-menu.php:191 level.php:347
+#: level.php:353
+msgid "Access Levels"
+msgstr "Access Levels"
+
+#: list-members.php:172
+msgid "%s ago"
+msgstr "%s ago"
+
+#: list-members.php:146
+msgid "Active"
+msgstr "Active"
+
+#: list-members.php:129 list-members.php:208
+msgid "Remove"
+msgstr "Remove"
+
+#: list-members.php:52
+msgid "Status"
+msgstr "Status"
+
+#: list-members.php:51
+msgid "E-mail"
+msgstr "Email"
+
+#: list-members.php:50 app.php:241
+msgid "Username"
+msgstr "Username"
+
+#: list-members.php:37
+msgid "No members found."
+msgstr "No members found."
+
+#: list-members.php:21 admin/level-edit.php:151 admin/level-edit.php:412
+#: admin/level-list-table.php:353
+msgid "Members"
+msgstr "Members"
+
+#: list-members.php:20
+msgid "Member"
+msgstr "Member"
+
+#: view/meta_box_publish.php:17
+msgid "Save"
+msgstr "Save"
+
+#: view/meta_box_options.php:39 level.php:358
+msgid "Extend Level"
+msgstr "Extend Level"
+
+#: view/meta_box_options.php:16
+msgid "Do not extend"
+msgstr "Do not extend"
+
+#. Author URI of the plugin
+msgid "https://dev.institute"
+msgstr "https://dev.institute"
+
+#. Plugin Name of the plugin
+msgid "Restrict User Access"
+msgstr "Restrict User Access"

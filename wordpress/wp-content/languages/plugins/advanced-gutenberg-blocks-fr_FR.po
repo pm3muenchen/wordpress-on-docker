@@ -1,0 +1,916 @@
+# Translation of Plugins - Advanced Gutenberg Blocks - Stable (latest release) in French (France)
+# This file is distributed under the same license as the Plugins - Advanced Gutenberg Blocks - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-10-25 18:28:22+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: GlotPress/3.0.0-alpha.2\n"
+"Language: fr\n"
+"Project-Id-Version: Plugins - Advanced Gutenberg Blocks - Stable (latest release)\n"
+
+#: admin/templates/blocks_management.php:22
+msgid "Start typing to filter…"
+msgstr "Commencez à saisir pour filtrer…"
+
+#: admin/templates/richtext_settings.php:82
+#: admin/templates/richtext_settings.php:95
+#: admin/templates/richtext_settings.php:108
+msgid "(native)"
+msgstr "(natif)"
+
+#: admin/templates/settings/gmap.php:16
+msgid "You can create one on the <a href=\"https://console.cloud.google.com/apis/credentials\" target=\"_blank\">Google Maps JS Api page</a>. "
+msgstr "Vous pouvez en créer une sur la <a href=\"https://console.cloud.google.com/apis/credentials\" target=\"_blank\">page Google Maps JS Api</a>. "
+
+#: admin/templates/richtext_settings.php:69
+msgid "Remove formatting button"
+msgstr "Bouton « Retirer le formatage »"
+
+#: admin/templates/richtext_settings.php:53
+msgid "Subscript button"
+msgstr "Bouton Indice"
+
+#: admin/templates/richtext_settings.php:37
+msgid "Superscript button"
+msgstr "Bouton Exposant"
+
+#: admin/templates/richtext_settings.php:108
+msgid "Strike through button"
+msgstr "Bouton Texte barré"
+
+#: admin/templates/richtext_settings.php:95
+msgid "Code button"
+msgstr "Bouton Code"
+
+#: admin/templates/richtext_settings.php:82
+msgid "Color button"
+msgstr "Bouton Couleur"
+
+#: admin/templates/richtext_settings.php:21
+msgid "Toolbar buttons"
+msgstr "Boutons de la barre d’outils"
+
+#: admin/templates/richtext_settings.php:14
+msgid "Add useful buttons to the RichText toolbar. Bring back the ones you loved from TinyMCE."
+msgstr "Ajoutez des fonctions utiles à la barre d’outils de l’éditeur. Réactivez les outils de TinyMCE qui vous manquent."
+
+#: classes/WP/Settings.php:62 classes/WP/Settings.php:63
+#: admin/templates/richtext_settings.php:7
+msgid "Rich Text Tools"
+msgstr "Barre d’outils"
+
+#: admin/templates/settings/summary.php:44
+msgid "Folded by default"
+msgstr "Fermé par défaut"
+
+#: admin/templates/settings/summary.php:40
+msgid "Folding"
+msgstr "Fermeture"
+
+#: admin/templates/settings/summary.php:30
+msgid "Smooth scrolling"
+msgstr "Défilement fluide"
+
+#: admin/templates/settings/summary.php:23
+msgid "All levels"
+msgstr "Tous les niveaux"
+
+#: admin/templates/settings/summary.php:14
+msgid "Max level depth"
+msgstr "Profondeur maximum"
+
+#: admin/templates/settings/summary.php:4
+msgid "Default title"
+msgstr "Titre par défaut"
+
+#: admin/templates/settings/unsplash.php:11
+#: admin/templates/settings/giphy.php:11 admin/templates/settings/gmap.php:11
+#: admin/templates/settings/card.php:11
+msgid "This field is only editable by an administrator"
+msgstr "Ce champ ne peut-être modifié que par un administrateur"
+
+#: classes/Blocks/Code.php:55
+msgid "This block uses Code Mirror and React Code Mirror from Marijn Haverbeke and Jed Watson."
+msgstr "Ce bloc utilise Code Mirror et React Code Mirror de Marijn Haverbeke et Jed Watson."
+
+#: admin/templates/settings/code.php:14
+msgid "What does it look like? <a href=\"https://codemirror.net/demo/theme.html\" target=\"_blank\">Find it out here</a>. "
+msgstr "À quoi ça ressemble ? <a href=\"https://codemirror.net/demo/theme.html\" target=\"_blank\">Obtenez un aperçu de ce thème</a>."
+
+#: admin/templates/settings/code.php:4
+msgid "Theme"
+msgstr "Thème"
+
+#: classes/Blocks/Code.php:27
+msgid "Syntax highlighting with custom themes for every languages."
+msgstr "Coloration syntaxique pour tous les langages, avec thèmes personnalisés."
+
+#: classes/Services/Blocks.php:123
+msgid "Specific"
+msgstr "Spécifiques"
+
+#: admin/templates/settings/giphy.php:16
+msgid "The API key is mandatory, you can create an App on the <a href=\"https://developers.giphy.com/dashboard/\" target=\"_blank\">Giphy Developers service</a>. "
+msgstr "La clé d’API est obligatoire, vous pouvez créer une App sur le <a href=\"https://developers.giphy.com/dashboard/\" target=\"_blank\">service développeurs de Giphy</a>. "
+
+#: admin/templates/settings/giphy.php:4 admin/templates/settings/gmap.php:4
+#: admin/templates/settings/card.php:4
+msgid "API Key"
+msgstr "Clé API"
+
+#: admin/templates/settings/unsplash.php:16
+msgid "The API Access Key is mandatory, you can create an App on the <a href=\"https://unsplash.com/oauth/applications\" target=\"_blank\">Unsplash Developers service</a>. "
+msgstr "La clé d’API est obligatoire, vous pouvez créer une App sur le <a href=\"https://unsplash.com/oauth/applications\" target=\"_blank\">service développeurs d'Unsplash</a>."
+
+#: admin/templates/settings/unsplash.php:9
+msgid "Insert your Access Key here"
+msgstr "Insérez votre clé d’accès ici"
+
+#: admin/templates/settings/unsplash.php:4
+msgid "API Access Key"
+msgstr "Clé d’accès API"
+
+#: classes/Services/Blocks.php:593
+msgid "Embed a WordPress.tv video."
+msgstr "Embarquer une vidéo WordPress.tv."
+
+#: classes/Services/Blocks.php:586
+msgid "Embed a VideoPress video."
+msgstr "Embarquer une vidéo VideoPress."
+
+#: classes/Services/Blocks.php:579
+msgid "Embed a Tumblr post."
+msgstr "Embarquez une publication Tumblr."
+
+#: classes/Services/Blocks.php:572
+msgid "Embed a TED video."
+msgstr "Embarquer une vidéo TED."
+
+#: classes/Services/Blocks.php:565
+msgid "Embed Speaker Deck content."
+msgstr "Embarquer un contenu Speaker Deck."
+
+#: classes/Services/Blocks.php:558
+msgid "Embed SmugMug content."
+msgstr "Embarquer un contenu SmugMug."
+
+#: classes/Services/Blocks.php:551
+msgid "Embed Slideshare content."
+msgstr "Embarquer un contenu Slideshare."
+
+#: classes/Services/Blocks.php:544
+msgid "Embed Scribd content."
+msgstr "Embarquer un contenu Scribd."
+
+#: classes/Services/Blocks.php:537
+msgid "Embed Screencast content."
+msgstr "Embarquer un contenu Screencast."
+
+#: classes/Services/Blocks.php:530
+msgid "Embed ReverbNation content."
+msgstr "Embarquer un contenu ReverbNation."
+
+#: classes/Services/Blocks.php:523
+msgid "Embed a Reddit thread."
+msgstr " Embarquer un fil Reddit."
+
+#: classes/Services/Blocks.php:516
+msgid "Embed Polldaddy content."
+msgstr "Embarquer un contenu Polldaddy."
+
+#: classes/Services/Blocks.php:509
+msgid "Embed a Photobucket image."
+msgstr "Embarquer une image Photobucket."
+
+#: classes/Services/Blocks.php:502
+msgid "Embed Mixcloud content."
+msgstr "Embarquer un contenu Mixcloud."
+
+#: classes/Services/Blocks.php:495
+msgid "Embed Meetup.com content."
+msgstr "Embarquer un contenu Meetup.com."
+
+#: classes/Services/Blocks.php:488
+msgid "Embed Kickstarter content."
+msgstr "Embarquer un contenu Kickstarter."
+
+#: classes/Services/Blocks.php:481
+msgid "Embed Issuu content."
+msgstr "Embarquer un contenu Issuu."
+
+#: classes/Services/Blocks.php:474
+msgid "Embed Imgur content."
+msgstr "Embarquer un contenu Imgur."
+
+#: classes/Services/Blocks.php:467
+msgid "Embed Hulu content."
+msgstr "Embarquer un contenu Hulu."
+
+#: classes/Services/Blocks.php:460
+msgid "Embed Funny or Die content."
+msgstr "Embarquer un contenu Funny or Die."
+
+#: classes/Services/Blocks.php:453
+msgid "Embed a Dailymotion video."
+msgstr "Embarquer une vidéo Dailymotion."
+
+#: classes/Services/Blocks.php:446
+msgid "Embed CollegeHumor content."
+msgstr "Embarquer un contenu CollegeHumor."
+
+#: classes/Services/Blocks.php:439
+msgid "Embed Cloudup content."
+msgstr "Embarquer un contenu Cloudup."
+
+#: classes/Services/Blocks.php:432
+msgid "Embed an Animoto video."
+msgstr "Embarquer une vidéo Animoto."
+
+#: classes/Services/Blocks.php:425
+msgid "Embed a Vimeo video."
+msgstr "Embarquer une vidéo Vimeo."
+
+#: classes/Services/Blocks.php:418
+msgid "Embed Flickr content."
+msgstr "Embarquer un contenu Flickr."
+
+#: classes/Services/Blocks.php:411
+msgid "Embed Spotify content."
+msgstr "Embarquer un contenu Spotify."
+
+#: classes/Services/Blocks.php:404
+msgid "Embed SoundCloud content."
+msgstr "Embarquer un contenu SoundCloud."
+
+#: classes/Services/Blocks.php:397
+msgid "Embed a WordPress post."
+msgstr "Embarquer une publication WordPress."
+
+#: classes/Services/Blocks.php:390
+msgid "Embed an Instagram post."
+msgstr "Embarquer une publication Instagram."
+
+#: classes/Services/Blocks.php:383
+msgid "Embed a Facebook post."
+msgstr "Embarquer une publication Facebook."
+
+#: classes/Services/Blocks.php:376
+msgid "Embed a YouTube video."
+msgstr "Embarquer une vidéo Youtube."
+
+#: classes/Services/Blocks.php:369
+msgid "Embed a tweet."
+msgstr "Embarquer un Tweet."
+
+#: classes/Services/Blocks.php:362
+msgid "Embed videos, images, tweets, audio, and other content from external sources."
+msgstr "Embarquez des vidéos, des images, des tweets, des sons et d’autres contenus depuis des sources externes."
+
+#: classes/Services/Blocks.php:352
+msgid "Display a monthly archive of your posts."
+msgstr "Affichez une archive mensuelle de vos articles."
+
+#: classes/Services/Blocks.php:345
+msgid "Display a list of your most recent comments."
+msgstr "Afficher une liste de vos commentaires les plus récents."
+
+#: classes/Services/Blocks.php:338
+msgid "Display a list of your most recent posts."
+msgstr "Afficher une liste de vos articles les plus récents."
+
+#: classes/Services/Blocks.php:331
+msgid "Display a list of all categories."
+msgstr "Affichez une liste de toutes les catégories."
+
+#: classes/Services/Blocks.php:324
+msgid "Insert additional custom elements with a WordPress shortcode."
+msgstr "Insérez des éléments personnalisés additionnels avec un code court WordPress."
+
+#: classes/Services/Blocks.php:313
+msgid "Add white space between blocks and customize its height."
+msgstr "Ajoutez de l’espace entre les blocs et définissez leur hauteur."
+
+#: classes/Services/Blocks.php:306
+msgid "Create a break between ideas or sections with a horizontal separator."
+msgstr "Créez un espacement entre des idées ou entre des sections avec un séparateur horizontal."
+
+#: classes/Services/Blocks.php:299
+msgid "Separate your content into a multi-page experience."
+msgstr "Séparez votre contenu sur plusieurs pages."
+
+#: classes/Services/Blocks.php:292
+msgid "Mark the excerpt of this content. Content before this block will be shown in the excerpt on your archives page."
+msgstr "Délimitez l’extrait de cette publication. Le contenu situé avant ce bloc sera affiché dans l’extrait de vos pages d’archive."
+
+#: classes/Services/Blocks.php:285
+msgid "Add a block that displays content in multiple columns, then add whatever content blocks you’d like."
+msgstr "Ajoutez un bloc qui affiche du contenu sur plusieurs colonnes puis insérez-y les blocs de votre choix."
+
+#: classes/Services/Blocks.php:278
+msgid "Prompt visitors to take action with a custom button."
+msgstr "Proposez aux visiteurs de passer à l’action avec un bouton personnalisé."
+
+#: classes/Services/Blocks.php:271
+msgid "Set media and words side-by-side for a richer layout."
+msgstr "Définir un média et du texte côte-à-côte pour une mise en page plus riche."
+
+#: classes/Services/Blocks.php:260
+msgid "Insert poetry. Use special spacing formats. Or quote song lyrics."
+msgstr "Insérez de la poésie ou des paroles de chansons en utilisant un espacement spécifique."
+
+#: classes/Services/Blocks.php:253
+msgid "Insert a table — perfect for sharing charts and data."
+msgstr "Insérez un tableau — parfait pour mettre en ligne des données tabulaires."
+
+#: classes/Services/Blocks.php:246
+msgid "Give special visual emphasis to a quote from your text."
+msgstr "Donnez une emphase visuelle à une citation."
+
+#: classes/Services/Blocks.php:239
+msgid "Add text that respects your spacing and tabs, and also allows styling."
+msgstr "Ajoutez du texte qui respecte les espacements et tabulations, avec la possibilité de le mettre en forme."
+
+#: classes/Services/Blocks.php:232
+msgid "Add custom HTML code and preview it as you edit."
+msgstr "Ajoutez du code HTML personnalisé et prévisualisez-le en direct."
+
+#: classes/Services/Blocks.php:225
+msgid "Display code snippets that respect your spacing and tabs."
+msgstr "Affichez des bouts de code qui respectent vos espacements et tabulations."
+
+#: classes/Services/Blocks.php:214
+msgid "Embed a video from your media library or upload a new one."
+msgstr "Embarquez une vidéo depuis votre médiathèque ou téléversez-en une nouvelle."
+
+#: classes/Services/Blocks.php:207
+msgid "Embed a simple audio player."
+msgstr "Embarquez un lecteur sonore simple."
+
+#: classes/Services/Blocks.php:200
+msgid "Add a link to a downloadable file."
+msgstr "Ajoutez un lien vers un fichier téléchargeable."
+
+#: classes/Services/Blocks.php:193
+msgid "Give quoted text visual emphasis. \"In quoting others, we cite ourselves.\" — Julio Cortázar"
+msgstr "Donnez une emphase visuelle à vos citations. « En citant les autres, nous nous citons nous mêmes » — Julio Cortázar"
+
+#: classes/Services/Blocks.php:186
+msgid "Add an image or video with a text overlay — great for headers."
+msgstr "Ajoutez une image ou une vidéo avec un texte par dessus – parfait pour les en-têtes."
+
+#: classes/Services/Blocks.php:179
+msgid "Insert an image to make a visual statement."
+msgstr "Insérez une image pour illustrer vos propos."
+
+#: classes/Services/Blocks.php:172
+msgid "Display multiple images in a rich gallery."
+msgstr "Affichez plusieurs images dans une galerie."
+
+#: classes/Services/Blocks.php:165
+msgid "Create a bulleted or numbered list."
+msgstr "Créez une liste à puces ou une liste numérotée."
+
+#: classes/Services/Blocks.php:158
+msgid "Introduce new sections and organize content to help visitors (and search engines) understand the structure of your content."
+msgstr "Introduisez les nouvelles sections et organisez votre publication pour aider les visiteurs (et les moteurs de recherche) à en comprendre la structure."
+
+#: classes/Services/Blocks.php:151
+msgid "Start with the building block of all narrative."
+msgstr "Commencez par la pierre angulaire de tout récit."
+
+#: classes/WP/Settings.php:44 classes/WP/Settings.php:45
+msgid "Disable WP Blocks"
+msgstr "Désactiver les blocs WP"
+
+#: admin/templates/settings/gmap.php:16
+msgid "The API key is mandatory."
+msgstr "La clé API est obligatoire."
+
+#: classes/Blocks/Ad.php:22
+msgid "Monetize your website by inserting Ads in your content. Best use for banner ads."
+msgstr "Monétisez votre site en insérant des publicités dans votre contenu. Adapté pour les annonces en bannière."
+
+#: admin/templates/settings/clicktotweet.php:4
+msgid "Username"
+msgstr "Identifiant"
+
+#: classes/Blocks/ClickToTweet.php:24
+msgid "This block needs your Twitter username"
+msgstr "Ce bloc requiert votre nom d'utilisateur Twitter"
+
+#: admin/templates/settings/adtext.php:12 admin/templates/settings/ad.php:12
+msgid "Grab this code from your Adsense account."
+msgstr "Récupérez ce code depuis votre compte Adsense."
+
+#: admin/templates/settings/adtext.php:4 admin/templates/settings/ad.php:4
+msgid "JS unit code"
+msgstr "Code JS"
+
+#: classes/Blocks/Ad.php:24 classes/Blocks/AdText.php:24
+msgid "This block requires a Google ads unit code"
+msgstr "Ce bloc requiert un code JS Google Ads"
+
+#: classes/Blocks/AdText.php:22
+msgid "Monetize your website by inserting Ads in your content. This blocks allows you to write a text on the left and display ad on the right."
+msgstr "Monétisez votre site en insérant des publicités dans votre contenu. Ce bloc vous permet d'écrire un texte sur la gauche et afficher une annonce sur la droite."
+
+#: classes/Blocks/Unsplash.php:24 classes/Blocks/Gmap.php:25
+#: classes/Blocks/Card.php:24 classes/Blocks/Giphy.php:24
+msgid "This block requires an API key"
+msgstr "Ce bloc nécessite une clé API"
+
+#: admin/templates/blocks_management.php:133
+msgid "Options"
+msgstr "Options"
+
+#: admin/templates/blocks_management.php:84
+msgid "Configure Block"
+msgstr "Configurer le bloc"
+
+#: admin/templates/blocks_management.php:35
+msgid "WooCommerce is not activated on this website."
+msgstr "WooCommerce n'est pas activé sur ce site."
+
+#: admin/templates/editor_settings.php:218
+msgid "Disable custom font size input in Paragraph Block"
+msgstr "Désactiver le choix des tailles de police dans le bloc Paragraphe"
+
+#: admin/templates/editor_settings.php:207
+msgid "Custom font size input"
+msgstr "Champ taille de police personnalisée"
+
+#: admin/templates/editor_settings.php:200
+msgid "Add Size"
+msgstr "Ajouter une taille"
+
+#: admin/templates/editor_settings.php:193
+#: admin/templates/editor_settings.php:263
+msgid "Size name (eg: Large)"
+msgstr "Nom (ex: Large)"
+
+#: admin/templates/editor_settings.php:173
+msgid "Custom font sizes"
+msgstr "Tailles de texte personnalisés"
+
+#: admin/templates/editor_settings.php:167
+msgid "Font sizes"
+msgstr "Taille des textes"
+
+#: admin/templates/editor_settings.php:160
+msgid "Disable custom color button in Color Palette"
+msgstr "Désactiver le bouton couleur personnalisée dans la palette de couleurs"
+
+#: admin/templates/editor_settings.php:149
+msgid "Custom color button"
+msgstr "Bouton couleur personnalisée"
+
+#: admin/templates/editor_settings.php:142
+msgid "Add Color"
+msgstr "Ajouter une couleur"
+
+#: admin/templates/editor_settings.php:137
+#: admin/templates/editor_settings.php:195
+#: admin/templates/editor_settings.php:244
+#: admin/templates/editor_settings.php:265
+msgid "Remove"
+msgstr "Retirer"
+
+#: admin/templates/editor_settings.php:135
+#: admin/templates/editor_settings.php:242
+msgid "Color name"
+msgstr "Nom de la couleur"
+
+#: admin/templates/editor_settings.php:117
+msgid "Custom color palette"
+msgstr "Palette de couleur personnalisée"
+
+#: admin/templates/editor_settings.php:110
+msgid "Colors"
+msgstr "Couleurs"
+
+#: admin/templates/editor_settings.php:103
+msgid "Activate Wide blocks"
+msgstr "Activer les blocs larges"
+
+#: admin/templates/editor_settings.php:92
+msgid "Wide Blocks"
+msgstr "Blocs larges"
+
+#: admin/templates/editor_settings.php:85
+msgid "Activate responsive Embeds styles"
+msgstr "Permettre aux contenus embarqués de s'adapter à toutes les tailles d'écran"
+
+#: admin/templates/editor_settings.php:74
+msgid "Responsive Embeds"
+msgstr "Contenu embarqués responsives"
+
+#: admin/templates/editor_settings.php:67
+msgid "Activate front stylesheet for default blocks styles"
+msgstr "Activer la feuille de style par défaut des blocs"
+
+#: admin/templates/editor_settings.php:56
+msgid "Blocks default styles"
+msgstr "Styles par défaut des blocs"
+
+#: admin/templates/editor_settings.php:50
+msgid "Large blocks custom width in px"
+msgstr "Taille personnalisée des blocs larges en pixels"
+
+#: admin/templates/editor_settings.php:38
+msgid "Editor Wide Blocks Width"
+msgstr "Taille des blocs larges"
+
+#: admin/templates/editor_settings.php:31
+msgid "Editor custom width in px"
+msgstr "Largeur personnalisée de l'éditeur en pixels"
+
+#: admin/templates/editor_settings.php:19
+msgid "Editor Width"
+msgstr "Largeur de l’éditeur de contenu"
+
+#: admin/templates/editor_settings.php:11
+msgid "If your theme doesn't handle some Editor features, you can activate them from here."
+msgstr "Si votre thème ne gère pas certaines fonctionnalités de l'éditeur, vous pouvez les activer d'ici."
+
+#: admin/templates/editor_settings.php:4
+msgid "Editor settings"
+msgstr "Réglages de l’éditeur"
+
+#: classes/WP/Settings.php:53 classes/WP/Settings.php:54
+msgid "Tweak Editor"
+msgstr "Améliorer l’éditeur"
+
+#: classes/WP/Settings.php:35 classes/WP/Settings.php:36
+msgid "Manage Blocks"
+msgstr "Gérer les blocs"
+
+#: admin/templates/settings/giphy.php:9
+msgid "Insert your Giphy API Key here"
+msgstr "Insérer votre clé API Giphy ici"
+
+#: classes/Blocks/Giphy.php:27
+msgid "Giphy"
+msgstr "Giphy"
+
+#: classes/Blocks/Giphy.php:22
+msgid "Search and insert a GIF from Giphy."
+msgstr "Rechercher et insérer un GIF de chez Giphy."
+
+#: classes/Blocks/Unsplash.php:27
+msgid "Unsplash"
+msgstr "Unsplash"
+
+#: classes/Blocks/Unsplash.php:22
+msgid "Find beautiful pictures from the best free photos stock."
+msgstr "Trouvez de magnifiques photographies de la meilleure banque d'images gratuite."
+
+#: classes/Services/Blocks.php:349
+msgid "Archives"
+msgstr "Archives"
+
+#: classes/Services/Blocks.php:342
+msgid "Latest comments"
+msgstr "Derniers commentaires"
+
+#: classes/Services/Blocks.php:310
+msgid "Spacer"
+msgstr "Séparateur"
+
+#: classes/Services/Blocks.php:296
+msgid "Page break"
+msgstr "Saut de page"
+
+#: classes/Services/Blocks.php:268
+msgid "Media and text"
+msgstr "Média & Texte"
+
+#: classes/Services/Blocks.php:197
+msgid "File"
+msgstr "Fichier"
+
+#: classes/Services/Blocks.php:183
+msgid "Cover"
+msgstr "Bannière"
+
+#. Plugin URI of the plugin
+msgid "https://advanced-gutenberg-blocks.com"
+msgstr "https://advanced-gutenberg-blocks.com"
+
+#: admin/templates/settings/summary.php:34
+msgid "Activate smooth scrolling"
+msgstr "Activer le défilement fluide"
+
+#: classes/Blocks/Summary.php:27 classes/Blocks/Summary.php:52
+#: admin/templates/settings/summary.php:8
+msgid "Table of contents"
+msgstr "Sommaire"
+
+#: classes/Blocks/Summary.php:23
+msgid "Display an auto generated summary block."
+msgstr "Affiche une table des matières générée automatiquement"
+
+#: classes/Blocks/Intro.php:22
+msgid "Intro"
+msgstr "Intro"
+
+#: classes/Blocks/Intro.php:19
+msgid "Display a nice introduction text at the beginning of your post."
+msgstr "Affiche une introduction emphasée au début de votre article."
+
+#: public/templates/clicktotweet.php:7
+msgid "Click to tweet"
+msgstr "Cliquez pour Tweeter"
+
+#: admin/templates/settings/clicktotweet.php:12
+msgid "Provide your Twitter username (without @)."
+msgstr "Indiquez votre identifiant Twitter (sans le @)."
+
+#: classes/Blocks/ClickToTweet.php:27
+msgid "Click To Tweet"
+msgstr "Cliquer pour Tweeter"
+
+#: classes/Blocks/ClickToTweet.php:22
+msgid "Allow your visitors to easily share your most inspirationals sentences in a click."
+msgstr "Permettez à vos internautes de partager vos meilleures phrases en un clic."
+
+#: public/templates/plugin.php:32
+msgid "Active Installations"
+msgstr "Installations actives"
+
+#. Author URI of the plugin
+msgid "https://advanced-gutenberg-blocks.com/"
+msgstr "https://advanced-gutenberg-blocks.com/"
+
+#: admin/templates/settings/card.php:9
+msgid "Insert your OpenGraph.io API Key here"
+msgstr "Indiquez votre clé d'API OpenGraph.io"
+
+#: admin/templates/settings/card.php:16
+msgid "The API key is mandatory, you can create one on the <a href=\"https://www.opengraph.io/\" target=\"_blank\">OpenGraph.io API service</a>. "
+msgstr "La clé d'API est obligatoire. Vous pouvez en obtenir une sur le <a href=\"https://www.opengraph.io/\" target=\"_blank\">service API OpenGraph.io</a>."
+
+#: public/templates/plugin.php:40
+msgid "Plugin page"
+msgstr "Voir l’extension"
+
+#: classes/Blocks/Plugin.php:188
+msgid "Less than 10"
+msgstr "Moins de 10"
+
+#: classes/Blocks/Plugin.php:185
+msgid "1+ Million"
+msgstr "1+ Million"
+
+#. Author of the plugin
+msgid "maximebj"
+msgstr "maximebj"
+
+#. Description of the plugin
+msgid "Awesome customizable blocks for the new WordPress Editor"
+msgstr "De nouveaux blocs originaux pour le nouvel éditeur visuel de WordPress"
+
+#. Plugin Name of the plugin
+#: classes/WP/Gutenberg.php:221 admin/templates/disable_blocks.php:10
+#: admin/templates/blocks_management.php:12
+msgid "Advanced Gutenberg Blocks"
+msgstr "Advanced Gutenberg Blocks"
+
+#: public/templates/product.php:26
+msgid "Add to cart"
+msgstr "Ajouter au panier"
+
+#: classes/Services/Blocks.php:335
+msgid "Latest posts"
+msgstr "Derniers articles"
+
+#: classes/Services/Blocks.php:328
+msgid "Categories"
+msgstr "Catégories"
+
+#: classes/Services/Blocks.php:321
+msgid "Shortcode"
+msgstr "Code court"
+
+#: classes/Services/Blocks.php:303
+msgid "Separator"
+msgstr "Séparateur"
+
+#: classes/Services/Blocks.php:289
+msgid "More"
+msgstr "Lire la suite"
+
+#: classes/Services/Blocks.php:282
+msgid "Columns"
+msgstr "Colonnes"
+
+#: classes/Services/Blocks.php:275
+msgid "Button"
+msgstr "Bouton"
+
+#: classes/Services/Blocks.php:257
+msgid "Verse"
+msgstr "Vers"
+
+#: classes/Services/Blocks.php:250
+msgid "Table"
+msgstr "Tableau"
+
+#: classes/Services/Blocks.php:243
+msgid "Pullquote"
+msgstr "Mise en avant"
+
+#: classes/Services/Blocks.php:236
+msgid "Preformatted"
+msgstr "Préformatté"
+
+#: classes/Services/Blocks.php:229
+msgid "Custom HTML"
+msgstr "HTML personnalisé"
+
+#: classes/Services/Blocks.php:222 classes/Blocks/Code.php:32
+msgid "Code"
+msgstr "Code"
+
+#: classes/Services/Blocks.php:211
+msgid "Video"
+msgstr "Vidéo"
+
+#: classes/Services/Blocks.php:190
+msgid "Quote"
+msgstr "Citation"
+
+#: classes/Services/Blocks.php:148
+msgid "Paragraph"
+msgstr "Paragraphe"
+
+#: classes/Services/Blocks.php:162
+msgid "List"
+msgstr "Liste"
+
+#: classes/Services/Blocks.php:176
+msgid "Image"
+msgstr "Image"
+
+#: classes/Services/Blocks.php:155
+msgid "Heading"
+msgstr "Titre"
+
+#: classes/Services/Blocks.php:169
+msgid "Gallery"
+msgstr "Galerie"
+
+#: classes/Services/Blocks.php:204
+msgid "Audio"
+msgstr "Audio"
+
+#: classes/Services/Blocks.php:138 classes/Services/Blocks.php:356
+msgid "Embed"
+msgstr "Contenu embarqué"
+
+#: classes/Services/Blocks.php:137 classes/Services/Blocks.php:317
+msgid "Widgets"
+msgstr "Widgets"
+
+#: classes/Services/Blocks.php:136 classes/Services/Blocks.php:264
+msgid "Layout"
+msgstr "Mise en page"
+
+#: classes/Services/Blocks.php:135 classes/Services/Blocks.php:218
+msgid "Formatting"
+msgstr "Format"
+
+#: classes/Services/Blocks.php:120
+msgid "External content"
+msgstr "Contenu distant"
+
+#: classes/Services/Blocks.php:121
+msgid "Marketing"
+msgstr "Marketing"
+
+#: classes/Services/Blocks.php:122
+msgid "WooCommerce"
+msgstr "WooCommerce"
+
+#: classes/Services/Blocks.php:119 classes/Services/Blocks.php:134
+#: classes/Services/Blocks.php:145
+msgid "Common"
+msgstr "Commun"
+
+#: classes/AdvancedGutenbergBlocks.php:141
+msgid "Advanced Gutenberg Blocks requires WordPress 5.0 or Gutenberg plugin to be activated"
+msgstr "Advanced Gutenberg Blocks a besoin de WordPress 5.0 ou de l’extension Gutenberg activée pour fonctionner"
+
+#: classes/Blocks/Testimonial.php:21
+msgid "Testimonial"
+msgstr "Témoignage"
+
+#: classes/Blocks/Testimonial.php:18
+msgid "Display a customer testimonial. It's good for the thrust but don't lie to your visitors!"
+msgstr "Affiche un témoignage utilisateur. C’est bon pour obtenir la confiance de vos lecteurs mais ne leur mentez pas !"
+
+#: classes/Blocks/Product.php:26
+msgid "Product"
+msgstr "Produit"
+
+#: classes/Blocks/Product.php:23
+msgid "Display WooCommerce Product in your post."
+msgstr "Affichez un produit WooCommerce dans une publication."
+
+#: classes/Blocks/Post.php:26
+msgid "Post"
+msgstr "Article"
+
+#: classes/Blocks/Post.php:23
+msgid "Display pretty posts link (from any post type)."
+msgstr "Affichez des liens améliorés vers vos publications (avec n'importe quel type de publication)."
+
+#: classes/Blocks/Plugin.php:28
+msgid "WordPress Plugin Card"
+msgstr "Vignette Extension WordPress"
+
+#: classes/Blocks/Plugin.php:25
+msgid "Display a Plugin informations from the official WordPress repository."
+msgstr "Affichez les informations d'une extension du répertoire officiel WordPress."
+
+#: classes/Blocks/Notice.php:22
+msgid "Notice"
+msgstr "Notification"
+
+#: classes/Blocks/Notice.php:19
+msgid "Display a sweet Info/Advice/Warning/Avoid/ notice."
+msgstr "Affichez une notification de type information / conseil / à éviter / Attention dans votre contenu."
+
+#: admin/templates/settings/gmap.php:9
+msgid "Insert your Google Maps API Key here"
+msgstr "Indiquez ici votre clé d’API"
+
+#: classes/Blocks/Gmap.php:28
+msgid "Google Map"
+msgstr "Google Map"
+
+#: classes/Blocks/Gmap.php:23
+msgid "Insert a Google Map in your content, the easy way."
+msgstr "Insérez une carte Google maps facilement dans vos contenus."
+
+#: classes/Blocks/Card.php:27
+msgid "Website card preview"
+msgstr "Vignette d’aperçu de site"
+
+#: classes/Blocks/Card.php:22
+msgid "Do you like how Facebook, Twitter or Slack display a sweet preview to a website in a card? Don't be jealous, we've made the same for you in WordPress!"
+msgstr "Vous aimez la façon dont Facebook, Twitter ou Slack affichent un aperçu de site ? Ne soyez pas jaloux, nous avons fait la même chose pour vous dans WordPress !"
+
+#: classes/Blocks/AddToCart.php:27
+msgid "Add to cart button"
+msgstr "Bouton Ajouter au panier"
+
+#: classes/Blocks/AddToCart.php:24
+msgid "An add to cart button to quickly purchase a WooCommerce product."
+msgstr "Un bouton « Ajouter au panier » pour acheter rapidement un produit WooCommerce."
+
+#: classes/Blocks/AdText.php:27
+msgid "Text + Rectangle Ad"
+msgstr "Texte + pub rectangle"
+
+#: classes/Blocks/Ad.php:27
+msgid "Banner Ad"
+msgstr "Bannière pub"
+
+#: admin/templates/blocks_management.php:143
+msgid "No settings for this block."
+msgstr "Aucun réglage pour ce bloc."
+
+#: admin/templates/blocks_management.php:139
+msgid "Save Changes"
+msgstr "Mettre à jour"
+
+#: admin/templates/blocks_management.php:151
+msgid "%s example"
+msgstr "aperçu du block %s"
+
+#: admin/templates/blocks_management.php:148
+msgid "Preview"
+msgstr "Aperçu"
+
+#: admin/templates/blocks_management.php:124
+msgid "Description"
+msgstr "Description"
+
+#: admin/templates/blocks_management.php:55
+msgid "[Soon]"
+msgstr "[Bientôt]"
+
+#: public/templates/post.php:28
+msgid "Read more"
+msgstr "Lire la suite"
+
+#: public/templates/post.php:17 public/templates/plugin.php:14
+msgid "By"
+msgstr "Par"
+
+#: public/templates/post.php:14
+msgid "In"
+msgstr "Dans"

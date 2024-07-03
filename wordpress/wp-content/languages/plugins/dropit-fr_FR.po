@@ -1,0 +1,52 @@
+# Translation of Plugins - Drop it - Stable (latest release) in French (France)
+# This file is distributed under the same license as the Plugins - Drop it - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2018-04-29 08:02:47+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: GlotPress/2.4.0-alpha\n"
+"Language: fr\n"
+"Project-Id-Version: Plugins - Drop it - Stable (latest release)\n"
+
+#. Author of the plugin/theme
+msgid "Riad Benguella"
+msgstr "Riad Benguella"
+
+#. Plugin URI of the plugin/theme
+msgid "https://github.com/youknowriad/dropit"
+msgstr "https://github.com/youknowriad/dropit"
+
+#. Plugin Name of the plugin/theme
+msgid "Drop it"
+msgstr "Drop it"
+
+#: languages/dropit-translations.php:20
+msgid "on"
+msgstr "sur"
+
+#: languages/dropit-translations.php:17
+msgid "Photo by"
+msgstr "Photo par"
+
+#: languages/dropit-translations.php:14
+msgid "Add photo"
+msgstr "Ajouter la photo"
+
+#: languages/dropit-translations.php:11
+msgid "Upload photo"
+msgstr "Téléverser la photo"
+
+#: languages/dropit-translations.php:8
+msgid "Search…"
+msgstr "Rechercher…"
+
+#: languages/dropit-translations.php:5
+msgid "Photos from Unsplash.com"
+msgstr "Photos depuis Unsplash.com"
+
+#. Description of the plugin/theme
+msgid "Easily insert free photos from unsplash.com right from Gutenberg's sidebar."
+msgstr "Insérer facilement des photos gratuites depuis unsplash.com au sein même de la colonne latérale de l’éditeur Gutenberg."

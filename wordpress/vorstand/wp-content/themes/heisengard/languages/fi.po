@@ -1,0 +1,458 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2017-03-29 12:02+0530\n"
+"PO-Revision-Date: 2017-03-29 12:07+0530\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: hi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7.1\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: core/ReduxCore\n"
+"X-Poedit-SearchPathExcluded-1: *.js\n"
+"X-Poedit-SearchPathExcluded-2: *.css\n"
+"X-Poedit-SearchPathExcluded-3: importer/inc/Helpers.php\n"
+"X-Poedit-SearchPathExcluded-4: importer/inc/WidgetImporter.php\n"
+"X-Poedit-SearchPathExcluded-5: importer/inc/WXRImporter.php\n"
+"X-Poedit-SearchPathExcluded-6: importer/inc/Downloader.php\n"
+"X-Poedit-SearchPathExcluded-7: importer/vendor/proteusthemes/wp-content-"
+"importer-v2/src/WXRImporter.php\n"
+
+#: 404.php:22
+msgid "404"
+msgstr "404"
+
+#: 404.php:23
+msgid "Page Not Found"
+msgstr "Sivua ei löytynyt"
+
+#: core/theme-option.php:138
+msgid "General"
+msgstr "Yleistä"
+
+#: core/theme-option.php:145
+msgid "Body Background"
+msgstr "Leipätekstin tausta"
+
+#: core/theme-option.php:146
+msgid "Body background with image, color, etc."
+msgstr "Leipätekstin tausta kuvalla, värillä jne."
+
+#: core/theme-option.php:155
+msgid "Link Color"
+msgstr "Linkin väri"
+
+#: core/theme-option.php:163
+msgid "Link Hover Color"
+msgstr "Linkin väri osoitettaessa"
+
+#: core/theme-option.php:172
+msgid "Header"
+msgstr "Otsake"
+
+#: core/theme-option.php:179
+msgid "Logo"
+msgstr "Logo"
+
+#: core/theme-option.php:180
+msgid "Upload logo of your website."
+msgstr "Siirrä verkkosivustosi logo palvelimelle."
+
+#: core/theme-option.php:188
+msgid "Favicon"
+msgstr "Favicon"
+
+#: core/theme-option.php:189
+msgid "Upload favicon of your website."
+msgstr "Siirrä verkkosivustosi favicon palvelimelle."
+
+#: core/theme-option.php:198
+msgid "Footer"
+msgstr "Alatunniste"
+
+#: core/theme-option.php:206
+msgid "Background Color"
+msgstr "Taustaväri"
+
+#: core/theme-option.php:214
+msgid "Typography"
+msgstr "Typografia"
+
+#: core/theme-option.php:221
+msgid "Body Font Style"
+msgstr "Leipätekstin fonttityyli"
+
+#: core/theme-option.php:226 core/theme-option.php:244
+#: core/theme-option.php:262 core/theme-option.php:281
+#: core/theme-option.php:300 core/theme-option.php:319
+#: core/theme-option.php:338
+msgid "Select the font size, font family, color etc"
+msgstr "Valitse fonttikoko, fonttiperhe, väri jne."
+
+#: core/theme-option.php:239
+msgid "H1 Font Style"
+msgstr "H1 fonttityyli"
+
+#: core/theme-option.php:257
+msgid "H2 Font Style"
+msgstr "H2 fonttityyli"
+
+#: core/theme-option.php:276
+msgid "H3 Font Style"
+msgstr "H3 fonttityyli"
+
+#: core/theme-option.php:295
+msgid "H4 Font Style"
+msgstr "H4 fonttityyli"
+
+#: core/theme-option.php:314
+msgid "H5 Font Style"
+msgstr "H5 fonttityyli"
+
+#: core/theme-option.php:333
+msgid "H6 Font Style"
+msgstr "H6 fonttityyli"
+
+#: core/theme-option.php:353
+msgid "Social"
+msgstr "Sosiaalinen media"
+
+#: core/theme-option.php:355
+msgid "Enter your social profile links here:"
+msgstr "Lisää sosiaalisen median linkkisi tänne:"
+
+#: core/theme-option.php:361
+msgid "Facebook"
+msgstr "Facebook"
+
+#: core/theme-option.php:367
+msgid "Twitter"
+msgstr "Twitter"
+
+#: core/theme-option.php:373
+msgid "Google Plus"
+msgstr "Google Plus"
+
+#: core/theme-option.php:380
+msgid "Icon Color"
+msgstr "Kuvakkeen väri"
+
+#: core/theme-option.php:381
+msgid "Select social icon color"
+msgstr "Valitse sosiaalisen median kuvakkeen väri"
+
+#: core/theme-option.php:389
+msgid "Icon Background Color"
+msgstr "Kuvakkeen taustaväri"
+
+#: core/theme-option.php:390
+msgid "Select social icon background color"
+msgstr "Valitse sosiaalisen median kuvakkeen taustaväri"
+
+#: core/theme-option.php:398
+msgid "Home"
+msgstr "Etusivu"
+
+#: core/theme-option.php:405
+msgid "Banner"
+msgstr "Banneri"
+
+#: core/theme-option.php:406 core/theme-option.php:484
+#: core/theme-option.php:508
+msgid "Please upload the image."
+msgstr "Siirrä kuva palvelimelle."
+
+#: core/theme-option.php:414
+msgid "Banner Text"
+msgstr "Banneriteksti"
+
+#: core/theme-option.php:420
+msgid "Banner Sub-text"
+msgstr "Bannerin aliteksti"
+
+#: core/theme-option.php:431
+msgid "Left Section Image"
+msgstr "Vasemman alueen kuva"
+
+#: core/theme-option.php:432 core/theme-option.php:442
+#: core/theme-option.php:449
+msgid "Below the banner"
+msgstr "Bannerin alla"
+
+#: core/theme-option.php:433 core/theme-option.php:460
+msgid "Please upload Image."
+msgstr "Siirrä kuva palvelimelle."
+
+#: core/theme-option.php:441
+msgid "Left Section Title"
+msgstr "Vasemman alueen otsikko"
+
+#: core/theme-option.php:448
+msgid "Left Section Text"
+msgstr "Vasemman alueen teksti"
+
+#: core/theme-option.php:459
+msgid " Full Width Section Image"
+msgstr "Täysleveän alueen kuva"
+
+#: core/theme-option.php:468
+msgid "Full Width Section Text"
+msgstr "Täysleveän alueen teksti"
+
+#: core/theme-option.php:482
+msgid "Box-1 Image"
+msgstr "Laatikon-1 kuva"
+
+#: core/theme-option.php:483 core/theme-option.php:493
+#: core/theme-option.php:500 core/theme-option.php:507
+#: core/theme-option.php:517 core/theme-option.php:524
+#: core/theme-option.php:531 core/theme-option.php:541
+#: core/theme-option.php:548
+msgid "Below the full width section"
+msgstr "Täysleveän alueen alla"
+
+#: core/theme-option.php:492
+msgid "Box-1 Title"
+msgstr "Laatikon-1 otsikko"
+
+#: core/theme-option.php:499
+msgid "Box-1 Text"
+msgstr "Laatikon-1 teksti"
+
+#: core/theme-option.php:506
+msgid "Box-2 Image"
+msgstr "Laatikon-2 kuva"
+
+#: core/theme-option.php:516
+msgid "Box-2 Title"
+msgstr "Laatikon-2 otsikko"
+
+#: core/theme-option.php:523
+msgid "Box-2 Text"
+msgstr "Laatikon-2 teksti"
+
+#: core/theme-option.php:530
+msgid "Box-3 Image"
+msgstr "Laatikon-3 kuva"
+
+#: core/theme-option.php:532
+msgid "Please upload the image ."
+msgstr "Siirrä kuva palvelimelle."
+
+#: core/theme-option.php:540
+msgid "Box-3 Title"
+msgstr "Laatikon-3 otsikko"
+
+#: core/theme-option.php:547
+msgid "Box-3 Text"
+msgstr "Laatikon-3 teksti"
+
+#: core/theme-option.php:558
+msgid "Bottom Section"
+msgstr "Ala-alue"
+
+#: core/theme-option.php:575
+msgid "Contact"
+msgstr "Yhteystiedot"
+
+#: core/theme-option.php:582
+msgid "Page content"
+msgstr "Sivun sisältö"
+
+#: core/theme-option.php:583
+msgid "Use shortcodes here, if necessary."
+msgstr "Käytä tarvittaessa lyhytkoodeja"
+
+#: core/theme-option.php:589
+msgid "Recipients"
+msgstr "Vastaanottajat"
+
+#: core/theme-option.php:590
+msgid "Insert email addresses separated by comma"
+msgstr "Syötä sähköpostiosoitteet pilkuilla erotettuina"
+
+#: core/theme-option.php:591
+msgid ""
+"Provide email ids on which you want to receive email from contact form. "
+"Example: info@one.com, contact@gmail.com"
+msgstr ""
+"Syötä sähköpostitunnukset, joihin haluat vastaanottaa yhteydenottolomakkeen "
+"viestit. Esimerkki: info@one.com, contact@gmail.com"
+
+#: core/theme-option.php:608
+msgid "Import"
+msgstr "Tuo"
+
+#: functions.php:94
+msgid "Mainmenu Navigation"
+msgstr "Päävalikon navigointi"
+
+#: functions.php:103
+msgid "Testimonial"
+msgstr "Käyttäjäkokemus"
+
+#: functions.php:121
+msgid "Travel"
+msgstr "Matka"
+
+#: functions.php:234
+msgid "Group"
+msgstr "Ryhmä"
+
+#: functions.php:239
+msgid "Price"
+msgstr "Hinta"
+
+#: functions.php:243
+msgid "Breakfast"
+msgstr "Aamiainen"
+
+#: functions.php:247
+msgid "Flight"
+msgstr "Lento"
+
+#: functions.php:251
+msgid "Guide"
+msgstr "Opas"
+
+#: functions.php:255
+msgid "Car"
+msgstr "Auto"
+
+#: importer/inc/OneClickDemoImport.php:382
+#, php-format
+msgid ""
+"%1$s%3$sThat's it, all done!%4$s%2$sThe import of demo data has finished. "
+"Please check your page and make sure that everything has been imported "
+"correctly.%5$s"
+msgstr ""
+"%1$s%3$sSiinä kaikki! Valmista tuli!%4$s%2$sDemotietojen tuonti on "
+"viimeistelty. Tarkistathan sivusi varmistaaksesi kaiken olevan tuotu oikein."
+"%5$s"
+
+#: importer/inc/OneClickDemoImport.php:393
+#, php-format
+msgid ""
+"%1$sThe demo import has finished, but there were some import errors.%2$sMore "
+"details about the errors can be found in this %3$s%5$slog file%6$s%4$s%7$s"
+msgstr ""
+"%1$sDemotietojen tuonti on viimeistelty, mutta tuonnissa ilmeni virheitä."
+"%2$sLisätietoja virheistä löydät tästä %3$s%5$slokitiedostosta%6$s%4$s%7$s"
+
+#: importer/views/plugin-page.php:14
+msgid "Import demo data"
+msgstr "Tuo demotiedot"
+
+#: importer/views/plugin-page.php:35
+msgid ""
+"The easiest way to setup your theme is by importing demo data. It includes "
+"demo posts, pages, images and theme settings. This will allow you to edit "
+"the demo content, instead of creating everything from scratch."
+msgstr ""
+"Helpoin tapa määrittää teema on tuoda demotiedot. Ne sisältävät "
+"esittelyartikkelit, -sivut, -kuvat, sekä teeman asetukset. Demotietojen "
+"tuominen antaa sinulle mahdollisuuden muokata esittelysisältöä, eikä sinun "
+"tarvitse luoda kaikkea tyhjästä."
+
+#: importer/views/plugin-page.php:40
+msgid "When you import demo data, please be aware of the following:"
+msgstr "Ota huomioon tuodessasi demotietoja:"
+
+#: importer/views/plugin-page.php:43
+msgid ""
+"No existing data will be deleted or modified, this includes posts, pages, "
+"categories, images, custom post types or any other data."
+msgstr ""
+"Olemassaolevia tietoja, kuten artikkeleita, sivuja, kotegorioita, kuvia, "
+"mukautettuja artikkelityyppejä ja muita tietoja ei poisteta tai muokata."
+
+#: importer/views/plugin-page.php:44
+msgid ""
+"Posts, pages, images, widgets, menus and other theme settings will get "
+"imported."
+msgstr ""
+"Artikkelit, sivut, kuvat, vimpaimet, valikot ja muut teema-asetukset tuodaan."
+
+#: importer/views/plugin-page.php:45
+msgid ""
+"It can take a couple of minutes for the import to finish, so please click "
+"the Import button only once."
+msgstr ""
+"Demotietojen tuonti voi kestää muutaman minuutin, joten napsautathan "
+"tuontipainiketta vain kerran."
+
+#: importer/views/plugin-page.php:96 importer/views/plugin-page.php:108
+msgid "Import Demo Data"
+msgstr "Tuo demotiedot"
+
+#: importer/views/plugin-page.php:168
+msgid "Importing, please wait!"
+msgstr "Tuodaan. Odota hetki..."
+
+#: metabox/metabox.php:5
+msgid "Page Settings"
+msgstr "Sivuasetukset"
+
+#: metabox/metabox.php:16
+msgid "Bottom Content"
+msgstr "Alasisältö"
+
+#: metabox/metabox.php:87
+msgid "Title"
+msgstr "Otsikko"
+
+#: metabox/metabox.php:96
+msgid "Sub Title"
+msgstr "Alaotsikko"
+
+#: page_Travel.php:98
+msgid "Earlier Travels"
+msgstr "Aiemmat matkat"
+
+#: search.php:22
+msgid "Search Results"
+msgstr "Hakutulokset"
+
+#: single.php:48
+msgid "Published on: "
+msgstr "Julkaistu:"
+
+#: single.php:80
+msgid "Pages:"
+msgstr "Sivuja:"
+
+#: single.php:92
+msgid "Group: "
+msgstr "Ryhmä:"
+
+#: single.php:98
+msgid "Price: "
+msgstr "Hinta:"
+
+#: single.php:104
+msgid "Breakfast: "
+msgstr "Aamiainen:"
+
+#: single.php:110
+msgid "Flight: "
+msgstr "Lento:"
+
+#: single.php:116
+msgid "Guide: "
+msgstr "Opas:"
+
+#: single.php:122
+msgid "Car: "
+msgstr "Auto:"
+
+#~ msgid "Trip Types"
+#~ msgstr "Matkatyypit"
+
+#~ msgid "Meta Box Title"
+#~ msgstr "Metalaatikon otsikko"

@@ -1,0 +1,293 @@
+# Translation of Plugins - Photo Gallery by 10Web &#8211; Mobile-Friendly Image Gallery - Stable (latest release) in Dutch
+# This file is distributed under the same license as the Plugins - Photo Gallery by 10Web &#8211; Mobile-Friendly Image Gallery - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-06-05 11:03:09+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/3.0.0-alpha\n"
+"Language: nl\n"
+"Project-Id-Version: Plugins - Photo Gallery by 10Web &#8211; Mobile-Friendly Image Gallery - Stable (latest release)\n"
+
+#: framework/WDWLibrary.php:241
+msgid "All items are successfully duplicated."
+msgstr "Alle items zijn succesvol gedupliceerd."
+
+#: addons/addons.php:29
+msgid "Link and display your Google Photos albums in one click."
+msgstr "Link en toon je Google fotoalbums met 1 klik."
+
+#: addons/addons.php:8
+msgid "Using Photo Gallery Ecommerce you can sell images included in galleries either as digital downloads or products/prints via Paypal or Stripe."
+msgstr "Als je Photo Gallery Ecommerce gebruikt kun je afbeeldingen die in galerijen staan als digitale download of als product of print verkopen via PayPal of Stripe. "
+
+#: addons/addons.php:6
+msgid "Photo Gallery Ecommerce"
+msgstr "Photo Gallery Ecommerce"
+
+#: insert.php:144
+msgid "Dark"
+msgstr "Donker"
+
+#: insert.php:137
+msgid "Light"
+msgstr "Licht"
+
+#: addons/addons.php:27
+msgid "Photo Gallery Google Photos Integration"
+msgstr "Photo Gallery Google Photos Integratie"
+
+#: addons/addons.php:20
+msgid "Photo Gallery Export / Import"
+msgstr "Export/import van Photo Gallery"
+
+#: framework/howto/data.php:79
+msgid "Attention:"
+msgstr "Attentie:"
+
+#: addons/addons.php:22
+msgid "Photo Gallery Export/Import helps to move created galleries and gallery groups from one site to another. This way you can save the gallery/album options and manual modifications."
+msgstr "Export/import van Photo Gallery helpt bij het verplaatsen van gemaakte galerijen en galerij groepen van de ene site naar de andere. Op deze manier kun je de opties en handmatige veranderingen van galerij/album behouden."
+
+#: addons/addons.php:39
+msgid "Photo Gallery Add-ons"
+msgstr "Add-ons van PhotoGallery"
+
+#: addons/addons.php:15
+msgid "This addon integrates NextGen with Photo Gallery allowing to import images and related data from NextGen to use with Photo Gallery"
+msgstr "Deze add-on integreert NextGen met PhotoGallery en geeft de mogelijkheid om afbeeldingen en gerelateerde gegevens uit NextGen te importeren en ze te gebruiken in PhotoGallery"
+
+#: addons/addons.php:72
+msgid "GET THIS ADD ON"
+msgstr "DEZE ADD-ON VERKRIJGEN"
+
+#: addons/addons.php:13
+msgid "NextGen Gallery Import to Photo Gallery"
+msgstr "NextGen galerij importeren in Photo Gallery"
+
+#: frontend/views/view.php:655 admin/views/Widget.php:160
+msgid "First"
+msgstr "Eerste"
+
+#: frontend/views/view.php:656
+msgid "Previous"
+msgstr "Vorige"
+
+#: frontend/views/view.php:657
+msgid "Next"
+msgstr "Volgende"
+
+#: frontend/views/view.php:677
+msgid "Go to the first page"
+msgstr "Ga naar de eerste pagina"
+
+#: frontend/views/view.php:682 admin/views/AdminView.php:270
+#: framework/WDWLibrary.php:504 framework/WDWLibrary.php:653
+msgid "of"
+msgstr "van"
+
+#: frontend/views/view.php:689
+msgid "Go to the next page"
+msgstr "Ga naar de volgende pagina"
+
+#: frontend/views/view.php:690
+msgid "Go to the last page"
+msgstr "Ga naar de laatste pagina"
+
+#: filemanager/view.php:234 frontend/views/view.php:247
+msgid "Back"
+msgstr "Terug"
+
+#: frontend/views/BWGViewAlbum_extended_preview.php:165
+#: frontend/views/BWGViewAlbum_extended_preview.php:168
+msgid "More"
+msgstr "Meer"
+
+#: frontend/views/BWGViewAlbum_extended_preview.php:166
+msgid "Hide"
+msgstr "Verbergen"
+
+#: photo-gallery.php:1425 frontend/views/BWGViewGalleryBox.php:788
+msgid "Maximize"
+msgstr "Maximaliseren"
+
+#: photo-gallery.php:1433 photo-gallery.php:1436
+msgid "Pause"
+msgstr "Pauze"
+
+#: frontend/controllers/controller.php:281
+#: frontend/controllers/controller.php:315
+msgid "There is no gallery selected or the gallery was deleted."
+msgstr "Er is geen galerij geselecteerd of de galerie is verwijderd."
+
+#: photo-gallery.php:1415
+msgid "This is not a valid email address."
+msgstr "Dit is geen geldig e-mailadres."
+
+#: wd/includes/notices.php:210
+msgid "Sure! I'd love to!"
+msgstr "Zeker! Doe ik graag!"
+
+#: wd/includes/notices.php:212
+msgid "Maybe Later"
+msgstr "Misschien later"
+
+#: photo-gallery.php:1432 photo-gallery.php:1435
+#: frontend/views/BWGViewThumbnails.php:45
+#: frontend/views/BWGViewGalleryBox.php:784
+msgid "Play"
+msgstr "Afspelen"
+
+#: frontend/views/BWGViewGalleryBox.php:645
+msgid "The image has been deleted."
+msgstr "De afbeelding is verwijderd."
+
+#: photo-gallery.php:1426 frontend/views/BWGViewGalleryBox.php:792
+msgid "Fullscreen"
+msgstr "Volledig scherm"
+
+#: photo-gallery.php:1438 frontend/views/BWGViewGalleryBox.php:794
+msgid "Show info"
+msgstr "Informatie weergeven"
+
+#: photo-gallery.php:1423 frontend/views/BWGViewGalleryBox.php:993
+msgid "Hide Comments"
+msgstr "Verberg reacties"
+
+#: photo-gallery.php:1422
+msgid "Show Comments"
+msgstr "Toon reacties"
+
+#: photo-gallery.php:1437
+msgid "Hide info"
+msgstr "Informatie verbergen"
+
+#: photo-gallery.php:1424
+msgid "Restore"
+msgstr "Terugzetten"
+
+#: photo-gallery.php:1427
+msgid "Exit Fullscreen"
+msgstr "Volledig scherm afsluiten"
+
+#: photo-gallery.php:1419 admin/views/AdminView.php:199
+#: framework/WDWLibrary.php:373 framework/WDWLibrary.php:551
+msgid "Search"
+msgstr "Zoeken"
+
+#: frontend/views/view.php:380 admin/views/Galleries.php:730
+#: admin/views/Themes.php:234 framework/WDWLibrary.php:374
+#: framework/WDWLibrary.php:552 framework/WDWLibrary.php:2492
+msgid "Reset"
+msgstr "Resetten"
+
+#: frontend/views/view.php:658 admin/views/Widget.php:161
+msgid "Last"
+msgstr "Laatste"
+
+#: frontend/views/view.php:678
+msgid "Go to the previous page"
+msgstr "Ga naar de vorige pagina"
+
+#: filemanager/view.php:130
+msgid "Order by:"
+msgstr "Sorteer op:"
+
+#: admin/views/Options.php:785 admin/views/Options.php:1167
+#: admin/views/Options.php:1395 admin/views/Options.php:1631
+#: admin/views/Options.php:1828 admin/views/Options.php:2068
+#: admin/views/Options.php:2227 admin/views/Options.php:2404
+#: admin/views/Options.php:2615 admin/views/Options.php:2632
+#: admin/views/Options.php:2915 admin/views/Options.php:2932
+#: admin/views/Options.php:3155 admin/views/Options.php:3172
+#: admin/views/Themes.php:82 admin/views/Themes.php:113
+#: admin/views/Themes.php:180 admin/views/Shortcode.php:349
+msgid "Default"
+msgstr "Standaard"
+
+#: frontend/views/view.php:429 admin/views/Galleries.php:637
+#: admin/views/Galleries.php:704 admin/views/Options.php:1170
+#: admin/views/Options.php:1398 admin/views/Options.php:1634
+#: admin/views/Options.php:1831 admin/views/Options.php:2071
+#: admin/views/Options.php:2230 admin/views/Options.php:2407
+#: admin/views/Options.php:2635 admin/views/Options.php:2935
+#: admin/views/Options.php:3175
+msgid "Filename"
+msgstr "Bestandsnaam"
+
+#: filemanager/view.php:151 frontend/views/view.php:432
+#: admin/views/Galleries.php:715 admin/views/Options.php:1171
+#: admin/views/Options.php:1399 admin/views/Options.php:1635
+#: admin/views/Options.php:1832 admin/views/Options.php:2072
+#: admin/views/Options.php:2231 admin/views/Options.php:2408
+#: admin/views/Options.php:2636 admin/views/Options.php:2936
+#: admin/views/Options.php:3176
+msgid "Size"
+msgstr "Grootte"
+
+#: frontend/views/view.php:435 admin/views/Widget.php:159
+#: admin/views/Options.php:1098 admin/views/Options.php:1174
+#: admin/views/Options.php:1402 admin/views/Options.php:1638
+#: admin/views/Options.php:1835 admin/views/Options.php:2075
+#: admin/views/Options.php:2234 admin/views/Options.php:2411
+#: admin/views/Options.php:2617 admin/views/Options.php:2639
+#: admin/views/Options.php:2917 admin/views/Options.php:2939
+#: admin/views/Options.php:3157 admin/views/Options.php:3179
+#: admin/controllers/WidgetSlideshow.php:59
+msgid "Random"
+msgstr "Willekeurig"
+
+#: frontend/views/view.php:703
+msgid "Load More..."
+msgstr "Meer laden..."
+
+#. Plugin Name of the plugin
+#: photo-gallery.php:111 admin/views/Widget.php:98
+msgid "Photo Gallery"
+msgstr "Photo Gallery"
+
+#: wd/includes/notices.php:208
+msgid "Leave A Review?"
+msgstr "Een beoordeling geven?"
+
+#: frontend/controllers/controller.php:93
+msgid "There is no album selected or the gallery was deleted."
+msgstr "Er is geen album geselecteerd of de galerij is verwijderd."
+
+#: frontend/views/view.php:650
+msgid " item(s)"
+msgstr " artikel(en)"
+
+#. Description of the plugin
+msgid "This plugin is a fully responsive gallery plugin with advanced functionality.  It allows having different image galleries for your posts and pages. You can create unlimited number of galleries, combine them into albums, and provide descriptions and tags."
+msgstr "Deze plugin is een volledig responsieve galerij plugin met geavanceerde functionaliteit; hij heeft de mogelijkheid verschillende afbeelding galerijen te gebruiken voor berichten en pagina's. Je kunt een onbeperkt aantal galerijen aanmaken, ze combineren in albums en beschrijvingen en tags toevoegen."
+
+#: frontend/views/BWGViewGalleryBox.php:848
+msgid "Download original image"
+msgstr "Download de originele afbeelding"
+
+#: photo-gallery.php:1416
+msgid "There are no images matching your search."
+msgstr "Er zijn geen afbeeldingen gevonden die voldoen aan de zoekopdracht."
+
+#: wd/includes/notices.php:211
+msgid "I've already left a review"
+msgstr "Ik heb al een beoordeling gegeven"
+
+#: wd/includes/notices.php:213
+msgid "Never show again"
+msgstr "Nooit meer tonen"
+
+#: frontend/views/BWGViewGalleryBox.php:833
+msgid "Open image in original size."
+msgstr "Open de afbeelding in de oorspronkelijke grootte."
+
+#: photo-gallery.php:626 photo-gallery.php:1414
+msgid "field is required."
+msgstr "veld is verplicht."
+
+#: wd/includes/notices.php:209
+msgid "We hope you've enjoyed using WordPress %s! Would you consider leaving us a review on WordPress.org?"
+msgstr "Wij hopen dat je genoten hebt van het gebruiken van WordPress %s! Zou je willen overwegen een beoordeling te geven op WordPress.org?"

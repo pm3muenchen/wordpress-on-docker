@@ -1,0 +1,491 @@
+# Translation of Plugins - WP User Avatar - Development (trunk) in Czech
+# This file is distributed under the same license as the Plugins - WP User Avatar - Development (trunk) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2016-09-21 19:44:22+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: GlotPress/2.4.0-alpha\n"
+"Language: cs_CZ\n"
+"Project-Id-Version: Plugins - WP User Avatar - Development (trunk)\n"
+
+#. Author URI of the plugin/theme
+msgid "http://www.flippercode.com/"
+msgstr "http://www.flippercode.com/"
+
+#. Author of the plugin/theme
+msgid "flippercode"
+msgstr "flippercode"
+
+#. Description of the plugin/theme
+msgid "Use any image from your WordPress Media Library as a custom user avatar. Add your own Default Avatar."
+msgstr "Vezme vaše obrázky ve WordPress mediích a vytvoří z nich profilové obrázky. Ty si pak můžete přidat jako svůj výchozí profilový obrázek. "
+
+#. Plugin URI of the plugin/theme
+msgid "http://wordpress.org/plugins/wp-user-avatar/"
+msgstr "http://cs.wordpress.org/plugins/wp-user-avatar/"
+
+#: includes/wpua-options-page.php:198
+msgid "For users without a custom avatar of their own, you can either display a generic logo or a generated one based on their e-mail address."
+msgstr "Pro uživatele bez vlastního profilového obrázku můžete vložit obecný obrázek nebo náhodně generovaný z jejich e-mailové adresy."
+
+#: includes/wpua-options-page.php:183
+msgid "X &#8212; Even more mature than above"
+msgstr "X &#8211; Vhodný pouze pro dospělé"
+
+#: includes/wpua-options-page.php:182
+msgid "R &#8212; Intended for adult audiences above 17"
+msgstr "R &#8211; Určený návštěvníkům starším 17 let"
+
+#: includes/wpua-options-page.php:181
+msgid "PG &#8212; Possibly offensive, usually for audiences 13 and above"
+msgstr "PG &#8211; Ostřejší, možná i urážlivý či útočný, obvykle pro návštěvníky starší 13 let"
+
+#: includes/wpua-options-page.php:180
+msgid "G &#8212; Suitable for all audiences"
+msgstr "G &#8211; Vhodné pro všechny návštěvníky"
+
+#: includes/wpua-options-page.php:174 includes/wpua-options-page.php:177
+msgid "Maximum Rating"
+msgstr "Maximální hodnocení"
+
+#: includes/wpua-options-page.php:168
+msgid "Show Avatars"
+msgstr "Zobrazit profilové obrázky"
+
+#: includes/wpua-options-page.php:162 includes/wpua-options-page.php:165
+msgid "Avatar Display"
+msgstr "Zobrazování profilových obrázků"
+
+#: includes/wpua-options-page.php:146
+msgid "Crop avatars to exact dimensions"
+msgstr "Oříznout profilový obrázek na přesné rozměry"
+
+#: includes/wpua-options-page.php:142
+msgid "Height"
+msgstr "Výška"
+
+#: includes/wpua-options-page.php:140
+msgid "Width"
+msgstr "Šířka"
+
+#: includes/wpua-options-page.php:136
+msgid "Resize avatars on upload"
+msgstr "Změnit velikost obrázku při nahrávání"
+
+#: includes/wpua-options-page.php:130
+msgid "Allow users to edit avatars"
+msgstr "Povolit uživatelům úpravy profilových obrázků"
+
+#: includes/wpua-options-page.php:123
+msgid "%s exceeds the maximum upload size for this site."
+msgstr "Soubor %s překročil maximální povolenou velikost nahrávaného souboru na tomto webu."
+
+#: includes/wpua-options-page.php:115 includes/wpua-options-page.php:120
+msgid "(only for Contributors & Subscribers)"
+msgstr "(pouze pro odběratele s & přispěvatele)"
+
+#: includes/wpua-options-page.php:115 includes/wpua-options-page.php:120
+msgid "Upload Size Limit"
+msgstr "Maximální velikost souboru"
+
+#: includes/wpua-options-page.php:93
+msgid "Disable Gravatar and use only local avatars"
+msgstr "Zakázat Gravatar a používat pouze místní profilové obrázky"
+
+#: includes/wpua-options-page.php:87
+msgid "Allow Contributors & Subscribers to upload avatars"
+msgstr "Povolit nahrávání náhledového obrázku pro odběratele s & přispěvatele"
+
+#: includes/wpua-options-page.php:81
+msgid "Add avatar button to Visual Editor"
+msgstr "Přidat tlačítko avatara na Visual Editor"
+
+#: includes/wpua-media-page.php:110
+msgid "Search"
+msgstr "Hledat"
+
+#: includes/wpua-media-page.php:102
+msgid "Media attachment permanently deleted."
+msgid_plural "%d media attachments permanently deleted."
+msgstr[0] "Příloha trvale odstraněna."
+msgstr[1] "%d přílohy trvale odstraněny."
+msgstr[2] "%d příloh trvale odstraněno."
+
+#: includes/wpua-media-page.php:95
+msgid "Search results for &#8220;%s&#8221;"
+msgstr "Výsledky vyhledávání pro &#8220;%s&#8221;"
+
+#: includes/wpua-media-page.php:74
+msgid "Error in deleting."
+msgstr "Během mazání se objevila chyba."
+
+#: includes/wpua-media-page.php:71
+msgid "You are not allowed to delete this post."
+msgstr "Nemáte práva na smazání tohoto příspěvku."
+
+#: includes/wpua-media-page.php:39
+msgid "You do not have permission to upload files."
+msgstr "Nemáte dostatečné oprávnění pro nahrávání souborů."
+
+#: includes/wpua-functions.php:90 includes/wpua-functions.php:96
+#: includes/wpua-functions.php:155
+msgid "Image"
+msgstr "Obrázek"
+
+#: includes/tinymce/window.php:195 includes/tinymce/window.php:196
+#: includes/tinymce/window.php:197
+msgid "wp_user_avatar_upload"
+msgstr "wp_user_avatar_nahrávání"
+
+#: includes/tinymce/window.php:191 includes/tinymce/window.php:201
+msgid "Insert into Post"
+msgstr "Vložit do příspěvku"
+
+#: includes/tinymce/window.php:186
+msgid "Caption"
+msgstr "Popisek"
+
+#: includes/tinymce/window.php:186 includes/tinymce/window.php:187
+msgid "wp_user_avatar_caption"
+msgstr "wp_user_avatar_nadpis"
+
+#: includes/tinymce/window.php:182
+msgid "Open link in a new window"
+msgstr "Otevřít odkaz v novém okně"
+
+#: includes/tinymce/window.php:181 includes/tinymce/window.php:182
+msgid "wp_user_avatar_target"
+msgstr "wp_user_avatar_cíl"
+
+#: includes/tinymce/window.php:176
+msgid "URL"
+msgstr "URL"
+
+#: includes/tinymce/window.php:176 includes/tinymce/window.php:177
+msgid "wp_user_avatar_link_external"
+msgstr "wp_user_avatar_externí_odkaz"
+
+#: includes/tinymce/window.php:175
+msgid "wp_user_avatar_link_external_section"
+msgstr "wp_user_avatar_odkaz_na_externí_sekci"
+
+#: includes/tinymce/window.php:171
+msgid "Custom URL"
+msgstr "Zadat vlastní adresu"
+
+#: includes/tinymce/window.php:170
+msgid "Attachment Page"
+msgstr "Stránka se zobrazením souboru"
+
+#: includes/tinymce/window.php:169
+msgid "Image File"
+msgstr "Soubor s obrázkem"
+
+#: includes/tinymce/window.php:166
+msgid "Link To"
+msgstr "URL odkazu"
+
+#: includes/tinymce/window.php:166 includes/tinymce/window.php:167
+msgid "wp_user_avatar_link"
+msgstr "wp_user_avatar_odkaz"
+
+#: includes/tinymce/window.php:161
+msgid "Right"
+msgstr "Vpravo"
+
+#: includes/tinymce/window.php:160
+msgid "Left"
+msgstr "Vlevo"
+
+#: includes/tinymce/window.php:159
+msgid "Center"
+msgstr "Střed"
+
+#: includes/tinymce/window.php:156
+msgid "Alignment"
+msgstr "Zarovnání"
+
+#: includes/tinymce/window.php:156 includes/tinymce/window.php:157
+msgid "wp_user_avatar_align"
+msgstr "wp_user_avatar_zarovnání"
+
+#: includes/tinymce/window.php:151 includes/tinymce/window.php:152
+msgid "wp_user_avatar_size_number"
+msgstr "wp_user_avatar_číslo_velikosti"
+
+#: includes/tinymce/window.php:150
+msgid "wp_user_avatar_size_number_section"
+msgstr "wp_user_avatar_počet_sekcí"
+
+#: includes/tinymce/window.php:146
+msgid "Custom"
+msgstr "Vlastní"
+
+#: includes/tinymce/window.php:144
+msgid "Medium"
+msgstr "Střední"
+
+#: includes/tinymce/window.php:143
+msgid "Large"
+msgstr "Velký"
+
+#: includes/tinymce/window.php:139 includes/tinymce/window.php:151
+msgid "Size"
+msgstr "Velikost"
+
+#: includes/tinymce/window.php:139 includes/tinymce/window.php:140
+#: includes/tinymce/window.php:152 includes/tinymce/window.php:187
+msgid "wp_user_avatar_size"
+msgstr "wp_user_avatar_velikost"
+
+#: includes/tinymce/window.php:129
+msgid "User Name"
+msgstr "Uživatelské jméno"
+
+#: includes/tinymce/window.php:129 includes/tinymce/window.php:130
+msgid "wp_user_avatar_user"
+msgstr "wp_user_avatar_uživatel"
+
+#: includes/class-wp-user-avatar.php:234
+msgid "Unable to create directory %s. Is its parent directory writable by the server?"
+msgstr "Nepodařilo se vytvořit adresář %s. Zkontrolujte, zda má nadřazený adresář právo zápisu?"
+
+#: includes/class-wp-user-avatar.php:230 includes/class-wp-user-avatar.php:256
+msgid "Memory exceeded. Please try another smaller file."
+msgstr "Nedostatek paměti. Zkuste prosím nahrát nějaký menší soubor."
+
+#: includes/class-wp-user-avatar.php:226
+msgid "This file is not an image. Please try another."
+msgstr "Tento soubor není obrázek. Zkuste prosím nějaký jiný."
+
+#: includes/class-wp-user-avatar.php:199
+msgid "Edit Image"
+msgstr "Upravit obrázek"
+
+#: includes/class-wp-user-avatar.php:197
+msgid "Remove Image"
+msgstr "Odstranit obrázek"
+
+#: includes/class-wp-user-avatar.php:194 includes/tinymce/window.php:145
+msgid "Thumbnail"
+msgstr "Náhled"
+
+#: includes/class-wp-user-avatar.php:190 includes/tinymce/window.php:142
+msgid "Original Size"
+msgstr "Originál"
+
+#: includes/class-wp-user-avatar.php:184
+msgid "<code>jpg jpeg png gif</code>"
+msgstr "<code>jpg jpeg png gif</code>"
+
+#: includes/class-wp-user-avatar.php:184
+msgid "Allowed Files"
+msgstr "Povolené typy souborů"
+
+#: includes/class-wp-user-avatar.php:183 includes/wpua-options-page.php:125
+msgid "Maximum upload file size: %d%s."
+msgstr "Maximální velikost nahráváněho souboru: %d%s."
+
+#: includes/class-wp-user-avatar.php:180 includes/tinymce/window.php:124
+#: includes/tinymce/window.php:196
+msgid "Upload"
+msgstr "Nahrát"
+
+#: includes/class-wp-user-avatar-widget.php:81
+msgid "Automatically add paragraphs"
+msgstr "Automaticky vytvářet odstavce"
+
+#: includes/class-wp-user-avatar-widget.php:76
+msgid "Description:"
+msgstr "Popis:"
+
+#: includes/class-wp-user-avatar-widget.php:72
+msgid "Title:"
+msgstr "Titulek:"
+
+#: includes/class-wp-user-avatar-widget.php:15 includes/tinymce/window.php:197
+msgid "[avatar_upload]"
+msgstr "[avatar_upload]"
+
+#: includes/class-wp-user-avatar-widget.php:15
+msgid "Insert"
+msgstr "Vložit"
+
+#: includes/class-wp-user-avatar-subscriber.php:99
+msgid "You do not have sufficient permissions to access this page."
+msgstr "Nemáte dostatečné oprávnění pro přístup na tuto stránku."
+
+#: includes/class-wp-user-avatar-shortcode.php:240
+msgid "Update Profile"
+msgstr "Aktualizovat profil"
+
+#: includes/class-wp-user-avatar-shortcode.php:216
+msgid "Profile updated."
+msgstr "Profil aktualizován."
+
+#: includes/class-wp-user-avatar-list-table.php:396
+msgid "View"
+msgstr "Zobrazit"
+
+#: includes/class-wp-user-avatar-list-table.php:396
+msgid "View &#8220;%s&#8221;"
+msgstr "Zobrazit &#8220;%s&#8221;"
+
+#: includes/class-wp-user-avatar-list-table.php:387
+msgid "Trash"
+msgstr "Odstranit"
+
+#: includes/class-wp-user-avatar-list-table.php:385
+msgid "Restore"
+msgstr "Obnovit"
+
+#: includes/class-wp-user-avatar-list-table.php:381
+msgid "Edit"
+msgstr "Upravit"
+
+#: includes/class-wp-user-avatar-list-table.php:323
+msgid "Y/m/d"
+msgstr "Rok/Měsíc/Den"
+
+#: includes/class-wp-user-avatar-list-table.php:321
+msgid "%s ago"
+msgstr "před %s"
+
+#: includes/class-wp-user-avatar-list-table.php:319
+msgid "%s from now"
+msgstr "za %s"
+
+#: includes/class-wp-user-avatar-list-table.php:313
+msgid "Unpublished"
+msgstr "Nepublikováno"
+
+#: includes/class-wp-user-avatar-list-table.php:268
+#: includes/class-wp-user-avatar-list-table.php:283
+msgid "Edit &#8220;%s&#8221;"
+msgstr "Upravit &#8222;%s&#8220;"
+
+#: includes/class-wp-user-avatar-list-table.php:253
+msgid "Select %s"
+msgstr "Zvolit: %s"
+
+#: includes/class-wp-user-avatar-list-table.php:186
+msgctxt "column name"
+msgid "Date"
+msgstr "Datum"
+
+#: includes/class-wp-user-avatar-list-table.php:185
+msgctxt "column name"
+msgid "Uploaded to"
+msgstr "Přiřazený obsah"
+
+#: includes/class-wp-user-avatar-list-table.php:184
+msgid "Author"
+msgstr "Autor"
+
+#: includes/class-wp-user-avatar-list-table.php:183
+msgctxt "column name"
+msgid "File"
+msgstr "Soubor"
+
+#: includes/class-wp-user-avatar-list-table.php:171
+msgid "No media attachments found."
+msgstr "Nebyly nalezeny žádné mediální soubory."
+
+#: includes/class-wp-user-avatar-list-table.php:142
+#: includes/class-wp-user-avatar-list-table.php:391
+msgid "Delete Permanently"
+msgstr "Trvale smazat"
+
+#: includes/class-wp-user-avatar-list-table.php:131
+msgctxt "uploaded files"
+msgid "All <span class=\"count\">(%s)</span>"
+msgid_plural "All <span class=\"count\">(%s)</span>"
+msgstr[0] "Pouze <span class=\"count\">(%s)</span>"
+msgstr[1] "Všechny <span class=\"count\">(%s)</span>"
+msgstr[2] "Všech <span class=\"count\">(%s)</span>"
+
+#: includes/class-wp-user-avatar-admin.php:324
+#: includes/class-wp-user-avatar-admin.php:378 includes/tinymce/window.php:123
+#: includes/wpua-functions.php:79 includes/wpua-functions.php:88
+#: includes/wpua-functions.php:93 includes/wpua-functions.php:152
+msgid "Avatar"
+msgstr "Profilový obrázek"
+
+#: includes/class-wp-user-avatar-admin.php:312
+msgid "Support Forums"
+msgstr "Fórum podpory"
+
+#: includes/class-wp-user-avatar-admin.php:268
+#: includes/class-wp-user-avatar.php:202
+msgid "Undo"
+msgstr "Zpět"
+
+#: includes/class-wp-user-avatar-admin.php:268
+msgid "Remove"
+msgstr "Odstraňte"
+
+#: includes/class-wp-user-avatar-admin.php:267
+#: includes/class-wp-user-avatar-admin.php:381
+#: includes/wpua-options-page.php:194 includes/wpua-options-page.php:197
+msgid "Default Avatar"
+msgstr "Výchozí avatar"
+
+#: includes/class-wp-user-avatar-admin.php:267
+#: includes/class-wp-user-avatar.php:176
+msgid "Choose Image"
+msgstr "Zvolit obrázek"
+
+#: includes/class-wp-user-avatar-admin.php:235
+msgid "Retro (Generated)"
+msgstr "Retro (automaticky generován)"
+
+#: includes/class-wp-user-avatar-admin.php:234
+msgid "MonsterID (Generated)"
+msgstr "MonsterID (automaticky generován)"
+
+#: includes/class-wp-user-avatar-admin.php:233
+msgid "Wavatar (Generated)"
+msgstr "Wavatar (automaticky generován)"
+
+#: includes/class-wp-user-avatar-admin.php:232
+msgid "Identicon (Generated)"
+msgstr "Identicon (automaticky generován)"
+
+#: includes/class-wp-user-avatar-admin.php:231
+msgid "Gravatar Logo"
+msgstr "Logo pro Gravatar"
+
+#: includes/class-wp-user-avatar-admin.php:230
+msgid "Blank"
+msgstr "Prázdný"
+
+#: includes/class-wp-user-avatar-admin.php:229
+msgid "Mystery Man"
+msgstr "Mystery Man"
+
+#: includes/class-wp-user-avatar-admin.php:115
+msgid "Library"
+msgstr "Knihovna médií"
+
+#: includes/class-wp-user-avatar-admin.php:114
+#: includes/class-wp-user-avatar-admin.php:298
+#: includes/wpua-options-page.php:73
+msgid "Settings"
+msgstr "Nastavení"
+
+#: includes/class-wp-user-avatar-admin.php:113
+#: includes/class-wp-user-avatar-admin.php:148 includes/wpua-media-page.php:93
+msgid "Avatars"
+msgstr "Profilové obrázky"
+
+#. #-#-#-#-#  wp-user-avatar-code.pot (WP User Avatar 2.0.9)  #-#-#-#-#
+#. Plugin Name of the plugin/theme
+#: includes/class-wp-user-avatar-admin.php:113
+#: includes/class-wp-user-avatar-admin.php:266
+#: includes/class-wp-user-avatar-widget.php:16 includes/tinymce/window.php:21
+#: includes/wpua-options-page.php:43
+msgid "WP User Avatar"
+msgstr "WP User Avatar"

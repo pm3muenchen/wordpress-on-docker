@@ -1,0 +1,14 @@
+
+---Downloaded files---
+The import files for: Theme demo data were successfully downloaded!
+Initial max execution time = 50
+Files info:
+Site URL = http://vorstand.pm3muenchen.de
+Data file = /customers/5/e/1/pm3muenchen.de/httpd.www/vorstand/wp-content/themes/heisengard/importer/content.xml
+Widget file = not defined!
+Customizer file = not defined!
+Redux files:
+not defined!
+
+---pt-ocdi/after_import---
+

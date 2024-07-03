@@ -1,0 +1,331 @@
+# Translation of Plugins - Astra Widgets - Stable (latest release) in Spanish (Spain)
+# This file is distributed under the same license as the Plugins - Astra Widgets - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-08-18 11:22:00+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/3.0.0-alpha.2\n"
+"Language: es\n"
+"Project-Id-Version: Plugins - Astra Widgets - Stable (latest release)\n"
+
+#. translators: %s Product title
+#: admin/bsf-analytics/class-bsf-analytics.php:408
+msgid "Allow %s products to track non-sensitive usage tracking data."
+msgstr "Permite a los productos de %s hacer el seguimiento del rastreo de datos de uso no sensibles."
+
+#: admin/bsf-analytics/class-bsf-analytics.php:416
+msgid "Learn More."
+msgstr "Más información."
+
+#: admin/bsf-analytics/class-bsf-analytics.php:411
+msgid " This will be applicable for all sites from the network."
+msgstr "Esto será aplicable a todos los sitios de la red."
+
+#: admin/bsf-analytics/class-bsf-analytics.php:364
+msgid "Usage Tracking"
+msgstr "Seguimiento del uso"
+
+#: admin/bsf-analytics/class-bsf-analytics.php:260
+msgid "No Thanks"
+msgstr "No, gracias"
+
+#: admin/bsf-analytics/class-bsf-analytics.php:251
+msgid "Yes! Allow it"
+msgstr "¡Sí! Lo permito"
+
+#. translators: %s usage doc link
+#: admin/bsf-analytics/class-bsf-analytics.php:243
+msgid " Know More."
+msgstr "Saber más."
+
+#: admin/bsf-analytics/class-bsf-analytics.php:219
+msgid "This will be applicable for all sites from the network."
+msgstr "Esto será aplicable a todos los sitios de la red."
+
+#. translators: %s product name
+#: admin/bsf-analytics/class-bsf-analytics.php:216
+msgid "Want to help make <strong>%1s</strong> even more awesome? Allow us to collect non-sensitive diagnostic data and usage information. "
+msgstr "¿Quieres ayudar a hacer que <strong>%1s</strong> sea aún más fantástico? Permítenos recopilar datos no sensibles de diagnóstico e información del uso."
+
+#: lib/notices/class-astra-notices.php:125
+msgid "WordPress Nonce not validated."
+msgstr "Nonce de WordPress no validado."
+
+#: classes/widgets/class-astra-widget-social-profiles.php:533
+msgid "Background Hover Color"
+msgstr "Color de fondo al pasar el cursor"
+
+#: classes/widgets/class-astra-widget-social-profiles.php:527
+msgid "Icon Hover Color"
+msgstr "Color del icono al pasar el cursor"
+
+#: classes/widgets/class-astra-widget-list-icons.php:380
+msgid "Color:"
+msgstr "Color:"
+
+#: classes/widgets/class-astra-widget-list-icons.php:373
+msgid " Weight:"
+msgstr "Peso:"
+
+#: classes/widgets/class-astra-widget-list-icons.php:361
+msgid "Style:"
+msgstr "Estilo:"
+
+#: classes/widgets/class-astra-widget-list-icons.php:351
+msgid "Show Divider:"
+msgstr "Mostrar el divisor:"
+
+#: classes/widgets/class-astra-widget-address.php:301
+msgid "\tSpace Between Address Fields:"
+msgstr "⟶\tEspacio entre los campos de la dirección:"
+
+#: classes/widgets/class-astra-widget-list-icons.php:402
+msgid "Image / Icon Size:"
+msgstr "Tamaño de la imagen / icono:"
+
+#: classes/widgets/class-astra-widget-list-icons.php:385
+msgid "Icon / Image Style"
+msgstr "Estilo de la imagen / icono"
+
+#: classes/widgets/class-astra-widget-list-icons.php:367
+msgid "Dashed"
+msgstr "Discontinuo"
+
+#: classes/widgets/class-astra-widget-list-icons.php:366
+msgid "Double"
+msgstr "Doble"
+
+#: classes/widgets/class-astra-widget-list-icons.php:365
+msgid "Dotted"
+msgstr "Punteado"
+
+#: classes/widgets/class-astra-widget-list-icons.php:364
+msgid "Solid"
+msgstr "Sólido"
+
+#: classes/widgets/class-astra-widget-list-icons.php:355
+msgid "No"
+msgstr "No"
+
+#: classes/widgets/class-astra-widget-list-icons.php:354
+msgid "Yes"
+msgstr "Sí"
+
+#: classes/widgets/class-astra-widget-list-icons.php:346
+msgid "Divider"
+msgstr "Divisor"
+
+#: classes/widgets/class-astra-widget-list-icons.php:333
+msgid "\tSpace Between List Items:"
+msgstr "⟶\tEspacio entre los elementos de la lista:"
+
+#: classes/widgets/class-astra-widget-list-icons.php:328
+msgid "Spacing"
+msgstr "Espaciado"
+
+#: classes/widgets/class-astra-widget-list-icons.php:272
+msgid "List Item:"
+msgstr "Lista de elementos:"
+
+#: classes/widgets/class-astra-widget-social-profiles.php:553
+msgid "\tSpace Between Social Profiles:"
+msgstr "⟶\tEspacio entre los perfiles sociales:"
+
+#: classes/widgets/class-astra-widget-list-icons.php:340
+#: classes/widgets/class-astra-widget-address.php:294
+#: classes/widgets/class-astra-widget-social-profiles.php:546
+msgid "Space Between Icon & Text:"
+msgstr "Espacio entre el icono y el texto"
+
+#: classes/class-astra-widgets-helper.php:460
+msgid "Add Item"
+msgstr "Añadir un elemento"
+
+#: classes/widgets/class-astra-widget-address.php:282
+msgid "Email:"
+msgstr "Correo electrónico:"
+
+#: classes/widgets/class-astra-widget-address.php:276
+msgid "FAX:"
+msgstr "FAX:"
+
+#: classes/widgets/class-astra-widget-address.php:270
+msgid "Phone:"
+msgstr "Teléfono:"
+
+#: classes/widgets/class-astra-widget-address.php:264
+msgid "Address:"
+msgstr "Dirección:"
+
+#: classes/widgets/class-astra-widget-address.php:258
+msgid "Display Icons?"
+msgstr "¿Mostrar los iconos?"
+
+#: classes/widgets/class-astra-widget-address.php:63
+msgid "Display Address."
+msgstr "Muestra la dirección."
+
+#: classes/widgets/class-astra-widget-address.php:60
+msgid "Astra: Address"
+msgstr "Astra: Dirección"
+
+#: classes/widgets/class-astra-widget-social-profiles.php:539
+msgid "Icon Width:"
+msgstr "Anchura del icono:"
+
+#: classes/widgets/class-astra-widget-list-icons.php:396
+#: classes/widgets/class-astra-widget-social-profiles.php:521
+msgid "Background Color"
+msgstr "Color del fondo"
+
+#: classes/widgets/class-astra-widget-list-icons.php:390
+#: classes/widgets/class-astra-widget-address.php:288
+#: classes/widgets/class-astra-widget-social-profiles.php:505
+#: classes/widgets/class-astra-widget-social-profiles.php:515
+msgid "Icon Color"
+msgstr "Color del icono"
+
+#: classes/widgets/class-astra-widget-social-profiles.php:509
+msgid "Custom"
+msgstr "Personalizado"
+
+#: classes/widgets/class-astra-widget-social-profiles.php:508
+msgid "Official Color"
+msgstr "Color oficial"
+
+#: classes/widgets/class-astra-widget-social-profiles.php:499
+msgid "Square Outline"
+msgstr "Contorno cuadrado"
+
+#: classes/widgets/class-astra-widget-social-profiles.php:498
+msgid "Circle Outline"
+msgstr "Contorno circular"
+
+#: classes/widgets/class-astra-widget-social-profiles.php:497
+msgid "Square"
+msgstr "Cuadrado"
+
+#: classes/widgets/class-astra-widget-social-profiles.php:496
+msgid "Circle"
+msgstr "Circular"
+
+#: classes/widgets/class-astra-widget-social-profiles.php:495
+msgid "Simple"
+msgstr "Sencillo"
+
+#: classes/widgets/class-astra-widget-social-profiles.php:492
+msgid "Icon Style"
+msgstr "Estilo del icono"
+
+#: classes/widgets/class-astra-widget-address.php:252
+#: classes/widgets/class-astra-widget-social-profiles.php:486
+msgid "Stack"
+msgstr "Apilar"
+
+#: classes/widgets/class-astra-widget-address.php:251
+#: classes/widgets/class-astra-widget-social-profiles.php:485
+msgid "Inline"
+msgstr "Integrado"
+
+#: classes/widgets/class-astra-widget-social-profiles.php:482
+msgid "Alignment"
+msgstr "Alineación"
+
+#: classes/widgets/class-astra-widget-social-profiles.php:476
+msgid "Display profile title?"
+msgstr "¿Mostrar el título del perfil?"
+
+#: classes/widgets/class-astra-widget-social-profiles.php:471
+msgid "Styling"
+msgstr "Estilos"
+
+#: classes/widgets/class-astra-widget-social-profiles.php:434
+msgid "Link"
+msgstr "Enlace"
+
+#: classes/widgets/class-astra-widget-social-profiles.php:423
+msgid "Add Profile"
+msgstr "Añadir un perfil"
+
+#: classes/widgets/class-astra-widget-social-profiles.php:418
+msgid "Social Profiles"
+msgstr "Perfiles sociales"
+
+#: classes/widgets/class-astra-widget-social-profiles.php:410
+#: classes/widgets/class-astra-widget-social-profiles.php:428
+msgid "Title"
+msgstr "Título"
+
+#: classes/widgets/class-astra-widget-social-profiles.php:73
+msgid "Display social profiles."
+msgstr "Muestra los perfiles sociales."
+
+#: classes/widgets/class-astra-widget-social-profiles.php:70
+msgid "Astra: Social Profiles"
+msgstr "Astra: Perfiles sociales"
+
+#: classes/widgets/class-astra-widget-list-icons.php:308
+#: classes/widgets/class-astra-widget-social-profiles.php:460
+msgid "Icon"
+msgstr "Icono"
+
+#: classes/widgets/class-astra-widget-list-icons.php:307
+msgid "Image"
+msgstr "Imagen"
+
+#: classes/widgets/class-astra-widget-list-icons.php:304
+msgid "Image / Icon"
+msgstr "Imagen / icono"
+
+#: classes/widgets/class-astra-widget-list-icons.php:298
+#: classes/widgets/class-astra-widget-social-profiles.php:454
+msgid "Disable"
+msgstr "Desactivar"
+
+#: classes/widgets/class-astra-widget-list-icons.php:297
+#: classes/widgets/class-astra-widget-social-profiles.php:453
+msgid "Enable"
+msgstr "Activar"
+
+#: classes/widgets/class-astra-widget-list-icons.php:294
+#: classes/widgets/class-astra-widget-social-profiles.php:450
+msgid "No Follow"
+msgstr "No seguir"
+
+#: classes/widgets/class-astra-widget-list-icons.php:288
+#: classes/widgets/class-astra-widget-social-profiles.php:444
+msgid "New Page"
+msgstr "Nueva página"
+
+#: classes/widgets/class-astra-widget-list-icons.php:287
+#: classes/widgets/class-astra-widget-social-profiles.php:443
+msgid "Same Page"
+msgstr "La misma página"
+
+#: classes/widgets/class-astra-widget-list-icons.php:278
+msgid "Link:"
+msgstr "Enlace:"
+
+#: classes/widgets/class-astra-widget-list-icons.php:267
+msgid "Add Item:"
+msgstr "Añadir un elemento:"
+
+#: classes/widgets/class-astra-widget-list-icons.php:261
+#: classes/widgets/class-astra-widget-address.php:242
+msgid "Title:"
+msgstr "Titulo:"
+
+#: classes/widgets/class-astra-widget-list-icons.php:73
+msgid "Display list icons."
+msgstr "Muestra la lista de iconos."
+
+#: classes/widgets/class-astra-widget-list-icons.php:70
+msgid "Astra: List Icons"
+msgstr "Astra: Lista de iconos"
+
+#: classes/class-astra-widgets-helper.php:413
+msgid "Choose Icon.."
+msgstr "Elegir un icono..."

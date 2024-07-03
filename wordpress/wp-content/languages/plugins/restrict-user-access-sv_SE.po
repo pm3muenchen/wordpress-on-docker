@@ -1,0 +1,833 @@
+# Translation of Plugins - Restrict User Access &#8211; Membership Plugin with Force - Stable (latest release) in Swedish
+# This file is distributed under the same license as the Plugins - Restrict User Access &#8211; Membership Plugin with Force - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-09-24 14:53:31+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/3.0.0-alpha.2\n"
+"Language: sv_SE\n"
+"Project-Id-Version: Plugins - Restrict User Access &#8211; Membership Plugin with Force - Stable (latest release)\n"
+
+#: lib/wp-content-aware-engine/core.php:957
+msgid "Plugins"
+msgstr "Tillägg"
+
+#: list-members.php:197
+msgid "%s from now"
+msgstr "%s från nu"
+
+#: list-members.php:151
+msgid "Expired"
+msgstr "Löpt ut"
+
+#: list-members.php:59
+msgid "Member Since"
+msgstr "Medlem sedan"
+
+#: list-capabilities.php:276
+msgid "Select All"
+msgstr "Välj alla"
+
+#: lib/wp-content-aware-engine/view/condition_options.php:17
+msgid "All"
+msgstr "Alla"
+
+#: lib/wp-content-aware-engine/view/condition_options.php:15
+msgid "Archive Pages"
+msgstr "Arkivsidor"
+
+#: lib/wp-content-aware-engine/view/condition_options.php:10
+msgid "Page Types"
+msgstr "Sidtyper"
+
+#: lib/wp-content-aware-engine/view/meta_box.php:18
+msgid "Posts in Category"
+msgstr "Inlägg i kategori"
+
+#: lib/wp-content-aware-engine/view/meta_box.php:14
+msgid "Posts by Author"
+msgstr "Inlägg efter författare"
+
+#: lib/wp-content-aware-engine/view/meta_box.php:25
+#: lib/wp-content-aware-engine/module/post_type.php:378
+msgid "Shop"
+msgstr "Butik"
+
+#: lib/wp-content-aware-engine/view/meta_box.php:10
+#: lib/wp-content-aware-engine/module/post_type.php:374
+msgid "Blog"
+msgstr "Blogg"
+
+#: view/meta_box_publish.php:15
+msgid "Create"
+msgstr "Skapa"
+
+#: view/meta_box_support.php:17
+msgid "Support Forums"
+msgstr "Supportforum"
+
+#: view/meta_box_support.php:14
+msgid "Getting Started"
+msgstr "Komma igång"
+
+#: admin/level-edit.php:139
+msgid "Recommendations"
+msgstr "Rekommendationer"
+
+#: admin/level-overview.php:120
+msgid "Add-Ons"
+msgstr "Utökningar"
+
+#: view/meta_box_support.php:19
+msgid "Stellar Add-Ons"
+msgstr "Stellar-utökningar"
+
+#: lib/wp-content-aware-engine/module/static.php:35
+msgid "Special Pages"
+msgstr "Specialsidor"
+
+#: lib/wp-content-aware-engine/core.php:1027
+msgid "Meet ALL of these conditions"
+msgstr "Uppfyll ALLA dessa villkor"
+
+#: lib/wp-content-aware-engine/core.php:1026
+msgid "New condition group"
+msgstr "Ny villkorsgrupp"
+
+#: view/meta_box_support.php:16
+msgid "Feedback & Feature Requests"
+msgstr "Feedback och funktionsförfrågningar"
+
+#: admin/level-edit.php:411
+msgid "Access Conditions"
+msgstr "Åtkomstvillkor"
+
+#: view/meta_box_options.php:74 level.php:306
+msgid "Hide Admin Toolbar"
+msgstr "Dölj admin-verktygsfält"
+
+#: lib/wp-content-aware-engine/view/condition_options.php:13
+msgid "Single Pages"
+msgstr "Enskild sida"
+
+#: level.php:397
+msgid "Members-Only Access"
+msgstr "Endast åtkomst för medlemmar"
+
+#: lib/wp-content-aware-engine/module/post_type.php:247
+#: lib/wp-content-aware-engine/module/post_type.php:379
+msgid "Shop Page"
+msgstr "Butikssida"
+
+#: view/meta_box_support.php:15 app.php:515
+msgid "Documentation & FAQ"
+msgstr "Dokumentation och vanliga frågor"
+
+#: view/meta_box_options.php:81
+msgid "Level Name"
+msgstr "Nivånamn"
+
+#. Plugin URI of the plugin
+msgid "https://dev.institute/wordpress-memberships/"
+msgstr "https://dev.institute/wordpress-memberships/"
+
+#: freemius.php:54
+msgid "Hey %1$s"
+msgstr "Hej %1$s"
+
+#: lib/wp-content-aware-engine/core.php:1024
+msgid "Loading more results"
+msgstr "Laddar in fler resultat"
+
+#: level.php:361
+msgid "Logged-in"
+msgstr "Inloggad"
+
+#: freemius.php:55
+msgid "Please help us improve %2$s by securely sharing some usage data with %5$s. If you skip this, that's okay! %2$s will still work just fine."
+msgstr "Hjälp oss att förbättra %2$s genom att säkert dela användningsdata med %5$s. Om du hoppar över detta är det okej! %2$s kommer fortfarande att fungera bra."
+
+#: admin/level-edit.php:200
+msgid "Like this plugin? %1$sPlease help make it better with a %2$s rating%3$s. Thank you."
+msgstr "Gillar du detta tillägg? %1$sHjälp till att göra det bättre med ett %2$s betyg%3$s. Tack."
+
+#: admin/level-edit.php:110
+#: lib/wp-content-aware-engine/module/post_type.php:433
+msgid "(no title)"
+msgstr "(ingen rubrik)"
+
+#: admin/level-list-table.php:294 admin/level-list-table.php:696
+msgid "Restore"
+msgstr "Återställ"
+
+#: admin/level-list-table.php:351
+msgctxt "column name"
+msgid "Title"
+msgstr "Rubrik"
+
+#: admin/level-list-table.php:685
+msgid "Edit"
+msgstr "Redigera"
+
+#: admin/level-list-table.php:412
+msgid "Select %s"
+msgstr "Välj %s"
+
+#: admin/level-list-table.php:300 admin/level-list-table.php:713
+msgid "Delete Permanently"
+msgstr "Ta bort permanent"
+
+#: admin/level-overview.php:299
+msgid "Undo"
+msgstr "Ångra"
+
+#: admin/level-edit.php:636
+msgid "Enter title here"
+msgstr "Ange rubrik här"
+
+#: admin/level-edit.php:132
+msgid "Publish"
+msgstr "Publicera"
+
+#: admin/level-edit.php:369 admin/level-edit.php:465
+msgid "The level no longer exists."
+msgstr "Nivån finns inte längre."
+
+#: admin/level-edit.php:741
+msgid "Access level activated."
+msgstr "Åtkomstnivå aktiverad."
+
+#: admin/level-edit.php:543
+msgid "You are not allowed to delete this level."
+msgstr "Du saknar behörighet att ta bort denna nivå."
+
+#: admin/level-overview.php:213 admin/level-edit.php:534
+msgid "Error in restoring from Trash."
+msgstr "Fel vid återställning från papperskorgen."
+
+#: admin/level-edit.php:530
+msgid "You are not allowed to restore this level from the Trash."
+msgstr "Du saknar behörighet att återställa denna nivå från papperskorgen."
+
+#: admin/level-edit.php:503
+msgid "You are not allowed to move this level to the Trash."
+msgstr "Du saknar behörighet att flytta denna nivå till papperskorgen."
+
+#: admin/level-edit.php:398 admin/level-edit.php:717
+msgid "You are not allowed to create levels."
+msgstr "Du saknar behörighet att skapa nivåer."
+
+#: admin/level-edit.php:375
+msgid "You cannot edit this level because it is in the Trash. Please restore it and try again."
+msgstr "Du kan inte redigera denna nivå eftersom den finns i papperskorgen. Återställ den och försök igen."
+
+#: admin/level-edit.php:372 admin/level-edit.php:715 admin/level-edit.php:720
+msgid "You are not allowed to edit this level."
+msgstr "Du saknar behörighet att redigera denna nivå."
+
+#: admin/level-list-table.php:704
+msgctxt "verb"
+msgid "Trash"
+msgstr "Papperskorg"
+
+#. translators: %s: level title
+#: admin/level-list-table.php:695
+msgid "Restore &#8220;%s&#8221; from the Trash"
+msgstr "Återställ &#8221;%s&#8221; från papperskorgen"
+
+#. translators: %s: post title
+#: admin/level-list-table.php:703
+msgid "Move &#8220;%s&#8221; to the Trash"
+msgstr "Flytta &#8221;%s&#8221; till papperskorgen"
+
+#. translators: %s: post title
+#: admin/level-list-table.php:712
+msgid "Delete &#8220;%s&#8221; permanently"
+msgstr "Ta bort &#8221;%s&#8221; permanent"
+
+#: admin/level-list-table.php:321
+msgid "Empty Trash"
+msgstr "Töm papperskorgen"
+
+#: admin/level-list-table.php:302
+msgid "Move to Trash"
+msgstr "Flytta till papperskorgen"
+
+#. translators: %s: post title
+#: admin/level-list-table.php:455
+msgid "&#8220;%s&#8221; (Edit)"
+msgstr "&#8221;%s&#8221; (Redigera)"
+
+#: admin/level-list-table.php:607
+msgid "Deny:"
+msgstr "Neka:"
+
+#: admin/level-list-table.php:607
+msgid "Permit:"
+msgstr "Tillåt:"
+
+#. translators: %s: level title
+#: admin/level-list-table.php:684
+msgid "Edit &#8220;%s&#8221;"
+msgstr "Redigera &#8221;%s&#8221;"
+
+#. translators: %s: search keywords
+#: admin/level-overview.php:123
+msgid "Search results for &#8220;%s&#8221;"
+msgstr "Sökresultat för &#8221;%s&#8221;"
+
+#: admin/level-list-table.php:474
+msgid "%s is currently editing"
+msgstr "%s redigerar för närvarande"
+
+#: admin/level-list-table.php:245
+msgid "Inactive <span class=\"count\">(%s)</span>"
+msgid_plural "Inactive <span class=\"count\">(%s)</span>"
+msgstr[0] "Inaktiv <span class=\"count\">(%s)</span>"
+msgstr[1] "Inaktiva <span class=\"count\">(%s)</span>"
+
+#: admin/level-list-table.php:244
+msgid "Active <span class=\"count\">(%s)</span>"
+msgid_plural "Active <span class=\"count\">(%s)</span>"
+msgstr[0] "Aktiv <span class=\"count\">(%s)</span>"
+msgstr[1] "Aktiva <span class=\"count\">(%s)</span>"
+
+#: admin/level-list-table.php:230
+msgctxt "levels"
+msgid "All <span class=\"count\">(%s)</span>"
+msgid_plural "All <span class=\"count\">(%s)</span>"
+msgstr[0] "Alla <span class=\"count\">(%s)</span>"
+msgstr[1] "Alla <span class=\"count\">(%s)</span>"
+
+#: admin/level-overview.php:230 admin/level-edit.php:547
+msgid "Error in deleting."
+msgstr "Fel vid borttagning."
+
+#: admin/level-overview.php:197 admin/level-edit.php:512
+msgid "Error in moving to Trash."
+msgstr "Fel vid flyttning till papperskorgen."
+
+#: admin/admin.php:100
+msgid "You do not have access to this screen."
+msgstr "Du har inte åtkomst till denna skärm."
+
+#: admin/level-edit.php:508
+msgid "You cannot move this level to the Trash. %s is currently editing."
+msgstr "Du kan inte flytta denna nivå till papperskorgen. %s redigerar för närvarande."
+
+#: admin/level-overview.php:226
+msgid "You are not allowed to delete this item."
+msgstr "Du saknar behörighet att ta bort detta objekt."
+
+#: admin/level-overview.php:209
+msgid "You are not allowed to restore this item from the Trash."
+msgstr "Du saknar behörighet att återställa detta objekt från papperskorgen."
+
+#: admin/level-overview.php:188
+msgid "You are not allowed to move this item to the Trash."
+msgstr "Du saknar behörighet att flytta detta objekt till papperskorgen."
+
+#. Author URI of the plugin
+msgid "https://dev.institute"
+msgstr "https://dev.institute"
+
+#: admin/level-edit.php:217
+msgid "Unlock Time for new members"
+msgstr "Lås upp tid för nya medlemmar"
+
+#: lib/wp-content-aware-engine/view/condition_options.php:40
+msgid "Auto-select new children of selected items"
+msgstr "Välj automatiskt nya underobjekt för valda objekt"
+
+#: lib/wp-content-aware-engine/module/bp_member.php:41
+msgid "All Sections"
+msgstr "Alla sektioner"
+
+#: lib/wp-content-aware-engine/module/bp_member.php:39
+msgid "BuddyPress Profiles"
+msgstr "BuddyPress-profiler"
+
+#: lib/wp-content-aware-engine/module/bbpress.php:36
+msgid "All Profiles"
+msgstr "Alla profiler"
+
+#: lib/wp-content-aware-engine/module/author.php:29
+msgid "All Authors"
+msgstr "Alla författare"
+
+#: lib/wp-content-aware-engine/core.php:1033
+msgid "Not"
+msgstr "Inte"
+
+#: app.php:306
+msgid "Access Levels synchronized with User Roles will not be listed here."
+msgstr "Åtkomstnivåer synkroniserade med användarroller kommer inte att listas här."
+
+#: level.php:291
+msgid "Year(s)"
+msgstr "År"
+
+#: level.php:290
+msgid "Month(s)"
+msgstr "Månad/månader"
+
+#: level.php:289
+msgid "Week(s)"
+msgstr "Vecka/veckor"
+
+#: level.php:288
+msgid "Day(s)"
+msgstr "Dag/dagar"
+
+#: admin/level-list-table.php:624
+msgid "%d year"
+msgid_plural "%d years"
+msgstr[0] "%d år"
+msgstr[1] "%d år"
+
+#: app.php:559
+msgid "Search for Levels"
+msgstr "Sök efter nivåer"
+
+#: admin/nav-menu.php:198
+msgid "Restrict menu item to users with these levels or higher."
+msgstr "Begränsa menyval till användare med dessa nivåer eller högre."
+
+#: admin/level-list-table.php:621
+msgid "%d day"
+msgid_plural "%d days"
+msgstr[0] "%d dag"
+msgstr[1] "%d dagar"
+
+#: admin/level-list-table.php:623
+msgid "%d month"
+msgid_plural "%d months"
+msgstr[0] "%d månad"
+msgstr[1] "%d månader"
+
+#: admin/level-list-table.php:622
+msgid "%d week"
+msgid_plural "%d weeks"
+msgstr[0] "%d vecka"
+msgstr[1] "%d veckor"
+
+#: lib/wp-content-aware-engine/view/group_template.php:22
+msgid "Save Changes"
+msgstr "Spara ändringar"
+
+#: admin/settings.php:184
+msgid "Setting can be changed in %s"
+msgstr "Inställningen kan ändras i %s"
+
+#: admin/level-overview.php:53 admin/level-overview.php:54
+msgid "User Access"
+msgstr "Användaråtkomst"
+
+#: lib/wp-content-aware-engine/module/pods.php:34
+msgid "All Pods Pages"
+msgstr "Alla podsidor"
+
+#: lib/wp-content-aware-engine/module/pods.php:33
+msgid "Pods Pages"
+msgstr "Podsidor"
+
+#: admin/settings.php:132
+#: lib/wp-content-aware-engine/view/group_template.php:24
+msgid "Settings"
+msgstr "﻿Inställningar"
+
+#: admin/settings.php:131
+msgid "User Access Settings"
+msgstr "Inställningar för användaråtkomst"
+
+#: admin/settings.php:91
+msgid "No"
+msgstr "﻿Nej"
+
+#: admin/settings.php:88
+msgid "Enable Registration"
+msgstr "Aktivera registrering"
+
+#: admin/settings.php:91
+msgid "Yes"
+msgstr "﻿Ja"
+
+#: admin/settings.php:80 admin/settings.php:92
+msgid "General Settings"
+msgstr "Allmänna inställningar"
+
+#: admin/settings.php:76
+msgid "New User Default Role"
+msgstr "Standardroll för ny användare"
+
+#: admin/settings.php:65
+msgid "New User Default Level"
+msgstr "Ny standardnivå för användare"
+
+#: admin/settings.php:150 level.php:360
+msgid "-- None --"
+msgstr "– Ingen – "
+
+#: admin/settings.php:57 lib/wp-content-aware-engine/core.php:945
+msgid "General"
+msgstr "Allmänt"
+
+#: app.php:254
+msgid "Log In"
+msgstr "Logga in"
+
+#: app.php:253
+msgid "Remember Me"
+msgstr "Kom ihåg mig"
+
+#: app.php:252
+msgid "Password"
+msgstr "Lösenord"
+
+#: list-capabilities.php:49
+msgid "Deny"
+msgstr "Neka"
+
+#: list-capabilities.php:20 list-capabilities.php:47
+msgid "Capability"
+msgstr "Behörighet"
+
+#: list-capabilities.php:35
+msgid "No capabilities found."
+msgstr "Inga behörigheter hittades."
+
+#: list-capabilities.php:48
+msgid "Permit"
+msgstr "Tillåt"
+
+#: admin/level-edit.php:157 admin/level-edit.php:413
+#: admin/level-list-table.php:355 list-capabilities.php:21 level.php:297
+msgid "Capabilities"
+msgstr "Behörigheter"
+
+#: app.php:295
+msgid "Access"
+msgstr "Åtkomst"
+
+#: admin/level-edit.php:218
+msgid "days"
+msgstr "dagar"
+
+#: list-members.php:57
+msgid "E-mail"
+msgstr "E-post"
+
+#: admin/level-list-table.php:352
+msgid "Name"
+msgstr "Namn"
+
+#: lib/wp-content-aware-engine/core.php:949
+#: lib/wp-content-aware-engine/module/post_type.php:47
+msgid "Post Types"
+msgstr "Inläggstyper"
+
+#: lib/wp-content-aware-engine/core.php:953
+#: lib/wp-content-aware-engine/module/taxonomy.php:53
+msgid "Taxonomies"
+msgstr "Taxonomier"
+
+#: view/meta_box_publish.php:17
+msgid "Save"
+msgstr "Spara"
+
+#: list-members.php:148
+msgid "Active"
+msgstr "Aktivt"
+
+#: list-members.php:130 list-members.php:211
+msgid "Remove"
+msgstr "Ta bort"
+
+#: lib/wp-content-aware-engine/module/static.php:50
+msgid "Front Page"
+msgstr "Startsida"
+
+#: list-members.php:25
+msgid "Member"
+msgstr "Medlem"
+
+#: list-members.php:56 app.php:251
+msgid "Username"
+msgstr "Användarnamn"
+
+#: list-members.php:58
+msgid "Status"
+msgstr "Status"
+
+#: lib/wp-content-aware-engine/module/post_type.php:244
+#: lib/wp-content-aware-engine/module/post_type.php:375
+msgid "Blog Page"
+msgstr "Bloggsida"
+
+#: lib/wp-content-aware-engine/module/post_type.php:419
+msgid "Private"
+msgstr "Privat"
+
+#: lib/wp-content-aware-engine/module/post_type.php:422
+msgid "Draft"
+msgstr "Utkast"
+
+#: lib/wp-content-aware-engine/module/polylang.php:33
+#: lib/wp-content-aware-engine/module/wpml.php:33
+#: lib/wp-content-aware-engine/module/translatepress.php:29
+#: lib/wp-content-aware-engine/module/qtranslate.php:33
+#: lib/wp-content-aware-engine/module/transposh.php:33
+msgid "Languages"
+msgstr "Språk"
+
+#: lib/wp-content-aware-engine/module/page_template.php:35
+msgid "All Templates"
+msgstr "Alla mallar"
+
+#: lib/wp-content-aware-engine/module/page_template.php:34
+msgid "Page Templates"
+msgstr "Sidmallar"
+
+#: lib/wp-content-aware-engine/module/date.php:28
+msgid "Date Archives"
+msgstr "Datumarkiv"
+
+#: lib/wp-content-aware-engine/module/date.php:26
+msgid "Dates"
+msgstr "Datum"
+
+#: lib/wp-content-aware-engine/module/author.php:28
+msgid "Authors"
+msgstr "Författare"
+
+#: lib/wp-content-aware-engine/core.php:1023
+msgid "No results found."
+msgstr "Inga resultat hittades."
+
+#: lib/wp-content-aware-engine/core.php:1022
+msgid "Searching"
+msgstr "Söker"
+
+#: lib/wp-content-aware-engine/view/condition_template.php:10
+msgid "And"
+msgstr "Och"
+
+#: lib/wp-content-aware-engine/view/meta_box.php:36
+#: lib/wp-content-aware-engine/core.php:1034
+msgid "Or"
+msgstr "Eller"
+
+#: admin/level-list-table.php:354 level.php:284
+msgid "Duration"
+msgstr "Varaktighet"
+
+#: admin/level-edit.php:145 admin/level-edit.php:414
+msgid "Options"
+msgstr "Alternativ"
+
+#: list-members.php:26 admin/level-edit.php:151 admin/level-edit.php:412
+#: admin/level-list-table.php:353
+msgid "Members"
+msgstr "Medlemmar"
+
+#: level.php:276
+msgid "Page"
+msgstr "Sida"
+
+#: level.php:269
+msgid "Redirect"
+msgstr "Omdirigera"
+
+#: list-members.php:43
+msgid "No members found."
+msgstr "Inga medlemmar hittades."
+
+#: lib/wp-content-aware-engine/module/post_type.php:410
+msgid "Password protected"
+msgstr "Lösenordsskyddat"
+
+#: lib/wp-content-aware-engine/module/static.php:51
+msgid "Search Results"
+msgstr "Sökresultat"
+
+#: lib/wp-content-aware-engine/module/static.php:52
+msgid "404 Page"
+msgstr "404-sida"
+
+#: lib/wp-content-aware-engine/module/post_type.php:414
+msgid "Sticky"
+msgstr "Klistrat"
+
+#: view/meta_box_options.php:39 level.php:395
+msgid "Extend Level"
+msgstr "Utöka nivå"
+
+#: level.php:386
+msgctxt "level"
+msgid "Add New"
+msgstr "Lägg till ny"
+
+#: level.php:385
+msgid "Access Level"
+msgstr "Åtkomstnivå"
+
+#: level.php:388
+msgid "Edit Access Level"
+msgstr "Redigera åtkomstnivå"
+
+#: level.php:389
+msgid "New Access Level"
+msgstr "Ny åtkomstnivå"
+
+#: level.php:391
+msgid "View Access Level"
+msgstr "Visa åtkomstnivå"
+
+#: level.php:392
+msgid "Search Access Levels"
+msgstr "Sök åtkomstnivåer"
+
+#: level.php:393
+msgid "No Access Levels found"
+msgstr "Inga åtkomstnivåer hittades"
+
+#: admin/level-edit.php:740
+msgid "Access level updated."
+msgstr "Åtkomstnivå uppdaterad."
+
+#: level.php:387
+msgid "Add New Access Level"
+msgstr "Lägg till ny åtkomstnivå"
+
+#: app.php:202 app.php:299 app.php:364 admin/nav-menu.php:191 level.php:384
+#: level.php:390
+msgid "Access Levels"
+msgstr "Åtkomstnivåer"
+
+#: view/meta_box_options.php:16
+msgid "Do not extend"
+msgstr "Utöka inte"
+
+#: admin/level-overview.php:274
+msgid "%s access level updated."
+msgid_plural "%s levels updated."
+msgstr[0] "%s åtkomstnivå uppdaterad."
+msgstr[1] "%s åtkomstnivåer uppdaterade."
+
+#: level.php:394
+msgid "No Access Levels found in Trash"
+msgstr "Inga åtkomstnivåer hittades i papperskorgen"
+
+#: admin/level-overview.php:276
+msgid "%s access level permanently deleted."
+msgid_plural "%s levels permanently deleted."
+msgstr[0] "%s åtkomstnivå borttagen permanent."
+msgstr[1] "%s åtkomstnivåer borttagna permanent."
+
+#: admin/level-overview.php:277
+msgid "%s access level moved to the Trash."
+msgid_plural "%s levels moved to the Trash."
+msgstr[0] "%s åtkomstnivå flyttad till papperskorgen."
+msgstr[1] "%s åtkomstnivåer flyttades till papperkorgen."
+
+#: admin/level-overview.php:278
+msgid "%s access level restored from the Trash."
+msgid_plural "%s levels restored from the Trash."
+msgstr[0] "%s åtkomstnivå återställdes från papperskorgen."
+msgstr[1] "%s åtkomstnivåer återställdes från papperskorgen."
+
+#: admin/level-overview.php:275
+msgid "%s access level not updated, somebody is editing it."
+msgid_plural "%s levels not updated, somebody is editing them."
+msgstr[0] "%s åtkomstnivå uppdaterades inte, någon redigerar den."
+msgstr[1] "%s åtkomstnivåer uppdaterades inte, någon redigerar dem."
+
+#: lib/wp-content-aware-engine/core.php:793
+msgid "Conditions updated"
+msgstr "Villkoren uppdaterade"
+
+#: lib/wp-content-aware-engine/core.php:800
+msgid "Could not delete conditions"
+msgstr "Kunde inte ta bort villkor"
+
+#: lib/wp-content-aware-engine/core.php:782
+#: lib/wp-content-aware-engine/core.php:789
+msgid "Unauthorized request"
+msgstr "Obehörig begäran"
+
+#: lib/wp-content-aware-engine/core.php:704
+msgid "Conditional Logic"
+msgstr "Villkorad logik"
+
+#: lib/wp-content-aware-engine/core.php:274
+msgid "Condition Group"
+msgstr "Villkorsgrupp"
+
+#: level.php:293
+msgid "Set to 0 for unlimited."
+msgstr "Ställ in på 0 för obegränsat."
+
+#: level.php:258
+msgid "Synchronized Role"
+msgstr "Synkroniserad roll"
+
+#: level.php:362
+msgid "Not logged-in"
+msgstr "Inte inloggad"
+
+#: lib/wp-content-aware-engine/core.php:273
+msgid "Condition Groups"
+msgstr "Villkorsgrupper"
+
+#. Plugin Name of the plugin
+msgid "Restrict User Access"
+msgstr "Restrict User Access"
+
+#: admin/level-edit.php:743
+msgid "Access level scheduled for: <strong>%1$s</strong>."
+msgstr "Åtkomstnivå tidsinställd för: <strong>%1$s</strong>."
+
+#: admin/level-edit.php:747
+msgid "Access level draft updated."
+msgstr "Utkast till åtkomstnivå uppdaterad."
+
+#: lib/wp-content-aware-engine/module/bbpress.php:35
+msgid "bbPress User Profiles"
+msgstr "bbPress användarprofiler"
+
+#: lib/wp-content-aware-engine/module/taxonomy.php:308
+#: lib/wp-content-aware-engine/module/taxonomy.php:343
+#: lib/wp-content-aware-engine/module/post_type.php:251
+#: lib/wp-content-aware-engine/module/post_type.php:383
+msgid "%s Archives"
+msgstr "%s arkiv"
+
+#: lib/wp-content-aware-engine/core.php:1025
+msgid "Conditions have unsaved changes. Do you want to continue and discard these changes?"
+msgstr "Villkoren har osparade ändringar. Vill du fortsätta och förkasta dessa ändringar?"
+
+#: lib/wp-content-aware-engine/module/post_type.php:429
+msgid "Scheduled"
+msgstr "Tidsinställd"
+
+#. translators: post state
+#: lib/wp-content-aware-engine/module/post_type.php:426
+msgctxt "post state"
+msgid "Pending"
+msgstr "Väntande"
+
+#: list-members.php:175
+msgid "%s ago"
+msgstr "%s sedan"
+
+#: lib/wp-content-aware-engine/core.php:308
+msgctxt "condition status"
+msgid "Or"
+msgstr "Eller"
+
+#. Author of the plugin
+msgid "Joachim Jensen - DEV Institute"
+msgstr "Joachim Jensen - DEV Institute"

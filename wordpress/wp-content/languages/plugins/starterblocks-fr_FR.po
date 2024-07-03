@@ -1,0 +1,169 @@
+# Translation of Plugins - Page Builder for Gutenberg – StarterBlocks - Stable (latest release) in French (France)
+# This file is distributed under the same license as the Plugins - Page Builder for Gutenberg – StarterBlocks - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-10-25 16:43:03+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: GlotPress/3.0.0-alpha.2\n"
+"Language: fr\n"
+"Project-Id-Version: Plugins - Page Builder for Gutenberg – StarterBlocks - Stable (latest release)\n"
+
+#. Author of the plugin
+msgid "Redux.io, Dovy Paukstys"
+msgstr "Redux.io, Dovy Paukstys"
+
+#. Description of the plugin
+msgid "StarterBlocks lets you build full pages with Gutenberg. Import 1,000+ full page layouts and designs! True page builder experience."
+msgstr "StarterBlocks vous permet de construire des pages entières avec Gutenberg. Importez plus de 1 000 mises en page et conceptions pleine page ! Une véritable expérience de constructeur de page."
+
+#: core/Welcome.php:205
+msgid "Keep up to date by subscribing to our newsletter."
+msgstr "Tenez-vous au courant en vous inscrivant à notre bulletin d’information."
+
+#: core/Welcome.php:204
+msgid "🗞 Updates"
+msgstr "🗞 Mises à jour"
+
+#: core/Welcome.php:199 core/Welcome.php:200
+msgid "Learn More"
+msgstr "Apprendre plus"
+
+#: core/Welcome.php:192
+msgid "Get StarterBlocks Premium"
+msgstr "Obtenir StarterBlocks Premium"
+
+#: core/Welcome.php:192
+msgid "Get StarterBlocks Pro"
+msgstr "Obtenir StarterBlocks Pro"
+
+#: core/Welcome.php:184
+msgid " Support"
+msgstr " Support"
+
+#: core/Welcome.php:184
+msgid "Priority"
+msgstr "Priorité"
+
+#: core/Welcome.php:181
+msgid " Section Templates"
+msgstr "Modèles de section "
+
+#: core/Welcome.php:181
+msgid "250+"
+msgstr "Plus de 250"
+
+#: core/Welcome.php:178
+msgid " Page Templates"
+msgstr "Modèles de page "
+
+#: core/Welcome.php:178
+msgid "125+"
+msgstr "Plus de 125"
+
+#: core/Welcome.php:175
+msgid " Collections"
+msgstr " Collections"
+
+#: core/Welcome.php:175
+msgid "20+"
+msgstr "Plus de 20"
+
+#: core/Welcome.php:172
+msgid " Library Access"
+msgstr " Accès à la bibliothèque"
+
+#: core/Welcome.php:172
+msgid "Unlimited"
+msgstr "Illimité"
+
+#: core/Welcome.php:169
+msgid "Updates to the Library"
+msgstr "Mises à jour de la bibliothèque"
+
+#: core/Welcome.php:169
+msgid "Weekly"
+msgstr "Hebdomadaire"
+
+#: core/Welcome.php:167
+msgid "Priority Email & Forum Support"
+msgstr "Support prioritaire par e-mail et forum"
+
+#: core/Welcome.php:166
+msgid "🚀 StarterBlocks Premium"
+msgstr "🚀 StarterBlocks Premium"
+
+#: core/Welcome.php:160
+msgid "Qubely"
+msgstr "Qubely"
+
+#: core/Welcome.php:159
+msgid "Stackable"
+msgstr "Stackable"
+
+#: core/Welcome.php:158
+msgid "ShareABlock"
+msgstr "ShareABlock"
+
+#: core/Welcome.php:157
+msgid "Kioken"
+msgstr "Kioken"
+
+#: core/Welcome.php:156
+msgid "GutenbergHub"
+msgstr "GutenbergHub"
+
+#: core/Welcome.php:155
+msgid "Getwid"
+msgstr "Getwid"
+
+#: core/Welcome.php:150
+msgid "Templates built with the careful chosen beautiful blocks from these vendors:"
+msgstr "Modèles construits avec les beaux blocs soigneusement choisis de ces vendeurs :"
+
+#: core/Welcome.php:149
+msgid "🍺 Supported Plugins"
+msgstr "🍺 Extensions prises en charge"
+
+#: core/Welcome.php:141
+msgid "Create a New Page"
+msgstr "Créer une nouvelle page"
+
+#: core/Welcome.php:97
+msgid "Welcome to StarterBlocks! - Version "
+msgstr "Bienvenue sur StarterBlocks ! - Version "
+
+#: core/Setup.php:46 core/Notices.php:24
+msgid "StarterBlocks requires WordPress version %s or more."
+msgstr "StarterBlocks nécessite WordPress version %s ou supérieure."
+
+#: core/Setup.php:37 core/Notices.php:15
+msgid "StarterBlocks requires PHP version %s or more."
+msgstr "StarterBlocks nécessite PHP version %s ou supérieure."
+
+#: core/Templates.php:68
+msgid "StarterBlocks Canvas"
+msgstr "Canevas StarterBlocks"
+
+#: core/Templates.php:67
+msgid "StarterBlocks Full Width"
+msgstr "StarterBlocks pleine largeur"
+
+#: core/Templates.php:66
+msgid "StarterBlocks Contained"
+msgstr "StarterBlocks contenu"
+
+#. Author URI of the plugin
+msgid "https://redux.io/"
+msgstr "https://redux.io/"
+
+#. Plugin URI of the plugin
+msgid "https://starterblocks.io/"
+msgstr "https://starterblocks.io/"
+
+#. Plugin Name of the plugin
+#: core/Welcome.php:33 core/Welcome.php:34
+msgid "StarterBlocks"
+msgstr "StarterBlocks"

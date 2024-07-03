@@ -1,0 +1,249 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: One.com WP\n"
+"POT-Creation-Date: 2017-08-01 10:43+0530\n"
+"PO-Revision-Date: 2017-08-01 10:44+0530\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.1\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.css\n"
+"X-Poedit-SearchPathExcluded-1: *.js\n"
+
+#: inc/functions.php:29 inc/functions.php:218
+msgid "Connection timed out"
+msgstr "Forbindelsen fik timeout"
+
+#: inc/functions.php:52
+msgid ""
+"Sorry, no compatible themes found for your version of WordPress and PHP."
+msgstr ""
+"Der blev desværre ikke fundet nogen kompatible temaer til din version af "
+"WordPress og PHP."
+
+#: inc/functions.php:52 inc/functions.php:257
+msgid "Try again"
+msgstr "Prøv igen"
+
+#: inc/functions.php:84 inc/functions.php:432
+msgid "WordPress is being upgraded. Please try again later."
+msgstr "WordPress er ved at blive opgraderet. Prøv igen senere."
+
+#: inc/functions.php:99
+msgid "Installing theme"
+msgstr "Installerer tema"
+
+#: inc/functions.php:119 inc/functions.php:471
+msgid "Something went wrong. Please contact the support at One.com."
+msgstr "Noget gik galt. Kontakt support hos One.com."
+
+#: inc/functions.php:133 inc/functions.php:488
+msgid ""
+"Unable to connect to the file system. Please contact the support at One.com."
+msgstr ""
+"Der kunne ikke oprettes forbindelse til filsystemet. Kontakt support hos One."
+"com."
+
+#: inc/functions.php:148
+msgid "Theme installed successfully"
+msgstr "Temaet er installeret korrekt"
+
+#: inc/functions.php:151 inc/functions.php:166 inc/functions.php:511
+#: inc/functions.php:513 templates/network/plugin-listing.php:84
+#: templates/network/plugin-listing.php:86
+#: templates/network/recommended-plugin-listing.php:97
+#: templates/network/theme-listing.php:113 templates/plugin-listing.php:84
+#: templates/plugin-listing.php:86 templates/recommended-plugin-listing.php:97
+#: templates/theme-listing.php:106 templates/theme-listing.php:108
+msgid "Activate"
+msgstr "Aktivér"
+
+#: inc/functions.php:257
+msgid ""
+"Sorry, no compatible plugins found with your version of WordPress and PHP."
+msgstr ""
+"Der blev desværre ikke fundet nogen kompatible plugins til din version af "
+"WordPress og PHP."
+
+#: inc/functions.php:452
+msgid "Installing plugin"
+msgstr "Installerer plugin"
+
+#: inc/functions.php:503
+msgid "Plugin installed successfully"
+msgstr "Plugin er installeret korrekt"
+
+#: onecom-themes-plugins.php:212 onecom-themes-plugins.php:213
+#: onecom-themes-plugins.php:268 onecom-themes-plugins.php:271
+msgid "One.com"
+msgstr "One.com"
+
+#: onecom-themes-plugins.php:222 onecom-themes-plugins.php:223
+#: onecom-themes-plugins.php:280 onecom-themes-plugins.php:283
+msgid "Themes"
+msgstr "Temaer"
+
+#: onecom-themes-plugins.php:230 onecom-themes-plugins.php:231
+#: onecom-themes-plugins.php:238 onecom-themes-plugins.php:239
+#: onecom-themes-plugins.php:246 onecom-themes-plugins.php:247
+#: onecom-themes-plugins.php:291 onecom-themes-plugins.php:294
+msgid "Plugins"
+msgstr "Plugins"
+
+#: onecom-themes-plugins.php:305
+msgid "One.com Control Panel"
+msgstr "Kontrolpanel på One.com"
+
+#: onecom-themes-plugins.php:308
+msgid "Go to Control Panel at One.com"
+msgstr "Gå til Kontrolpanel på One.com"
+
+#: onecom-themes-plugins.php:322
+msgid "One.com Guides & FAQ"
+msgstr "Guider & FAQ på One.com"
+
+#: onecom-themes-plugins.php:325
+msgid "Go to Guides & FAQ at One.com"
+msgstr "Gå til Guider & FAQ på One.com"
+
+#: templates/discouraged-plugin-listing.php:11
+#: templates/discouraged-plugin-listing.php:23 templates/plugin-listing.php:23
+#: templates/recommended-plugin-listing.php:23
+msgid "Discouraged plugins"
+msgstr "Frarådede plugins"
+
+#: templates/discouraged-plugin-listing.php:21
+#: templates/network/plugin-listing.php:21
+#: templates/network/recommended-plugin-listing.php:21
+#: templates/plugin-listing.php:21 templates/recommended-plugin-listing.php:21
+msgid "One.com plugins"
+msgstr "One.coms plugins"
+
+#: templates/discouraged-plugin-listing.php:22
+#: templates/network/plugin-listing.php:22
+#: templates/network/recommended-plugin-listing.php:22
+#: templates/plugin-listing.php:22 templates/recommended-plugin-listing.php:22
+msgid "Recommended plugins"
+msgstr "Anbefalede plugins"
+
+#: templates/discouraged-plugin-listing.php:56
+msgid ""
+"You are doing great! None of your installed plugins, are on our list of "
+"discouraged plugins."
+msgstr ""
+"Godt klaret! Ingen af dine installerede plugins er på vores liste over "
+"frarådede plugins."
+
+#: templates/discouraged-plugin-listing.php:58
+msgid ""
+"Your WordPress site should work the best possible way. We checked the "
+"plugins on your website, and listed those we don't recommended you to use."
+msgstr ""
+"Dit WordPress site skulle fungere bedst muligt. Vi har tjekket din "
+"hjemmesides plugins og oplistet dem vi ikke anbefaler dig at bruge."
+
+#: templates/discouraged-plugin-listing.php:58
+msgid "There are also some suggestions for alternative plugins to use instead."
+msgstr "Der er også forslag til"
+
+#: templates/discouraged-plugin-listing.php:61
+msgid "View full list of discouraged plugins"
+msgstr "Vis komplet liste over frarådede plugins"
+
+#: templates/discouraged-plugin-listing.php:77
+msgid "Deactivate"
+msgstr "Deaktiver"
+
+#: templates/discouraged-plugin-listing.php:86
+msgid "Suggested alternative"
+msgstr "Anbefalet alternativ"
+
+#: templates/discouraged-plugin-listing.php:86
+msgid "Suggested alternatives"
+msgstr "Anbefalede alternativer"
+
+#: templates/discouraged-plugin-listing.php:115
+msgid "Yes, deactivate plugin"
+msgstr "Ja, deaktiver plugin"
+
+#: templates/discouraged-plugin-listing.php:115
+msgid "Not right now"
+msgstr "Ikke lige nu"
+
+#: templates/discouraged-plugin-listing.php:117
+msgid "Are you sure that you want to deactivate this plugin?"
+msgstr "Er du sikker på, at du vil deaktivere dette plugin?"
+
+#: templates/discouraged-plugin-listing.php:119
+msgid "Deactivating a plugin can break functionality on your website."
+msgstr ""
+"Deaktivering af et plugin kan forhindre din hjemmeside i at fungere korrekt."
+
+#: templates/network/plugin-listing.php:11 templates/plugin-listing.php:11
+msgid "Plugins that bring the One.com experience and services to WordPress."
+msgstr ""
+"Plugins som tilfører One.coms tjenester og brugeroplevelse til WordPress."
+
+#: templates/network/plugin-listing.php:81
+#: templates/network/recommended-plugin-listing.php:95
+#: templates/network/theme-listing.php:104 templates/plugin-listing.php:81
+#: templates/recommended-plugin-listing.php:95 templates/theme-listing.php:96
+msgid "Active"
+msgstr "Aktiv"
+
+#: templates/network/plugin-listing.php:89
+#: templates/network/recommended-plugin-listing.php:99
+#: templates/plugin-listing.php:89 templates/recommended-plugin-listing.php:99
+msgid "Install now"
+msgstr "Installer nu"
+
+#: templates/network/recommended-plugin-listing.php:11
+#: templates/recommended-plugin-listing.php:11
+msgid "Presenting some of our favorite WordPress plugins, curated for quality."
+msgstr ""
+"Her er nogle af vores foretrukne og kvalitetssikrede WordPress plugins."
+
+#: templates/network/recommended-plugin-listing.php:107
+#: templates/recommended-plugin-listing.php:107
+msgid "More details"
+msgstr "Flere detaljer"
+
+#: templates/network/recommended-plugin-listing.php:114
+#: templates/recommended-plugin-listing.php:114
+msgid "By"
+msgstr "Af"
+
+#: templates/network/theme-listing.php:12 templates/theme-listing.php:12
+msgid "Exclusive themes specially crafted for One.com customers."
+msgstr "Temaer, der er udviklet specielt til One.coms kunder."
+
+#: templates/network/theme-listing.php:89 templates/theme-listing.php:81
+msgid "Preview"
+msgstr "Eksempel"
+
+#: templates/network/theme-listing.php:115 templates/theme-listing.php:111
+msgid "Install"
+msgstr "Installer"
+
+#: templates/network/theme-listing.php:142 templates/theme-listing.php:138
+msgid "Back to themes"
+msgstr "Tilbage til Temaer"
+
+#: templates/network/theme-listing.php:148 templates/theme-listing.php:144
+msgid "Desktop"
+msgstr "Skrivebord"
+
+#: templates/network/theme-listing.php:149 templates/theme-listing.php:145
+msgid "Mobile"
+msgstr "Mobil"
+
+#~ msgid "Presenting some of the best WordPress plugins, curated for quality."
+#~ msgstr ""
+#~ "Nogle af de bedste WordPress-plugins – når kvaliteten skal være i top."

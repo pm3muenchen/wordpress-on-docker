@@ -1,0 +1,3210 @@
+# Translation of Plugins - Visual Composer Website Builder - Development (trunk) in Danish
+# This file is distributed under the same license as the Plugins - Visual Composer Website Builder - Development (trunk) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2021-04-09 14:50:29+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/3.0.0-alpha.2\n"
+"Language: da_DK\n"
+"Project-Id-Version: Plugins - Visual Composer Website Builder - Development (trunk)\n"
+
+#: visualcomposer/Helpers/Localizations.php:99
+msgid "Enter template name"
+msgstr "Indtast skabelon navn"
+
+#: visualcomposer/Helpers/Localizations.php:100
+msgid "Enter preset name"
+msgstr "Indtast et forudindstillet navn"
+
+#: visualcomposer/Helpers/Localizations.php:214
+msgid "Add a video"
+msgstr "Tilføj en video"
+
+#: visualcomposer/Helpers/Localizations.php:215
+msgid "Remove the video"
+msgstr "Fjern videoen"
+
+#: visualcomposer/Helpers/Localizations.php:216
+msgid "Move the video"
+msgstr "Flyt videoen"
+
+#: visualcomposer/Helpers/Localizations.php:217
+msgid "Edit or replace the video"
+msgstr "Rediger eller erstat videoen"
+
+#: visualcomposer/Helpers/Localizations.php:1701
+msgid "%sCreate%s a new %s template."
+msgstr "%sOpret%s en ny %s skabelon"
+
+#: visualcomposer/Helpers/Localizations.php:1728
+msgid "%sEdit%s this %s template or %screate%s a new one."
+msgstr "%sRediger%s denne %s skabelon eller %sopret%s en ny skabelon."
+
+#: visualcomposer/Modules/Vendors/WpmlController.php:217
+msgid "<b>Visual Composer:</b> To complete WPML Translation Manager process for the Visual Composer supported pages you will need to run automatic posts update. <a href=\"%s\">Update Posts</a>"
+msgstr "<b>Visual Composer:</b> Hvis du vil fuldføre WPML Translation Manager-processen for de understøttede sider i Visual Composer, skal du køre opdatering af automatiske indlæg. <a href=\"%s\">Opdater indlæg</a>"
+
+#: visualcomposer/Modules/Editors/Settings/ItemBadgeController.php:51
+msgid "Let the world know that you are proudly using Visual Composer on your website."
+msgstr "Fortæl verden, at du stolt bruger Visual Composer på dit websted."
+
+#: visualcomposer/Modules/Editors/Settings/ItemBadgeController.php:59
+msgid "\"Created with Visual Composer\" Badge"
+msgstr "Badges \"Oprettet med Visual Composer\""
+
+#: visualcomposer/Modules/Editors/Settings/ItemBadgeController.php:73
+msgid "Add badge"
+msgstr "Tilføj badges"
+
+#: visualcomposer/Helpers/Localizations.php:552
+msgid "Download Dynamic Content Addon"
+msgstr "Download dynamisk indhold udvidelsen"
+
+#: visualcomposer/resources/views/settings/fields/dataCollectionTable.php:29
+msgid "System"
+msgstr "System"
+
+#: visualcomposer/resources/views/settings/fields/dataCollectionTable.php:30
+msgid "Plugin version, WordPress version, Active WordPress theme, PHP version"
+msgstr "Plugin version, WordPress version, Aktivt WordPress tema, PHP version"
+
+#: visualcomposer/Helpers/Localizations.php:163
+msgid "Search within this category"
+msgstr "Søg inden for denne kategori"
+
+#: visualcomposer/Helpers/Localizations.php:1692
+msgid "Hiding player controls available only for Vimeo PRO users."
+msgstr "Skjul afspillerkontroller er kun er tilgængelige for Vimeo PRO-brugere."
+
+#: visualcomposer/Helpers/Localizations.php:1696
+msgid "Vimeo video link"
+msgstr "Vimeo video link"
+
+#: visualcomposer/Helpers/Localizations.php:1684
+msgid "To download content from the Visual Composer Hub, read and accept our <a href=\"https://visualcomposer.com/terms-of-use/\" target=\"_blank\" rel=\"noopener noreferrer\">cloud access terms</a> and <a href=\"https://visualcomposer.com/privacy-policy/\" target=\"_blank\" rel=\"noopener noreferrer\">privacy policy</a>."
+msgstr "Hvis du vil downloade indhold fra Visual Composer Hub, skal du læse og acceptere vores <a href=\"https://visualcomposer.com/terms-of-use/\" target=\"_blank\" rel=\"noopener noreferrer\">vilkår for adgang til skyen</a> og <a href=\"https://visualcomposer.com/privacy-policy/\" target=\"_blank\" rel=\"noopener noreferrer\">privatlivspolitik</a>."
+
+#: visualcomposer/Helpers/Localizations.php:1688
+msgid "Yes, I agree"
+msgstr "Ja, jeg er enig"
+
+#: visualcomposer/Helpers/Localizations.php:443
+msgid "Start Easy. Build Fast."
+msgstr "Start let. Byg hurtigt."
+
+#: visualcomposer/Helpers/Localizations.php:445
+msgid "Do More With Visual Composer"
+msgstr "Få mere ud af Visual Composer"
+
+#: visualcomposer/Helpers/Localizations.php:447
+msgid "Get unlimited access to the Visual Composer Hub with 500+ elements, templates, addons, and integrations."
+msgstr "Få ubegrænset adgang til Visual Composer Hub med mere end 500+ elementer, skabeloner, tilføjelser og integrationer."
+
+#: visualcomposer/Helpers/Localizations.php:588
+msgid "Free License (Your plan)"
+msgstr "Gratis licens (din plan)"
+
+#: visualcomposer/Helpers/Localizations.php:813
+msgid "Build your site with the help of the drag and drop builder and without coding - it's that easy."
+msgstr "Byg dit websted ved hjælp af træk og slip builder og uden kodning - det er så nemt."
+
+#: visualcomposer/Helpers/Localizations.php:817
+msgid "Already have a Premium license? %1s or %2s."
+msgstr "Har du allerede en Premium-licens? %1s eller %2s."
+
+#: visualcomposer/Helpers/Localizations.php:821
+msgid "Already have a Premium license?"
+msgstr "Har du allerede en Premium-licens?"
+
+#: visualcomposer/Helpers/Localizations.php:825
+msgid "Activate here"
+msgstr "Aktiver her"
+
+#: visualcomposer/Helpers/Localizations.php:829
+msgid "go Premium"
+msgstr "få Premium"
+
+#: visualcomposer/Helpers/Localizations.php:1157
+msgid "Activate Your Premium License"
+msgstr "Aktiver din Premium-licens"
+
+#: visualcomposer/Helpers/Localizations.php:1161
+msgid "Make the final step! Enter your license key to activate Visual Composer Premium and get full access to the Visual Composer Hub."
+msgstr "Gør det sidste skridt! Angiv din licensnøgle for at aktivere Visual Composer Premium og få fuld adgang til Visual Composer Hub."
+
+#: visualcomposer/Modules/License/Pages/GoPremium.php:109
+msgid "<strong>Visual Composer:</strong> <a href=\"%s\">Activate Premium</a> license to get full access to Visual Composer Hub. A place to download more content elements, templates, and addons."
+msgstr "<strong>Visual Composer:</strong> <a href=\"%s\">Aktiver Premium-licens</a> for at få fuld adgang til Visual Composer Hub. Et sted, hvor du kan hente flere indholdselementer, skabeloner og tilføjelser."
+
+#: visualcomposer/resources/views/license/pages/license.php:25
+msgid "It seems you haven’t activated your Premium license to access elements, templates, and addons in the Visual Composer Hub."
+msgstr "Det ser ud til, at du ikke har aktiveret din Premium-licens for at få adgang til elementer, skabeloner og tilføjelser i Visual Composer Hub."
+
+#: visualcomposer/Modules/Vendors/WordpressController.php:65
+#: visualcomposer/resources/views/settings/layouts/dashboard-main-layout.php:399
+msgid "Thank you for choosing Visual Composer Website Builder. <br>Like the plugin? %sRate us on WordPress.org%s"
+msgstr "Tak fordi du valgte Visual Composer Website Builder.<br>Kan du lide dette plugin? %sBedøm os på WordPress.org%s"
+
+#: visualcomposer/Helpers/Localizations.php:1672
+msgid "Element Settings is a Premium Feature"
+msgstr "Element indstillinger er en Premium-funktion"
+
+#: visualcomposer/Helpers/Localizations.php:1676
+msgid "With Visual Composer Premium, you can change the default parameters to create a unique element and save it to your Content Library."
+msgstr "Med Visual Composer Premium kan du ændre standardparametrene for at oprette et unikt element og gemme det i dit indholdsbibliotek."
+
+#: visualcomposer/Helpers/Localizations.php:1680
+msgid "With the Element Presets addon, you can change the default parameters to create a unique element and save it to your Content Library."
+msgstr "Med udvidelsen til forudindstilling, af elementer, kan du ændre standardparametrene for at oprette et unikt element og gemme det i indholdsbiblioteket."
+
+#: visualcomposer/Helpers/Localizations.php:1656
+msgid "Popup Builder is a Premium Feature"
+msgstr "Popup Builder er en Premium funktion"
+
+#: visualcomposer/Helpers/Localizations.php:1668
+msgid "Download Popup Builder"
+msgstr "Download Popup Builder"
+
+#: visualcomposer/Helpers/Localizations.php:1650
+msgid "Lock or unlock all elements on your page. Your user roles with Administrator access will be able to edit elements. <br>You can lock/unlock specific elements under the element Edit window. <br>To get access to this feature, download the Role Manager addon from the Visual Composer Hub."
+msgstr "Lås eller lås op for alle elementer på din side. Dine brugerroller med administratoradgang kan redigere elementer. <br>Du kan låse/op låse bestemte elementer op under elementet Rediger vindue. <br>Hvis du vil have adgang til denne funktion, skal du hente tilføjelsen af Rollestyring fra Visual Composer Hub."
+
+#: visualcomposer/Helpers/Localizations.php:1660
+msgid "Build custom popups with the Visual Composer Popup Builder that is available with the premium version of the plugin."
+msgstr "Byg brugerdefinerede popups med Visual Composer Popup Builder, der er tilgængelig med premium-versionen af plugin' et."
+
+#: visualcomposer/Helpers/Localizations.php:1664
+msgid "Build custom popups with the Visual Composer Popup Builder. It's available in the Visual Composer Hub."
+msgstr "Byg brugerdefinerede popups med Visual Composer Popup Builder. Den er tilgængelig i Visual Composer Hub."
+
+#: visualcomposer/Helpers/Localizations.php:1642
+msgid "Element Lock is a Premium feature"
+msgstr "Element lås er en premium funktion"
+
+#: visualcomposer/Helpers/Localizations.php:1646
+msgid "With Visual Composer Premium, you can lock or unlock elements to manage who will be able to edit them."
+msgstr "Med Visual Composer Premium, kan du låse eller oplåse elementer for bestemte brugerroller som kan redigerer dem."
+
+#: visualcomposer/Modules/Hub/Pages/PremiumTeasers.php:34
+msgid "Maintenance Mode"
+msgstr "Vedligeholdelse"
+
+#: visualcomposer/Modules/Hub/Pages/PremiumTeasers.php:37
+msgid "MAINTENANCE MODE IS A PREMIUM FEATURE"
+msgstr "VEDLIGEHOLDELSESTILSTAND ER EN PREMIUM FUNKTION"
+
+#: visualcomposer/Modules/Hub/Pages/PremiumTeasers.php:50
+msgid "Popup Settings"
+msgstr "Popup indstillinger"
+
+#: visualcomposer/Modules/Hub/Pages/PremiumTeasers.php:51
+#: visualcomposer/Modules/Hub/Pages/PremiumTeasers.php:191
+msgid "POPUP BUILDER IS A PREMIUM FEATURE"
+msgstr "POPUP BUILDER ER EN PREMIUM FUNKTION"
+
+#: visualcomposer/Modules/Editors/Settings/EditorLayoutController.php:49
+msgid "Specify the default state for the \"Responsive View\" control."
+msgstr "Angiv standard tilstanden for kontrolelementet \"Responsiv visning\"."
+
+#: visualcomposer/Modules/Editors/Settings/EditorLayoutController.php:57
+msgid "Default Responsive View"
+msgstr "Standard responsiv visning"
+
+#: visualcomposer/Helpers/Localizations.php:1630
+msgid "Replace static content with dynamic content from WordPress default and custom meta fields with Visual Composer Premium."
+msgstr "Erstat statisk indhold med dynamisk indhold fra WordPress-standard- og brugertilpasset metafelter med Visual Composer Premium."
+
+#: visualcomposer/Helpers/Localizations.php:1634
+msgid "Replace static content with dynamic content from WordPress default and custom meta fields with Visual Composer Premium Addon."
+msgstr "Erstat statisk indhold med dynamisk indhold fra WordPress-standard- og brugertilpasset metafelter med Visual Composer Premium udvidelsen."
+
+#: visualcomposer/Helpers/Localizations.php:1638
+msgid "Dynamic View"
+msgstr "Dynamisk visning"
+
+#: visualcomposer/Helpers/Localizations.php:1626
+msgid "Dynamic Content is a Premium Feature"
+msgstr "Dynamisk indhold er en Premium funktion"
+
+#: visualcomposer/Helpers/Localizations.php:1586
+msgid "Do More With Premium"
+msgstr "Få mere ud af Premium"
+
+#: visualcomposer/Helpers/Localizations.php:1590
+msgid "Apply a layout with a header, footer, and sidebar with Visual Composer Premium."
+msgstr "Anvend et layout med et sidehoved, en sidefod og et sidepanel med Visual Composer Premium."
+
+#: visualcomposer/Helpers/Localizations.php:1594
+msgid "Get access to more than 200 content elements with Visual Composer Premium."
+msgstr "Få adgang til mere end 200 indholdselementer med Visual Composer Premium."
+
+#: visualcomposer/Helpers/Localizations.php:1598
+msgid "Get access to more than 150 beautiful multipurpose templates and template blocks with Visual Composer Premium."
+msgstr "Få adgang til mere end 150 smukke skabeloner og skabelonblokke til flere formål med Visual Composer Premium."
+
+#: visualcomposer/Helpers/Localizations.php:1602
+msgid "Access the whole GIPHY library with Visual Composer Premium."
+msgstr "Få adgang til hele GIPHY biblioteket med Visual Composer Premium."
+
+#: visualcomposer/Helpers/Localizations.php:1606
+msgid "Access the whole Unsplash stock image library with Visual Composer Premium."
+msgstr "Få adgang til hele Unsplash stock image bibliotek med Visual Composer Premium."
+
+#: visualcomposer/Helpers/Localizations.php:1610
+msgid "Unlock All Features"
+msgstr "Oplås alle funktioner"
+
+#: visualcomposer/Helpers/Localizations.php:1614
+msgid "Width"
+msgstr "Bredde"
+
+#: visualcomposer/Helpers/Localizations.php:1618
+msgid "px"
+msgstr "px"
+
+#: visualcomposer/Helpers/Localizations.php:1622
+msgid "You can instantly check your layout on the most popular device types."
+msgstr "Du kan straks tjekke dit layout på de mest populære enhedstyper."
+
+#: visualcomposer/Modules/Editors/Settings/PageTemplatesVariablesController.php:61
+msgid "Header and Footer"
+msgstr "Sidehoved og sidefod"
+
+#: visualcomposer/Modules/Editors/Settings/PageTemplatesVariablesController.php:65
+msgid "Right Sidebar"
+msgstr "Højre sidebar"
+
+#: visualcomposer/Modules/Editors/Settings/PageTemplatesVariablesController.php:69
+msgid "Left Sidebar"
+msgstr "Venstre sidebar"
+
+#: visualcomposer/Modules/Editors/Settings/PageTemplatesVariablesController.php:99
+msgid "Visual Composer Premium"
+msgstr "Visual Composer Premium"
+
+#: visualcomposer/Helpers/Localizations.php:1570
+msgid "Download The Addon"
+msgstr "Download udvidelsen"
+
+#: visualcomposer/Helpers/Localizations.php:1574
+msgid "Premium Popup Builder. Do More."
+msgstr "Premium Popup Builder. Få mere."
+
+#: visualcomposer/Helpers/Localizations.php:1578
+msgid "Create engaging popups to boost your conversion rate with Visual Composer Premium Popup Builder."
+msgstr "Opret spændende popups for at øge din konverteringsfrekvens med Visual Composer Premium Popup Builder."
+
+#: visualcomposer/Helpers/Localizations.php:1582
+msgid "All layouts are available in the Premium version."
+msgstr "Alle layouts er tilgængelige i Premium-versionen."
+
+#: visualcomposer/Helpers/Localizations.php:672
+msgid "The template has been successfully removed."
+msgstr "Skabelonen er blevet fjernet."
+
+#: visualcomposer/Helpers/Localizations.php:432
+msgid "Back"
+msgstr "Tilbage"
+
+#: visualcomposer/Helpers/Localizations.php:433
+msgid "Manage content in your library"
+msgstr "Administrere indhold i dit bibliotek"
+
+#: visualcomposer/Helpers/Localizations.php:434
+msgid "This element can’t be deleted"
+msgstr "Dette element kan ikke slettes"
+
+#: visualcomposer/Helpers/Localizations.php:1414
+msgid "Excerpts are optional hand-crafted summaries of your content."
+msgstr "Uddrag er valgfri håndplukket oversigter over dit indhold."
+
+#: visualcomposer/Modules/Editors/Elements/Controller.php:48
+msgid "You are not allowed to delete elements."
+msgstr "Du har ikke tilladelse til at slette elementer."
+
+#: visualcomposer/Modules/Editors/Templates/Controller.php:169
+msgid "You are not allowed to delete templates."
+msgstr "Du har ikke tilladelse til at slette skabeloner."
+
+#: visualcomposer/Helpers/Localizations.php:1562
+msgid "Download Premium Icon Libraries"
+msgstr "Download Premium ikon biblioteker"
+
+#: visualcomposer/Helpers/Localizations.php:1566
+msgid "Download Premium Design Options"
+msgstr "Download Premium Design muligheder"
+
+#: visualcomposer/Helpers/Localizations.php:1233
+#: visualcomposer/Modules/Editors/Settings/ItemDataCollectionController.php:57
+msgid "Share Usage Data"
+msgstr "Del brugen af data"
+
+#: visualcomposer/Helpers/Localizations.php:1237
+#: visualcomposer/Modules/Editors/Settings/ItemDataCollectionController.php:49
+msgid "Help to make Visual Composer better by sharing anonymous usage data. We appreciate your help."
+msgstr "Hjælp med at gøre Visual Composer bedre ved at dele anonyme brugsdata. Vi sætter pris på din hjælp."
+
+#: visualcomposer/Helpers/Localizations.php:1245
+#: visualcomposer/Modules/Editors/Settings/ItemDataCollectionController.php:74
+msgid "Share anonymous data"
+msgstr "Del anonyme data"
+
+#: visualcomposer/Helpers/Localizations.php:1528
+msgid "Categories"
+msgstr "Kategorier"
+
+#: visualcomposer/Helpers/Localizations.php:1532
+msgid "Category"
+msgstr "Kategori"
+
+#: visualcomposer/Helpers/Localizations.php:1536
+msgid "Parent Category"
+msgstr "Overordnet kategori"
+
+#: visualcomposer/Helpers/Localizations.php:1540
+msgid "Add New Category"
+msgstr "Tilføj ny kategori"
+
+#: visualcomposer/Helpers/Localizations.php:1544
+msgid "Select categories for the post or "
+msgstr "Vælg kategorier til indlægget eller "
+
+#: visualcomposer/Helpers/Localizations.php:1548
+msgid "add a new category"
+msgstr "tilføj en ny kategori"
+
+#: visualcomposer/Helpers/Localizations.php:1552
+msgid "Select Parent Category"
+msgstr "Vælg overordnet kategori"
+
+#: visualcomposer/Helpers/Localizations.php:1556
+msgid "Remove `%`"
+msgstr "Fjern '%'"
+
+#: visualcomposer/Helpers/Localizations.php:1558
+msgid "Manage post categories or add a new category."
+msgstr "Administrer indlægs kategorier, eller tilføj en ny kategori."
+
+#: visualcomposer/Modules/Settings/Pages/SystemStatus.php:255
+msgid "Incorrect plugin folder name: %s. Plugin folder name must be ‘visualcomposer’"
+msgstr "Forkert plugin mappenavn: %s. Plugin mappenavn skal være 'visualcomposer'"
+
+#: visualcomposer/resources/views/settings/fields/dataCollectionTable.php:11
+msgid "What kind of data will I share?"
+msgstr "Hvilken slags data vil jeg dele?"
+
+#: visualcomposer/resources/views/settings/fields/dataCollectionTable.php:17
+msgid "Editor"
+msgstr "Editor"
+
+#: visualcomposer/resources/views/settings/fields/dataCollectionTable.php:18
+msgid "License type, site and page ids (de-identified),  how long the editor has been used"
+msgstr "Licenstype, websteds- og side-id'er (de-indentified),  hvor længe editoren har været anvendt"
+
+#: visualcomposer/resources/views/settings/fields/dataCollectionTable.php:22
+msgid "Which elements are used and downloaded, site and page ids (de-identified)"
+msgstr "Hvilke elementer der anvendes og downloades, websteds- og side-id'er (de-identified)"
+
+#: visualcomposer/resources/views/settings/fields/dataCollectionTable.php:26
+msgid "Which templates are used and downloaded, site and page ids (de-identified)"
+msgstr "Hvilke skabeloner der bruges og downloades, websteds- og side-id'er (de-identificed)"
+
+#: visualcomposer/resources/views/settings/fields/dataCollectionTable.php:35
+msgid "We will never collect any sensivite or private data such as IP addresses, email, usernames, or passwords."
+msgstr "Vi indsamler aldrig sensivite eller private data såsom IP-adresser, e-mail, brugernavne eller adgangskoder."
+
+#: visualcomposer/resources/views/settings/pages/system-status.php:146
+msgid "Plugin folder"
+msgstr "Plugin mappe"
+
+#: visualcomposer/resources/views/settings/pages/system-status.php:150
+msgid "Plugin folder must be `visualcomposer`."
+msgstr "Plugin mappe skal være 'visualcomposer'."
+
+#: visualcomposer/resources/views/settings/pages/system-status.php:234
+msgid "Access to the upload folder"
+msgstr "Adgang til upload mappen"
+
+#: visualcomposer/Helpers/Localizations.php:1557
+msgid "Add `%`"
+msgstr "Tilføj `%`"
+
+#: visualcomposer/Helpers/Localizations.php:633
+msgid "%sEdit%s this %s or %screate%s a new one."
+msgstr "%sRediger%s denne %s eller %sopret%s en ny."
+
+#: visualcomposer/Helpers/Localizations.php:644
+msgid "%sCreate%s a new %s."
+msgstr "%sOpret%s en ny %s."
+
+#: visualcomposer/Helpers/Localizations.php:1506
+msgid "Tags"
+msgstr "Tags"
+
+#: visualcomposer/Helpers/Localizations.php:1510
+msgid "Manage tags associated with the post."
+msgstr "Administrer tags, der er knyttet til indlægget."
+
+#: visualcomposer/Helpers/Localizations.php:1518
+msgid "Do you want to remove this element?"
+msgstr "Vil du fjerne dette element?"
+
+#: visualcomposer/Helpers/Localizations.php:1519
+msgid "The element is in use on current page. Remove all element copies from your site before deleting it."
+msgstr "Elementet bruges på den aktuelle side. Fjern alle element kopier fra dit websted, før du sletter det."
+
+#: visualcomposer/Helpers/Localizations.php:1520
+msgid "Element has been removed."
+msgstr "Elementet er blevet fjernet."
+
+#: visualcomposer/Helpers/Localizations.php:1524
+msgid "Add new"
+msgstr "Tilføj ny"
+
+#: visualcomposer/Modules/Editors/Elements/Controller.php:57
+msgid "The default element cannot be removed"
+msgstr "Standard elementet kan ikke fjernes"
+
+#: visualcomposer/Modules/Editors/Elements/Controller.php:63
+msgid "The element is in use on one of your pages or templates. Remove all element copies from your site before deleting it."
+msgstr "Elementet bruges på en af dine sider eller skabeloner. Fjern alle element kopier fra dit websted, før du sletter det."
+
+#: visualcomposer/Helpers/Localizations.php:1470
+msgid "Page Settings"
+msgstr "Side indstillinger"
+
+#: visualcomposer/Helpers/Localizations.php:1478
+msgid "Featured Image"
+msgstr "Udvalgte billede"
+
+#: visualcomposer/Helpers/Localizations.php:1498
+msgid "Featured image is set. Save page and reload editor to see changes."
+msgstr "Udvalgt billede er angivet. Gem side, og genindlæs editoren for at se ændringer."
+
+#: visualcomposer/Helpers/Localizations.php:1502
+msgid "Featured image is removed. Save page and reload editor to see changes."
+msgstr "Udvalgt billede er fjernet. Gem side, og genindlæs editoren for at se ændringer."
+
+#: visualcomposer/Helpers/Localizations.php:1494
+msgid "Parallax effect"
+msgstr "Parallax effekt"
+
+#: visualcomposer/Helpers/Localizations.php:1482
+msgid "Discussion"
+msgstr "Diskussion"
+
+#: visualcomposer/Helpers/Localizations.php:1486
+msgid "Allow comments"
+msgstr "Tillad kommentarer"
+
+#: visualcomposer/Helpers/Localizations.php:1490
+msgid "Allow trackbacks and pingbacks on this page"
+msgstr "Tillad trackbacks og pingbacks på denne side"
+
+#: visualcomposer/Helpers/Localizations.php:243
+msgid "Excerpt"
+msgstr "Uddrag"
+
+#: visualcomposer/Modules/Editors/Settings/WordPressSettings/AuthorController.php:63
+msgctxt "visualcomposer"
+msgid "%1$s (%2$s)"
+msgstr "%1$s (%2$s)"
+
+#: visualcomposer/Helpers/Localizations.php:1358
+msgid "Change <a href=\"https://visualcomposer.com/help/settings/?utm_source="
+msgstr "Ændre <a href=\"https://visualcomposer.com/help/settings/?utm_source="
+
+#: visualcomposer/Helpers/Localizations.php:1367
+msgid "Insights is a content analysis tool that helps to improve the quality, performance, and SEO ranking of the page."
+msgstr "Insights er et indholdsanalyseværktøj, der hjælper med at forbedre sidens kvalitet, ydeevne og SEO-rangering."
+
+#: visualcomposer/Helpers/Localizations.php:1371
+msgid "<a href=\"https://visualcomposer.com/help/visual-composer-hub/?utm_source="
+msgstr "<a href=\"https://visualcomposer.com/help/visual-composer-hub/?utm_source="
+
+#: visualcomposer/Helpers/Localizations.php:1376
+msgid "Use the toggle to switch between light and dark background while editing the text."
+msgstr "Brug til/fra-knappen til at skifte mellem lys og mørk baggrund, mens du redigerer teksten."
+
+#: visualcomposer/Helpers/Localizations.php:1380
+msgid "Replace static content with <a href=\"https://visualcomposer.com/help/theme-builder/dynamic-content/?utm_source="
+msgstr "Erstat statisk indhold med <a href=\"https://visualcomposer.com/help/theme-builder/dynamic-content/?utm_source="
+
+#: visualcomposer/Helpers/Localizations.php:1386
+msgid "Use Reverse stacking toggle to stack columns from right to left on mobile devices."
+msgstr "Brug Omvendt stabling til at stable kolonner fra højre mod venstre på mobilenheder."
+
+#: visualcomposer/Helpers/Localizations.php:1390
+msgid "Enable custom responsiveness to control column width on different devices."
+msgstr "Aktiver brugertilpasset resposivitet for at kontroller kolonne bredden på forskellige enheder."
+
+#: visualcomposer/Helpers/Localizations.php:1394
+msgid "Use the Show element toggle to hide or show elements on all or custom devices."
+msgstr "Brug til/fra-knappen Vis element til at skjule eller vise elementer på alle eller brugerdefinerede enheder."
+
+#: visualcomposer/Helpers/Localizations.php:1398
+msgid "Manage if the element appears on a particular device."
+msgstr "Administrer, hvis elementet vises på en bestemt enhed."
+
+#: visualcomposer/Helpers/Localizations.php:1402
+msgid "Choose an event performed when clicking on the image."
+msgstr "Vælg en hændelse, der udføres, når du klikker på billedet."
+
+#: visualcomposer/Helpers/Localizations.php:1406
+msgid "Modify the destination link to the page. Make sure to enable the option to set a custom permalink in WordPress Settings."
+msgstr "Rediger destinationslinket til siden. Sørg for at aktivere indstillingen for at angive et brugertilpasset permalink i WordPress-indstillinger."
+
+#: visualcomposer/Helpers/Localizations.php:1410
+msgid "Select or change the layout of the page, post, or custom post type."
+msgstr "Vælg eller rediger layoutet for siden, indlægget eller den brugertilpasset indlægstype."
+
+#: visualcomposer/Helpers/Localizations.php:1418
+msgid "Add custom JavaScript code to insert it locally or globally on every page in header or footer. Insert Google Analytics, Tag Manager, Kissmetrics, or other JavaScript code snippets."
+msgstr "Tilføj brugertilpasset JavaScript-kode for at indsætte den lokalt globalt på hver side i sidehoved eller sidefod. Indsæt Google Analytics, Tag Manager, Kissmetrics eller andre JavaScript-kodestykker."
+
+#: visualcomposer/Helpers/Localizations.php:1422
+msgid "Apply custom CSS code to the whole site or to this particular page only."
+msgstr "Tilføj brugertilpasset CSS-kode til hele webstedet eller kun til denne side."
+
+#: visualcomposer/Helpers/Localizations.php:1426
+msgid "To preview the changes, use the Responsive View in the navigation bar."
+msgstr "Hvis du vil have vist ændringerne, skal du bruge responsiv visning på navigationslinjen."
+
+#: visualcomposer/Helpers/Localizations.php:1430
+msgid "Parent Page"
+msgstr "Overordnet side"
+
+#: visualcomposer/Helpers/Localizations.php:1434
+msgid "A popup container element allows to style the overall look of your popup."
+msgstr "Et popup container element, som tillader at style det overordnet udseende af din popup."
+
+#: visualcomposer/Helpers/Localizations.php:1438
+msgid "Margin top"
+msgstr "Topmargin"
+
+#: visualcomposer/Helpers/Localizations.php:1442
+msgid "Specify space (in pixels) from the screen top where element should stick."
+msgstr "Angiv mellemrum (i pixel) fra skærmen øverst, hvor elementet skal sidde."
+
+#: visualcomposer/Helpers/Localizations.php:1446
+msgid "Z-index"
+msgstr "Z-indeks"
+
+#: visualcomposer/Helpers/Localizations.php:1450
+msgid "Relate to parent"
+msgstr "Relatere til overordnet"
+
+#: visualcomposer/Helpers/Localizations.php:1454
+msgid "Limit stickiness to work only in the parent container."
+msgstr "Begræns fastgørelse til kun, at fungerer i den overordnet container."
+
+#: visualcomposer/Helpers/Localizations.php:1458
+msgid "Show on sticky"
+msgstr "Vis på fastgjort"
+
+#: visualcomposer/Helpers/Localizations.php:1462
+msgid "Show only when it becomes sticky."
+msgstr "Vis kun når det bliver fastgjort."
+
+#: visualcomposer/Helpers/Localizations.php:201
+msgid "Already have a license? Log in to <a href=\"{link}\" class=\"vcv-activation-input-field-forgot-license-link\" target=\"_blank\" rel=\"noopener noreferrer\">My Visual Composer</a> to find it."
+msgstr "Har du allerede en licens? Log ind på <a href=\"{link}\" class=\"vcv-activation-input-field-forgot-license-link\" target=\"_blank\" rel=\"noopener noreferrer\">Min Visual Composer</a> at finde den."
+
+#: visualcomposer/Helpers/Localizations.php:556
+msgid "Select a page, post, or custom post type as the dynamic content source."
+msgstr "Vælg en side, et indlæg eller en brugertilpasset indlægstype som den dynamiske indholdskilde."
+
+#: visualcomposer/Helpers/Localizations.php:1329
+msgid "Use <a href=\"https://visualcomposer.com/help/interface/element-controls/?utm_source="
+msgstr "Brug <a href=\"https://visualcomposer.com/help/interface/element-controls/?utm_source="
+
+#: visualcomposer/Helpers/Localizations.php:1342
+msgid "<a href=\"https://visualcomposer.com/help/visual-composer-insights-assistant/?utm_source="
+msgstr "<a href=\"https://visualcomposer.com/help/visual-composer-insights-assistant/?utm_source="
+
+#: visualcomposer/Helpers/Localizations.php:1347
+msgid "Check how your page looks on different devices. Select the device type to <a href=\"https://visualcomposer.com/help/responsive-design/?utm_source="
+msgstr "Se, hvordan din side ser ud på forskellige enheder. Vælg enhedstypen for at <a href=\"https://visualcomposer.com/help/responsive-design/?utm_source="
+
+#: visualcomposer/Helpers/Localizations.php:1353
+msgid "Access <a href=\"https://visualcomposer.com/help/visual-composer-hub/?utm_source="
+msgstr "Adgang til <a href=\"https://visualcomposer.com/help/visual-composer-hub/?utm_source="
+
+#: visualcomposer/Helpers/Localizations.php:1321
+msgid "This is your content library. <a href=\"https://visualcomposer.com/help/content-elements-structure/add-content/?utm_source="
+msgstr "Dette er dit indholdsbibliotek. <a href=\"https://visualcomposer.com/help/content-elements-structure/add-content/?utm_source="
+
+#: visualcomposer/Helpers/Localizations.php:1336
+msgid "Use <a href=\"https://visualcomposer.com/help/content-elements-structure/add-content/?utm_source="
+msgstr "Anvend <a href=\"https://visualcomposer.com/help/content-elements-structure/add-content/?utm_source="
+
+#: visualcomposer/Helpers/Localizations.php:196
+msgid ""
+"An error occurred during the Visual Composer extension download process.\n"
+"<ul><li>- Check if your server has a connection to the Internet.</li><li>- Check if your server proxy has proper configuration settings.</li><li>- Check your server firewall settings and access to https://my.visualcomposer.com</li><li>- Check if your server has access to the <a href=\"https://aws.amazon.com/ru/premiumsupport/knowledge-center/s3-find-ip-address-ranges/\" target=\"_blank\" rel=\"noopener noreferrer\">Amazon AWS Region: `us-west-2` IP</a></li></ul>"
+msgstr ""
+"Der opstod en fejl under hentningen af Visual Composer udvidelsen\n"
+"<ul><li>Kontroller at din server har forbindelse til internettet.</li><li> - Kontroller om din server har korrekt konfigureret proxy indstillinger.</li><li> - Kontroller om din servers firewall og adgang til https://my.visualcomposer.com</li><li> - Kontroller om din server har adgang til <a href=\"https://aws.amazon.com/ru/premiumsupport/knowledge-center/s3-find-ip-address-ranges/\" target=\"_blank\" rel=\"noopener noreferrer\">Amazon AWS Region: `us-west-2` IP</a></li></ul>"
+
+#: visualcomposer/Helpers/Localizations.php:162
+msgid "Search for templates"
+msgstr "Søg efter skabeloner"
+
+#. Plugin URI of the plugin
+msgid "https://visualcomposer.com/premium/?utm_source=vcwb&utm_medium=wpplugins&utm_campaign=vcbrand&utm_content=text"
+msgstr "https://visualcomposer.com/premium/?utm_source=vcwb&utm_medium=wpplugins&utm_campaign=vcbrand&utm_content=text"
+
+#. Author URI of the plugin
+msgid "https://visualcomposer.com/?utm_source=vcwb&utm_medium=wpplugins&utm_campaign=vcbrand&utm_content=text"
+msgstr "https://visualcomposer.com/?utm_source=vcwb&utm_medium=wpplugins&utm_campaign=vcbrand&utm_content=text"
+
+#: visualcomposer/Framework/helpers.php:235
+msgid "We could not create a directory for the plugin in wp-content/uploads. Check if your server has \"write\" permissions for wp-content/uploads."
+msgstr "Vi kunne ikke oprette en mappe til plugin'et i wp-content/uploads. Kontroller, om din server har \"skrive\" tilladelser til wp-content/uploads."
+
+#: visualcomposer/Helpers/Localizations.php:116
+#: visualcomposer/Helpers/Localizations.php:455
+msgid "Access the Visual Composer Hub - download additional elements, blocks, templates, and addons."
+msgstr "Få adgang til Visual Composer Hub – hent yderligere elementer, blokke, skabeloner og tilføjelser."
+
+#: visualcomposer/Helpers/Localizations.php:272
+msgid "To apply a template save changes and reload the page."
+msgstr "Hvis du vil anvende en skabelon, skal du gemme ændringerne og genindlæse siden."
+
+#: visualcomposer/Helpers/Localizations.php:284
+msgid "Disable the page title"
+msgstr "Deaktivere sidetitlen"
+
+#: visualcomposer/Helpers/Localizations.php:349
+msgid "Select a %s or %screate a new one%s."
+msgstr "Vælg en %s eller %s oprette en ny%s."
+
+#: visualcomposer/Helpers/Localizations.php:809
+msgid "Try The Tutorial Template"
+msgstr "Prøv skabelonen selvstudium"
+
+#: visualcomposer/Helpers/Localizations.php:1229
+msgid "in the WordPress dashboard."
+msgstr "i WordPress kontrolpanel."
+
+#: visualcomposer/Modules/Editors/Settings/ItemInitialHelpersController.php:47
+msgid "Display an interactive help guide when you enter the editor next time."
+msgstr "Vis en interaktiv hjælpevejledning, når du åbner editoren næste gang."
+
+#: visualcomposer/Modules/Editors/Settings/ItemInitialHelpersController.php:55
+msgid "Help Guide"
+msgstr "Hjælpe vejledning"
+
+#: visualcomposer/Modules/Editors/Settings/ItemInitialHelpersController.php:69
+msgid "Display Help Guide"
+msgstr "Vis Hjælp-vejledning"
+
+#: visualcomposer/resources/views/license/pages/license.php:94
+msgid "License expiration date"
+msgstr "Udløbsdato for licens"
+
+#: visualcomposer/resources/views/settings/pages/system-status.php:94
+msgid "PHP version currently installed on your site."
+msgstr "PHP version der i øjeblikket er installeret på dit websted."
+
+#: visualcomposer/resources/views/settings/pages/system-status.php:113
+msgid "Visual Composer version installed on your site."
+msgstr "Visual Composer-version installeret på dit websted."
+
+#: visualcomposer/resources/views/settings/pages/system-status.php:176
+msgid "The maximum size of the post data allowed that also affects file upload."
+msgstr "Den maksimale størrelse på de tilladte indlægsdata, der også påvirker filoverførsel."
+
+#: visualcomposer/resources/views/settings/pages/system-status.php:198
+msgid "PHP Max Input Vars"
+msgstr "PHP Max Input Vars"
+
+#: visualcomposer/resources/views/settings/pages/system-status.php:215
+msgid "The maximum execution time for PHP scripts."
+msgstr "Den maksimale udførelsestid for PHP scripts."
+
+#: visualcomposer/resources/views/settings/pages/system-status.php:221
+msgid "Max upload file size"
+msgstr "Maks. upload filstørrelse"
+
+#: visualcomposer/resources/views/settings/pages/system-status.php:267
+msgid ".zip extension"
+msgstr ".zip udvidelse"
+
+#: visualcomposer/resources/views/settings/pages/system-status.php:277
+msgid "cURL extension"
+msgstr "cURL udvidelse"
+
+#: visualcomposer/resources/views/settings/pages/system-status.php:301
+msgid "Connection with your account."
+msgstr "Forbindelse til din konto."
+
+#: visualcomposer/resources/views/vendors/dashboard.php:64
+msgid "No news found."
+msgstr "Der blev ikke fundet nogen nyheder."
+
+#: visualcomposer/Helpers/License.php:172
+msgid "The license key is missing, enter a valid license key."
+msgstr "Licensnøglen mangler, indtast en gyldig licensnøgle."
+
+#: visualcomposer/Helpers/License.php:175
+msgid "URL is missing, try again."
+msgstr "URL-adressen mangler, prøv igen."
+
+#: visualcomposer/Helpers/License.php:181
+msgid "Activation failed, try again."
+msgstr "Aktivering mislykkedes, prøv igen."
+
+#: visualcomposer/Helpers/License.php:196
+msgid "An error occurred, try again."
+msgstr "Der opstod en fejl. Prøv igen."
+
+#: visualcomposer/Helpers/Localizations.php:1363
+msgid "Preview, save, and publish your content."
+msgstr "Forhåndsvis, gem og udgiv dit indhold."
+
+#: visualcomposer/resources/views/settings/pages/system-status.php:84
+msgid "WordPress version currently installed on your site."
+msgstr "WordPress-version der aktuelt er installeret på dit websted."
+
+#: visualcomposer/Helpers/Localizations.php:1265
+msgid "Get full access to the Visual Composer Hub"
+msgstr "Få fuld adgang til Visual Composer Hub"
+
+#: visualcomposer/Helpers/Localizations.php:1269
+msgid "Download all exclusive elements, templates, and extensions with Visual Composer Premium."
+msgstr "Download alle eksklusive elementer, skabeloner og udvidelser med Visual Composer Premium."
+
+#: visualcomposer/Helpers/Localizations.php:1273
+msgid "This page can not be saved, because it is made for the demo purposes only."
+msgstr "Denne side kan ikke gemmes, fordi det er lavet til demo formål alene."
+
+#: visualcomposer/Helpers/Localizations.php:1281
+msgid "welcome"
+msgstr "velkommen"
+
+#: visualcomposer/Helpers/Localizations.php:1285
+msgid "Discover visual editor that gives everything to create a website you are proud of."
+msgstr "Oplev visuel editor, der giver alt for at skabe en hjemmeside, du er stolt af."
+
+#: visualcomposer/Helpers/Localizations.php:1289
+msgid "Done"
+msgstr "Færdig"
+
+#: visualcomposer/Helpers/Localizations.php:1293
+msgid "Next Tip"
+msgstr "Næste tip"
+
+#: visualcomposer/Helpers/Localizations.php:1297
+msgid "Click here to skip"
+msgstr "Klik her for at springe over"
+
+#: visualcomposer/Helpers/Localizations.php:1301
+msgid "Element Controls"
+msgstr "Element kontrolelementer"
+
+#: visualcomposer/Helpers/Localizations.php:1305
+msgid "Quick Actions"
+msgstr "Hurtige handlinger"
+
+#: visualcomposer/Helpers/Localizations.php:1309
+msgid "Insights"
+msgstr "Insights"
+
+#: visualcomposer/Helpers/Localizations.php:1313
+msgid "On-Page Settings"
+msgstr "Enkel-Side indstillinger"
+
+#: visualcomposer/Helpers/Localizations.php:1317
+msgid "Publishing Options"
+msgstr "Indstillinger for udgivelse"
+
+#: visualcomposer/Helpers/Localizations.php:320
+msgid "Replace the {elementLabel} within this element with another {elementLabel} from the Element Library."
+msgstr "Erstat {elementLabel} i dette element med et andet {elementLabel} fra elementbiblioteket."
+
+#: visualcomposer/Helpers/Localizations.php:328
+msgid "We have received your request - the ticket has been created. Our support representative will contact you shortly."
+msgstr "Vi har modtaget din anmodning - anmodningen er blevet oprettet. Vores supportmedarbejder vil kontakte dig snarest."
+
+#: visualcomposer/Helpers/Localizations.php:471
+msgid "Open the Edit Form"
+msgstr "Åbn redigeringsform"
+
+#: visualcomposer/Helpers/Localizations.php:496
+msgid "No access, check your license."
+msgstr "Ingen adgang, tjek din licens."
+
+#: visualcomposer/Helpers/Localizations.php:580
+msgid "Activate Premium to Unlock Unsplash"
+msgstr "Aktiver Premium og oplås Unsplash"
+
+#: visualcomposer/Helpers/Localizations.php:841
+msgid "URL"
+msgstr "URL"
+
+#: visualcomposer/Helpers/Localizations.php:905
+msgid "Changes may not be saved."
+msgstr "Ændringerne gemmes muligvis ikke."
+
+#: visualcomposer/Helpers/Localizations.php:949
+msgid "Missing the ALT attribute for the image. This may impact the SEO ranking of the page."
+msgstr "Alt-attributten for billedet mangler. Dette kan påvirke SEO ranking af siden."
+
+#: visualcomposer/Helpers/Localizations.php:957
+msgid "The page is missing the H1 tag. This may impact the SEO ranking of the page."
+msgstr "Siden mangler H1-tagget. Dette kan påvirke SEO ranking af siden."
+
+#: visualcomposer/Helpers/Localizations.php:1101
+msgid "There are no internal links on the page. Add some!"
+msgstr "Der er ingen interne links på siden. Tilføj nogle!"
+
+#: visualcomposer/Helpers/Localizations.php:1109
+msgid "There are no external links to the page. Add some!"
+msgstr "Der er ingen eksterne links til siden. Tilføj nogle!"
+
+#: visualcomposer/Helpers/Localizations.php:192
+msgid "Didn't find an element? Check the Visual Composer Hub for more elements."
+msgstr "Fandt du ikke et element? Se i Visual Composer Hub for at få flere elementer."
+
+#: visualcomposer/Helpers/Localizations.php:210
+msgid "Add an image"
+msgstr "Tilføj et billede"
+
+#: visualcomposer/Helpers/Localizations.php:211
+msgid "Remove the image"
+msgstr "Fjern billedet"
+
+#: visualcomposer/Helpers/Localizations.php:212
+msgid "Move the image"
+msgstr "Flyt billedet"
+
+#: visualcomposer/Helpers/Localizations.php:213
+msgid "Edit or replace the image"
+msgstr "Redigere eller erstatte billedet"
+
+#: visualcomposer/Helpers/Localizations.php:218
+msgid "Add a link"
+msgstr "Tilføj et link"
+
+#: visualcomposer/Helpers/Localizations.php:228
+msgid "Delay (seconds)"
+msgstr "Forsinkelse (sekunder)"
+
+#: visualcomposer/Helpers/Localizations.php:239
+msgid "Add \"nofollow\" option to the link"
+msgstr "Tilføj \"nofollow\" valg til linket"
+
+#: visualcomposer/Helpers/Localizations.php:244
+msgid "Visual Composer Hub update failed, try again."
+msgstr "Opdateringen af Visual Composer Hub mislykkedes."
+
+#: visualcomposer/Helpers/Localizations.php:261
+msgid "Downloading"
+msgstr "Downloader"
+
+#: visualcomposer/Framework/helpers.php:222
+msgid "A .zip file of Visual Composer is broken - the checksum check failed. Check your Internet connection, initiate reset under Visual Composer Settings, and try again."
+msgstr "En .zip fil af visual composer er i stykker - kontrollen af kontrolsum mislykkedes. Kontroller din internetforbindelse, start nulstilling under Visual Composer indstillinger, og prøv igen."
+
+#: visualcomposer/Framework/helpers.php:308
+msgid "A wrong response body was received."
+msgstr "Et forkert svarindhold blev modtaget."
+
+#: visualcomposer/Helpers/EditorTemplates.php:222
+msgid "Select a template"
+msgstr "Vælg en skabelon"
+
+#: visualcomposer/Helpers/Localizations.php:103
+msgid "Failed to save the template."
+msgstr "Skabelonen kunne ikke gemmes."
+
+#: visualcomposer/Helpers/Localizations.php:124
+msgid "Name The Page"
+msgstr "Navngiv siden"
+
+#: visualcomposer/Helpers/Localizations.php:141
+msgid "Didn't find an element? Get a premium license to download elements from the Visual Composer Hub."
+msgstr "Fandt du ikke et element? Få en premium licens til at hente elementer fra Visual Composer Hub."
+
+#: visualcomposer/Helpers/Localizations.php:164
+msgid "A template with this name already exists. Choose a different template name."
+msgstr "En skabelon med dette navn findes allerede. Vælg et andet skabelon navn."
+
+#: visualcomposer/Helpers/Localizations.php:168
+msgid "There is no content on the page to be saved."
+msgstr "Der er ikke noget indhold på siden, der skal gemmes."
+
+#: visualcomposer/Modules/Hub/StockMedia/StockMediaDownloadController.php:92
+msgid "No access to upload files. Check your license options to make sure you are allowed to upload files."
+msgstr "Ingen adgang til at uploade filer. Tjek dine licensmuligheder for at sikre, at du har tilladelse til at overføre filer."
+
+#: visualcomposer/Modules/Hub/StockMedia/StockMediaDownloadController.php:155
+msgid "Failed to download the image. Make sure the upload folder is writable and try again."
+msgstr "Billedet kunne ikke downloades. Sørg for, at upload mappen er skrivbar og prøv igen."
+
+#: visualcomposer/Modules/License/UpdateVariablesController.php:75
+msgid "Next level website performance to rank higher and deliver faster."
+msgstr "Næste niveau websted ydeevne til højere rangering og hurtigere ydeevne."
+
+#: visualcomposer/Modules/Settings/Fields/FactoryResetController.php:113
+msgid "Incorrect permissions."
+msgstr "Forkerte tilladelser."
+
+#: visualcomposer/Modules/Settings/Pages/SystemStatus.php:117
+msgid "WP_DEBUG, false"
+msgstr "WP_DEBUG, falsk"
+
+#: visualcomposer/Modules/Settings/Pages/SystemStatus.php:117
+msgid "WP_DEBUG, true"
+msgstr "WP_DEBUG, sandt"
+
+#: visualcomposer/Modules/Settings/SettingsController.php:112
+msgid "Your settings are saved."
+msgstr "Dine indstillinger er gemt."
+
+#: visualcomposer/Modules/Editors/Settings/ItemPreviewController.php:49
+msgid "Enable element and template preview popup."
+msgstr "Aktiver element og skabelon popup-forhåndsvisning."
+
+#: visualcomposer/Modules/Editors/Tutorial/PostType.php:32
+msgid "Tutorial"
+msgstr "Selvstudium"
+
+#: visualcomposer/Modules/Editors/Tutorial/PostType.php:33
+msgid "Tutorials"
+msgstr "Selvstudier"
+
+#: visualcomposer/Modules/Editors/Tutorial/PostType.php:71
+msgid "Add %s"
+msgstr "Tilføj %s"
+
+#: visualcomposer/Modules/Editors/Tutorial/PostType.php:72
+msgid "Add New %s"
+msgstr "Tilføj ny %s"
+
+#: visualcomposer/Modules/Editors/Tutorial/PostType.php:74
+msgid "Edit %s"
+msgstr "Rediger %s"
+
+#: visualcomposer/Modules/Editors/Tutorial/PostType.php:75
+msgid "New %s"
+msgstr "Ny %s"
+
+#: visualcomposer/Modules/Editors/Tutorial/PostType.php:78
+msgid "Search %s"
+msgstr "Søg %s"
+
+#: visualcomposer/Modules/Editors/Tutorial/PostType.php:79
+msgid "No %s Found"
+msgstr "Der blev ingen %s fundet"
+
+#: visualcomposer/Modules/Editors/Tutorial/PostType.php:81
+msgid "No %s Found in Trash"
+msgstr "Der blev ingen %s fundet i papirkurven"
+
+#: visualcomposer/Modules/Editors/Tutorial/PostType.php:84
+msgid "Parent %s"
+msgstr "Overordnet %s"
+
+#: visualcomposer/Modules/Editors/Tutorial/PostType.php:85
+msgid "Filter %s"
+msgstr "Filtrer %s"
+
+#: visualcomposer/Modules/Editors/Tutorial/PostType.php:86
+msgid "%s Navigation"
+msgstr "%s Navigation"
+
+#: visualcomposer/Modules/Editors/Tutorial/PostType.php:87
+msgid "%s List"
+msgstr "%s liste"
+
+#: visualcomposer/Modules/FrontView/PluginsInfoController.php:41
+msgid "Powered by Visual Composer Website Builder - fast and easy-to-use drag and drop visual editor for WordPress."
+msgstr "Drevet af Visual Composer Website Builder - hurtig og nem træk og slip visuelle editor til WordPress."
+
+#: visualcomposer/Helpers/Localizations.php:1257
+#: visualcomposer/resources/views/settings/fields/dataCollectionTable.php:21
+msgid "Elements"
+msgstr "Elementer"
+
+#: visualcomposer/Helpers/Localizations.php:1261
+#: visualcomposer/Modules/Hub/Pages/PremiumTeasers.php:75
+#: visualcomposer/resources/views/settings/fields/dataCollectionTable.php:25
+msgid "Templates"
+msgstr "Skabeloner"
+
+#: visualcomposer/Helpers/Localizations.php:60
+msgid "Add Content"
+msgstr "Tilføj indhold"
+
+#: visualcomposer/Helpers/Localizations.php:205
+msgid "Do more with the Visual Composer Hub"
+msgstr "Få mere ud af Visual Composer Hub"
+
+#: visualcomposer/Helpers/Localizations.php:1253
+msgid "New"
+msgstr "Ny"
+
+#: visualcomposer/resources/views/license/pages/license.php:87
+msgid "Upgrade"
+msgstr "Opgrader"
+
+#: visualcomposer/Helpers/Localizations.php:969
+msgid "More than one H1 tag found"
+msgstr "Flere end et H1-tag blev fundet"
+
+#: visualcomposer/Helpers/Localizations.php:973
+msgid "You have more than one H1 tag on your page which is bad for SEO ranking. Make sure to keep only one H1 and use lower-level headings (H2, H3, etc.) to structure your content."
+msgstr "Du har mere end én H1 tag på din side, som er dårligt for SEO ranking. Sørg for kun at beholde én H1, og brug overskrifter på lavere niveau (H2, H3 osv.) til at strukturere dit indhold."
+
+#: visualcomposer/resources/views/settings/fields/yesnotoggle.php:18
+msgid "yes"
+msgstr "ja"
+
+#: visualcomposer/resources/views/settings/fields/yesnotoggle.php:19
+msgid "no"
+msgstr "nej"
+
+#: visualcomposer/Helpers/Localizations.php:1241
+msgid "Read more"
+msgstr "Læs mere"
+
+#: visualcomposer/Helpers/Localizations.php:1249
+msgid "Submit"
+msgstr "Send"
+
+#: visualcomposer/Helpers/Localizations.php:1225
+msgid "Manage your site menus"
+msgstr "Administrer dit websteds menuer"
+
+#: visualcomposer/Modules/Editors/Frontend/MenuController.php:192
+msgid "Select your menu"
+msgstr "Vælg din menu"
+
+#: visualcomposer/Helpers/Localizations.php:1221
+msgid "Substitute Element"
+msgstr "Erstatnings element"
+
+#: visualcomposer/Helpers/Localizations.php:1177
+msgid "Download and Add Free Animated GIFs to Your Site With Visual Composer Premium"
+msgstr "Download og tilføj gratis animerede GIF'er til dit websted med Visual Composer Premium"
+
+#: visualcomposer/Helpers/Localizations.php:1181
+msgid "Download and Add Free Animated GIFs to Your Site"
+msgstr "Download og tilføj gratis animerede GIF'er til dit websted"
+
+#: visualcomposer/Helpers/Localizations.php:1185
+msgid "Could not connect to Giphy Server!"
+msgstr "Der kunne ikke oprettes forbindelse til Giphy Server!"
+
+#: visualcomposer/Helpers/Localizations.php:1189
+msgid "Discover the best GIF animations from Giphy."
+msgstr "Oplev de bedste GIF animationer fra Giphy."
+
+#: visualcomposer/Helpers/Localizations.php:1193
+msgid "Download animations from Giphy to your Media Library"
+msgstr "Download animationer fra Giphy til dit mediebibliotek"
+
+#: visualcomposer/Helpers/Localizations.php:1197
+msgid "Activate Premium to Unlock Giphy Integration"
+msgstr "Aktiver Premium og oplås Giphy integrationen"
+
+#: visualcomposer/Helpers/Localizations.php:1201
+msgid "GIF animations"
+msgstr "GIF-animationer"
+
+#: visualcomposer/Helpers/Localizations.php:1205
+msgid "GIF animation has been downloaded to your Media Library."
+msgstr "GIF-animationen er blevet downloadet til dit medie bibliotek."
+
+#: visualcomposer/Helpers/Localizations.php:1209
+msgid "Regular"
+msgstr "Regulær"
+
+#: visualcomposer/Helpers/Localizations.php:1213
+msgid "Full"
+msgstr "Fuld"
+
+#: visualcomposer/Helpers/Localizations.php:1217
+msgid "Powered by"
+msgstr "Drevet af"
+
+#: visualcomposer/Helpers/Localizations.php:1173
+msgid "The template you want to add contains %element element. You already have %element element added - remove it before adding the template."
+msgstr "Den skabelon, du vil tilføje, indeholder %element element. Du har allerede tilføjet %element element - fjern det, før du tilføjer skabelonen."
+
+#: visualcomposer/Helpers/Localizations.php:1169
+msgid "The content area is missing for your layout. Make sure to add the Content Area element to specify the place in your layout where the page or post content will be displayed."
+msgstr "Indholdsområdet mangler til dit layout. Sørg for at tilføje elementet Indholdsområde for at angive det sted i layoutet, hvor side- eller indlægsindholdet skal vises."
+
+#: visualcomposer/Helpers/Localizations.php:1165
+msgid "Define a comments area for a post or page layout."
+msgstr "Definer et kommentarområde for et indlæg eller et sidelayout."
+
+#: visualcomposer/Helpers/Localizations.php:361
+msgid "Global Default"
+msgstr "Globale standarder"
+
+#: visualcomposer/Helpers/Localizations.php:365
+msgid "Layout Default"
+msgstr "Layout standard"
+
+#: visualcomposer/Helpers/Localizations.php:1153
+msgid "Activate Hub"
+msgstr "Aktiver Hub"
+
+#: visualcomposer/Helpers/Localizations.php:83
+msgid "Get Free License"
+msgstr "Få gratis licens"
+
+#: visualcomposer/Helpers/Localizations.php:84
+msgid "Activated"
+msgstr "Aktiveret"
+
+#: visualcomposer/Helpers/Localizations.php:1005
+msgid "There are no critical issues on the page. Congratulations and keep up the good work!"
+msgstr "Der er ingen kritiske problemer på siden. Tillykke og fortsæt det gode arbejde!"
+
+#: visualcomposer/Helpers/Localizations.php:1001
+msgid "No Critical Issues Found"
+msgstr "Der blev ikke fundet nogle kritiske problemer"
+
+#: visualcomposer/Helpers/Localizations.php:1009
+msgid "No Warnings Found"
+msgstr "Der blev ikke fundet nogen advarsler"
+
+#: visualcomposer/Modules/Editors/Settings/PageTemplatesVariablesController.php:51
+msgid "Default Layout or Select Custom"
+msgstr "Standard layout eller vælg brugertilpasset"
+
+#: visualcomposer/Modules/Editors/Settings/PageTemplatesVariablesController.php:55
+msgid "Blank Layout"
+msgstr "Tomt layout"
+
+#: visualcomposer/Helpers/Localizations.php:97
+msgid "Apply custom Global Javascript code sitewide."
+msgstr "Tilføj brugertilpasset globale JavaScript-kode på hele webstedet."
+
+#: visualcomposer/Helpers/Localizations.php:248
+msgid "Hide Element"
+msgstr "Skjul element"
+
+#: visualcomposer/Helpers/Localizations.php:249
+msgid "Show Element"
+msgstr "Vis element"
+
+#: visualcomposer/Helpers/Localizations.php:250
+msgid "Element is Hidden"
+msgstr "Elementet er skjult"
+
+#: visualcomposer/Helpers/Localizations.php:253
+msgid "Change the default parameters to create a unique element. The new element will be added to your library."
+msgstr "Ændre standard parameteren for at oprette et unikt element. Det nye element vil blive tilføjet dit bibliotek."
+
+#: visualcomposer/Helpers/Localizations.php:676
+msgid "Change the default parameters of the section to save it as a unique block template. The new block template will be added to your library."
+msgstr "Ændre standard parameteren på sektionen for at gemme den som en unik blok skabelon. Den nye blok skabelon vil blive tilføjet dit bibliotek."
+
+#: visualcomposer/Helpers/Localizations.php:684
+msgid "How disappointed would you be if this product no longer existed tomorrow?"
+msgstr "Hvor skuffet vil du blive hvis dette produkt forsvinder i morgen?"
+
+#: visualcomposer/Helpers/Localizations.php:688
+msgid "Very disappointed"
+msgstr "Meget skuffet"
+
+#: visualcomposer/Helpers/Localizations.php:692
+msgid "Somewhat disappointed"
+msgstr "Noget skuffet"
+
+#: visualcomposer/Helpers/Localizations.php:696
+msgid "Not disappointed (it really isn’t that useful)"
+msgstr "Ikke skuffet (det er virkelig ikke så nyttigt)"
+
+#: visualcomposer/Helpers/Localizations.php:700
+msgid "Submit Your Feedback"
+msgstr "Send din feedback"
+
+#: visualcomposer/Helpers/Localizations.php:1113
+msgid "Only one %element element can be added to the page."
+msgstr "Kun et %element element kan blive tilføjet siden."
+
+#: visualcomposer/Helpers/Localizations.php:1117
+msgid "Only two %element elements can be added to the page."
+msgstr "Kun to %element elementer kan tilføjes siden."
+
+#: visualcomposer/Helpers/Localizations.php:1121
+msgid "Only three %element elements can be added to the page."
+msgstr "Kun tre %element elementer kan tilføjes siden."
+
+#: visualcomposer/Helpers/Localizations.php:1125
+msgid "Only four %element elements can be added to the page."
+msgstr "Kun fire %element elementer kan tilføjes siden."
+
+#: visualcomposer/Helpers/Localizations.php:1129
+msgid "Only five %element elements can be added to the page."
+msgstr "Kun fem %element elementer kan tilføjes siden."
+
+#: visualcomposer/Helpers/Localizations.php:1133
+msgid "Only %count %element elements can be added to the page."
+msgstr "Kun %count %element elementer kan tilføjes siden."
+
+#: visualcomposer/Helpers/Localizations.php:401
+msgid "A default layout for the post type created in the Visual Composer Theme Builder."
+msgstr "Et standardlayout for den indlægstype, der er oprettet i Visual Composer Theme Builder."
+
+#: visualcomposer/Helpers/Localizations.php:223
+msgid "Popup"
+msgstr "Popup vindue"
+
+#: visualcomposer/Helpers/Localizations.php:1013
+msgid "There are no warnings on the page. Congratulations and keep up the good work!"
+msgstr "Der er ingen advarsler på siden. Tillykke og fortsæt det gode arbejde!"
+
+#: visualcomposer/Helpers/Localizations.php:1017
+msgid "Paragraph length"
+msgstr "Afsnits længde"
+
+#: visualcomposer/Helpers/Localizations.php:1021
+msgid "Paragraph word count is"
+msgstr "Afsnits ordtælling er"
+
+#: visualcomposer/Helpers/Localizations.php:1025
+msgid "You set a proper length for the paragraphs. Great job!"
+msgstr "Du angiver en korrekt længde for afsnittene. Super job!"
+
+#: visualcomposer/Helpers/Localizations.php:1029
+msgid "The paragraph contains more than 150 words. This may affect readability."
+msgstr "Afsnittet indeholder mere end 150 ord. Dette kan påvirke læsbarheden."
+
+#: visualcomposer/Helpers/Localizations.php:1033
+msgid "The paragraph contains more than 200 words. This may affect readability."
+msgstr "Afsnittet indeholder mere end 200 ord. Dette kan påvirke læsbarheden."
+
+#: visualcomposer/Helpers/Localizations.php:1037
+msgid "The page title is too long."
+msgstr "Sidetitlen er for lang."
+
+#: visualcomposer/Helpers/Localizations.php:1041
+msgid "The page title exceeds 60 characters which are considered too long. Make sure to adjust it between 10 to 60 characters."
+msgstr "Sidetitlen overstiger 60 tegn, som anses for at være for lange. Sørg for at justere den mellem 10 og 60 tegn."
+
+#: visualcomposer/Helpers/Localizations.php:1045
+msgid "The page title contains more than 100 characters and will be cut off by search engines. Shorten your page title!"
+msgstr "Sidetitlen indeholder mere end 100 tegn og vil blive afskåret af søgemaskiner. Forkorte din side titel!"
+
+#: visualcomposer/Helpers/Localizations.php:1049
+msgid "The page title is too short."
+msgstr "Sidetitlen er for kort."
+
+#: visualcomposer/Helpers/Localizations.php:1053
+msgid "The page title is too short. Make sure to adjust the title between 10 to 60 characters."
+msgstr "Sidetitlen er for kort. Sørg for at justere titlen mellem 10 og 60 tegn."
+
+#: visualcomposer/Helpers/Localizations.php:1057
+msgid "The page title length is optimal."
+msgstr "Sidens titellængde er optimal."
+
+#: visualcomposer/Helpers/Localizations.php:1061
+msgid "It seems that this page is set to \"noindex\" directive."
+msgstr "Det lader til, at denne side er indstillet til \"noindex\" direktiv."
+
+#: visualcomposer/Helpers/Localizations.php:1065
+msgid "Using \"noindex\" will exclude this page from search results. If you have set \"noindex\" on purpose, ignore this warning."
+msgstr "Brug af \"noindex\" udelukker denne side fra søgeresultaterne. Hvis du har indstillet \"noindex\" med vilje, skal du ignorere denne advarsel."
+
+#: visualcomposer/Helpers/Localizations.php:1069
+msgid "Google Analytics Tag is missing."
+msgstr "Google Analytics Tag mangler."
+
+#: visualcomposer/Helpers/Localizations.php:1073
+msgid "Google Analytics Tag is added to the page."
+msgstr "Google Analytics-tag er tilføjet siden."
+
+#: visualcomposer/Helpers/Localizations.php:1077
+msgid "It seems Google Analytics Tags is not added to the page."
+msgstr "Det ser ud til Google Analytics Tags er ikke tilføjet til siden."
+
+#: visualcomposer/Helpers/Localizations.php:1081
+msgid "Google Analytics Tag is added to the page. Great job!"
+msgstr "Google Analytics-tag er tilføjet siden. Skide godt!"
+
+#: visualcomposer/Helpers/Localizations.php:1085
+msgid "Text length"
+msgstr "Tekst længde"
+
+#: visualcomposer/Helpers/Localizations.php:1089
+msgid "The text contains %length words. This is far below the recommended minimum of 300 words."
+msgstr "Tekst længden indeholder %length ord. Dette er langt under det anbefalet på minimum 300 ord."
+
+#: visualcomposer/Helpers/Localizations.php:1093
+msgid "The text contains %length words. Good job!"
+msgstr "Teksten indeholder %length ord. Skide godt!"
+
+#: visualcomposer/Helpers/Localizations.php:1097
+msgid "No internal links appear on the page."
+msgstr "Der vises ingen interne links på siden."
+
+#: visualcomposer/Helpers/Localizations.php:1105
+msgid "No external links appear on the page."
+msgstr "Der vises ingen eksterne links på siden."
+
+#: visualcomposer/Helpers/EditorTemplates.php:107
+msgid "Hub Templates"
+msgstr "Hub skabeloner"
+
+#: visualcomposer/Helpers/Localizations.php:909
+msgid "Visual Composer Insights"
+msgstr "Visuel komponist Indsigt"
+
+#: visualcomposer/Helpers/Localizations.php:921
+msgid "Critical"
+msgstr "Kritisk"
+
+#: visualcomposer/Helpers/Localizations.php:925
+msgid "Warnings"
+msgstr "Advarsler"
+
+#: visualcomposer/Helpers/Localizations.php:933
+msgid "Image size exceeded"
+msgstr "Billede størrelsen er overskredet"
+
+#: visualcomposer/Helpers/Localizations.php:937
+msgid "Background Image size exceeded"
+msgstr "Baggrunds billede størrelsen er overskredet"
+
+#: visualcomposer/Helpers/Localizations.php:941
+msgid "The image size exceeds %s. This may impact the page's performance and SEO ranking."
+msgstr "Billedstørrelsen overskrider %s. Dette kan påvirke sidens ydeevne og SEO ranking."
+
+#: visualcomposer/Helpers/Localizations.php:945
+msgid "The image ALT attribute is missing"
+msgstr "Billedets ALT egenskab mangler"
+
+#: visualcomposer/Helpers/Localizations.php:953
+msgid "H1 title missing on the page"
+msgstr "H1 overskrift mangler på siden"
+
+#: visualcomposer/Helpers/Localizations.php:961
+msgid "H1 title exists on the page"
+msgstr "H1 overskrift findes på siden"
+
+#: visualcomposer/Helpers/Localizations.php:965
+msgid "The page has an H1 tag. Great job!"
+msgstr "Siden har et H1-tag. Skide godt!"
+
+#: visualcomposer/Helpers/Localizations.php:977
+msgid "All images have ALT attributes"
+msgstr "Alle billeder har 'alt' egenskaber"
+
+#: visualcomposer/Helpers/Localizations.php:981
+msgid "All images have ALT attributes. Great Job!"
+msgstr "Alle billeder har 'alt' egenskaber. Skide godt!"
+
+#: visualcomposer/Helpers/Localizations.php:985
+msgid "All images have optimal sizes"
+msgstr "Alle billeder har optimal størrelse"
+
+#: visualcomposer/Helpers/Localizations.php:989
+msgid "All images have optimal sizes. Awesome!"
+msgstr "Alle billeder har optimal størrelse. Skide godt!"
+
+#: visualcomposer/Helpers/Localizations.php:993
+msgid "No content found"
+msgstr "Der blev ikke fundet noget indhold"
+
+#: visualcomposer/Helpers/Localizations.php:997
+msgid "It seems this page has no content. Make sure to add elements or templates."
+msgstr "Det lader til, at denne side intet indhold har. Sørg for at tilføje elementer eller skabeloner."
+
+#: visualcomposer/Helpers/Localizations.php:225
+msgid "Popup on every page load"
+msgstr "Popup ved hver sideindlæsning"
+
+#: visualcomposer/Helpers/Localizations.php:226
+msgid "Popup on exit-intent"
+msgstr "Popup ved side exit"
+
+#: visualcomposer/Helpers/Localizations.php:227
+msgid "Popup on element ID"
+msgstr "Popup on element-id"
+
+#: visualcomposer/Helpers/Localizations.php:229
+msgid "Show every (days)"
+msgstr "Vis hver (dage)"
+
+#: visualcomposer/Helpers/Localizations.php:377
+msgid "Update Visual Composer plugin to the most recent version to download this addon."
+msgstr "Opdater Visual Composer-plugin til den nyeste version for at hente denne udvidelse."
+
+#: visualcomposer/Helpers/Localizations.php:612
+msgid "I Want a Free License"
+msgstr "Jeg vil have en gratis licens"
+
+#: visualcomposer/Helpers/Localizations.php:61
+#: visualcomposer/Modules/Hub/Pages/Hub.php:86
+msgid "Visual Composer Hub"
+msgstr "Visual Composer Hub"
+
+#: visualcomposer/resources/views/settings/layouts/dashboard-main-layout.php:361
+msgid "Help"
+msgstr "Hjælp"
+
+#: visualcomposer/resources/views/settings/layouts/dashboard-main-layout.php:366
+msgid "My Visual Composer"
+msgstr "Min Visual Composer"
+
+#: visualcomposer/Helpers/Localizations.php:459
+msgid "Add custom JavaScript code to insert it locally on this page in <footer>. Insert Google Analytics, Tag Manager, Kissmetrics, or other JavaScript code snippets."
+msgstr "Tilføj brugertilpasset JavaScript-kode for at indsætte den lokalt på denne side i <footer>. Indsæt Google Analytics, Tag Manager, Kissmetrics eller andre JavaScript-kodestykker."
+
+#: visualcomposer/Framework/helpers.php:172
+msgid "An error occurred while retrieving the download URL for Visual Composer extensions. Deactivate other plugins, re-install Visual Composer and try again."
+msgstr "Der opstod en fejl under hentning afurl-adressen til overførsel til Visual Composer-udvidelser. Deaktiver andre plugins, geninstaller Visual Composer, og prøv igen."
+
+#: visualcomposer/Framework/helpers.php:178
+msgid "An error occurred when creating temporary installation files. Verify that WP_TEMP_DIR exists and is writable."
+msgstr "Der opstod en fejl under oprettelsen midlertidige indtallationsfier. Kontroller at WP_TEMP_DIR eksisterer og er skrivbar."
+
+#: visualcomposer/Framework/helpers.php:215
+msgid "An error occurred when extracting Visual Composer extension files. Visual Composer requires direct access to the file system of your server. Check if FS_METHOD is defined in wp-config.php and disable it."
+msgstr "En fejl opstod under udpakningen af Visual Composer udvidelsesfilen. Visual Composer kræver direkte adgang til filsystemet på din server. Kontroller om FS_METHOD er defineret i wp-config.php og deaktiver det."
+
+#: visualcomposer/Framework/helpers.php:228
+msgid "We could not copy files to your server. It seems that you have run out of the disk space. Increase your server disk space and try again."
+msgstr "Vi kunne ikke kopiere filer til din server. Det lader til, at du er løbet tør for diskplads. Forøg serverens diskplads, og prøv igen."
+
+#: visualcomposer/Framework/helpers.php:241
+msgid "We could not copy a directory for the plugin in wp-content/uploads. Check if your server has a \"write\" permissions for wp-content/uploads."
+msgstr "Vi kunne ikke kopiere en mappe til plugin'et i wp-content/uploads. Kontroller, om din server har skrive adgang til wp-content/uploads mappen."
+
+#: visualcomposer/Framework/helpers.php:247
+msgid "We could not copy a directory for the plugin in wp-content/uploads. Please check if your server has write permissions for wp-content/uploads."
+msgstr "Vi kunne ikke kopiere en mappe til plugin'et i wp-content/uploads. Kontroller, om din server har skrive adgang til wp-content/uploads mappen."
+
+#: visualcomposer/Framework/helpers.php:261
+msgid "WordPress Error: %s"
+msgstr "WordPress-fejl: %s"
+
+#: visualcomposer/Framework/helpers.php:322
+msgid "Bad status code was received."
+msgstr "En forkert svar status kode blev modtaget."
+
+#: visualcomposer/Framework/helpers.php:338
+msgid "A bad response status code %d was received."
+msgstr "En forkert svar status kode %d blev modtaget."
+
+#: visualcomposer/Framework/helpers.php:354
+msgid "Failed to process the action."
+msgstr "Handlingen kunne ikke udføres."
+
+#: visualcomposer/Helpers/EditorTemplates.php:100
+msgid "My Templates"
+msgstr "Mine skabeloner"
+
+#: visualcomposer/Helpers/Hub/Bundle.php:165
+#: visualcomposer/Helpers/Hub/Bundle.php:372
+msgid "Failed to read remote bundle JSON."
+msgstr "Læsning af ekstern JSON-bundt kunne ikke udføres."
+
+#: visualcomposer/Helpers/Hub/Download.php:27
+msgid "Editor bundle"
+msgstr "Editor pakke"
+
+#: visualcomposer/Helpers/Hub/Download.php:30
+msgid "Categories bundle"
+msgstr "Kategorier pakke"
+
+#: visualcomposer/Helpers/Hub/Download.php:33
+msgid "Library extensions"
+msgstr "Biblioteks udvidelser"
+
+#: visualcomposer/Helpers/Hub/Download.php:36
+msgid "Templates library"
+msgstr "Skabelon bibliotek"
+
+#: visualcomposer/Helpers/Hub/Update.php:173
+msgid "Create a new page"
+msgstr "Opret en ny side"
+
+#: visualcomposer/Helpers/Hub/Update.php:184
+msgid "Create a new post"
+msgstr "Oprette et nyt indlæg"
+
+#: visualcomposer/Helpers/License.php:169
+msgid "Visual Composer Website Builder license has been deactivated."
+msgstr "Visual Composer Website Builder er blevet deaktiveret."
+
+#: visualcomposer/Helpers/License.php:178
+msgid "Visual Composer Website Builder license is already activated."
+msgstr "Visual Composer Website Builder licensen er allerede aktiveret."
+
+#: visualcomposer/Helpers/License.php:190
+msgid "The purchase code is already used, deactivate the previous site, and try again."
+msgstr "Købskoden bruges allerede, deaktiver det forrige websted, og prøv igen."
+
+#: visualcomposer/Helpers/Localizations.php:82
+#: visualcomposer/Modules/Vendors/PluginsController.php:137
+#: visualcomposer/resources/views/license/pages/license.php:38
+#: visualcomposer/resources/views/partials/teaser.php:24
+#: visualcomposer/resources/views/settings/layouts/dashboard-main-layout.php:375
+#: visualcomposer/resources/views/vendors/dashboard.php:78
+msgid "Go Premium"
+msgstr "Få Premium"
+
+#: visualcomposer/Helpers/Localizations.php:59
+msgid "Add Element"
+msgstr "Tilføj element"
+
+#: visualcomposer/Helpers/Localizations.php:62
+msgid "Add Template"
+msgstr "Tilføj skabelon"
+
+#: visualcomposer/Helpers/Localizations.php:63
+msgid "Tree View"
+msgstr "Trævisning"
+
+#: visualcomposer/Helpers/Localizations.php:64
+msgid "Undo"
+msgstr "Fortryd"
+
+#: visualcomposer/Helpers/Localizations.php:65
+msgid "Redo"
+msgstr "Annuller fortryd"
+
+#: visualcomposer/Helpers/Localizations.php:66
+msgid "Responsive View"
+msgstr "Responsiv visning"
+
+#: visualcomposer/Helpers/Localizations.php:67
+msgid "Desktop"
+msgstr "Computer"
+
+#: visualcomposer/Helpers/Localizations.php:68
+msgid "Tablet Landscape"
+msgstr "Tablet, vandret"
+
+#: visualcomposer/Helpers/Localizations.php:69
+msgid "Tablet Portrait"
+msgstr "Tablet, lodret"
+
+#: visualcomposer/Helpers/Localizations.php:70
+msgid "Mobile Landscape"
+msgstr "Mobil enhed, vandret"
+
+#: visualcomposer/Helpers/Localizations.php:71
+msgid "Mobile Portrait"
+msgstr "Mobil enhed, lodret"
+
+#: visualcomposer/Helpers/Localizations.php:72
+#: visualcomposer/Modules/Settings/Pages/Settings.php:66
+#: visualcomposer/Modules/Settings/Pages/Settings.php:67
+msgid "Settings"
+msgstr "Indstillinger"
+
+#: visualcomposer/Helpers/Localizations.php:73
+#: visualcomposer/Modules/Hub/Pages/UpdateBePage.php:88
+msgid "Update"
+msgstr "Opdater"
+
+#: visualcomposer/Helpers/Localizations.php:74
+msgid "Menu"
+msgstr "Menu"
+
+#: visualcomposer/Helpers/Localizations.php:75
+msgid "View Page"
+msgstr "Vis side"
+
+#: visualcomposer/Helpers/Localizations.php:76
+msgid "Back to WordPress"
+msgstr "Tilbage til WordPress"
+
+#: visualcomposer/Helpers/Localizations.php:78
+msgid "WordPress Dashboard"
+msgstr "WordPress kontrolpanel"
+
+#: visualcomposer/Helpers/Localizations.php:79
+msgid "Publish"
+msgstr "Udgiv"
+
+#: visualcomposer/Helpers/Localizations.php:80
+msgid "Submit for Review"
+msgstr "Send til godkendelse"
+
+#: visualcomposer/Helpers/Localizations.php:81
+msgid "Save Draft"
+msgstr "Gem kladde"
+
+#: visualcomposer/Helpers/Localizations.php:85
+msgid "Close"
+msgstr "Luk"
+
+#: visualcomposer/Helpers/Localizations.php:86
+msgid "There is no content on the page - start by adding an element or template."
+msgstr "Der er ikke noget indhold på siden - start med at tilføje et element eller en skabelon."
+
+#: visualcomposer/Helpers/Localizations.php:90
+#: visualcomposer/Modules/Settings/Fields/CssEditor.php:59
+msgid "Custom CSS"
+msgstr "Brugertilpasset CSS"
+
+#: visualcomposer/Helpers/Localizations.php:91
+msgid "Local CSS"
+msgstr "Lokale CSS"
+
+#: visualcomposer/Helpers/Localizations.php:92
+msgid "Global CSS"
+msgstr "Globale CSS"
+
+#: visualcomposer/Helpers/Localizations.php:93
+msgid "Custom JavaScript"
+msgstr "Brugertilpasset JavaScript"
+
+#: visualcomposer/Helpers/Localizations.php:94
+msgid "Local JavaScript"
+msgstr "Lokale JavaScript"
+
+#: visualcomposer/Helpers/Localizations.php:95
+msgid "Local JavaScript will be applied to this particular page only."
+msgstr "Lokale JavaScript vil kun blive tilføjet denne side."
+
+#: visualcomposer/Helpers/Localizations.php:96
+msgid "Global JavaScript"
+msgstr "Globale JavaScript"
+
+#: visualcomposer/Helpers/Localizations.php:98
+msgid "Save"
+msgstr "Gem"
+
+#: visualcomposer/Helpers/Localizations.php:101
+msgid "Save Template"
+msgstr "Gem skabelon"
+
+#: visualcomposer/Helpers/Localizations.php:102
+msgid "Remove Template"
+msgstr "Fjern skabelon"
+
+#: visualcomposer/Helpers/Localizations.php:104
+msgid "Download More Templates"
+msgstr "Download flere skabeloner"
+
+#: visualcomposer/Helpers/Localizations.php:105
+msgid "Get More Elements"
+msgstr "Få flere elementer"
+
+#: visualcomposer/Helpers/Localizations.php:106
+msgid "Get More Templates"
+msgstr "Få flere skabeloner"
+
+#: visualcomposer/Helpers/Localizations.php:107
+msgid "There are no templates yet. Save the current layout as a template or download templates from Visual Composer Hub."
+msgstr "Der er endnu ingen skabeloner. Gem det aktuelle layout som en skabelon, eller download skabeloner fra Visual Composer Hub."
+
+#: visualcomposer/Helpers/Localizations.php:112
+msgid "Didn't find the right template? Check out Visual Composer Hub for more templates."
+msgstr "Fandt du ikke den rigtige skabelon? Se Visual Composer Hub for at få flere skabeloner."
+
+#: visualcomposer/Helpers/Localizations.php:120
+msgid "Do you want to remove this template?"
+msgstr "Vil du fjerne denne skabelon?"
+
+#: visualcomposer/Helpers/Localizations.php:121
+msgid "Do you want to remove this element preset?"
+msgstr "Vil du fjerne dette elements forudindstilling?"
+
+#: visualcomposer/Helpers/Localizations.php:122
+msgid "Failed to remove the template"
+msgstr "Skabelonen kunne ikke fjernes"
+
+#: visualcomposer/Helpers/Localizations.php:123
+msgid "Name Your Page, Select"
+msgstr "Navngiv din side, vælg"
+
+#: visualcomposer/Helpers/Localizations.php:125
+msgid "Layout and Start Building"
+msgstr "Layout og Start opbygning"
+
+#: visualcomposer/Helpers/Localizations.php:126
+msgid "Name Your "
+msgstr "Navngiv din "
+
+#: visualcomposer/Helpers/Localizations.php:127
+msgid "and Start Building"
+msgstr "og begynd at bygge"
+
+#: visualcomposer/Helpers/Localizations.php:128
+msgid "Start by adding an element to the layout or select one of the pre-defined templates."
+msgstr "Start med at tilføje et element til layoutet, eller vælg en af de foruddefinerede skabeloner."
+
+#: visualcomposer/Helpers/Localizations.php:133
+msgid "Page title"
+msgstr "Side titel"
+
+#: visualcomposer/Helpers/Localizations.php:136
+msgid "Didn't find a perfect template? Get a premium license to download templates from the Visual Composer Hub."
+msgstr "Fandt du ikke en perfekt skabelon? Få en premium-licens til at hente skabeloner fra Visual Composer Hub."
+
+#: visualcomposer/Helpers/Localizations.php:146
+msgid "Get a premium license to access Visual Composer Hub. Download professionally designed templates, more content elements, extensions, and more."
+msgstr "Få en premium-licens for at få adgang til Visual Composer Hub. Download professionelt designede skabeloner, flere indholdselementer, udvidelser og meget mere."
+
+#: visualcomposer/Helpers/Localizations.php:151
+msgid "Add"
+msgstr "Tilføj"
+
+#: visualcomposer/Helpers/Localizations.php:152
+msgid "Row Layout"
+msgstr "Række layout"
+
+#: visualcomposer/Helpers/Localizations.php:153
+#: visualcomposer/Modules/Editors/Tutorial/PostType.php:73
+msgid "Edit"
+msgstr "Rediger"
+
+#: visualcomposer/Helpers/Localizations.php:154
+msgid "Design Options"
+msgstr "Design indstillinger"
+
+#: visualcomposer/Helpers/Localizations.php:155
+msgid "Clone"
+msgstr "Klon"
+
+#: visualcomposer/Helpers/Localizations.php:156
+msgid "Copy"
+msgstr "Kopier"
+
+#: visualcomposer/Helpers/Localizations.php:157
+msgid "Paste"
+msgstr "Indsæt"
+
+#: visualcomposer/Helpers/Localizations.php:158
+msgid "Paste After"
+msgstr "Indsæt efter"
+
+#: visualcomposer/Helpers/Localizations.php:159
+msgid "Remove"
+msgstr "Fjern"
+
+#: visualcomposer/Helpers/Localizations.php:160
+msgid "Move"
+msgstr "Flyt"
+
+#: visualcomposer/Helpers/Localizations.php:161
+msgid "Search for content elements"
+msgstr "Søge efter indholdselementer"
+
+#: visualcomposer/Helpers/Localizations.php:169
+msgid "Enter the template name to save this page as a template."
+msgstr "Indtast skabelonnavnet for at gemme denne side som en skabelon."
+
+#: visualcomposer/Helpers/Localizations.php:170
+msgid "Add one column"
+msgstr "Tilføj en kolonne"
+
+#: visualcomposer/Helpers/Localizations.php:171
+msgid "Add two columns"
+msgstr "Tilføj to kolonner"
+
+#: visualcomposer/Helpers/Localizations.php:172
+msgid "Add three columns"
+msgstr "Tilføj tre kolonner"
+
+#: visualcomposer/Helpers/Localizations.php:173
+msgid "Add four columns"
+msgstr "Tilføj fire kolonner"
+
+#: visualcomposer/Helpers/Localizations.php:174
+msgid "Add five columns"
+msgstr "Tilføj fem kolonner"
+
+#: visualcomposer/Helpers/Localizations.php:175
+msgid "Add custom row layout"
+msgstr "Tilføj brugertilpasset række layout"
+
+#: visualcomposer/Helpers/Localizations.php:176
+msgid "Add a text block"
+msgstr "Tilføj en tekst blok"
+
+#: visualcomposer/Helpers/Localizations.php:177
+#: visualcomposer/Modules/Editors/EditPostLinks/Controller.php:81
+#: visualcomposer/Modules/Editors/EditPostLinks/Controller.php:115
+#: visualcomposer/Modules/Editors/EditPostLinks/Controller.php:116
+#: visualcomposer/Modules/Editors/EditPostLinks/Controller.php:169
+msgid "Edit with Visual Composer"
+msgstr "Rediger med Visual Composer"
+
+#: visualcomposer/Helpers/Localizations.php:178
+msgid "Classic Editor"
+msgstr "Klassisk Editor"
+
+#: visualcomposer/Helpers/Localizations.php:179
+msgid "You are switching to Visual Composer. Visual Composer will load the latest version of the content created with the website builder."
+msgstr "Du skifter til Visuel Composer. Visual Composer indlæser den nyeste version af det indhold, der er oprettet med websteds editor."
+
+#: visualcomposer/Helpers/Localizations.php:184
+msgid "You are switching to the Classic Editor. The content created with Visual Composer will be copied to Classic Editor (style changes may apply). Any changes made in the Classic Editor will not be synced with the Visual Composer layout. Do you want to proceed?"
+msgstr "Du skifter til den Klassiske editor. Det indhold, der oprettes med Visual Composer, kopieres til den Klassisk editor (typografiændringer kan forekomme). Eventuelle ændringer, der foretages i den Klassiske editor, synkroniseres ikke med Visual Composer-layoutet. Vil du fortsætte?"
+
+#: visualcomposer/Helpers/Localizations.php:189
+msgid "Blank Page"
+msgstr "Blank side"
+
+#: visualcomposer/Helpers/Localizations.php:190
+msgid "Search for templates by name and description"
+msgstr "Søge efter skabeloner efter navn og beskrivelse"
+
+#: visualcomposer/Helpers/Localizations.php:191
+msgid "Open Visual Composer Hub"
+msgstr "Åbn Visual Composer Hub"
+
+#: visualcomposer/Helpers/Localizations.php:209
+#: visualcomposer/Helpers/Localizations.php:237
+msgid "Nothing found"
+msgstr "Der blev ikke fundet noget"
+
+#: visualcomposer/Helpers/Localizations.php:219
+msgid "Select a URL"
+msgstr "Vælg en URL-adresse"
+
+#: visualcomposer/Helpers/Localizations.php:220
+msgid "Insert or edit a link"
+msgstr "Indsæt eller rediger et link"
+
+#: visualcomposer/Helpers/Localizations.php:221
+msgid "Or link to an existing content"
+msgstr "Eller link til et eksisterende indhold"
+
+#: visualcomposer/Helpers/Localizations.php:222
+msgid "Search existing content"
+msgstr "Søg efter eksisterende indhold"
+
+#: visualcomposer/Helpers/Localizations.php:224
+msgid "Select a popup template"
+msgstr "Vælge en popup skabelon"
+
+#: visualcomposer/Helpers/Localizations.php:230
+msgid "The popup will open once the page is loaded."
+msgstr "Popup'en vil åbne når siden indlæses."
+
+#: visualcomposer/Helpers/Localizations.php:231
+msgid "The popup will load if a user tries to exit the page."
+msgstr "Popup'en indlæses, hvis en bruger forsøger at afslutte siden."
+
+#: visualcomposer/Helpers/Localizations.php:232
+msgid "The popup will appear when an element with a unique Element ID will be displayed (scrolled to) on the page."
+msgstr "Popup'en vil vises når et element med et unikt id vises (rulles til) på siden."
+
+#: visualcomposer/Helpers/Localizations.php:236
+msgid "OnClick action"
+msgstr "Ved Klik handling"
+
+#: visualcomposer/Helpers/Localizations.php:238
+msgid "Open the link in a new tab"
+msgstr "Åbn linket på et nyt faneblad"
+
+#: visualcomposer/Helpers/Localizations.php:240
+msgid "Enter the destination URL"
+msgstr "Indtast destination-url'en"
+
+#: visualcomposer/Helpers/Localizations.php:241
+msgid "The title attribute will be displayed on the link hover."
+msgstr "Titel egenskaben vil vises på hover-markerings linket."
+
+#: visualcomposer/Helpers/Localizations.php:242
+msgid "Title"
+msgstr "Titel"
+
+#: visualcomposer/Helpers/Localizations.php:245
+#: visualcomposer/Modules/Editors/Settings/ItemPreviewController.php:71
+msgid "Preview"
+msgstr "Forhåndsvisning"
+
+#: visualcomposer/Helpers/Localizations.php:246
+msgid "Preview Changes"
+msgstr "Forhåndsvis ændringer"
+
+#: visualcomposer/Helpers/Localizations.php:247
+msgid "Saving Results"
+msgstr "Gemmer resultater"
+
+#: visualcomposer/Helpers/Localizations.php:251
+msgid "Element Settings"
+msgstr "Element indstillinger"
+
+#: visualcomposer/Helpers/Localizations.php:257
+msgid "Save as a Preset"
+msgstr "Gem som forudindstilling"
+
+#: visualcomposer/Helpers/Localizations.php:258
+msgid "Save as a Template"
+msgstr "Gem som en skabelon"
+
+#: visualcomposer/Helpers/Localizations.php:259
+msgid "Downloading initial extensions"
+msgstr "Downloader de første udvidelser"
+
+#: visualcomposer/Helpers/Localizations.php:260
+msgid "Downloading assets {i} of {cnt}: {name}"
+msgstr "Downloader arkiver {i} af {cnt}: {name}"
+
+#: visualcomposer/Helpers/Localizations.php:262
+msgid "Updating posts {i} in {cnt}: {name}"
+msgstr "Opdaterer indlæg {i} i {cnt}: {name}"
+
+#: visualcomposer/Helpers/Localizations.php:263
+msgid "Failed to load: {file}"
+msgstr "Fejl ved indlæsning af: {file}"
+
+#: visualcomposer/Helpers/Localizations.php:264
+#: visualcomposer/Modules/Editors/Settings/WordPressSettings/ParentPageController.php:52
+msgid "None"
+msgstr "Ingen"
+
+#: visualcomposer/Helpers/Localizations.php:265
+msgid "Double-tap on an element to open the edit window. Tap and hold to initiate drag and drop."
+msgstr "Dobbelttryk på et element for at åbne redigeringsvinduet. Tryk og hold nede for at starte træk og slip."
+
+#: visualcomposer/Helpers/Localizations.php:270
+msgid "Template"
+msgstr "Skabelon"
+
+#: visualcomposer/Helpers/Localizations.php:271
+msgid "Theme Default"
+msgstr "Tema standard"
+
+#: visualcomposer/Helpers/Localizations.php:276
+msgid "To apply title, save changes, and reload the page."
+msgstr "For at tilføje en titel, skal du gemme indstillingerne og genindlæse siden."
+
+#: visualcomposer/Helpers/Localizations.php:280
+msgid "To apply title changes save changes and reload the page"
+msgstr "For at tilføje en titel, skal ændringerne gemmes og siden genindlæses"
+
+#: visualcomposer/Helpers/Localizations.php:285
+msgid "{name} has been successfully downloaded from the Visual Composer Hub and added to your content library."
+msgstr "{name} er hentet fra Visual Composer Hub og tilføjet dit indholdsbibliotek."
+
+#: visualcomposer/Helpers/Localizations.php:289
+msgid "{name} has been successfully downloaded from the Visual Composer Hub and added to your content library. To finish the installation process reload the page."
+msgstr "{name} er hentet fra Visual Composer Hub og tilføjet dit indholdsbibliotek. For at afslutte installationsprocessen genindlæse siden."
+
+#: visualcomposer/Helpers/Localizations.php:293
+msgid "The element was copied without a unique Element ID. Adjust the Element ID by editing the element."
+msgstr "Elementet blev kopieret uden et entydigt element-id. Juster element-id'et ved at redigere elementet."
+
+#: visualcomposer/Helpers/Localizations.php:297
+msgid "The element was cloned without a unique Element ID. Adjust the Element ID by editing the element."
+msgstr "Elementet blev klonet uden et entydigt element-id. Juster element-id'et ved at redigere elementet."
+
+#: visualcomposer/Helpers/Localizations.php:301
+msgid "Failed to download the element (license expired or request timed out)"
+msgstr "Elementet kunne ikke downloades (licensen er udløbet, eller anmodningen fik timeout)"
+
+#: visualcomposer/Helpers/Localizations.php:305
+msgid "Failed to download the element"
+msgstr "Elementet kunne ikke downloades"
+
+#: visualcomposer/Helpers/Localizations.php:306
+msgid "It seems that something went wrong with loading the content. Make sure you are loading the correct content and try again."
+msgstr "Det lader til, at noget gik galt med indlæsning af indholdet. Sørg for, at du indlæser det korrekte indhold, og prøv igen."
+
+#: visualcomposer/Helpers/Localizations.php:311
+#: visualcomposer/Helpers/Localizations.php:319
+#: visualcomposer/Helpers/Localizations.php:332
+msgid "Return to WordPress dashboard"
+msgstr "Gå tilbage til WordPress kontrolpanel"
+
+#: visualcomposer/Helpers/Localizations.php:312
+msgid "Try Again"
+msgstr "Prøv igen"
+
+#: visualcomposer/Helpers/Localizations.php:313
+msgid "Report an Issue"
+msgstr "Rapportere et problem"
+
+#: visualcomposer/Helpers/Localizations.php:314
+msgid "It seems you are trying to edit the archive page which displays post archives instead of content. Before the edit, make sure to convert it to a static page via your WordPress admin."
+msgstr "Det lader til, at du forsøger at redigere arkivet side, som viser indlægs arkiver i stedet for indhold. Før redigeringen skal du sørge for at konvertere den til en statisk side via din WordPress-administrator."
+
+#: visualcomposer/Helpers/Localizations.php:324
+msgid "Replace the element with a different element from the same category."
+msgstr "Erstat elementet med et andet element fra samme kategori."
+
+#: visualcomposer/Helpers/Localizations.php:336
+msgid "Thank You!"
+msgstr "Mange tak!"
+
+#: visualcomposer/Helpers/Localizations.php:357
+#: visualcomposer/Modules/Editors/Settings/PageTemplatesVariablesController.php:114
+msgid "Default"
+msgstr "Standard"
+
+#: visualcomposer/Helpers/Localizations.php:369
+msgid "Update Visual Composer plugin to the most recent version to download this content element."
+msgstr "Opdater Visual Composer-plugin til den nyeste version for at hente dette indholdselement."
+
+#: visualcomposer/Helpers/Localizations.php:373
+msgid "Update Visual Composer plugin to the most recent version to download this template."
+msgstr "Opdater Visual Composer-plugin til den nyeste version for at hente denne skabelon."
+
+#: visualcomposer/Helpers/Localizations.php:381
+msgid "Start Building"
+msgstr "Begynd at opbygge"
+
+#: visualcomposer/Helpers/Localizations.php:383
+msgid "%s Name"
+msgstr "%s navn"
+
+#: visualcomposer/Helpers/Localizations.php:389
+msgid "WordPress theme defined layout for a specific page, post, or custom post type."
+msgstr "WordPress-tema definerede layout for en bestemt side, et opslag eller en brugertilpasset indlægstype."
+
+#: visualcomposer/Helpers/Localizations.php:393
+msgid "A blank page layout with a boxed content area in the middle of the page without header, footer, or sidebar."
+msgstr "Et tomt sidelayout med et indholdsområde i en boks midt på siden uden sidehoved, sidefod eller sidepanel."
+
+#: visualcomposer/Helpers/Localizations.php:397
+msgid "A full-width blank page without header, footer, or sidebar."
+msgstr "En tom side i fuld bredde uden sidehoved, sidefod eller sidepanel."
+
+#: visualcomposer/Helpers/Localizations.php:405
+msgid "A default layout with custom header, content, and footer area."
+msgstr "Et standardlayout med brugertilpasset sidehoved-, indholds- og sidefodsområde."
+
+#: visualcomposer/Helpers/Localizations.php:409
+msgid "A default layout with custom header, content, footer, and sidebar area on the right."
+msgstr "Et standardlayout med brugertilpasset sidehoved, indhold, sidefod og sidepanel område til højre."
+
+#: visualcomposer/Helpers/Localizations.php:413
+msgid "A default layout with custom header, content, footer, and sidebar area on the left."
+msgstr "Et standardlayout med brugertilpasset sidehoved, indhold, sidefod og sidepanel område til venstre."
+
+#: visualcomposer/Helpers/Localizations.php:417
+msgid "Available in the Premium version."
+msgstr "Tilgængelig i Premium versionen."
+
+#: visualcomposer/Helpers/Localizations.php:421
+msgid "Gutenberg plugin doesn't work properly. Check the Gutenberg plugin."
+msgstr "Gutenberg plugin fungerer ikke korrekt. Kontroller Gutenberg plugin'et."
+
+#: visualcomposer/Helpers/Localizations.php:425
+msgid "Free"
+msgstr "Gratis"
+
+#: visualcomposer/Helpers/Localizations.php:426
+#: visualcomposer/Helpers/Localizations.php:446
+msgid "Premium"
+msgstr "Premium"
+
+#: visualcomposer/Helpers/Localizations.php:427
+msgid "Remove All"
+msgstr "Fjern alle"
+
+#: visualcomposer/Helpers/Localizations.php:428
+msgid "Continue importing"
+msgstr "Fortsæt importen"
+
+#: visualcomposer/Helpers/Localizations.php:429
+msgid "Back to import"
+msgstr "Tilbage til importen"
+
+#: visualcomposer/Helpers/Localizations.php:430
+msgid "Starting import process..."
+msgstr "Starter import processen..."
+
+#: visualcomposer/Helpers/Localizations.php:431
+msgid "Back to parent"
+msgstr "Tilbage til overordnet"
+
+#: visualcomposer/Helpers/Localizations.php:435
+msgid "Editor Settings"
+msgstr "Editor indstillinger"
+
+#: visualcomposer/Helpers/Localizations.php:436
+msgid "Click to edit column value"
+msgstr "Klik for at redigere kolonne værdi"
+
+#: visualcomposer/Helpers/Localizations.php:437
+msgid "Addon"
+msgstr "Udvidelse"
+
+#: visualcomposer/Helpers/Localizations.php:438
+msgid "Don't close this window while the download is in progress."
+msgstr "Luk ikke vinduet mens downloaden er i gang."
+
+#: visualcomposer/Helpers/Localizations.php:444
+msgid "Skip this post"
+msgstr "Spring dette indlæg over"
+
+#: visualcomposer/Helpers/Localizations.php:448
+msgid "Get Started"
+msgstr "Kom i gang"
+
+#: visualcomposer/Helpers/Localizations.php:449
+msgid "Sending Error Report"
+msgstr "Sender fejlrapport"
+
+#: visualcomposer/Helpers/Localizations.php:450
+msgid "Don't close this window while sending an error is in the process."
+msgstr "Luk ikke dette vindue, mens afsendelsen af feljen er i gang."
+
+#: visualcomposer/Helpers/Localizations.php:454
+msgid "Oops ... Something Went Wrong"
+msgstr "Hovsa … Noget gik galt"
+
+#: visualcomposer/Helpers/Localizations.php:463
+msgid "Add custom JavaScript code to insert it locally on this page in <header> or <footer>. Insert Google Analytics, Tag Manager, Kissmetrics, or other JavaScript code snippets."
+msgstr "Tilføj brugertilpasset JavaScript-kode for at indsætte den lokalt på denne side i <header> eller <footer>. Indsæt Google Analytics, Tag Manager, Kissmetrics eller andre JavaScript-kodestykker."
+
+#: visualcomposer/Helpers/Localizations.php:467
+msgid "Add custom JavaScript code to insert it globally on every page in <header> or <footer>. Insert Google Analytics, Tag Manager, Kissmetrics, or other JavaScript code snippets."
+msgstr "Tilføj brugertilpasset JavaScript-kode for at indsætte den globalt på hver side i <header>eller <footer>. Indsæt Google Analytics, Tag Manager, Kissmetrics eller andre JavaScript-kodestykker."
+
+#: visualcomposer/Helpers/Localizations.php:476
+msgid "Paste shortcode with all the parameters. The shortcode must be installed on your WordPress site via a plugin or theme."
+msgstr "Indsæt kortkode med alle parametrene. Kortkoden skal være installeret på dit WordPress websted via et plugin eller tema."
+
+#: visualcomposer/Helpers/Localizations.php:480
+#: visualcomposer/Modules/License/Pages/GoPremium.php:131
+#: visualcomposer/Modules/License/Pages/GoPremium.php:160
+#: visualcomposer/resources/views/license/pages/license.php:33
+msgid "Activate Premium"
+msgstr "Aktiver Premium"
+
+#: visualcomposer/Helpers/Localizations.php:484
+msgid "Search for free high-resolution photos on Unsplash"
+msgstr "Søg efter gratis billeder i høj opløsning på Unsplash"
+
+#: visualcomposer/Helpers/Localizations.php:488
+msgid "Download and Add Free Beautiful Photos to Your Site With Visual Composer Premium"
+msgstr "Download og tilføj gratis smukke billeder til dit websted med Visual Composer Premium"
+
+#: visualcomposer/Helpers/Localizations.php:492
+msgid "Download and Add Free Beautiful Photos to Your Site"
+msgstr "Download og tilføj gratis smukke billeder til dit websted"
+
+#: visualcomposer/Helpers/Localizations.php:500
+msgid "Could not connect to Unsplash Server."
+msgstr "Der kunne ikke oprettes forbindelse til Unsplash Server."
+
+#: visualcomposer/Helpers/Localizations.php:504
+msgid "The image has been downloaded to the Media Library."
+msgstr "Billedet er blevet downloadet til dit medie bibliotek."
+
+#: visualcomposer/Helpers/Localizations.php:508
+msgid "Could not parse data from the server."
+msgstr "Data fra serveren kunne ikke analyseres."
+
+#: visualcomposer/Helpers/Localizations.php:512
+msgid "Small"
+msgstr "Lille"
+
+#: visualcomposer/Helpers/Localizations.php:516
+msgid "Medium"
+msgstr "Medium"
+
+#: visualcomposer/Helpers/Localizations.php:520
+msgid "Large"
+msgstr "Stor"
+
+#: visualcomposer/Helpers/Localizations.php:524
+msgid "images"
+msgstr "billeder"
+
+#: visualcomposer/Helpers/Localizations.php:528
+msgid "Download images from Unsplash to the Media Library"
+msgstr "Download billeder fra Unsplash til mediebiblioteket"
+
+#: visualcomposer/Helpers/Localizations.php:532
+msgid "Permalink"
+msgstr "Permalink"
+
+#: visualcomposer/Helpers/Localizations.php:536
+msgid "Enjoying Visual Composer Website Builder? Let your friends know about it - spread the word."
+msgstr "Kan du lide Visual Composer Website Builder? Lad dine venner vide det - spred ordet."
+
+#: visualcomposer/Helpers/Localizations.php:540
+msgid "Insert dynamic content"
+msgstr "Indsæt dynamisk indhold"
+
+#: visualcomposer/Helpers/Localizations.php:544
+msgid "Edit dynamic content"
+msgstr "Rediger dynamisk indhold"
+
+#: visualcomposer/Helpers/Localizations.php:548
+msgid "Remove dynamic content"
+msgstr "Fjern dynamisk indhold"
+
+#: visualcomposer/Helpers/Localizations.php:560
+msgid "By default, dynamic content is taken from the current post."
+msgstr "Dynamisk indhold hentes som standard fra det aktuelle indlæg."
+
+#: visualcomposer/Helpers/Localizations.php:564
+msgid "Set custom post source"
+msgstr "Angiv brugertilpasset indlægs-kilde"
+
+#: visualcomposer/Helpers/Localizations.php:568
+msgid "Select a custom field"
+msgstr "Vælg et brugertilpasset felt"
+
+#: visualcomposer/Helpers/Localizations.php:572
+msgid "Dynamic Content"
+msgstr "Dynamisk indhold"
+
+#: visualcomposer/Helpers/Localizations.php:576
+msgid "No value set"
+msgstr "Der er ikke angivet nogen værdi"
+
+#: visualcomposer/Helpers/Localizations.php:584
+msgid "Get Access to the Visual Composer Hub"
+msgstr "Få adgang til Visual Composer Hub"
+
+#: visualcomposer/Helpers/Localizations.php:592
+msgid "A theme builder with Header, Footer, and Sidebar editor"
+msgstr "En temabygger med sidehoved, sidefod og sidepanel editor"
+
+#: visualcomposer/Helpers/Localizations.php:596
+msgid "WooCommerce compatibility"
+msgstr "WooCommerce kompatibilitet"
+
+#: visualcomposer/Helpers/Localizations.php:600
+msgid "Premium support and updates"
+msgstr "Premium support og opdateringer"
+
+#: visualcomposer/Helpers/Localizations.php:604
+msgid "Premium support"
+msgstr "Premium support"
+
+#: visualcomposer/Helpers/Localizations.php:608
+msgid "Regular updates"
+msgstr "Regelmæssige opdateringer"
+
+#: visualcomposer/Helpers/Localizations.php:616
+msgid "Premium License"
+msgstr "Premium-licens"
+
+#: visualcomposer/Helpers/Localizations.php:620
+msgid "Unlimited access to the Visual Composer Hub of elements, templates, and addons"
+msgstr "Ubegrænset adgang til Visual Composer Hub af elementer, skabeloner og tilføjelser"
+
+#: visualcomposer/Helpers/Localizations.php:624
+msgid "Limited access to the Visual Composer Hub of elements, templates, and addons"
+msgstr "Begrænset adgang til Visual Composer Hub af elementer, skabeloner og udvidelser"
+
+#: visualcomposer/Helpers/Localizations.php:628
+msgid "I want to go premium"
+msgstr "Jeg vil gå premium"
+
+#: visualcomposer/Helpers/Localizations.php:652
+msgid "Enter your license key"
+msgstr "Indtast din licensnøgle"
+
+#: visualcomposer/Helpers/Localizations.php:656
+msgid "The element has been successfully saved."
+msgstr "Elementet er blevet gemt."
+
+#: visualcomposer/Helpers/Localizations.php:660
+msgid "The element with such a name already exists!"
+msgstr "Elementet med et sådant navn findes allerede!"
+
+#: visualcomposer/Helpers/Localizations.php:664
+msgid "Enter a preset name to save the element as a preset!"
+msgstr "Indtast et forudindstillet navn for at gemme elementet som en forudindstilling!"
+
+#: visualcomposer/Helpers/Localizations.php:668
+msgid "The template has been successfully saved."
+msgstr "Skabelonen er blevet gemt."
+
+#: visualcomposer/Helpers/Localizations.php:680
+msgid "Element preset has been removed."
+msgstr "Forudindstillet element er blevet fjernet."
+
+#: visualcomposer/Helpers/Localizations.php:704
+msgid "How can we become better?"
+msgstr "Hvordan kan vi blive bedre?"
+
+#: visualcomposer/Helpers/Localizations.php:708
+msgid "Thanks for your feedback. Please rate us on WordPress.org and help others to discover Visual Composer."
+msgstr "Tak for din feedback. Bedøm os på WordPress.org og hjælp andre til at opdage Visual Composer."
+
+#: visualcomposer/Helpers/Localizations.php:712
+msgid "Your opinion matters. Help us to improve by taking a quick survey."
+msgstr "Din mening betyder noget. Hjælp os ved at svare på en hurtig undersøgelse."
+
+#: visualcomposer/Helpers/Localizations.php:716
+msgid "Write Your Review"
+msgstr "Skriv din anmeldelse"
+
+#: visualcomposer/Helpers/Localizations.php:720
+msgid "Leave Your Feedback"
+msgstr "Giv din feedback"
+
+#: visualcomposer/Helpers/Localizations.php:724
+msgid "Like"
+msgstr "Synes godt om"
+
+#: visualcomposer/Helpers/Localizations.php:728
+msgid "Dislike"
+msgstr "Syntes ikke om"
+
+#: visualcomposer/Helpers/Localizations.php:732
+msgid "The current popup will be replaced with the popup template."
+msgstr "Den nuværende popup vil blive erstattet med popup-skabelonen."
+
+#: visualcomposer/Helpers/Localizations.php:737
+msgid "QUICK FEEDBACK"
+msgstr "HURTIG FEEDBACK"
+
+#: visualcomposer/Helpers/Localizations.php:741
+msgid "If you have a moment, please share why you are deactivating Visual Composer:"
+msgstr "Hvis du har et minut, kan du dele hvorfor du deaktiverede Visual Composer:"
+
+#: visualcomposer/Helpers/Localizations.php:745
+msgid "I no longer need the plugin"
+msgstr "Jeg behøver ikke længere dette plugin"
+
+#: visualcomposer/Helpers/Localizations.php:749
+msgid "I found a better plugin"
+msgstr "Jeg fandt et bedre plugin"
+
+#: visualcomposer/Helpers/Localizations.php:753
+msgid "Please share which plugin"
+msgstr "Del hvilket plugin"
+
+#: visualcomposer/Helpers/Localizations.php:757
+msgid "I couldn't get the plugin to work"
+msgstr "Jeg kunne ikke få plugin'et til at fungere"
+
+#: visualcomposer/Helpers/Localizations.php:761
+msgid "It's a temporary deactivation"
+msgstr "Det er en midlertidig deaktivering"
+
+#: visualcomposer/Helpers/Localizations.php:765
+#: visualcomposer/Helpers/LoginCategory.php:37
+msgid "Other"
+msgstr "Andet"
+
+#: visualcomposer/Helpers/Localizations.php:769
+msgid "Please share the reason"
+msgstr "Del årsagen"
+
+#: visualcomposer/Helpers/Localizations.php:773
+msgid "Submit &amp; Deactivate"
+msgstr "Indsend &amp; deaktiver"
+
+#: visualcomposer/Helpers/Localizations.php:777
+msgid "Skip &amp; Deactivate"
+msgstr "Spring over &amp; deaktiver"
+
+#: visualcomposer/Helpers/Localizations.php:781
+#: visualcomposer/resources/views/partials/teaser.php:22
+msgid "Download Addon"
+msgstr "Download udvidelse"
+
+#: visualcomposer/Helpers/Localizations.php:785
+msgid "Installed"
+msgstr "Installeret"
+
+#: visualcomposer/Helpers/Localizations.php:789
+msgid "Available in Premium"
+msgstr "Tilgængelig i Premium"
+
+#: visualcomposer/Helpers/Localizations.php:793
+msgid "Don't forget to tweet about Visual Composer Website Builder. Thanks!"
+msgstr "Glem ikke at tweete om Visual Composer Website Builder. Tak!"
+
+#: visualcomposer/Helpers/Localizations.php:797
+msgid "Download"
+msgstr "Download"
+
+#: visualcomposer/Helpers/Localizations.php:801
+msgid "Install"
+msgstr "Installer"
+
+#: visualcomposer/Helpers/Localizations.php:805
+msgid "Activate"
+msgstr "Aktiver"
+
+#: visualcomposer/Modules/License/UpdateVariablesController.php:58
+msgid "Build your site with the help of the drag and drop builder straight from the frontend editor - it's that easy."
+msgstr "Byg dit websted ved hjælp af træk og slip direkte fra frontend editoren - det er så nemt."
+
+#: visualcomposer/Helpers/Localizations.php:833
+msgid "It seems that your copy of Visual Composer was bundled in a theme - use your Envato purchase key to activate Visual Composer Premium. You can also activate Visual Composer with a free or premium license."
+msgstr "Det lader til, at din kopi af Visual Composer blev bundtet i et tema - brug din Envato købsnøgle til at aktivere Visual Composer Premium. Du kan også aktivere Visual Composer med en gratis eller premium licens."
+
+#: visualcomposer/Helpers/Localizations.php:837
+msgid "Lock Element"
+msgstr "Lås element"
+
+#: visualcomposer/Helpers/Localizations.php:845
+msgid "Open Popup"
+msgstr "Åbn Popup vindue"
+
+#: visualcomposer/Helpers/Localizations.php:849
+msgid "Close Popup"
+msgstr "Luk Popup"
+
+#: visualcomposer/Helpers/Localizations.php:853
+msgid "Closing the popup option will close the current popup."
+msgstr "Hvis du lukker popup-indstillingen, lukkes den aktuelle popup."
+
+#: visualcomposer/Helpers/Localizations.php:857
+msgid "The element has been locked by your site Administrator."
+msgstr "Elementet er blevet låst af webstedets administrator."
+
+#: visualcomposer/Helpers/Localizations.php:865
+msgid "Lock All Elements"
+msgstr "Lås alle elementer"
+
+#: visualcomposer/Helpers/Localizations.php:869
+msgid "Unlock All Elements"
+msgstr "Oplås alle elementer"
+
+#: visualcomposer/Helpers/Localizations.php:873
+msgid "Lock or unlock all elements on your page. Your user roles with Administrator access will be able to edit elements."
+msgstr "Lås eller oplås alle elementer på din side. Din brugerrolle med administrator adgang kan redigere elementerne."
+
+#: visualcomposer/Helpers/Localizations.php:877
+msgid "You can lock/unlock specific elements under the element Edit window."
+msgstr "Du kan låse/oplåse bestemte elementer under elementet Rediger vindue."
+
+#: visualcomposer/Helpers/Localizations.php:881
+msgid "All elements on the page have been locked. Only the Administrator role can edit the content."
+msgstr "Alle elementer på siden er låste. Kun administratorer kan redigere indholdet."
+
+#: visualcomposer/Helpers/Localizations.php:885
+msgid "All elements on the page have been unlocked. All users with the edit option can edit the content."
+msgstr "Alle elementer på siden er oplåste. Alle brugere med redigeringsmulighed kan redigere indholdet."
+
+#: visualcomposer/Helpers/Localizations.php:893
+msgid "The element has been unlocked and can be edited by all roles with the edit option."
+msgstr "Elementet er blevet oplåst og kan redigeres af alle brugerroller med redigeringsmuligheder."
+
+#: visualcomposer/Helpers/Localizations.php:901
+msgid "The element and all inner elements have been unlocked and can be edited by all roles with the edit option."
+msgstr "Elementet og alle dens indre elementer er blevet oplåst og kan redigeres af alle brugerroller med redigeringsmuligheder."
+
+#: visualcomposer/Helpers/Localizations.php:917
+#: visualcomposer/Helpers/PostsGridSourcePosts.php:38
+msgid "All"
+msgstr "Alle"
+
+#: visualcomposer/Helpers/Localizations.php:929
+#: visualcomposer/Modules/Settings/Pages/SystemStatus.php:239
+#: visualcomposer/Modules/Settings/Pages/SystemStatus.php:247
+msgid "Success"
+msgstr "Korrekt"
+
+#: visualcomposer/Helpers/Localizations.php:1277
+#: visualcomposer/Modules/Settings/Fields/FactoryResetController.php:90
+msgid "Reset"
+msgstr "Nulstil"
+
+#: visualcomposer/Helpers/Localizations.php:1466
+#: visualcomposer/Modules/Editors/DataAjax/PostFieldsController.php:77
+#: visualcomposer/Modules/Editors/DataAjax/PostFieldsController.php:97
+#: visualcomposer/Modules/Editors/DataAjax/PostFieldsController.php:117
+#: visualcomposer/Modules/Editors/DataAjax/PostFieldsController.php:137
+#: visualcomposer/Modules/Editors/DataAjax/PostFieldsController.php:163
+#: visualcomposer/Modules/Editors/DataAjax/PostFieldsController.php:189
+msgid "Author"
+msgstr "Skribent"
+
+#: visualcomposer/Helpers/Localizations.php:1514
+#: visualcomposer/Modules/Settings/Pages/Settings.php:68
+msgid "General"
+msgstr "Generelt"
+
+#: visualcomposer/Helpers/LoginCategory.php:21
+msgid "Business"
+msgstr "Forretning"
+
+#: visualcomposer/Helpers/LoginCategory.php:22
+#: visualcomposer/resources/views/vendors/dashboard.php:71
+msgid "Blog"
+msgstr "Blog"
+
+#: visualcomposer/Helpers/LoginCategory.php:23
+msgid "Creative Arts"
+msgstr "Kreativ kunst"
+
+#: visualcomposer/Helpers/LoginCategory.php:24
+msgid "Community & Education"
+msgstr "Fællesskab & Uddannelse"
+
+#: visualcomposer/Helpers/LoginCategory.php:25
+msgid "Design"
+msgstr "Design"
+
+#: visualcomposer/Helpers/LoginCategory.php:26
+msgid "Entertainment & Music"
+msgstr "Underholdning & Musik"
+
+#: visualcomposer/Helpers/LoginCategory.php:27
+msgid "Events"
+msgstr "Arrangementer"
+
+#: visualcomposer/Helpers/LoginCategory.php:28
+msgid "Fashion & Beauty"
+msgstr "Mode & Skønhed"
+
+#: visualcomposer/Helpers/LoginCategory.php:29
+msgid "Health & Wellness"
+msgstr "Sundhed & Velvære"
+
+#: visualcomposer/Helpers/LoginCategory.php:30
+msgid "Landing Pages"
+msgstr "Landingssider"
+
+#: visualcomposer/Helpers/LoginCategory.php:31
+msgid "Online Store"
+msgstr "Online butik"
+
+#: visualcomposer/Helpers/LoginCategory.php:32
+msgid "Photography"
+msgstr "Fotografier"
+
+#: visualcomposer/Helpers/LoginCategory.php:33
+msgid "Portfolio & Personal"
+msgstr "Portefølje & Personlig"
+
+#: visualcomposer/Helpers/LoginCategory.php:34
+msgid "Restaurants & Food"
+msgstr "Restauranter & Fødevarer"
+
+#: visualcomposer/Helpers/LoginCategory.php:35
+msgid "Services"
+msgstr "Tjenesteydelser"
+
+#: visualcomposer/Helpers/LoginCategory.php:36
+msgid "Travel & Accommodation"
+msgstr "Rejser & Overnatning"
+
+#: visualcomposer/Helpers/PostType.php:262
+#: visualcomposer/Modules/Editors/Tutorial/PostType.php:76
+#: visualcomposer/Modules/Editors/Tutorial/PostType.php:77
+msgid "View %s"
+msgstr "Vis %s"
+
+#: visualcomposer/Helpers/Token.php:124
+msgid "Your Visual Composer Website Builder License will expire soon - %s"
+msgstr "Din Visual Composer Website Builder licens udløber snart - %s"
+
+#: visualcomposer/Modules/Editors/DataAjax/PostFieldsController.php:65
+#: visualcomposer/Modules/Editors/DataAjax/PostFieldsController.php:85
+#: visualcomposer/Modules/Editors/DataAjax/PostFieldsController.php:105
+#: visualcomposer/Modules/Editors/DataAjax/PostFieldsController.php:125
+#: visualcomposer/Modules/Editors/DataAjax/PostFieldsController.php:151
+#: visualcomposer/Modules/Editors/DataAjax/PostFieldsController.php:177
+#: visualcomposer/Modules/Editors/DataAjax/PostFieldsController.php:203
+msgid "Post"
+msgstr "Indlæg"
+
+#: visualcomposer/Modules/Editors/DataAjax/PostFieldsController.php:71
+#: visualcomposer/Modules/Editors/DataAjax/PostFieldsController.php:91
+#: visualcomposer/Modules/Editors/DataAjax/PostFieldsController.php:111
+#: visualcomposer/Modules/Editors/DataAjax/PostFieldsController.php:131
+#: visualcomposer/Modules/Editors/DataAjax/PostFieldsController.php:157
+#: visualcomposer/Modules/Editors/DataAjax/PostFieldsController.php:183
+#: visualcomposer/Modules/Editors/DataAjax/PostFieldsController.php:209
+msgid "Site"
+msgstr "Websted"
+
+#: visualcomposer/Modules/Editors/DataAjax/PostFieldsController.php:143
+#: visualcomposer/Modules/Editors/DataAjax/PostFieldsController.php:169
+#: visualcomposer/Modules/Editors/DataAjax/PostFieldsController.php:195
+#: visualcomposer/Modules/Editors/DataAjax/PostFieldsController.php:215
+msgid "Custom Fields"
+msgstr "Brugertilpasset felter"
+
+#: visualcomposer/Modules/Editors/EditPostLinks/Controller.php:137
+#: visualcomposer/Modules/Editors/Frontend/MenuController.php:89
+msgid "Add New with Visual Composer"
+msgstr "Tilføj ny med Visual Composer"
+
+#: visualcomposer/Modules/Editors/Frontend/MenuController.php:158
+msgid "Add New with Visual&nbsp;Composer"
+msgstr "Tilføj ny med Visual&nbsp;Composer"
+
+#: visualcomposer/Modules/Editors/Settings/ItemPreviewController.php:57
+msgid "Enable Preview"
+msgstr "Aktiver forhåndsvisning"
+
+#. Plugin Name of the plugin
+#: visualcomposer/Modules/Editors/Settings/PageTemplatesVariablesController.php:81
+#: visualcomposer/Modules/Editors/Settings/PageTemplatesVariablesController.php:94
+#: visualcomposer/Modules/Settings/MenuController.php:63
+msgid "Visual Composer"
+msgstr "Visual Composer"
+
+#: visualcomposer/Modules/Editors/Settings/PageTemplatesVariablesController.php:131
+msgid "Theme Templates"
+msgstr "Tema skabeloner"
+
+#: visualcomposer/Modules/Editors/Templates/PostType.php:38
+#: visualcomposer/Modules/Hub/Pages/PremiumTeasers.php:74
+msgid "Global Templates"
+msgstr "Globale skabeloner"
+
+#: visualcomposer/Modules/Hub/Assets/AssetDownloadController.php:138
+msgid "Failed to update shared libraries"
+msgstr "Opdatering af delte biblioteker mislykkedes"
+
+#: visualcomposer/Modules/Hub/DownloadController.php:85
+#: visualcomposer/Modules/Hub/Traits/Action.php:72
+msgid ""
+"A .zip file of the Visual Composer is broken - the checksum check failed. Check your Internet connection, initiate reset under Visual Composer Settings, and try again.\n"
+"\n"
+"If the problem still occurs, visit %smy.visualcomposer.com/support%s for technical assistance.\n"
+msgstr ""
+"En .zip fil af visual composer er i stykker - kontrollen af kontrolsum mislykkedes. Kontroller din internetforbindelse, start nulstilling under Visual Composer indstillinger, og prøv igen.\n"
+"\n"
+"Hvis problemet stadig opstår, kan du besøge %smy.visualcomposer.com/support%s for teknisk assistance.\n"
+
+#: visualcomposer/Modules/Hub/StockMedia/StockMediaDownloadController.php:85
+msgid "Failed to get the media's item ID, please try again."
+msgstr "Mediets element-id kunne ikke downloades, prøv igen."
+
+#: visualcomposer/Modules/Hub/StockMedia/StockMediaDownloadController.php:143
+msgid "Wrong image extension."
+msgstr "Forkert billed udvidelse."
+
+#: visualcomposer/Modules/Hub/StockMedia/StockMediaDownloadController.php:165
+msgid "Unknown image format."
+msgstr "Ukendt billedformat."
+
+#: visualcomposer/Modules/Hub/StockMedia/StockMediaDownloadController.php:169
+msgid "Unknown image provider."
+msgstr "Ukendt billedudbyder."
+
+#: visualcomposer/Modules/License/LicenseController.php:118
+msgid "Failed to activate the license, try again."
+msgstr "Licensen kunne ikke aktiveres, prøv igen."
+
+#: visualcomposer/Modules/License/Pages/GettingStarted.php:95
+#: visualcomposer/Modules/License/Pages/GettingStarted.php:114
+msgid "Getting Started"
+msgstr "Kom godt i gang"
+
+#: visualcomposer/Modules/License/Pages/LicenseStatus.php:69
+#: visualcomposer/Modules/License/Pages/LicenseStatus.php:100
+msgid "License"
+msgstr "Licens"
+
+#: visualcomposer/Modules/License/UpdateVariablesController.php:66
+msgid "Get more elements and templates from the Visual Composer Hub - a free online marketplace."
+msgstr "Få flere elementer og skabeloner fra Visual Composer Hub - en gratis online markedsplads."
+
+#: visualcomposer/Modules/License/UpdateVariablesController.php:84
+msgid "Control every detail of your website with flexible design options and customization tools."
+msgstr "Kontroller alle detaljer på dit websted med fleksible design muligheder og tilpasningsværktøjer."
+
+#: visualcomposer/Modules/Settings/Fields/CssEditor.php:53
+msgid "Global CSS will be applied sitewide."
+msgstr "Globale CSS vil blive tilføjet hele webstedet."
+
+#: visualcomposer/Modules/Settings/Fields/FactoryResetController.php:67
+msgid "Proceed with a reset?"
+msgstr "Vil du fortsætte med en nulstilling?"
+
+#: visualcomposer/Modules/Settings/Fields/FactoryResetController.php:68
+msgid "initiate reset"
+msgstr "starter nulstilling"
+
+#: visualcomposer/Modules/Settings/Fields/FactoryResetController.php:77
+msgid "Restore default plugin state to re-download all installed bundles and auto-configure path after migration (don’t worry, the content of the site will not be affected) - %s."
+msgstr "Gendan standard plugin tilstand for at downloade alle installerede pakker igen og konfigurere stien automatisk efter migreringen (bare rolig, indholdet på webstedet påvirkes ikke) - %s."
+
+#: visualcomposer/Modules/Settings/Fields/FactoryResetController.php:118
+msgid "Session expired"
+msgstr "Sessionen er udløbet"
+
+#: visualcomposer/Modules/Settings/Fields/JsEditor.php:52
+msgid "Add custom HTML or JavaScript code to insert it globally on every page in <header> and <footer>. Insert Google Analytics, Tag Manager, Kissmetrics or other JavaScript code snippets."
+msgstr "Tilføj brugertilpasset HTML eller JavaScript kode, der indsættes globalt på hver side i <header> og <footer>. Indsæt Google Analytics, Tag Manager, Kissmetrics eller anden JaveScript kode-stykke."
+
+#: visualcomposer/Modules/Settings/Fields/JsEditor.php:61
+msgid "Custom HTML and JavaScript"
+msgstr "Brugertilpasset HTML og JavaScript"
+
+#: visualcomposer/resources/views/settings/pages/role-manager/parts/post-types.php:16
+msgid "Post Types"
+msgstr "Indlægstype"
+
+#: visualcomposer/Modules/Settings/NoticeController.php:86
+msgid "Dismiss"
+msgstr "Afvis"
+
+#: visualcomposer/Modules/Settings/Pages/SystemStatus.php:100
+msgid "PHP version %s or greater (recommended 7 or greater)"
+msgstr "PHP version %s eller derover (anbefales 7 eller større)"
+
+#: visualcomposer/Modules/Settings/Pages/SystemStatus.php:108
+msgid "WordPress version %s or greater"
+msgstr "WordPress-version %s eller større"
+
+#: visualcomposer/Modules/Settings/Pages/SystemStatus.php:128
+#: visualcomposer/Modules/Settings/Pages/SystemStatus.php:142
+#: visualcomposer/Modules/Settings/Pages/SystemStatus.php:156
+msgid "Unlimited"
+msgstr "Ubegrænset"
+
+#: visualcomposer/Modules/Settings/Pages/SystemStatus.php:131
+msgid "Post max size should be %sM, currently it is %s"
+msgstr "Post max størrelse bør være %sM, i øjeblikket er det %s"
+
+#: visualcomposer/Modules/Settings/Pages/SystemStatus.php:145
+msgid "Memory limit should be %sM, currently it is %s"
+msgstr "Memory limit bør være %sM, men aktuel er det %s"
+
+#: visualcomposer/Modules/Settings/Pages/SystemStatus.php:159
+msgid "post_max_size limit should be %sM, currently it is %s"
+msgstr "post_max_size bør være %sM, i øjeblikket er det %s"
+
+#: visualcomposer/Modules/Settings/Pages/SystemStatus.php:170
+msgid "max_input_nesting_level should be %s, currently it is %s"
+msgstr "max_input_nesting_level bør være %s, i øjeblikket er det %s"
+
+#: visualcomposer/Modules/Settings/Pages/SystemStatus.php:181
+msgid "max_input_vars should be %s, currently it is %s"
+msgstr "max_input_vars bør være %s, i øjeblikket er det %s"
+
+#: visualcomposer/Modules/Settings/Pages/SystemStatus.php:190
+msgid "Max execution time should be %sS, currently it is %sS"
+msgstr "Max udførelse tid bør være %sS, i øjeblikket er det %sS"
+
+#: visualcomposer/Modules/Settings/Pages/SystemStatus.php:199
+msgid "File max upload size should be %sM, currently it is %s"
+msgstr "Fil max upload størrelse bør være %sM, i øjeblikket er det %s"
+
+#: visualcomposer/Modules/Settings/Pages/SystemStatus.php:207
+msgid "Writable"
+msgstr "Skrivbar"
+
+#: visualcomposer/Modules/Settings/Pages/SystemStatus.php:207
+msgid "Uploads directory is not writable"
+msgstr "Uploads mappen er ikke skrivbar"
+
+#: visualcomposer/Modules/Settings/Pages/SystemStatus.php:215
+msgid "Direct"
+msgstr "Direkte"
+
+#: visualcomposer/Modules/Settings/Pages/SystemStatus.php:215
+msgid "FS_METHOD should be direct"
+msgstr "FS_METHOD bør være direkte"
+
+#: visualcomposer/Modules/Settings/Pages/SystemStatus.php:223
+msgid "Enabled"
+msgstr "Aktiver"
+
+#: visualcomposer/Modules/Settings/Pages/SystemStatus.php:223
+msgid "The Zip extension is not installed."
+msgstr "Zip-udvidelsen er ikke installeret."
+
+#: visualcomposer/Modules/Settings/Pages/SystemStatus.php:231
+msgid "Curl extension is not installed"
+msgstr "Curl udvidelse er ikke installeret"
+
+#: visualcomposer/Modules/Settings/Pages/SystemStatus.php:239
+msgid "Connection with AWS was unsuccessful"
+msgstr "Forbindelsen til AWS mislykkedes"
+
+#: visualcomposer/Modules/Settings/Pages/SystemStatus.php:247
+msgid "Connection with Account was unsuccessful"
+msgstr "Forbindelsen til kontoen mislykkedes"
+
+#: visualcomposer/Modules/Settings/Pages/SystemStatus.php:299
+msgid "System Status"
+msgstr "System status"
+
+#: visualcomposer/Modules/Settings/Pages/SystemStatus.php:327
+msgid "It seems that there is a problem with your server configuration that might affect Visual Composer. For more details, visit <a href=\"%s\">System Status</a> page."
+msgstr "Det lader til, at der er et problem med din server konfiguration, der kan påvirke Visual Composer. Du kan finde flere oplysninger på <a href=\"%s\">Systemstatus.</a> siden."
+
+#: visualcomposer/Modules/Vendors/DashboardController.php:34
+msgid "Visual Composer News"
+msgstr "Visual Composer Nyheder"
+
+#: visualcomposer/Modules/Vendors/Gutenberg/AttributeController.php:86
+msgctxt "Post type general name"
+msgid "Gutenberg attrs"
+msgstr "Gutenberg egenskaber"
+
+#: visualcomposer/Modules/Vendors/Gutenberg/AttributeController.php:87
+msgctxt "Post type singular name"
+msgid "Gutenberg attr"
+msgstr "Gutenberg egenskab"
+
+#: visualcomposer/Modules/Vendors/Gutenberg/AttributeController.php:88
+msgctxt "Admin Menu text"
+msgid "Gutenberg attrs"
+msgstr "Gutenberg egenskaber"
+
+#: visualcomposer/Modules/Vendors/Gutenberg/AttributeController.php:89
+msgctxt "Add New on Toolbar"
+msgid "Gutenberg attr"
+msgstr "Gutenberg egenskab"
+
+#: visualcomposer/Modules/Vendors/Gutenberg/AttributeController.php:90
+msgid "Add New"
+msgstr "Tilføj ny"
+
+#: visualcomposer/Modules/Vendors/Gutenberg/AttributeController.php:91
+msgid "Add New Gutenberg attr"
+msgstr "Tilføj ny Gutenberg egenskab"
+
+#: visualcomposer/Modules/Vendors/Gutenberg/AttributeController.php:92
+msgid "New Gutenberg attr"
+msgstr "Ny Gutenberg egenskab"
+
+#: visualcomposer/Modules/Vendors/Gutenberg/AttributeController.php:93
+msgid "Edit Gutenberg attr"
+msgstr "Rediger Gutenberg egenskab"
+
+#: visualcomposer/Modules/Vendors/Gutenberg/AttributeController.php:94
+msgid "View Gutenberg attr"
+msgstr "Vis Gutenberg egenskab"
+
+#: visualcomposer/Modules/Vendors/Gutenberg/AttributeController.php:95
+msgid "All Gutenberg attrs"
+msgstr "Alle Gutenberg egenskaber"
+
+#: visualcomposer/Modules/Vendors/Gutenberg/AttributeController.php:96
+msgid "Search Gutenberg attrs"
+msgstr "Søg efter Gutenberg egenskaber"
+
+#: visualcomposer/Modules/Vendors/Gutenberg/AttributeController.php:97
+msgid "Parent Gutenberg attrs:"
+msgstr "Overordnet Gutenberg egenskaber:"
+
+#: visualcomposer/Modules/Vendors/Gutenberg/AttributeController.php:98
+msgid "No Gutenberg attrs found."
+msgstr "Der blev ikke fundet nogen Gutenberg egenskaber."
+
+#: visualcomposer/Modules/Vendors/Gutenberg/AttributeController.php:99
+msgid "No Gutenberg attrs found in Trash."
+msgstr "Der bliv ikke fundet nogen Gutenberg egenskaber i papirkurven."
+
+#: visualcomposer/Modules/Vendors/Gutenberg/AttributeController.php:100
+msgctxt "Overrides the “Featured Image” phrase for this post type. Added in 4.3"
+msgid "Gutenberg attr Cover Image"
+msgstr "Gutenberg egenskab for Cover billede"
+
+#: visualcomposer/Modules/Vendors/Gutenberg/AttributeController.php:105
+msgctxt "Overrides the “Set featured image” phrase for this post type. Added in 4.3"
+msgid "Set cover image"
+msgstr "Angiv et cover billede"
+
+#: visualcomposer/Modules/Vendors/Gutenberg/AttributeController.php:110
+msgctxt "Overrides the “Remove featured image” phrase for this post type. Added in 4.3"
+msgid "Remove cover image"
+msgstr "Fjern cover billede"
+
+#: visualcomposer/Modules/Vendors/Gutenberg/AttributeController.php:115
+msgctxt "Overrides the “Use as featured image” phrase for this post type. Added in 4.3"
+msgid "Use as a cover image"
+msgstr "Anvend som cover billede"
+
+#: visualcomposer/Modules/Vendors/Gutenberg/AttributeController.php:120
+msgctxt "The post type archive label used in nav menus. Default “Post Archives”. Added in 4.4"
+msgid "Gutenberg attr archives"
+msgstr "Gutenberg egenskabs arkiver"
+
+#: visualcomposer/Modules/Vendors/Gutenberg/AttributeController.php:125
+msgctxt "Overrides the “Insert into post”/”Insert into page” phrase (used when inserting media into a post). Added in 4.4"
+msgid "Add into Gutenberg attr"
+msgstr "Tilføj til Gutenberg egenskab"
+
+#: visualcomposer/Modules/Vendors/Gutenberg/AttributeController.php:130
+msgctxt "Overrides the “Uploaded to this post”/”Uploaded to this page” phrase (used when viewing media attached to a post). Added in 4.4"
+msgid "Uploaded to this Gutenberg attr"
+msgstr "Oploadet til Gutenberg egenskab"
+
+#: visualcomposer/Modules/Vendors/Gutenberg/AttributeController.php:135
+msgctxt "Screen reader text for the filter links heading on the post type listing screen. Default “Filter posts list”/”Filter pages list”. Added in 4.4"
+msgid "Filter Gutenberg attrs list"
+msgstr "Sorterer Gutenberg egenskabs liste"
+
+#: visualcomposer/Modules/Vendors/Gutenberg/AttributeController.php:140
+msgctxt "Screen reader text for the pagination heading on the post type listing screen. Default “Posts list navigation”/”Pages list navigation”. Added in 4.4"
+msgid "Gutenberg attrs list navigation"
+msgstr "Gutenberg egenskaber, liste navigation"
+
+#: visualcomposer/Modules/Vendors/Gutenberg/AttributeController.php:145
+msgctxt "Screen reader text for the items list heading on the post type listing screen. Default “Posts list”/”Pages list”. Added in 4.4"
+msgid "Gutenberg attrs list"
+msgstr "Liste over Gutenberg egenskaber"
+
+#: visualcomposer/Modules/Vendors/Gutenberg/SettingsController.php:72
+msgid "Enable/disable the Gutenberg editor for your WordPress site. Disabling Gutenberg editor will enable classic WordPress editor. In both cases, you can still use Visual Composer."
+msgstr "Aktiver/deaktiver Gutenberg-editoren til dit WordPress-websted. Deaktivering af Gutenberg editor vil aktivere den klassiske WordPress editor. I begge tilfælde kan du stadig bruge Visuel Composer."
+
+#: visualcomposer/Modules/Vendors/Gutenberg/SettingsController.php:81
+msgid "Gutenberg Editor"
+msgstr "Gutenberg Editor"
+
+#: visualcomposer/Modules/Vendors/Gutenberg/SettingsController.php:97
+msgid "Gutenberg"
+msgstr "Gutenberg"
+
+#: visualcomposer/Modules/Vendors/PluginsController.php:104
+msgid "Help Center"
+msgstr "Hjælpe center"
+
+#: visualcomposer/Modules/Vendors/PluginsController.php:109
+msgid "API"
+msgstr "API"
+
+#: visualcomposer/Modules/Vendors/PluginsController.php:114
+msgid "Premium Support"
+msgstr "Premium support"
+
+#: visualcomposer/Modules/Vendors/WooCommerceController.php:49
+msgid "Woocommerce Shop"
+msgstr "WooCommerce Webshop"
+
+#: visualcomposer/Modules/Vendors/WooCommerceController.php:53
+msgid "Woocommerce Cart"
+msgstr "WooCommerce Varekurv"
+
+#: visualcomposer/Modules/Vendors/WooCommerceController.php:57
+msgid "Woocommerce Checkout"
+msgstr "WooCommerce Kasseside"
+
+#: visualcomposer/Modules/Vendors/WooCommerceController.php:61
+msgid "Woocommerce My Account"
+msgstr "WooCommerce Min konto"
+
+#: visualcomposer/Modules/Vendors/WooCommerceController.php:65
+msgid "Woocommerce Product Category"
+msgstr "WooCommerce Vare kategori"
+
+#: visualcomposer/Modules/Vendors/WooCommerceController.php:69
+msgid "Woocommerce Terms"
+msgstr "WooCommerce Vilkår"
+
+#: visualcomposer/Modules/Vendors/WooCommerceController.php:325
+msgid "Length:"
+msgstr "Længde:"
+
+#: visualcomposer/Modules/Vendors/WooCommerceController.php:329
+msgid "Width:"
+msgstr "Bredde:"
+
+#: visualcomposer/Modules/Vendors/WooCommerceController.php:332
+msgid "Height:"
+msgstr "Højde:"
+
+#: visualcomposer/resources/views/editor/frontend/frontend.php:37
+msgid "Frontend editor: %s"
+msgstr "Frontend editor: %s"
+
+#: visualcomposer/resources/views/editor/pageEditable/pageEditable.php:22
+msgid "Loading..."
+msgstr "Indlæser..."
+
+#: visualcomposer/resources/views/elements/widgets/variables.php:20
+msgid "No custom widgets found."
+msgstr "Der blev ikke fundet nogen brugertilpasset widgets."
+
+#: visualcomposer/resources/views/elements/widgets/variables.php:37
+msgid "No widgets found."
+msgstr "Der blev ikke fundet nogen widgets."
+
+#: visualcomposer/resources/views/license/pages/license.php:46
+msgid "License Information"
+msgstr "Licens information"
+
+#: visualcomposer/resources/views/license/pages/license.php:49
+msgid "Visual Composer license information. Click refresh to check for license updates."
+msgstr "Visual Composer licens oplysninger. Klik på Opdater for at søge efter licens opdateringer."
+
+#: visualcomposer/resources/views/license/pages/license.php:55
+#: visualcomposer/resources/views/settings/pages/system-status.php:28
+msgid "Refresh"
+msgstr "Genopfrisk"
+
+#: visualcomposer/resources/views/license/pages/license.php:66
+msgid "License information"
+msgstr "Licens information"
+
+#: visualcomposer/resources/views/license/pages/license.php:71
+msgid "License key"
+msgstr "Licensnøgle"
+
+#: visualcomposer/resources/views/license/pages/license.php:76
+msgid "Deactivate"
+msgstr "Deaktiver"
+
+#: visualcomposer/resources/views/license/pages/license.php:83
+msgid "License type"
+msgstr "Licenstype"
+
+#: visualcomposer/resources/views/settings/fields/post-types/post-types-toggle.php:22
+#: visualcomposer/resources/views/settings/fields/toggle.php:18
+msgid "on"
+msgstr "på"
+
+#: visualcomposer/resources/views/settings/fields/post-types/post-types-toggle.php:23
+#: visualcomposer/resources/views/settings/fields/toggle.php:19
+msgid "off"
+msgstr "off"
+
+#: visualcomposer/Helpers/Localizations.php:1869
+#: visualcomposer/resources/views/settings/pages/index.php:216
+#: visualcomposer/resources/views/settings/pages/role-manager/role-manager.php:322
+msgid "Save Changes"
+msgstr "Gem ændringer"
+
+#: visualcomposer/resources/views/settings/pages/system-status.php:27
+msgid "Check system status and WordPress configuration for compliance with Visual Composer requirements."
+msgstr "Kontroller system status og WordPress-konfiguration for overholdelse af Visual Composer kravene."
+
+#: visualcomposer/resources/views/settings/pages/system-status.php:75
+msgid "WordPress environment"
+msgstr "WordPress miljø"
+
+#: visualcomposer/resources/views/settings/pages/system-status.php:80
+msgid "WordPress version"
+msgstr "WordPress version"
+
+#: visualcomposer/resources/views/settings/pages/system-status.php:90
+msgid "PHP version"
+msgstr "PHP version"
+
+#: visualcomposer/resources/views/settings/pages/system-status.php:100
+msgid "WP_DEBUG"
+msgstr "WP_DEBUG"
+
+#: visualcomposer/resources/views/settings/pages/system-status.php:104
+msgid "Displays whether of not WordPress is in Debug Mode"
+msgstr "Viser om WordPress er i fejlfindingstilstand eller ikke"
+
+#: visualcomposer/resources/views/settings/pages/system-status.php:110
+msgid "Visual Composer version"
+msgstr "Visual Composer version"
+
+#: visualcomposer/resources/views/settings/pages/system-status.php:125
+msgid "There is a new version of Visual Composer Website Builder available."
+msgstr "Der er en ny version af Visual Composer Website Builder tilgængelig."
+
+#: visualcomposer/resources/views/settings/pages/system-status.php:141
+msgid "Configurations"
+msgstr "Konfigurationer"
+
+#: visualcomposer/resources/views/settings/pages/system-status.php:159
+msgid "Memory limit"
+msgstr "Hukommelsesgrænse"
+
+#: visualcomposer/resources/views/settings/pages/system-status.php:163
+msgid "The maximum amount of memory (RAM) that your site can use at one time."
+msgstr "Det maksimale antal af hukommelse (RAM) dit websted kan bruge på én gang."
+
+#: visualcomposer/resources/views/settings/pages/system-status.php:172
+msgid "Post max size"
+msgstr "Post max size"
+
+#: visualcomposer/resources/views/settings/pages/system-status.php:185
+msgid "Max input nesting level"
+msgstr "Max input nesting level"
+
+#: visualcomposer/resources/views/settings/pages/system-status.php:189
+msgid "The maximum nesting depth of input variables (i.e. $_GET, $_POST.). "
+msgstr "Den maksimale indlejringsdybde for inputvariabler (dvs. $_GET, $_POST.). "
+
+#: visualcomposer/resources/views/settings/pages/system-status.php:202
+msgid "The number of input variables that may be accepted (limit is applied to $_GET, $_POST, and $_COOKIE superglobal separately)."
+msgstr "Antallet af inputvariabler, der kan accepteres (grænsen anvendes på $_GET, $_POST og $_COOKIE superglobal separat)."
+
+#: visualcomposer/resources/views/settings/pages/system-status.php:211
+msgid "Timeout"
+msgstr "Timeout"
+
+#: visualcomposer/resources/views/settings/pages/system-status.php:225
+msgid "The largest file size that can be uploaded to your WordPress site."
+msgstr "Den største filstørrelse, der kan uploades til dit WordPress-websted."
+
+#: visualcomposer/resources/views/settings/pages/system-status.php:238
+msgid "Visual Composer stores assets in the WordPress uploads folder. The folder must be writable for this to happen."
+msgstr "Visual Composer gemmer aktiver i mappen WordPress upload mapper. Mappen skal være skrivbar, for at dette kan ske."
+
+#: visualcomposer/resources/views/settings/pages/system-status.php:247
+msgid "File system method"
+msgstr "Filsystem metode"
+
+#: visualcomposer/resources/views/settings/pages/system-status.php:251
+msgid "The file system method should be direct."
+msgstr "Filsystemmetoden skal være direkte."
+
+#: visualcomposer/resources/views/settings/pages/system-status.php:262
+msgid "Extensions"
+msgstr "Udvidelser"
+
+#: visualcomposer/resources/views/settings/pages/system-status.php:271
+msgid "The Zip Extension should be enabled on your server"
+msgstr "Zip-udvidelsen skal være aktiveret på din server"
+
+#: visualcomposer/resources/views/settings/pages/system-status.php:281
+msgid "The version of cURL installed on your server."
+msgstr "Den cURL-version som er installeret på din server."
+
+#: visualcomposer/resources/views/settings/pages/system-status.php:292
+msgid "Connections"
+msgstr "Forbindelser"
+
+#: visualcomposer/resources/views/settings/pages/system-status.php:297
+msgid "Account"
+msgstr "Konto"
+
+#: visualcomposer/resources/views/settings/pages/system-status.php:307
+msgid "AWS"
+msgstr "AWS"
+
+#: visualcomposer/resources/views/settings/pages/system-status.php:311
+msgid "The connection with the AWS."
+msgstr "Forbindelsen til AWS."
+
+#: visualcomposer/resources/views/settings/pages/system-status.php:317
+msgid "Large data transfer"
+msgstr "Stor dataoverførsel"
+
+#: visualcomposer/resources/views/settings/pages/system-status.php:321
+msgid "Ability to send large data. In case if failed - adjust your php.ini file to increase memory_limit, post_max_size and execution time."
+msgstr "Mulighed for at sende store datamængder. I tilfælde af det mislykkedes - skal du justere din php.ini fil for at øge memory_limit, post_max_size og udførelse tid."
+
+#. Description of the plugin
+msgid "Create your WordPress website with the fast and easy-to-use drag-and-drop builder for experts and beginners."
+msgstr "Opret din WordPress websted med den hurtige og nemme at bruge træk-og-slip builder for eksperter og begyndere."
+
+#. Author of the plugin
+msgid "visualcomposer.com"
+msgstr "visualcomposer.com"
+
+#: visualcomposer/Helpers/Localizations.php:442
+msgid "Create Your WordPress Website Today."
+msgstr "Opret din WordPress hjemmeside i dag."
+
+#: visualcomposer/Framework/helpers.php:191
+msgid ""
+"An HTTP requests failed during the download process of the plugin.\n"
+"<ul><li>- Check if your server has a connection to the Internet.</li><li>- Check if your server proxy has proper configuration settings.</li><li>- Check your server firewall settings and access to <a href=\"https://my.visualcomposer.com\" target=\"_blank\" rel=\"noopener noreferrer\">https://my.visualcomposer.com</a></li><li>- Check if your server has access to the <a href=\"https://cdn.hub.visualcomposer.com/vcwb-teasers/youtubePlayer.3307569.1518529200.youtube-player-preview.jpg\" target=\"_blank\">Amazon AWS</a></li></ul>"
+msgstr ""
+"En HTTP-anmodning mislykkedes under overførslen af plug-in'et.\n"
+"<ul><li>- Kontroller, om serveren har forbindelse til internettet.</li><li>- Kontroller, om din server proxy har korrekte konfigurationsindstillinger.</li><li>- Kontroller din server firewall indstillinger og adgang til <a href=\"https://my.visualcomposer.com\" target=\"_blank\" rel=\"noopener noreferrer\">https://my.visualcomposer.com</a></li><li>- Kontroller om din server har adgang til <a href=\"https://cdn.hub.visualcomposer.com/vcwb-teasers/youtubePlayer.3307569.1518529200.youtube-player-preview.jpg\" target=\"_blank\">Amazon AWS</a></li></ul>"
+
+#: visualcomposer/Framework/helpers.php:184
+msgid ""
+"An error occurred during the Visual Composer extension download process.\n"
+"<ul><li>- Check if your server has a connection to the Internet.</li><li>- Check if your server proxy has proper configuration settings.</li><li>- Check your server firewall settings and access to https://my.visualcomposer.com</li><li>- Check if your server has access to the <a href=\"https://cdn.hub.visualcomposer.com/vcwb-teasers/youtubePlayer.3307569.1518529200.youtube-player-preview.jpg\" target=\"_blank\" rel=\"noopener noreferrer\">Amazon AWS</a></li></ul>"
+msgstr ""
+"Der opstod en fejl under overførsel af Visual Composer-udvidelser.\n"
+"<ul><li>- Kontroller, om serveren har forbindelse til internettet.</li><li>- Kontroller, om din server proxy har korrekte konfigurationsindstillinger.</li><li>- Kontroller din server firewall indstillinger og adgang til https://my.visualcomposer.com</li><li>- Kontroller om din server har adgang til <a href=\"https://cdn.hub.visualcomposer.com/vcwb-teasers/youtubePlayer.3307569.1518529200.youtube-player-preview.jpg\" target=\"_blank\" rel=\"noopener noreferrer\">Amazon AWS</a></li></ul>"
+
+#: visualcomposer/Helpers/Localizations.php:472
+msgid "Shortcode"
+msgstr "Shortcode"

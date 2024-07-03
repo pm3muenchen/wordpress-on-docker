@@ -1,0 +1,1583 @@
+# Translation of Plugins - Gutenberg Page Building Toolkit – EditorsKit - Development (trunk) in Spanish (Spain)
+# This file is distributed under the same license as the Plugins - Gutenberg Page Building Toolkit – EditorsKit - Development (trunk) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-05-18 11:40:34+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/3.0.0-alpha\n"
+"Language: es\n"
+"Project-Id-Version: Plugins - Gutenberg Page Building Toolkit – EditorsKit - Development (trunk)\n"
+
+#: src/extensions/components/preview/components/controls.js:99
+msgid "Close preview mode"
+msgstr "Cerrar modo de vista previa"
+
+#: src/extensions/components/preview/components/controls.js:130
+msgid "Enter mobile preview mode"
+msgstr "Entrar en el modo de vista previa móvil"
+
+#: src/extensions/components/preview/components/controls.js:121
+msgid "Enter tablet preview mode"
+msgstr "Entrar en el modo de vista previa en tabletas"
+
+#: src/extensions/components/preview/components/controls.js:112
+msgid "Enter desktop preview mode"
+msgstr "Entrar en el modo de vista previa de escritorio"
+
+#: src/extensions/components/preview/components/controls.js:103
+msgid "Live Preview"
+msgstr "Vista previa en vivo"
+
+#: src/extensions/components/preview/components/controls.js:69
+msgid "Show preview without opening new window."
+msgstr "Mostrar la vista previa sin abrir una nueva ventana."
+
+#: src/extensions/components/help-tips/components/about.js:20
+msgid "WordPress Version is"
+msgstr "La versión de WordPress es"
+
+#: src/extensions/components/help-tips/components/about.js:19
+msgid "Editor Version is"
+msgstr "La versión del editor es"
+
+#: src/extensions/components/gradient-controls/components/controls.js:165
+msgid "Custom Gradient applied to selected block."
+msgstr "Gradiente personalizado aplicado al bloque seleccionado."
+
+#: src/extensions/components/gradient-controls/components/controls.js:155
+msgid "Custom Gradient copied to your clipboard."
+msgstr "Gradiente personalizado copiado a tu portapapeles."
+
+#: src/extensions/components/gradient-controls/components/controls.js:109
+#: src/extensions/components/gradient-controls/components/controls.js:115
+msgid "Paste Gradient Value"
+msgstr "Pegar valor del gradiente"
+
+#: src/extensions/components/gradient-controls/components/controls.js:58
+msgid "Paste Gradient"
+msgstr "Pegar gradiente"
+
+#: src/extensions/components/gradient-controls/components/controls.js:46
+msgid "Copy Gradient Value"
+msgstr "Copiar valor del gradiente"
+
+#: includes/class-editorskit-features-manager.php:300
+msgid "Gradient Controls"
+msgstr "Controles de gradiente"
+
+#: src/extensions/formats/charmap/controls.js:148
+msgid "No characters found."
+msgstr "No se han encontrado caracteres."
+
+#: src/extensions/formats/charmap/controls.js:120
+msgid "Arrows"
+msgstr "Flechas"
+
+#: src/extensions/formats/charmap/controls.js:115
+msgid "Latin"
+msgstr "Latín"
+
+#: src/extensions/formats/charmap/controls.js:110
+msgid "Math"
+msgstr "Matemáticas"
+
+#: src/extensions/formats/charmap/controls.js:105
+msgid "Misc"
+msgstr "Varios"
+
+#: src/extensions/formats/charmap/controls.js:93
+msgid "Search"
+msgstr "Buscar"
+
+#: src/extensions/formats/charmap/controls.js:86
+msgid "Insert Special Character"
+msgstr "Insertar carácter especial"
+
+#: includes/class-editorskit-features-manager.php:152
+#: src/extensions/formats/charmap/index.js:19
+#: src/extensions/formats/charmap/controls.js:161
+msgid "Special Characters"
+msgstr "Caracteres especiales"
+
+#: src/extensions/components/preview/components/controls.js:75
+#: src/extensions/components/preview/components/controls.js:137
+#: src/blocks/shareablock/components/downloads.js:108
+msgid "Preview"
+msgstr "Vista previa"
+
+#: src/blocks/shareablock/components/downloads.js:101
+msgid "Insert"
+msgstr "Insertar"
+
+#: src/blocks/shareablock/components/downloads.js:101
+msgid "Downloading...."
+msgstr "Descargando…"
+
+#: src/blocks/shareablock/components/downloads.js:75
+msgid "Downloads"
+msgstr "Descargas"
+
+#: src/blocks/shareablock/components/downloads.js:74
+msgid "No %1$s Found. %2$sClick here to browse.%3$s"
+msgstr "No se ha encontrado ninguna %1$s. %2$sHaz clic aquí para explorar.%3$s"
+
+#: src/blocks/shareablock/components/downloads.js:62
+msgid "Templates"
+msgstr "Plantillas"
+
+#: src/blocks/shareablock/components/downloads.js:57
+msgid "Block Patterns"
+msgstr "Patrones de bloques"
+
+#: src/blocks/shareablock/components/downloads.js:52
+msgid "All Downloads"
+msgstr "Todas las descargas"
+
+#: src/blocks/shareablock/components/downloads.js:40
+msgid "ShareABlock Patterns and Templates"
+msgstr "Patrones y plantillas de ShareABlock"
+
+#: src/blocks/shareablock/components/edit.js:243
+msgid "Get API Key"
+msgstr "Consigue una clave API"
+
+#: src/blocks/shareablock/components/edit.js:236
+msgid "Apply & View Downloads"
+msgstr "Aplicar y ver descargas"
+
+#: src/blocks/shareablock/components/edit.js:218
+msgid "Enter Public API Key…"
+msgstr "Introduce la clave API pública…"
+
+#: src/blocks/shareablock/components/edit.js:210
+msgid "View Downloads"
+msgstr "Ver descargas"
+
+#: src/blocks/shareablock/components/edit.js:192
+msgid "Invalid API or Access Token."
+msgstr "Clave API o token de acceso no válidos"
+
+#: src/blocks/shareablock/components/edit.js:184
+msgid "Insert your downloads from shareablock.com at ease."
+msgstr "Inserta tus descargas desde shareablock.como con facilidad"
+
+#: src/blocks/shareablock/components/edit.js:183
+msgid "ShareABlock from EditorsKit"
+msgstr "ShareABlock de EditorsKit"
+
+#: src/blocks/shareablock/components/loading.js:10
+msgid "Loading…"
+msgstr "Cargando…"
+
+#: src/blocks/shareablock/components/inspector.js:94
+msgid "Remove"
+msgstr "Eliminar"
+
+#: src/blocks/shareablock/components/inspector.js:85
+msgid "Save"
+msgstr "Guardar"
+
+#: src/blocks/shareablock/components/inspector.js:85
+msgid "Saved"
+msgstr "Guardado"
+
+#: src/blocks/shareablock/components/inspector.js:76
+#: src/blocks/shareablock/components/edit.js:225
+msgid "Enter Access Token…"
+msgstr "Introduce el token de acceso…"
+
+#: src/blocks/shareablock/components/inspector.js:69
+msgid "Enter API Key…"
+msgstr "Introduce la clave API…"
+
+#: src/blocks/shareablock/components/inspector.js:65
+msgid "Add API key and Access Token. Updating this API key will set all your downloads to use the new key."
+msgstr "Añade una clave API y un token de acceso. Al actualizar esta clave API se configurarán todas tus descargas para que usen la nueva clave."
+
+#: src/blocks/shareablock/components/inspector.js:61
+#: src/blocks/shareablock/components/edit.js:217
+msgid "API Settings"
+msgstr "Ajustes de la API"
+
+#: src/blocks/shareablock/index.js:21
+msgid "shareablock"
+msgstr "shareablock"
+
+#: src/blocks/shareablock/index.js:20
+msgid "block patterns"
+msgstr "patrones de bloques"
+
+#: src/blocks/shareablock/index.js:19
+msgid "template"
+msgstr "plantilla"
+
+#: src/blocks/shareablock/index.js:17
+msgid "Easily insert your downloads from shareablock.com"
+msgstr "Inserta fácilmente tus descargas desde shareablock.com"
+
+#: src/blocks/shareablock/index.js:16
+msgid "ShareABlock"
+msgstr "ShareABlock"
+
+#: src/extensions/block-styles/list/index.js:45
+msgid "Dashed"
+msgstr "Guiones"
+
+#: includes/class-editorskit-post-meta.php:74
+msgid "API key and token from shareablock.com"
+msgstr "Clave API y token de shareablock.com"
+
+#: src/admin/index.js:119
+msgid "Get this Extension"
+msgstr "Consigue esta extensión"
+
+#: src/admin/index.js:112
+msgid "Easily define typography on your WordPress posts and pages directly on the Gutenberg editor. With sets of predefined Google Fonts combination you can choose from or create your own to best match your website's branding."
+msgstr "Define fácilmente la tipografía en tus entradas y páginas WordPress directamente en el editor Gutenberg. Con conjuntos de combinaciones de fuentes Google predefinidas entre las que elegir o crear las tuyas propias que mejor se ajusten a la imagen de tu web."
+
+#: src/admin/index.js:111
+msgid "Typography and Google Fonts"
+msgstr "Tipografía y fuentes de Google "
+
+#: src/extensions/components/url-popover/url-input-ui.js:172
+msgid "Remove link"
+msgstr "Quitar enlace"
+
+#: src/extensions/components/url-popover/url-input-ui.js:140
+msgid "Insert link"
+msgstr "Insertar enlace"
+
+#: src/extensions/components/url-popover/url-input-ui.js:139
+msgid "Edit link"
+msgstr "Editar enlace"
+
+#: src/extensions/components/url-popover/url-input-ui.js:123
+msgid "Hover Animation"
+msgstr "Animación al pasar el cursor"
+
+#: src/extensions/formats/indent-increase/index.js:19
+#: src/extensions/formats/indent-increase/controls.js:38
+msgid "Indent Increase"
+msgstr "Aumentar sangría"
+
+#: src/extensions/formats/indent-decrease/index.js:19
+#: src/extensions/formats/indent-decrease/controls.js:38
+msgid "Indent Decrease"
+msgstr "Reducir sangría"
+
+#. translators: %s: EditorsKit settings page link
+#: includes/class-editorskit-welcome.php:175
+msgid "Thank you for installing and activating EditorsKit Plugin. Please go to %1$sSettings > EditorsKit%2$s to get started."
+msgstr "Gracias por instalar y activar el plugin EditorsKit. Por favor, ve a %1$sAjustes > EditorsKit%2$s para empezar."
+
+#: includes/class-editorskit-features-manager.php:244
+msgid "Link Toolbar for Cover, Group & Column"
+msgstr "Barra de herramientas para fondos, grupos y columnas"
+
+#: includes/class-editorskit-features-manager.php:132
+msgid "Indents"
+msgstr "Sangrías"
+
+#: src/extensions/block-styles/columns/index.js:15
+msgid "Gapless"
+msgstr "Sin espacio"
+
+#: src/extensions/advanced-controls/options/devices/index.js:100
+msgid "Alignment for Tablet Devices"
+msgstr "Alineación en dispositivos de tableta"
+
+#: src/extensions/advanced-controls/options/devices/index.js:88
+msgid "Alignment for Mobile Devices"
+msgstr "Alineación en dispositivos móviles"
+
+#: src/extensions/advanced-controls/options/devices/index.js:78
+msgid "Tablet"
+msgstr "Tableta"
+
+#: src/extensions/advanced-controls/options/devices/index.js:73
+msgid "Mobile"
+msgstr "Móvil"
+
+#: src/extensions/advanced-controls/options/devices/index.js:67
+msgid "Assign different alignment for tablet and mobile devices aside from the option you already have for desktop on the block toolbar."
+msgstr "Asigna distintas alineaciones para dispositivos de tableta y móviles, independietemente de la opción que ya tengas para escritorio en la barra de herramientas del bloque."
+
+#: src/extensions/advanced-controls/options/devices/index.js:66
+msgid "Responsive Text Alignment"
+msgstr "Alineación de texto adaptable"
+
+#: src/extensions/advanced-controls/options/devices/index.js:48
+msgid "Responsive Visibility"
+msgstr "Visibilidad adaptable"
+
+#: src/extensions/advanced-controls/options/devices/alignment-toolbar.js:40
+msgid "Change text alignment"
+msgstr "Cambiar alineación del texto"
+
+#: src/extensions/advanced-controls/options/devices/alignment-toolbar.js:25
+msgid "Align text right"
+msgstr "Alinear texto a la derecha"
+
+#: src/extensions/advanced-controls/options/devices/alignment-toolbar.js:20
+msgid "Align text center"
+msgstr "Alinear texto al centro"
+
+#: src/extensions/advanced-controls/options/devices/alignment-toolbar.js:15
+msgid "Align text left"
+msgstr "Alinear texto a la izquierda"
+
+#: src/admin/addon-settings.js:11
+msgid "This area provide settings for all activated EditorsKit add ons."
+msgstr "Este área ofrece ajustes para todas las extensiones activas de EditorsKit."
+
+#: src/admin/licenses-settings.js:14
+msgid "Enter your extension license keys here to receive updates for purchased extensions. If your license key has expired, please %1$srenew your license%2$s."
+msgstr "Introduce aquí tu clave de licencia de la extensión para recibir actualizaciones de tus extensiones ya adquiridas. Si tu clave de licencia ha caducado, por favor %1$srenueva t licencia%2$s."
+
+#: src/admin/index.js:46
+msgid "Extensions"
+msgstr "Extensiones"
+
+#: src/admin/index.js:39
+msgid "Blocks Manager"
+msgstr "Gestor de bloques"
+
+#: src/admin/index.js:34
+msgid "Features Manager"
+msgstr "Gestor de características"
+
+#: src/admin/index.js:29
+msgid "Tutorial and Docs"
+msgstr "Tutorial y documentación"
+
+#: src/admin/index.js:24
+msgid "Getting Started"
+msgstr "Primeros pasos"
+
+#: src/extensions/block-styles/list/index.js:51
+msgid "Starred"
+msgstr "Favorito"
+
+#: src/extensions/block-styles/list/index.js:39
+msgid "Connected"
+msgstr "Conectado"
+
+#: src/extensions/block-styles/list/index.js:33
+msgid "Crossed"
+msgstr "Cruzado"
+
+#: src/extensions/block-styles/list/index.js:27
+msgid "Checked"
+msgstr "Marcado"
+
+#: src/extensions/block-styles/list/index.js:21
+msgid "Arrow"
+msgstr "Flecha"
+
+#: src/extensions/block-styles/list/index.js:15
+msgid "None"
+msgstr "Nada"
+
+#: src/extensions/block-panel/list-settings/index.js:64
+msgid "Bullet/Icon Color"
+msgstr "Color de viñeta/icono"
+
+#: src/admin/docs/index.js:173
+msgid "Additional List Block Styles"
+msgstr "Estilos adicionales del bloque de lista"
+
+#: includes/class-editorskit-features-manager.php:229
+msgid "Cover Block Vertical Alignment"
+msgstr "Alineación vertical del bloque de fondo"
+
+#: includes/class-editorskit-features-manager.php:219
+msgid "Convert Reusable Block Toolbar"
+msgstr "Convertir la barra de herramientas de bloques reutilizables"
+
+#: includes/class-editorskit-features-manager.php:209
+msgid "Button Block Full Width"
+msgstr "Bloque de botón en ancho complet"
+
+#: src/extensions/block-toolbar/reusable-convert/components/controls.js:56
+msgid "Reusable Block converted."
+msgstr "Bloque reutilizable convertido."
+
+#: src/extensions/block-toolbar/reusable-convert/components/controls.js:30
+msgid "Convert to Regular Blocks"
+msgstr "Convertir a bloques normales"
+
+#: src/extensions/advanced-controls/fullwidth/index.js:24
+msgid "Toggle to display this block's as full width."
+msgstr "Alternar para mostrar este bloque como de ancho completo. "
+
+#: src/extensions/advanced-controls/fullwidth/index.js:24
+msgid "Full width display is enabled."
+msgstr "La visualización en ancho completo está activa."
+
+#: src/extensions/advanced-controls/fullwidth/index.js:21
+msgid "Full Width Display"
+msgstr "Visualización en ancho completo"
+
+#: src/extensions/formats/abbreviation/components/edit.js:63
+msgid "Example: fr, en, de, etc. Use it only if the abbreviation’s language is different from page main language."
+msgstr "Ejemplo: es, fr, en, de, etc. Úsalo solo si el idioma de la abreviatura es distinto del idioma principal de la página."
+
+#: src/extensions/formats/abbreviation/components/edit.js:61
+msgid "Language (optional)"
+msgstr "Idioma (opcional)"
+
+#: src/extensions/formats/abbreviation/components/edit.js:56
+msgid "Title"
+msgstr "Título"
+
+#: src/extensions/formats/abbreviation/components/edit.js:53
+msgid "Insert Abbreviation"
+msgstr "Insertar abreviatura"
+
+#: src/extensions/advanced-controls/disable-block/index.js:88
+msgid "Click if you want this block to be disabled on Block Manager."
+msgstr "Haz clic si quieres que este bloque esté desactivado en el gestor de bloques."
+
+#: src/extensions/advanced-controls/disable-block/index.js:84
+msgid "Remove & Disable Block"
+msgstr "Quitar y desactivar bloque"
+
+#: src/extensions/advanced-controls/disable-block/index.js:38
+msgid " block has been disabled."
+msgstr "el bloque se ha desactivado"
+
+#: includes/class-editorskit-features-manager.php:214
+msgid "Columns Block Background Color"
+msgstr "Color de fondo del bloque de columnas"
+
+#: includes/class-editorskit-features-manager.php:117
+#: src/extensions/formats/abbreviation/components/edit.js:47
+#: src/extensions/formats/abbreviation/index.js:19
+msgid "Abbreviation"
+msgstr "Abreviatura"
+
+#: src/blocks/lorem/index.js:32
+msgid "Create lorem ipsum placeholder paragraph."
+msgstr "Crea un párrafo con un marcador de posición tipo lorem ipsum."
+
+#: src/blocks/lorem/index.js:19
+msgid "Lorem Dev Tool"
+msgstr "Herramienta de desarrollo lorem"
+
+#: src/admin/docs/index.js:143
+msgid "Enable Developer Tools"
+msgstr "Activar las herramientas para desarrolladores"
+
+#: src/admin/index.js:100
+msgid "Manage each individual blocks! You can enable or disable any blocks you want and it will be reflected on Gutenberg block manager settings. Just uncheck the box and it will automatically be saved."
+msgstr "¡Gestiona cada bloque individual! Puedes activar o desactivar cualquier bloque que quieras y se reflejará en los ajustes del gestor de bloques de Gutenberg. Simplemente desmarca la casilla y se guardará automáticamente."
+
+#: src/admin/block-manager/index.js:71
+msgid "No blocks found."
+msgstr "No se han encontrado bloques."
+
+#: src/admin/block-manager/index.js:66
+msgid "Available block types"
+msgstr "Tipos de bloques disponibles"
+
+#: src/admin/block-manager/index.js:53
+msgid "%1$d block is disabled."
+msgid_plural "%1$d blocks are disabled."
+msgstr[0] "%1$d bloque está desactivado."
+msgstr[1] "%1$d bloques están desactivados."
+
+#: src/admin/block-manager/index.js:42
+msgid "Search for a block"
+msgstr "Buscar un bloque"
+
+#: src/extensions/block-panel/list-settings/index.js:53
+#: src/extensions/block-panel/column-background/index.js:33
+msgid "Color Settings"
+msgstr "Ajustes de color"
+
+#: src/extensions/block-panel/list-settings/index.js:40
+msgid "Text Settings"
+msgstr "Ajustes de texto"
+
+#: src/admin/docs/index.js:291
+msgid "Documentation"
+msgstr "Documentación"
+
+#: src/admin/docs/index.js:272
+msgid "Block Styling"
+msgstr "Estilo del bloque"
+
+#: src/admin/docs/index.js:255
+msgid "Block Visibility"
+msgstr "Visibilidad del bloque"
+
+#: src/admin/docs/index.js:187
+msgid "Rich Text Formatting"
+msgstr "Formato de texto enriquecido"
+
+#: src/admin/docs/index.js:184
+msgid "Learn more about each EditorsKit features with the tutorials below. Click on the link to open a modal pop-up with detailed explanation and animated GIF previewing how the features work."
+msgstr "Aprende más sobre cada característica de EditorsKit con los siguientes tutoriales. Haz clic en el enlace para abrir una ventana emergente con una explicación detallada y un GIF animado que muestra cómo funciona la característica."
+
+#: src/admin/docs/index.js:169
+msgid "More Image & Cover Block Styles"
+msgstr "Más estilos de bloques de imagen y fondo"
+
+#: src/admin/docs/index.js:165
+msgid "Display Cover and Image Blocks in Fullscreen"
+msgstr "Muestra los bloques de fondo e imagen a pantalla completa"
+
+#: src/admin/docs/index.js:158
+msgid "Using Custom Display Logic"
+msgstr "Usando la lógica de visualización condicional"
+
+#: src/admin/docs/index.js:154
+msgid "Hide Block on Logged-in/out Users"
+msgstr "Oculta el bloque a usuarios conectados/desconectados"
+
+#: src/admin/docs/index.js:150
+msgid "Block Visibility on Desktop, Mobile or Tablet"
+msgstr "Visibilidad del bloque en sobremesa, móvil o tableta"
+
+#: src/admin/docs/index.js:139
+msgid "Accessible Help, Tips & Tricks"
+msgstr "Ayuda y trucos accesibles"
+
+#: src/admin/docs/index.js:135
+msgid "Additional CSS Class(es) Auto Suggestions"
+msgstr "Sugerencias de clase(s) CSS adicional(es)"
+
+#: src/admin/docs/index.js:131
+msgid "Enable Block Guide Lines"
+msgstr "Activar las líneas de guía de bloques"
+
+#: src/admin/docs/index.js:127
+msgid "Disable Auto Saving"
+msgstr "Desactivar guardado automático"
+
+#: src/admin/docs/index.js:123
+msgid "Code Editor Syntax Highlighter"
+msgstr "Resaltado de sintaxis del editor de código"
+
+#: src/admin/docs/index.js:115
+msgid "Easily Hide Title"
+msgstr "Ocultar título fácilmente"
+
+#: src/admin/docs/index.js:108
+msgid "Changing List Block Font Size & Text Color"
+msgstr "Cambiar el color de texto y tamaño de fuente del bloque de lista"
+
+#: src/admin/docs/index.js:104
+msgid "Media & Text Block Links"
+msgstr "Enlaces en el bloque de medios y texto"
+
+#: src/admin/docs/index.js:100
+msgid "Media & Text Block Card Layout"
+msgstr "Diseño de la tarjeta del bloque de medios y texto"
+
+#: src/admin/docs/index.js:92
+msgid "Export and Import Blocks"
+msgstr "Exportar e importar bloques"
+
+#: src/admin/docs/index.js:88
+msgid "Set Image Block as Featured Image"
+msgstr "Configura un bloque de imagen como imagen destacada"
+
+#: src/admin/docs/index.js:77
+msgid "View or Add Estimated Reading Time"
+msgstr "Ve o añade el tiempo de lectura estimado"
+
+#: src/admin/docs/index.js:73
+msgid "Markdown Writing Shortcuts"
+msgstr "Atajos de escritura con marcado"
+
+#: src/admin/docs/index.js:62
+msgid "Add Nonbreaking Space"
+msgstr "Añade espacios sin salto"
+
+#: src/admin/docs/index.js:58
+msgid "Transform Text to Uppercase"
+msgstr "Transforma texto a mayúsculas"
+
+#: src/admin/docs/index.js:54
+msgid "Justified Paragraph Alignment"
+msgstr "Justifica la alineación del párrafo"
+
+#: src/admin/docs/index.js:50
+msgid "Subscript and Superscript Text Formatting"
+msgstr "Formato de texto de subíndice y superíndice"
+
+#: src/admin/docs/index.js:46
+msgid "Adding Link \"rel\" NoFollow or Sponsored Attributes"
+msgstr "Añadir atributos de enlace «rel» nofollow o sponsored"
+
+#: src/admin/docs/index.js:42
+msgid "Adding Highlighted Text Background Color"
+msgstr "Añadir color de fondo resaltado al texto"
+
+#: src/admin/docs/index.js:38
+msgid "Adding Selected Text Color"
+msgstr "Añadir color de texto seleccionado"
+
+#: src/admin/index.js:143
+msgid "Congratulations! You've just unlocked more Gutenberg block editor tools for easier editing and better workflow. Check more information about the plugin below and please make sure to navigate through \"Tutorials and Docs\" tab to learn more on how to use each available features."
+msgstr "¡Enhorabuena! Acabas de desbloquear más herramientas del editor de bloques Gutenberg para una edición más sencilla y un mejor flujo de trabajo. Echa un vistazo a más información sobe el plugin a continuación y, por favor, asegúrate de navegar a la pestaña de «Tutoriales y documentación» para aprender más sobre cómo usar cada característica disponible."
+
+#: src/admin/index.js:142
+msgid "Getting Started with"
+msgstr "Primeros pasos con"
+
+#: src/admin/index.js:141
+msgid "Settings → EditorsKit"
+msgstr "Ajustes \t EditorsKit"
+
+#: src/admin/index.js:90
+msgid "All features are active by default but you have complete control over each one of them. Disable any features do not want to use and re-enable them anytime on this page or under the \"EditorsKit Settings\" on Gutenberg editor. Just uncheck the box and it will automatically be saved."
+msgstr "Todas las características están activas por defecto pero tienes un control total sobre cada una de ellas. Desactiva cualquier característica que no quieras y vuelve a activarlas en cualquier momento en esta página o en los «Ajustes de EditorsKit» en el editor Gutenberg. Simplemente desmarca la casilla y se guardará automáticamente."
+
+#: src/admin/index.js:65
+msgid "EditorsKit video preview"
+msgstr "Vista previa de vídeo de EditorsKit"
+
+#: src/admin/index.js:62
+msgid "EditorsKit provides set of tools to extend the way you are building content on WordPress Gutenberg block editor. Designed and integrated to help users easily navigate; and control each block the way it should be."
+msgstr "EditorsKit ofrece un conjunto de herramientas que amplían el modo en que estás creando contenido en el editor de bloques Gutenberg de WordPress. Diseñado e integrado para ayudar a los usuarios a navegar fácilmente; y a controlar cada bloque como debería ser."
+
+#: includes/class-editorskit-features-manager.php:254
+msgid "List Block Text Color"
+msgstr "Color de texto del bloque de lista"
+
+#: includes/class-editorskit-features-manager.php:249
+msgid "List Block Font Size"
+msgstr "Tamaño de fuente del bloque de lista"
+
+#: src/extensions/disable-title/controls.js:69
+msgid "Title is hidden on your website."
+msgstr "El título está oculto en tu web."
+
+#: src/extensions/disable-title/controls.js:66
+msgid "block-options"
+msgstr "block-options"
+
+#: src/extensions/components/help-tips/components/controls.js:125
+msgid "About"
+msgstr "Acerca de"
+
+#: src/extensions/components/help-tips/components/about.js:26
+msgid "EditorsKit %s"
+msgstr "EditorsKit %s"
+
+#: src/extensions/components/help-tips/components/about.js:25
+msgid " Want to help? %sGet involved or report an issue%s."
+msgstr "¿Quieres ayudar? %sInvolúcrate o informa de algún problema%s."
+
+#: src/extensions/components/help-tips/components/about.js:23
+msgid "You are using the new block editor powered by the %sGutenberg Plugin%s."
+msgstr "Estás usando el nuevo editor de bloques del %s plugin Gutenberg%s."
+
+#: src/extensions/components/help-tips/components/about.js:22
+msgid "You are using the new block editor bundled on WordPress core %s"
+msgstr "Estás usando el nuevo editor de bloques incluido en el núcleo de WordPress %s"
+
+#: src/extensions/components/help-tips/components/about.js:12
+msgid "About Gutenberg Block Editor"
+msgstr "Acerca del editor de bloques Gutenberg"
+
+#: src/extensions/formats/nbsp/components/edit.js:56
+msgid "Nonbreaking space"
+msgstr "Espacio sin salto"
+
+#: includes/class-editorskit-features-manager.php:331
+msgid "Select Parent Block"
+msgstr "Selecciona el bloque superior"
+
+#: includes/class-editorskit-features-manager.php:327
+msgid "Shortcuts"
+msgstr "Atajos"
+
+#: includes/class-editorskit-features-manager.php:147
+#: src/extensions/formats/nbsp/index.js:19
+msgid "Nonbreaking Space"
+msgstr "Espacio sin salto"
+
+#: src/extensions/components/help-tips/components/controls.js:196
+msgid "Fetching..."
+msgstr "Obteniendo…"
+
+#: src/extensions/components/help-tips/components/controls.js:193
+msgid "Next"
+msgstr "Siguiente"
+
+#: src/extensions/components/help-tips/components/controls.js:185
+msgid "View All Tips and Tricks"
+msgstr "Ver todos los trucos y consejos"
+
+#: src/extensions/components/help-tips/components/controls.js:149
+msgid "Remove/Disable Help Button"
+msgstr "Quitar/desactivar botón de ayuda"
+
+#: src/extensions/components/help-tips/components/controls.js:142
+msgid "EditorsKit Community Help"
+msgstr "Ayuda de la comunidad EditorsKit"
+
+#: src/extensions/components/help-tips/components/controls.js:134
+#: src/extensions/components/help-tips/components/controls.js:157
+msgid "Tips and Tricks"
+msgstr "Trucos y consejos"
+
+#: src/extensions/transform/empty-paragraphs/components/controls.js:89
+msgid "This prompt will only be shown once and will remember your preference. Thanks!"
+msgstr "Este aviso solo se mostrará una vez y recordará tu preferencia. ¡Gracias!"
+
+#: src/extensions/transform/empty-paragraphs/components/controls.js:87
+msgid "No, Thanks"
+msgstr "No gracias"
+
+#: src/extensions/transform/empty-paragraphs/components/controls.js:83
+msgid "Yes Enable"
+msgstr "Sí, activar"
+
+#: src/extensions/transform/empty-paragraphs/components/controls.js:76
+msgid "Do you want to automatically transform three(3) consecutive empty paragraphs into Spacer Block?"
+msgstr "¿Quieres transformar automáticamente tres (3) párrafos consecutivos vacíos en un bloque de espaciador?"
+
+#: src/extensions/transform/empty-paragraphs/components/controls.js:69
+msgid "Enable Shortcut"
+msgstr "Activar atajo"
+
+#: includes/class-editorskit-features-manager.php:310
+#: src/extensions/components/help-tips/components/controls.js:105
+#: src/extensions/components/help-tips/components/controls.js:106
+msgid "Help, tips and tricks"
+msgstr "Ayuda, trucos y consejos"
+
+#: includes/class-editorskit-features-manager.php:198
+#: src/admin/docs/index.js:81
+msgid "Transform 3 Empty Paragraphs to Spacer Block"
+msgstr "Transformar 3 párrafos vacíos en un bloque de espaciador"
+
+#: src/extensions/formats/alignment/components/control.js:31
+msgid "Align caption right"
+msgstr "Alinear leyenda a la derecha"
+
+#: src/extensions/formats/alignment/components/control.js:26
+msgid "Align caption center"
+msgstr "Alinear leyenda al centro"
+
+#: src/extensions/formats/alignment/components/control.js:21
+msgid "Align caption left"
+msgstr "Alinear leyenda a la izquierda"
+
+#: src/extensions/formats/alignment/index.js:20
+msgid "Change Caption Alignment"
+msgstr "Cambiar alineación de la leyenda"
+
+#: src/extensions/block-settings/copy/components/controls.js:110
+msgid "Selected blocks copied."
+msgstr "Bloques seleccionados copiados."
+
+#: src/extensions/block-settings/copy/components/controls.js:108
+msgid "Selected block copied."
+msgstr "Bloque seleccionado copiado."
+
+#: src/extensions/block-settings/copy/components/controls.js:74
+msgid "Copy"
+msgstr "Copiar"
+
+#: includes/class-editorskit-features-manager.php:224
+#: src/admin/docs/index.js:96
+msgid "Copy Selected Block(s)"
+msgstr "Copiar bloque(s) seleccionado(s)"
+
+#: src/extensions/components/reading-time/components/controls.js:53
+msgid "Reading Time"
+msgstr "Tiempo de lectura"
+
+#: src/extensions/block-toolbar/block-navigator/components/controls.js:35
+msgid "Open block navigator"
+msgstr "Abrir navegador de bloques"
+
+#: src/extensions/block-toolbar/media-text-card/components/toolbar.js:73
+msgid "Show media on bottom"
+msgstr "Mostrar medios al fondo"
+
+#: src/extensions/block-toolbar/media-text-card/components/toolbar.js:65
+msgid "Show media on top"
+msgstr "Mostrar medios arriba"
+
+#: src/extensions/block-navigation/list.js:43
+msgid "(selected block)"
+msgstr "(bloque seleccionado)"
+
+#: src/extensions/block-navigation/index.js:36
+#: src/extensions/block-navigation/dropdown.js:38
+msgid "Block navigation"
+msgstr "Navegación de bloques"
+
+#: includes/class-editorskit-features-manager.php:259
+msgid "Media Text Block Layout"
+msgstr "Diseño del bloque de medios y texto"
+
+#: includes/class-editorskit-features-manager.php:234
+#: src/extensions/block-toolbar/block-navigator/components/controls.js:43
+msgid "Block Navigator"
+msgstr "Navegador de bloques"
+
+#: includes/class-editorskit-features-manager.php:205
+#: src/admin/docs/index.js:221
+msgid "Block Options"
+msgstr "Opciones del bloque"
+
+#: includes/class-editorskit-features-manager.php:183
+msgid "Estimated Reading Time"
+msgstr "Tiempo de lectura estimado"
+
+#. translators: accessibility label for external links, where the argument is
+#. the link text
+#: src/extensions/formats/link/components/utils.js:106
+msgid "%s (opens in a new tab)"
+msgstr "%s (se abre en una nueva pestaña)"
+
+#: src/extensions/formats/link/components/inline.js:306
+#: src/extensions/block-toolbar/media-text-link/components/controls.js:278
+#: src/extensions/components/url-popover/url-input-ui.js:118
+msgid "Sponsored"
+msgstr "Sponsored"
+
+#: src/extensions/formats/link/components/inline.js:301
+#: src/extensions/components/url-popover/url-input-ui.js:113
+msgid "No Follow"
+msgstr "Nofollow"
+
+#: src/extensions/formats/link/components/inline.js:228
+msgid "Link inserted."
+msgstr "Enlace insertado."
+
+#: src/extensions/formats/link/components/inline.js:226
+msgid "Link edited."
+msgstr "Enlace editado."
+
+#: src/extensions/formats/link/components/inline.js:224
+msgid "Warning: the link has been inserted but may have errors. Please test it."
+msgstr "Atención: el enlace se ha insertado pero puede tener errores. Por favor, compruébalo."
+
+#: src/extensions/formats/link/components/link-viewer.js:53
+msgid "Edit"
+msgstr "Editar"
+
+#: src/extensions/formats/link/components/edit.js:128
+msgid "Unlink"
+msgstr "Quitar enlace"
+
+#: src/extensions/formats/link/components/edit.js:84
+msgid "Link removed."
+msgstr "Enlace quitado."
+
+#: src/extensions/formats/link/components/edit.js:29
+msgid "Add Link"
+msgstr "Añadir enlace"
+
+#: src/extensions/formats/link/components/url-input.js:280
+msgid "(no title)"
+msgstr "(sin título)"
+
+#: src/extensions/formats/link/components/url-input.js:243
+msgid "Paste URL or type to search"
+msgstr "Pega la URL o teclea para buscar"
+
+#: src/extensions/formats/link/components/url-input.js:238
+msgid "URL"
+msgstr "URL"
+
+#: src/extensions/formats/link/components/url-input.js:201
+msgid "Link selected."
+msgstr "Enlace seleccionado."
+
+#: src/extensions/formats/link/components/url-input.js:117
+msgid "No results."
+msgstr "No hay resultados."
+
+#: src/extensions/formats/link/components/url-input.js:111
+msgid "%d result found, use up and down arrow keys to navigate."
+msgid_plural "%d results found, use up and down arrow keys to navigate."
+msgstr[0] "%d resultado encontrado, utiliza las teclas de flecha arriba y abajo para navegar. "
+msgstr[1] "%d resultados encontrados, utiliza las teclas de flecha arriba y abajo para navegar. "
+
+#: src/extensions/formats/link/components/link-editor.js:37
+#: src/extensions/formats/abbreviation/components/edit.js:87
+#: src/extensions/components/gradient-controls/components/controls.js:133
+msgid "Apply"
+msgstr "Aplicar "
+
+#: src/extensions/formats/link/index.js:21
+msgid "Link"
+msgstr "Enlace"
+
+#: includes/class-editorskit-features-manager.php:142
+msgid "Link with \"rel\" Attributes"
+msgstr "Enlace con atributos «rel»"
+
+#: src/extensions/components/featured-image/components/controls.js:93
+msgid "Replace Image"
+msgstr "Reemplazar imagen"
+
+#: src/extensions/components/featured-image/components/controls.js:68
+msgid "Edit or update the image"
+msgstr "Editar o actualizar la imagen"
+
+#: src/extensions/components/featured-image/components/controls.js:47
+msgid "Upload Featured Image"
+msgstr "Subir imagen destacada"
+
+#: src/extensions/components/featured-image/components/controls.js:29
+msgid "To edit the featured image, you need permission to upload media."
+msgstr "Para editar la imagen destacada necesitas permisos para subir medios."
+
+#: src/extensions/components/featured-image/components/controls.js:25
+msgid "Remove Image"
+msgstr "Eliminar imagen"
+
+#: src/extensions/components/featured-image/components/controls.js:24
+msgid "Set Featured Image"
+msgstr "Establecer imagen destacada"
+
+#: src/extensions/components/featured-image/components/controls.js:23
+msgid "Featured Image"
+msgstr "Imagen destacada"
+
+#: src/extensions/block-toolbar/media-text-link/components/controls.js:285
+msgid "Apply link to whole block"
+msgstr "Aplicar enlace a todo el bloque"
+
+#: src/extensions/block-toolbar/media-text-link/components/controls.js:271
+msgid "No follow"
+msgstr "Nofollow"
+
+#: src/extensions/formats/link/components/inline.js:296
+#: src/extensions/block-toolbar/media-text-link/components/controls.js:266
+#: src/extensions/components/url-popover/url-input-ui.js:108
+msgid "Open in New Tab"
+msgstr "Abrir en una nueva pestaña"
+
+#: src/extensions/block-toolbar/media-text-link/components/controls.js:234
+msgid "Attachment Page"
+msgstr "Página de adjuntos"
+
+#: src/extensions/block-toolbar/media-text-link/components/controls.js:228
+msgid "Media File"
+msgstr "Archivo de medios"
+
+#: src/extensions/block-toolbar/media-text-link/components/controls.js:162
+msgid "Remove Link"
+msgstr "Eliminar enlace"
+
+#: src/extensions/block-toolbar/media-text-link/components/controls.js:111
+msgid "Media Link"
+msgstr "Enlace a medios"
+
+#: src/extensions/block-toolbar/media-text-link/components/controls.js:111
+msgid "Edit Media Link"
+msgstr "Editar enlace a medios"
+
+#: includes/class-editorskit-features-manager.php:290
+#: src/admin/docs/index.js:119
+msgid "Drag and Drop Featured Image"
+msgstr "Arrastrar y soltar imagen destacada"
+
+#: src/blocks/import/index.js:38
+msgid "Import blocks exported using EditorsKit plugin."
+msgstr "Importa bloques exportados usando el plugin EditorsKit"
+
+#: src/extensions/components/manager/components/index.js:45
+msgid "EditorsKit Features Manager"
+msgstr "Gestor de características de EditorsKit"
+
+#: src/extensions/block-settings/set-as-featured/components/controls.js:88
+msgid "Featured Image Removed."
+msgstr "Imagen destacada quitada."
+
+#: src/extensions/block-settings/set-as-featured/components/controls.js:77
+msgid "Image Set as Featured."
+msgstr "Imagen establecida como destacada."
+
+#: src/extensions/block-settings/set-as-featured/components/controls.js:29
+msgid "Set as Featured Image"
+msgstr "Establecer como imagen destacada"
+
+#: src/extensions/block-settings/set-as-featured/components/controls.js:28
+msgid "Remove as Featured Image"
+msgstr "Quitar imagen destacada"
+
+#: includes/class-editorskit-features-manager.php:264
+msgid "Set Image Block as Featured"
+msgstr "Configura un bloque de imagen como imagen destacada"
+
+#: includes/class-editorskit-features-manager.php:188
+msgid "Heading Block Label"
+msgstr "Etiqueta del bloque de encabezado"
+
+#: includes/class-editorskit-features-manager.php:320
+#: src/extensions/components/scroll-down/components/scrolldown.js:36
+msgid "View Custom Fields"
+msgstr "Ver campos personalizados"
+
+#: includes/class-editorskit-features-manager.php:280
+msgid "Code Editor Syntax Highlight"
+msgstr "Resaltado de sintaxis del editor de código"
+
+#: src/extensions/components/editor-height/components/height.js:55
+msgid "Editor Height"
+msgstr "Altura del editor"
+
+#: src/extensions/components/editor-height/components/height.js:52
+msgid "Toggle to change editor min-height similar to browser viewport."
+msgstr "Alternar para cambiar la altura mínima del editor similar a la visualización del navegador."
+
+#: includes/class-editorskit-features-manager.php:295
+msgid "Editor Min-Height"
+msgstr "Altura mínima del editor"
+
+#: src/extensions/advanced-controls/custom-class-name/index.js:67
+msgid "Additional CSS Class(es)"
+msgstr "Clase(s) CSS adicional(es)"
+
+#: includes/class-editorskit-features-manager.php:285
+msgid "Custom Class Names"
+msgstr "Nombres de clases personalizadas"
+
+#: src/extensions/block-settings/visibility-settings/components/modal.js:116
+msgid "Attention: The display settings (show/hide for mobile, tablet, desktop or users) will only take effect once you are on the live page, and not while you're editing in Gutenberg."
+msgstr "Atención: Los ajustes de pantalla (mostrar/ocultar para dispositivos móviles, tabletas, dispositivos de escritorio o usuarios) solo tendrán efecto cuando estés en la parte pública del sitio y no cuando te encuentres editando en Gutenberg."
+
+#: src/extensions/block-styles/image/index.js:44
+msgid "Shadow"
+msgstr "Sombra"
+
+#: src/extensions/block-styles/image/index.js:38
+msgid "Inverted Diagonal"
+msgstr "Diagonal invertida"
+
+#: src/extensions/block-styles/image/index.js:32
+msgid "Diagonal"
+msgstr "Diagonal"
+
+#: src/extensions/block-styles/image/index.js:26
+msgid "Rounded Corners"
+msgstr "Esquinas redondeadas"
+
+#: src/extensions/block-styles/image/index.js:20
+msgid "Circular"
+msgstr "Circular"
+
+#: src/extensions/advanced-controls/index.js:110
+msgid "Attention: The display settings (show/hide for mobile, tablet or desktop) will only take effect once you are on the live page, and not while you're editing in Gutenberg."
+msgstr "Atención: Los ajustes de pantalla (mostrar/ocultar para dispositivos móviles, tabletas o dispositivos de escritorio) solo tendrán efecto cuando estés en la parte pública del sitio y no cuando te encuentres editando en Gutenberg."
+
+#: src/extensions/advanced-controls/index.js:106
+msgid "Responsive"
+msgstr "Adaptable"
+
+#: src/extensions/advanced-controls/options/devices/index.js:60
+msgid "Hide on Mobile"
+msgstr "Ocultar en dispositivos móviles"
+
+#: src/extensions/advanced-controls/options/devices/index.js:55
+msgid "Hide on Tablet"
+msgstr "Ocultar en tabletas"
+
+#: src/extensions/advanced-controls/options/devices/index.js:50
+msgid "Hide on Desktop"
+msgstr "Ocultar en dispositivos de escritorio"
+
+#: src/extensions/advanced-controls/options/height/index.js:24
+msgid "Toggle to display this block's height full screen of the browser viewport."
+msgstr "Alternar para mostrar este bloque en pantalla completa en el tamaño del navegador."
+
+#: src/extensions/advanced-controls/options/height/index.js:24
+msgid "Full screen height is enabled."
+msgstr "La altura a pantalla completa está activada."
+
+#: src/extensions/advanced-controls/options/height/index.js:21
+msgid "Full Screen Height"
+msgstr "Altura a pantalla completa"
+
+#: src/extensions/advanced-controls/options/state/index.js:50
+msgid "Toggle to hide this block when users are guests or logged out."
+msgstr "Alternar para ocultar este bloque cuando los usuarios son invitados o están desconectados."
+
+#: src/extensions/advanced-controls/options/state/index.js:50
+msgid "Hidden on guests or logged out users."
+msgstr "Oculto para usuarios invitados o desconectados."
+
+#: src/extensions/advanced-controls/options/state/index.js:49
+msgid "Hide on Loggedout Users"
+msgstr "Ocultar para usuarios desconectados"
+
+#: src/extensions/advanced-controls/options/state/index.js:44
+msgid "Toggle to hide this block when users are not logged in."
+msgstr "Alternar para ocultar este bloque cuando los usuarios están desconectados."
+
+#: src/extensions/advanced-controls/options/state/index.js:44
+msgid "Hidden when users are logged in."
+msgstr "Oculto cuando los usuarios están conectados."
+
+#: src/extensions/advanced-controls/options/state/index.js:43
+msgid "Hide on Loggedin Users"
+msgstr "Ocultar para usuarios conectados."
+
+#: src/blocks/import/components/edit.js:119
+msgid "Upload"
+msgstr "Subir"
+
+#: src/blocks/import/components/edit.js:96
+msgid "Drag a file or upload a new one from your device."
+msgstr "Arrastra un archivo o sube uno nuevo desde tu dispositivo."
+
+#: src/blocks/import/components/edit.js:95
+#: src/blocks/import/components/edit.js:108
+msgid "Import from JSON"
+msgstr "Importar desde JSON"
+
+#: src/blocks/import/components/edit.js:82
+msgid "Unknown error"
+msgstr "Error desconocido"
+
+#: src/blocks/import/components/edit.js:79
+msgid "Invalid Reusable Block JSON file"
+msgstr "Archivo JSON de bloque reutilizable no válido"
+
+#: src/blocks/import/components/edit.js:76
+msgid "Invalid JSON file"
+msgstr "Archivo JSON no válido"
+
+#: src/blocks/import/index.js:25
+msgid "migrate"
+msgstr "migrar"
+
+#: src/blocks/import/index.js:24
+msgid "download"
+msgstr "descargar"
+
+#: src/blocks/import/index.js:23
+msgid "import"
+msgstr "importar"
+
+#: src/blocks/import/index.js:20
+msgid "Import"
+msgstr "Importar"
+
+#: src/extensions/formats/background-color/components/edit.js:47
+msgid "Purple Mist"
+msgstr "Púrpura niebla"
+
+#: src/extensions/formats/background-color/components/edit.js:42
+msgid "Blue Moon"
+msgstr "Azul luna"
+
+#: src/extensions/formats/background-color/components/edit.js:37
+msgid "Spring Green"
+msgstr "Verde primavera"
+
+#: src/extensions/formats/background-color/components/edit.js:32
+msgid "Pink Flamingo"
+msgstr "Rosado flamenco"
+
+#: src/extensions/formats/background-color/components/edit.js:27
+msgid "Orange Sunrise"
+msgstr "Naranja amanecer"
+
+#: src/extensions/formats/background-color/components/edit.js:23
+msgid "Highlight Color"
+msgstr "Color de resaltado"
+
+#: includes/class-editorskit-features-manager.php:239
+#: src/extensions/block-settings/export/components/export.js:77
+msgid "Export as JSON"
+msgstr "Exportar como JSON"
+
+#: src/extensions/components/markdown/components/config.js:47
+msgid "Code"
+msgstr "Código"
+
+#: src/extensions/components/markdown/components/config.js:43
+msgid "Strikethrough"
+msgstr "Tachado"
+
+#: src/extensions/components/markdown/components/config.js:39
+msgid "Bold"
+msgstr "Negrita"
+
+#: src/extensions/components/markdown/components/config.js:35
+msgid "Italic"
+msgstr "Itálica"
+
+#: src/extensions/components/markdown/components/config.js:31
+msgid "Blockquote"
+msgstr "Bloque de cita"
+
+#: src/extensions/components/markdown/components/config.js:27
+msgid "Bulleted list"
+msgstr "Lista con viñetas"
+
+#: src/extensions/components/markdown/components/config.js:23
+msgid "Numbered list"
+msgstr "Lista numerada"
+
+#: src/extensions/components/markdown/components/config.js:19
+msgid "Small header (h4)"
+msgstr "Cabecera pequeña (H4)"
+
+#: src/extensions/components/markdown/components/config.js:15
+msgid "Medium header (h3)"
+msgstr "Cabecera mediana (h3)"
+
+#: src/extensions/components/markdown/components/config.js:11
+msgid "Large header (h2)"
+msgstr "Cabecera grande (h2)"
+
+#: src/extensions/components/markdown/components/menu.js:99
+msgid "Keyboard Shortcuts"
+msgstr "Atajos de teclado"
+
+#: src/extensions/components/markdown/components/menu.js:95
+#: src/extensions/components/markdown/components/config.js:7
+msgid "Markdown Formatting"
+msgstr "Formato Markdown"
+
+#: src/extensions/components/manager/components/index.js:41
+msgid "EditorsKit Settings"
+msgstr "Ajustes de EditorsKit"
+
+#: src/extensions/block-settings/clear-formatting/components/controls.js:32
+msgid "Clear Block Formatting"
+msgstr "Borrar formato de bloque"
+
+#: includes/class-editorskit-user-feedback.php:286
+msgid "No thanks / I already have"
+msgstr "No, gracias / Ya lo he hecho"
+
+#: includes/class-editorskit-user-feedback.php:285
+msgid "Leave a Review"
+msgstr "Deja una reseña"
+
+#. translators: 1. Name, 2. Time
+#: includes/class-editorskit-user-feedback.php:281
+msgid "You have been using %1$s for %2$s now. Mind leaving a review to let us know know what you think? We'd really appreciate it!"
+msgstr "Has estado usando %1$s desde hace %2$s. ¿Te importa dejar un comentario para hacernos saber lo que piensas? ¡Realmente lo agradeceríamos!"
+
+#. translators: 1. Name
+#: includes/class-editorskit-user-feedback.php:278
+msgid "Are you enjoying %s Plugin?"
+msgstr "¿Estás disfrutando del plugin %s?"
+
+#. translators: 1. Name
+#: includes/class-editorskit-user-feedback.php:274
+msgid "%s WordPress Plugin"
+msgstr "Plugin %s para WordPress"
+
+#: includes/class-editorskit-user-feedback.php:142
+msgid "a second"
+msgstr "un segundo"
+
+#. translators: Number of seconds
+#: includes/class-editorskit-user-feedback.php:140
+msgid "%s seconds"
+msgstr "%s segundos"
+
+#: includes/class-editorskit-user-feedback.php:133
+msgid "a minute"
+msgstr "un minuto"
+
+#. translators: Number of minutes
+#: includes/class-editorskit-user-feedback.php:131
+msgid "%s minutes"
+msgstr "%s minutos"
+
+#: includes/class-editorskit-user-feedback.php:124
+msgid "an hour"
+msgstr "una hora"
+
+#. translators: Number of hours
+#: includes/class-editorskit-user-feedback.php:122
+msgid "%s hours"
+msgstr "%s horas"
+
+#: includes/class-editorskit-user-feedback.php:115
+msgid "a day"
+msgstr "un día"
+
+#. translators: Number of days
+#: includes/class-editorskit-user-feedback.php:113
+msgid "%s days"
+msgstr "%s días"
+
+#: includes/class-editorskit-user-feedback.php:106
+msgid "a week"
+msgstr "una semana"
+
+#. translators: Number of weeks
+#: includes/class-editorskit-user-feedback.php:104
+msgid "%s weeks"
+msgstr "%s semanas"
+
+#: includes/class-editorskit-user-feedback.php:97
+msgid "a year"
+msgstr "un año"
+
+#. translators: Number of years
+#: includes/class-editorskit-user-feedback.php:95
+msgid "%s years"
+msgstr "%s años"
+
+#: includes/class-editorskit-features-manager.php:315
+msgid "Toggle Title Visibility"
+msgstr "Cambiar la visibilidad del título"
+
+#: includes/class-editorskit-features-manager.php:305
+msgid "Toggle Auto Save"
+msgstr "Cambiar guardado automático"
+
+#: includes/class-editorskit-features-manager.php:271
+#: src/admin/docs/index.js:238
+msgid "Tools"
+msgstr "Herramientas"
+
+#: includes/class-editorskit-features-manager.php:193
+msgid "Markdown"
+msgstr "Markdown"
+
+#: includes/class-editorskit-features-manager.php:179
+#: src/admin/docs/index.js:204
+msgid "Writing"
+msgstr "Escritura"
+
+#: includes/class-editorskit-features-manager.php:172
+#: src/extensions/formats/uppercase/index.js:19
+#: src/extensions/formats/uppercase/controls.js:32
+msgid "Uppercase"
+msgstr "Mayúsculas"
+
+#: includes/class-editorskit-features-manager.php:162
+#: src/extensions/formats/superscript/index.js:19
+#: src/extensions/formats/superscript/controls.js:45
+msgid "Superscript"
+msgstr "Superíndice"
+
+#: includes/class-editorskit-features-manager.php:157
+#: src/extensions/formats/subscript/index.js:19
+#: src/extensions/formats/subscript/controls.js:45
+msgid "Subscript"
+msgstr "Subíndice"
+
+#: includes/class-editorskit-features-manager.php:137
+msgid "Justified Alignment"
+msgstr "Alineación justificada"
+
+#: includes/class-editorskit-features-manager.php:127
+msgid "Highlighted Text Color"
+msgstr "Color de texto resaltado"
+
+#: includes/class-editorskit-features-manager.php:122
+#: src/extensions/formats/clear/index.js:19
+#: src/extensions/formats/clear/controls.js:39 src/admin/docs/index.js:66
+msgid "Clear Formatting"
+msgstr "Borrar formato"
+
+#: includes/class-editorskit-features-manager.php:113
+msgid "Formats"
+msgstr "Formatos"
+
+#: includes/class-editorskit-features-manager.php:91
+msgid "ACF Support"
+msgstr "Compatibilidad con ACF"
+
+#: includes/class-editorskit-features-manager.php:101
+msgid "Display Logic"
+msgstr "Lógica de visualización"
+
+#: includes/class-editorskit-features-manager.php:106
+msgid "User Login State"
+msgstr "Estado de inicio de sesión del usuario"
+
+#: includes/class-editorskit-features-manager.php:87
+msgid "Visibility"
+msgstr "Visibilidad"
+
+#: src/extensions/components/autosave/components/menu.js:79
+msgid "Auto Save"
+msgstr "Guardado automático"
+
+#: src/extensions/components/autosave/components/menu.js:76
+msgid "Toggle to disable or enable editor autosaving feature."
+msgstr "Activa o desactiva la función de guardado automático del editor."
+
+#: src/extensions/components/autosave/components/menu.js:21
+msgid "Auto Save Disabled"
+msgstr "Guardado automático desactivado"
+
+#: src/extensions/formats/background-color/index.js:18
+#: src/extensions/block-panel/column-background/index.js:39
+msgid "Background Color"
+msgstr "Color de fondo"
+
+#: src/extensions/formats/text-color/components/edit.js:13
+#: src/extensions/formats/text-color/index.js:18
+#: src/extensions/block-panel/list-settings/index.js:59
+msgid "Text Color"
+msgstr "Color de texto"
+
+#: src/extensions/formats/justify/index.js:19
+#: src/extensions/advanced-controls/options/devices/alignment-toolbar.js:30
+msgid "Align text justify"
+msgstr "Alinear texto justificado"
+
+#: src/extensions/formats/justify/controls.js:29
+msgid "Justify"
+msgstr "Justificar"
+
+#: includes/class-editorskit-features-manager.php:167
+#: src/extensions/formats/underline/index.js:17
+#: src/extensions/formats/underline/index.js:48
+#: src/extensions/formats/markdown/index.js:20
+msgid "Underline"
+msgstr "Subrayar"
+
+#: includes/class-editorskit-features-manager.php:275
+#: src/extensions/components/guidelines/components/menu.js:67
+msgid "Block Guide Lines"
+msgstr "Líneas de guía en los bloques"
+
+#: src/extensions/components/guidelines/components/menu.js:64
+msgid "Show visible guide lines on title and blocks"
+msgstr "Muestra líneas de guía visibles en el título y los bloques"
+
+#: src/extensions/block-settings/visibility-settings/components/modal.js:70
+msgid "Advanced"
+msgstr "Avanzado"
+
+#: src/extensions/block-settings/visibility-settings/components/modal.js:62
+#: src/extensions/block-styles/columns/index.js:9
+#: src/extensions/block-styles/image/index.js:14
+#: src/extensions/block-styles/list/index.js:9
+msgid "Default"
+msgstr "Por defecto"
+
+#: src/extensions/block-settings/visibility-settings/components/modal.js:100
+#: src/extensions/transform/empty-paragraphs/components/controls.js:72
+#: src/extensions/block-toolbar/block-navigator/components/controls.js:44
+#: src/extensions/components/manager/components/index.js:47
+#: src/extensions/components/markdown/components/menu.js:101
+#: src/extensions/components/help-tips/components/about.js:15
+#: src/extensions/components/help-tips/components/controls.js:160
+msgid "Close"
+msgstr "Cerrar"
+
+#: src/extensions/block-settings/visibility-settings/components/modal.js:89
+#: src/extensions/block-settings/visibility-settings/components/modal.js:98
+msgid "Visibility Settings"
+msgstr "Ajustes de visibilidad"
+
+#: includes/class-editorskit-features-manager.php:96
+msgid "Devices"
+msgstr "Dispositivos"
+
+#: src/extensions/advanced-controls/options/logic/index.js:26
+msgid "Add valid PHP conditional tags for custom & advanced visibility options."
+msgstr "Añade etiquetas condicionales de PHP válidas para opciones de visibilidad avanzadas y personalizadas."
+
+#: src/extensions/advanced-controls/options/logic/index.js:25
+msgid "Conditional Logic"
+msgstr "Lógica condicional"
+
+#: src/extensions/advanced-controls/options/acf/index.js:136
+msgid "Additional support for Advanced Custom Fields plugin. Will automatically show when you have the plugin installed and activated."
+msgstr "Compatibilidad adicional para el plugin Advanced Custom Fields. Aparecerá automáticamente cuando tengas el plugin instalado y activado."
+
+#: src/extensions/advanced-controls/options/acf/index.js:132
+msgid "Conditional Value"
+msgstr "Valor condicional"
+
+#: src/extensions/advanced-controls/options/acf/index.js:124
+msgid "Is Not Empty"
+msgstr "No está vacío"
+
+#: src/extensions/advanced-controls/options/acf/index.js:120
+msgid "Is Empty"
+msgstr "Está vacío"
+
+#: src/extensions/advanced-controls/options/acf/index.js:116
+msgid "Does Not Contain"
+msgstr "No contiene"
+
+#: src/extensions/advanced-controls/options/acf/index.js:112
+msgid "Contains"
+msgstr "Contiene"
+
+#: src/extensions/advanced-controls/options/acf/index.js:108
+msgid "Is Not Equal to"
+msgstr "No es igual a"
+
+#: src/extensions/advanced-controls/options/acf/index.js:104
+msgid "Is Equal to"
+msgstr "Es igual a"
+
+#: src/extensions/advanced-controls/options/acf/index.js:100
+msgid "Select Condition"
+msgstr "Selecciona la condición"
+
+#: src/extensions/advanced-controls/options/acf/index.js:83
+msgid "Show when Condition's met"
+msgstr "Mostrar cuando las condiciones se cumplan"
+
+#: src/extensions/advanced-controls/options/acf/index.js:79
+msgid "Hide when Condition's met"
+msgstr "Ocultar cuando las condiciones se cumplan"
+
+#: src/extensions/advanced-controls/options/acf/index.js:75
+msgid "Select Visibility Option"
+msgstr "Selecciona la opción de visibilidad"
+
+#: src/extensions/advanced-controls/options/acf/index.js:70
+msgid "Advanced Custom Fields"
+msgstr "Advanced Custom Fields"
+
+#: src/extensions/advanced-controls/options/acf/index.js:49
+msgid "Select Field"
+msgstr "Seleccionar campo"
+
+#: src/admin/index.js:70
+msgid "If you have any questions or suggestion, let us know through %1$sTwitter%4$s or our %2$sFacebook community %4$s. Also, %3$ssubscribe to our newsletter%4$s if you want to stay up to date with what's new and upcoming at EditorsKit."
+msgstr "Si tienes alguna pregunta o sugerencia, háznosla saber a través de %1$sTwitter%4$s o nuestra %2$scomunidad de Facebook%4$s. Además, %3$ssuscríbete a nuestro boletín%4$s si deseas estar al día con las novedades de EditorsKit."
+
+#: includes/class-editorskit-welcome.php:138
+msgid "Getting started with EditorsKit"
+msgstr "Comenzando con EditorsKit"
+
+#: plugin.php:72 plugin.php:84
+msgid "Cheating huh?"
+msgstr "Haciendo trampas, ¿eh?"
+
+#. Author URI of the plugin
+msgid "https://jeffreycarandang.com/"
+msgstr "https://jeffreycarandang.com/"
+
+#. Author of the plugin
+msgid "Jeffrey Carandang"
+msgstr "Jeffrey Carandang"
+
+#. Plugin Name of the plugin
+#: includes/class-editorskit-user-feedback.php:315
+#: includes/class-editorskit-welcome.php:139
+msgid "EditorsKit"
+msgstr "EditorsKit"
+
+#. Plugin URI of the plugin
+msgid "https://editorskit.com/"
+msgstr "https://editorskit.com/"
+
+#. Description of the plugin
+msgid "EditorsKit is a suite of <strong>page building block options</strong> for the Gutenberg block editor."
+msgstr "EditorsKit es un conjunto de <strong>opciones de bloques para crear páginas</strong> con el editor de bloques Gutenberg."

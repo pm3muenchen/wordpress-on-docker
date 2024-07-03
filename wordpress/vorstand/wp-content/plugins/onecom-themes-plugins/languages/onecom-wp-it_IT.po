@@ -1,0 +1,251 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: One.com WP\n"
+"POT-Creation-Date: 2017-08-01 10:47+0530\n"
+"PO-Revision-Date: 2017-08-01 10:48+0530\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.1\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.css\n"
+"X-Poedit-SearchPathExcluded-1: *.js\n"
+
+#: inc/functions.php:29 inc/functions.php:218
+msgid "Connection timed out"
+msgstr "Timeout connessione"
+
+#: inc/functions.php:52
+msgid ""
+"Sorry, no compatible themes found for your version of WordPress and PHP."
+msgstr ""
+"Impossibile trovare temi compatibili con la versione in uso di WordPress e "
+"PHP."
+
+#: inc/functions.php:52 inc/functions.php:257
+msgid "Try again"
+msgstr "Riprova."
+
+#: inc/functions.php:84 inc/functions.php:432
+msgid "WordPress is being upgraded. Please try again later."
+msgstr "WordPress è in aggiornamento. Si prega di riprovare più tardi."
+
+#: inc/functions.php:99
+msgid "Installing theme"
+msgstr "Installazione del tema in corso"
+
+#: inc/functions.php:119 inc/functions.php:471
+msgid "Something went wrong. Please contact the support at One.com."
+msgstr "Si è verificato un errore. Contatta l’assistenza di One.com."
+
+#: inc/functions.php:133 inc/functions.php:488
+msgid ""
+"Unable to connect to the file system. Please contact the support at One.com."
+msgstr ""
+"Impossibile connettersi al file system. Contatta l’assistenza di One.com."
+
+#: inc/functions.php:148
+msgid "Theme installed successfully"
+msgstr "Tema correttamente installato."
+
+#: inc/functions.php:151 inc/functions.php:166 inc/functions.php:511
+#: inc/functions.php:513 templates/network/plugin-listing.php:84
+#: templates/network/plugin-listing.php:86
+#: templates/network/recommended-plugin-listing.php:97
+#: templates/network/theme-listing.php:113 templates/plugin-listing.php:84
+#: templates/plugin-listing.php:86 templates/recommended-plugin-listing.php:97
+#: templates/theme-listing.php:106 templates/theme-listing.php:108
+msgid "Activate"
+msgstr "Attiva"
+
+#: inc/functions.php:257
+msgid ""
+"Sorry, no compatible plugins found with your version of WordPress and PHP."
+msgstr ""
+"Impossibile trovare plugin compatibili con la versione in uso di WordPress e "
+"PHP."
+
+#: inc/functions.php:452
+msgid "Installing plugin"
+msgstr "Installazione del plugin in corso"
+
+#: inc/functions.php:503
+msgid "Plugin installed successfully"
+msgstr "Plugin correttamente installato"
+
+#: onecom-themes-plugins.php:212 onecom-themes-plugins.php:213
+#: onecom-themes-plugins.php:268 onecom-themes-plugins.php:271
+msgid "One.com"
+msgstr "One.com"
+
+#: onecom-themes-plugins.php:222 onecom-themes-plugins.php:223
+#: onecom-themes-plugins.php:280 onecom-themes-plugins.php:283
+msgid "Themes"
+msgstr "Temi"
+
+#: onecom-themes-plugins.php:230 onecom-themes-plugins.php:231
+#: onecom-themes-plugins.php:238 onecom-themes-plugins.php:239
+#: onecom-themes-plugins.php:246 onecom-themes-plugins.php:247
+#: onecom-themes-plugins.php:291 onecom-themes-plugins.php:294
+msgid "Plugins"
+msgstr "Plugin"
+
+#: onecom-themes-plugins.php:305
+msgid "One.com Control Panel"
+msgstr "Pannello di controllo di One.com"
+
+#: onecom-themes-plugins.php:308
+msgid "Go to Control Panel at One.com"
+msgstr "Vai a Pannello di controllo di One.com"
+
+#: onecom-themes-plugins.php:322
+msgid "One.com Guides & FAQ"
+msgstr "Guide e Domande frequenti di One.com"
+
+#: onecom-themes-plugins.php:325
+msgid "Go to Guides & FAQ at One.com"
+msgstr "Vai a Guide e Domande frequente di One.com"
+
+#: templates/discouraged-plugin-listing.php:11
+#: templates/discouraged-plugin-listing.php:23 templates/plugin-listing.php:23
+#: templates/recommended-plugin-listing.php:23
+msgid "Discouraged plugins"
+msgstr "Plugin sconsigliati"
+
+#: templates/discouraged-plugin-listing.php:21
+#: templates/network/plugin-listing.php:21
+#: templates/network/recommended-plugin-listing.php:21
+#: templates/plugin-listing.php:21 templates/recommended-plugin-listing.php:21
+msgid "One.com plugins"
+msgstr "Plugin di One.com"
+
+#: templates/discouraged-plugin-listing.php:22
+#: templates/network/plugin-listing.php:22
+#: templates/network/recommended-plugin-listing.php:22
+#: templates/plugin-listing.php:22 templates/recommended-plugin-listing.php:22
+msgid "Recommended plugins"
+msgstr "Plugin consigliati"
+
+#: templates/discouraged-plugin-listing.php:56
+msgid ""
+"You are doing great! None of your installed plugins, are on our list of "
+"discouraged plugins."
+msgstr ""
+"Ottimo ! Nessuno dei tuoi plugin installati sono sulla lista di quelli "
+"sconsigliati."
+
+#: templates/discouraged-plugin-listing.php:58
+msgid ""
+"Your WordPress site should work the best possible way. We checked the "
+"plugins on your website, and listed those we don't recommended you to use."
+msgstr ""
+"Per assicurare che il tuo sito sia ottimizzato e funzionale abbiamo stilato "
+"una lista di plugin per cui non ne raccomandiamo l'utilizzo."
+
+#: templates/discouraged-plugin-listing.php:58
+msgid "There are also some suggestions for alternative plugins to use instead."
+msgstr ""
+"Vi sono alcuni suggerimenti per plugin alternativi da utilizzare in "
+"alternativa."
+
+#: templates/discouraged-plugin-listing.php:61
+msgid "View full list of discouraged plugins"
+msgstr "Mostra lista completa di plugin sconsigliati"
+
+#: templates/discouraged-plugin-listing.php:77
+msgid "Deactivate"
+msgstr "Disattiva"
+
+#: templates/discouraged-plugin-listing.php:86
+msgid "Suggested alternative"
+msgstr "Consiglia alternative"
+
+#: templates/discouraged-plugin-listing.php:86
+msgid "Suggested alternatives"
+msgstr "Alternative consigliate"
+
+#: templates/discouraged-plugin-listing.php:115
+msgid "Yes, deactivate plugin"
+msgstr "Si, disattiva plugin"
+
+#: templates/discouraged-plugin-listing.php:115
+msgid "Not right now"
+msgstr "Non al momento"
+
+#: templates/discouraged-plugin-listing.php:117
+msgid "Are you sure that you want to deactivate this plugin?"
+msgstr "Sei sicura di volere disattivare questo plugin?"
+
+#: templates/discouraged-plugin-listing.php:119
+msgid "Deactivating a plugin can break functionality on your website."
+msgstr ""
+"Disattivando un plugin potrai compromettere la funzionalità del tuo sito."
+
+#: templates/network/plugin-listing.php:11 templates/plugin-listing.php:11
+msgid "Plugins that bring the One.com experience and services to WordPress."
+msgstr "Plugin che portano l'esperienza dei servizi di One.com a WorPress."
+
+#: templates/network/plugin-listing.php:81
+#: templates/network/recommended-plugin-listing.php:95
+#: templates/network/theme-listing.php:104 templates/plugin-listing.php:81
+#: templates/recommended-plugin-listing.php:95 templates/theme-listing.php:96
+msgid "Active"
+msgstr "Attivo"
+
+#: templates/network/plugin-listing.php:89
+#: templates/network/recommended-plugin-listing.php:99
+#: templates/plugin-listing.php:89 templates/recommended-plugin-listing.php:99
+msgid "Install now"
+msgstr "Installa subito"
+
+#: templates/network/recommended-plugin-listing.php:11
+#: templates/recommended-plugin-listing.php:11
+msgid "Presenting some of our favorite WordPress plugins, curated for quality."
+msgstr ""
+"Presentiamo alcuni dei nostri plugin preferiti di WordPress di qualità "
+"assicurata."
+
+#: templates/network/recommended-plugin-listing.php:107
+#: templates/recommended-plugin-listing.php:107
+msgid "More details"
+msgstr "Altri dettagli"
+
+#: templates/network/recommended-plugin-listing.php:114
+#: templates/recommended-plugin-listing.php:114
+msgid "By"
+msgstr "A cura di"
+
+#: templates/network/theme-listing.php:12 templates/theme-listing.php:12
+msgid "Exclusive themes specially crafted for One.com customers."
+msgstr "Temi esclusivi appositamente creati per i clienti One.com."
+
+#: templates/network/theme-listing.php:89 templates/theme-listing.php:81
+msgid "Preview"
+msgstr "Anteprima"
+
+#: templates/network/theme-listing.php:115 templates/theme-listing.php:111
+msgid "Install"
+msgstr "Installa"
+
+#: templates/network/theme-listing.php:142 templates/theme-listing.php:138
+msgid "Back to themes"
+msgstr "Torna ai temi"
+
+#: templates/network/theme-listing.php:148 templates/theme-listing.php:144
+msgid "Desktop"
+msgstr "Desktop"
+
+#: templates/network/theme-listing.php:149 templates/theme-listing.php:145
+msgid "Mobile"
+msgstr "Dispositivo mobile"
+
+#~ msgid "Presenting some of the best WordPress plugins, curated for quality."
+#~ msgstr ""
+#~ "Ecco alcuni degli migliori plugin per WordPress, progettati per garantire "
+#~ "la massima qualità. "

@@ -1,0 +1,477 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: MEC Fluent-view Layouts\n"
+"POT-Creation-Date: 2020-06-11 11:37+0430\n"
+"PO-Revision-Date: 2020-05-30 16:09+0430\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: mec-fluent-layouts.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: core/checkLicense/check-activation.php:203
+msgid ""
+"Activation faild. Please check your purchase code or license type."
+"<br><b>Note: Your purchase code should match your licesne type.</b>"
+msgstr ""
+
+#: core/checkLicense/check-activation.php:203
+msgid "Troubleshooting"
+msgstr ""
+
+#: core/modules/booking/steps/checkout.php:34
+msgid "Checkout"
+msgstr ""
+
+#: core/modules/booking/steps/checkout.php:39
+msgid "Ticket(s) Name"
+msgstr ""
+
+#: core/modules/booking/steps/checkout.php:40
+msgid "Qty"
+msgstr ""
+
+#: core/modules/booking/steps/checkout.php:41
+msgid "Amout"
+msgstr ""
+
+#: core/modules/booking/steps/checkout.php:66
+msgid "Total Due"
+msgstr ""
+
+#: core/modules/booking/steps/checkout.php:73
+msgid "Discount Coupon"
+msgstr ""
+
+#: core/modules/booking/steps/checkout.php:77
+msgid "Apply Coupon"
+msgstr ""
+
+#: core/modules/booking/steps/checkout.php:102
+msgid "Back"
+msgstr ""
+
+#: core/modules/booking/steps/checkout.php:110
+msgid "Free Booking"
+msgstr ""
+
+#: core/pluginBase/mec-fluent.php:149
+msgid "Disable MEC Fluent Layouts height limitation"
+msgstr ""
+
+#: core/pluginBase/mec-fluent.php:175
+msgid "Fluent Style"
+msgstr ""
+
+#: core/pluginBase/mec-fluent.php:189 core/pluginBase/mec-fluent.php:204
+#: core/pluginBase/mec-fluent.php:236 core/pluginBase/mec-fluent.php:258
+#: core/pluginBase/mec-fluent.php:290 core/pluginBase/mec-fluent.php:563
+#: core/pluginBase/mec-fluent.php:743
+msgid "Fluent"
+msgstr ""
+
+#: core/pluginBase/mec-fluent.php:229 core/pluginBase/mec-fluent.php:251
+#: core/pluginBase/mec-fluent.php:283 core/pluginBase/mec-fluent.php:556
+#: core/pluginBase/mec-fluent.php:690 core/pluginBase/mec-fluent.php:736
+msgid "Style"
+msgstr ""
+
+#: core/pluginBase/mec-fluent.php:233 core/pluginBase/mec-fluent.php:255
+#: core/pluginBase/mec-fluent.php:287 core/pluginBase/mec-fluent.php:560
+#: core/pluginBase/mec-fluent.php:694 core/pluginBase/mec-fluent.php:740
+msgid "Classic"
+msgstr ""
+
+#: core/pluginBase/mec-fluent.php:305 core/pluginBase/mec-fluent.php:309
+#: core/pluginBase/mec-fluent.php:520 core/pluginBase/mec-fluent.php:524
+#: core/pluginBase/mec-fluent.php:704 core/pluginBase/mec-fluent.php:708
+msgid "Date Formats"
+msgstr ""
+
+#: core/pluginBase/mec-fluent.php:310
+msgid "Default value is \"F d, Y\""
+msgstr ""
+
+#: core/pluginBase/mec-fluent.php:310 core/pluginBase/mec-fluent.php:525
+#: core/pluginBase/mec-fluent.php:709 core/skins/single/render.php:238
+#: core/skins/single/render.php:331
+msgid "Read More"
+msgstr ""
+
+#: core/pluginBase/mec-fluent.php:317 core/pluginBase/mec-fluent.php:590
+msgid "Display Event Price"
+msgstr ""
+
+#: core/pluginBase/mec-fluent.php:329 core/pluginBase/mec-fluent.php:602
+msgid "Display Available Tickets"
+msgstr ""
+
+#: core/pluginBase/mec-fluent.php:340 core/pluginBase/mec-fluent.php:355
+#: core/pluginBase/mec-fluent.php:370 core/pluginBase/mec-fluent.php:385
+#: core/pluginBase/mec-fluent.php:400 core/pluginBase/mec-fluent.php:415
+#: core/pluginBase/mec-fluent.php:430 core/pluginBase/mec-fluent.php:445
+#: core/pluginBase/mec-fluent.php:460 core/pluginBase/mec-fluent.php:475
+#: core/pluginBase/mec-fluent.php:490 core/pluginBase/mec-fluent.php:505
+#: core/pluginBase/mec-fluent.php:531 core/pluginBase/mec-fluent.php:613
+#: core/pluginBase/mec-fluent.php:665
+msgid "Wrapper Background Color"
+msgstr ""
+
+#: core/pluginBase/mec-fluent.php:525
+msgid "Default value is \"D, F d, Y\""
+msgstr ""
+
+#: core/pluginBase/mec-fluent.php:642
+msgid "Display Navigation"
+msgstr ""
+
+#: core/pluginBase/mec-fluent.php:654
+msgid "Display Dots Navigation"
+msgstr ""
+
+#: core/pluginBase/mec-fluent.php:697
+msgid "Fluent Type1"
+msgstr ""
+
+#: core/pluginBase/mec-fluent.php:700
+msgid "Fluent Type2"
+msgstr ""
+
+#: core/pluginBase/mec-fluent.php:709
+msgid "Default value is \"F d\""
+msgstr ""
+
+#: core/pluginBase/mec-fluent.php:797
+msgid "Search"
+msgstr ""
+
+#: core/pluginBase/mec-fluent.php:833
+msgid "Address"
+msgstr ""
+
+#: core/pluginBase/mec-fluent.php:856 core/pluginBase/mec-fluent.php:857
+#: core/skins/available_spot/tpl.php:214 core/skins/available_spot/tpl.php:271
+#: core/skins/countdown/tpl.php:163
+msgid "DAY"
+msgstr ""
+
+#: core/pluginBase/mec-fluent.php:858 core/pluginBase/mec-fluent.php:859
+#: core/skins/available_spot/tpl.php:220 core/skins/available_spot/tpl.php:277
+#: core/skins/countdown/tpl.php:169
+msgid "HRS"
+msgstr ""
+
+#: core/pluginBase/mec-fluent.php:860 core/pluginBase/mec-fluent.php:861
+#: core/skins/available_spot/tpl.php:226 core/skins/available_spot/tpl.php:283
+#: core/skins/countdown/tpl.php:175
+msgid "MIN"
+msgstr ""
+
+#: core/pluginBase/mec-fluent.php:862 core/pluginBase/mec-fluent.php:863
+#: core/skins/available_spot/tpl.php:232 core/skins/available_spot/tpl.php:289
+#: core/skins/countdown/tpl.php:181
+msgid "SEC"
+msgstr ""
+
+#: core/skins/agenda/render.php:38 core/skins/available_spot/tpl.php:42
+#: core/skins/carousel/render.php:31 core/skins/countdown/tpl.php:27
+#: core/skins/cover/tpl.php:31 core/skins/daily_view/render.php:67
+#: core/skins/daily_view/render.php:201 core/skins/grid/render.php:45
+#: core/skins/list/render.php:55 core/skins/masonry/render.php:32
+#: core/skins/slider/render.php:58 core/skins/tile/render.php:40
+#: core/skins/timetable/render.php:68 core/skins/weekly_view/render.php:66
+#: core/skins/yearly_view/render.php:64
+msgid "Featured"
+msgstr ""
+
+#: core/skins/agenda/render.php:39 core/skins/available_spot/tpl.php:43
+#: core/skins/carousel/render.php:32 core/skins/countdown/tpl.php:29
+#: core/skins/cover/tpl.php:33 core/skins/daily_view/render.php:69
+#: core/skins/daily_view/render.php:205 core/skins/grid/render.php:46
+#: core/skins/list/render.php:57 core/skins/masonry/render.php:34
+#: core/skins/slider/render.php:59 core/skins/tile/render.php:41
+#: core/skins/timetable/render.php:70 core/skins/weekly_view/render.php:70
+#: core/skins/yearly_view/render.php:68
+msgid "Canceled"
+msgstr ""
+
+#: core/skins/agenda/tpl.php:67 core/skins/grid/render.php:161
+#: core/skins/list/render.php:194 core/skins/masonry/tpl.php:76
+#: core/skins/tile/tpl.php:138
+msgid "Load More"
+msgstr ""
+
+#: core/skins/agenda/tpl.php:70 core/skins/agenda/tpl.php:77
+#: core/skins/carousel/tpl.php:55 core/skins/masonry/tpl.php:67
+#: core/skins/masonry/tpl.php:71 core/skins/slider/tpl.php:49
+msgid "No event found!"
+msgstr ""
+
+#: core/skins/available_spot/tpl.php:159 core/skins/available_spot/tpl.php:256
+#: core/skins/list/render.php:174 core/skins/slider/render.php:156
+msgid "Unlimited"
+msgstr ""
+
+#: core/skins/available_spot/tpl.php:160 core/skins/available_spot/tpl.php:257
+msgid "Available Spot(s)"
+msgstr ""
+
+#: core/skins/available_spot/tpl.php:190 core/skins/available_spot/tpl.php:308
+#: core/skins/carousel/render.php:113 core/skins/countdown/tpl.php:198
+#: core/skins/cover/tpl.php:136 core/skins/grid/render.php:118
+#: core/skins/list/render.php:131 core/skins/masonry/render.php:169
+#: core/skins/single/render.php:85 core/skins/single/render.php:88
+#: core/skins/slider/render.php:165
+msgid "REGISTER"
+msgstr ""
+
+#: core/skins/available_spot/tpl.php:190 core/skins/available_spot/tpl.php:308
+#: core/skins/carousel/render.php:113 core/skins/countdown/tpl.php:198
+#: core/skins/grid/render.php:118 core/skins/list/render.php:131
+#: core/skins/masonry/render.php:169 core/skins/slider/render.php:165
+msgid "View Detail"
+msgstr ""
+
+#: core/skins/countdown/tpl.php:139
+#, php-format
+msgid "%s Upcoming Event"
+msgstr ""
+
+#: core/skins/countdown/tpl.php:139
+msgid "Next"
+msgstr ""
+
+#: core/skins/cover/tpl.php:136
+msgid "Events Detail"
+msgstr ""
+
+#: core/skins/daily_view/render.php:148 core/skins/daily_view/render.php:157
+#: core/skins/timetable/render.php:132 core/skins/timetable/render.php:143
+#: core/skins/weekly_view/render.php:187 core/skins/weekly_view/render.php:209
+#: core/skins/weekly_view/render.php:221
+msgid "Current time is"
+msgstr ""
+
+#: core/skins/daily_view/render.php:179 core/skins/yearly_view/render.php:35
+msgid "Events on"
+msgstr ""
+
+#: core/skins/daily_view/render.php:274
+msgid "No events"
+msgstr ""
+
+#: core/skins/daily_view/tpl.php:46
+msgid "Day"
+msgstr ""
+
+#: core/skins/daily_view/tpl.php:80 core/skins/grid/tpl.php:79
+#: core/skins/list/tpl.php:79 core/skins/monthly_view/tpl.php:73
+#: core/skins/tile/tpl.php:80 core/skins/yearly_view/tpl.php:68
+msgid "Events"
+msgstr ""
+
+#: core/skins/daily_view/tpl.php:81 core/skins/grid/tpl.php:80
+#: core/skins/list/tpl.php:80 core/skins/monthly_view/tpl.php:74
+#: core/skins/tile/tpl.php:81 core/skins/yearly_view/tpl.php:69
+msgid "Event"
+msgstr ""
+
+#: core/skins/full_calendar/tpl.php:72 core/skins/full_calendar/tpl.php:123
+#: core/skins/full_calendar/tpl.php:176
+msgid "Yearly"
+msgstr ""
+
+#: core/skins/full_calendar/tpl.php:78 core/skins/full_calendar/tpl.php:129
+#: core/skins/full_calendar/tpl.php:182
+msgid "Monthly"
+msgstr ""
+
+#: core/skins/full_calendar/tpl.php:84 core/skins/full_calendar/tpl.php:135
+#: core/skins/full_calendar/tpl.php:188
+msgid "Weekly"
+msgstr ""
+
+#: core/skins/full_calendar/tpl.php:90 core/skins/full_calendar/tpl.php:141
+#: core/skins/full_calendar/tpl.php:194
+msgid "Daily"
+msgstr ""
+
+#: core/skins/full_calendar/tpl.php:96 core/skins/full_calendar/tpl.php:147
+#: core/skins/full_calendar/tpl.php:200
+msgid "List"
+msgstr ""
+
+#: core/skins/full_calendar/tpl.php:102 core/skins/full_calendar/tpl.php:153
+#: core/skins/full_calendar/tpl.php:206
+msgid "Grid"
+msgstr ""
+
+#: core/skins/full_calendar/tpl.php:108 core/skins/full_calendar/tpl.php:159
+#: core/skins/full_calendar/tpl.php:212
+msgid "Tile"
+msgstr ""
+
+#: core/skins/grid/render.php:152 core/skins/list/render.php:185
+#: core/skins/weekly_view/render.php:161
+msgid "No Events"
+msgstr ""
+
+#: core/skins/list/render.php:164 core/skins/slider/render.php:146
+msgid "Price:"
+msgstr ""
+
+#: core/skins/list/render.php:173 core/skins/slider/render.php:155
+msgid "Available Tickets:"
+msgstr ""
+
+#: core/skins/monthly_view/render.php:10
+msgid "MON"
+msgstr ""
+
+#: core/skins/monthly_view/render.php:13
+msgid "TUE"
+msgstr ""
+
+#: core/skins/monthly_view/render.php:16
+msgid "WED"
+msgstr ""
+
+#: core/skins/monthly_view/render.php:19
+msgid "TUH"
+msgstr ""
+
+#: core/skins/monthly_view/render.php:22
+msgid "FRI"
+msgstr ""
+
+#: core/skins/monthly_view/render.php:25
+msgid "SAT"
+msgstr ""
+
+#: core/skins/monthly_view/render.php:28
+msgid "SUN"
+msgstr ""
+
+#: core/skins/single/render.php:35
+msgid "Date"
+msgstr ""
+
+#: core/skins/single/render.php:53
+msgid "Time"
+msgstr ""
+
+#: core/skins/single/render.php:57
+msgid "All Day"
+msgstr ""
+
+#: core/skins/single/render.php:73
+msgid "Cost"
+msgstr ""
+
+#: core/skins/single/render.php:133
+msgid "Sold out!"
+msgstr ""
+
+#: core/skins/single/render.php:150
+msgid "Tags"
+msgstr ""
+
+#: core/skins/single/render.php:162 core/skins/single/render.php:255
+msgid "Labels"
+msgstr ""
+
+#: core/skins/single/render.php:180 core/skins/single/render.php:273
+msgid "Organizer"
+msgstr ""
+
+#: core/skins/single/render.php:189 core/skins/single/render.php:282
+msgid "Phone"
+msgstr ""
+
+#: core/skins/single/render.php:196 core/skins/single/render.php:289
+msgid "Email"
+msgstr ""
+
+#: core/skins/single/render.php:203 core/skins/single/render.php:296
+msgid "Website"
+msgstr ""
+
+#: core/skins/single/render.php:237 core/skins/single/render.php:330
+msgid "More Info"
+msgstr ""
+
+#: core/skins/single/tpl.php:22 core/skins/single/tpl.php:44
+msgid "Location"
+msgstr ""
+
+#: core/skins/weekly_view/tpl.php:97
+#, php-format
+msgid "Week %s"
+msgstr ""
+
+#: mec-fluent-layouts.php:128 mec-fluent-layouts.php:157
+msgid ""
+"MEC Fluent Layouts is not working because you need to install latest version "
+"of Modern Events Calendar plugin"
+msgstr ""
+
+#: mec-fluent-layouts.php:129 mec-fluent-layouts.php:158
+msgid "Minimum version required"
+msgstr ""
+
+#: mec-fluent-layouts.php:130 mec-fluent-layouts.php:159
+msgid "Update Modern Events Calendar Now"
+msgstr ""
+
+#: mec-fluent-layouts.php:221
+msgid ""
+"MEC Fluent-view Layouts is not working because you need to activate the "
+"Modern Events Calendar plugin."
+msgstr ""
+
+#: mec-fluent-layouts.php:222
+msgid "Activate Modern Events Calendar Now"
+msgstr ""
+
+#: mec-fluent-layouts.php:228
+msgid ""
+"MEC Fluent-view Layouts is not working because you need to install the "
+"Modern Events Calendar plugin"
+msgstr ""
+
+#: mec-fluent-layouts.php:229
+msgid "Install Modern Events Calendar Now"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "MEC Fluent-view Layouts"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://webnus.net/modern-events-calendar/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"This is free addon and you will have some new designs after activate it."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Webnus"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://webnus.net"
+msgstr ""

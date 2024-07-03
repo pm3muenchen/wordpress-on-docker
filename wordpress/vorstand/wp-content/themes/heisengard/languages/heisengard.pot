@@ -1,0 +1,371 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2017-01-19 13:03+0530\n"
+"PO-Revision-Date: 2017-01-09 12:20+0530\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: hi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7.1\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: core/ReduxCore\n"
+"X-Poedit-SearchPathExcluded-1: *.js\n"
+"X-Poedit-SearchPathExcluded-2: *.css\n"
+
+#: 404.php:22
+msgid "404"
+msgstr ""
+
+#: 404.php:23
+msgid "Page Not Found"
+msgstr ""
+
+#: core/theme-option.php:139
+msgid "General"
+msgstr ""
+
+#: core/theme-option.php:146
+msgid "Body Background"
+msgstr ""
+
+#: core/theme-option.php:147
+msgid "Body background with image, color, etc."
+msgstr ""
+
+#: core/theme-option.php:156
+msgid "Link Color"
+msgstr ""
+
+#: core/theme-option.php:164
+msgid "Link Hover Color"
+msgstr ""
+
+#: core/theme-option.php:173
+msgid "Header"
+msgstr ""
+
+#: core/theme-option.php:180
+msgid "Logo"
+msgstr ""
+
+#: core/theme-option.php:181
+msgid "Upload logo of your website."
+msgstr ""
+
+#: core/theme-option.php:189
+msgid "Favicon"
+msgstr ""
+
+#: core/theme-option.php:190
+msgid "Upload favicon of your website."
+msgstr ""
+
+#: core/theme-option.php:199
+msgid "Footer"
+msgstr ""
+
+#: core/theme-option.php:207
+msgid "Background Color"
+msgstr ""
+
+#: core/theme-option.php:215
+msgid "Typography"
+msgstr ""
+
+#: core/theme-option.php:222
+msgid "Body Font Style"
+msgstr ""
+
+#: core/theme-option.php:227 core/theme-option.php:245
+#: core/theme-option.php:263 core/theme-option.php:282
+#: core/theme-option.php:301 core/theme-option.php:320
+#: core/theme-option.php:339
+msgid "Select the font size, font family, color etc"
+msgstr ""
+
+#: core/theme-option.php:240
+msgid "H1 Font Style"
+msgstr ""
+
+#: core/theme-option.php:258
+msgid "H2 Font Style"
+msgstr ""
+
+#: core/theme-option.php:277
+msgid "H3 Font Style"
+msgstr ""
+
+#: core/theme-option.php:296
+msgid "H4 Font Style"
+msgstr ""
+
+#: core/theme-option.php:315
+msgid "H5 Font Style"
+msgstr ""
+
+#: core/theme-option.php:334
+msgid "H6 Font Style"
+msgstr ""
+
+#: core/theme-option.php:354
+msgid "Social"
+msgstr ""
+
+#: core/theme-option.php:356
+msgid "Enter your social profile links here:"
+msgstr ""
+
+#: core/theme-option.php:362
+msgid "Facebook"
+msgstr ""
+
+#: core/theme-option.php:368
+msgid "Twitter"
+msgstr ""
+
+#: core/theme-option.php:374
+msgid "Google Plus"
+msgstr ""
+
+#: core/theme-option.php:381
+msgid "Icon Color"
+msgstr ""
+
+#: core/theme-option.php:382
+msgid "Select social icon color"
+msgstr ""
+
+#: core/theme-option.php:390
+msgid "Icon Background Color"
+msgstr ""
+
+#: core/theme-option.php:391
+msgid "Select social icon background color"
+msgstr ""
+
+#: core/theme-option.php:399
+msgid "Home"
+msgstr ""
+
+#: core/theme-option.php:406
+msgid "Banner"
+msgstr ""
+
+#: core/theme-option.php:407 core/theme-option.php:485
+#: core/theme-option.php:509
+msgid "Please upload the image."
+msgstr ""
+
+#: core/theme-option.php:415
+msgid "Banner Text"
+msgstr ""
+
+#: core/theme-option.php:421
+msgid "Banner Sub-text"
+msgstr ""
+
+#: core/theme-option.php:432
+msgid "Left Section Image"
+msgstr ""
+
+#: core/theme-option.php:433 core/theme-option.php:443
+#: core/theme-option.php:450
+msgid "Below the banner"
+msgstr ""
+
+#: core/theme-option.php:434 core/theme-option.php:461
+msgid "Please upload Image."
+msgstr ""
+
+#: core/theme-option.php:442
+msgid "Left Section Title"
+msgstr ""
+
+#: core/theme-option.php:449
+msgid "Left Section Text"
+msgstr ""
+
+#: core/theme-option.php:460
+msgid " Full Width Section Image"
+msgstr ""
+
+#: core/theme-option.php:469
+msgid "Full Width Section Text"
+msgstr ""
+
+#: core/theme-option.php:483
+msgid "Box-1 Image"
+msgstr ""
+
+#: core/theme-option.php:484 core/theme-option.php:494
+#: core/theme-option.php:501 core/theme-option.php:508
+#: core/theme-option.php:518 core/theme-option.php:525
+#: core/theme-option.php:532 core/theme-option.php:542
+#: core/theme-option.php:549
+msgid "Below the full width section"
+msgstr ""
+
+#: core/theme-option.php:493
+msgid "Box-1 Title"
+msgstr ""
+
+#: core/theme-option.php:500
+msgid "Box-1 Text"
+msgstr ""
+
+#: core/theme-option.php:507
+msgid "Box-2 Image"
+msgstr ""
+
+#: core/theme-option.php:517
+msgid "Box-2 Title"
+msgstr ""
+
+#: core/theme-option.php:524
+msgid "Box-2 Text"
+msgstr ""
+
+#: core/theme-option.php:531
+msgid "Box-3 Image"
+msgstr ""
+
+#: core/theme-option.php:533
+msgid "Please upload the image ."
+msgstr ""
+
+#: core/theme-option.php:541
+msgid "Box-3 Title"
+msgstr ""
+
+#: core/theme-option.php:548
+msgid "Box-3 Text"
+msgstr ""
+
+#: core/theme-option.php:559
+msgid "Bottom Section"
+msgstr ""
+
+#: core/theme-option.php:576
+msgid "Contact"
+msgstr ""
+
+#: core/theme-option.php:584
+msgid "Recipients"
+msgstr ""
+
+#: core/theme-option.php:585
+msgid "Insert email addresses separated by comma"
+msgstr ""
+
+#: core/theme-option.php:586
+msgid ""
+"Provide email ids on which you want to receive email from contact form. "
+"Example: info@one.com, contact@gmail.com"
+msgstr ""
+
+#: functions.php:94
+msgid "Mainmenu Navigation"
+msgstr ""
+
+#: functions.php:103
+msgid "Testimonial"
+msgstr ""
+
+#: functions.php:121
+msgid "Travel"
+msgstr ""
+
+#: functions.php:139
+msgid "Trip Types"
+msgstr ""
+
+#: functions.php:244
+msgid "Meta Box Title"
+msgstr ""
+
+#: functions.php:256
+msgid "Group"
+msgstr ""
+
+#: functions.php:261
+msgid "Price"
+msgstr ""
+
+#: functions.php:265
+msgid "Breakfast"
+msgstr ""
+
+#: functions.php:269
+msgid "Flight"
+msgstr ""
+
+#: functions.php:273
+msgid "Guide"
+msgstr ""
+
+#: functions.php:277
+msgid "Car"
+msgstr ""
+
+#: metabox/metabox.php:5
+msgid "Page Settings"
+msgstr ""
+
+#: metabox/metabox.php:16
+msgid "Bottom Content"
+msgstr ""
+
+#: metabox/metabox.php:87
+msgid "Title"
+msgstr ""
+
+#: metabox/metabox.php:96
+msgid "Sub Title"
+msgstr ""
+
+#: page_Travel.php:98
+msgid "Earlier Travels"
+msgstr ""
+
+#: search.php:22
+msgid "Search Results"
+msgstr ""
+
+#: single.php:48
+msgid "Published on: "
+msgstr ""
+
+#: single.php:80
+msgid "Pages:"
+msgstr ""
+
+#: single.php:92
+msgid "Group: "
+msgstr ""
+
+#: single.php:98
+msgid "Price: "
+msgstr ""
+
+#: single.php:104
+msgid "Breakfast: "
+msgstr ""
+
+#: single.php:110
+msgid "Flight: "
+msgstr ""
+
+#: single.php:116
+msgid "Guide: "
+msgstr ""
+
+#: single.php:122
+msgid "Car: "
+msgstr ""

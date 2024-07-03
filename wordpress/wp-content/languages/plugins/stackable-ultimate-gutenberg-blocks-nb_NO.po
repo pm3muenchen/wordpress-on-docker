@@ -1,0 +1,587 @@
+# Translation of Plugins - Stackable &#8211; Page Builder Gutenberg Blocks - Stable (latest release) in Norwegian (Bokmål)
+# This file is distributed under the same license as the Plugins - Stackable &#8211; Page Builder Gutenberg Blocks - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2021-04-26 16:11:06+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/3.0.0-alpha.2\n"
+"Language: nb_NO\n"
+"Project-Id-Version: Plugins - Stackable &#8211; Page Builder Gutenberg Blocks - Stable (latest release)\n"
+
+#: src/welcome/index.php:378 trunk/src/welcome/index.php:378
+msgid "More Resources"
+msgstr "Flere ressurser"
+
+#: src/welcome/index.php:370 trunk/src/welcome/index.php:370
+msgid "Start creating your site or check out our full guide to Stackable."
+msgstr "Start å lage ditt nettsted eller prøv vår fullstendige veiledning til Stackable"
+
+#: src/welcome/index.php:369 trunk/src/welcome/index.php:369
+msgid "Ready to make your website?"
+msgstr "Klar til å lage ditt nettsted?"
+
+#: src/welcome/index.php:360 trunk/src/welcome/index.php:360
+msgid "Define and edit site-wide typography and color palettes in one place. Launch Global Settings with the Stackable icon."
+msgstr "Definer og rediger nettstedets typografi og fargepaletter på ett sted. Gå til globale innstillinger med Stacjable-ikonet."
+
+#: src/welcome/index.php:352 trunk/src/welcome/index.php:352
+msgid "You can automatically open the inspector panel you want to tweak (ex. Title, Container, etc.) by double-clicking the element on the design area."
+msgstr "Du kan automatisk åpne det inspektørpanelet du ønsker å finjustere (eks. tittel, beholder osv.) ved å dobbeltklikke elementet i utformingsområdet."
+
+#: src/welcome/index.php:351 trunk/src/welcome/index.php:351
+msgid "Tip"
+msgstr "Tips"
+
+#: src/welcome/index.php:338 trunk/src/welcome/index.php:338
+msgid "Use the Toolbar to edit elements such as your Block Width, Text and other formatting specs."
+msgstr "Bruk verktøyraden for å redigere elementer som blokk-brede, tekst og andre formaterings-spesifikasjoner."
+
+#: src/welcome/index.php:336 trunk/src/welcome/index.php:336
+msgid "The <strong>Inspector</strong> is the main styling area. Explore the 3 tabs to style the block to your liking & level of expertise."
+msgstr "<strong>Inspektøren</strong> er hovedområdet for styling. Utforsk 3 faner for å style blokken etter dine ønsker og kunnskaper."
+
+#: src/welcome/index.php:331 src/welcome/index.php:359
+#: trunk/src/welcome/index.php:331 trunk/src/welcome/index.php:359
+msgid "Global Settings Panel"
+msgstr "Globalt innstilligspanel"
+
+#: src/welcome/index.php:330 src/welcome/index.php:337
+#: trunk/src/welcome/index.php:330 trunk/src/welcome/index.php:337
+msgid "Toolbar"
+msgstr "Verktøyrad"
+
+#: src/welcome/index.php:329 src/welcome/index.php:335
+#: trunk/src/welcome/index.php:329 trunk/src/welcome/index.php:335
+msgid "Inspector"
+msgstr "Inspektør"
+
+#: src/welcome/index.php:327 trunk/src/welcome/index.php:327
+msgid "You can style your blocks using 3 tool areas:"
+msgstr "Du kan style dine blokker med 3 verktøyområder:"
+
+#: src/welcome/index.php:324 trunk/src/welcome/index.php:324
+msgid "STYLING BLOCKS"
+msgstr "STYLING AV BLOKKER"
+
+#: src/welcome/index.php:319 trunk/src/welcome/index.php:319
+msgid "A UI Kit is a cohesive collection of block designs with a uniform look and feel."
+msgstr "Et brukergrensesnitt-sett er en samling blokk-utforminger med et enhetlig utseende og opplevelse."
+
+#: src/welcome/index.php:318 trunk/src/welcome/index.php:318
+msgid "What is a UI Kit?"
+msgstr "Hva er et brukergrensesnitt-sett?"
+
+#: src/welcome/index.php:307 trunk/src/welcome/index.php:307
+msgid "Choose from different <strong>individual Block Designs</strong>. Mix and match block designs to build your site."
+msgstr "Velg fra ulike <strong>individuelle blokkutforminger</strong>. Sett sammen blokkutforminger for å bygge ditt nettsted."
+
+#: src/welcome/index.php:306 trunk/src/welcome/index.php:306
+#: trunk/dist/admin_welcome.js:41 trunk/dist/editor_blocks.js:1
+#: dist/admin_welcome.js:41 dist/editor_blocks.js:1
+msgid "Block Designs"
+msgstr "Blokkutforminger"
+
+#: src/welcome/index.php:303 trunk/src/welcome/index.php:303
+msgid "Choose blocks from different <strong>UI Kits</strong> that can be used to build an entire website."
+msgstr "Velg blokke fra ulike <strong>brukergrensesnitt-sett</strong> som man brukes til å bygge et helt nettsted.."
+
+#: src/welcome/index.php:302 trunk/src/welcome/index.php:302
+#: trunk/dist/admin_welcome.js:41 trunk/dist/editor_blocks.js:1
+#: dist/admin_welcome.js:41 dist/editor_blocks.js:1
+msgid "UI Kits"
+msgstr "Brukergrensesnitt-sett"
+
+#: src/welcome/index.php:300 trunk/src/welcome/index.php:300
+msgid "You can also launch the Design Library, and choose from <strong>ready-made UI Kits</strong> & <strong>Block Designs</strong>."
+msgstr "Du kan også åpne utformingsbiblioteket og velge fra <strong>ferdiglagde brukergrensesnitt-sett</strong> og <strong>blokkutforminger</strong>."
+
+#: src/welcome/index.php:299 trunk/src/welcome/index.php:299
+msgid "Adding from the Design Library"
+msgstr "Legge til fra utformingsbiblioteket"
+
+#: src/welcome/index.php:290 trunk/src/welcome/index.php:290
+msgid "Click the <strong>(+) icon</strong> then scroll to the <strong>Stackable Blocks area</strong> to add a block."
+msgstr "Klikk på <strong>(+)-ikonet</strong> og skroll til området <strong>Stackable blokker</strong> for å legge til en blokk."
+
+#: src/welcome/index.php:289 trunk/src/welcome/index.php:289
+msgid "Adding by Block Type"
+msgstr "Legge til etter blokktype"
+
+#: src/welcome/index.php:278 trunk/src/welcome/index.php:278
+msgid "Add a block from the <strong>Design Library</strong>"
+msgstr "Legge til en blokk fra <strong>utformingsbiblioteket</strong>"
+
+#: src/welcome/index.php:275 trunk/src/welcome/index.php:275
+msgid "Add a block by <strong>Block Type</strong>"
+msgstr "Legge til en blokk etter <strong>blokktype</strong>"
+
+#: src/welcome/index.php:272 trunk/src/welcome/index.php:272
+msgid "There are 2 ways to start using Stackable:"
+msgstr "Det er 2 måter å begynne å bruke Stackable på:"
+
+#: src/welcome/index.php:271 trunk/src/welcome/index.php:271
+msgid "ADDING BLOCKS"
+msgstr "LEGGE TIL BLOKKER"
+
+#: src/welcome/index.php:266 trunk/src/welcome/index.php:266
+msgid "There's a lot you can achieve using Stackable. Here's a quick guide to start you off."
+msgstr "Det er mye du kan oppnå ved å bruke Stackable. Her er en hurtigveiledning for å komme i gang."
+
+#: src/welcome/index.php:265 trunk/src/welcome/index.php:265
+msgid "How to start using Stackable"
+msgstr "Hvordan begynne å bruke Stackable"
+
+#: src/welcome/index.php:162 trunk/src/welcome/index.php:162
+msgid "%sFont Awesome Pro%s Integration is available by inputting your Pro Kit code. %sLearn more%s."
+msgstr "Integrasjon med %sFont Awesome Pro%s er tilgjengelig ved å legge inn din Pro Kit-kode. %sLær mer%s."
+
+#: src/welcome/index.php:160 trunk/src/welcome/index.php:160
+msgid "If you have %sFont Awesome Pro%s, you can use your Pro icons by inputting your Pro Kit code below."
+msgstr "Om du har %sFont Awesome Pro%s kan du bruke dine Pro-ikoner ved å legge inn din Pro Kit-kode nedenfor."
+
+#: src/plugins/premium-notice/index.php:38
+#: trunk/src/plugins/premium-notice/index.php:38
+msgid "True if the inspector \"Go Premium\" notice was already dismissed"
+msgstr "Sann dersom \"Skaff Premium\"-merknaden i inspektøren alle var avvist."
+
+#: plugin.php:123 trunk/plugin.php:123
+msgid "%sStackable Notice%s: Please deactivate the %sGutenberg plugin%s! As of WordPress 5.0, this plugin is no longer required for the Block Editor to work."
+msgstr "%sStackable-merknad%s: Vennligst deaktiver %sGutenberg-utvidelsen%s! Siden WordPress 5.0 er denne utvidelsen ikke nødvendig for at blokkredigersverktøyet skal virke."
+
+#: src/global-settings.php:318 trunk/src/global-settings.php:318
+msgid "Vivid purple"
+msgstr "Intens lilla"
+
+#: src/global-settings.php:313 trunk/src/global-settings.php:313
+msgid "Vivid cyan blue"
+msgstr "Intens cyanblå"
+
+#: src/global-settings.php:308 trunk/src/global-settings.php:308
+msgid "Pale cyan blue"
+msgstr "Blek cyanblå"
+
+#: src/global-settings.php:303 trunk/src/global-settings.php:303
+msgid "Vivid green cyan"
+msgstr "Intens cyangrønn"
+
+#: src/global-settings.php:298 trunk/src/global-settings.php:298
+msgid "Light green cyan"
+msgstr "Lys cyangrønn"
+
+#: src/global-settings.php:293 trunk/src/global-settings.php:293
+msgid "Luminous vivid amber"
+msgstr "Lysende livaktig rav"
+
+#: src/global-settings.php:288 trunk/src/global-settings.php:288
+msgid "Luminous vivid orange"
+msgstr "Lysende livaktig oransje"
+
+#: src/global-settings.php:283 trunk/src/global-settings.php:283
+msgid "Vivid red"
+msgstr "Intens rød"
+
+#: src/global-settings.php:278 trunk/src/global-settings.php:278
+msgid "Pale pink"
+msgstr "Blek rosa"
+
+#: src/global-settings.php:273 trunk/src/global-settings.php:273
+msgid "White"
+msgstr "Hvit"
+
+#: src/global-settings.php:268 trunk/src/global-settings.php:268
+msgid "Cyan bluish gray"
+msgstr "Cyanblåaktig grå"
+
+#: src/global-settings.php:263 trunk/src/global-settings.php:263
+msgid "Black"
+msgstr "Svart"
+
+#: src/global-settings.php:211 trunk/src/global-settings.php:211
+msgid "Stackable global typography settings"
+msgstr "Innstillinger for Stackable global typografi"
+
+#: src/global-settings.php:145 trunk/src/global-settings.php:145
+msgid "Stackable global typography add important to global styles"
+msgstr "Stackable global typografi legger til viktig til globale stiler"
+
+#: src/global-settings.php:133 trunk/src/global-settings.php:133
+msgid "Stackable global typography content selector"
+msgstr "Innholdsselektor for Stackable global typografi"
+
+#: src/global-settings.php:121 trunk/src/global-settings.php:121
+msgid "Stackable global typography apply to setting"
+msgstr "Innstilling av brukes på for Stackable global typografi"
+
+#: src/global-settings.php:109 trunk/src/global-settings.php:109
+msgid "Stackable global colors display only global colors"
+msgstr "Stackable globale farger viser bare globale farger"
+
+#: src/global-settings.php:74 trunk/src/global-settings.php:74
+msgid "Stackable global color palette"
+msgstr "Stackable global fargepalett"
+
+#: src/welcome/index.php:184 trunk/src/welcome/index.php:184
+msgid "Each WordPress theme is unique, so if your global settings are not working correctly with your theme, here are a few options you can tweak to make them work. %sLearn more%s."
+msgstr "Hvert WordPress-tema er unikt, så om dine globale innstillinger ikke virker riktig med ditt tema, her er noen alternativer du kan justere for å få dem til å virke. %sLær mer%s."
+
+#: src/welcome/index.php:183 trunk/src/welcome/index.php:183
+msgid "🌏 Global Settings"
+msgstr "🌏 Globale innstillinger"
+
+#: src/welcome/index.php:40 src/welcome/index.php:41
+#: trunk/src/welcome/index.php:40 trunk/src/welcome/index.php:41
+msgid "Get Started"
+msgstr "Kom i gang"
+
+#: src/welcome/index.php:212 trunk/src/welcome/index.php:212
+msgid "1 Year of Support"
+msgstr "1 år brukerstøtte"
+
+#: src/welcome/index.php:211 trunk/src/welcome/index.php:211
+msgid "1 Year of Updates"
+msgstr "1 år oppdateringer"
+
+#: src/welcome/index.php:210 trunk/src/welcome/index.php:210
+msgid "Custom Block CSS"
+msgstr "Tilpasset blokk-CSS"
+
+#: src/welcome/index.php:207 trunk/src/welcome/index.php:207
+msgid "Additional Block Styling Options"
+msgstr "Ytterligere alternativer for blokk-styling"
+
+#: src/welcome/index.php:206 trunk/src/welcome/index.php:206
+msgid "230+ Additional Block Designs"
+msgstr "230+ ekstra blokkutforminger"
+
+#: src/welcome/index.php:205 trunk/src/welcome/index.php:205
+msgid "60+ Additional Block Layouts"
+msgstr "60+ ekstra blokkoppsett"
+
+#: src/welcome/index.php:195 trunk/src/welcome/index.php:195
+msgid "🔩 Other Settings"
+msgstr "🔩 Andre innstillinger"
+
+#: src/welcome/index.php:151 trunk/src/welcome/index.php:151
+#: trunk/dist/editor_blocks.js:1 dist/editor_blocks.js:1
+msgid "Stackable Settings"
+msgstr "Innstillinger for Stackable"
+
+#: src/welcome/freemius.php:34 trunk/src/welcome/freemius.php:34
+msgid "Become an Affiliate"
+msgstr "Bli partner"
+
+#: src/welcome/freemius.php:17 trunk/src/welcome/freemius.php:17
+msgid "Stackable Account"
+msgstr "Stackable-konto"
+
+#: src/welcome/index.php:209 trunk/src/welcome/index.php:209
+msgid "Font Awesome Pro Integration"
+msgstr "Integrasjon med Font Awesome"
+
+#: src/welcome/index.php:208 trunk/src/welcome/index.php:208
+msgid "User Role Manager"
+msgstr "Brukerrollebehandler"
+
+#: src/welcome/index.php:172 src/welcome/index.php:175
+#: trunk/src/welcome/index.php:172 trunk/src/welcome/index.php:175
+msgid "Lock the Block Editor's inspector for different user roles, and give clients edit access to only images and content. Content Editing Mode affects all blocks. %sLearn more%s."
+msgstr "Lås inspektøren i blokkredigeringen for ulike brukerroller og gi klienter redigeringstilgang til kun bilder og innhold. Innholdsredigeringsmoduset virker på alle blokker. %sLær mer%s."
+
+#: src/welcome/index.php:170 trunk/src/welcome/index.php:170
+msgid "📰 Role Manager"
+msgstr "📰 Rollebehandler"
+
+#: src/welcome/index.php:166 src/welcome/index.php:179
+#: trunk/src/welcome/index.php:166 trunk/src/welcome/index.php:179
+msgid "This is only available in Stackable Premium."
+msgstr "Dette er bare tilgjengelig i Stackable Premium."
+
+#: src/welcome/index.php:158 trunk/src/welcome/index.php:158
+msgid "🧰 Icon Library Settings"
+msgstr "🧰 Innstillinger for ikonbiblioteket"
+
+#: src/init-deprecated.php:103 trunk/src/init-deprecated.php:103
+msgid "Load version 1 styles for backward compatibility"
+msgstr "Last stiler fra versjon1 for bakoverkompatibilitet"
+
+#: src/help/help-tooltip.php:27 trunk/src/help/help-tooltip.php:27
+msgid "Disable Stackable help video tooltips"
+msgstr "Slå av markørtips for video-hjelp fra Stackable"
+
+#: src/pro.php:49 trunk/src/pro.php:49
+msgid "Hide \"Go Premium\" notices"
+msgstr "Skjul \"Skaff Premium\"-merknader"
+
+#: src/welcome/index.php:415 trunk/src/welcome/index.php:415
+msgid "Contact Support"
+msgstr "Kontakt brukerstøtte"
+
+#: src/welcome/index.php:419 trunk/src/welcome/index.php:419
+msgid "Upgrade to Premium and our support team can help you out."
+msgstr "Oppgrader til Premium og vårt brukerstøttegruppe kan hjelpe deg,"
+
+#: src/welcome/index.php:403 trunk/src/welcome/index.php:403
+msgid "Browse through our articles and find what you're looking for"
+msgstr "Bla gjennom alle våre artikler og finn ut hva du ser etter"
+
+#: src/welcome/index.php:402 trunk/src/welcome/index.php:402
+msgid "Blog"
+msgstr "Blogg"
+
+#: src/welcome/index.php:396 trunk/src/welcome/index.php:396
+msgid "Visit Docs"
+msgstr "Besøk dokumentasjon"
+
+#: src/welcome/index.php:394 trunk/src/welcome/index.php:394
+msgid "Learn how to use Stackable's powerful page building tools"
+msgstr "Lær hvordan bruke Stackables kraftige sidebyggingsverktøy"
+
+#: src/welcome/index.php:387 trunk/src/welcome/index.php:387
+msgid "Join Now"
+msgstr "Bli med nå"
+
+#: src/welcome/index.php:385 trunk/src/welcome/index.php:385
+msgid "Join like-minded people who help each other do amazing things"
+msgstr "Bli med blant likesinnede som hjelper hverandre gjøre fantastiske ting"
+
+#: src/welcome/index.php:384 trunk/src/welcome/index.php:384
+msgid "Community"
+msgstr "Fellesskap"
+
+#: src/welcome/index.php:373 trunk/src/welcome/index.php:373
+msgid "Read Full Guide"
+msgstr "Les hele veliledningen"
+
+#: src/welcome/index.php:98 trunk/src/welcome/index.php:98
+msgid "Getting Started"
+msgstr "Komme i gang"
+
+#: src/welcome/freemius.php:51 src/welcome/index.php:124
+#: trunk/src/welcome/freemius.php:51 trunk/src/welcome/index.php:124
+msgid "Contact Us"
+msgstr "Kontakt oss"
+
+#: src/welcome/index.php:116 trunk/src/welcome/index.php:116
+msgid "Affiliation"
+msgstr "Partnerskap"
+
+#: src/welcome/index.php:109 trunk/src/welcome/index.php:109
+msgid "Account"
+msgstr "Konto"
+
+#: src/design-library/init.php:30 trunk/src/design-library/init.php:30
+msgid "%s must be a string."
+msgstr "%s må være en streng."
+
+#: src/welcome/index.php:421 trunk/src/welcome/index.php:421
+#: trunk/dist/editor_blocks.js:1 dist/editor_blocks.js:1
+msgid "Learn more"
+msgstr "Lær mer"
+
+#. Description of the plugin
+msgid "An Amazing Block Library That Lets You Reimagine the Way You Use the WordPress Block Editor (Gutenberg)."
+msgstr "Et fantastisk blokkbibliotek som lar deg forestille deg måten du bruker WordPress blokkredigering (Gutenberg) på nytt."
+
+#: src/welcome/index.php:412 src/welcome/index.php:418
+#: trunk/src/welcome/index.php:412 trunk/src/welcome/index.php:418
+msgid "Get Support"
+msgstr "Få støtte"
+
+#: src/welcome/index.php:413 trunk/src/welcome/index.php:413
+msgid "Stuck with something? Email us and we'll help you out"
+msgstr "Står du fast med noe? Send oss en e-post og vi vil hjelpe deg"
+
+#: src/welcome/index.php:120 src/welcome/index.php:393
+#: trunk/src/welcome/index.php:120 trunk/src/welcome/index.php:393
+msgid "Documentation"
+msgstr "Dokumentasjon"
+
+#: src/welcome/index.php:230 trunk/src/welcome/index.php:230
+msgid "🗞 Stackable Blog"
+msgstr "🗞 Stackable-blogg"
+
+#: src/welcome/index.php:217 trunk/src/welcome/index.php:217
+msgid "Get Stackable Premium"
+msgstr "Skaff Stackable Premium"
+
+#: src/welcome/index.php:213 trunk/src/welcome/index.php:213
+msgid "No Ads"
+msgstr "Ingen annonser"
+
+#: src/welcome/index.php:203 trunk/src/welcome/index.php:203
+msgid "If you are ready for even more, upgrade to Premium and get:"
+msgstr "Om du er klar for enda mer, oppgrader til Premium og få:"
+
+#: src/welcome/index.php:372 trunk/src/welcome/index.php:372
+msgid "Create New Page"
+msgstr "Lag en ny side"
+
+#: src/welcome/index.php:103 src/welcome/index.php:446
+#: trunk/src/welcome/index.php:103 trunk/src/welcome/index.php:446
+#: trunk/dist/admin_welcome.js:41 trunk/dist/editor_blocks.js:1
+#: dist/admin_welcome.js:41 dist/editor_blocks.js:1
+msgid "Settings"
+msgstr "Innstillinger"
+
+#: src/pro.php:132 trunk/src/pro.php:132
+msgid "We hope you're enjoying Stackable. If you want more, you may want to check out %sStackable Premium%s. Ready to upgrade and do more? %sGo premium now%s"
+msgstr "Vi håper at du har glede av Stackable. Om du ønsker mer vil du kanskje prøve %sStackable Premium%s. Klar for å oppgrader og gjøre mer? %sGå for Premium nå%s"
+
+#: src/welcome/index.php:202 trunk/src/welcome/index.php:202
+msgid "🚀 Stackable Premium"
+msgstr "🚀 Stackable Premium"
+
+#: src/welcome/index.php:233 trunk/src/welcome/index.php:233
+msgid "Subscribe"
+msgstr "Abonner"
+
+#: src/welcome/index.php:232 trunk/src/welcome/index.php:232
+msgid "Keep up to date by subscribing to our newsletter."
+msgstr "Hold deg oppdatert ved å abonnere på vårt nyhetsbrev."
+
+#: src/welcome/index.php:405 trunk/src/welcome/index.php:405
+#: trunk/dist/editor_blocks.js:1 dist/editor_blocks.js:1
+msgid "Read More"
+msgstr "Les mer"
+
+#: src/welcome/index.php:129 src/welcome/index.php:166
+#: src/welcome/index.php:179 src/welcome/index.php:458
+#: trunk/src/welcome/index.php:129 trunk/src/welcome/index.php:166
+#: trunk/src/welcome/index.php:179 trunk/src/welcome/index.php:458
+#: trunk/dist/admin_welcome.js:41 trunk/dist/editor_blocks.js:1
+#: dist/admin_welcome.js:41 dist/editor_blocks.js:1
+msgid "Go Premium"
+msgstr "Skaff Premium"
+
+#: src/welcome/news.php:103 src/block/disabled-blocks.php:36
+#: trunk/src/welcome/news.php:103 trunk/src/block/disabled-blocks.php:36
+msgid "Security error, please refresh the page and try again."
+msgstr "Sikkerhetsproblem, vennligst oppfrisk siden og prøv igjen."
+
+#: src/welcome/index.php:189 trunk/src/welcome/index.php:189
+msgid "(If your post contains a disabled block, it will still continue to work. You won't just be able to add the disabled blocks.)"
+msgstr "(Hvis ditt innlegg inneholder en avslått blokk vil den fortsette å virke. Du vil bare ikke kunne legge til avslåtte blokker.)"
+
+#: src/welcome/index.php:189 trunk/src/welcome/index.php:189
+msgid "We have a lot of awesome blocks. But if you're overwhelmed with awesomeness, you can hide some of them."
+msgstr "Vi har en mengde fantastiske blokker. Men hvis du er overveldet med fantastiskheten kan du skjule noen av dem."
+
+#: src/welcome/index.php:188 trunk/src/welcome/index.php:188
+msgid "🎛 Enable & Disable Blocks"
+msgstr "🎛 Slå av og på blokker"
+
+#: plugin.php:74 trunk/plugin.php:74
+msgid "\"Stackable\" requires PHP version 5.3.0 or higher, but PHP version %s is used on the site."
+msgstr "\"Stackable\" krever PHP-versjon 5.3.0 eller høyere, men PHP-versjon %s brukes på nettstedet."
+
+#: plugin.php:49 trunk/plugin.php:49
+msgid "%s\"Stackable\" can not be activated. %s It requires PHP version 5.3.0 or higher, but PHP version %s is used on the site. Please upgrade your PHP version first ✌️ %s Back %s"
+msgstr "%s\"Stackable\" kan ikke aktiveres. %s Den krever PHP-versjon 5.3.0 eller nyere, men PHP-versjon %s brukes på dette nettstedet. Vennligst oppgrader din PHP-versjon først ✌️ %s Tilbake %s"
+
+#: src/welcome/index.php:220 trunk/src/welcome/index.php:220
+#: trunk/dist/admin_welcome.js:41 trunk/dist/editor_blocks.js:1
+#: dist/admin_welcome.js:41 dist/editor_blocks.js:1
+msgid "Learn More"
+msgstr "Lær mer"
+
+#: src/welcome/notification.php:138 trunk/src/welcome/notification.php:138
+msgid "Don't show me this anymore"
+msgstr "Ikke la meg se dette heretter"
+
+#: src/welcome/notification.php:132 trunk/src/welcome/notification.php:132
+msgid "👉 Notifications"
+msgstr "👉 Varsler"
+
+#: src/welcome/notification.php:77 trunk/src/welcome/notification.php:77
+msgid "%s notification"
+msgid_plural "%s notifications"
+msgstr[0] "%s varsel"
+msgstr[1] "%s varsler"
+
+#: src/welcome/notification-rate.php:41
+#: trunk/src/welcome/notification-rate.php:41
+msgid "We've noticed that you've been using Stackable for some time now, we hope you are loving it! We would appreciate it if you can %sgive us a 5 star rating on WordPress.org%s!"
+msgstr "Vi har lagt merke til at du har brukt Stackable en tid nå og vi håper du lier den. Vi vil sette pris på om du kan %sgi oss en 5-stjerners vurdering på WordPress.org%s!"
+
+#: src/block/blog-posts/index.php:449 trunk/src/block/blog-posts/index.php:449
+msgid "Number of comments"
+msgstr "Antall kommentarer"
+
+#: src/block/blog-posts/index.php:437 trunk/src/block/blog-posts/index.php:437
+msgid "Author information"
+msgstr "Forfatterinformasjon"
+
+#: src/block/blog-posts/index.php:425 trunk/src/block/blog-posts/index.php:425
+msgid "Category list links"
+msgstr "Lenker for kategorioversikten"
+
+#: src/block/blog-posts/index.php:413 trunk/src/block/blog-posts/index.php:413
+msgid "Post excerpt for Stackable"
+msgstr "Innleggsutdrag for Stackable"
+
+#: src/block/blog-posts/index.php:401 trunk/src/block/blog-posts/index.php:401
+msgid "Different sized featured images"
+msgstr "Fremhevede bilder med forskjellig størrelse"
+
+#: src/block/blog-posts/index.php:294 trunk/src/block/blog-posts/index.php:294
+#: trunk/dist/editor_blocks.js:1 dist/editor_blocks.js:1
+msgid "Continue reading"
+msgstr "Fortsett å lese"
+
+#: src/block/blog-posts/index.php:229 trunk/src/block/blog-posts/index.php:229
+#: trunk/dist/editor_blocks.js:1 dist/editor_blocks.js:1
+msgid "(Untitled)"
+msgstr "(Uten tittel)"
+
+#: src/block/blog-posts/index.php:267 src/block/blog-posts/index.php:523
+#: trunk/src/block/blog-posts/index.php:267
+#: trunk/src/block/blog-posts/index.php:523
+msgid "%d comment"
+msgid_plural "%d comments"
+msgstr[0] "%d kommentar"
+msgstr[1] "%d kommentarer"
+
+#: src/block/blog-posts/index.php:243 src/block/blog-posts/index.php:534
+#: trunk/src/block/blog-posts/index.php:243
+#: trunk/src/block/blog-posts/index.php:534
+msgid ", "
+msgstr ", "
+
+#. Plugin Name of the plugin
+msgid "Stackable - Gutenberg Blocks"
+msgstr "Stackable - Gutenberg-blokker"
+
+#. Plugin URI of the plugin
+msgid "https://wpstackable.com"
+msgstr "https://wpstackable.com"
+
+#: src/welcome/index.php:227 trunk/src/welcome/index.php:227
+msgid "Subscribe & Download"
+msgstr "Abonner og last ned"
+
+#: src/welcome/index.php:226 trunk/src/welcome/index.php:226
+msgid "Get our FREE WordPress theme that's beautiful & flexible, and made especially for Stackable blocks and the new WordPress editor. Subscribe to our newsletter to get the Stackable Theme now."
+msgstr "Skaff vårt GRATIS WordPress-tema som er nydelig og fleksibelt, og laget spesielt for Stackable-blokker og det nye rdigeringsverktøyet i WordPress. Abonner på vårt nyhetsbrev for å få Stackable-temaet nå."
+
+#: src/welcome/index.php:225 trunk/src/welcome/index.php:225
+msgid "🍺 Free Theme Download"
+msgstr "🍺 Nedlasting av gratis tema"
+
+#: src/welcome/index.php:29 src/welcome/index.php:30 src/welcome/index.php:141
+#: trunk/src/welcome/index.php:29 trunk/src/welcome/index.php:30
+#: trunk/src/welcome/index.php:141 trunk/dist/editor_blocks.js:1
+#: trunk/dist/editor_blocks.js:2 dist/editor_blocks.js:1
+#: dist/editor_blocks.js:2
+msgid "Stackable"
+msgstr "Stackable"
+
+#. Author URI of the plugin
+msgid "http://gambit.ph"
+msgstr "http://gambit.ph"
+
+#. Author of the plugin
+msgid "Gambit Technologies, Inc"
+msgstr "Gambit Technologies, Inc"

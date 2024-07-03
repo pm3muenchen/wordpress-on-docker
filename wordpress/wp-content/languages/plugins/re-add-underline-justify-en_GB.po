@@ -1,0 +1,56 @@
+# Translation of Plugins - Re-add text underline and justify - Stable (latest release) in English (UK)
+# This file is distributed under the same license as the Plugins - Re-add text underline and justify - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-06-11 16:36:56+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/3.0.0-alpha\n"
+"Language: en_GB\n"
+"Project-Id-Version: Plugins - Re-add text underline and justify - Stable (latest release)\n"
+
+#. Description of the plugin
+msgid "Re-adds the Editor text underline & justify buttons in the WYSIWYG removed in WordPress 4.7. Works with Classic Editor, ACF and Gutenberg."
+msgstr "Re-adds the Editor text underline and justify buttons in the WYSIWYG removed in WordPress 4.7. Works with Classic Editor, ACF and Gutenberg."
+
+#. Author URI of the plugin
+msgid "https://www.b-website.com/"
+msgstr "https://www.b-website.com/"
+
+#: re-add-underline-justify.php:136
+msgid "Re-add justify only"
+msgstr "Re-add justify only"
+
+#. Author of the plugin
+msgid "Brice Capobianco"
+msgstr "Brice Capobianco"
+
+#: re-add-underline-justify.php:48
+msgid "Donate to this plugin &#187;"
+msgstr "Donate to this plugin &#187;"
+
+#: re-add-underline-justify.php:101
+msgid "Editor style"
+msgstr "Editor style"
+
+#: re-add-underline-justify.php:47
+msgid "More b*web Plugins"
+msgstr "More b*web Plugins"
+
+#. Plugin Name of the plugin
+msgid "Re-add text underline and justify"
+msgstr "Re-add text underline and justify"
+
+#. Plugin URI of the plugin
+msgid "https://www.b-website.com/re-add-text-underline-and-justify"
+msgstr "https://www.b-website.com/re-add-text-underline-and-justify"
+
+#: re-add-underline-justify.php:135
+msgid "Default - Re-add underline & justify buttons"
+msgstr "Default – Re-add underline and justify buttons"
+
+#: re-add-underline-justify.php:134
+msgid "Without underline & justify buttons"
+msgstr "Without underline and justify buttons"

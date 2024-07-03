@@ -1,0 +1,530 @@
+# Translation of Plugins - Getwid &#8211; Gutenberg Blocks - Development (trunk) in Spanish (Spain)
+# This file is distributed under the same license as the Plugins - Getwid &#8211; Gutenberg Blocks - Development (trunk) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2021-04-01 07:15:03+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/3.0.0-alpha.2\n"
+"Language: es\n"
+"Project-Id-Version: Plugins - Getwid &#8211; Gutenberg Blocks - Development (trunk)\n"
+
+#. translators: %s is an error message
+#: includes/instagram-token-manager.php:102
+msgid "An error occurred while updating Instagram access token: %s"
+msgstr "Se produjo un error al actualizar el token de acceso de Instagram: %s"
+
+#: includes/settings-page.php:321
+msgid "Hides block until the entrance animation starts. Prevents possible occurrence of horizontal scroll during the animation."
+msgstr "Oculta el bloque hasta que comienza la animación de entrada. Evita la posible aparición de scroll horizontal durante la animación."
+
+#: includes/settings-page.php:318
+msgid "Enable smooth animation of blocks"
+msgstr "Activar una animación fluida de bloques"
+
+#: includes/settings-page.php:85
+msgid "Save Changes"
+msgstr "Guardar cambios"
+
+#: includes/settings-page.php:33
+msgctxt "Settings page title(in menu)"
+msgid "Getwid"
+msgstr "Getwid"
+
+#: includes/settings-page.php:32
+msgctxt "Settings page title"
+msgid "Getwid Settings"
+msgstr "Ajustes de Getwid"
+
+#: includes/settings-page.php:25
+msgid "Blocks"
+msgstr "Bloques"
+
+#: includes/settings-page.php:24
+msgid "Appearance"
+msgstr "Apariencia"
+
+#: includes/writing-settings.php:161 includes/settings-page.php:234
+msgid "Time until expiration of media data in minutes. Setting to 0 means no expiration."
+msgstr "Tiempo hasta la caducidad de los datos de medios en minutos. Ajustar a 0 significa que no hay caducidad."
+
+#: includes/writing-settings.php:152 includes/settings-page.php:225
+msgid "Refresh Access Token"
+msgstr "Actualizar el token de acceso"
+
+#: includes/writing-settings.php:87 includes/settings-page.php:162
+msgid "Instagram Cache Timeout"
+msgstr "Tiempo de espera de caché de Instagram"
+
+#: includes/blocks/table.php:19 assets/js/editor.blocks.js:23
+msgid "Table"
+msgstr "Tabla"
+
+#: includes/blocks/anchor.php:20 assets/js/editor.blocks.js:23
+msgid "Anchor"
+msgstr "Ancla"
+
+#: includes/blocks/table-of-contents.php:28 assets/js/editor.blocks.js:23
+msgid "Table of Contents"
+msgstr "Tabla de contenidos"
+
+#. translators: %1$s is a block name, %2$s is a link
+#: includes/blocks/abstract-block.php:72 assets/js/editor.blocks.js:6
+msgid "%1$s block is disabled in plugin settings. <a href=\"%2$s\">Manage Blocks</a>"
+msgstr "El bloque %1$s está desactivado en los ajustes del plugin. <a href=\"%2$s\">Gestionar bloques</a>"
+
+#: includes/getwid.php:210
+msgid "Write a Review"
+msgstr "Escribe una reseña"
+
+#: includes/getwid.php:208
+msgid "Support"
+msgstr "Soporte"
+
+#: includes/writing-settings.php:202 includes/settings-page.php:282
+msgid "Deselect All"
+msgstr "Anular todas las selecciones"
+
+#: includes/writing-settings.php:200 includes/settings-page.php:280
+msgid "Select All"
+msgstr "Seleccionar todo"
+
+#. translators: %1$s, %2$s is a number of total and disabled blocks
+#: includes/writing-settings.php:199 includes/settings-page.php:275
+msgid "Total: %1$s, Disabled: %2$s"
+msgstr "Total: %1$s, Desactivado: %2$s"
+
+#: includes/writing-settings.php:117 includes/settings-page.php:192
+msgid "Disable Getwid Blocks"
+msgstr "Desactivar Getwid Blocks"
+
+#: includes/writing-settings.php:66 assets/js/editor.blocks.js:23
+msgid "Getwid Settings"
+msgstr "Ajustes de Getwid"
+
+#: includes/settings-page.php:150 assets/js/editor.blocks.js:23
+msgid "Animation"
+msgstr "Animación"
+
+#: includes/settings-page.php:23 assets/js/editor.blocks.js:6
+msgid "General"
+msgstr "General"
+
+#: includes/blocks/template-library.php:19 assets/js/editor.blocks.js:23
+msgid "Template Library"
+msgstr "Biblioteca de plantillas"
+
+#: includes/blocks/mailchimp.php:280
+msgid "An invalid Mailchimp list was provided."
+msgstr "Se proporcionó una lista de Mailchimp no válida."
+
+#: includes/blocks/mailchimp.php:276
+msgid "Email is required."
+msgstr "El correo electrónico es obligatorio."
+
+#: includes/blocks/content-timeline.php:20 assets/js/editor.blocks.js:23
+msgid "Content Timeline"
+msgstr "Cronología del contenido"
+
+#: includes/blocks/countdown.php:163 assets/js/editor.blocks.js:23
+msgid "Countdown"
+msgstr "Cuenta atrás"
+
+#: includes/blocks/image-hotspot.php:83 assets/js/editor.blocks.js:23
+msgid "Image Hotspot"
+msgstr "Punto caliente en imagen"
+
+#: includes/blocks/video-popup.php:43 assets/js/editor.blocks.js:23
+msgid "Video Popup"
+msgstr "Mensaje emergente de vídeo"
+
+#: includes/blocks/mailchimp.php:26 assets/js/editor.blocks.js:23
+msgid "Mailchimp"
+msgstr "Mailchimp"
+
+#: includes/blocks/mailchimp.php:336
+msgid "Thank you for joining our mailing list."
+msgstr "Gracias por unirte a nuestra lista de correo."
+
+#: includes/blocks/mailchimp.php:99
+msgid "Select at least one MailChim list."
+msgstr "Selecciona al menos una lista de MailChimp."
+
+#: includes/blocks/countdown.php:295
+msgid "Invalid date."
+msgstr "Fecha no válida."
+
+#: includes/templates/mailchimp/field-last-name.php:8
+#: includes/blocks/mailchimp.php:134 assets/js/editor.blocks.js:23
+msgid "Last name"
+msgstr "Apellido"
+
+#: includes/templates/mailchimp/field-first-name.php:8
+#: includes/blocks/mailchimp.php:120 assets/js/editor.blocks.js:23
+msgid "First name"
+msgstr "Nombre"
+
+#: includes/templates/mailchimp/mailchimp.php:27
+msgid "Subscribe"
+msgstr "Suscribirse"
+
+#: includes/writing-settings.php:111 includes/settings-page.php:186
+#: assets/js/editor.blocks.js:23
+msgid "Mailchimp API Key"
+msgstr "Clave API de MailChimp"
+
+#. Plugin URI of the plugin
+msgid "https://motopress.com/products/getwid/"
+msgstr "https://motopress.com/products/getwid/"
+
+#: includes/blocks/price-list.php:20 assets/js/editor.blocks.js:23
+msgid "Price List"
+msgstr "Lista de precios"
+
+#: includes/blocks/custom-post-type.php:115 assets/js/editor.blocks.js:23
+msgid "Custom Post Type"
+msgstr "Tipo de entrada personalizado"
+
+#: includes/blocks/post-slider.php:166 assets/js/editor.blocks.js:23
+msgid "Post Slider"
+msgstr "Carrusel de entradas"
+
+#: includes/blocks/post-carousel.php:178 assets/js/editor.blocks.js:23
+msgid "Post Carousel"
+msgstr "Carrusel de entradas"
+
+#: includes/blocks/contact-form.php:22 assets/js/editor.blocks.js:23
+msgid "Contact Form"
+msgstr "Formulario de contacto"
+
+#: includes/blocks/template-parts/post-link.php:28
+#: includes/blocks/template-parts/post-button.php:34
+#: assets/js/editor.blocks.js:23
+msgid "Read More"
+msgstr "Leer más"
+
+#: includes/blocks/custom-post-type.php:246
+msgctxt "Next post"
+msgid ">"
+msgstr ">"
+
+#: includes/blocks/custom-post-type.php:245
+msgctxt "Previous post"
+msgid "<"
+msgstr "<"
+
+#: includes/blocks/custom-post-type.php:225
+msgid "Posts navigation"
+msgstr "Navegación de entradas"
+
+#: includes/block-actions.php:8
+msgid "Nothing found."
+msgstr "No se ha encontrado nada."
+
+#: includes/writing-settings.php:105 includes/settings-page.php:180
+#: assets/js/editor.blocks.js:23
+msgid "Recaptcha Secret Key"
+msgstr "Clave secreta reCAPTCHA"
+
+#: includes/writing-settings.php:99 includes/settings-page.php:174
+#: assets/js/editor.blocks.js:23
+msgid "Recaptcha Site Key"
+msgstr "Clave de reCaptcha del sitio"
+
+#: includes/rest-api.php:132
+msgid "Taxonomy"
+msgstr "Taxonomía"
+
+#: includes/rest-api.php:109
+msgid "Post Type"
+msgstr "Tipo de entrada"
+
+#: includes/rest-api.php:77
+msgid "Forbidden."
+msgstr "Prohibido."
+
+#: includes/post-template-part.php:33
+msgid "No templates found in Trash"
+msgstr "No se han encontrado plantillas en la papelera"
+
+#: includes/post-template-part.php:32
+msgid "No templates found"
+msgstr "No se han encontrado plantillas"
+
+#: includes/post-template-part.php:31
+msgid "Search Templates"
+msgstr "Buscar plantillas"
+
+#: includes/post-template-part.php:30
+msgid "View Template"
+msgstr "Ver plantilla"
+
+#: includes/post-template-part.php:28
+msgid "Edit Template"
+msgstr "Editar plantilla"
+
+#: includes/post-template-part.php:27
+msgid "Add New Template"
+msgstr "Añadir una nueva plantilla"
+
+#: includes/post-template-part.php:26 includes/post-template-part.php:29
+msgid "New Template"
+msgstr "Nueva plantilla"
+
+#: includes/post-template-part.php:25 assets/js/editor.blocks.js:23
+msgid "Getwid Templates"
+msgstr "Plantillas de Getwid"
+
+#: includes/post-template-part.php:24
+msgid "Template"
+msgstr "Plantilla"
+
+#: includes/post-template-part.php:23 includes/rest-api.php:155
+msgid "Templates"
+msgstr "Plantillas"
+
+#: includes/blocks/contact-form.php:287
+msgid "The response is no longer valid: either is too old or has been used previously."
+msgstr "La respuesta ya no es válida: es muy antigua o ha sido usada anteriormente."
+
+#: includes/blocks/contact-form.php:281
+msgid "The response parameter is invalid or malformed."
+msgstr "El parámetro de respuesta no es válido o tiene un formato incorrecto."
+
+#: includes/blocks/contact-form.php:275
+msgid "The secret parameter is invalid or malformed."
+msgstr "El parámetro secreto no es válido o está mal formado."
+
+#: includes/blocks/contact-form.php:269
+msgid "Please check the captcha."
+msgstr "Por favor, revise el captcha."
+
+#: includes/blocks/contact-form.php:263
+msgid "The secret parameter is missing."
+msgstr "Falta el parámetro secreto."
+
+#: includes/blocks/contact-form.php:257
+msgid "The request is invalid or malformed."
+msgstr "La solicitud no es válida o tiene un formato incorrecto."
+
+#: includes/blocks/contact-form.php:221
+msgid "There was an error trying to send your message. Please try again later."
+msgstr "Ha ocurrido un error al intentar enviar tu mensaje. Por favor, inténtalo de nuevo más tarde."
+
+#: includes/blocks/contact-form.php:214
+msgid "Thank you for your message. It has been sent."
+msgstr "Gracias por tu mensaje. Ha sido enviado."
+
+#. translators: %s is a blogname
+#: includes/blocks/contact-form.php:193
+msgid "This e-mail was sent from a contact form on %s"
+msgstr "Este correo electrónico se envió desde un formulario de contacto en %s"
+
+#: includes/templates/contact-form/field-email.php:8
+#: includes/templates/mailchimp/field-email.php:8 assets/js/editor.blocks.js:23
+msgid "Email address"
+msgstr "Dirección de correo electrónico"
+
+#: includes/templates/contact-form/field-textarea.php:8
+#: assets/js/editor.blocks.js:23
+msgid "Message"
+msgstr "Mensaje"
+
+#: includes/templates/contact-form/contact-form.php:25
+msgid "Submit"
+msgstr "Enviar"
+
+#: includes/blocks-manager.php:45
+msgid "Getwid Post Blocks"
+msgstr "Bloques de entradas Getwid"
+
+#: includes/blocks/price-box.php:20 assets/js/editor.blocks.js:23
+msgid "Price Box"
+msgstr "Caja de precios"
+
+#: includes/blocks/counter.php:44 assets/js/editor.blocks.js:23
+msgid "Counter"
+msgstr "Contador"
+
+#: includes/blocks/circle-progress-bar.php:31 assets/js/editor.blocks.js:23
+msgid "Circular Progress Bar"
+msgstr "Barra de progreso circular"
+
+#: includes/blocks/progress-bar.php:31 assets/js/editor.blocks.js:23
+msgid "Progress Bar"
+msgstr "Barra de progreso"
+
+#: includes/blocks/instagram.php:50 assets/js/editor.blocks.js:23
+msgid "Instagram"
+msgstr "Instagram"
+
+#: includes/instagram-token-manager.php:86 includes/blocks/instagram.php:129
+#: includes/rest-api.php:201 includes/rest-api.php:228
+msgid "Error in json_decode."
+msgstr "Error en json_decode."
+
+#. translators: %s is a link
+#: includes/blocks/instagram.php:84
+msgid "Instagram Access Token is not set. <a href=\"%s\">Connect Instagram Account</a>."
+msgstr "El token de acceso de Instagram no está configurado. <a href=\"%s\">Conectar la cuenta de Instagram</a>."
+
+#: includes/writing-settings.php:147 includes/settings-page.php:221
+#: assets/js/editor.blocks.js:23
+msgid "Connect Instagram Account"
+msgstr "Conectar la cuenta de Instagram"
+
+#: includes/writing-settings.php:81 includes/settings-page.php:156
+msgid "Instagram Access Token"
+msgstr "Token de acceso a Instagram"
+
+#: includes/writing-settings.php:30 includes/settings-page.php:103
+msgid "Instagram: access denied."
+msgstr "Instagram: acceso denegado."
+
+#: includes/writing-settings.php:22 includes/settings-page.php:95
+msgid "Instagram: access token updated."
+msgstr "Instagram: token de acceso actualizado."
+
+#: includes/blocks/person.php:20 assets/js/editor.blocks.js:23
+msgid "Person"
+msgstr "Persona"
+
+#: includes/blocks/testimonial.php:20 assets/js/editor.blocks.js:23
+msgid "Testimonial"
+msgstr "Recomendación"
+
+#: includes/blocks/button-group.php:20 assets/js/editor.blocks.js:23
+msgid "Button Group"
+msgstr "Grupo de botones"
+
+#: includes/blocks/social-links.php:24 assets/js/editor.blocks.js:23
+msgid "Social Links"
+msgstr "Enlaces sociales"
+
+#: includes/blocks/advanced-spacer.php:20 assets/js/editor.blocks.js:23
+msgid "Advanced Spacer"
+msgstr "Espaciador avanzado"
+
+#: includes/blocks/image-box.php:35 assets/js/editor.blocks.js:23
+msgid "Image Box"
+msgstr "Caja de imagen"
+
+#: includes/blocks/advanced-heading.php:22 assets/js/editor.blocks.js:23
+msgid "Advanced Heading"
+msgstr "Encabezado avanzado"
+
+#: includes/blocks/recent-posts.php:94 assets/js/editor.blocks.js:23
+msgid "Recent Posts"
+msgstr "Entradas recientes"
+
+#: includes/templates/contact-form/field-name.php:8
+#: assets/js/editor.blocks.js:23
+msgid "Name"
+msgstr "Nombre"
+
+#: includes/blocks/google-map.php:45 assets/js/editor.blocks.js:23
+msgid "Google Maps"
+msgstr "Google Maps"
+
+#: includes/blocks/images-stack.php:20 assets/js/editor.blocks.js:23
+msgid "Image Stack Gallery"
+msgstr "Galería de imágenes superpuestas"
+
+#: includes/blocks/toggle.php:28 assets/js/editor.blocks.js:23
+msgid "Toggle"
+msgstr "Conmutador"
+
+#: includes/blocks/accordion.php:28 assets/js/editor.blocks.js:23
+msgid "Accordion"
+msgstr "Acordeón"
+
+#: includes/blocks/tabs.php:27 assets/js/editor.blocks.js:23
+msgid "Tabs"
+msgstr "Pestañas"
+
+#: includes/blocks/banner.php:20 assets/js/editor.blocks.js:23
+msgid "Banner"
+msgstr "Banner"
+
+#: includes/blocks/icon-box.php:34 assets/js/editor.blocks.js:23
+msgid "Icon Box"
+msgstr "Caja de icono"
+
+#: includes/blocks/icon.php:35 assets/js/editor.blocks.js:23
+msgid "Icon"
+msgstr "Icono "
+
+#: includes/blocks/images-slider.php:51 assets/js/editor.blocks.js:23
+msgid "Image Slider"
+msgstr "Carrusel de imágenes"
+
+#: includes/getwid.php:227 assets/js/editor.blocks.js:6
+#: assets/js/editor.blocks.js:23
+msgid "Settings"
+msgstr "Ajustes"
+
+#: includes/blocks/media-text-slider.php:58 assets/js/editor.blocks.js:23
+msgid "Media & Text Slider"
+msgstr "Carrusel de texto y medios"
+
+#: includes/blocks/section.php:74 assets/js/editor.blocks.js:6
+#: assets/js/editor.blocks.js:23
+msgid "Section"
+msgstr "Sección"
+
+#: includes/writing-settings.php:93 includes/settings-page.php:168
+#: assets/js/editor.blocks.js:23
+msgid "Google Maps API Key"
+msgstr "Clave de API de Google Maps"
+
+#: includes/blocks-manager.php:33
+msgid "Getwid Blocks"
+msgstr "Getwid Blocks"
+
+#: includes/templates/recent-posts/post.php:92
+#: includes/templates/template-parts/post-comments.php:14
+msgid "No comments"
+msgstr "No hay comentarios"
+
+#. translators: %d is a comments count
+#: includes/templates/recent-posts/post.php:90
+#: includes/templates/template-parts/post-comments.php:12
+msgid "%d Comment"
+msgid_plural "%d Comments"
+msgstr[0] "%d comentario"
+msgstr[1] "%d comentarios"
+
+#: includes/scripts-manager.php:67
+msgid "Full Size"
+msgstr "Tamaño completo"
+
+#: includes/writing-settings.php:135 includes/settings-page.php:210
+msgid "Default width of content area in the Section block. Leave empty to use the width set in your theme."
+msgstr "Ancho por defecto del área de contenido en el bloque de sección. Déjalo en blanco para usar el ancho establecido en tu tema."
+
+#: includes/writing-settings.php:134 includes/settings-page.php:209
+msgctxt "pixels"
+msgid "px"
+msgstr "px"
+
+#: includes/writing-settings.php:75 includes/settings-page.php:144
+msgid "Section Content Width"
+msgstr "Ancho del contenido de la sección"
+
+#. Author URI of the plugin
+msgid "https://motopress.com/"
+msgstr "https://motopress.com/"
+
+#. Author of the plugin
+msgid "MotoPress"
+msgstr "MotoPress"
+
+#. Description of the plugin
+msgid "Extra Gutenberg blocks for building seamless and aesthetic websites in the WordPress block editor."
+msgstr "Bloques adicionales de Gutenberg para crear web perfectss y estéticas en el editor de bloques de WordPress."
+
+#. Plugin Name of the plugin
+msgid "Getwid"
+msgstr "Getwid"
