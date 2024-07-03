@@ -9,7 +9,7 @@ services:
   mariadb:
     image: mariadb:latest
     volumes:
-      - ../DB/pm3muenchen_de.sql:/docker-entrypoint-initdb.d/pm3muenchen_de.sql
+      - ./db/localhost8081.sql:/docker-entrypoint-initdb.d/localhost8081.sql
     environment:
       MARIADB_DATABASE: pm3muenchen_de
       MARIADB_USER: pm3muenchen_de
