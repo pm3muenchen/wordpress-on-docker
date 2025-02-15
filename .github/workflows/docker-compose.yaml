@@ -22,4 +22,4 @@ jobs:
 
       - name: Execute tests in the running services
         run: |
-          docker compose exec nginx mariadb php
+          docker compose exec nginx php
